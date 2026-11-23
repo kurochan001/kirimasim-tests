@@ -386,14 +386,14 @@
    "clause": "7.5.1",
    "category": "one_run",
    "reason": "The size operand of new[] is evaluated as longint.",
-   "sketch": "Use a size expression whose value is 2 only when evaluated as longint (for example a 64-bit constant shifted right by 31) in new[], and print the resulting size."
+   "sketch": "Refined 2026-11-23: allocate from a signed 65-bit variable with bit 64 set and a small positive or zero low word. Compare with an explicit longint cast. Pair this with the existing negative longint case whose low 32 bits are positive to distinguish premature narrowing."
   },
   {
    "id": "SV2023-7.8.1-EXTRACT-WILDCARD-NUMERIC-ORDER",
    "clause": "7.8.1",
    "category": "one_run",
    "reason": "Wildcard associative array traversal order is by increasing unsigned numerical value of the index.",
-   "sketch": "Insert keys 300, 5 and 70 into a wildcard-index array and print first/next order 5, 70, 300."
+   "sketch": "Corrected 2026-11-23: insert distinct bytes at out-of-order wildcard keys and cast the array to a packed word. The byte at the smallest key occupies the most significant position (6.24.3). The first and next methods prohibit wildcard index types (7.9.4, 7.9.6)."
   },
   {
    "id": "SV2023-7.8.1-EXTRACT-WILDCARD-XZ-INVALID",

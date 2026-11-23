@@ -25823,6 +25823,8 @@
     "ZXQPH0QXZ of a dynamic array variable is not valid at elaboration, so it cannot give the value of a ZXQPH1QXZ": "動的配列の変数のZXQPH0QXZはエラボレーションのときに有効でないので、ZXQPH1QXZの値にできない",
     "noncontext import ZXQPH0QXZ ( ZXQPH1QXZ , o, io) は output o に ZXQPH2QXZ 、inout io に ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ を書き、x は ZXQPH6QXZ のまま。": "noncontext import ZXQPH0QXZ ( ZXQPH1QXZ , o, io) は output o に ZXQPH2QXZ 、inout io に ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ を書き、x は ZXQPH6QXZ のまま。",
     "A singleton product constraint applies its signed with expression at ZXQPH0QXZ width": "1要素の積制約で符号付きのwith式をZXQPH0QXZ幅で評価する",
-    "Two product constraints apply different projections to the same zero factor": "同じゼロ因子に対して2つの積制約が異なるwith式を適用する"
+    "Two product constraints apply different projections to the same zero factor": "同じゼロ因子に対して2つの積制約が異なるwith式を適用する",
+    "Dynamic array allocation converts a signed ZXQPH0QXZ - ZXQPH1QXZ size to ZXQPH2QXZ": "動的配列の確保時に符号付きZXQPH0QXZ ZXQPH1QXZ幅のサイズをZXQPH2QXZに変換する",
+    "A ZXQPH0QXZ -stream cast exposes the unsigned numeric order of wildcard associative keys": "ZXQPH0QXZストリームキャストでワイルドカード添字の符号なし数値順を確認する"
   }
 }

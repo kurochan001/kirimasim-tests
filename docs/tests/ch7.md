@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[All chapters](README.md). 1111 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 1113 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -202,6 +202,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_dynamic_array_new_discards_data_and_references`](../../tests/ch7/test_dynamic_array_new_discards_data_and_references.sv) | resizing or reinitializing a dynamic array with new\[\] discards its data unless the old array is given as the initializer, and in every case outdates references to its elements | 7.5.1 13.5.2 | standard only ||
 | [`test_dynamic_array_new_forms_order_and_size`](../../tests/ch7/test_dynamic_array_new_forms_order_and_size.sv) | new\[\] sizes a dynamic array in a declaration or a blocking assignment, evaluates its size before its initializer, makes only an identifier whose leftmost unpacked dimension is dynamic a dynamic array, and size() is an int that equals $size(array, 1) while delete() empties the array | 7.5.1 7.5 7.5.2 7.5.3 20.7 | Verilator 5.052 ||
 | [`test_dynamic_array_new_negative_size_runtime_error`](../../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv) | new\[\] with a size operand whose value is negative at run time is an error | 7.5.1 | standard only ||
+| [`test_dynamic_array_new_size_discards_bit64`](../../tests/ch7/test_dynamic_array_new_size_discards_bit64.sv) | Dynamic array allocation converts a signed 65-bit size to longint | 7.5.1 6.11 6.11.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_array_new_size_longint_negative_error`](../../tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv) | the size operand of new\[\] has the signed type longint, so a 64-bit value with its top bit set is a negative size and an error, although its low 32 bits are a small positive number | 7.5.1 | standard only ||
 | [`test_dynamic_array_queue_size`](../../tests/ch7/test_dynamic_array_queue_size.sv) | Sizes of a dynamic array and a queue after new\[\], resizing, push_back and delete | 7.5.1 7.5.2 7.5.3 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_resize`](../../tests/ch7/test_dynamic_resize.sv) | Dynamic array new, resize, delete operations | 7.5.1 | Icarus Verilog 13.0 ||
@@ -261,6 +262,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_assoc_index_declares_struct`](../../tests/ch7/test_illegal_assoc_index_declares_struct.sv) | the index type of an associative array cannot itself declare a type, such as a packed structure type | 7.8 | standard only | illegal design |
 | [`test_sv_assoc_array`](../../tests/ch7/test_sv_assoc_array.sv) | Test: Associative array: int map\[string\], exists(), first(), next(), delete(), num() | 7.8 7.9 | Verilator 5.052 ||
 | [`test_value_assoc`](../../tests/ch7/test_value_assoc.sv) | Test for associative array value operations | 7.8 7.9 | Verilator 5.052 ||
+| [`test_assoc_wildcard_packed_key_order`](../../tests/ch7/test_assoc_wildcard_packed_key_order.sv) | A bit-stream cast exposes the unsigned numeric order of wildcard associative keys | 7.8.1 6.24.3 | standard only ||
 | [`test_assoc_wildcard_string_literal_bits`](../../tests/ch7/test_assoc_wildcard_string_literal_bits.sv) | String literal wildcard keys alias equally wide packed integral values | 7.8.1 | Verilator 5.052 | exit code |
 | [`test_assoc_wildcard_width_and_sign_aliases`](../../tests/ch7/test_assoc_wildcard_width_and_sign_aliases.sv) | Wildcard keys normalize leading zeros and preserve arbitrary-width unsigned values | 7.8.1 7.8 | Verilator 5.052 | exit code |
 | [`test_illegal_wildcard_array_find`](../../tests/ch7/test_illegal_wildcard_array_find.sv) | an array manipulation method that returns an array of values, such as find(), is not allowed on an associative array with a wildcard index type | 7.8.1 7.12.1 | standard only | illegal design |

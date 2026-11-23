@@ -1,0 +1,27 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build bd4da07fb142",
+ "tests": {
+  "ch7/test_assoc_wildcard_packed_key_order": {
+   "status": "pass",
+   "inputs_sha256": "8d0352c566a4523dbc68675c0344d59c1f8553e8bf8b73fd0725c835d009a9bd"
+  },
+  "ch7/test_dynamic_array_new_size_discards_bit64": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "9783fd4bdd173d3ee47920e016c97876bb596fe5dc435a0699f06cd1aabfdd8a"
+  },
+  "ch7/test_dynamic_array_new_size_longint_negative_error": {
+   "status": "pass",
+   "inputs_sha256": "9f54c53c3cc97ff3d89d8b791fefe17df31b6cff6ad9d10ae6df6b19e2469583"
+  }
+ },
+ "generated_at": "2026-11-23T10:09:35.292019+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "bd4da07fb142e6f63f55f0d115b0fcd50edc7a22f1b77138f198636af6b2b9ff",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

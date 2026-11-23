@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.12%、Ghostを除く実行 51.22%、Ghostとkirimasimを含む実行 88.20%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.13%、Ghostを除く実行 51.22%、Ghostとkirimasimを含む実行 88.21%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 93.12%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostとkirimasimを含めて 88.20%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 93.13%。** 規格要求の実行確認率: Ghostを除いて 51.22%、Ghostとkirimasimを含めて 88.21%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11483/12332 (93.12%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 10877/12332 (88.20%)。
-- 登録済みだがテスト未対応: 849 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11485/12332 (93.13%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 10878/12332 (88.21%)。
+- 登録済みだがテスト未対応: 847 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -39,6 +39,11 @@
 - `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:29.114615+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `arithmetic-context-20261119e-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:45:48.677131+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `arithmetic-context-20261119e-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:50:43.545843+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-boundaries-20261123-ghost-strict.json`: `private build bd4da07fb142` / `2026-11-23T10:09:35.292019+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `array-boundaries-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T10:09:35.250385+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-boundaries-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit f60e41d0ba78), built with AppleClang 21.0.0.21000334` / `2026-11-23T10:09:35.206726+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-boundaries-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T10:09:37.321749+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `array-boundaries-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T10:09:37.340048+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `array-shape-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T21:42:00.646435+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `array-shape-20261119-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:02.346874+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `array-shape-20261119-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:03.990893+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -574,7 +579,7 @@
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 90。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 155、テスト対応 146。
 - 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 711。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 337。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 339。
 - 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 239。
 - 9 Processes: 解釈保留なし 34/34、登録 192、テスト対応 183。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 147。
@@ -16033,7 +16038,7 @@ unpacked 変数配列は，構成や配列代入によってランタイムで�
 
 ### SV2023-7.5.1-EXTRACT-SIZE-LONGINT
 
-`7.5.1` / `normal` / テスト未対応
+`7.5.1` / `normal` / テスト対応あり・実行未確認
 
 longint 型の動的配列割り当てサイズオペランドを評価した。
 
@@ -16041,6 +16046,8 @@ longint 型の動的配列割り当てサイズオペランドを評価した。
 
 規定の性質: `mandatory`。
 
+- [test_dynamic_array_new_size_discards_bit64.sv](../tests/ch7/test_dynamic_array_new_size_discards_bit64.sv): 符号ビットを立てた入力も含め、暗黙のサイズ変換で得た要素数を明示的なキャストと比較する。
+- [test_dynamic_array_new_size_longint_negative_error.sv](../tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv): 下位ワードが正でも上位ワードを含むと負になるサイズで、割り当て時のエラーを確認する。
 
 ### SV2023-7.5.1-EXTRACT-TRUNCATE-INITIALIZER
 
@@ -16558,7 +16565,7 @@ DPI 出力形式に動的配列やキュー実体を渡すことはできない�
 
 ### SV2023-7.8.1-EXTRACT-WILDCARD-NUMERIC-ORDER
 
-`7.8.1` / `normal` / テスト未対応
+`7.8.1` / `normal` / 実行確認あり
 
 ワイドキャラエントリは無記号数値の増加順に並べる。
 
@@ -16566,6 +16573,7 @@ DPI 出力形式に動的配列やキュー実体を渡すことはできない�
 
 規定の性質: `mandatory`。
 
+- [test_assoc_wildcard_packed_key_order.sv](../tests/ch7/test_assoc_wildcard_packed_key_order.sv): キーの数値順で詰めたバイト列を読み取り、キーを入れ替えた後も順序を確認する。
 
 ### SV2023-7.8.1-EXTRACT-WILDCARD-XZ-INVALID
 

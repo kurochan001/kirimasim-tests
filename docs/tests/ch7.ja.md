@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1111本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1113本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -202,6 +202,7 @@
 | [`test_dynamic_array_new_discards_data_and_references`](../../tests/ch7/test_dynamic_array_new_discards_data_and_references.sv) |動的配列をnew \[ \]でサイズ変更または再初期化すると、元の配列を初期化式に指定しない限り、データを破棄する。また、どの場合でも要素への参照は古い参照となる| 7.5.1 13.5.2 |規格のみ||
 | [`test_dynamic_array_new_forms_order_and_size`](../../tests/ch7/test_dynamic_array_new_forms_order_and_size.sv) |動的配列を拡大する new \[ \] は、宣言またはブロック代入の動的配列のサイズを変更し、初期化前にそのサイズを評価し、左端の unpacked 次元が動的な識別子のみを動的配列にする。 size() は $size (配列、1 ) に等しい int であり、 delete() は配列を空にします。| 7.5.1 7.5 7.5.2 7.5.3 20.7 | Verilator 5.052 ||
 | [`test_dynamic_array_new_negative_size_runtime_error`](../../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv) |サイズのオペランドの値が実行時に負になる new \[ \] はエラーである| 7.5.1 |規格のみ||
+| [`test_dynamic_array_new_size_discards_bit64`](../../tests/ch7/test_dynamic_array_new_size_discards_bit64.sv) |動的配列の確保時に符号付き65 bit幅のサイズをlongintに変換する| 7.5.1 6.11 6.11.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_array_new_size_longint_negative_error`](../../tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv) |new \[ \] のサイズのオペランドは符号付きの型 longint を持つので、最上位 bit が立った 64 bit の値は、下位 32 ビットが小さい正の数であっても負のサイズでありエラーになる| 7.5.1 |規格のみ||
 | [`test_dynamic_array_queue_size`](../../tests/ch7/test_dynamic_array_queue_size.sv) |new \[ \]、サイズ変更、push_back、delete後の動的配列とキューのサイズ| 7.5.1 7.5.2 7.5.3 7.10.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_resize`](../../tests/ch7/test_dynamic_resize.sv) |動的配列の新規作成、サイズ変更、削除操作| 7.5.1 | Icarus Verilog 13.0 ||
@@ -261,6 +262,7 @@
 | [`test_illegal_assoc_index_declares_struct`](../../tests/ch7/test_illegal_assoc_index_declares_struct.sv) |関連型配列のインデックスタイプは、自分でタイプを宣言できません。例えば、packed構造タイプは、| 7.8 |規格のみ|規格違反の設計|
 | [`test_sv_assoc_array`](../../tests/ch7/test_sv_assoc_array.sv) |テスト: 連想配列: int map \[ string \], exists(), first(), next(), delete(), num()| 7.8 7.9 | Verilator 5.052 ||
 | [`test_value_assoc`](../../tests/ch7/test_value_assoc.sv) |連想配列値演算のテスト| 7.8 7.9 | Verilator 5.052 ||
+| [`test_assoc_wildcard_packed_key_order`](../../tests/ch7/test_assoc_wildcard_packed_key_order.sv) |bitストリームキャストでワイルドカード添字の符号なし数値順を確認する| 7.8.1 6.24.3 |規格のみ||
 | [`test_assoc_wildcard_string_literal_bits`](../../tests/ch7/test_assoc_wildcard_string_literal_bits.sv) |文字列リテラルワイルドカードキーエリアス 等幅 packed 整数値| 7.8.1 | Verilator 5.052 |出口コード|
 | [`test_assoc_wildcard_width_and_sign_aliases`](../../tests/ch7/test_assoc_wildcard_width_and_sign_aliases.sv) |ワイルドカードキーは前のゼロを正規化し、任意の幅の符号なしの値を保持します| 7.8.1 7.8 | Verilator 5.052 |出口コード|
 | [`test_illegal_wildcard_array_find`](../../tests/ch7/test_illegal_wildcard_array_find.sv) |ワイルドカードインデックス型の関連付け式配列には find() のような値の配列を返す配列操作メソッドは許可されていません。| 7.8.1 7.12.1 |規格のみ|規格違反の設計|

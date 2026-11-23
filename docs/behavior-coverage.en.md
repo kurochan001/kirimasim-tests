@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.12%, execution without Ghost 51.22%, execution with Ghost and kirimasim 88.20%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.13%, execution without Ghost 51.22%, execution with Ghost and kirimasim 88.21%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.12%. Requirement execution-confirmation rate: 51.22% without Ghost, 88.20% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.13%. Requirement execution-confirmation rate: 51.22% without Ghost, 88.21% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11483/12332 ( 93.12% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10877/12332 ( 88.20% ).
-- Registered but not tested: 849.
+- The requirement coverage (test design) for registered behaviors is 11485/12332 ( 93.13% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10878/12332 ( 88.21% ).
+- Registered but not tested: 847.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -39,6 +39,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:29.114615+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arithmetic-context-20261119e-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:45:48.677131+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arithmetic-context-20261119e-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:50:43.545843+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-boundaries-20261123-ghost-strict.json`: `private build bd4da07fb142` / `2026-11-23T10:09:35.292019+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `array-boundaries-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T10:09:35.250385+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-boundaries-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit f60e41d0ba78), built with AppleClang 21.0.0.21000334` / `2026-11-23T10:09:35.206726+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-boundaries-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T10:09:37.321749+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `array-boundaries-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T10:09:37.340048+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `array-shape-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T21:42:00.646435+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `array-shape-20261119-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:02.346874+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `array-shape-20261119-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T21:42:03.990893+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -574,7 +579,7 @@ The number of items is the investigation status of the article by heading. This 
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 90.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 146.
 - 6 Data types: No interpretation reservation 92/92, registration 720, test support 711.
-- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 337.
+- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 339.
 - 8 Classes: No interpretation restrictions 49/49, registration 255, test support 239.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 183.
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 147.
@@ -16033,7 +16038,7 @@ Normative role: `permission`。
 
 ### SV2023-7.5.1-EXTRACT-SIZE-LONGINT
 
-`7.5.1` / `normal` / No mapped test
+`7.5.1` / `normal` / Test mapped; execution unconfirmed
 
 The dynamic-array allocation size operand is evaluated with longint type.
 
@@ -16041,6 +16046,8 @@ Acceptance criterion: The dynamic-array allocation size operand is evaluated wit
 
 Normative role: `mandatory`。
 
+- [test_dynamic_array_new_size_discards_bit64.sv](../tests/ch7/test_dynamic_array_new_size_discards_bit64.sv): Compare the allocated size with an explicit cast, including inputs with the source sign bit set.
+- [test_dynamic_array_new_size_longint_negative_error.sv](../tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv): Check for an allocation error when the full size is negative even though its low word is positive.
 
 ### SV2023-7.5.1-EXTRACT-TRUNCATE-INITIALIZER
 
@@ -16558,7 +16565,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.8.1-EXTRACT-WILDCARD-NUMERIC-ORDER
 
-`7.8.1` / `normal` / No mapped test
+`7.8.1` / `normal` / Execution confirmed
 
 Wildcard entries are ordered by increasing unsigned numerical value.
 
@@ -16566,6 +16573,7 @@ Acceptance criterion: Wildcard entries are ordered by increasing unsigned numeri
 
 Normative role: `mandatory`。
 
+- [test_assoc_wildcard_packed_key_order.sv](../tests/ch7/test_assoc_wildcard_packed_key_order.sv): Check the packed bytes in numeric key order, then replace a key and check the new order.
 
 ### SV2023-7.8.1-EXTRACT-WILDCARD-XZ-INVALID
 

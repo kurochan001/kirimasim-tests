@@ -58564,13 +58564,76 @@
       "acceptance": "The dynamic-array allocation size operand is evaluated with longint type.",
       "source_note": "IEEE 1800-2023 7.5.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch7/test_dynamic_array_new_size_discards_bit64.sv",
+          "observation": "符号ビットを立てた入力も含め、暗黙のサイズ変換で得た要素数を明示的なキャストと比較する。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "9783fd4bdd173d3ee47920e016c97876bb596fe5dc435a0699f06cd1aabfdd8a",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_discards_bit64.sv",
+              "contains": "request = {high, 62'd0, low};"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_discards_bit64.sv",
+              "contains": "data = new[request];"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_discards_bit64.sv",
+              "contains": "control = new[longint'(request)];"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_discards_bit64.expected",
+              "contains": "high=1 negative=1 low=3 size=3 control=3"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_discards_bit64.expected",
+              "contains": "high=1 negative=1 low=0 size=0 control=0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv",
+          "observation": "下位ワードが正でも上位ワードを含むと負になるサイズで、割り当て時のエラーを確認する。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "9f54c53c3cc97ff3d89d8b791fefe17df31b6cff6ad9d10ae6df6b19e2469583",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv",
+              "contains": "big = 64'hFFFF_FFFF_0000_0002;"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv",
+              "contains": ":expected_stderr_regex: (?i:\\berror\\b)"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_longint_negative_error.expected",
+              "contains": "calling new with the longint value -4294967294"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "7.5.1",
           "blocks": [
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "converted-size-and-negative-high-word",
+          "tests": [
+            "tests/ch7/test_dynamic_array_new_size_discards_bit64.sv",
+            "tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv"
+          ],
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "observation": "上位ビットの切り捨てと、下位32ビットが正になる負のlongintの拒否を同じ実行で確認する。"
         }
       ]
     },
@@ -61519,7 +61582,37 @@
       "acceptance": "Wildcard entries are ordered by increasing unsigned numerical value.",
       "source_note": "IEEE 1800-2023 7.8.1; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch7/test_assoc_wildcard_packed_key_order.sv",
+          "observation": "キーの数値順で詰めたバイト列を読み取り、キーを入れ替えた後も順序を確認する。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "8d0352c566a4523dbc68675c0344d59c1f8553e8bf8b73fd0725c835d009a9bd",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_wildcard_packed_key_order.sv",
+              "contains": "values[8'shff] = 8'ha2;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_wildcard_packed_key_order.sv",
+              "contains": "values[32'h8000_0000] = 8'h08;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_wildcard_packed_key_order.sv",
+              "contains": "word_t'(values)"
+            },
+            {
+              "file": "tests/ch7/test_assoc_wildcard_packed_key_order.expected",
+              "contains": "initial=d419a257"
+            },
+            {
+              "file": "tests/ch7/test_assoc_wildcard_packed_key_order.expected",
+              "contains": "replaced=d4a25708"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "7.8.1",

@@ -1,0 +1,22 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch7/test_assoc_wildcard_packed_key_order": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_assoc_wildcard_packed_key_order.sv:28:36: Unsupported: static cast to 'bit[31:0]' from 'byte$[*]'",
+   "inputs_sha256": "8d0352c566a4523dbc68675c0344d59c1f8553e8bf8b73fd0725c835d009a9bd"
+  },
+  "ch7/test_dynamic_array_new_size_discards_bit64": {
+   "status": "pass",
+   "inputs_sha256": "9783fd4bdd173d3ee47920e016c97876bb596fe5dc435a0699f06cd1aabfdd8a"
+  }
+ },
+ "generated_at": "2026-11-23T10:09:37.340048+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

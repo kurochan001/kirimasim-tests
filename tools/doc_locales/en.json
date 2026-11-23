@@ -24134,6 +24134,9 @@
     "全規格の要求台帳ベース（暫定）: 設計 ZXQPH0QXZ 、 ZXQPH1QXZ を除く実行 ZXQPH2QXZ 、 ZXQPH3QXZ と ZXQPH4QXZ を含む実行 ZXQPH5QXZ 。": "Against the whole-standard requirement ledger (provisional): design ZXQPH0QXZ, execution without ZXQPH1QXZ ZXQPH2QXZ, execution with ZXQPH3QXZ and ZXQPH4QXZ ZXQPH5QXZ.",
     "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ と ZXQPH3QXZ を含めて ZXQPH4QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH4QXZ with ZXQPH2QXZ and ZXQPH3QXZ.",
     "ZXQPH0QXZ : ZXQPH1QXZ 要素の積では符号拡張後の減算が結果に反映され、目標値 ZXQPH2QXZ と ZXQPH3QXZ でそれぞれ要素 ZXQPH4QXZ と ZXQPH5QXZ が得られる。": "ZXQPH0QXZ: For a product of ZXQPH1QXZ element, subtraction follows sign extension: targets ZXQPH2QXZ and ZXQPH3QXZ yield element values ZXQPH4QXZ and ZXQPH5QXZ, respectively.",
-    "ZXQPH0QXZ : ゼロを含む積と、ゼロを ZXQPH1QXZ に置き換えた積を同時に制約し、それぞれの目標値を単独で矛盾させると失敗する。": "ZXQPH0QXZ: The two product constraints retain the zero factor or replace it with ZXQPH1QXZ. Making either target impossible on its own causes randomization to fail."
+    "ZXQPH0QXZ : ゼロを含む積と、ゼロを ZXQPH1QXZ に置き換えた積を同時に制約し、それぞれの目標値を単独で矛盾させると失敗する。": "ZXQPH0QXZ: The two product constraints retain the zero factor or replace it with ZXQPH1QXZ. Making either target impossible on its own causes randomization to fail.",
+    "ZXQPH0QXZ : 符号ビットを立てた入力も含め、暗黙のサイズ変換で得た要素数を明示的なキャストと比較する。": "ZXQPH0QXZ: Compare the allocated size with an explicit cast, including inputs with the source sign bit set.",
+    "ZXQPH0QXZ : 下位ワードが正でも上位ワードを含むと負になるサイズで、割り当て時のエラーを確認する。": "ZXQPH0QXZ: Check for an allocation error when the full size is negative even though its low word is positive.",
+    "ZXQPH0QXZ : キーの数値順で詰めたバイト列を読み取り、キーを入れ替えた後も順序を確認する。": "ZXQPH0QXZ: Check the packed bytes in numeric key order, then replace a key and check the new order."
   }
 }
