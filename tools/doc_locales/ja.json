@@ -25831,6 +25831,9 @@
     "A constant expression rejects a nested function call with an unused output formal": "定数式から間接的に呼ぶ関数に未使用の output 仮引数があると、その呼び出しは拒否される",
     "A constant expression rejects a nested function call with an unused inout formal": "定数式から間接的に呼ぶ関数に未使用の inout 仮引数があると、その呼び出しは拒否される",
     "A constant expression rejects a nested function call with an unused ref formal": "定数式から間接的に呼ぶ関数に未使用の ref 仮引数があると、その呼び出しは拒否される",
-    "An input-only function supplies a parameter while procedural calls use output, inout and ref formals with the same function body": "入力専用の関数でパラメータを求め、実行時には同じ本体で output・inout・ref 仮引数を持つ関数を呼べる"
+    "An input-only function supplies a parameter while procedural calls use output, inout and ref formals with the same function body": "入力専用の関数でパラメータを求め、実行時には同じ本体で output・inout・ref 仮引数を持つ関数を呼べる",
+    "Three instances with two- ZXQPH0QXZ input ports reject a five- ZXQPH1QXZ ZXQPH2QXZ connection": "入力ポートが2 ZXQPH0QXZ の3インスタンスに5 ZXQPH1QXZ の ZXQPH2QXZ 配列を接続すると拒否される",
+    "Three instances with two- ZXQPH0QXZ input ports reject a seven- ZXQPH1QXZ ZXQPH2QXZ connection": "入力ポートが2 ZXQPH0QXZ の3インスタンスに7 ZXQPH1QXZ の ZXQPH2QXZ 配列を接続すると拒否される",
+    "Ascending and descending instance arrays take two- ZXQPH0QXZ slices from a ZXQPH1QXZ bus and broadcast a single port width": "昇順・降順のインスタンス配列が ZXQPH1QXZ 配列の入力を2 ZXQPH0QXZ ずつ受け取り、単一ポート幅の入力は各インスタンスが同じ値を受け取る"
   }
 }

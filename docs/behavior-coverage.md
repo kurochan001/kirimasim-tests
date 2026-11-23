@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.16%、Ghostを除く実行 51.25%、Ghostとkirimasimを含む実行 88.23%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 93.16%、Ghostを除く実行 51.26%、Ghostとkirimasimを含む実行 88.24%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 93.16%。** 規格要求の実行確認率: Ghostを除いて 51.25%、Ghostとkirimasimを含めて 88.23%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 93.16%。** 規格要求の実行確認率: Ghostを除いて 51.26%、Ghostとkirimasimを含めて 88.24%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11488/12332 (93.16%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 10881/12332 (88.23%)。
-- 登録済みだがテスト未対応: 844 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11489/12332 (93.16%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 10882/12332 (88.24%)。
+- 登録済みだがテスト未対応: 843 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -111,6 +111,11 @@
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 動作確認、古い入力との対応 369 件。
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 動作確認、古い入力との対応 28 件。
 - `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 動作確認、古い入力との対応 0 件。
+- `instance-array-ports-20261123-ghost-strict.json`: `private build 27d21bee0884` / `2026-11-23T12:53:34.138189+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `instance-array-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:53:34.126372+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `instance-array-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:53:34.067910+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `instance-array-ports-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T12:53:37.538526+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `instance-array-ports-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T12:53:37.538546+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -610,7 +615,7 @@
 - 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 58。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 43。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 28。
-- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 374。
+- 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 375。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 49。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 150。
 - 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 155。
@@ -72373,10 +72378,11 @@ xorプリミティブは駆動力の仕様を許容する。
 
 - [test_gate_instance_array.sv](../tests/ch28/test_gate_instance_array.sv): 4 インスタンスの and 配列 g_scalar\[3:0\] の第2入力に 1 ビットの 1'b1 を接続し、a=4'b1100 に対して y_scalar が 1100 になることを期待している。 区別: 単一端子幅と同じ幅の接続を全インスタンスへ配らず、たとえば 1'b1 を 4 ビットに拡張して 0001 をビットごとに分配する実装では y_scalar が 0000、最右インスタンスにだけ接続して他を z とする実装では xx00 などになり、期待値 'scalar input: 1100' が変わる。
 - [test_udp_instance_array_delays.sv](../tests/ch29/test_udp_instance_array_delays.sv): UDP 配列 u\[3:0\] の 1 ビット入力 b を 4 インスタンスすべてに接続し、a=0101 のまま b を 1 にした後 t=26 で y=1010（全ビット反転）になることを期待している。 区別: 1 ビットの b を全インスタンスへ配らず、0001 に拡張して分配する実装では u\[0\] だけが b=1 を受けて y=0100 となり、期待出力 't=26: y=1010' と 't=23: y=1111' が変わる。
+- [test_instance_array_partition_and_broadcast.sv](../tests/ch28/test_instance_array_partition_and_broadcast.sv): 単一ポート幅の入力を切り替えると、各インスタンスの出力が同じビット反転順の値に変わる。
 
 ### SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-PARTITION
 
-`28.3.6` / `error` / テスト未対応
+`28.3.6` / `error` / 実行確認あり
 
 幅が異なる場合、配列化した各インスタンスは1ポート分の幅の部分選択を受け取り、式のLSBを配列の右端の添字へ接続します。過剰/不足のビットはエラーです
 
@@ -72384,6 +72390,8 @@ xorプリミティブは駆動力の仕様を許容する。
 
 規定の性質: `mandatory`。
 
+- [test_illegal_instance_array_partition_one_bit_short.sv](../tests/ch28/test_illegal_instance_array_partition_one_bit_short.sv): 分配に必要な幅より一ビット不足する入力を接続し、インスタンス配列の接続行でポート幅の診断を求める。
+- [test_illegal_instance_array_partition_one_bit_long.sv](../tests/ch28/test_illegal_instance_array_partition_one_bit_long.sv): 分配に必要な幅より一ビット超過する入力を接続し、インスタンス配列の接続行でポート幅の診断を求める。
 
 ### SV2023-28.3.6-EXTRACT-TERMINAL-LIST
 

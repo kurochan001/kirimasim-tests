@@ -1,0 +1,4 @@
+up=01,11,10 down=10,11,01
+outputs=101101,101101 broadcast=101010
+up=10,00,01 down=01,00,10
+outputs=010010,010010 broadcast=010101

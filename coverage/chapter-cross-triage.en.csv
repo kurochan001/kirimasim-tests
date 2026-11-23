@@ -1192,7 +1192,7 @@ tests/ch23/test_subroutine_name_resolution.sv",Maintaining the planning and exec
 23,Modules and hierarchy,27,Generate constructs,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,181,"tests/ch23/test_defparam_before_generate.sv
 tests/ch23/test_elaboration_edge_cases.sv
 tests/ch23/test_generate_block_select_expr.sv",Maintaining the planning and execution evidence of existing models.,,
-23,Modules and hierarchy,28,Gate-level and switch-level modeling,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,69,"tests/ch23/test_23_extra_uwire_dominates.sv
+23,Modules and hierarchy,28,Gate-level and switch-level modeling,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,70,"tests/ch23/test_23_extra_uwire_dominates.sv
 tests/ch23/test_23_extra_uwire_warn.sv
 tests/ch23/test_module_or_generate_item_attributes.sv",Maintaining the planning and execution evidence of existing models.,,
 23,Modules and hierarchy,29,User-defined primitives,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,4,"tests/ch23/test_interconnect_terminal_wire_resolution.sv

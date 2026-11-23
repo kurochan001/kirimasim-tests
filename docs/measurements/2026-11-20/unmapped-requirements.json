@@ -1723,7 +1723,7 @@
    "clause": "28.3.6",
    "category": "one_run",
    "reason": "For differing widths each arrayed instance gets a part-select with the LSB at the right-hand index.",
-   "sketch": "Connect an 8-bit net to a 4-instance array of 2-bit ports and print per-instance values."
+   "sketch": "Refined 2026-11-23: observe individual two-bit ports for both instance range directions with a six-bit part-select, and broadcast a two-bit part-select. Check separate five-bit and seven-bit connections for rejection at the array instance."
   },
   {
    "id": "SV2023-28.8-EXTRACT-PASS-NET-TYPES",

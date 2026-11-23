@@ -1192,7 +1192,7 @@ tests/ch23/test_subroutine_name_resolution.sv",既存モデルの計画・実行
 23,モジュールと階層,27,generate構文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,181,"tests/ch23/test_defparam_before_generate.sv
 tests/ch23/test_elaboration_edge_cases.sv
 tests/ch23/test_generate_block_select_expr.sv",既存モデルの計画・実行証跡を維持する,,
-23,モジュールと階層,28,ゲートレベル・スイッチレベルのモデリング,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,69,"tests/ch23/test_23_extra_uwire_dominates.sv
+23,モジュールと階層,28,ゲートレベル・スイッチレベルのモデリング,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,70,"tests/ch23/test_23_extra_uwire_dominates.sv
 tests/ch23/test_23_extra_uwire_warn.sv
 tests/ch23/test_module_or_generate_item_attributes.sv",既存モデルの計画・実行証跡を維持する,,
 23,モジュールと階層,29,ユーザー定義プリミティブ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,4,"tests/ch23/test_interconnect_terminal_wire_resolution.sv

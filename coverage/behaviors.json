@@ -299114,6 +299114,31 @@
               "contains": "t=23: y=1111\nt=26: y=1010"
             }
           ]
+        },
+        {
+          "test": "tests/ch28/test_instance_array_partition_and_broadcast.sv",
+          "observation": "単一ポート幅の入力を切り替えると、各インスタンスの出力が同じビット反転順の値に変わる。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "063d5bbee152c2dcdbad48679fc78b0e7d7e09b7d4cfa39b3d2166c372683138",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_instance_array_partition_and_broadcast.sv",
+              "contains": "partition_lane shared_input[4:6](bus[3+:2], broadcast_result);"
+            },
+            {
+              "file": "tests/ch28/instance_array_ports/two_bit_lane.sv",
+              "contains": "assign result = {data[0], data[1]};"
+            },
+            {
+              "file": "tests/ch28/test_instance_array_partition_and_broadcast.expected",
+              "contains": "broadcast=101010"
+            },
+            {
+              "file": "tests/ch28/test_instance_array_partition_and_broadcast.expected",
+              "contains": "broadcast=010101"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -299133,13 +299158,76 @@
       "acceptance": "For differing widths, each arrayed instance receives a single-port-width part-select, with expression LSB connected to the array right-hand index; excess/insufficient bits is an error.",
       "source_note": "IEEE 1800-2023 28.3.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch28/test_illegal_instance_array_partition_one_bit_short.sv",
+          "observation": "分配に必要な幅より一ビット不足する入力を接続し、インスタンス配列の接続行でポート幅の診断を求める。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "8fd79001192395355d0171fa1fb7b27dc2c2bcf170e53b66059e1e3fc4e0b6db",
+          "evidence": [
+            {
+              "file": "tests/ch28/instance_array_ports/two_bit_lane.sv",
+              "contains": "input wire [1:0] data"
+            },
+            {
+              "file": "tests/ch28/test_illegal_instance_array_partition_one_bit_short.sv",
+              "contains": "wire [4:0] source_bus;"
+            },
+            {
+              "file": "tests/ch28/test_illegal_instance_array_partition_one_bit_short.sv",
+              "contains": "partition_lane lanes[4:6](source_bus, result);"
+            },
+            {
+              "file": "tests/ch28/test_illegal_instance_array_partition_one_bit_short.sv",
+              "contains": ":expected_stderr_regex: test_illegal_instance_array_partition_one_bit_short\\.sv:18:(?:\\d+:)?[^\\n]*(?i:port expression width 5\\b|requires 2 or 6 bits[^\\n]*5 bits|cannot connect [^\\n]*\\[4:0\\][^\\n]*to each port)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch28/test_illegal_instance_array_partition_one_bit_long.sv",
+          "observation": "分配に必要な幅より一ビット超過する入力を接続し、インスタンス配列の接続行でポート幅の診断を求める。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "19942d29b0d87f1ef58a13f64bddab63be8819575140c54b7743aa0524914021",
+          "evidence": [
+            {
+              "file": "tests/ch28/instance_array_ports/two_bit_lane.sv",
+              "contains": "input wire [1:0] data"
+            },
+            {
+              "file": "tests/ch28/test_illegal_instance_array_partition_one_bit_long.sv",
+              "contains": "wire [6:0] source_bus;"
+            },
+            {
+              "file": "tests/ch28/test_illegal_instance_array_partition_one_bit_long.sv",
+              "contains": "partition_lane lanes[4:6](source_bus, result);"
+            },
+            {
+              "file": "tests/ch28/test_illegal_instance_array_partition_one_bit_long.sv",
+              "contains": ":expected_stderr_regex: test_illegal_instance_array_partition_one_bit_long\\.sv:18:(?:\\d+:)?[^\\n]*(?i:port expression width 7\\b|requires 2 or 6 bits[^\\n]*7 bits|cannot connect [^\\n]*\\[6:0\\][^\\n]*to each port)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "28.3.6",
           "blocks": [
             "B003"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "instance-array-partition-widths",
+          "tests": [
+            "tests/ch28/test_illegal_instance_array_partition_one_bit_short.sv",
+            "tests/ch28/test_illegal_instance_array_partition_one_bit_long.sv"
+          ],
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "observation": "単一ポート幅2ビット、分配幅6ビットに対し、5ビットと7ビットを別々の設計で接続する。同じ実行で不足と超過の両方の診断を求める。正常系では昇順・降順の各インスタンスの入力を直接読み、右端への割り当てを確認した。"
         }
       ]
     },

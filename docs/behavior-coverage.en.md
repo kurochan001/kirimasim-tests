@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.16%, execution without Ghost 51.25%, execution with Ghost and kirimasim 88.23%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.16%, execution without Ghost 51.26%, execution with Ghost and kirimasim 88.24%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.16%. Requirement execution-confirmation rate: 51.25% without Ghost, 88.23% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.16%. Requirement execution-confirmation rate: 51.26% without Ghost, 88.24% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11488/12332 ( 93.16% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10881/12332 ( 88.23% ).
-- Registered but not tested: 844.
+- The requirement coverage (test design) for registered behaviors is 11489/12332 ( 93.16% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10882/12332 ( 88.24% ).
+- Registered but not tested: 843.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -111,6 +111,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 execution checked; 369 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 execution checked; 28 entries refer to older inputs.
 - `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 execution checked; 0 entries refer to older inputs.
+- `instance-array-ports-20261123-ghost-strict.json`: `private build 27d21bee0884` / `2026-11-23T12:53:34.138189+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `instance-array-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:53:34.126372+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `instance-array-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:53:34.067910+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `instance-array-ports-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T12:53:37.538526+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `instance-array-ports-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T12:53:37.538546+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -610,7 +615,7 @@ The number of items is the investigation status of the article by heading. This 
 - 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 58.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 43.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 28.
-- 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 374.
+- 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 375.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 49.
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 150.
 - 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 155.
@@ -72373,10 +72378,11 @@ Normative role: `mandatory`。
 
 - [test_gate_instance_array.sv](../tests/ch28/test_gate_instance_array.sv): Connecting 1'b1 of 1 bits to the 2 input of the g_scalar \[ 3:0 \] and array of the 4 instance, expecting y_scalar to be 1100 for a = 4'b1100. Distinguishing observation: An implementation that does not distribute a connection of the same width as a single terminal to every instance, but instead, for example, extends 1'b1 to 4 bits and distributes 0001 bit by bit, would make y_scalar equal 0000. Connecting only the rightmost instance and leaving the others at z would yield a value such as xx00, changing expected 'scalar input: 1100'.
 - [test_udp_instance_array_delays.sv](../tests/ch29/test_udp_instance_array_delays.sv): connect 1-bit input b of UDP array u \[ 3:0 \] to all 4 instances; with a = 0101 unchanged, set b to 1 and expect y = 1010 (all bits inverted) at t = 26. Distinguishing observation: In an implementation that does not allocate b of 1 bits to all instances, but extends it to 0001, only u \[ 0 \] receives b = 1 and becomes y = 0100, and the expected outputs 't=26: y=1010' and 't=23: y=1111' change.
+- [test_instance_array_partition_and_broadcast.sv](../tests/ch28/test_instance_array_partition_and_broadcast.sv): When the single-port-width input changes, each instance produces the same value with the two bits in reverse order.
 
 ### SV2023-28.3.6-EXTRACT-ARRAY-TERMINAL-PARTITION
 
-`28.3.6` / `error` / No mapped test
+`28.3.6` / `error` / Execution confirmed
 
 For differing widths, each arrayed instance receives a single-port-width part-select, with expression LSB connected to the array right-hand index; excess/insufficient bits is an error.
 
@@ -72384,6 +72390,8 @@ Acceptance criterion: For differing widths, each arrayed instance receives a sin
 
 Normative role: `mandatory`。
 
+- [test_illegal_instance_array_partition_one_bit_short.sv](../tests/ch28/test_illegal_instance_array_partition_one_bit_short.sv): A packed connection one bit too short must produce a port-width diagnostic at the instance array connection.
+- [test_illegal_instance_array_partition_one_bit_long.sv](../tests/ch28/test_illegal_instance_array_partition_one_bit_long.sv): A packed connection one bit too long must produce a port-width diagnostic at the instance array connection.
 
 ### SV2023-28.3.6-EXTRACT-TERMINAL-LIST
 
