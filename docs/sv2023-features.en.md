@@ -8,26 +8,26 @@ For each feature added by 1800-2023, the number of tests that exercise it and wh
 
 | Feature | Clauses | Tests | Legal | Illegal | Fixed-release oracle | Standard only | I | V | K | G | Requirements (mapped / rows) | Listed in |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| [type(this)](#type-this) | 6.23, 8.11 | 5 | 4 | 1 | 4 | 1 | 1 | 4 | 2 | 2 | 2/2 | the 18 DVCon items |
+| [type(this)](#type-this) | 6.23, 8.11 | 5 | 4 | 1 | 4 | 1 | 1 | 4 | 2 | 5 | 2/2 | the 18 DVCon items |
 | [Logical expressions in the ifdef directives](#ifdef-expression) | 22.6 | 4 | 3 | 1 | 2 | 2 | 1 | 2 | 3 | 4 | 5/5 | the 18 DVCon items |
-| [Index argument of an array method call](#array-method-index-argument) | 7.12, 7.12.4 | 5 | 5 | 0 | 0 | 5 | 0 | 0 | 0 | 2 | 3/3 | the 18 DVCon items |
-| [class :final](#class-final) | 8.3, 8.13 | 11 | 7 | 4 | 10 | 1 | 0 | 10 | 6 | 5 | 2/2 | the 18 DVCon items |
-| [default item of dist](#dist-default) | 18.5.3 | 8 | 5 | 3 | 0 | 8 | 3 | 3 | 3 | 2 | 3/3 | the 18 DVCon items |
-| [Real coverpoints, real bins and type_option.real_interval](#real-coverpoint) | 19.5, 19.5.1, 19.5.1.1, 19.5.2, 19.5.3, 19.5.4, 19.6, 19.7.1, 19.10 | 21 | 12 | 9 | 0 | 21 | 9 | 0 | 9 | 10 | 26/26 | the three added items |
-| [$stacktrace](#stacktrace) | 20.17.2, 11.2.1 | 6 | 3 | 3 | 6 | 0 | 2 | 6 | 5 | 2 | 0/2 | the 18 DVCon items |
-| [$timeunit and $timeprecision system functions](#timeunit-timeprecision-functions) | 20.4, 20.4.1, 11.2.1 | 8 | 8 | 0 | 1 | 7 | 0 | 1 | 7 | 5 | 25/25 | the 18 DVCon items |
-| [Restricted type parameters (type enum/struct/union/class/interface class)](#type-parameter-restriction) | 6.20.3 | 10 | 5 | 5 | 8 | 2 | 4 | 8 | 9 | 3 | 2/2 | the three added items |
-| [default in constructor argument lists (function new(default...), super.new(default), extends Base(default))](#constructor-default-arguments) | 8.17, 8.3, 8.15 | 15 | 6 | 9 | 0 | 15 | 7 | 8 | 11 | 9 | 14/14 | the 18 DVCon items |
-| [map array method](#array-map-method) | 7.12.5, 7.12 | 8 | 5 | 3 | 2 | 6 | 2 | 2 | 3 | 2 | 3/3 | the 18 DVCon items |
-| [union soft (soft packed union)](#soft-packed-union) | 7.3.1, 7.3, 7.2 | 8 | 7 | 1 | 4 | 4 | 0 | 4 | 4 | 6 | 8/8 | the 18 DVCon items |
-| [Triple-quoted string literals](#triple-quoted-string) | 5.9, 5.9.1, A.8.8, 22.5.1 | 9 | 7 | 2 | 5 | 4 | 1 | 5 | 9 | 5 | 13/13 | the 18 DVCon items |
-| [rand real variables](#rand-real) | 18.4, 18.4.1, 18.5.3, 18.5.4, 18.5.5, 18.5.6, 18.5.9 | 10 | 4 | 6 | 0 | 10 | 4 | 4 | 6 | 2 | 8/8 | the 18 DVCon items |
-| [constraint :initial / :extends / :final](#constraint-dynamic-override) | 18.5.2, 18.5, 18.5.10, 8.3 | 15 | 4 | 11 | 5 | 10 | 11 | 7 | 11 | 5 | 11/11 | the 18 DVCon items |
-| [weak_reference class](#weak-reference) | 8.29, 8.30, 8.30.1, 8.30.2, 8.30.3, 8.30.4, 8.30.5, G.7, G.1 | 13 | 12 | 1 | 0 | 13 | 1 | 1 | 1 | 9 | 17/27 | the 18 DVCon items |
-| [covergroup extends (derived embedded covergroup)](#covergroup-inheritance) | 19.3, 19.4, 19.4.1, A.2.11 | 13 | 6 | 7 | 0 | 13 | 7 | 6 | 7 | 4 | 11/12 | the 18 DVCon items |
-| [ref static arguments](#ref-static) | 13.5.2, 13.3, 13.4, A.2.7 | 22 | 18 | 4 | 0 | 22 | 0 | 0 | 20 | 5 | 8/8 | the three added items |
-| [Tolerance ranges [A +/- B] and [A +%- B]](#tolerance-ranges) | 11.4.13, 18.5.3, 19.5.1, A.2.11, A.6.7 | 29 | 26 | 3 | 0 | 29 | 3 | 2 | 22 | 16 | 10/10 | the 18 DVCon items |
-| [function/task :initial / :extends / :final](#method-dynamic-override) | 8.20, 8.3, 8.24, 13.3, 13.4, 35.5.4, A.2.6, A.2.7 | 33 | 11 | 22 | 17 | 16 | 14 | 19 | 30 | 21 | 23/24 | the 18 DVCon items |
+| [Index argument of an array method call](#array-method-index-argument) | 7.12, 7.12.4 | 5 | 5 | 0 | 0 | 5 | 0 | 0 | 0 | 5 | 3/3 | the 18 DVCon items |
+| [class :final](#class-final) | 8.3, 8.13 | 11 | 7 | 4 | 10 | 1 | 0 | 10 | 6 | 11 | 2/2 | the 18 DVCon items |
+| [default item of dist](#dist-default) | 18.5.3 | 8 | 5 | 3 | 0 | 8 | 3 | 3 | 3 | 8 | 3/3 | the 18 DVCon items |
+| [Real coverpoints, real bins and type_option.real_interval](#real-coverpoint) | 19.5, 19.5.1, 19.5.1.1, 19.5.2, 19.5.3, 19.5.4, 19.6, 19.7.1, 19.10 | 21 | 12 | 9 | 0 | 21 | 9 | 0 | 9 | 21 | 26/26 | the three added items |
+| [$stacktrace](#stacktrace) | 20.17.2, 11.2.1 | 6 | 3 | 3 | 6 | 0 | 2 | 6 | 5 | 6 | 0/2 | the 18 DVCon items |
+| [$timeunit and $timeprecision system functions](#timeunit-timeprecision-functions) | 20.4, 20.4.1, 11.2.1 | 8 | 8 | 0 | 1 | 7 | 0 | 1 | 7 | 8 | 25/25 | the 18 DVCon items |
+| [Restricted type parameters (type enum/struct/union/class/interface class)](#type-parameter-restriction) | 6.20.3 | 10 | 5 | 5 | 8 | 2 | 4 | 8 | 9 | 10 | 2/2 | the three added items |
+| [default in constructor argument lists (function new(default...), super.new(default), extends Base(default))](#constructor-default-arguments) | 8.17, 8.3, 8.15 | 15 | 6 | 9 | 0 | 15 | 7 | 8 | 11 | 15 | 14/14 | the 18 DVCon items |
+| [map array method](#array-map-method) | 7.12.5, 7.12 | 8 | 5 | 3 | 2 | 6 | 2 | 2 | 3 | 8 | 3/3 | the 18 DVCon items |
+| [union soft (soft packed union)](#soft-packed-union) | 7.3.1, 7.3, 7.2 | 8 | 7 | 1 | 4 | 4 | 0 | 4 | 4 | 8 | 8/8 | the 18 DVCon items |
+| [Triple-quoted string literals](#triple-quoted-string) | 5.9, 5.9.1, A.8.8, 22.5.1 | 9 | 7 | 2 | 5 | 4 | 1 | 5 | 9 | 9 | 13/13 | the 18 DVCon items |
+| [rand real variables](#rand-real) | 18.4, 18.4.1, 18.5.3, 18.5.4, 18.5.5, 18.5.6, 18.5.9 | 10 | 4 | 6 | 0 | 10 | 4 | 4 | 6 | 10 | 8/8 | the 18 DVCon items |
+| [constraint :initial / :extends / :final](#constraint-dynamic-override) | 18.5.2, 18.5, 18.5.10, 8.3 | 15 | 4 | 11 | 5 | 10 | 11 | 7 | 11 | 15 | 11/11 | the 18 DVCon items |
+| [weak_reference class](#weak-reference) | 8.29, 8.30, 8.30.1, 8.30.2, 8.30.3, 8.30.4, 8.30.5, G.7, G.1 | 13 | 12 | 1 | 0 | 13 | 1 | 1 | 1 | 13 | 17/27 | the 18 DVCon items |
+| [covergroup extends (derived embedded covergroup)](#covergroup-inheritance) | 19.3, 19.4, 19.4.1, A.2.11 | 13 | 6 | 7 | 0 | 13 | 7 | 6 | 7 | 13 | 11/12 | the 18 DVCon items |
+| [ref static arguments](#ref-static) | 13.5.2, 13.3, 13.4, A.2.7 | 22 | 18 | 4 | 0 | 22 | 0 | 0 | 20 | 22 | 8/8 | the three added items |
+| [Tolerance ranges [A +/- B] and [A +%- B]](#tolerance-ranges) | 11.4.13, 18.5.3, 19.5.1, A.2.11, A.6.7 | 29 | 26 | 3 | 0 | 29 | 3 | 2 | 22 | 29 | 10/10 | the 18 DVCon items |
+| [function/task :initial / :extends / :final](#method-dynamic-override) | 8.20, 8.3, 8.24, 13.3, 13.4, 35.5.4, A.2.6, A.2.7 | 33 | 11 | 22 | 17 | 16 | 14 | 19 | 30 | 33 | 23/24 | the 18 DVCon items |
 
 Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost. p when a result saved for the current input of the test passes, - otherwise. For an illegal design a rejection caused by unsupported syntax can also look like a pass.
 
@@ -42,9 +42,9 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch8/test_type_this`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`ch8/test_type_this_final_class_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_final_class_typedef.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
-| [`ch8/test_type_this_inherited_method_lexical_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_inherited_method_lexical_class.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
-| [`ch8/test_type_this_parameterized_specialization`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_parameterized_specialization.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
+| [`ch8/test_type_this_final_class_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_final_class_typedef.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
+| [`ch8/test_type_this_inherited_method_lexical_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_inherited_method_lexical_class.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
+| [`ch8/test_type_this_parameterized_specialization`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_parameterized_specialization.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
 | [`ch8/test_illegal_type_this_outside_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_type_this_outside_class.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
 
 <a id="ifdef-expression"></a>
@@ -73,10 +73,10 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch7/test_array_method_index_argument`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_method_index_argument.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch7/test_array_method_index_argument_class_assoc_nested`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_method_index_argument_class_assoc_nested.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch7/test_array_method_index_argument_without_iterator`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_method_index_argument_without_iterator.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch7/test_array_method_index_argument_class_assoc_nested`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_method_index_argument_class_assoc_nested.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch7/test_array_method_index_argument_without_iterator`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_method_index_argument_without_iterator.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch7/test_array_method_iterator_index_names_and_selects`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_method_iterator_index_names_and_selects.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch7/test_map_element_types_and_index_names`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_element_types_and_index_names.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch7/test_map_element_types_and_index_names`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_element_types_and_index_names.sv) | legal | `spec` | `I- V- K- Gp` |
 
 <a id="class-final"></a>
 
@@ -88,17 +88,17 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
-| [`ch6/test_type_param_restricted_abstract_final_scoped`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_abstract_final_scoped.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
+| [`ch6/test_type_param_restricted_abstract_final_scoped`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_abstract_final_scoped.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
 | [`ch8/test_class_declaration_grammar_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_class_declaration_grammar_forms.sv) | legal | `spec verilator@5.052` | `I- Vp K- Gp` |
-| [`ch8/test_constructor_default_through_implicit_constructor`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_through_implicit_constructor.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch8/test_constructor_default_through_implicit_constructor`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_through_implicit_constructor.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_final_class_and_method`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_final_class_and_method.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch8/test_final_class_parameterized_implements`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_final_class_parameterized_implements.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
+| [`ch8/test_final_class_parameterized_implements`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_final_class_parameterized_implements.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
 | [`ch8/test_syntax_class_and_interface_class_headers`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_syntax_class_and_interface_class_headers.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch8/test_type_this_final_class_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_final_class_typedef.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
+| [`ch8/test_type_this_final_class_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_type_this_final_class_typedef.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
 | [`ch8/test_illegal_final_class_extended`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_class_extended.sv) | illegal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch8/test_illegal_final_class_extends`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_class_extends.sv) | illegal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch8/test_illegal_final_class_specialization_extended`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_class_specialization_extended.sv) | illegal | `spec verilator@5.054` | `I- Vp Kp G-` |
-| [`ch8/test_illegal_final_derived_class_in_package_extended`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_derived_class_in_package_extended.sv) | illegal | `spec verilator@5.054` | `I- Vp Kp G-` |
+| [`ch8/test_illegal_final_class_specialization_extended`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_class_specialization_extended.sv) | illegal | `spec verilator@5.054` | `I- Vp Kp Gp` |
+| [`ch8/test_illegal_final_derived_class_in_package_extended`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_derived_class_in_package_extended.sv) | illegal | `spec verilator@5.054` | `I- Vp Kp Gp` |
 
 <a id="dist-default"></a>
 
@@ -111,13 +111,13 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch18/test_constraint_grammar_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_grammar_forms.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch18/test_dist_default_complement`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_default_complement.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch18/test_dist_default_in_implication_inline_foreach`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_default_in_implication_inline_foreach.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch18/test_dist_default_only_and_conflicts`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_default_only_and_conflicts.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch18/test_dist_default_complement`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_default_complement.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch18/test_dist_default_in_implication_inline_foreach`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_default_in_implication_inline_foreach.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch18/test_dist_default_only_and_conflicts`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_default_only_and_conflicts.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch18/test_dist_default_weight`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_default_weight.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch18/test_illegal_dist_default_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_default_colon_equal.sv) | illegal | `spec` | `Ip Vp Kp G-` |
-| [`ch18/test_illegal_dist_default_no_weight`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_default_no_weight.sv) | illegal | `spec` | `Ip Vp Kp G-` |
-| [`ch18/test_illegal_dist_two_defaults`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_two_defaults.sv) | illegal | `spec` | `Ip Vp Kp G-` |
+| [`ch18/test_illegal_dist_default_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_default_colon_equal.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
+| [`ch18/test_illegal_dist_default_no_weight`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_default_no_weight.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
+| [`ch18/test_illegal_dist_two_defaults`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_two_defaults.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 
 <a id="real-coverpoint"></a>
 
@@ -130,18 +130,18 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch19/test_cg_auto_bins_only_ignored_and_real`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_auto_bins_only_ignored_and_real.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch19/test_cg_real_bin_intervals`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bin_intervals.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_bins_fixed_and_dollar`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bins_fixed_and_dollar.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_bins_tolerance_and_merge`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bins_tolerance_and_merge.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_coverpoint_cross`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_coverpoint_cross.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_fixed_bin_items_and_names`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_fixed_bin_items_and_names.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_fixed_bins_listed_order`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_fixed_bins_listed_order.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_interval_covergroup_level`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_interval_covergroup_level.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_open_bin_names_merge`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_open_bin_names_merge.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_option_member_defaults`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_option_member_defaults.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch19/test_cg_real_bin_intervals`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bin_intervals.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_bins_fixed_and_dollar`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bins_fixed_and_dollar.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_bins_tolerance_and_merge`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bins_tolerance_and_merge.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_coverpoint_cross`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_coverpoint_cross.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_fixed_bin_items_and_names`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_fixed_bin_items_and_names.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_fixed_bins_listed_order`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_fixed_bins_listed_order.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_interval_covergroup_level`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_interval_covergroup_level.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_open_bin_names_merge`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_open_bin_names_merge.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_option_member_defaults`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_option_member_defaults.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch19/test_option_struct_member_types`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_option_struct_member_types.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch19/test_option_struct_members`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_option_struct_members.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch19/test_illegal_cg_cross_real_variable`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_cross_real_variable.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch19/test_illegal_cg_cross_real_variable`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_cross_real_variable.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch19/test_illegal_cg_real_bins_with`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_real_bins_with.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch19/test_illegal_cg_real_default_bin_array`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_real_default_bin_array.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch19/test_illegal_cg_real_default_bin_n`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_real_default_bin_n.sv) | illegal | `spec` | `Ip V- Kp Gp` |
@@ -149,7 +149,7 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | [`ch19/test_illegal_cg_real_transition_bins`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_real_transition_bins.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch19/test_illegal_cg_real_transition_domain`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_real_transition_domain.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch19/test_illegal_cg_real_wildcard`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_real_wildcard.sv) | illegal | `spec` | `Ip V- Kp Gp` |
-| [`gen/ch19/test_gen_cglevel_type_option_real_interval_cross`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch19/test_gen_cglevel_type_option_real_interval_cross.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`gen/ch19/test_gen_cglevel_type_option_real_interval_cross`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch19/test_gen_cglevel_type_option_real_interval_cross.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 
 <a id="stacktrace"></a>
 
@@ -162,10 +162,10 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch20/test_stacktrace_function`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_stacktrace_function.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch20/test_stacktrace_function_call_contexts`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_stacktrace_function_call_contexts.sv) | legal | `spec verilator@5.052` | `I- Vp Kp G-` |
-| [`ch20/test_stacktrace_function_string_value`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_stacktrace_function_string_value.sv) | legal | `spec verilator@5.052` | `I- Vp K- G-` |
-| [`ch11/test_illegal_stacktrace_in_constant_expression`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_illegal_stacktrace_in_constant_expression.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp G-` |
-| [`ch13/test_illegal_stacktrace_in_constant_function`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_stacktrace_in_constant_function.sv) | illegal | `spec verilator@5.054` | `Ip Vp Kp G-` |
+| [`ch20/test_stacktrace_function_call_contexts`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_stacktrace_function_call_contexts.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
+| [`ch20/test_stacktrace_function_string_value`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_stacktrace_function_string_value.sv) | legal | `spec verilator@5.052` | `I- Vp K- Gp` |
+| [`ch11/test_illegal_stacktrace_in_constant_expression`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_illegal_stacktrace_in_constant_expression.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
+| [`ch13/test_illegal_stacktrace_in_constant_function`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_stacktrace_in_constant_function.sv) | illegal | `spec verilator@5.054` | `Ip Vp Kp Gp` |
 | [`ch20/test_illegal_stacktrace_argument`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_illegal_stacktrace_argument.sv) | illegal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 
 <a id="timeunit-timeprecision-functions"></a>
@@ -179,11 +179,11 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch11/test_expr_timescale_constants`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_expr_timescale_constants.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch20/test_timeprecision_exponent_table`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeprecision_exponent_table.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`ch20/test_timeprecision_exponent_table`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeprecision_exponent_table.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`ch20/test_timeunit_exponent_table`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeunit_exponent_table.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch20/test_timeunit_package_interface_program_nested`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeunit_package_interface_program_nested.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`ch20/test_timeunit_package_interface_program_nested`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeunit_package_interface_program_nested.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`ch20/test_timeunit_timeprecision_functions`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeunit_timeprecision_functions.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`ch20/test_timeunit_timescale_precedence`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeunit_timescale_precedence.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`ch20/test_timeunit_timescale_precedence`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeunit_timescale_precedence.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`ch20/test_timeunit_unit_root`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch20/test_timeunit_unit_root.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`imported/ch20/test_time_query_matrix`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/imported/ch20/test_time_query_matrix.sv) | legal | `spec` | `I- V- Kp Gp` |
 
@@ -198,15 +198,15 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch6/test_parameter_declaration_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_parameter_declaration_forms.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch6/test_type_param_restricted_abstract_final_scoped`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_abstract_final_scoped.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
-| [`ch6/test_type_param_restricted_class_and_interface_lists`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_class_and_interface_lists.sv) | legal | `spec verilator@5.052` | `I- Vp Kp G-` |
-| [`ch6/test_type_param_restricted_conforming_types`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_conforming_types.sv) | legal | `spec verilator@5.052` | `I- Vp Kp G-` |
+| [`ch6/test_type_param_restricted_abstract_final_scoped`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_abstract_final_scoped.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
+| [`ch6/test_type_param_restricted_class_and_interface_lists`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_class_and_interface_lists.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
+| [`ch6/test_type_param_restricted_conforming_types`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_conforming_types.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch6/test_type_param_restricted_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_type_param_restricted_kinds.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch6/test_illegal_class_restricted_type_parameter_via_type_parameter`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_class_restricted_type_parameter_via_type_parameter.sv) | illegal | `spec verilator@5.054` | `Ip Vp Kp G-` |
-| [`ch6/test_illegal_enum_restricted_type_parameter_default_int`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_enum_restricted_type_parameter_default_int.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch6/test_illegal_class_restricted_type_parameter_via_type_parameter`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_class_restricted_type_parameter_via_type_parameter.sv) | illegal | `spec verilator@5.054` | `Ip Vp Kp Gp` |
+| [`ch6/test_illegal_enum_restricted_type_parameter_default_int`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_enum_restricted_type_parameter_default_int.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch6/test_illegal_enum_restricted_type_parameter_given_int`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_enum_restricted_type_parameter_given_int.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
-| [`ch6/test_illegal_interface_class_restricted_type_parameter_given_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_interface_class_restricted_type_parameter_given_class.sv) | illegal | `spec` | `I- V- Kp G-` |
-| [`ch6/test_illegal_struct_restricted_type_parameter_given_union`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_struct_restricted_type_parameter_given_union.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp G-` |
+| [`ch6/test_illegal_interface_class_restricted_type_parameter_given_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_interface_class_restricted_type_parameter_given_class.sv) | illegal | `spec` | `I- V- Kp Gp` |
+| [`ch6/test_illegal_struct_restricted_type_parameter_given_union`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_illegal_struct_restricted_type_parameter_given_union.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
 
 <a id="constructor-default-arguments"></a>
 
@@ -220,19 +220,19 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | --- | --- | --- | --- |
 | [`ch8/test_class_constructor_default_argument_expansion`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_class_constructor_default_argument_expansion.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`ch8/test_constructor_default_argument`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_argument.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`ch8/test_constructor_default_empty_and_inout`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_empty_and_inout.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch8/test_constructor_default_parameterized_superclass`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_parameterized_superclass.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch8/test_constructor_default_through_implicit_constructor`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_through_implicit_constructor.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch8/test_constructor_default_empty_and_inout`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_empty_and_inout.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch8/test_constructor_default_parameterized_superclass`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_parameterized_superclass.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch8/test_constructor_default_through_implicit_constructor`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_constructor_default_through_implicit_constructor.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_super_new_default`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_super_new_default.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_illegal_constructor_default_name_conflict`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_constructor_default_name_conflict.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch8/test_illegal_constructor_default_outside_subclass`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_constructor_default_outside_subclass.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch8/test_illegal_constructor_default_repeated`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_constructor_default_repeated.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
-| [`ch8/test_illegal_constructor_default_twice`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_constructor_default_twice.sv) | illegal | `spec` | `Ip Vp Kp G-` |
+| [`ch8/test_illegal_constructor_default_twice`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_constructor_default_twice.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch8/test_illegal_default_depends_on_local_member`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_default_depends_on_local_member.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch8/test_illegal_extends_default_without_default_argument`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_extends_default_without_default_argument.sv) | illegal | `spec` | `I- V- Kp Gp` |
 | [`ch8/test_illegal_super_default_without_expansion`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_super_default_without_expansion.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
-| [`ch8/test_illegal_super_new_default_with_extends_default`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_super_new_default_with_extends_default.sv) | illegal | `spec` | `I- Vp Kp G-` |
-| [`ch8/test_illegal_super_new_default_without_default`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_super_new_default_without_default.sv) | illegal | `spec` | `Ip Vp Kp G-` |
+| [`ch8/test_illegal_super_new_default_with_extends_default`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_super_new_default_with_extends_default.sv) | illegal | `spec` | `I- Vp Kp Gp` |
+| [`ch8/test_illegal_super_new_default_without_default`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_super_new_default_without_default.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 
 <a id="array-map-method"></a>
 
@@ -244,13 +244,13 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
-| [`ch7/test_array_map_method`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_map_method.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch7/test_map_element_types_and_index_names`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_element_types_and_index_names.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch7/test_array_map_method`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_array_map_method.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch7/test_map_element_types_and_index_names`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_element_types_and_index_names.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch7/test_map_result_to_same_array`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_result_to_same_array.sv) | legal | `spec verilator@5.052` | `I- Vp K- Gp` |
-| [`ch7/test_map_result_type_range_and_keys`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_result_type_range_and_keys.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch7/test_map_selects_order_and_empty`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_selects_order_and_empty.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch7/test_illegal_map_assoc_result_to_other_index_type`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_illegal_map_assoc_result_to_other_index_type.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch7/test_illegal_map_int_elements_to_string_queue`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_illegal_map_int_elements_to_string_queue.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch7/test_map_result_type_range_and_keys`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_result_type_range_and_keys.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch7/test_map_selects_order_and_empty`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_map_selects_order_and_empty.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch7/test_illegal_map_assoc_result_to_other_index_type`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_illegal_map_assoc_result_to_other_index_type.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch7/test_illegal_map_int_elements_to_string_queue`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_illegal_map_int_elements_to_string_queue.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch7/test_illegal_map_without_with`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_illegal_map_without_with.sv) | illegal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 
 <a id="soft-packed-union"></a>
@@ -263,14 +263,14 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
-| [`ch37/test_vpi_struct_union_flags_members`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_struct_union_flags_members.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch37/test_vpi_struct_union_flags_members`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_struct_union_flags_members.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch37/test_vpi_struct_union_net_flags`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch37/test_vpi_struct_union_net_flags.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch6/test_data_type_keyword_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch6/test_data_type_keyword_forms.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch7/test_soft_packed_union`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_soft_packed_union.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch7/test_soft_packed_union_nested_layout`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_soft_packed_union_nested_layout.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch7/test_tagged_union_keywords_and_members`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_tagged_union_keywords_and_members.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch7/test_union_grammar_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_union_grammar_forms.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch7/test_illegal_union_packed_dimension_needs_soft_or_packed`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_illegal_union_packed_dimension_needs_soft_or_packed.sv) | illegal | `spec verilator@5.054` | `I- Vp Kp G-` |
+| [`ch7/test_illegal_union_packed_dimension_needs_soft_or_packed`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch7/test_illegal_union_packed_dimension_needs_soft_or_packed.sv) | illegal | `spec verilator@5.054` | `I- Vp Kp Gp` |
 
 <a id="triple-quoted-string"></a>
 
@@ -283,14 +283,14 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch22/test_macro_grave_triple_quote`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_macro_grave_triple_quote.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`ch22/test_macro_grave_triple_quote_expansion_steps`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_macro_grave_triple_quote_expansion_steps.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`ch22/test_macro_grave_triple_quote_inner_quotes`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_macro_grave_triple_quote_inner_quotes.sv) | legal | `spec verilator@5.052` | `I- Vp Kp G-` |
+| [`ch22/test_macro_grave_triple_quote_expansion_steps`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_macro_grave_triple_quote_expansion_steps.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`ch22/test_macro_grave_triple_quote_inner_quotes`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_macro_grave_triple_quote_inner_quotes.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch22/test_macro_triple_quoted_string_newline`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_macro_triple_quoted_string_newline.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch5/test_string_backslash_newline_continuation`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch5/test_string_backslash_newline_continuation.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch5/test_triple_quoted_and_quoted_string_contents`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch5/test_triple_quoted_and_quoted_string_contents.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch5/test_triple_quoted_string`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch5/test_triple_quoted_string.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch22/test_illegal_macro_grave_triple_quote_newline_ends_text`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_illegal_macro_grave_triple_quote_newline_ends_text.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed.sv) | illegal | `spec` | `I- V- Kp G-` |
+| [`ch22/test_illegal_macro_grave_triple_quote_newline_ends_text`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_illegal_macro_grave_triple_quote_newline_ends_text.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch22/test_illegal_macro_grave_triple_quote_plain_quote_unclosed.sv) | illegal | `spec` | `I- V- Kp Gp` |
 
 <a id="rand-real"></a>
 
@@ -303,15 +303,15 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch18/test_rand_real_constraint`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_constraint.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch18/test_rand_real_kinds_and_arrays`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_kinds_and_arrays.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch18/test_rand_real_uniform_and_dist`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_uniform_and_dist.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch18/test_rand_real_unique_and_conditions`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_unique_and_conditions.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch18/test_illegal_dist_real_range_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_range_colon_equal.sv) | illegal | `spec` | `Ip Vp Kp G-` |
-| [`ch18/test_illegal_dist_real_range_no_weight`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_range_no_weight.sv) | illegal | `spec` | `Ip Vp Kp G-` |
-| [`ch18/test_illegal_dist_real_tolerance_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_tolerance_colon_equal.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch18/test_rand_real_kinds_and_arrays`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_kinds_and_arrays.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch18/test_rand_real_uniform_and_dist`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_uniform_and_dist.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch18/test_rand_real_unique_and_conditions`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_unique_and_conditions.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch18/test_illegal_dist_real_range_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_range_colon_equal.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
+| [`ch18/test_illegal_dist_real_range_no_weight`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_range_no_weight.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
+| [`ch18/test_illegal_dist_real_tolerance_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_tolerance_colon_equal.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch18/test_illegal_randc_real`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_randc_real.sv) | illegal | `spec` | `I- Vp Kp Gp` |
-| [`ch18/test_illegal_randc_real_array`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_randc_real_array.sv) | illegal | `spec` | `I- Vp Kp G-` |
-| [`ch18/test_illegal_unique_real_and_int`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_unique_real_and_int.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch18/test_illegal_randc_real_array`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_randc_real_array.sv) | illegal | `spec` | `I- Vp Kp Gp` |
+| [`ch18/test_illegal_unique_real_and_int`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_unique_real_and_int.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 
 <a id="constraint-dynamic-override"></a>
 
@@ -323,21 +323,21 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
-| [`ch18/test_constraint_final_constraint_mode_inline`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_final_constraint_mode_inline.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
-| [`ch18/test_constraint_override_specifiers_prototypes_pure_param`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_override_specifiers_prototypes_pure_param.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
-| [`ch18/test_constraint_override_specifiers_three_levels`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_override_specifiers_three_levels.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
+| [`ch18/test_constraint_final_constraint_mode_inline`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_final_constraint_mode_inline.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
+| [`ch18/test_constraint_override_specifiers_prototypes_pure_param`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_override_specifiers_prototypes_pure_param.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
+| [`ch18/test_constraint_override_specifiers_three_levels`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_override_specifiers_three_levels.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
 | [`ch18/test_constraint_prototype_and_specifier_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_constraint_prototype_and_specifier_forms.sv) | legal | `spec verilator@5.052` | `I- Vp K- Gp` |
-| [`ch18/test_illegal_constraint_extends_no_override`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_extends_no_override.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch18/test_illegal_constraint_final_replaced`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_final_replaced.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch18/test_illegal_constraint_final_replacement_replaced`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_final_replacement_replaced.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch18/test_illegal_constraint_extends_no_override`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_extends_no_override.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch18/test_illegal_constraint_final_replaced`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_final_replaced.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch18/test_illegal_constraint_final_replacement_replaced`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_final_replacement_replaced.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch18/test_illegal_constraint_initial_extends`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_initial_extends.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
-| [`ch18/test_illegal_constraint_initial_override`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_initial_override.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch18/test_illegal_constraint_specifier_block_mismatch`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_specifier_block_mismatch.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch18/test_illegal_constraint_specifier_prototype_mismatch`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_specifier_prototype_mismatch.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch18/test_illegal_constraint_initial_override`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_initial_override.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch18/test_illegal_constraint_specifier_block_mismatch`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_specifier_block_mismatch.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch18/test_illegal_constraint_specifier_prototype_mismatch`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_constraint_specifier_prototype_mismatch.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch18/test_illegal_pure_constraint_final`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_pure_constraint_final.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch18/test_illegal_static_constraint_override`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_static_constraint_override.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch18/test_illegal_static_constraint_specifier`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_static_constraint_specifier.sv) | illegal | `spec` | `Ip V- Kp Gp` |
-| [`ch8/test_illegal_pure_constraint_final`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_pure_constraint_final.sv) | illegal | `spec` | `Ip Vp Kp G-` |
+| [`ch8/test_illegal_pure_constraint_final`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_pure_constraint_final.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 
 <a id="weak-reference"></a>
 
@@ -351,13 +351,13 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | --- | --- | --- | --- |
 | [`ch26/test_std_package_system_types`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch26/test_std_package_system_types.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_object_strongly_reachable`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_object_strongly_reachable.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch8/test_weak_reference_clear_void_no_arguments`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_clear_void_no_arguments.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch8/test_weak_reference_clear_void_no_arguments`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_clear_void_no_arguments.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_weak_reference_get_clear`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_get_clear.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_weak_reference_get_id`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_get_id.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch8/test_weak_reference_get_id_static_longint`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_get_id_static_longint.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch8/test_weak_reference_get_id_unique_across_types`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_get_id_unique_across_types.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch8/test_weak_reference_get_id_static_longint`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_get_id_static_longint.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch8/test_weak_reference_get_id_unique_across_types`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_get_id_unique_across_types.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_weak_reference_id_alias_after_clear`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_id_alias_after_clear.sv) | legal | `spec` | `I- V- K- Gp` |
-| [`ch8/test_weak_reference_null_referent_no_warning`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_null_referent_no_warning.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch8/test_weak_reference_null_referent_no_warning`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_null_referent_no_warning.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_weak_reference_prototypes`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_prototypes.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_weak_reference_std_scope_and_strong_reachability`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_weak_reference_wait_cleared`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_weak_reference_wait_cleared.sv) | legal | `spec` | `I- V- K- Gp` |
@@ -373,18 +373,18 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
-| [`ch19/test_cg_derived_option_override`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_derived_option_override.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_embedded_inheritance`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_embedded_inheritance.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_extends_inherited_event_base_handle`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_extends_inherited_event_base_handle.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_extends_type_option_inherited`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_extends_type_option_inherited.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_inheritance_args_and_cross`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_inheritance_args_and_cross.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_covergroup_declaration_and_option_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_covergroup_declaration_and_option_forms.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch19/test_cg_derived_option_override`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_derived_option_override.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_embedded_inheritance`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_embedded_inheritance.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_extends_inherited_event_base_handle`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_extends_inherited_event_base_handle.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_extends_type_option_inherited`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_extends_type_option_inherited.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_inheritance_args_and_cross`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_inheritance_args_and_cross.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_covergroup_declaration_and_option_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_covergroup_declaration_and_option_forms.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch19/test_illegal_cg_extends_missing_base`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_missing_base.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch19/test_illegal_cg_extends_not_base`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_not_base.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch19/test_illegal_cg_extends_outside_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_outside_class.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
-| [`ch19/test_illegal_cg_extends_own_arguments`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_own_arguments.sv) | illegal | `spec` | `Ip Vp Kp G-` |
-| [`ch19/test_illegal_cg_extends_own_event`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_own_event.sv) | illegal | `spec` | `Ip Vp Kp G-` |
-| [`ch19/test_illegal_cg_extends_property_name`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_property_name.sv) | illegal | `spec` | `Ip Vp Kp G-` |
+| [`ch19/test_illegal_cg_extends_own_arguments`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_own_arguments.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
+| [`ch19/test_illegal_cg_extends_own_event`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_own_event.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
+| [`ch19/test_illegal_cg_extends_property_name`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_cg_extends_property_name.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
 | [`ch19/test_illegal_covergroup_derived_base_local`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_illegal_covergroup_derived_base_local.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 
 <a id="ref-static"></a>
@@ -397,28 +397,28 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
-| [`ch13/test_function_formal_ref_static_direction_inherited`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_function_formal_ref_static_direction_inherited.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_ref_static_accepted_actuals`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_ref_static_accepted_actuals.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch13/test_ref_static_const_waits_after_return`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_ref_static_const_waits_after_return.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_ref_static_force_release`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_ref_static_force_release.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch13/test_function_formal_ref_static_direction_inherited`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_function_formal_ref_static_direction_inherited.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_ref_static_accepted_actuals`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_ref_static_accepted_actuals.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch13/test_ref_static_const_waits_after_return`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_ref_static_const_waits_after_return.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_ref_static_force_release`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_ref_static_force_release.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch13/test_task_direction_and_port_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_task_direction_and_port_forms.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`ch13/test_task_formal_inherits_ref_static_nonblocking`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_task_formal_inherits_ref_static_nonblocking.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_tf_port_directions_ref_static_and_item_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`ch9/test_ref_static_fork_join_none_after_return`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch9/test_ref_static_fork_join_none_after_return.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`gen/ch10/test_gen_ref_static_array_event_nba_w65_ascending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w65_ascending.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`gen/ch10/test_gen_ref_static_array_event_nba_w65_descending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w65_descending.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`gen/ch10/test_gen_ref_static_array_event_nba_w8_ascending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w8_ascending.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`gen/ch10/test_gen_ref_static_array_event_nba_w8_descending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w8_descending.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`ch13/test_task_formal_inherits_ref_static_nonblocking`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_task_formal_inherits_ref_static_nonblocking.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_tf_port_directions_ref_static_and_item_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_tf_port_directions_ref_static_and_item_forms.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`ch9/test_ref_static_fork_join_none_after_return`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch9/test_ref_static_fork_join_none_after_return.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`gen/ch10/test_gen_ref_static_array_event_nba_w65_ascending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w65_ascending.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`gen/ch10/test_gen_ref_static_array_event_nba_w65_descending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w65_descending.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`gen/ch10/test_gen_ref_static_array_event_nba_w8_ascending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w8_ascending.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`gen/ch10/test_gen_ref_static_array_event_nba_w8_descending`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_array_event_nba_w8_descending.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch10/test_gen_ref_static_delayed_nba_w65_logic`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_delayed_nba_w65_logic.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch10/test_gen_ref_static_delayed_nba_w8_bit`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_delayed_nba_w8_bit.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_outside_parent`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_outside_parent.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_nested_packed_event_nba_w65_valid.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_outside_parent`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_outside_parent.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_illegal_ref_static_given_automatic_variable`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_automatic_variable.sv) | illegal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_illegal_ref_static_given_dynamic_array_element`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_dynamic_array_element.sv) | illegal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_illegal_ref_static_given_non_static_property`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_non_static_property.sv) | illegal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_illegal_ref_static_given_plain_ref_argument`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_plain_ref_argument.sv) | illegal | `spec` | `I- V- Kp G-` |
+| [`gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch10/test_gen_ref_static_nested_packed_event_nba_w8_valid.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_illegal_ref_static_given_automatic_variable`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_automatic_variable.sv) | illegal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_illegal_ref_static_given_dynamic_array_element`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_dynamic_array_element.sv) | illegal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_illegal_ref_static_given_non_static_property`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_non_static_property.sv) | illegal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_illegal_ref_static_given_plain_ref_argument`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_ref_static_given_plain_ref_argument.sv) | illegal | `spec` | `I- V- Kp Gp` |
 
 <a id="tolerance-ranges"></a>
 
@@ -432,14 +432,14 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | --- | --- | --- | --- |
 | [`ch11/test_expr_inside_set_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_expr_inside_set_forms.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`ch11/test_inside_ranges_tolerance_unknown_and_types`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_inside_ranges_tolerance_unknown_and_types.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`ch11/test_inside_tolerance_center_type`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_inside_tolerance_center_type.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`ch11/test_inside_tolerance_center_type`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_inside_tolerance_center_type.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`ch11/test_inside_tolerance_ranges`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_inside_tolerance_ranges.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`ch12/test_syntax_case_matches_and_inside_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch12/test_syntax_case_matches_and_inside_forms.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch18/test_dist_tolerance_range_weights`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_tolerance_range_weights.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch18/test_rand_real_uniform_and_dist`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_uniform_and_dist.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_real_bins_tolerance_and_merge`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bins_tolerance_and_merge.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_cg_tolerance_bin_arrays_transitions`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_tolerance_bin_arrays_transitions.sv) | legal | `spec` | `I- V- K- G-` |
-| [`ch19/test_covergroup_bins_and_range_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_covergroup_bins_and_range_forms.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch12/test_syntax_case_matches_and_inside_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch12/test_syntax_case_matches_and_inside_forms.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch18/test_dist_tolerance_range_weights`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_dist_tolerance_range_weights.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch18/test_rand_real_uniform_and_dist`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_rand_real_uniform_and_dist.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_real_bins_tolerance_and_merge`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_real_bins_tolerance_and_merge.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_cg_tolerance_bin_arrays_transitions`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_cg_tolerance_bin_arrays_transitions.sv) | legal | `spec` | `I- V- K- Gp` |
+| [`ch19/test_covergroup_bins_and_range_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch19/test_covergroup_bins_and_range_forms.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`gen/ch11/test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w129_s_ss_l_abs_tol_bound_x_m.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w129_s_us_l_rel_tol_bound_z_m.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w129_w_us_b_abs_tol_known_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w129_w_us_b_abs_tol_known_s.sv) | legal | `spec` | `I- V- Kp Gp` |
@@ -448,17 +448,17 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | [`gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_lhs_x_m`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w1_s_uu_l_abs_tol_lhs_x_m.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w1_s_uu_l_rel_tol_bound_x_m`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w1_s_uu_l_rel_tol_bound_x_m.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w32_n_su_b_abs_tol_bound_x_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w32_n_su_b_abs_tol_bound_x_s.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w32_w_us_b_rel_tol_bound_z_s.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w33_s_uu_b_abs_tol_lhs_x_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w33_s_uu_b_abs_tol_lhs_x_s.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w33_w_su_b_rel_tol_bound_x_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w33_w_su_b_rel_tol_bound_x_s.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w64_n_uu_l_rel_tol_lhs_x_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w64_n_uu_l_rel_tol_lhs_x_s.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w64_w_uu_b_abs_tol_bound_z_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w64_w_uu_b_abs_tol_bound_z_s.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s.sv) | legal | `spec` | `I- V- Kp G-` |
+| [`gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w65_n_ss_l_rel_tol_known_s.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`gen/ch11/test_gen_cross_range_w65_n_us_l_abs_tol_known_m`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w65_n_us_l_abs_tol_known_m.sv) | legal | `spec` | `I- V- Kp Gp` |
-| [`gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m.sv) | legal | `spec` | `I- V- Kp G-` |
-| [`ch11/test_illegal_inside_tolerance_string_center`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_illegal_inside_tolerance_string_center.sv) | illegal | `spec` | `Ip Vp Kp G-` |
-| [`ch18/test_illegal_dist_real_tolerance_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_tolerance_colon_equal.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch18/test_illegal_unique_tolerance_range`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_unique_tolerance_range.sv) | illegal | `spec` | `Ip Vp K- G-` |
+| [`gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/gen/ch11/test_gen_cross_range_w65_s_su_b_rel_tol_known_m.sv) | legal | `spec` | `I- V- Kp Gp` |
+| [`ch11/test_illegal_inside_tolerance_string_center`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch11/test_illegal_inside_tolerance_string_center.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
+| [`ch18/test_illegal_dist_real_tolerance_colon_equal`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_dist_real_tolerance_colon_equal.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch18/test_illegal_unique_tolerance_range`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch18/test_illegal_unique_tolerance_range.sv) | illegal | `spec` | `Ip Vp K- Gp` |
 
 <a id="method-dynamic-override"></a>
 
@@ -471,24 +471,24 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |
 | [`ch13/test_a2_7_dynamic_override_specifiers`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_a2_7_dynamic_override_specifiers.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch13/test_function_declaration_scoped_and_override_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_function_declaration_scoped_and_override_forms.sv) | legal | `spec verilator@5.054` | `I- Vp K- G-` |
+| [`ch13/test_function_declaration_scoped_and_override_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_function_declaration_scoped_and_override_forms.sv) | legal | `spec verilator@5.054` | `I- Vp K- Gp` |
 | [`ch13/test_task_declaration_grammar_and_nesting`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_task_declaration_grammar_and_nesting.sv) | legal | `spec` | `I- Vp Kp Gp` |
 | [`ch8/test_class_declaration_grammar_forms`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_class_declaration_grammar_forms.sv) | legal | `spec verilator@5.052` | `I- Vp K- Gp` |
 | [`ch8/test_class_virtual_dispatch_and_initial`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_class_virtual_dispatch_and_initial.sv) | legal | `spec` | `I- V- Kp Gp` |
 | [`ch8/test_class_virtual_override_of_nonvirtual_and_initial`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_class_virtual_override_of_nonvirtual_and_initial.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch8/test_extern_method_prototype_qualifiers`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_extern_method_prototype_qualifiers.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch8/test_final_class_and_method`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_final_class_and_method.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch8/test_final_method_not_virtual_vpi`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_final_method_not_virtual_vpi.sv) | legal | `spec` | `I- V- K- G-` |
+| [`ch8/test_final_method_not_virtual_vpi`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_final_method_not_virtual_vpi.sv) | legal | `spec` | `I- V- K- Gp` |
 | [`ch8/test_method_initial_extends`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_method_initial_extends.sv) | legal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch9/test_structured_procedure_forms_and_subroutine_lifetimes`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch9/test_structured_procedure_forms_and_subroutine_lifetimes.sv) | legal | `spec verilator@5.054` | `I- Vp Kp G-` |
-| [`ch13/test_illegal_dynamic_override_specifier_in_interface_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_dynamic_override_specifier_in_interface_class.sv) | illegal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_illegal_dynamic_override_specifier_on_module_task`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_dynamic_override_specifier_on_module_task.sv) | illegal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_illegal_function_override_specifier_interface_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_function_override_specifier_interface_class.sv) | illegal | `spec` | `I- V- Kp G-` |
-| [`ch13/test_illegal_function_override_specifier_outside_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_function_override_specifier_outside_class.sv) | illegal | `spec` | `Ip V- Kp G-` |
-| [`ch35/test_illegal_dpi_import_override_specifier`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch35/test_illegal_dpi_import_override_specifier.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch9/test_structured_procedure_forms_and_subroutine_lifetimes`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch9/test_structured_procedure_forms_and_subroutine_lifetimes.sv) | legal | `spec verilator@5.054` | `I- Vp Kp Gp` |
+| [`ch13/test_illegal_dynamic_override_specifier_in_interface_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_dynamic_override_specifier_in_interface_class.sv) | illegal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_illegal_dynamic_override_specifier_on_module_task`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_dynamic_override_specifier_on_module_task.sv) | illegal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_illegal_function_override_specifier_interface_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_function_override_specifier_interface_class.sv) | illegal | `spec` | `I- V- Kp Gp` |
+| [`ch13/test_illegal_function_override_specifier_outside_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch13/test_illegal_function_override_specifier_outside_class.sv) | illegal | `spec` | `Ip V- Kp Gp` |
+| [`ch35/test_illegal_dpi_import_override_specifier`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch35/test_illegal_dpi_import_override_specifier.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch8/test_illegal_extends_nonvirtual_method`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_extends_nonvirtual_method.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch8/test_illegal_final_method_overridden`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_method_overridden.sv) | illegal | `spec verilator@5.052` | `I- Vp Kp Gp` |
-| [`ch8/test_illegal_final_pure_virtual`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_pure_virtual.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch8/test_illegal_final_pure_virtual`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_final_pure_virtual.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch8/test_illegal_initial_method_overrides_pure_virtual`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_initial_method_overrides_pure_virtual.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
 | [`ch8/test_illegal_initial_method_overrides_virtual`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_initial_method_overrides_virtual.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
 | [`ch8/test_illegal_method_extends_without_base`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_method_extends_without_base.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
@@ -497,9 +497,9 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 | [`ch8/test_illegal_method_initial_with_extends_specifier`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_method_initial_with_extends_specifier.sv) | illegal | `spec verilator@5.052` | `Ip Vp Kp Gp` |
 | [`ch8/test_illegal_nonvirtual_final_method_overridden`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_nonvirtual_final_method_overridden.sv) | illegal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch8/test_illegal_override_specifier_in_interface_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_override_specifier_in_interface_class.sv) | illegal | `spec` | `I- V- Kp Gp` |
-| [`ch8/test_illegal_override_specifier_outside_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_override_specifier_outside_class.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch8/test_illegal_override_specifier_outside_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_override_specifier_outside_class.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch8/test_illegal_pure_virtual_final`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_pure_virtual_final.sv) | illegal | `spec` | `Ip Vp Kp Gp` |
-| [`ch8/test_illegal_pure_virtual_method_final`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_pure_virtual_method_final.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch8/test_illegal_pure_virtual_method_final`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_pure_virtual_method_final.sv) | illegal | `spec` | `Ip V- Kp Gp` |
 | [`ch8/test_illegal_virtual_final_method_overridden_in_subclass`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch8/test_illegal_virtual_final_method_overridden_in_subclass.sv) | illegal | `spec verilator@5.052` | `I- Vp Kp Gp` |
 | [`ch9/test_illegal_override_specifier_in_interface_class`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch9/test_illegal_override_specifier_in_interface_class.sv) | illegal | `spec` | `I- V- Kp Gp` |
-| [`ch9/test_illegal_override_specifier_on_module_function`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch9/test_illegal_override_specifier_on_module_function.sv) | illegal | `spec` | `Ip V- Kp G-` |
+| [`ch9/test_illegal_override_specifier_on_module_function`](https://github.com/kurochan001/kirimasim-tests/blob/main/tests/ch9/test_illegal_override_specifier_on_module_function.sv) | illegal | `spec` | `Ip V- Kp Gp` |

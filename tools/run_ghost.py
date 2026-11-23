@@ -38,6 +38,10 @@ ROOT = Path(__file__).resolve().parent.parent
 NORMALIZE = ROOT / "tools" / "normalize_output.py"
 NAME = "Ghost"
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
+# This wide array-product constraint can take over 90 seconds in a parallel run.
+SIMULATION_TIMEOUT_OVERRIDES = {
+    ROOT / "tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv": 180,
+}
 
 
 def expected_output(test: Path) -> str | None:
@@ -84,6 +88,7 @@ def run(test: Path, simulator: str, include: Path | None,
             lib = ["--lib", str(shared)]
         sources, include_dirs = suite_results.files(test)
         top = suite_results.top_module(test)
+        timeout = SIMULATION_TIMEOUT_OVERRIDES.get(test.resolve(), 90)
         try:
             result = subprocess.run(
                 [simulator, *profile["arguments"], *lib,
@@ -92,7 +97,7 @@ def run(test: Path, simulator: str, include: Path | None,
                  *(["-top", top] if top else []), *map(str, sources),
                  str(test.resolve()), *suite_results.run_args(test)],
                 capture_output=True, text=True, errors="replace", cwd=tmp,
-                env={**os.environ, **profile["environment"]}, timeout=90)
+                env={**os.environ, **profile["environment"]}, timeout=timeout)
         except subprocess.TimeoutExpired:
             return "fail", "timed out"
         except OSError:

@@ -100,15 +100,11 @@
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2997/12332 動作確認、古い入力との対応 369 件。
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 動作確認、古い入力との対応 369 件。
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 動作確認、古い入力との対応 28 件。
-- `ghost-local-20261031-strict.json`: `private build 7ed5e63eedf9` / `2026-10-31T10:33:23.126942+00:00` / 7924/12332 動作確認、古い入力との対応 487 件。
-- `ghost-local-20261031-strict2.json`: `private build be060962f878` / `2026-10-31T13:37:26.206441+00:00` / 7992/12332 動作確認、古い入力との対応 435 件。
-- `ghost-local-20261031.json`: `private build 88d08d9c3441` / `2026-10-31T08:07:21.082572+00:00` / 7906/12332 動作確認、古い入力との対応 487 件。
-- `ghost-local-20261123-strict.json`: `private build 3d017657c3e4` / `2026-11-22T20:32:55.789394+00:00` / 9676/12332 動作確認、古い入力との対応 0 件。
+- `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T10:26:34.150974+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:46.053076+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
-- `issues-76-90-20261122-ghost.json`: `private build 00d5d9f1010d` / `2026-11-22T12:41:12.524029+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T02:46:05.877247+00:00` / 150/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T02:46:56.224616+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T02:46:27.050750+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -230,15 +226,12 @@
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `test-fix-20261113-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:29.466399+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
-- `test-fixes-20261031-ghost.json`: `private build 9ba2e0575dcb` / `2026-10-31T12:31:48.317872+00:00` / 61/12332 動作確認、古い入力との対応 13 件。
 - `test-fixes-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:50:40.175858+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
 - `test-fixes-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:50:40.334300+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
 - `test-fixes-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:41.819877+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
 - `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
-- `test-side-fixes-20261120-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T21:25:25.584836+00:00` / 7/12332 動作確認、古い入力との対応 0 件。
 - `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
-- `test-side-fixes-20261120b-ghost-strict.json`: `private build b35e2bcc3231` / `2026-11-19T23:00:55.519691+00:00` / 12/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -464,6 +457,10 @@
 - 採用しません: gap9-20261026-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: gap9-20261026-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: ghost-local-20261028.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: ghost-local-20261031-strict.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: ghost-local-20261031-strict2.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: ghost-local-20261031.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: ghost-local-20261123-strict.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: header-vpi-tests-20261023-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: header-vpi-tests-20261023-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: header-vpi-tests-20261023-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
@@ -489,6 +486,7 @@
 - 採用しません: issues-48-57-20261107-kirimasim-60c26d7c.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: issues-48-57-20261107-verilator5.052-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: issues-48-57-20261107-verilator5.052-seed73.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: issues-76-90-20261122-ghost.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: keyword-tests-20261024-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: keyword-tests-20261024-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: keyword-tests-20261024-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
@@ -521,11 +519,14 @@
 - 採用しません: sva-m3-corrections-20261026-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: sva-m3-corrections-20261026-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: sva-m3-corrections-20261026-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: test-fixes-20261031-ghost.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: test-fixes-20261031-icarus-include.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: test-fixes-20261031-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: test-fixes-20261031-verilator-include.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: test-fixes-20261031-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: test-fixes-20261031-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: test-side-fixes-20261120-ghost-strict.json: 古い、未知の、または古いランナーの出身。
+- 採用しません: test-side-fixes-20261120b-ghost-strict.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: verilator.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: wave2-20261026-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: wave2-20261026-verilator-seed1.json: 古い、未知の、または古いランナーの出身。

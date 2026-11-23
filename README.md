@@ -634,7 +634,9 @@ output first. A compiler that a signal ends fails as well: it did not reject
 an illegal design. Every step has a time limit: with Icarus Verilog, 300
 seconds for the compilation and for the VPI build and 60 seconds for the run;
 with Verilator, 900 seconds for the build and 60 seconds for the run; with
-kirimasim, 120 seconds; with Lyra, 300 seconds. A step that takes longer
+kirimasim, 120 seconds; with Lyra, 300 seconds. Ghost allows 90 seconds per
+simulation, or 180 seconds for the [33-bit unsigned dynamic array product constraint test](tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv),
+which can exceed 90 seconds during parallel runs. A step that takes longer
 fails as "timed out". An error of a runner fails only the test it happened
 in. The reasons that the runners record name no directory of the machine: a
 file of the repository is named relative to it, and the temporary directory,

@@ -92,6 +92,17 @@ class GhostRunnerTests(unittest.TestCase):
             self.assertEqual(run_ghost.run(self.test, "/private/simulator", None, PROFILE),
                              ("fail", "timed out"))
 
+    def test_wide_product_constraint_has_a_longer_simulation_timeout(self):
+        wide_product = (run_ghost.ROOT / "tests/gen/ch18" /
+                        "test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv")
+        for test, seconds in ((wide_product, 180), (self.test, 90)):
+            with self.subTest(test=test), mock.patch.object(
+                    run_ghost.subprocess, "run",
+                    side_effect=subprocess.TimeoutExpired("simulator", seconds)) as execute:
+                self.assertEqual(run_ghost.run(test, "/private/simulator", None, PROFILE),
+                                 ("fail", "timed out"))
+                self.assertEqual(execute.call_args.kwargs["timeout"], seconds)
+
     def test_metadata_and_private_environment_reach_the_simulator(self):
         self.write(":expected_stdout: TEST PASSED\n:files: helper.sv\n:incdirs: headers\n"
                    ":defines: FLAG=1\n:top_module: chosen\n:args: +value=7")
