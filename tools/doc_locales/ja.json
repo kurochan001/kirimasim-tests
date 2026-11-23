@@ -25827,6 +25827,10 @@
     "Dynamic array allocation converts a signed ZXQPH0QXZ - ZXQPH1QXZ size to ZXQPH2QXZ": "動的配列の確保時に符号付きZXQPH0QXZ ZXQPH1QXZ幅のサイズをZXQPH2QXZに変換する",
     "A ZXQPH0QXZ -stream cast exposes the unsigned numeric order of wildcard associative keys": "ZXQPH0QXZストリームキャストでワイルドカード添字の符号なし数値順を確認する",
     "A wildcard name first used in a nested function stays bound in the enclosing module when a sibling function sees another wildcard import": "内側の関数で初めて参照した名前は、外側のモジュールに別のワイルドカード import を追加した後も、兄弟関数で同じ宣言を指す",
-    "A name resolved through the enclosing module's wildcard import inside a function conflicts with a later explicit import into that module": "関数内の参照が外側のモジュールのワイルドカード import で解決されると、そのモジュールで後から同じ名前を別パッケージから明示的に import すると衝突する"
+    "A name resolved through the enclosing module's wildcard import inside a function conflicts with a later explicit import into that module": "関数内の参照が外側のモジュールのワイルドカード import で解決されると、そのモジュールで後から同じ名前を別パッケージから明示的に import すると衝突する",
+    "A constant expression rejects a nested function call with an unused output formal": "定数式から間接的に呼ぶ関数に未使用の output 仮引数があると、その呼び出しは拒否される",
+    "A constant expression rejects a nested function call with an unused inout formal": "定数式から間接的に呼ぶ関数に未使用の inout 仮引数があると、その呼び出しは拒否される",
+    "A constant expression rejects a nested function call with an unused ref formal": "定数式から間接的に呼ぶ関数に未使用の ref 仮引数があると、その呼び出しは拒否される",
+    "An input-only function supplies a parameter while procedural calls use output, inout and ref formals with the same function body": "入力専用の関数でパラメータを求め、実行時には同じ本体で output・inout・ref 仮引数を持つ関数を呼べる"
   }
 }

@@ -142847,13 +142847,102 @@
       "acceptance": "A constant function cannot have output, inout or ref arguments.",
       "source_note": "IEEE 1800-2023 13.4.3; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch13/test_illegal_constant_function_output_formal.sv",
+          "observation": "関数本体で使わない `output` 仮引数を持つ関数を定数式から間接的に呼び、呼び出し位置または定数を初期化する位置で診断を求める。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "407d2e62d846667572c40742e8f02aa125f0335de232b8643374bed3e1bf9c23",
+          "evidence": [
+            {
+              "file": "tests/ch13/constant_function_ports/port_directions.svh",
+              "contains": "function automatic int port_output(input int seed, output int slot);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_output_formal.sv",
+              "contains": "return port_output(seed, slot);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_output_formal.sv",
+              "contains": "localparam int value = probe(7);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_output_formal.sv",
+              "contains": ":expected_stderr_regex: test_illegal_constant_function_output_formal\\.sv:(?:20:(?:\\d+:)?[^\\n]*(?i:(?:output|inout|ref)[^\\n]*constant (?:expression|function))|23:(?:\\d+:)?[^\\n]*(?i:expecting expression to be constant)[^\\n]*\\bprobe\\b)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_constant_function_inout_formal.sv",
+          "observation": "関数本体で使わない `inout` 仮引数を持つ関数を定数式から間接的に呼び、呼び出し位置または定数を初期化する位置で診断を求める。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "eb653420f2a2c98d5558e1e695816667e237be3de71bd4eaf5423f635cb0c32d",
+          "evidence": [
+            {
+              "file": "tests/ch13/constant_function_ports/port_directions.svh",
+              "contains": "function automatic int port_inout(input int seed, inout int slot);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_inout_formal.sv",
+              "contains": "return port_inout(seed, slot);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_inout_formal.sv",
+              "contains": "localparam int value = probe(7);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_inout_formal.sv",
+              "contains": ":expected_stderr_regex: test_illegal_constant_function_inout_formal\\.sv:(?:20:(?:\\d+:)?[^\\n]*(?i:(?:output|inout|ref)[^\\n]*constant (?:expression|function))|23:(?:\\d+:)?[^\\n]*(?i:expecting expression to be constant)[^\\n]*\\bprobe\\b)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch13/test_illegal_constant_function_ref_formal.sv",
+          "observation": "関数本体で使わない `ref` 仮引数を持つ関数を定数式から間接的に呼び、呼び出し位置または定数を初期化する位置で診断を求める。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a596780383f4986973ff18b028fdfa8f2e73991c3eedf98128ced29268b99fbb",
+          "evidence": [
+            {
+              "file": "tests/ch13/constant_function_ports/port_directions.svh",
+              "contains": "function automatic int port_ref(input int seed, ref int slot);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_ref_formal.sv",
+              "contains": "return port_ref(seed, slot);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_ref_formal.sv",
+              "contains": "localparam int value = probe(7);"
+            },
+            {
+              "file": "tests/ch13/test_illegal_constant_function_ref_formal.sv",
+              "contains": ":expected_stderr_regex: test_illegal_constant_function_ref_formal\\.sv:(?:20:(?:\\d+:)?[^\\n]*(?i:(?:output|inout|ref)[^\\n]*constant (?:expression|function))|23:(?:\\d+:)?[^\\n]*(?i:expecting expression to be constant)[^\\n]*\\bprobe\\b)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "13.4.3",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "constant-function-port-directions",
+          "tests": [
+            "tests/ch13/test_illegal_constant_function_output_formal.sv",
+            "tests/ch13/test_illegal_constant_function_inout_formal.sv",
+            "tests/ch13/test_illegal_constant_function_ref_formal.sv"
+          ],
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "observation": "同じ関数本体と書き込み可能な局所変数を使い、output・inout・ref の各仮引数を持つ関数の定数式からの呼び出しを個別に拒否することを、同一実行の3件で確認する。"
         }
       ]
     },

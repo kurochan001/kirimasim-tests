@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.15%, execution without Ghost 51.24%, execution with Ghost and kirimasim 88.23%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 93.16%, execution without Ghost 51.25%, execution with Ghost and kirimasim 88.23%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 93.15%. Requirement execution-confirmation rate: 51.24% without Ghost, 88.23% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 93.16%. Requirement execution-confirmation rate: 51.25% without Ghost, 88.23% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11487/12332 ( 93.15% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10880/12332 ( 88.23% ).
-- Registered but not tested: 845.
+- The requirement coverage (test design) for registered behaviors is 11488/12332 ( 93.16% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10881/12332 ( 88.23% ).
+- Registered but not tested: 844.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -71,6 +71,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `ch19-tables-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T00:40:59.725559+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `ch19-tables-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:18.641708+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `ch19-tables-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:59.498597+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `constant-function-ports-20261123-ghost-strict.json`: `private build 698058bc29ba` / `2026-11-23T12:19:55.008109+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `constant-function-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:19:54.956799+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `constant-function-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:19:54.924264+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `constant-function-ports-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T12:19:55.463921+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `constant-function-ports-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T12:19:55.463585+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `constant-power-20261119n-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T03:40:42.398698+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-power-20261119n-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T03:40:42.654456+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-power-20261119n-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T03:40:42.949106+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -590,7 +595,7 @@ The number of items is the investigation status of the article by heading. This 
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 147.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 448.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 101.
-- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 116.
+- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 117.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 86.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 84.
 - 16 Assertions: No interpretation reservation 82/82, registration 557, test support 549.
@@ -34687,7 +34692,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4.3-EXTRACT-INPUT-ONLY
 
-`13.4.3` / `error` / No mapped test
+`13.4.3` / `error` / Execution confirmed
 
 A constant function cannot have output, inout or ref arguments.
 
@@ -34695,6 +34700,9 @@ Acceptance criterion: A constant function cannot have output, inout or ref argum
 
 Normative role: `mandatory`。
 
+- [test_illegal_constant_function_output_formal.sv](../tests/ch13/test_illegal_constant_function_output_formal.sv): The constant expression indirectly calls a function with an unused `output` formal. The diagnostic must identify the inner call or the constant initializer.
+- [test_illegal_constant_function_inout_formal.sv](../tests/ch13/test_illegal_constant_function_inout_formal.sv): The constant expression indirectly calls a function with an unused `inout` formal. The diagnostic must identify the inner call or the constant initializer.
+- [test_illegal_constant_function_ref_formal.sv](../tests/ch13/test_illegal_constant_function_ref_formal.sv): The constant expression indirectly calls a function with an unused `ref` formal. The diagnostic must identify the inner call or the constant initializer.
 
 ### SV2023-13.4.3-EXTRACT-LOCAL-IDENTIFIERS
 

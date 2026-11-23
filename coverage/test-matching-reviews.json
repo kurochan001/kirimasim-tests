@@ -56080,6 +56080,46 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch13/test_function_port_directions_constant_and_runtime.sv",
+      "inputs_sha256": "2185a105cda860277a34b8c9d00a3a1e9e4c029f2689d7c43d9a1a5f971687b4",
+      "reviewed_on": "2026-11-23",
+      "reviewer": "Codex (AI)",
+      "scope": "Legal control for constant function port directions.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.4.3-EXTRACT-INPUT-ONLY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "入力専用の定数呼び出しと、同じ関数本体で他の3方向の仮引数を使える実行時呼び出しを観測する。定数式での禁止は個別の異常系が検証する。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_port_directions_constant_and_runtime.sv",
+              "contains": "localparam int folded = port_input(40, 0);"
+            },
+            {
+              "file": "tests/ch13/test_function_port_directions_constant_and_runtime.sv",
+              "contains": "a = port_output(10, slot);"
+            },
+            {
+              "file": "tests/ch13/test_function_port_directions_constant_and_runtime.sv",
+              "contains": "b = port_inout(20, slot);"
+            },
+            {
+              "file": "tests/ch13/test_function_port_directions_constant_and_runtime.sv",
+              "contains": "c = port_ref(30, slot);"
+            },
+            {
+              "file": "tests/ch13/test_function_port_directions_constant_and_runtime.expected",
+              "contains": "constant=41 output=11 inout=21 ref=31"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

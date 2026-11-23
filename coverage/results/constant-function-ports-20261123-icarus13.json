@@ -1,0 +1,31 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch13/test_function_port_directions_constant_and_runtime": {
+   "status": "known",
+   "reason": "compile failed: tests/ch13/constant_function_ports/port_directions.svh:10: error: Function test_function_port_directions_constant_and_runtime.port_inout port slot is not an input port.",
+   "inputs_sha256": "2185a105cda860277a34b8c9d00a3a1e9e4c029f2689d7c43d9a1a5f971687b4"
+  },
+  "ch13/test_illegal_constant_function_inout_formal": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_constant_function_inout_formal\\\\.sv:(?:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:output|inout|ref)[^\\\\n]*constant (?:expression|function))|23:(?:\\\\d+:)?[^\\\\n]*(?i:expecting expression to be constant)[^\\\\n]*\\\\bprobe\\\\b)'; the first is: tests/ch13/constant_function_ports/port_directions.svh:10: error: Function test_illegal_constant_function_inout_formal.port_inout port slot is not an input port.",
+   "inputs_sha256": "eb653420f2a2c98d5558e1e695816667e237be3de71bd4eaf5423f635cb0c32d"
+  },
+  "ch13/test_illegal_constant_function_output_formal": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_constant_function_output_formal\\\\.sv:(?:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:output|inout|ref)[^\\\\n]*constant (?:expression|function))|23:(?:\\\\d+:)?[^\\\\n]*(?i:expecting expression to be constant)[^\\\\n]*\\\\bprobe\\\\b)'; the first is: tests/ch13/constant_function_ports/port_directions.svh:6: error: Function test_illegal_constant_function_output_formal.port_output port slot is not an input port.",
+   "inputs_sha256": "407d2e62d846667572c40742e8f02aa125f0335de232b8643374bed3e1bf9c23"
+  },
+  "ch13/test_illegal_constant_function_ref_formal": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_constant_function_ref_formal\\\\.sv:(?:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:output|inout|ref)[^\\\\n]*constant (?:expression|function))|23:(?:\\\\d+:)?[^\\\\n]*(?i:expecting expression to be constant)[^\\\\n]*\\\\bprobe\\\\b)'; the first is: tests/ch13/constant_function_ports/port_directions.svh:14: error: Function test_illegal_constant_function_ref_formal.port_ref port slot is not an input port.",
+   "inputs_sha256": "a596780383f4986973ff18b028fdfa8f2e73991c3eedf98128ced29268b99fbb"
+  }
+ },
+ "generated_at": "2026-11-23T12:19:54.956799+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

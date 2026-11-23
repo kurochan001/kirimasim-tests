@@ -24139,6 +24139,7 @@
     "ZXQPH0QXZ : 下位ワードが正でも上位ワードを含むと負になるサイズで、割り当て時のエラーを確認する。": "ZXQPH0QXZ: Check for an allocation error when the full size is negative even though its low word is positive.",
     "ZXQPH0QXZ : キーの数値順で詰めたバイト列を読み取り、キーを入れ替えた後も順序を確認する。": "ZXQPH0QXZ: Check the packed bytes in numeric key order, then replace a key and check the new order.",
     "ZXQPH0QXZ : 関数で取り込んだ名前を別のワイルドカード宣言の後でも兄弟関数が同じ値として読み、最初の関数で隠されていた名前は後から明示的に選んだパッケージの値になる。": "ZXQPH0QXZ: The sibling function reads the original binding after the second wildcard import and reads the explicitly selected package value for the name shadowed in the first function.",
-    "ZXQPH0QXZ : 関数の参照で取り込んだ名前を別パッケージから明示的に取り込む行または元の参照行に衝突の診断を求め、未参照の名前には同じ明示的な取り込みを許す。": "ZXQPH0QXZ: The conflict must be diagnosed at the explicit import or at the earlier reference inside the function. An unused wildcard candidate permits an explicit import from the other package."
+    "ZXQPH0QXZ : 関数の参照で取り込んだ名前を別パッケージから明示的に取り込む行または元の参照行に衝突の診断を求め、未参照の名前には同じ明示的な取り込みを許す。": "ZXQPH0QXZ: The conflict must be diagnosed at the explicit import or at the earlier reference inside the function. An unused wildcard candidate permits an explicit import from the other package.",
+    "ZXQPH0QXZ : 関数本体で使わない ZXQPH1QXZ 仮引数を持つ関数を定数式から間接的に呼び、呼び出し位置または定数を初期化する位置で診断を求める。": "ZXQPH0QXZ: The constant expression indirectly calls a function with an unused ZXQPH1QXZ formal. The diagnostic must identify the inner call or the constant initializer."
   }
 }

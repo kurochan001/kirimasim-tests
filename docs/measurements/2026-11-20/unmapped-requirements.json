@@ -883,7 +883,7 @@
    "clause": "13.4.3",
    "category": "one_run",
    "reason": "A constant function cannot have output, inout or ref arguments.",
-   "sketch": "Declare a constant function with an output argument and use it in a parameter; expect rejection at the declaration."
+   "sketch": "Refined 2026-11-23: use a localparam initializer to call each of three functions indirectly with a writable local actual. Check for a constant-evaluation diagnostic for each formal direction (output, inout, ref). Call the same functions procedurally as a legal control."
   },
   {
    "id": "SV2023-13.4.4-EXTRACT-BACKGROUND-CALL-CONTEXT",

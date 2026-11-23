@@ -1,0 +1,29 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch13/test_function_port_directions_constant_and_runtime": {
+   "status": "pass",
+   "inputs_sha256": "2185a105cda860277a34b8c9d00a3a1e9e4c029f2689d7c43d9a1a5f971687b4"
+  },
+  "ch13/test_illegal_constant_function_inout_formal": {
+   "status": "pass",
+   "inputs_sha256": "eb653420f2a2c98d5558e1e695816667e237be3de71bd4eaf5423f635cb0c32d"
+  },
+  "ch13/test_illegal_constant_function_output_formal": {
+   "status": "pass",
+   "inputs_sha256": "407d2e62d846667572c40742e8f02aa125f0335de232b8643374bed3e1bf9c23"
+  },
+  "ch13/test_illegal_constant_function_ref_formal": {
+   "status": "pass",
+   "inputs_sha256": "a596780383f4986973ff18b028fdfa8f2e73991c3eedf98128ced29268b99fbb"
+  }
+ },
+ "generated_at": "2026-11-23T12:19:55.463585+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}
