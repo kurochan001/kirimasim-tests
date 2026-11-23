@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは489本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは493本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -156,6 +156,7 @@
 | [`test_illegal_final_derived_class_in_package_extended`](../../tests/ch8/test_illegal_final_derived_class_in_package_extended.sv) |それ自身が基底クラスを継承する`:final`のクラスをパッケージで宣言すると、パッケージで修飾した名前でも継承できないが、その基底クラスは継承できる| 8.13 26.3 | Verilator 5.054 |規格違反の設計|
 | [`test_lrm_class_inheritance_8`](../../tests/ch8/test_lrm_class_inheritance_8.sv) |クラス継承と多型のエッジケース| 8.13 8.15 8.20 8.21 | Verilator 5.052 ||
 | [`test_base_handle_redeclared_members_and_virtual_dispatch`](../../tests/ch8/test_base_handle_redeclared_members_and_virtual_dispatch.sv) |クラスハンドルを導出オブジェクトに渡すと、再宣言されたプロパティと非仮想メソッドはベースクラスに解決され、仮想メソッドだけが導出されたオバーライドを呼び出す。| 8.14 8.20 | Verilator 5.052 ||
+| [`test_base_this_hidden_associative_array_on_derived_instance`](../../tests/ch8/test_base_this_hidden_associative_array_on_derived_instance.sv) |基底メソッドは、派生オブジェクト内で同名のキューに隠れた基底側の連想配列を更新する| 8.14 8.18 7.8 | Verilator 5.054 |出口コード|
 | [`test_class_super`](../../tests/ch8/test_class_super.sv) |テスト: super キーワードの使用| 8.15 8.20 8.13 | Icarus Verilog 13.0 ||
 | [`test_class_super_hidden_members_and_implicit_super_new`](../../tests/ch8/test_class_super_hidden_members_and_implicit_super_new.sv) |すべてのプロパティ、メソッド、値パラメータ、 ローカルパラメータをベースクラスにアクセスします。 派生クラスが隠し、ベースが継承するものも含まれます。 super.new がない構造子は、ベース構造子のデフォルトの引数を使って挿入されます。| 8.15 8.7 | Verilator 5.052 ||
 | [`test_constructor_default_argument`](../../tests/ch8/test_constructor_default_argument.sv) |派生クラス構造子の引数リストにおけるデフォルトキーワードは、スーパークラス構造子における引数の順序、タイプ、デフォルト値を表し、一度だけ出現する。引数のないコールは デフォルトのスーパークラスを取得し 引数のあるコールは その順番で返します| 8.15 8.16 A.10 |規格のみ||
@@ -230,6 +231,7 @@
 | [`test_illegal_virtual_final_method_overridden_in_subclass`](../../tests/ch8/test_illegal_virtual_final_method_overridden_in_subclass.sv) |:final で宣言された仮想メソッドはサブクラスで上書きできません。 2レベル下のクラスでも、virtual というキーワードがない場合は| 8.20 | Verilator 5.052 |規格違反の設計|
 | [`test_method_initial_extends`](../../tests/ch8/test_method_initial_extends.sv) |:initial で宣言されたメソッドはメソッドを開始し、他のメソッドを上書きしません。 :extends で宣言された メソッドは仮想メソッドを上 書きし、自身が仮想です。| 8.20 | Verilator 5.052 ||
 | [`test_method_virtual`](../../tests/ch8/test_method_virtual.sv) |仮想手法テスト| 8.20 8.15 | Verilator 5.052 ||
+| [`test_package_virtual_calls_preserve_module_string_updates`](../../tests/ch8/test_package_virtual_calls_preserve_module_string_updates.sv) |順に呼び出した3つの仮想メソッドが、同じモジュール変数の文字列に追記する| 8.20 23.9 10.4.1 | Verilator 5.054 |出口コード|
 | [`test_virt_method`](../../tests/ch8/test_virt_method.sv) |仮想メソッドをテスト| 8.20 8.14 | Verilator 5.052 ||
 | [`test_virtual_method`](../../tests/ch8/test_virtual_method.sv) |テスト仮想メソッド| 8.20 | Verilator 5.052 ||
 | [`test_abstract_class_basic`](../../tests/ch8/test_abstract_class_basic.sv) |二つの派生クラスで実装された純粋仮想メソッドを持つ抽象クラス| 8.21 8.20 | Verilator 5.052 ||
@@ -263,11 +265,13 @@
 | [`test_illegal_extern_return_type_mismatch`](../../tests/ch8/test_illegal_extern_return_type_mismatch.sv) |ブロック外のメソッド宣言の返すタイプは プロトタイプと一致しなければなりません| 8.24 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_extern_return_type_without_class_scope`](../../tests/ch8/test_illegal_extern_return_type_without_class_scope.sv) |返すタイプがクラスで宣言されているブロック外メソッドは クラスのスコープでそのタイプを名付けなければなりません| 8.24 |規格のみ|規格違反の設計|
 | [`test_illegal_extern_type_name_resolves_differently`](../../tests/ch8/test_illegal_extern_type_name_resolves_differently.sv) |ブロック外のメソッドヘッダの識別子は プロトタイプの宣言と同じに解決しなければなりません| 8.24 |規格のみ|規格違反の設計|
+| [`test_cast_between_virtual_interface_class_specializations`](../../tests/ch8/test_cast_between_virtual_interface_class_specializations.sv) |仮想インターフェースのパラメータが異なるクラス特殊化は別の型になる| 8.25 25.9 6.24.2 | Verilator 5.054 |出口コード|
 | [`test_class_bounded_fifo`](../../tests/ch8/test_class_bounded_fifo.sv) |try_putとtry_getのサイズ制限を持つパラメータ化クラスFIFO| 8.25 7.10 13.5.2 | Verilator 5.052 ||
 | [`test_class_param`](../../tests/ch8/test_class_param.sv) |テスト: パラメータ化されたクラス| 8.25 | Verilator 5.052 ||
 | [`test_class_param_2`](../../tests/ch8/test_class_param_2.sv) |テスト：パラメータ化されたクラス、異なるタイプのインスタンス化| 8.25 | Verilator 5.052 ||
 | [`test_class_typed_param`](../../tests/ch8/test_class_typed_param.sv) |テスト: クラスにパラメータを入力| 8.25 8.25.1 | Verilator 5.052 ||
 | [`test_comb_param_class`](../../tests/ch8/test_comb_param_class.sv) |テスト:パラメータ化されたクラス特化| 8.25 | Verilator 5.052 ||
+| [`test_comment_before_specialized_local_cast_destination`](../../tests/ch8/test_comment_before_specialized_local_cast_destination.sv) |パラメータ付きクラスのメソッド内で宣言したキャスト先の型は、呼び出された特殊化に従う| 8.25 6.24.2 | Verilator 5.054 |出口コード|
 | [`test_generic_fifo`](../../tests/ch8/test_generic_fifo.sv) |パラメータ化クラス基本テスト| 8.25 7.10 | Verilator 5.052 ||
 | [`test_illegal_parameterized_class_without_default_specialization`](../../tests/ch8/test_illegal_parameterized_class_without_default_specialization.sv) |標準のないパラメータを持つパラメータ化されたクラスの 単純な名前は 専門化を意味しません| 8.25 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_type_parameter_base_not_class`](../../tests/ch8/test_illegal_type_parameter_base_not_class.sv) |型パラメータをベースクラスとして使うと 詳細化後にクラスタイプに解決しなければなりません| 8.25 8.13 | Verilator 5.052 |規格違反の設計|

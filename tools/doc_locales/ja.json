@@ -25834,6 +25834,24 @@
     "An input-only function supplies a parameter while procedural calls use output, inout and ref formals with the same function body": "入力専用の関数でパラメータを求め、実行時には同じ本体で output・inout・ref 仮引数を持つ関数を呼べる",
     "Three instances with two- ZXQPH0QXZ input ports reject a five- ZXQPH1QXZ ZXQPH2QXZ connection": "入力ポートが2 ZXQPH0QXZ の3インスタンスに5 ZXQPH1QXZ の ZXQPH2QXZ 配列を接続すると拒否される",
     "Three instances with two- ZXQPH0QXZ input ports reject a seven- ZXQPH1QXZ ZXQPH2QXZ connection": "入力ポートが2 ZXQPH0QXZ の3インスタンスに7 ZXQPH1QXZ の ZXQPH2QXZ 配列を接続すると拒否される",
-    "Ascending and descending instance arrays take two- ZXQPH0QXZ slices from a ZXQPH1QXZ bus and broadcast a single port width": "昇順・降順のインスタンス配列が ZXQPH1QXZ 配列の入力を2 ZXQPH0QXZ ずつ受け取り、単一ポート幅の入力は各インスタンスが同じ値を受け取る"
+    "Ascending and descending instance arrays take two- ZXQPH0QXZ slices from a ZXQPH1QXZ bus and broadcast a single port width": "昇順・降順のインスタンス配列が ZXQPH1QXZ 配列の入力を2 ZXQPH0QXZ ずつ受け取り、単一ポート幅の入力は各インスタンスが同じ値を受け取る",
+    "Clearing a module string takes effect between two calls to a writer task": "書き込みタスクの呼び出しの間に、モジュール変数の文字列を空にできる",
+    "A fork branch stores its true comparison in an automatic vector ZXQPH0QXZ": "fork の分岐が真の比較結果を automatic ベクトルの選択した ZXQPH0QXZ に格納する",
+    "Increment and decrement update the object reached via an associative array": "連想配列のハンドルを介したインクリメントとデクリメントが同じオブジェクトを更新する",
+    "An explicit zero return supersedes an earlier write through ref": "ref 経由で関数名に代入した値よりも、明示的に return したゼロが優先される",
+    "Rebinding an input handle before a nested call preserves the caller object": "入力ハンドルを付け替えた後の呼び出しで、呼び出し元のオブジェクトは元の値を保つ",
+    "A task output copied to a caller property survives every enclosing task return": "タスクの出力を受け取ったプロパティの値が、外側のタスクから戻った後も各回で保たれる",
+    "Discarding a return value preserves the incoming ref dynamic array": "関数の戻り値を破棄しても、ref で渡した動的配列を関数内から読める",
+    "Two serial request and reply exchanges complete on bounded mailboxes": "容量を制限した2つのメールボックスで、要求と応答を2往復できる",
+    "A derived method can name its inherited random property in randomize": "派生クラスのメソッドから、継承した乱数プロパティを randomize の引数として指定できる",
+    "The type name of a specialized class is identical through its ZXQPH0QXZ": "特殊化したクラスの型名は ZXQPH0QXZ を介しても同じになる",
+    "A bound virtual interface remains usable after waiting on a clocking event": "クロッキングイベントの待機から復帰した後も、仮想インターフェースの入力を読める",
+    "A successful class downcast creates the target associative array entry": "クラスのダウンキャストが成功すると、代入先の連想配列に要素が作られる",
+    "Concurrent method activations retain their own output handle across a delay": "並行するメソッド呼び出しは遅延をまたいでも、それぞれが受け取った出力ハンドルを保つ",
+    "A real ZXQPH0QXZ property retains the same negative fraction as a real property": "real の ZXQPH0QXZ で宣言したプロパティは、real で直接宣言したプロパティと同じ負の小数を保持する",
+    "A base method inserts into its own hidden associative array on a derived object": "基底メソッドは、派生オブジェクト内で同名のキューに隠れた基底側の連想配列を更新する",
+    "Class specializations using different virtual interface parameters remain distinct": "仮想インターフェースのパラメータが異なるクラス特殊化は別の型になる",
+    "A local cast destination in a parameterized method uses the active specialization": "パラメータ付きクラスのメソッド内で宣言したキャスト先の型は、呼び出された特殊化に従う",
+    "Three successive virtual methods append to the same module string": "順に呼び出した3つの仮想メソッドが、同じモジュール変数の文字列に追記する"
   }
 }

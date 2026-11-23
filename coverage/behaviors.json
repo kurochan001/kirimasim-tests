@@ -39769,6 +39769,31 @@
               "contains": "Passed: 12, Failed: 0"
             }
           ]
+        },
+        {
+          "test": "tests/ch6/test_real_typedef_class_property_retains_fraction.sv",
+          "observation": "別名で宣言したクラスプロパティと直接宣言したプロパティに同じ負の小数を代入し、元の実数と比較する。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "aa4134f811c0d4f754cf4fd30bf3bd1761745702b06d08bd4b8ba9457f2f89e4",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_real_typedef_class_property_retains_fraction.sv",
+              "contains": "typedef real sample_t;"
+            },
+            {
+              "file": "tests/ch6/test_real_typedef_class_property_retains_fraction.sv",
+              "contains": "sample_t alias_field;"
+            },
+            {
+              "file": "tests/ch6/test_real_typedef_class_property_retains_fraction.sv",
+              "contains": "h.alias_field = value;"
+            },
+            {
+              "file": "tests/ch6/test_real_typedef_class_property_retains_fraction.expected",
+              "contains": "CHECK alias=1 direct=1"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -77020,6 +77045,27 @@
             {
               "file": "tests/ch8/test_dynamic_cast.expected",
               "contains": "PASS: Dynamic casting"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch6/test_dynamic_cast_into_associative_class_element.sv",
+          "observation": "基底型のハンドルを派生型の連想配列要素にキャストし、成功、キーの生成、オブジェクトの同一性を確認する。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "fcf9a676a4b441b0eda8920f88692b7d2a57db3857c2a46b1417b2a7484e176f",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_dynamic_cast_into_associative_class_element.sv",
+              "contains": "parent made = source.items[key].create();"
+            },
+            {
+              "file": "tests/ch6/test_dynamic_cast_into_associative_class_element.sv",
+              "contains": "ok = $cast(items[key], made);"
+            },
+            {
+              "file": "tests/ch6/test_dynamic_cast_into_associative_class_element.expected",
+              "contains": "CHECK cast=1 exists=1 identity=1"
             }
           ]
         }
@@ -142216,6 +142262,27 @@
               "contains": "from_name(5)=11"
             }
           ]
+        },
+        {
+          "test": "tests/ch13/test_explicit_zero_return_after_function_result_passed_by_ref.sv",
+          "observation": "参照渡しで関数の戻り値変数に書き込んだ後、明示的な戻り式がゼロの場合もその式の値を返す。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5ff2702a4894cdf6e0ac19e57fb0ab6512566f7ee7c7b5cfc5471be8f22da0b1",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_explicit_zero_return_after_function_result_passed_by_ref.sv",
+              "contains": "database::load(selected);"
+            },
+            {
+              "file": "tests/ch13/test_explicit_zero_return_after_function_result_passed_by_ref.sv",
+              "contains": "return selected & requested;"
+            },
+            {
+              "file": "tests/ch13/test_explicit_zero_return_after_function_result_passed_by_ref.expected",
+              "contains": "CHECK masks=1/0/4"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -151499,6 +151566,31 @@
             {
               "file": "tests/ch15/test_mailbox_blocking_put_get.expected",
               "contains": "get on empty mailbox returned at 14 with late"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch15/test_bounded_mailboxes_complete_two_serial_round_trips.sv",
+          "observation": "要求と応答を別々の容量付きメールボックスで二往復させ、空の応答箱を待ってから各メッセージを順に受け取る。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "82b17b806c96b2510ddf59f6390b00d247330911923ab20069e02747fd89773d",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_bounded_mailboxes_complete_two_serial_round_trips.sv",
+              "contains": "requests.put(11);"
+            },
+            {
+              "file": "tests/ch15/test_bounded_mailboxes_complete_two_serial_round_trips.sv",
+              "contains": "replies.get(first_reply);"
+            },
+            {
+              "file": "tests/ch15/test_bounded_mailboxes_complete_two_serial_round_trips.sv",
+              "contains": "replies.put(\"second\");"
+            },
+            {
+              "file": "tests/ch15/test_bounded_mailboxes_complete_two_serial_round_trips.expected",
+              "contains": "CHECK 11 22 first second"
             }
           ]
         }
@@ -212111,6 +212203,27 @@
             {
               "file": "tests/ch20/test_type_check_edge_cases.expected",
               "contains": "Test 7 PASS: $typename(byte_t) resolves to logic [7:0]"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_typename_alias_of_specialized_class.sv",
+          "observation": "クラス特殊化を表す別名の型名が空でなく、特殊化を直接指定した型名と一致することを確認する。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "cde6727980d708899f9e6f1ecf2572a89da83a832c85ed0ee92988b2b058d05e",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_typename_alias_of_specialized_class.sv",
+              "contains": "typedef box#(string) text_box;"
+            },
+            {
+              "file": "tests/ch20/test_typename_alias_of_specialized_class.sv",
+              "contains": "name == $typename(box#(string))"
+            },
+            {
+              "file": "tests/ch20/test_typename_alias_of_specialized_class.expected",
+              "contains": "CHECK named=1 same_type=1"
             }
           ]
         }
@@ -291401,6 +291514,31 @@
             {
               "file": "tests/ch25/test_virtual_interface_modport.expected",
               "contains": "after pointing d0 at b1: b0.d=01 b1.d=03"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch25/test_virtual_interface_clocking_read_after_forever_wait.sv",
+          "observation": "クラスの仮想インターフェースプロパティを手続き内で実体に結び付け、クロッキングイベントを待つたびにサンプル値を読み取る。",
+          "reviewed_on": "2026-11-23",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "c0715f19f0e3a67eb83dc108248d21eb65fe2c377c37b5ca9a8b878dfdf20e27",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_interface_clocking_read_after_forever_wait.sv",
+              "contains": "virtual sample_bus vif;"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_clocking_read_after_forever_wait.sv",
+              "contains": "w.vif = bus;"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_clocking_read_after_forever_wait.sv",
+              "contains": "@(vif.monitor);"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_clocking_read_after_forever_wait.expected",
+              "contains": "CHECK samples=2 inputs=1001"
             }
           ]
         }

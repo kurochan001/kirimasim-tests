@@ -257,6 +257,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
 - `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-standalone-20261123-ghost-strict.json`: `private build e95a514c6d02` / `2026-11-23T14:14:24.310807+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-standalone-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T14:14:24.163875+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-standalone-20261123-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T14:14:24.285520+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-standalone-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T14:14:29.293139+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-standalone-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T14:14:29.432996+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -11272,6 +11277,7 @@ Acceptance criterion: typedef can give an existing data type a user-defined type
 Normative role: `definition`。
 
 - [test_typedef_corner.sv](../tests/ch6/test_typedef_corner.sv): Actually declare the unpacked4 element/queue dimension at the end of the typedef declarator, and compare the value update and the number of elements and function argument return values.
+- [test_real_typedef_class_property_retains_fraction.sv](../tests/ch6/test_real_typedef_class_property_retains_fraction.sv): Both the typedef property and the directly declared property preserve the original fractional value.
 
 ### SV2023-6.18-EXTRACT-UNPACKED-PARAMETER-TYPENAME
 
@@ -19940,6 +19946,7 @@ Normative role: `mandatory`。
 - [test_member_access_cast.sv](../tests/ch6/test_member_access_cast.sv): Downcasts a base handle holding a derived object and observes both inherited and derived members.
 - [test_class_cast_edge_cases.sv](../tests/ch8/test_class_cast_edge_cases.sv): $cast is successful and the derived property is accessible when the source of the base static type actually holds the derived object. The edge-case side shows the original update 15 at the cast point.
 - [test_dynamic_cast.sv](../tests/ch8/test_dynamic_cast.sv): $cast is successful and the derived property is accessible when the source of the base static type actually holds the derived object. The edge-case side shows the original update 15 at the cast point.
+- [test_dynamic_cast_into_associative_class_element.sv](../tests/ch6/test_dynamic_cast_into_associative_class_element.sv): Casting the base handle to a derived handle succeeds, creates the missing associative entry, and preserves object identity.
 
 ### SV2023-8.16-EXTRACT-CAST-FORMS
 
@@ -34525,6 +34532,7 @@ Acceptance criterion: A function that assigns a value to its name and then execu
 Normative role: `mandatory`。
 
 - [test_return_overrides_function_name_value.sv](../tests/ch13/test_return_overrides_function_name_value.sv) : over runs return x + 1 after over = x * 10 and prints over( 3 )= 4 ; pick has if (x \> 0 ) return x after pick = 100 and prints pick( 7 )= 7 (return runs) and pick( -1 )= 100 (no return; a control in which the value of the name is the result); from_name runs return from_name + 1 after from_name = x * 2 and prints from_name ( 5 )= 11 . Checks with 3 functions that, when a function returns a different expression after an assignment to its name, the result is the value of the return expression. Distinguishing observation: An implementation that gives the value assigned to the name priority over return (or ignores the return expression) gives over( 3 )= 30 , pick( 7 )= 100 and from_name ( 5 )= 10 . In an implementation that does not use the assignment to the name as the result, pick( -1 ), which has no return, is not 100 . Each call is printed by a separate $display , so the result does not depend on the order of evaluation.
+- [test_explicit_zero_return_after_function_result_passed_by_ref.sv](../tests/ch13/test_explicit_zero_return_after_function_result_passed_by_ref.sv): After a reference argument sets the function result variable, the explicit return expression determines each result, including zero.
 
 ### SV2023-13.4.1-EXTRACT-VOID-STATEMENT
 
@@ -36867,6 +36875,7 @@ Acceptance criterion: get removes/retrieves one queued message, blocking if empt
 Normative role: `mandatory`。
 
 - [test_mailbox_blocking_put_get.sv](../tests/ch15/test_mailbox_blocking_put_get.sv): Queued messages are removed in order, then an empty get waits four time units and returns the delayed late message at fourteen.
+- [test_bounded_mailboxes_complete_two_serial_round_trips.sv](../tests/ch15/test_bounded_mailboxes_complete_two_serial_round_trips.sv): Two round trips use separate bounded request and reply mailboxes. Each reply arrives after the reader waits on the empty mailbox.
 
 ### SV2023-15.4.5-EXTRACT-SIGNATURE
 
@@ -53307,6 +53316,7 @@ Acceptance criterion: $typename construction: Equivalent typedefs resolve back t
 Normative role: `definition`。
 
 - [test_type_check_edge_cases.sv](../tests/ch20/test_type_check_edge_cases.sv): Compares that the typename of simple equivalent typedef byte_t matches the typename of built-in logic \[ 7:0 \] rather than the alias name. The nominal struct contains a contrast that is different from the packedvector.
+- [test_typename_alias_of_specialized_class.sv](../tests/ch20/test_typename_alias_of_specialized_class.sv): The class typedef returns a nonempty type name identical to that of its underlying specialization.
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-WHITESPACE
 
@@ -70507,6 +70517,7 @@ Acceptance criterion: A virtual interface may be a class property initialized pr
 Normative role: `permission`。
 
 - [test_virtual_interface_modport.sv](../tests/ch25/test_virtual_interface_modport.sv): Initializes 2 class properties with the virtual-interface argument of new, and verify that send only updates the separate instance after the procedural replacing of d0.vif.
+- [test_virtual_interface_clocking_read_after_forever_wait.sv](../tests/ch25/test_virtual_interface_clocking_read_after_forever_wait.sv): A procedurally bound virtual interface property supplies two successive samples after clocking events.
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-COMPARISON
 

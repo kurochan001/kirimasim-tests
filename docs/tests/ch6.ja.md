@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは902本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは905本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -340,6 +340,7 @@
 | [`test_illegal_forward_typedef_never_defined`](../../tests/ch6/test_illegal_forward_typedef_never_defined.sv) |前方 typedef はデータ型として定義されておらず、エラーとなります| 6.18 |規格のみ|規格違反の設計|
 | [`test_illegal_hierarchical_type_reference`](../../tests/ch6/test_illegal_hierarchical_type_reference.sv) |階層的な名前で参照できないモジュールのタイプ識別子は、ポートを通じて到達するインターフェースのタイプは、ローカルに再定義できる。| 6.18 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_typedef_used_before_declaration`](../../tests/ch6/test_illegal_typedef_used_before_declaration.sv) |ユーザ定義型の宣言は それらの名前の参照の前に来なければなりません| 6.18 | Verilator 5.052 |規格違反の設計|
+| [`test_real_typedef_class_property_retains_fraction`](../../tests/ch6/test_real_typedef_class_property_retains_fraction.sv) |real の typedef で宣言したプロパティは、real で直接宣言したプロパティと同じ負の小数を保持する| 6.18 6.12 | Icarus Verilog 13.0 |出口コード|
 | [`test_type_def`](../../tests/ch6/test_type_def.sv) |Typedef テスト| 6.18 20.6.2 | Verilator 5.052 ||
 | [`test_typedef`](../../tests/ch6/test_typedef.sv) |これは、typedef のベクトル、enum と packed の構造を持つ| 6.18 | Icarus Verilog 13.0 ||
 | [`test_typedef_advanced`](../../tests/ch6/test_typedef_advanced.sv) |進んだ Typedef テスト| 6.18 | Icarus Verilog 13.0 ||
@@ -552,6 +553,7 @@
 | [`test_local_var_edge_cases_2`](../../tests/ch6/test_local_var_edge_cases_2.sv) |局所可変端の場合のテスト| 6.21 | Icarus Verilog 13.0 ||
 | [`test_local_var_scope`](../../tests/ch6/test_local_var_scope.sv) |ブロック、関数、タスクのローカル変数、静的および自動| 6.21 13.4.2 | Icarus Verilog 13.0 ||
 | [`test_module_automatic_lifetime`](../../tests/ch6/test_module_automatic_lifetime.sv) |自動的に宣言されたモジュールでは，そのタスクと関数の変数はデフォルトで自動的になり，静的に宣言されたものを除いて，呼び出し毎に再起動される。普通のモジュールでは 静止しているのに対し| 6.21 6.8 13.3.1 | Verilator 5.052 ||
+| [`test_parallel_method_output_handle_after_forever_delay`](../../tests/ch6/test_parallel_method_output_handle_after_forever_delay.sv) |並行するメソッド呼び出しは遅延をまたいでも、それぞれが受け取った出力ハンドルを保つ| 6.21 8.6 13.5.1 12.7.6 | Verilator 5.054 |出口コード|
 | [`test_scope_resolution_edge_cases`](../../tests/ch6/test_scope_resolution_edge_cases.sv) |モジュール、ブロック、ネストブロック変数、内部ブロックで隠された名前| 6.21 | Icarus Verilog 13.0 ||
 | [`test_static_initializer_runs_once`](../../tests/ch6/test_static_initializer_runs_once.sv) |プロセスブロックに宣言された静的変数の初期化子は、ブロックの各エントリではなく、時間 0 の前に一度実行されます。| 6.21 6.8 | Icarus Verilog 13.0 ||
 | [`test_static_var`](../../tests/ch6/test_static_var.sv) |静的および自動的変数テスト| 6.21 13.4.2 | Icarus Verilog 13.0 ||
@@ -635,6 +637,7 @@
 | [`test_cast_task_enum_value_runtime_error`](../../tests/ch6/test_cast_task_enum_value_runtime_error.sv) |実行時に計算した値が宛先の列挙型のメンバーでないとき、タスクとして呼び出した $cast は実行時エラーになり、宛先を変えない| 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_ch6_extra_cast_task_runtime_error`](../../tests/ch6/test_ch6_extra_cast_task_runtime_error.sv) |コンパイル時に無効な $cast タスクコールは拒否されません。実行時エラーを報告し、格納先は変更しない| 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_class_cast_compatibility_dynamic`](../../tests/ch6/test_class_cast_compatibility_dynamic.sv) |クラスハンドル間の $cast は、オブジェクトが目的地と代入が互換性のある場合のみ成功します。| 6.24.2 | Verilator 5.052 ||
+| [`test_dynamic_cast_into_associative_class_element`](../../tests/ch6/test_dynamic_cast_into_associative_class_element.sv) |クラスのダウンキャストが成功すると、代入先の連想配列に要素が作られる| 6.24.2 8.16 7.8 | Verilator 5.054 |出口コード|
 | [`test_member_access_cast`](../../tests/ch6/test_member_access_cast.sv) |メンバーアクセス表現で $cast をテスト| 6.24.2 8.16 | Verilator 5.052 ||
 | [`test_bitstream_array_to_packed_order`](../../tests/ch6/test_bitstream_array_to_packed_order.sv) |ビットストリームキャストは最初の unpacked 要素を最も有意な端に置きます。| 6.24.3 |規格のみ||
 | [`test_bitstream_cast_destination_layout`](../../tests/ch6/test_bitstream_cast_destination_layout.sv) |bit -ストリームキャストは、目的地のアイテムを左から右に埋め、残りのビットを最初の無制限動的アイテムに与え、すべての動的ソースアイテムを含む。| 6.24.3 |規格のみ||

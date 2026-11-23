@@ -1,0 +1,3 @@
+CHECK size=3
+CHECK discarded=3
+CHECK assigned=3

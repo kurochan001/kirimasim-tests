@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 489 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 493 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -156,6 +156,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_final_derived_class_in_package_extended`](../../tests/ch8/test_illegal_final_derived_class_in_package_extended.sv) | A class declared :final that itself extends a base class, declared in a package, cannot be extended through its package-qualified name, while its base class still can be | 8.13 26.3 | Verilator 5.054 | illegal design |
 | [`test_lrm_class_inheritance_8`](../../tests/ch8/test_lrm_class_inheritance_8.sv) | Class inheritance and polymorphism edge cases | 8.13 8.15 8.20 8.21 | Verilator 5.052 ||
 | [`test_base_handle_redeclared_members_and_virtual_dispatch`](../../tests/ch8/test_base_handle_redeclared_members_and_virtual_dispatch.sv) | through a base-class handle to a derived object, a redeclared property and a nonvirtual method resolve to the base class, and only a virtual method calls the derived override | 8.14 8.20 | Verilator 5.052 ||
+| [`test_base_this_hidden_associative_array_on_derived_instance`](../../tests/ch8/test_base_this_hidden_associative_array_on_derived_instance.sv) | A base method inserts into its own hidden associative array on a derived object | 8.14 8.18 7.8 | Verilator 5.054 | exit code |
 | [`test_class_super`](../../tests/ch8/test_class_super.sv) | Test: super keyword usage | 8.15 8.20 8.13 | Icarus Verilog 13.0 ||
 | [`test_class_super_hidden_members_and_implicit_super_new`](../../tests/ch8/test_class_super_hidden_members_and_implicit_super_new.sv) | super reaches the properties, methods, value parameters and local parameters of the immediate base class, also those the derived class hides and those the base inherits, and a constructor without super.new gets one inserted, which uses the default argument of the base constructor | 8.15 8.7 | Verilator 5.052 ||
 | [`test_constructor_default_argument`](../../tests/ch8/test_constructor_default_argument.sv) | The default keyword in the argument list of a derived class constructor stands for the arguments of the superclass constructor in their order, types and default values, and may appear once; a call with no arguments then takes the superclass defaults and a call with arguments gives them in that order | 8.15 8.16 A.10 | standard only ||
@@ -230,6 +231,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_virtual_final_method_overridden_in_subclass`](../../tests/ch8/test_illegal_virtual_final_method_overridden_in_subclass.sv) | a virtual method declared :final cannot be overridden in a subclass, also two levels down and without the keyword virtual | 8.20 | Verilator 5.052 | illegal design |
 | [`test_method_initial_extends`](../../tests/ch8/test_method_initial_extends.sv) | A method declared :initial starts a method and does not override one, and a method declared :extends overrides a virtual method and is virtual itself | 8.20 | Verilator 5.052 ||
 | [`test_method_virtual`](../../tests/ch8/test_method_virtual.sv) | Virtual methods test | 8.20 8.15 | Verilator 5.052 ||
+| [`test_package_virtual_calls_preserve_module_string_updates`](../../tests/ch8/test_package_virtual_calls_preserve_module_string_updates.sv) | Three successive virtual methods append to the same module string | 8.20 23.9 10.4.1 | Verilator 5.054 | exit code |
 | [`test_virt_method`](../../tests/ch8/test_virt_method.sv) | Test virtual methods | 8.20 8.14 | Verilator 5.052 ||
 | [`test_virtual_method`](../../tests/ch8/test_virtual_method.sv) | Test virtual method | 8.20 | Verilator 5.052 ||
 | [`test_abstract_class_basic`](../../tests/ch8/test_abstract_class_basic.sv) | Abstract class with pure virtual methods implemented by two derived classes | 8.21 8.20 | Verilator 5.052 ||
@@ -263,11 +265,13 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_extern_return_type_mismatch`](../../tests/ch8/test_illegal_extern_return_type_mismatch.sv) | the return type of an out-of-block method declaration has to match its prototype | 8.24 | Verilator 5.052 | illegal design |
 | [`test_illegal_extern_return_type_without_class_scope`](../../tests/ch8/test_illegal_extern_return_type_without_class_scope.sv) | an out-of-block method whose return type is declared in its class has to name that type with the class scope | 8.24 | standard only | illegal design |
 | [`test_illegal_extern_type_name_resolves_differently`](../../tests/ch8/test_illegal_extern_type_name_resolves_differently.sv) | an identifier in an out-of-block method header has to resolve to the same declaration as in the prototype | 8.24 | standard only | illegal design |
+| [`test_cast_between_virtual_interface_class_specializations`](../../tests/ch8/test_cast_between_virtual_interface_class_specializations.sv) | Class specializations using different virtual interface parameters remain distinct | 8.25 25.9 6.24.2 | Verilator 5.054 | exit code |
 | [`test_class_bounded_fifo`](../../tests/ch8/test_class_bounded_fifo.sv) | A parameterized class FIFO with a size limit, try_put and try_get | 8.25 7.10 13.5.2 | Verilator 5.052 ||
 | [`test_class_param`](../../tests/ch8/test_class_param.sv) | Test: Parameterized class | 8.25 | Verilator 5.052 ||
 | [`test_class_param_2`](../../tests/ch8/test_class_param_2.sv) | Test: Parameterized class, instantiation with different types | 8.25 | Verilator 5.052 ||
 | [`test_class_typed_param`](../../tests/ch8/test_class_typed_param.sv) | Test: Type parameter in class | 8.25 8.25.1 | Verilator 5.052 ||
 | [`test_comb_param_class`](../../tests/ch8/test_comb_param_class.sv) | Test: Parameterized class specialization | 8.25 | Verilator 5.052 ||
+| [`test_comment_before_specialized_local_cast_destination`](../../tests/ch8/test_comment_before_specialized_local_cast_destination.sv) | A local cast destination in a parameterized method uses the active specialization | 8.25 6.24.2 | Verilator 5.054 | exit code |
 | [`test_generic_fifo`](../../tests/ch8/test_generic_fifo.sv) | Parameterized class basic test | 8.25 7.10 | Verilator 5.052 ||
 | [`test_illegal_parameterized_class_without_default_specialization`](../../tests/ch8/test_illegal_parameterized_class_without_default_specialization.sv) | the unadorned name of a parameterized class with a parameter that has no default does not denote a specialization | 8.25 | Verilator 5.052 | illegal design |
 | [`test_illegal_type_parameter_base_not_class`](../../tests/ch8/test_illegal_type_parameter_base_not_class.sv) | a type parameter used as the base class has to resolve to a class type after elaboration | 8.25 8.13 | Verilator 5.052 | illegal design |

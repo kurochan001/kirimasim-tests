@@ -257,6 +257,11 @@
 - `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 動作確認、古い入力との対応 3 件。
 - `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
+- `uvm-standalone-20261123-ghost-strict.json`: `private build e95a514c6d02` / `2026-11-23T14:14:24.310807+00:00` / 6/12332 動作確認、古い入力との対応 0 件。
+- `uvm-standalone-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T14:14:24.163875+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `uvm-standalone-20261123-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T14:14:24.285520+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `uvm-standalone-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T14:14:29.293139+00:00` / 6/12332 動作確認、古い入力との対応 0 件。
+- `uvm-standalone-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T14:14:29.432996+00:00` / 6/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -11272,6 +11277,7 @@ typedefは既存のデータ型にユーザ定義型識別子を与え，タイ�
 規定の性質: `definition`。
 
 - [test_typedef_corner.sv](../tests/ch6/test_typedef_corner.sv): scalar/vector/struct alias、alias of aliasとtypedef declarator末尾のunpacked4要素/queue次元を実際に宣言し、値更新と要素数・関数引数返値を比較する。
+- [test_real_typedef_class_property_retains_fraction.sv](../tests/ch6/test_real_typedef_class_property_retains_fraction.sv): 別名で宣言したクラスプロパティと直接宣言したプロパティに同じ負の小数を代入し、元の実数と比較する。
 
 ### SV2023-6.18-EXTRACT-UNPACKED-PARAMETER-TYPENAME
 
@@ -19940,6 +19946,7 @@ super を使って基底クラスの値パラメータや局所値パラメー�
 - [test_member_access_cast.sv](../tests/ch6/test_member_access_cast.sv)：派生オブジェクトを持つベースハンドルをダウンカストし，継承された部品と派生部品の両方を観察する。
 - [test_class_cast_edge_cases.sv](../tests/ch8/test_class_cast_edge_cases.sv): base静的型のsourceが実際にはderived objectを保持するとき$castが成功し、derived propertyへアクセスできる。edge-case側は元の更新15がcast先にも見える。
 - [test_dynamic_cast.sv](../tests/ch8/test_dynamic_cast.sv): base静的型のsourceが実際にはderived objectを保持するとき$castが成功し、derived propertyへアクセスできる。edge-case側は元の更新15がcast先にも見える。
+- [test_dynamic_cast_into_associative_class_element.sv](../tests/ch6/test_dynamic_cast_into_associative_class_element.sv): 基底型のハンドルを派生型の連想配列要素にキャストし、成功、キーの生成、オブジェクトの同一性を確認する。
 
 ### SV2023-8.16-EXTRACT-CAST-FORMS
 
@@ -34525,6 +34532,7 @@ output・inout の仮引数、または const ref でない ref の仮引数を�
 規定の性質: `mandatory`。
 
 - [test_return_overrides_function_name_value.sv](../tests/ch13/test_return_overrides_function_name_value.sv): over は over = x * 10 の後に return x + 1 を実行し over(3)=4、pick は pick = 100 の後に if (x \> 0) return x を持ち pick(7)=7（return 実行）と pick(-1)=100（return なし、名前の値が結果になる対照）、from_name は from_name = x * 2 の後に return from_name + 1 で from_name(5)=11 を表示する。名前へ代入した後に別の式で return した結果が return の式の値であることを3つの関数で比べる。 区別: 名前へ代入した値を return より優先する（または return の式を無視する）実装では over(3)=30、pick(7)=100、from_name(5)=10 になる。名前への代入を結果にしない実装では return のない pick(-1) が 100 にならない。各呼び出しは別の $display で表示するので評価順に依存しない。
+- [test_explicit_zero_return_after_function_result_passed_by_ref.sv](../tests/ch13/test_explicit_zero_return_after_function_result_passed_by_ref.sv): 参照渡しで関数の戻り値変数に書き込んだ後、明示的な戻り式がゼロの場合もその式の値を返す。
 
 ### SV2023-13.4.1-EXTRACT-VOID-STATEMENT
 
@@ -36867,6 +36875,7 @@ try_put はメッセージを追加せずにゼロを返します。無制限の
 規定の性質: `mandatory`。
 
 - [test_mailbox_blocking_put_get.sv](../tests/ch15/test_mailbox_blocking_put_get.sv)：キューのメッセージは順番に削除され、空のgetは4時間待ち、14時に遅延遅延メッセージを返します。
+- [test_bounded_mailboxes_complete_two_serial_round_trips.sv](../tests/ch15/test_bounded_mailboxes_complete_two_serial_round_trips.sv): 要求と応答を別々の容量付きメールボックスで二往復させ、空の応答箱を待ってから各メッセージを順に受け取る。
 
 ### SV2023-15.4.5-EXTRACT-SIGNATURE
 
@@ -53307,6 +53316,7 @@ $typename構造: 等価なtypedefsを内蔵型またはユーザ定義型に解�
 規定の性質: `definition`。
 
 - [test_type_check_edge_cases.sv](../tests/ch20/test_type_check_edge_cases.sv): simple equivalent typedef byte_tのtypenameがalias名ではなくbuilt-in logic\[7:0\]のtypenameと一致することを比較する。nominal structはpackedvectorと異なる対照を含む。
+- [test_typename_alias_of_specialized_class.sv](../tests/ch20/test_typename_alias_of_specialized_class.sv): クラス特殊化を表す別名の型名が空でなく、特殊化を直接指定した型名と一致することを確認する。
 
 ### SV2023-20.6.1-EXTRACT-TYPENAME-WHITESPACE
 
@@ -70507,6 +70517,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 規定の性質: `permission`。
 
 - [test_virtual_interface_modport.sv](../tests/ch25/test_virtual_interface_modport.sv): newのvirtual-interface引数で2個のclass propertyを初期化し、d0.vifのprocedural再代入後にsendが別instanceだけを更新する実値を確認する。
+- [test_virtual_interface_clocking_read_after_forever_wait.sv](../tests/ch25/test_virtual_interface_clocking_read_after_forever_wait.sv): クラスの仮想インターフェースプロパティを手続き内で実体に結び付け、クロッキングイベントを待つたびにサンプル値を読み取る。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-COMPARISON
 

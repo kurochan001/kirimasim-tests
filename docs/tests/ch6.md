@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 902 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 905 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -340,6 +340,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_forward_typedef_never_defined`](../../tests/ch6/test_illegal_forward_typedef_never_defined.sv) | a forward typedef whose name is never defined as a data type is an error | 6.18 | standard only | illegal design |
 | [`test_illegal_hierarchical_type_reference`](../../tests/ch6/test_illegal_hierarchical_type_reference.sv) | a type identifier of a module instance cannot be referenced with a hierarchical name, while a type of an interface reached through a port can be redefined locally | 6.18 | Verilator 5.052 | illegal design |
 | [`test_illegal_typedef_used_before_declaration`](../../tests/ch6/test_illegal_typedef_used_before_declaration.sv) | the declaration of a user-defined type has to come before any reference to its name | 6.18 | Verilator 5.052 | illegal design |
+| [`test_real_typedef_class_property_retains_fraction`](../../tests/ch6/test_real_typedef_class_property_retains_fraction.sv) | A real typedef property retains the same negative fraction as a real property | 6.18 6.12 | Icarus Verilog 13.0 | exit code |
 | [`test_type_def`](../../tests/ch6/test_type_def.sv) | Typedef Tests | 6.18 20.6.2 | Verilator 5.052 ||
 | [`test_typedef`](../../tests/ch6/test_typedef.sv) | typedef of vectors, an enum and a packed struct | 6.18 | Icarus Verilog 13.0 ||
 | [`test_typedef_advanced`](../../tests/ch6/test_typedef_advanced.sv) | Advanced Typedef Tests | 6.18 | Icarus Verilog 13.0 ||
@@ -552,6 +553,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_local_var_edge_cases_2`](../../tests/ch6/test_local_var_edge_cases_2.sv) | Test: Local variable edge cases | 6.21 | Icarus Verilog 13.0 ||
 | [`test_local_var_scope`](../../tests/ch6/test_local_var_scope.sv) | Block, function and task local variables, static and automatic | 6.21 13.4.2 | Icarus Verilog 13.0 ||
 | [`test_module_automatic_lifetime`](../../tests/ch6/test_module_automatic_lifetime.sv) | In a module declared automatic, variables of its tasks and functions are automatic by default and start again on each call, except those declared static, while module-level variables stay static; in an ordinary module they are static | 6.21 6.8 13.3.1 | Verilator 5.052 ||
+| [`test_parallel_method_output_handle_after_forever_delay`](../../tests/ch6/test_parallel_method_output_handle_after_forever_delay.sv) | Concurrent method activations retain their own output handle across a delay | 6.21 8.6 13.5.1 12.7.6 | Verilator 5.054 | exit code |
 | [`test_scope_resolution_edge_cases`](../../tests/ch6/test_scope_resolution_edge_cases.sv) | Module, block and nested block variables, and a name hidden by an inner block | 6.21 | Icarus Verilog 13.0 ||
 | [`test_static_initializer_runs_once`](../../tests/ch6/test_static_initializer_runs_once.sv) | The initializer of a static variable declared in a procedural block runs once before time 0, not on each entry to the block | 6.21 6.8 | Icarus Verilog 13.0 ||
 | [`test_static_var`](../../tests/ch6/test_static_var.sv) | Static and Automatic Variable Tests | 6.21 13.4.2 | Icarus Verilog 13.0 ||
@@ -635,6 +637,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_cast_task_enum_value_runtime_error`](../../tests/ch6/test_cast_task_enum_value_runtime_error.sv) | $cast called as a task with a value computed at run time that is not a member of the destination enumeration gives a run-time error and leaves the destination unchanged | 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_ch6_extra_cast_task_runtime_error`](../../tests/ch6/test_ch6_extra_cast_task_runtime_error.sv) | An invalid $cast task call is not rejected at compile time; it reports a runtime error and leaves the destination unchanged | 6.24.2 6.19.3 | Verilator 5.052 ||
 | [`test_class_cast_compatibility_dynamic`](../../tests/ch6/test_class_cast_compatibility_dynamic.sv) | $cast between class handles succeeds only when the object is assignment compatible with the destination | 6.24.2 | Verilator 5.052 ||
+| [`test_dynamic_cast_into_associative_class_element`](../../tests/ch6/test_dynamic_cast_into_associative_class_element.sv) | A successful class downcast creates the target associative array entry | 6.24.2 8.16 7.8 | Verilator 5.054 | exit code |
 | [`test_member_access_cast`](../../tests/ch6/test_member_access_cast.sv) | Test $cast with member access expressions | 6.24.2 8.16 | Verilator 5.052 ||
 | [`test_bitstream_array_to_packed_order`](../../tests/ch6/test_bitstream_array_to_packed_order.sv) | Bit stream casts place the first unpacked element at the most significant end | 6.24.3 | standard only ||
 | [`test_bitstream_cast_destination_layout`](../../tests/ch6/test_bitstream_cast_destination_layout.sv) | a bit-stream cast fills destination items left to right, gives the remaining bits to the first unbounded dynamic item, and includes all dynamic source items | 6.24.3 | standard only ||

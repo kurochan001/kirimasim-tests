@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "a752bf8f76904a29a1b9b0fbf7c5fdde11708b80f697ba2224dcfed56beba0e3",
+  "registry_sha256": "00827532a7eefe6b5e3af0bfb83b073fff3d4d39c376b69956fe393f7aca2c3b",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -51,9 +51,9 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 16351,
-    "linked_test_files": 6714,
-    "unlinked_test_files": 9637
+    "suite_test_files": 16369,
+    "linked_test_files": 6720,
+    "unlinked_test_files": 9649
   },
   "collective_requirement_count": 774,
   "requirement_status_counts": {
@@ -29137,6 +29137,127 @@
           "unreviewed_oracle": 0,
           "stale": 0,
           "not_run": 11486,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "uvm-standalone-20261123-ghost-strict.json",
+        "simulator": "ghost",
+        "version": "private build e95a514c6d02",
+        "generated_at": "2026-11-23T14:14:24.310807+00:00",
+        "executed": [
+          "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+          "SV2023-15.4.5-EXTRACT-REMOVE-OR-BLOCK",
+          "SV2023-20.6.1-EXTRACT-TYPENAME-TYPEDEF",
+          "SV2023-25.9-EXTRACT-VIRTUAL-CLASS-PROPERTY",
+          "SV2023-6.18-EXTRACT-TYPEDEF-ALIAS",
+          "SV2023-8.16-EXTRACT-CAST-CHECKED-OBJECT"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 6,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11483,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "uvm-standalone-20261123-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-23T14:14:24.163875+00:00",
+        "executed": [
+          "SV2023-6.18-EXTRACT-TYPEDEF-ALIAS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 5,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11483,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "uvm-standalone-20261123-kirimasim.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "generated_at": "2026-11-23T14:14:24.285520+00:00",
+        "executed": [
+          "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+          "SV2023-6.18-EXTRACT-TYPEDEF-ALIAS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 2,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 4,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11483,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "uvm-standalone-20261123-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-23T14:14:29.293139+00:00",
+        "executed": [
+          "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+          "SV2023-15.4.5-EXTRACT-REMOVE-OR-BLOCK",
+          "SV2023-20.6.1-EXTRACT-TYPENAME-TYPEDEF",
+          "SV2023-25.9-EXTRACT-VIRTUAL-CLASS-PROPERTY",
+          "SV2023-6.18-EXTRACT-TYPEDEF-ALIAS",
+          "SV2023-8.16-EXTRACT-CAST-CHECKED-OBJECT"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 6,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11483,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "uvm-standalone-20261123-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-23T14:14:29.432996+00:00",
+        "executed": [
+          "SV2023-13.4.1-EXTRACT-RETURN-OVERRIDES-NAME",
+          "SV2023-15.4.5-EXTRACT-REMOVE-OR-BLOCK",
+          "SV2023-20.6.1-EXTRACT-TYPENAME-TYPEDEF",
+          "SV2023-25.9-EXTRACT-VIRTUAL-CLASS-PROPERTY",
+          "SV2023-6.18-EXTRACT-TYPEDEF-ALIAS",
+          "SV2023-8.16-EXTRACT-CAST-CHECKED-OBJECT"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 6,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11483,
           "unmapped": 843,
           "interpretation_pending": 0
         }

@@ -76,41 +76,41 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **16351 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **16369 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9016 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2924 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9017 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2941 |
 | The standard only, with no fixed-release simulator oracle recorded | 4411 |
 
-4059 tests depend on x or z values (`:fourstate: yes`). 745 tests include C code. 193 use DPI (`:dpi_c:`) and 554 use VPI (`:vpi_c:`). A test can use both. 3066 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 33 tests list additional source or include files (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4059 tests depend on x or z values (`:fourstate: yes`). 745 tests include C code. 193 use DPI (`:dpi_c:`) and 554 use VPI (`:vpi_c:`). A test can use both. 3066 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 95 tests check the exit code of the simulation (`:expected_exit:`). 33 tests list additional source or include files (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 152 | 117 | 15 | 20 |
 | 4 | Scheduling semantics | 481 | 444 | 8 | 29 |
 | 5 | Lexical conventions | 520 | 441 | 29 | 50 |
-| 6 | Data types | 902 | 564 | 171 | 167 |
+| 6 | Data types | 905 | 565 | 173 | 167 |
 | 7 | Aggregate data types | 1113 | 326 | 487 | 300 |
-| 8 | Classes | 489 | 77 | 269 | 143 |
+| 8 | Classes | 493 | 77 | 273 | 143 |
 | 9 | Processes | 464 | 344 | 53 | 67 |
-| 10 | Assignment statements | 750 | 589 | 81 | 80 |
-| 11 | Operators and expressions | 2607 | 2018 | 231 | 358 |
+| 10 | Assignment statements | 751 | 589 | 82 | 80 |
+| 11 | Operators and expressions | 2609 | 2018 | 233 | 358 |
 | 12 | Procedural programming statements | 312 | 214 | 33 | 65 |
-| 13 | Tasks and functions (subroutines) | 747 | 333 | 250 | 164 |
+| 13 | Tasks and functions (subroutines) | 751 | 333 | 254 | 164 |
 | 14 | Clocking blocks | 172 |  | 102 | 70 |
-| 15 | Interprocess synchronization and communication | 205 | 2 | 64 | 139 |
+| 15 | Interprocess synchronization and communication | 206 | 2 | 65 | 139 |
 | 16 | Assertions | 802 | 38 | 122 | 642 |
 | 17 | Checkers | 129 |  | 49 | 80 |
-| 18 | Constrained random value generation | 291 | 4 | 133 | 154 |
+| 18 | Constrained random value generation | 292 | 4 | 134 | 154 |
 | 19 | Functional coverage | 246 |  | 71 | 175 |
-| 20 | Utility system tasks and system functions | 689 | 388 | 122 | 179 |
+| 20 | Utility system tasks and system functions | 690 | 388 | 123 | 179 |
 | 21 | Input/output system tasks and system functions | 936 | 534 | 108 | 294 |
 | 22 | Compiler directives | 1326 | 1244 | 41 | 41 |
 | 23 | Modules and hierarchy | 419 | 281 | 57 | 81 |
 | 24 | Programs | 221 | 37 | 38 | 146 |
-| 25 | Interfaces | 265 | 90 | 119 | 56 |
+| 25 | Interfaces | 266 | 90 | 120 | 56 |
 | 26 | Packages | 265 | 93 | 70 | 102 |
 | 27 | Generate constructs | 286 | 232 | 21 | 33 |
 | 28 | Gate-level and switch-level modeling | 403 | 318 | 3 | 82 |

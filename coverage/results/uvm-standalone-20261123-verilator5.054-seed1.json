@@ -1,0 +1,85 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch10/test_clear_module_string_between_two_class_task_calls": {
+   "status": "pass",
+   "inputs_sha256": "874ffe10f2bac4bd292f2befc79f3bef4731488c906cefbf3f66d85641254064"
+  },
+  "ch11/test_fork_equality_assignment_to_automatic_vector_bit": {
+   "status": "pass",
+   "inputs_sha256": "fb7747842514f22bc0238e0c656a4027e78c461246ab835a27a715796483bee8"
+  },
+  "ch11/test_increment_member_through_associative_handle": {
+   "status": "pass",
+   "inputs_sha256": "8dd74f588444b995945037406545242cee900d7f9fc95e872a5af0edff1b7c76"
+  },
+  "ch13/test_explicit_zero_return_after_function_result_passed_by_ref": {
+   "status": "pass",
+   "inputs_sha256": "5ff2702a4894cdf6e0ac19e57fb0ab6512566f7ee7c7b5cfc5471be8f22da0b1"
+  },
+  "ch13/test_rebound_input_handle_is_visible_to_next_call": {
+   "status": "pass",
+   "inputs_sha256": "21eab2aa282f0cadf9e85a04cf783d17beaf1cee7e5dc98af4362ccdddead6a7"
+  },
+  "ch13/test_repeated_task_output_into_caller_property": {
+   "status": "pass",
+   "inputs_sha256": "0dc3be31480cc09972655842c155bb24a623d475761dca71fece46a8eb7938e9"
+  },
+  "ch13/test_void_cast_keeps_ref_dynamic_array_argument": {
+   "status": "pass",
+   "inputs_sha256": "3f6e33ec39dcc10dc4baefb666750aea2417315ddeabdeef99dd12362dae2b78"
+  },
+  "ch15/test_bounded_mailboxes_complete_two_serial_round_trips": {
+   "status": "pass",
+   "inputs_sha256": "82b17b806c96b2510ddf59f6390b00d247330911923ab20069e02747fd89773d"
+  },
+  "ch18/test_randomize_inherited_property_in_parameterized_subclass": {
+   "status": "pass",
+   "inputs_sha256": "d8325051a5aad2fa1945b77a97b199c6955f80e56d1ef20b038b5b2531fcfa51"
+  },
+  "ch20/test_typename_alias_of_specialized_class": {
+   "status": "pass",
+   "inputs_sha256": "cde6727980d708899f9e6f1ecf2572a89da83a832c85ed0ee92988b2b058d05e"
+  },
+  "ch25/test_virtual_interface_clocking_read_after_forever_wait": {
+   "status": "pass",
+   "inputs_sha256": "c0715f19f0e3a67eb83dc108248d21eb65fe2c377c37b5ca9a8b878dfdf20e27"
+  },
+  "ch6/test_dynamic_cast_into_associative_class_element": {
+   "status": "pass",
+   "inputs_sha256": "fcf9a676a4b441b0eda8920f88692b7d2a57db3857c2a46b1417b2a7484e176f"
+  },
+  "ch6/test_parallel_method_output_handle_after_forever_delay": {
+   "status": "pass",
+   "inputs_sha256": "460aee121bae3b39ff244af6265990f7dfef71f5baf157d8882e6234b2fcbfb1"
+  },
+  "ch6/test_real_typedef_class_property_retains_fraction": {
+   "status": "pass",
+   "inputs_sha256": "aa4134f811c0d4f754cf4fd30bf3bd1761745702b06d08bd4b8ba9457f2f89e4"
+  },
+  "ch8/test_base_this_hidden_associative_array_on_derived_instance": {
+   "status": "pass",
+   "inputs_sha256": "27a2064d867948a5eb5df5c00bfc775c9e787712029e2cf419d98b2e41d6479e"
+  },
+  "ch8/test_cast_between_virtual_interface_class_specializations": {
+   "status": "pass",
+   "inputs_sha256": "b04caf8087f0be7379906d4c2abfae1237cb3793e17cbcfb220b23ac7b8ca10f"
+  },
+  "ch8/test_comment_before_specialized_local_cast_destination": {
+   "status": "pass",
+   "inputs_sha256": "af5943b889297cab3f2750b932c6aa8c4eabe4e66bc09ce7f1e0a380a736ced9"
+  },
+  "ch8/test_package_virtual_calls_preserve_module_string_updates": {
+   "status": "pass",
+   "inputs_sha256": "f06250519d43ef95edb5868e9f20b6a238e9e98613b7bc36bf485c618bae069e"
+  }
+ },
+ "generated_at": "2026-11-23T14:14:29.293139+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -24143,6 +24143,12 @@
     "ZXQPH0QXZ : 関数本体で使わない ZXQPH1QXZ 仮引数を持つ関数を定数式から間接的に呼び、呼び出し位置または定数を初期化する位置で診断を求める。": "ZXQPH0QXZ: The constant expression indirectly calls a function with an unused ZXQPH1QXZ formal. The diagnostic must identify the inner call or the constant initializer.",
     "ZXQPH0QXZ : 分配に必要な幅より一ビット不足する入力を接続し、インスタンス配列の接続行でポート幅の診断を求める。": "ZXQPH0QXZ: A packed connection one bit too short must produce a port-width diagnostic at the instance array connection.",
     "ZXQPH0QXZ : 分配に必要な幅より一ビット超過する入力を接続し、インスタンス配列の接続行でポート幅の診断を求める。": "ZXQPH0QXZ: A packed connection one bit too long must produce a port-width diagnostic at the instance array connection.",
-    "ZXQPH0QXZ : 単一ポート幅の入力を切り替えると、各インスタンスの出力が同じビット反転順の値に変わる。": "ZXQPH0QXZ: When the single-port-width input changes, each instance produces the same value with the two bits in reverse order."
+    "ZXQPH0QXZ : 単一ポート幅の入力を切り替えると、各インスタンスの出力が同じビット反転順の値に変わる。": "ZXQPH0QXZ: When the single-port-width input changes, each instance produces the same value with the two bits in reverse order.",
+    "ZXQPH0QXZ : 別名で宣言したクラスプロパティと直接宣言したプロパティに同じ負の小数を代入し、元の実数と比較する。": "ZXQPH0QXZ: Both the typedef property and the directly declared property preserve the original fractional value.",
+    "ZXQPH0QXZ : 基底型のハンドルを派生型の連想配列要素にキャストし、成功、キーの生成、オブジェクトの同一性を確認する。": "ZXQPH0QXZ: Casting the base handle to a derived handle succeeds, creates the missing associative entry, and preserves object identity.",
+    "ZXQPH0QXZ : 参照渡しで関数の戻り値変数に書き込んだ後、明示的な戻り式がゼロの場合もその式の値を返す。": "ZXQPH0QXZ: After a reference argument sets the function result variable, the explicit return expression determines each result, including zero.",
+    "ZXQPH0QXZ : 要求と応答を別々の容量付きメールボックスで二往復させ、空の応答箱を待ってから各メッセージを順に受け取る。": "ZXQPH0QXZ: Two round trips use separate bounded request and reply mailboxes. Each reply arrives after the reader waits on the empty mailbox.",
+    "ZXQPH0QXZ : クラス特殊化を表す別名の型名が空でなく、特殊化を直接指定した型名と一致することを確認する。": "ZXQPH0QXZ: The class typedef returns a nonempty type name identical to that of its underlying specialization.",
+    "ZXQPH0QXZ : クラスの仮想インターフェースプロパティを手続き内で実体に結び付け、クロッキングイベントを待つたびにサンプル値を読み取る。": "ZXQPH0QXZ: A procedurally bound virtual interface property supplies two successive samples after clocking events."
   }
 }
