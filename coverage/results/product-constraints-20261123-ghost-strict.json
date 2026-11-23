@@ -1,0 +1,22 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build e6870e43e28e",
+ "tests": {
+  "ch18/test_product_constraint_signed_singleton": {
+   "status": "pass",
+   "inputs_sha256": "d3fa19a20db868ce332577bc842163ed0f0cd60a3667e4267d3672689454432a"
+  },
+  "ch18/test_product_constraint_zero_factor": {
+   "status": "pass",
+   "inputs_sha256": "cbd3f80f0fb2fe42adf0e8cb1c1d634d5c234d4ddac1392798d53456f750c815"
+  }
+ },
+ "generated_at": "2026-11-23T09:01:38.681987+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "e6870e43e28e0e98d8785c810de86414a29a93c71cb3f44ca00b567257341b46",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 16338 |
+| Tests | 16340 |
 | Clauses in scope | 1011 |
 | Clauses out of scope | 148 |
 | Clauses with a direct test | 1011/1011 |
@@ -28,8 +28,8 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | --- | ---: |
 | both releases | 1699 |
 | Icarus Verilog 13.0 only | 7311 |
-| Verilator 5.052 or 5.054 only | 2919 |
-| standard only | 4409 |
+| Verilator 5.052 or 5.054 only | 2920 |
+| standard only | 4410 |
 
 <a id="章別"></a>
 
@@ -52,7 +52,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 15 | Interprocess synchronization and communication | 205 | 21 | 9.8 | 0 | 139 |
 | 16 | Assertions | 802 | 69 | 11.6 | 0 | 642 |
 | 17 | Checkers | 129 | 10 | 12.9 | 0 | 80 |
-| 18 | Constrained random value generation | 289 | 44 | 6.6 | 0 | 153 |
+| 18 | Constrained random value generation | 291 | 44 | 6.6 | 0 | 154 |
 | 19 | Functional coverage | 246 | 24 | 10.2 | 0 | 175 |
 | 20 | Utility system tasks and system functions | 689 | 31 | 22.2 | 0 | 179 |
 | 21 | Input/output system tasks and system functions | 936 | 47 | 19.9 | 0 | 294 |

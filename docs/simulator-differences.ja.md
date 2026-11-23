@@ -1721,3 +1721,9 @@ Checkの文書ジョブは、既存のunittestの探索コマンドへ`-v`を加
 - Icarus Verilog 13.0は、動的な型を返す関数の呼出しを囲む`$bits`と、動的配列の`$bits`をlocalparamの値にする設計を受け付ける（20.6.2）。`ch20/test_illegal_bits_encloses_queue_returning_call`、`ch20/test_illegal_bits_dynamic_array_in_localparam`
 - Verilator 5.054は、`$changing_gclk`で、式の値が変わる刻みの変化を1つ見落とす（16.9.4）。`ch16/test_changing_gclk_sampled_expression_value`
 - Verilator 5.054は、3つのファイルに同時に有効にした`$fmonitor`のうち、最後に呼んだものの行しか書かない（21.3.2）。`ch21/test_fmonitor_radix_variants_simultaneous`
+
+<a id="singleton-product-constraint"></a>
+
+## 制約内の符号付き1要素配列の積（Verilator 5.054）
+
+seed 1・73の両方で、`ch18/test_product_constraint_signed_singleton`の最初の`randomize()`は0を返し、動的配列は空のままです。サイズ制約は1で、符号付き4ビットの要素は−8を取れます。1要素の積はその要素に`int'(item) - 1`を適用した値なので、目標値の−9を満たす解があります（18.5.7.2、7.12.3）。[テスト](../tests/ch18/test_product_constraint_signed_singleton.sv) · [期待出力](../tests/ch18/test_product_constraint_signed_singleton.expected)

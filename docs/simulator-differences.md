@@ -1722,3 +1722,9 @@ The tests added on 2026-11-21 for requirements without tests (saved runs of [Ica
 - Icarus Verilog 13.0 accepts `$bits` around the call of a function that returns a dynamic type, and the `$bits` of a dynamic array as the value of a localparam (20.6.2). `ch20/test_illegal_bits_encloses_queue_returning_call`, `ch20/test_illegal_bits_dynamic_array_in_localparam`
 - Verilator 5.054 misses one change of the value of the expression in `$changing_gclk` (16.9.4). `ch16/test_changing_gclk_sampled_expression_value`
 - Verilator 5.054 writes only the lines of the last of three `$fmonitor` calls active on three files at the same time (21.3.2). `ch21/test_fmonitor_radix_variants_simultaneous`
+
+<a id="singleton-product-constraint"></a>
+
+## Signed singleton product in a constraint (Verilator 5.054)
+
+At seeds 1 and 73, the first `randomize()` in `ch18/test_product_constraint_signed_singleton` returns 0 and leaves the dynamic array empty. The mandated size is one. Its sole signed four-bit element can be −8, so the product of the single projected value `int'(item) - 1` can satisfy the target −9 (18.5.7.2, 7.12.3). [Test](../tests/ch18/test_product_constraint_signed_singleton.sv) · [Expected output](../tests/ch18/test_product_constraint_signed_singleton.expected)

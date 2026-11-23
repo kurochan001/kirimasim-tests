@@ -76,13 +76,13 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **16338 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **16340 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
 | Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9010 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2919 |
-| The standard only, with no fixed-release simulator oracle recorded | 4409 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2920 |
+| The standard only, with no fixed-release simulator oracle recorded | 4410 |
 
 4059 tests depend on x or z values (`:fourstate: yes`). 745 tests include C code. 193 use DPI (`:dpi_c:`) and 554 use VPI (`:vpi_c:`). A test can use both. 3060 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests list additional source or include files (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
@@ -103,7 +103,7 @@ The suite has **16338 tests** in 38 chapters. 9351 of them are generated. The [g
 | 15 | Interprocess synchronization and communication | 205 | 2 | 64 | 139 |
 | 16 | Assertions | 802 | 38 | 122 | 642 |
 | 17 | Checkers | 129 |  | 49 | 80 |
-| 18 | Constrained random value generation | 289 | 4 | 132 | 153 |
+| 18 | Constrained random value generation | 291 | 4 | 133 | 154 |
 | 19 | Functional coverage | 246 |  | 71 | 175 |
 | 20 | Utility system tasks and system functions | 689 | 388 | 122 | 179 |
 | 21 | Input/output system tasks and system functions | 936 | 534 | 108 | 294 |

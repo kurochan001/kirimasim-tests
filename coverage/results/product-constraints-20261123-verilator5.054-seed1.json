@@ -1,0 +1,22 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch18/test_product_constraint_signed_singleton": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'target=-9 ok=0 size=0 value=0', expected 'target=-9 ok=1 size=1 value=-8'",
+   "inputs_sha256": "d3fa19a20db868ce332577bc842163ed0f0cd60a3667e4267d3672689454432a"
+  },
+  "ch18/test_product_constraint_zero_factor": {
+   "status": "pass",
+   "inputs_sha256": "cbd3f80f0fb2fe42adf0e8cb1c1d634d5c234d4ddac1392798d53456f750c815"
+  }
+ },
+ "generated_at": "2026-11-23T09:01:35.013573+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

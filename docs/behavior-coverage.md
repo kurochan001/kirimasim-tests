@@ -171,6 +171,11 @@
 - `primitives-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T03:52:07.416509+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `primitives-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:51:59.846146+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `primitives-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:52:06.790486+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `product-constraints-20261123-ghost-strict.json`: `private build e6870e43e28e` / `2026-11-23T09:01:38.681987+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `product-constraints-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T09:01:32.204965+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `product-constraints-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit f60e41d0ba78), built with AppleClang 21.0.0.21000334` / `2026-11-23T09:02:12.068000+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `product-constraints-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T09:01:35.013573+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `product-constraints-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T09:01:35.012041+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 4/12332 動作確認、古い入力との対応 1 件。
 - `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 14/12332 動作確認、古い入力との対応 1 件。
 - `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 11/12332 動作確認、古い入力との対応 1 件。
@@ -46465,6 +46470,8 @@ foreach 制約は packed / unpacked 配列とオプションの次元ループ�
 規定の性質: `definition`。
 
 - [test_array_reduction_element_type.sv](../tests/ch18/test_array_reduction_element_type.sv): 4bit 要素の a.sum() を要素型で計算して 9+8 を 1 に wrap させ、e.sum() with (int'(item==7)) を int の個数 4 にし、product/xor/and/or も各演算子の結果を単一解に固定する。出力は a\[1\]=8、e=7 7 7 7、c=2 3 5、xor の b\[2\]=0。 区別: reduction を常に int で計算する誤実装では a\[1\]=8 が得られず、with の型を要素型として扱う誤実装では e の個数制約が成立しない。結果型が要素型または with 式の型になることを、wrap と個数の実値で示す。
+- [test_product_constraint_signed_singleton.sv](../tests/ch18/test_product_constraint_signed_singleton.sv): 1要素の積では符号拡張後の減算が結果に反映され、目標値 `-9` と `6` でそれぞれ要素 `-8` と `7` が得られる。
+- [test_product_constraint_zero_factor.sv](../tests/ch18/test_product_constraint_zero_factor.sv): ゼロを含む積と、ゼロを `1` に置き換えた積を同時に制約し、それぞれの目標値を単独で矛盾させると失敗する。
 
 ### SV2023-18.5.7.2-EXTRACT-REDUCTION-SIZE-FIRST
 

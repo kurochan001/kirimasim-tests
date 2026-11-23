@@ -27,7 +27,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 15 | [Interprocess synchronization and communication](ch15.md) | 205 | 133 |
 | 16 | [Assertions](ch16.md) | 802 | 133 |
 | 17 | [Checkers](ch17.md) | 129 | 27 |
-| 18 | [Constrained random value generation](ch18.md) | 289 | 57 |
+| 18 | [Constrained random value generation](ch18.md) | 291 | 57 |
 | 19 | [Functional coverage](ch19.md) | 246 | 50 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 689 | 392 |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 936 | 708 |

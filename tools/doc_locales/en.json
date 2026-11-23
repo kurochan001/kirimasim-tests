@@ -24132,6 +24132,8 @@
     "期待出力は import が見た ZXQPH0QXZ 、呼び出し後の ZXQPH1QXZ 、 ZXQPH2QXZ = ZXQPH3QXZ と ZXQPH4QXZ = ZXQPH5QXZ 、 ZXQPH6QXZ = ZXQPH7QXZ ZXQPH8QXZ = ZXQPH9QXZ ZXQPH10QXZ = ZXQPH11QXZ を比べる。": "The expected output compares ZXQPH0QXZ seen by the import, ZXQPH1QXZ after the call, ZXQPH2QXZ = ZXQPH3QXZ and ZXQPH4QXZ = ZXQPH5QXZ , and ZXQPH6QXZ = ZXQPH7QXZ ZXQPH8QXZ = ZXQPH9QXZ ZXQPH10QXZ = ZXQPH11QXZ .",
     "全規格の要求台帳ベース（確定）: 設計 ZXQPH0QXZ 、 ZXQPH1QXZ を除く実行 ZXQPH2QXZ 、 ZXQPH3QXZ と ZXQPH4QXZ を含む実行 ZXQPH5QXZ 。": "Against the whole-standard requirement ledger (confirmed): design ZXQPH0QXZ, execution without ZXQPH1QXZ ZXQPH2QXZ, execution with ZXQPH3QXZ and ZXQPH4QXZ ZXQPH5QXZ.",
     "全規格の要求台帳ベース（暫定）: 設計 ZXQPH0QXZ 、 ZXQPH1QXZ を除く実行 ZXQPH2QXZ 、 ZXQPH3QXZ と ZXQPH4QXZ を含む実行 ZXQPH5QXZ 。": "Against the whole-standard requirement ledger (provisional): design ZXQPH0QXZ, execution without ZXQPH1QXZ ZXQPH2QXZ, execution with ZXQPH3QXZ and ZXQPH4QXZ ZXQPH5QXZ.",
-    "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ と ZXQPH3QXZ を含めて ZXQPH4QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH4QXZ with ZXQPH2QXZ and ZXQPH3QXZ."
+    "規格要求の実行確認率: ZXQPH0QXZ を除いて ZXQPH1QXZ 、 ZXQPH2QXZ と ZXQPH3QXZ を含めて ZXQPH4QXZ 。": "Requirement execution-confirmation rate: ZXQPH1QXZ without ZXQPH0QXZ, ZXQPH4QXZ with ZXQPH2QXZ and ZXQPH3QXZ.",
+    "ZXQPH0QXZ : ZXQPH1QXZ 要素の積では符号拡張後の減算が結果に反映され、目標値 ZXQPH2QXZ と ZXQPH3QXZ でそれぞれ要素 ZXQPH4QXZ と ZXQPH5QXZ が得られる。": "ZXQPH0QXZ: For a product of ZXQPH1QXZ element, subtraction follows sign extension: targets ZXQPH2QXZ and ZXQPH3QXZ yield element values ZXQPH4QXZ and ZXQPH5QXZ, respectively.",
+    "ZXQPH0QXZ : ゼロを含む積と、ゼロを ZXQPH1QXZ に置き換えた積を同時に制約し、それぞれの目標値を単独で矛盾させると失敗する。": "ZXQPH0QXZ: The two product constraints retain the zero factor or replace it with ZXQPH1QXZ. Making either target impossible on its own causes randomization to fail."
   }
 }

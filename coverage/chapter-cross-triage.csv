@@ -423,9 +423,9 @@ tests/ch37/test_vpi_tf_call_kinds_relations.sv
 tests/gen/ch15/test_gen_cross_eventlife_nested_copy_1_before_arm_blocking_forward_1.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_typespec_kinds_more.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 7,集合データ型,17,チェッカー,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-7,集合データ型,18,制約付き乱数値の生成,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,18,"tests/ch18/test_array_reduction_element_type.sv
+7,集合データ型,18,制約付き乱数値の生成,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,20,"tests/ch18/test_array_reduction_element_type.sv
 tests/ch18/test_foreach_oob_constraints_need_guards.sv
-tests/ch18/test_urandom_seed_repeatable.sv",既存モデルの計画・実行証跡を維持する,,
+tests/ch18/test_product_constraint_signed_singleton.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,19,機能カバレッジ,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,33,"tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_after_live_first_1_all_1.sv
 tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_before_live_last_2_all_1.sv
 tests/gen/ch19/test_gen_cross_cgsample_dynamic_clear_both_arguments_first_2_nonempty_1.sv",既存モデルの計画・実行証跡を維持する,,

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "46fa9ee98b494ddfce267a4117342ca7cf5c95415ae9d51a6a4c963249321224",
+  "registry_sha256": "2a8abbd0034231de6c3f09b183186e9983d7c1e89c096b7f9fd86e9e532fa01e",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -51,8 +51,8 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 16338,
-    "linked_test_files": 6701,
+    "suite_test_files": 16340,
+    "linked_test_files": 6703,
     "unlinked_test_files": 9637
   },
   "collective_requirement_count": 771,
@@ -27219,6 +27219,107 @@
           "pass": 0,
           "fail": 0,
           "known": 1,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11482,
+          "unmapped": 849,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "product-constraints-20261123-ghost-strict.json",
+        "simulator": "ghost",
+        "version": "private build e6870e43e28e",
+        "generated_at": "2026-11-23T09:01:38.681987+00:00",
+        "executed": [
+          "SV2023-18.5.7.2-EXTRACT-REDUCTION-EXPANSION"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11482,
+          "unmapped": 849,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "product-constraints-20261123-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-23T09:01:32.204965+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 1,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11482,
+          "unmapped": 849,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "product-constraints-20261123-kirimasim.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.2.0 (commit f60e41d0ba78), built with AppleClang 21.0.0.21000334",
+        "generated_at": "2026-11-23T09:02:12.068000+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 1,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11482,
+          "unmapped": 849,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "product-constraints-20261123-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-23T09:01:35.013573+00:00",
+        "executed": [
+          "SV2023-18.5.7.2-EXTRACT-REDUCTION-EXPANSION"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11482,
+          "unmapped": 849,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "product-constraints-20261123-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-23T09:01:35.012041+00:00",
+        "executed": [
+          "SV2023-18.5.7.2-EXTRACT-REDUCTION-EXPANSION"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
           "unsupported": 0,
           "unreviewed_oracle": 0,
           "stale": 0,

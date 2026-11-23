@@ -171,6 +171,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `primitives-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T03:52:07.416509+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `primitives-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:51:59.846146+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `primitives-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:52:06.790486+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `product-constraints-20261123-ghost-strict.json`: `private build e6870e43e28e` / `2026-11-23T09:01:38.681987+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `product-constraints-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T09:01:32.204965+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `product-constraints-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit f60e41d0ba78), built with AppleClang 21.0.0.21000334` / `2026-11-23T09:02:12.068000+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `product-constraints-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T09:01:35.013573+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `product-constraints-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T09:01:35.012041+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 4/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 14/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 11/12332 execution checked; 1 entries refer to older inputs.
@@ -46465,6 +46470,8 @@ Acceptance criterion: A constrained array reduction is an iteration joined by th
 Normative role: `definition`。
 
 - [test_array_reduction_element_type.sv](../tests/ch18/test_array_reduction_element_type.sv): Computes a.sum () for 4bit elements in the element type, wrapping 9 + 8 to 1. Makes e.sum () with (int ' (item == 7)) count int, giving 4, and also fixes product/xor/and/or to the single solution given by each operator. Output: a \[ 1 \] = 8, e = 7 7 7 7, c = 2 3 5, and xor's b \[ 2 \] = 0. Distinguishing observation: a \[ 1 \] = 8 is not obtained in the misconstruction that always computes reduction with int, and the number constraint of e is not obtained in a misconstruction that treats the type of with as an element type. The resulting type is either an element type or a type of a with expression, which is indicated by the real values of wrap and the number of units.
+- [test_product_constraint_signed_singleton.sv](../tests/ch18/test_product_constraint_signed_singleton.sv): For a product of 1 element, subtraction follows sign extension: targets `-9` and `6` yield element values `-8` and `7`, respectively.
+- [test_product_constraint_zero_factor.sv](../tests/ch18/test_product_constraint_zero_factor.sv): The two product constraints retain the zero factor or replace it with `1`. Making either target impossible on its own causes randomization to fail.
 
 ### SV2023-18.5.7.2-EXTRACT-REDUCTION-SIZE-FIRST
 

@@ -25821,6 +25821,8 @@
     "ZXQPH0QXZ compares the sampled value of its whole expression at the current and the next global clock tick, so operand changes that keep the value, a pulse between two ticks and the assignment of the same value do not count, while a change of any ZXQPH1QXZ does": "ZXQPH0QXZは、式全体のサンプル値を今のグローバルクロックの刻みと次の刻みで比べるので、値を変えないオペランドの変化、2つの刻みの間のパルス、同じ値の代入は数えず、ZXQPH1QXZのどれかの変化は数える",
     "ZXQPH0QXZ in a procedural statement encloses the call of a function whose return type is a queue, a dynamically sized type": "手続き文の中のZXQPH0QXZが、戻り値の型がキュー（動的な大きさの型）の関数の呼出しを囲む",
     "ZXQPH0QXZ of a dynamic array variable is not valid at elaboration, so it cannot give the value of a ZXQPH1QXZ": "動的配列の変数のZXQPH0QXZはエラボレーションのときに有効でないので、ZXQPH1QXZの値にできない",
-    "noncontext import ZXQPH0QXZ ( ZXQPH1QXZ , o, io) は output o に ZXQPH2QXZ 、inout io に ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ を書き、x は ZXQPH6QXZ のまま。": "noncontext import ZXQPH0QXZ ( ZXQPH1QXZ , o, io) は output o に ZXQPH2QXZ 、inout io に ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ を書き、x は ZXQPH6QXZ のまま。"
+    "noncontext import ZXQPH0QXZ ( ZXQPH1QXZ , o, io) は output o に ZXQPH2QXZ 、inout io に ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ を書き、x は ZXQPH6QXZ のまま。": "noncontext import ZXQPH0QXZ ( ZXQPH1QXZ , o, io) は output o に ZXQPH2QXZ 、inout io に ZXQPH3QXZ + ZXQPH4QXZ = ZXQPH5QXZ を書き、x は ZXQPH6QXZ のまま。",
+    "A singleton product constraint applies its signed with expression at ZXQPH0QXZ width": "1要素の積制約で符号付きのwith式をZXQPH0QXZ幅で評価する",
+    "Two product constraints apply different projections to the same zero factor": "同じゼロ因子に対して2つの積制約が異なるwith式を適用する"
   }
 }
