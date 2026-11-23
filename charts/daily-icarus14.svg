@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="400" viewBox="0 0 880 400" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="420" viewBox="0 0 880 420" role="img">
 <title>Daily overall elapsed ratio: 25 designs: Icarus Verilog 14.0 devel = 1; lower is faster; JST; gaps are missing</title>
-<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;font-size:12px;fill:#1f2328;stroke:none}.bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}.grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}.line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}.c-reference{stroke:#656d76;fill:#656d76}.c-ratio0{stroke:#0969da;fill:#0969da}.c-ratio1{stroke:#8250df;fill:#8250df}.line{fill:none}.mk{fill:none;stroke-width:1.6}@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}.muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}.c-reference{stroke:#9198a1;fill:#9198a1}.c-ratio0{stroke:#4493f8;fill:#4493f8}.c-ratio1{stroke:#a371f7;fill:#a371f7}.line{fill:none}.mk{fill:none;stroke-width:1.6}}</style>
-<rect class="bg" width="880" height="400" rx="6"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;font-size:12px;fill:#1f2328;stroke:none}.bg{fill:#ffffff}.muted{fill:#59636e}.title{font-size:15px;font-weight:600}.grid{stroke:#d1d9e0;stroke-width:1}.axis{stroke:#818b98;stroke-width:1}.line{fill:none;stroke-width:2}.dashed{stroke-dasharray:5 4}.c-reference{stroke:#656d76;fill:#656d76}.c-ratio0{stroke:#0969da;fill:#0969da}.c-ratio1{stroke:#8250df;fill:#8250df}.c-ratio2{stroke:#1a7f37;fill:#1a7f37}.line{fill:none}.mk{fill:none;stroke-width:1.6}@media (prefers-color-scheme:dark){text{fill:#f0f6fc}.bg{fill:#0d1117}.muted{fill:#9198a1}.grid{stroke:#3d444d}.axis{stroke:#656c76}.c-reference{stroke:#9198a1;fill:#9198a1}.c-ratio0{stroke:#4493f8;fill:#4493f8}.c-ratio1{stroke:#a371f7;fill:#a371f7}.c-ratio2{stroke:#3fb950;fill:#3fb950}.line{fill:none}.mk{fill:none;stroke-width:1.6}}</style>
+<rect class="bg" width="880" height="420" rx="6"/>
 <text x="20.0" y="28.0" class="title" text-anchor="start">Daily overall elapsed ratio: 25 designs</text>
 <text x="20.0" y="48.0" class="muted" text-anchor="start">Icarus Verilog 14.0 devel = 1; lower is faster; JST; gaps are missing</text>
 <line class="line dashed c-reference" x1="20" x2="38" y1="70" y2="70"/>
@@ -13,35 +13,41 @@
 <line class="line c-ratio1" x1="20" x2="38" y1="90" y2="90"/>
 <circle class="mk c-ratio1" cx="29.0" cy="90.0" r="7.5"/>
 <text x="44.0" y="94.0" text-anchor="start">kirimasim Intel(R) Xeon(R) 6975P-C / 341b44a0 (last valid): 0.517</text>
-<line class="grid" x1="64" x2="852" y1="360.0" y2="360.0"/>
-<text x="56.0" y="364.0" class="muted" text-anchor="end">0</text>
-<line class="grid" x1="64" x2="852" y1="310.4" y2="310.4"/>
-<text x="56.0" y="314.4" class="muted" text-anchor="end">0.24</text>
-<line class="grid" x1="64" x2="852" y1="260.8" y2="260.8"/>
-<text x="56.0" y="264.8" class="muted" text-anchor="end">0.48</text>
-<line class="grid" x1="64" x2="852" y1="211.2" y2="211.2"/>
-<text x="56.0" y="215.2" class="muted" text-anchor="end">0.72</text>
-<line class="grid" x1="64" x2="852" y1="161.6" y2="161.6"/>
-<text x="56.0" y="165.6" class="muted" text-anchor="end">0.96</text>
-<line class="grid" x1="64" x2="852" y1="112.0" y2="112.0"/>
-<text x="56.0" y="116.0" class="muted" text-anchor="end">1.2</text>
-<line class="axis" x1="64" x2="852" y1="360" y2="360"/>
-<line class="axis" x1="64.0" x2="64.0" y1="360" y2="364"/>
-<text x="64.0" y="378.0" class="muted" text-anchor="middle">11-18</text>
-<line class="axis" x1="261.0" x2="261.0" y1="360" y2="364"/>
-<text x="261.0" y="378.0" class="muted" text-anchor="middle">11-19</text>
-<line class="axis" x1="458.0" x2="458.0" y1="360" y2="364"/>
-<text x="458.0" y="378.0" class="muted" text-anchor="middle">11-20</text>
-<line class="axis" x1="655.0" x2="655.0" y1="360" y2="364"/>
-<text x="655.0" y="378.0" class="muted" text-anchor="middle">11-21</text>
-<line class="axis" x1="852.0" x2="852.0" y1="360" y2="364"/>
-<text x="852.0" y="378.0" class="muted" text-anchor="middle">11-22</text>
-<polyline class="line dashed c-reference" points="64.0,153.3 261.0,153.3 458.0,153.3 655.0,153.3 852.0,153.3"/>
-<polyline class="line c-ratio0" points="64.0,174.6 261.0,174.9 458.0,212.9"/>
-<polyline class="line c-ratio1" points="655.0,253.5 852.0,253.1"/>
-<circle class="mk c-ratio0" cx="64.0" cy="174.6" r="7.5"/>
-<circle class="mk c-ratio0" cx="261.0" cy="174.9" r="7.5"/>
-<circle class="mk c-ratio0" cx="458.0" cy="212.9" r="7.5"/>
-<circle class="mk c-ratio1" cx="655.0" cy="253.5" r="7.5"/>
-<circle class="mk c-ratio1" cx="852.0" cy="253.1" r="7.5"/>
+<line class="line c-ratio2" x1="20" x2="38" y1="110" y2="110"/>
+<circle class="mk c-ratio2" cx="29.0" cy="110.0" r="7.5"/>
+<text x="44.0" y="114.0" text-anchor="start">kirimasim AMD EPYC 7763 64-Core Processor / 39bb1735 (last valid): 0.609</text>
+<line class="grid" x1="64" x2="852" y1="380.0" y2="380.0"/>
+<text x="56.0" y="384.0" class="muted" text-anchor="end">0</text>
+<line class="grid" x1="64" x2="852" y1="330.4" y2="330.4"/>
+<text x="56.0" y="334.4" class="muted" text-anchor="end">0.24</text>
+<line class="grid" x1="64" x2="852" y1="280.8" y2="280.8"/>
+<text x="56.0" y="284.8" class="muted" text-anchor="end">0.48</text>
+<line class="grid" x1="64" x2="852" y1="231.2" y2="231.2"/>
+<text x="56.0" y="235.2" class="muted" text-anchor="end">0.72</text>
+<line class="grid" x1="64" x2="852" y1="181.6" y2="181.6"/>
+<text x="56.0" y="185.6" class="muted" text-anchor="end">0.96</text>
+<line class="grid" x1="64" x2="852" y1="132.0" y2="132.0"/>
+<text x="56.0" y="136.0" class="muted" text-anchor="end">1.2</text>
+<line class="axis" x1="64" x2="852" y1="380" y2="380"/>
+<line class="axis" x1="64.0" x2="64.0" y1="380" y2="384"/>
+<text x="64.0" y="398.0" class="muted" text-anchor="middle">11-18</text>
+<line class="axis" x1="221.6" x2="221.6" y1="380" y2="384"/>
+<text x="221.6" y="398.0" class="muted" text-anchor="middle">11-19</text>
+<line class="axis" x1="379.2" x2="379.2" y1="380" y2="384"/>
+<text x="379.2" y="398.0" class="muted" text-anchor="middle">11-20</text>
+<line class="axis" x1="536.8" x2="536.8" y1="380" y2="384"/>
+<text x="536.8" y="398.0" class="muted" text-anchor="middle">11-21</text>
+<line class="axis" x1="694.4" x2="694.4" y1="380" y2="384"/>
+<text x="694.4" y="398.0" class="muted" text-anchor="middle">11-22</text>
+<line class="axis" x1="852.0" x2="852.0" y1="380" y2="384"/>
+<text x="852.0" y="398.0" class="muted" text-anchor="middle">11-23</text>
+<polyline class="line dashed c-reference" points="64.0,173.3 221.6,173.3 379.2,173.3 536.8,173.3 694.4,173.3 852.0,173.3"/>
+<polyline class="line c-ratio0" points="64.0,194.6 221.6,194.9 379.2,232.9"/>
+<polyline class="line c-ratio1" points="536.8,273.5 694.4,273.1"/>
+<circle class="mk c-ratio0" cx="64.0" cy="194.6" r="7.5"/>
+<circle class="mk c-ratio0" cx="221.6" cy="194.9" r="7.5"/>
+<circle class="mk c-ratio0" cx="379.2" cy="232.9" r="7.5"/>
+<circle class="mk c-ratio1" cx="536.8" cy="273.5" r="7.5"/>
+<circle class="mk c-ratio1" cx="694.4" cy="273.1" r="7.5"/>
+<circle class="mk c-ratio2" cx="852.0" cy="254.1" r="7.5"/>
 </svg>
