@@ -1,0 +1,6 @@
+both_null ==1 !=0 ===1 !==0
+null_child_base_object ==0 !=1 ===0 !==1
+child_object_null_parent ==0 !=1 ===0 !==1
+same_object ==1 !=0 ===1 !==0
+two_child_objects ==0 !=1 ===0 !==1
+child_and_base_objects ==0 !=1 ===0 !==1

@@ -24149,6 +24149,8 @@
     "ZXQPH0QXZ : 参照渡しで関数の戻り値変数に書き込んだ後、明示的な戻り式がゼロの場合もその式の値を返す。": "ZXQPH0QXZ: After a reference argument sets the function result variable, the explicit return expression determines each result, including zero.",
     "ZXQPH0QXZ : 要求と応答を別々の容量付きメールボックスで二往復させ、空の応答箱を待ってから各メッセージを順に受け取る。": "ZXQPH0QXZ: Two round trips use separate bounded request and reply mailboxes. Each reply arrives after the reader waits on the empty mailbox.",
     "ZXQPH0QXZ : クラス特殊化を表す別名の型名が空でなく、特殊化を直接指定した型名と一致することを確認する。": "ZXQPH0QXZ: The class typedef returns a nonempty type name identical to that of its underlying specialization.",
-    "ZXQPH0QXZ : クラスの仮想インターフェースプロパティを手続き内で実体に結び付け、クロッキングイベントを待つたびにサンプル値を読み取る。": "ZXQPH0QXZ: A procedurally bound virtual interface property supplies two successive samples after clocking events."
+    "ZXQPH0QXZ : クラスの仮想インターフェースプロパティを手続き内で実体に結び付け、クロッキングイベントを待つたびにサンプル値を読み取る。": "ZXQPH0QXZ: A procedurally bound virtual interface property supplies two successive samples after clocking events.",
+    "ZXQPH0QXZ : 基底型を左辺に置き、同じオブジェクト、別のオブジェクト、ヌルを含む組で論理等価とケース等価およびそれぞれの否定の結果を照合する。": "ZXQPH0QXZ: With the base handle on the left, compare logical and case equality and their negations for identical objects, distinct objects and null handles.",
+    "ZXQPH0QXZ : 派生型を左辺に置き、同じオブジェクト、別のオブジェクト、ヌルを含む組で論理等価とケース等価およびそれぞれの否定の結果を照合する。": "ZXQPH0QXZ: With the derived handle on the left, compare logical and case equality and their negations for identical objects, distinct objects and null handles."
   }
 }

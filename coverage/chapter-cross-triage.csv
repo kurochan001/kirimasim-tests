@@ -481,9 +481,9 @@ tests/ch3/test_module_contains_classes_subroutines_processes.sv",既存テスト
 8,クラス,10,代入文,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,38,"tests/ch10/test_assignment_deep.sv
 tests/ch13/test_ref_static_accepted_actuals.sv
 tests/ch3/test_module_contains_classes_subroutines_processes.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-8,クラス,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,102,"tests/ch37/test_vpi_expression_decompile_calls.sv
-tests/gen/ch13/test_gen_formal_constant_class_w1_signed.sv
-tests/gen/ch13/test_gen_formal_constant_class_w1_unsigned.sv",既存モデルの計画・実行証跡を維持する,,
+8,クラス,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,104,"tests/ch11/test_class_handle_equality_base_on_left.sv
+tests/ch11/test_class_handle_equality_derived_on_left.sv
+tests/ch37/test_vpi_expression_decompile_calls.sv",既存モデルの計画・実行証跡を維持する,,
 8,クラス,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,41,"tests/ch6/test_ch6_extra_for_loop_automatic.sv
 tests/ch6/test_parallel_method_output_handle_after_forever_delay.sv
 tests/ch8/test_class_method_control_flow.sv",既存モデルの計画・実行証跡を維持する,,

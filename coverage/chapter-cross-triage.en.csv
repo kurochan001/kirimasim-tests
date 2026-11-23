@@ -481,9 +481,9 @@ tests/ch3/test_module_contains_classes_subroutines_processes.sv",The test is des
 8,Classes,10,Assignment statements,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,38,"tests/ch10/test_assignment_deep.sv
 tests/ch13/test_ref_static_accepted_actuals.sv
 tests/ch3/test_module_contains_classes_subroutines_processes.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-8,Classes,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,102,"tests/ch37/test_vpi_expression_decompile_calls.sv
-tests/gen/ch13/test_gen_formal_constant_class_w1_signed.sv
-tests/gen/ch13/test_gen_formal_constant_class_w1_unsigned.sv",Maintaining the planning and execution evidence of existing models.,,
+8,Classes,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,104,"tests/ch11/test_class_handle_equality_base_on_left.sv
+tests/ch11/test_class_handle_equality_derived_on_left.sv
+tests/ch37/test_vpi_expression_decompile_calls.sv",Maintaining the planning and execution evidence of existing models.,,
 8,Classes,12,Procedural programming statements,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,41,"tests/ch6/test_ch6_extra_for_loop_automatic.sv
 tests/ch6/test_parallel_method_output_handle_after_forever_delay.sv
 tests/ch8/test_class_method_control_flow.sv",Maintaining the planning and execution evidence of existing models.,,

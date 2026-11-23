@@ -22,11 +22,11 @@ The denominator counts requirement-ledger rows, not test files. See [Design, exe
 
 ## Aggregation of existing tests
 
-- 6720 of 16369 tests have a registered correspondence with the requirements. 9649 tests remain unregistered.
+- 6722 of 16371 tests have a registered correspondence with the requirements. 9649 tests remain unregistered.
 - The above coverage rate is calculated only for the part which registered the response to the demand by confirming the stimulus and the expected result. Existing tests that are not registered are also useful for verification, but their contribution is not yet reflected in the proportion.
 - The number of registered units is the number of units that correspond to at least one requirement, not the number of completed reviews of the whole test.
 
-- The requests that are shared by multiple tests are in the 774 row. Only if all tests in each group are successful in the same run, they count as a success for the entire request.
+- The requests that are shared by multiple tests are in the 775 row. Only if all tests in each group are successful in the same run, they count as a success for the entire request.
 
 <a id="確定値"></a>
 
@@ -133,6 +133,11 @@ Each row is a separate saved run. A narrow run can leave many tests unexecuted; 
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3886/12332 ( 31.51% )。 Measurement source: `2026-11-11T17:39:23.398627+00:00` / `full-20261112-verilator5.052-seed1.json` 。 Failures 0; known mismatches 6084; unsupported 0; not run 635; stale evidence 257; unapproved judgment evidence for illegal-design tests 627 rows.
 - `verilator` / `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` : 3597/12332 ( 29.17% )。 Measurement source: `2026-11-11T17:00:30.807783+00:00` / `full-20261112-verilator5.052-seed73.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 7868; stale evidence 24; unapproved judgment evidence for illegal-design tests 0 rows.
 - `ghost` / `private build d2e03e4a44d3` : 9676/12332 ( 78.46% )。 Measurement source: `2026-11-23T06:50:50.367123+00:00` / `ghost-local-20261123-strict-timeout180.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 296; stale evidence 0; unapproved judgment evidence for illegal-design tests 1517 rows.
+- `ghost` / `private build d1a33b327c73` : 1/12332 ( 0.01% )。 Measurement source: `2026-11-23T21:21:56.235297+00:00` / `handle-equality-20261124-ghost-strict.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11488; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 0/12332 ( 0.00% )。 Measurement source: `2026-11-23T21:21:56.180203+00:00` / `handle-equality-20261124-icarus13.json` 。 Failures 0; known mismatches 1; unsupported 0; not run 11488; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `kirimasim` / `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` : 0/12332 ( 0.00% )。 Measurement source: `2026-11-23T21:21:56.191228+00:00` / `handle-equality-20261124-kirimasim.json` 。 Failures 1; known mismatches 0; unsupported 0; not run 11488; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` : 1/12332 ( 0.01% )。 Measurement source: `2026-11-23T21:21:56.677218+00:00` / `handle-equality-20261124-verilator5.054-seed1.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11488; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
+- `verilator` / `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` : 1/12332 ( 0.01% )。 Measurement source: `2026-11-23T21:21:56.673809+00:00` / `handle-equality-20261124-verilator5.054-seed73.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11488; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - `ghost` / `private build 27d21bee0884` : 1/12332 ( 0.01% )。 Measurement source: `2026-11-23T12:53:34.138189+00:00` / `instance-array-ports-20261123-ghost-strict.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11487; stale evidence 0; unapproved judgment evidence for illegal-design tests 1 rows.
 - `icarus` / `Icarus Verilog version 13.0 (stable) (v13_0)` : 2/12332 ( 0.02% )。 Measurement source: `2026-11-23T12:53:34.126372+00:00` / `instance-array-ports-20261123-icarus13.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11487; stale evidence 0; unapproved judgment evidence for illegal-design tests 0 rows.
 - `kirimasim` / `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` : 1/12332 ( 0.01% )。 Measurement source: `2026-11-23T12:53:34.067910+00:00` / `instance-array-ports-20261123-kirimasim.json` 。 Failures 0; known mismatches 0; unsupported 0; not run 11487; stale evidence 0; unapproved judgment evidence for illegal-design tests 1 rows.

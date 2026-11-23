@@ -1,0 +1,21 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch11/test_class_handle_equality_base_on_left": {
+   "status": "known",
+   "reason": "compile failed: SORRY: Compare class handles not implemented",
+   "inputs_sha256": "54c8e953482c321b6f324dbf872284d842ea13d51f3ebdf4ee94f6fe9304b1a1"
+  },
+  "ch11/test_class_handle_equality_derived_on_left": {
+   "status": "known",
+   "reason": "compile failed: SORRY: Compare class handles not implemented",
+   "inputs_sha256": "71fe3eb28397c9cfdb2d062eb5de430f0b58fa89e1347a181e098dfcb13385e2"
+  }
+ },
+ "generated_at": "2026-11-23T21:21:56.180203+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

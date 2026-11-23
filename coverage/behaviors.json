@@ -73090,6 +73090,80 @@
               "contains": "object and null: == 0 === 0 != 1 !== 1"
             }
           ]
+        },
+        {
+          "test": "tests/ch11/test_class_handle_equality_base_on_left.sv",
+          "observation": "基底型を左辺に置き、同じオブジェクト、別のオブジェクト、ヌルを含む組で論理等価とケース等価およびそれぞれの否定の結果を照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "54c8e953482c321b6f324dbf872284d842ea13d51f3ebdf4ee94f6fe9304b1a1",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_class_handle_equality_base_on_left.sv",
+              "contains": "parent_handle == child_handle, parent_handle != child_handle"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_base_on_left.sv",
+              "contains": "parent_handle === child_handle, parent_handle !== child_handle"
+            },
+            {
+              "file": "tests/ch11/class_handle_equality/handle_pairs.svh",
+              "contains": "parent_handle = child_handle;"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_base_on_left.expected",
+              "contains": "both_null ==1 !=0 ===1 !==0"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_base_on_left.expected",
+              "contains": "null_child_base_object ==0 !=1 ===0 !==1"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_base_on_left.expected",
+              "contains": "same_object ==1 !=0 ===1 !==0"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_base_on_left.expected",
+              "contains": "two_child_objects ==0 !=1 ===0 !==1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch11/test_class_handle_equality_derived_on_left.sv",
+          "observation": "派生型を左辺に置き、同じオブジェクト、別のオブジェクト、ヌルを含む組で論理等価とケース等価およびそれぞれの否定の結果を照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "71fe3eb28397c9cfdb2d062eb5de430f0b58fa89e1347a181e098dfcb13385e2",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_class_handle_equality_derived_on_left.sv",
+              "contains": "child_handle == parent_handle, child_handle != parent_handle"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_derived_on_left.sv",
+              "contains": "child_handle === parent_handle, child_handle !== parent_handle"
+            },
+            {
+              "file": "tests/ch11/class_handle_equality/handle_pairs.svh",
+              "contains": "parent_handle = child_handle;"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_derived_on_left.expected",
+              "contains": "both_null ==1 !=0 ===1 !==0"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_derived_on_left.expected",
+              "contains": "null_child_base_object ==0 !=1 ===0 !==1"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_derived_on_left.expected",
+              "contains": "same_object ==1 !=0 ===1 !==0"
+            },
+            {
+              "file": "tests/ch11/test_class_handle_equality_derived_on_left.expected",
+              "contains": "two_child_objects ==0 !=1 ===0 !==1"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -73098,6 +73172,27 @@
           "blocks": [
             "B021"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "same-type-handle-comparisons",
+          "tests": [
+            "tests/ch8/test_class_handle_default_null_and_case_equality.sv"
+          ],
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "observation": "既存テストでは同じ宣言型のハンドルを使い、同一オブジェクト・別オブジェクト・ヌルについて四つの比較演算子を検証する。"
+        },
+        {
+          "id": "base-derived-both-orders",
+          "tests": [
+            "tests/ch11/test_class_handle_equality_base_on_left.sv",
+            "tests/ch11/test_class_handle_equality_derived_on_left.sv"
+          ],
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "observation": "異なる宣言型については、共通の入力を使って左右を入れ替えた二つのテストが同じ実行で合格したときに確認済みとする。"
         }
       ]
     },

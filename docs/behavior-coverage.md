@@ -111,6 +111,11 @@
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 動作確認、古い入力との対応 369 件。
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 動作確認、古い入力との対応 28 件。
 - `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 動作確認、古い入力との対応 0 件。
+- `handle-equality-20261124-ghost-strict.json`: `private build d1a33b327c73` / `2026-11-23T21:21:56.235297+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `handle-equality-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:21:56.180203+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `handle-equality-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:21:56.191228+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `handle-equality-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:21:56.677218+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `handle-equality-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:21:56.673809+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `instance-array-ports-20261123-ghost-strict.json`: `private build 27d21bee0884` / `2026-11-23T12:53:34.138189+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `instance-array-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:53:34.126372+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `instance-array-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:53:34.067910+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -19032,6 +19037,8 @@ super.new は任意の範囲／引数，宣言，任意の初期値，及び命�
 規定の性質: `mandatory`。
 
 - [test_class_handle_default_null_and_case_equality.sv](../tests/ch8/test_class_handle_default_null_and_case_equality.sv): 同じオブジェクトを指す h1/h3、同じ値 v=5 を持つ別オブジェクト h1/h2、h1 と null の3組で ==, ===, !=, !== を並べて表示し、=== と !== が == と != と同じ値(1 1 0 0、0 0 1 1、0 0 1 1)になることを期待する。 区別: class handleの === を内容の比較やビット比較として扱う誤実装では 'other object, same contents' 行の === が1、!== が0となって == / != と食い違い、null との case 比較を誤る実装は最後の行が変わる。
+- [test_class_handle_equality_base_on_left.sv](../tests/ch11/test_class_handle_equality_base_on_left.sv): 基底型を左辺に置き、同じオブジェクト、別のオブジェクト、ヌルを含む組で論理等価とケース等価およびそれぞれの否定の結果を照合する。
+- [test_class_handle_equality_derived_on_left.sv](../tests/ch11/test_class_handle_equality_derived_on_left.sv): 派生型を左辺に置き、同じオブジェクト、別のオブジェクト、ヌルを含む組で論理等価とケース等価およびそれぞれの否定の結果を照合する。
 
 ### SV2023-8.4-EXTRACT-DEFAULT-NULL
 

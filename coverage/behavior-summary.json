@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "inventory_sha256": "f41079f44897ff99999f549f58d09e9206ef52491d6d6df9964b91daab5fb91f",
-  "registry_sha256": "00827532a7eefe6b5e3af0bfb83b073fff3d4d39c376b69956fe393f7aca2c3b",
+  "registry_sha256": "8cbeeb30e20c55fcc092f48aeec1facc199788ac933f80b8d918197ec345ceb4",
   "source_url": null,
   "source_audit": {
     "audited": 1740,
@@ -51,11 +51,11 @@
     "interpretation_pending": 0
   },
   "test_mapping": {
-    "suite_test_files": 16369,
-    "linked_test_files": 6720,
+    "suite_test_files": 16371,
+    "linked_test_files": 6722,
     "unlinked_test_files": 9649
   },
-  "collective_requirement_count": 774,
+  "collective_requirement_count": 775,
   "requirement_status_counts": {
     "pass": 10882,
     "mapped_without_pass": 607,
@@ -25909,6 +25909,107 @@
           "unreviewed_oracle": 1517,
           "stale": 0,
           "not_run": 296,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "handle-equality-20261124-ghost-strict.json",
+        "simulator": "ghost",
+        "version": "private build d1a33b327c73",
+        "generated_at": "2026-11-23T21:21:56.235297+00:00",
+        "executed": [
+          "SV2023-8.4-EXTRACT-CASE-COMPARE-SEMANTICS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11488,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "handle-equality-20261124-icarus13.json",
+        "simulator": "icarus",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "generated_at": "2026-11-23T21:21:56.180203+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 1,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11488,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "handle-equality-20261124-kirimasim.json",
+        "simulator": "kirimasim",
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "generated_at": "2026-11-23T21:21:56.191228+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 1,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11488,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "handle-equality-20261124-verilator5.054-seed1.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-23T21:21:56.677218+00:00",
+        "executed": [
+          "SV2023-8.4-EXTRACT-CASE-COMPARE-SEMANTICS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11488,
+          "unmapped": 843,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "handle-equality-20261124-verilator5.054-seed73.json",
+        "simulator": "verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "generated_at": "2026-11-23T21:21:56.673809+00:00",
+        "executed": [
+          "SV2023-8.4-EXTRACT-CASE-COMPARE-SEMANTICS"
+        ],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 1,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 11488,
           "unmapped": 843,
           "interpretation_pending": 0
         }

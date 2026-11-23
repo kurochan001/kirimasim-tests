@@ -111,6 +111,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3886/12332 execution checked; 369 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3597/12332 execution checked; 28 entries refer to older inputs.
 - `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 execution checked; 0 entries refer to older inputs.
+- `handle-equality-20261124-ghost-strict.json`: `private build d1a33b327c73` / `2026-11-23T21:21:56.235297+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `handle-equality-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:21:56.180203+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `handle-equality-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:21:56.191228+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `handle-equality-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:21:56.677218+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `handle-equality-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:21:56.673809+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-ghost-strict.json`: `private build 27d21bee0884` / `2026-11-23T12:53:34.138189+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:53:34.126372+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:53:34.067910+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -19032,6 +19037,8 @@ Acceptance criterion: Object === and !== have the same semantics as == and != re
 Normative role: `mandatory`。
 
 - [test_class_handle_default_null_and_case_equality.sv](../tests/ch8/test_class_handle_default_null_and_case_equality.sv): display ==, ===, !=, and !== together for 3 pairs: h1 / h3 pointing to the same object, distinct objects h1 / h2 with the same value v = 5, and h1 with null; expect === and !== to equal == and != (1 1 0 0; 0 0 1 1; 0 0 1 1). Distinguishing observation: In the incorrect implementation of the class handle, where === is treated as a content comparison or bit comparison, === on line 'other object, same contents' becomes 1 and!== becomes 0 and is not consistent with == /!=.
+- [test_class_handle_equality_base_on_left.sv](../tests/ch11/test_class_handle_equality_base_on_left.sv): With the base handle on the left, compare logical and case equality and their negations for identical objects, distinct objects and null handles.
+- [test_class_handle_equality_derived_on_left.sv](../tests/ch11/test_class_handle_equality_derived_on_left.sv): With the derived handle on the left, compare logical and case equality and their negations for identical objects, distinct objects and null handles.
 
 ### SV2023-8.4-EXTRACT-DEFAULT-NULL
 

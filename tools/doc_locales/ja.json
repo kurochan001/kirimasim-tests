@@ -25852,6 +25852,8 @@
     "A base method inserts into its own hidden associative array on a derived object": "基底メソッドは、派生オブジェクト内で同名のキューに隠れた基底側の連想配列を更新する",
     "Class specializations using different virtual interface parameters remain distinct": "仮想インターフェースのパラメータが異なるクラス特殊化は別の型になる",
     "A local cast destination in a parameterized method uses the active specialization": "パラメータ付きクラスのメソッド内で宣言したキャスト先の型は、呼び出された特殊化に従う",
-    "Three successive virtual methods append to the same module string": "順に呼び出した3つの仮想メソッドが、同じモジュール変数の文字列に追記する"
+    "Three successive virtual methods append to the same module string": "順に呼び出した3つの仮想メソッドが、同じモジュール変数の文字列に追記する",
+    "Logical and case equality compare object identity with the base class handle on the left": "基底型のクラスハンドルを左辺に置き、論理等価とケース等価がオブジェクトの同一性を比較することを確認する",
+    "Logical and case equality compare object identity with the derived class handle on the left": "派生型のクラスハンドルを左辺に置き、論理等価とケース等価がオブジェクトの同一性を比較することを確認する"
   }
 }

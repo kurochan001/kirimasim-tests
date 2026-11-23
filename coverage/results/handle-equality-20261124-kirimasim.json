@@ -1,0 +1,20 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch11/test_class_handle_equality_base_on_left": {
+   "status": "pass",
+   "inputs_sha256": "54c8e953482c321b6f324dbf872284d842ea13d51f3ebdf4ee94f6fe9304b1a1"
+  },
+  "ch11/test_class_handle_equality_derived_on_left": {
+   "status": "fail",
+   "reason": "output differs (exit 3): line 1 is missing, expected 'both_null ==1 !=0 ===1 !==0'",
+   "inputs_sha256": "71fe3eb28397c9cfdb2d062eb5de430f0b58fa89e1347a181e098dfcb13385e2"
+  }
+ },
+ "generated_at": "2026-11-23T21:21:56.191228+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}
