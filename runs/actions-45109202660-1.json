@@ -1,0 +1,2934 @@
+{
+  "schema": 1,
+  "id": "actions-45109202660-1",
+  "started_at": "2026-11-23T04:17:20.572534+00:00",
+  "completed_at": "2026-11-23T04:54:00.119674+00:00",
+  "mode": "formal",
+  "suite_commit": "c3179844ed6b0dcb893e4e3f3f5aa45044560de5",
+  "latest_resolved_at": "2026-11-23T04:08:16.559893+00:00",
+  "actions": {
+    "run_id": "45109202660",
+    "attempt": "1",
+    "url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/45109202660/attempts/1"
+  },
+  "environment": {
+    "machine": {
+      "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "cores": 4,
+      "cpu": "AMD EPYC 9V74 80-Core Processor",
+      "memory_gib": 16,
+      "distribution": "Ubuntu 24.04.5 LTS",
+      "architecture": "x86_64"
+    },
+    "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "profile": "weekly",
+    "environment": "github-hosted-ubuntu-24.04",
+    "image_os": "ubuntu24",
+    "image_version": "20261116.376.1",
+    "settings": {
+      "runs": 5,
+      "warmups": 1,
+      "timeout_seconds": 600,
+      "short_seconds": 0.05,
+      "regression_warning_ratio": 1.15,
+      "simulation_threads": 1,
+      "waveforms": false,
+      "assertions": false,
+      "verilator_build_jobs": 1
+    },
+    "mode": "formal",
+    "runs": 5,
+    "tool_builds": {
+      "latest": {
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        }
+      },
+      "baseline": {
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        }
+      },
+      "icarus": {
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        }
+      },
+      "verilator": {
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        }
+      },
+      "icarus_devel": {
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        }
+      }
+    },
+    "verilator_options": "--binary --timing --threads 1 --build-jobs 1; default C++ optimization; assertions/tracing off",
+    "icarus_options": "-g2012; vvp -n; single process",
+    "kirimasim_options": "default four-state; interpreter; no waveform/assertion request"
+  },
+  "machine_start": {
+    "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cores": 4,
+    "load_average": [
+      2.01,
+      1.75,
+      0.94
+    ],
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "memory_gib": 16,
+    "distribution": "Ubuntu 24.04.5 LTS",
+    "architecture": "x86_64"
+  },
+  "tools": {
+    "latest": {
+      "kind": "kirimasim",
+      "commit": "378a66ab3240edf824a1b59f10697ecff3efa441",
+      "version": "kirimasim 0.2.0 (commit 378a66ab3240), built with GNU 13.3.0",
+      "binary_sha256": "f77d21e40482b1cbe056ae94602070d3545435e800b74facc4abb28a3fc0b4f2",
+      "simulator_build": {
+        "seconds": 520.6936794430001,
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        },
+        "finished_at": "2026-11-23T04:17:13.826762+00:00"
+      }
+    },
+    "baseline": {
+      "kind": "kirimasim",
+      "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+      "version": "kirimasim 0.1.0 (commit cfa2ccd75989), built with GNU 13.3.0",
+      "binary_sha256": "c69cab4a72c63d218552613e9c505ff180e6a84c50760af21d629c6422578e31",
+      "simulator_build": {
+        "seconds": 587.8472010619998,
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        },
+        "finished_at": "2026-11-23T02:06:44.506724+00:00"
+      }
+    },
+    "icarus": {
+      "kind": "icarus",
+      "commit": "dfeee909ed9f20b4870dd93423156c0170c0e1ff",
+      "version": "Icarus Verilog version 13.0 (stable) (dfeee90-dirty)",
+      "binary_sha256": "93a5f3402732b645a2c20b515d8e23b9881357626d2e0b264706542317dffc55",
+      "simulator_build": {
+        "seconds": 142.29341875100022,
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        },
+        "finished_at": "2026-11-23T02:09:06.813054+00:00"
+      },
+      "vvp_sha256": "25d32d58d2ba513edda54126119c2370fdd728e2cc0a5e7cccad1de81581c51f"
+    },
+    "verilator": {
+      "kind": "verilator",
+      "commit": "bbb60a403932a9f695cb6ff001ceb73de6ad9234",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261123-bbb60a4",
+      "binary_sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "simulator_build": {
+        "seconds": 530.0270930119998,
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        },
+        "finished_at": "2026-11-23T02:17:56.906284+00:00"
+      },
+      "verilator_bin_sha256": "cdb945dac14d8806c1e122a8868f323bdc57a1f0af9cc1ca7464cde69558edb7"
+    },
+    "icarus_devel": {
+      "kind": "icarus",
+      "commit": "8a4ce429e15e712d82067d4747cd9ec67503a0f8",
+      "version": "Icarus Verilog version 14.0 (devel) (8a4ce42)",
+      "binary_sha256": "59741eedcc5b0d5d0d457936c4c00a5e891443431916d2f6657d839f23ba4f23",
+      "simulator_build": {
+        "seconds": 174.00746063099996,
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "c_compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": {
+          "CC": "gcc",
+          "CXX": "g++",
+          "CFLAGS": "",
+          "CXXFLAGS": "",
+          "preset": "release",
+          "cmake": "-O3 -DNDEBUG -ffp-contract=off, no fast-math",
+          "make_jobs": 2
+        },
+        "finished_at": "2026-11-23T02:20:51.132903+00:00"
+      },
+      "vvp_sha256": "ba1ed20a3bd822fb5eec5a1c373ed2cf095cab4c121bff184145b5bebb1943f2"
+    }
+  },
+  "definition": {
+    "config_sha256": "4006a76543b7c88eed78ba128e7459c54ac2ee82a78efdd401ac2d85643bef9b",
+    "driver_sha256": "0edb91f5cbc17e8d1eec9e77ab4c87fb7dbcf4b9ff57d233c5e94628770ad077",
+    "comparison_sha256": "2896f429781d5eaff2d0ecec465726de342f840892056d20304d2df179ad6be0",
+    "history_sha256": "bda014f86bbbea0bd769b5458656bfda07cbcaec712624cfad17960b10b5c887",
+    "setup_sha256": "aa89dd6c7df5268f361f96049069cfe68b524ff93819afc4351fcb557c91d8f9",
+    "adapter_sha256": "4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc",
+    "benchmark_commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+    "reference_sha256": {
+      "bench/reference_expanded.py": "a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a",
+      "bench/reference_fourstate_mix.py": "586fb643e9ef9df9e304df83e04e711aa1b875e6cb4393e6e3c98cd1707b70e1"
+    }
+  },
+  "definition_config": {
+    "schema": 1,
+    "definition": "weekly-v2-icarus14",
+    "benchmark_source": {
+      "repository": "https://github.com/kurochan001/kirimasim.git",
+      "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+      "adapter_sha256": "4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc"
+    },
+    "latest_repository": "https://github.com/kurochan001/kirimasim.git",
+    "latest_ref": "refs/heads/main",
+    "tools": {
+      "latest": {
+        "kind": "kirimasim"
+      },
+      "baseline": {
+        "kind": "kirimasim",
+        "repository": "https://github.com/kurochan001/kirimasim.git",
+        "tag": "v0.1.0",
+        "commit": "cfa2ccd75989c1ebb9ed63303271183377364cf0",
+        "version_pattern": "kirimasim 0\\.1\\.0"
+      },
+      "icarus": {
+        "kind": "icarus",
+        "repository": "https://github.com/steveicarus/iverilog.git",
+        "tag": "v13_0",
+        "commit": "dfeee909ed9f20b4870dd93423156c0170c0e1ff",
+        "version_pattern": "version 13\\.0",
+        "tag_object": "30a7d1a11b7586aa0fc868e509f04f514effc0ad"
+      },
+      "verilator": {
+        "kind": "verilator",
+        "repository": "https://github.com/verilator/verilator.git",
+        "tag": "v5.054",
+        "commit": "bbb60a403932a9f695cb6ff001ceb73de6ad9234",
+        "version_pattern": "Verilator 5\\.054"
+      },
+      "icarus_devel": {
+        "kind": "icarus",
+        "repository": "https://github.com/steveicarus/iverilog.git",
+        "ref": "refs/heads/master",
+        "version_pattern": "version 14\\.0.*devel"
+      }
+    },
+    "measurement": {
+      "runs": 5,
+      "warmups": 1,
+      "timeout_seconds": 600,
+      "short_seconds": 0.05,
+      "regression_warning_ratio": 1.15,
+      "simulation_threads": 1,
+      "waveforms": false,
+      "assertions": false,
+      "verilator_build_jobs": 1
+    },
+    "cases": [
+      {
+        "name": "large_hierarchy",
+        "source": "suite",
+        "path": "bench/large_hierarchy.sv",
+        "sha256": "66320f49a6828f6b02079ff63c882b512f904518f95487472ec462b86ad6b4fd",
+        "count": 20000,
+        "expected": "large_hierarchy n=20000 checksum=83e909b6",
+        "expected_small": "large_hierarchy n=1 checksum=00e30c67",
+        "class": "common"
+      },
+      {
+        "name": "large_memory",
+        "source": "suite",
+        "path": "bench/large_memory.sv",
+        "sha256": "10064164d8d848455fef95ccd31aed7f8532ed39efe616597b734a4586f0ae9b",
+        "count": 500000,
+        "expected": "large_memory n=500000 checksum=267c2644",
+        "expected_small": "large_memory n=1 checksum=0000d2a0",
+        "class": "common"
+      },
+      {
+        "name": "stream_pipeline",
+        "source": "suite",
+        "path": "bench/stream_pipeline.sv",
+        "sha256": "f21fd43d0fe1c1df1294fc2d283004a9971c16791ffd4f3b01631dc154e16324",
+        "count": 250000,
+        "expected": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+        "expected_small": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+        "class": "common"
+      }
+    ],
+    "groups": [
+      {
+        "name": "weekly-regression",
+        "peer": "baseline",
+        "cases": [
+          "large_hierarchy",
+          "large_memory",
+          "stream_pipeline"
+        ]
+      },
+      {
+        "name": "weekly-icarus",
+        "peer": "icarus",
+        "cases": [
+          "large_hierarchy",
+          "large_memory",
+          "stream_pipeline"
+        ]
+      },
+      {
+        "name": "weekly-verilator",
+        "peer": "verilator",
+        "cases": [
+          "large_hierarchy",
+          "large_memory",
+          "stream_pipeline"
+        ]
+      },
+      {
+        "name": "weekly-icarus14-common",
+        "peer": "icarus_devel",
+        "cases": [
+          "large_hierarchy",
+          "large_memory",
+          "stream_pipeline"
+        ]
+      }
+    ],
+    "reference_sources": {
+      "bench/reference_expanded.py": "a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a",
+      "bench/reference_fourstate_mix.py": "586fb643e9ef9df9e304df83e04e711aa1b875e6cb4393e6e3c98cd1707b70e1"
+    },
+    "profile": "weekly"
+  },
+  "series": "ce6cd82e24d95f5521139cc2aed3b8a63823b066fed6a07395e1841c0a6b39bb",
+  "metric": "incremental elapsed = median T(N) - median T(1); not isolated simulation CPU time",
+  "execution": "serial; tool order reverses by case/round; count order reverses by round; one n=1 warmup",
+  "cases": [
+    {
+      "name": "large_hierarchy",
+      "source": "suite",
+      "sha256": "66320f49a6828f6b02079ff63c882b512f904518f95487472ec462b86ad6b4fd",
+      "count": 20000,
+      "expected": "large_hierarchy n=20000 checksum=83e909b6",
+      "expected_small": "large_hierarchy n=1 checksum=00e30c67",
+      "class": "common",
+      "tools": {
+        "latest": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.17932228999995914,
+            "max_rss_mib": 129.78125,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_hierarchy n=1 checksum=00e30c67",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.17557083399992734,
+                "max_rss_mib": 129.96875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.17412374699995325,
+                "max_rss_mib": 125.83984375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.17568500699997003,
+                "max_rss_mib": 125.77734375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.17666196799996214,
+                "max_rss_mib": 129.78125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.17699945699996533,
+                "max_rss_mib": 129.83984375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 18.317900597999937,
+                "max_rss_mib": 129.6484375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 18.19315152699994,
+                "max_rss_mib": 129.4609375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 18.078696407000052,
+                "max_rss_mib": 129.62890625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 17.868833943000027,
+                "max_rss_mib": 129.62890625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 17.985554690999834,
+                "max_rss_mib": 129.51953125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${LATEST}",
+            "${SUITE}/bench/large_hierarchy.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.17568500699997003,
+            "minimum": 0.17412374699995325,
+            "maximum": 0.17699945699996533,
+            "mad": 0.0009769609999921158
+          },
+          "large_seconds": {
+            "median": 18.078696407000052,
+            "minimum": 17.868833943000027,
+            "maximum": 18.317900597999937,
+            "mad": 0.11445511999988867
+          },
+          "incremental_seconds": 17.903011400000082,
+          "median_peak_rss_mib": 129.62890625,
+          "status": "measured",
+          "warnings": []
+        },
+        "baseline": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.11080230499999288,
+            "max_rss_mib": 104.296875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_hierarchy n=1 checksum=00e30c67",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.11347627699990426,
+                "max_rss_mib": 104.33203125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.10911331999989216,
+                "max_rss_mib": 106.30078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.11057323399995767,
+                "max_rss_mib": 104.30078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.10864781500004028,
+                "max_rss_mib": 106.3984375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.10913587499999267,
+                "max_rss_mib": 106.38671875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 28.73574010499999,
+                "max_rss_mib": 108.2578125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 28.93523932000005,
+                "max_rss_mib": 108.20703125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 29.11631297400004,
+                "max_rss_mib": 108.31640625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 28.951986668000018,
+                "max_rss_mib": 108.20703125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 29.392370948000007,
+                "max_rss_mib": 108.25390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${BASELINE}",
+            "${SUITE}/bench/large_hierarchy.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.10913587499999267,
+            "minimum": 0.10864781500004028,
+            "maximum": 0.11347627699990426,
+            "mad": 0.0004880599999523838
+          },
+          "large_seconds": {
+            "median": 28.951986668000018,
+            "minimum": 28.73574010499999,
+            "maximum": 29.392370948000007,
+            "mad": 0.16432630600002085
+          },
+          "incremental_seconds": 28.842850793000025,
+          "median_peak_rss_mib": 108.25390625,
+          "status": "measured",
+          "warnings": []
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.133046246000049,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/large_hierarchy.sv"
+                ],
+                "seconds": 0.133046246000049,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.08691267699998662,
+            "max_rss_mib": 22.9921875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_hierarchy n=1 checksum=00e30c67",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.08726870999998937,
+                "max_rss_mib": 23.00390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.08662919799996871,
+                "max_rss_mib": 23.0,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0871244759999854,
+                "max_rss_mib": 22.98828125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.08666608899989114,
+                "max_rss_mib": 22.98046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.08776073700005327,
+                "max_rss_mib": 22.9375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 74.08556088499995,
+                "max_rss_mib": 23.0625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 74.34013275200005,
+                "max_rss_mib": 23.0078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 73.9089590320001,
+                "max_rss_mib": 23.0390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 74.67704902700007,
+                "max_rss_mib": 22.9921875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 74.03793810699995,
+                "max_rss_mib": 23.10546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${HOME}/work/_temp/benchmark-install/icarus/bin/vvp",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0871244759999854,
+            "minimum": 0.08662919799996871,
+            "maximum": 0.08776073700005327,
+            "mad": 0.0004583870000942625
+          },
+          "large_seconds": {
+            "median": 74.08556088499995,
+            "minimum": 73.9089590320001,
+            "maximum": 74.67704902700007,
+            "mad": 0.17660185299985187
+          },
+          "incremental_seconds": 73.99843640899996,
+          "median_peak_rss_mib": 23.0390625,
+          "status": "measured",
+          "warnings": []
+        },
+        "verilator": {
+          "build": {
+            "seconds": 11.830081976999963,
+            "steps": [
+              {
+                "command": [
+                  "verilator",
+                  "--binary",
+                  "--timing",
+                  "-Wno-fatal",
+                  "-Wno-lint",
+                  "-Wno-style",
+                  "--build-jobs",
+                  "1",
+                  "-Mdir",
+                  "${WORK}/obj",
+                  "--prefix",
+                  "Vbench",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/large_hierarchy.sv",
+                  "--threads",
+                  "1"
+                ],
+                "seconds": 11.830081976999963,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.001649674000077539,
+            "max_rss_mib": 0.484375,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_hierarchy n=1 checksum=00e30c67",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.001696785000035561,
+                "max_rss_mib": 0.484375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0015627530000301704,
+                "max_rss_mib": 0.48046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0016747009999562579,
+                "max_rss_mib": 0.55859375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0015560930000901863,
+                "max_rss_mib": 0.48046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0016561929999170388,
+                "max_rss_mib": 0.48046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 0.07798295499992491,
+                "max_rss_mib": 3.86328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.08200899100006609,
+                "max_rss_mib": 4.0078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.08017816500000663,
+                "max_rss_mib": 3.87109375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.08240969200005566,
+                "max_rss_mib": 3.92578125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.07886115399992377,
+                "max_rss_mib": 3.92578125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${WORK}/obj/Vbench",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0016561929999170388,
+            "minimum": 0.0015560930000901863,
+            "maximum": 0.001696785000035561,
+            "mad": 4.0592000118522265e-05
+          },
+          "large_seconds": {
+            "median": 0.08017816500000663,
+            "minimum": 0.07798295499992491,
+            "maximum": 0.08240969200005566,
+            "mad": 0.00183082600005946
+          },
+          "incremental_seconds": 0.07852197200008959,
+          "median_peak_rss_mib": 3.92578125,
+          "status": "measured",
+          "warnings": []
+        },
+        "icarus_devel": {
+          "build": {
+            "seconds": 0.13914300999999796,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/large_hierarchy.sv"
+                ],
+                "seconds": 0.13914300999999796,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.08336269900007665,
+            "max_rss_mib": 23.296875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_hierarchy n=1 checksum=00e30c67",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.08632744700003059,
+                "max_rss_mib": 23.0546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.08420379599999706,
+                "max_rss_mib": 23.234375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.08411714400017445,
+                "max_rss_mib": 23.3046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.08593051200000446,
+                "max_rss_mib": 23.08203125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.08639136900001176,
+                "max_rss_mib": 23.046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=1 checksum=00e30c67",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 12.410061243000087,
+                "max_rss_mib": 23.31640625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 12.50551227799997,
+                "max_rss_mib": 23.30859375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 12.378932262000035,
+                "max_rss_mib": 23.359375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 12.431727486,
+                "max_rss_mib": 23.296875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 12.400870038999983,
+                "max_rss_mib": 23.3203125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_hierarchy n=20000 checksum=83e909b6",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${HOME}/work/_temp/benchmark-install/icarus_devel/bin/vvp",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.08593051200000446,
+            "minimum": 0.08411714400017445,
+            "maximum": 0.08639136900001176,
+            "mad": 0.00046085700000730867
+          },
+          "large_seconds": {
+            "median": 12.410061243000087,
+            "minimum": 12.378932262000035,
+            "maximum": 12.50551227799997,
+            "mad": 0.021666242999913266
+          },
+          "incremental_seconds": 12.324130731000082,
+          "median_peak_rss_mib": 23.31640625,
+          "status": "measured",
+          "warnings": []
+        }
+      },
+      "ratios": {
+        "baseline": 0.6207088033179102,
+        "icarus": 0.24193769853524433,
+        "verilator": 228.00002271949634,
+        "icarus_devel": 1.4526794457776158
+      }
+    },
+    {
+      "name": "large_memory",
+      "source": "suite",
+      "sha256": "10064164d8d848455fef95ccd31aed7f8532ed39efe616597b734a4586f0ae9b",
+      "count": 500000,
+      "expected": "large_memory n=500000 checksum=267c2644",
+      "expected_small": "large_memory n=1 checksum=0000d2a0",
+      "class": "common",
+      "tools": {
+        "latest": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.06398588499996549,
+            "max_rss_mib": 45.69921875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_memory n=1 checksum=0000d2a0",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.05479887299998154,
+                "max_rss_mib": 45.671875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.054628355999966516,
+                "max_rss_mib": 45.7421875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.054149635999920065,
+                "max_rss_mib": 45.75390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.05425848200002292,
+                "max_rss_mib": 45.82421875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.053507719999970504,
+                "max_rss_mib": 45.765625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 13.588351280000097,
+                "max_rss_mib": 45.8046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 13.737180658999932,
+                "max_rss_mib": 46.0078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 13.896671531000038,
+                "max_rss_mib": 45.94921875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 13.40903490200003,
+                "max_rss_mib": 45.63671875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 13.433343573000002,
+                "max_rss_mib": 45.88671875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${LATEST}",
+            "${SUITE}/bench/large_memory.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.05425848200002292,
+            "minimum": 0.053507719999970504,
+            "maximum": 0.05479887299998154,
+            "mad": 0.00036987399994359293
+          },
+          "large_seconds": {
+            "median": 13.588351280000097,
+            "minimum": 13.40903490200003,
+            "maximum": 13.896671531000038,
+            "mad": 0.15500770700009525
+          },
+          "incremental_seconds": 13.534092798000074,
+          "median_peak_rss_mib": 45.88671875,
+          "status": "measured",
+          "warnings": []
+        },
+        "baseline": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.11146347799990508,
+            "max_rss_mib": 44.40234375,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_memory n=1 checksum=0000d2a0",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.11115342199991574,
+                "max_rss_mib": 44.37109375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.11220243000002483,
+                "max_rss_mib": 44.4140625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.12096579000012753,
+                "max_rss_mib": 44.3125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.11137851299986323,
+                "max_rss_mib": 44.41015625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.11086895600010394,
+                "max_rss_mib": 44.37109375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 33.12401151999984,
+                "max_rss_mib": 44.39453125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 31.968275603000166,
+                "max_rss_mib": 44.39453125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 31.853673815999855,
+                "max_rss_mib": 44.41796875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 31.38580971500005,
+                "max_rss_mib": 44.3828125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 31.764332796999952,
+                "max_rss_mib": 44.36328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${BASELINE}",
+            "${SUITE}/bench/large_memory.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.11137851299986323,
+            "minimum": 0.11086895600010394,
+            "maximum": 0.12096579000012753,
+            "mad": 0.0005095569997592975
+          },
+          "large_seconds": {
+            "median": 31.853673815999855,
+            "minimum": 31.38580971500005,
+            "maximum": 33.12401151999984,
+            "mad": 0.11460178700031065
+          },
+          "incremental_seconds": 31.74229530299999,
+          "median_peak_rss_mib": 44.39453125,
+          "status": "measured",
+          "warnings": []
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.004978023999910874,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/large_memory.sv"
+                ],
+                "seconds": 0.004978023999910874,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.17216542799997114,
+            "max_rss_mib": 11.375,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_memory n=1 checksum=0000d2a0",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.17281505000005382,
+                "max_rss_mib": 11.42578125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.17122022600005948,
+                "max_rss_mib": 11.36328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.17455550800013953,
+                "max_rss_mib": 11.390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.17099775199994838,
+                "max_rss_mib": 11.36328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.17063613799996347,
+                "max_rss_mib": 11.37109375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 49.296052362999944,
+                "max_rss_mib": 11.32421875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 49.25117291299989,
+                "max_rss_mib": 11.36328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 49.18037727800015,
+                "max_rss_mib": 11.328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 49.15914825699997,
+                "max_rss_mib": 11.3671875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 49.22441099899993,
+                "max_rss_mib": 11.359375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${HOME}/work/_temp/benchmark-install/icarus/bin/vvp",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.17122022600005948,
+            "minimum": 0.17063613799996347,
+            "maximum": 0.17455550800013953,
+            "mad": 0.0005840880000960169
+          },
+          "large_seconds": {
+            "median": 49.22441099899993,
+            "minimum": 49.15914825699997,
+            "maximum": 49.296052362999944,
+            "mad": 0.04403372099977787
+          },
+          "incremental_seconds": 49.05319077299987,
+          "median_peak_rss_mib": 11.359375,
+          "status": "measured",
+          "warnings": []
+        },
+        "verilator": {
+          "build": {
+            "seconds": 6.189144681999778,
+            "steps": [
+              {
+                "command": [
+                  "verilator",
+                  "--binary",
+                  "--timing",
+                  "-Wno-fatal",
+                  "-Wno-lint",
+                  "-Wno-style",
+                  "--build-jobs",
+                  "1",
+                  "-Mdir",
+                  "${WORK}/obj",
+                  "--prefix",
+                  "Vbench",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/large_memory.sv",
+                  "--threads",
+                  "1"
+                ],
+                "seconds": 6.189144681999778,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0023087460001534055,
+            "max_rss_mib": 0.4921875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_memory n=1 checksum=0000d2a0",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0023321710000345774,
+                "max_rss_mib": 0.55078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0021209129999988363,
+                "max_rss_mib": 0.4921875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.002413844999864523,
+                "max_rss_mib": 0.48046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0020910680000270077,
+                "max_rss_mib": 0.48046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0023292969999602064,
+                "max_rss_mib": 0.55078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 0.10810628600006567,
+                "max_rss_mib": 4.8515625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.11133161399993696,
+                "max_rss_mib": 4.81640625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.10863978199995472,
+                "max_rss_mib": 4.8125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.10887002999993456,
+                "max_rss_mib": 4.80859375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.10904126499985978,
+                "max_rss_mib": 4.8046875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${WORK}/obj/Vbench",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0023292969999602064,
+            "minimum": 0.0020910680000270077,
+            "maximum": 0.002413844999864523,
+            "mad": 8.454799990431638e-05
+          },
+          "large_seconds": {
+            "median": 0.10887002999993456,
+            "minimum": 0.10810628600006567,
+            "maximum": 0.11133161399993696,
+            "mad": 0.00023024799997983791
+          },
+          "incremental_seconds": 0.10654073299997435,
+          "median_peak_rss_mib": 4.8125,
+          "status": "measured",
+          "warnings": []
+        },
+        "icarus_devel": {
+          "build": {
+            "seconds": 0.004711603000032483,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/large_memory.sv"
+                ],
+                "seconds": 0.004711603000032483,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.12029256999994686,
+            "max_rss_mib": 11.55859375,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "large_memory n=1 checksum=0000d2a0",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.11599385099998472,
+                "max_rss_mib": 11.5546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.116544580999971,
+                "max_rss_mib": 11.50390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.12082687999986774,
+                "max_rss_mib": 11.5625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.1191778309998881,
+                "max_rss_mib": 11.55859375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.11568050599998969,
+                "max_rss_mib": 11.49609375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=1 checksum=0000d2a0",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 41.31083453600013,
+                "max_rss_mib": 11.47265625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 41.100427739,
+                "max_rss_mib": 11.5,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 41.284687317000134,
+                "max_rss_mib": 11.49609375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 40.78302578500006,
+                "max_rss_mib": 11.49609375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 40.857556809000016,
+                "max_rss_mib": 11.625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "large_memory n=500000 checksum=267c2644",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${HOME}/work/_temp/benchmark-install/icarus_devel/bin/vvp",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.116544580999971,
+            "minimum": 0.11568050599998969,
+            "maximum": 0.12082687999986774,
+            "mad": 0.0008640749999813124
+          },
+          "large_seconds": {
+            "median": 41.100427739,
+            "minimum": 40.78302578500006,
+            "maximum": 41.31083453600013,
+            "mad": 0.21040679700013243
+          },
+          "incremental_seconds": 40.983883158000026,
+          "median_peak_rss_mib": 11.49609375,
+          "status": "measured",
+          "warnings": []
+        }
+      },
+      "ratios": {
+        "baseline": 0.42637410649761537,
+        "icarus": 0.275906471826285,
+        "verilator": 127.03209764854286,
+        "icarus_devel": 0.3302296355331627
+      }
+    },
+    {
+      "name": "stream_pipeline",
+      "source": "suite",
+      "sha256": "f21fd43d0fe1c1df1294fc2d283004a9971c16791ffd4f3b01631dc154e16324",
+      "count": 250000,
+      "expected": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+      "expected_small": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+      "class": "common",
+      "tools": {
+        "latest": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.0071982370000114315,
+            "max_rss_mib": 0.7265625,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.008181835999948817,
+                "max_rss_mib": 0.6640625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.007384272000308556,
+                "max_rss_mib": 0.53515625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.007150363999699039,
+                "max_rss_mib": 0.5,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.008405824999954348,
+                "max_rss_mib": 0.5,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.006300054999883287,
+                "max_rss_mib": 0.49609375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 11.814334132000113,
+                "max_rss_mib": 33.671875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 11.835535789000005,
+                "max_rss_mib": 33.76953125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 11.931903466999756,
+                "max_rss_mib": 33.60546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 11.884236035999947,
+                "max_rss_mib": 33.65234375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 11.904529339999954,
+                "max_rss_mib": 33.5,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${LATEST}",
+            "${SUITE}/bench/stream_pipeline.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.007384272000308556,
+            "minimum": 0.006300054999883287,
+            "maximum": 0.008405824999954348,
+            "mad": 0.0007975639996402606
+          },
+          "large_seconds": {
+            "median": 11.884236035999947,
+            "minimum": 11.814334132000113,
+            "maximum": 11.931903466999756,
+            "mad": 0.04766743099980886
+          },
+          "incremental_seconds": 11.876851763999639,
+          "median_peak_rss_mib": 33.65234375,
+          "status": "measured",
+          "warnings": []
+        },
+        "baseline": {
+          "build": null,
+          "warmup": {
+            "seconds": 0.006887228999858053,
+            "max_rss_mib": 0.4921875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.006773756999791658,
+                "max_rss_mib": 0.4296875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.00699063499996555,
+                "max_rss_mib": 0.60546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.007260063999638078,
+                "max_rss_mib": 0.46484375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0071777660000407195,
+                "max_rss_mib": 0.43359375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0068678409998028656,
+                "max_rss_mib": 0.47265625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 29.025397698999996,
+                "max_rss_mib": 28.390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 33.84586292300037,
+                "max_rss_mib": 28.2421875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 29.166495688000396,
+                "max_rss_mib": 28.10546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 29.177359767000326,
+                "max_rss_mib": 28.140625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 28.875905726999918,
+                "max_rss_mib": 28.421875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${BASELINE}",
+            "${SUITE}/bench/stream_pipeline.sv",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.00699063499996555,
+            "minimum": 0.006773756999791658,
+            "maximum": 0.007260063999638078,
+            "mad": 0.00018713100007516914
+          },
+          "large_seconds": {
+            "median": 29.166495688000396,
+            "minimum": 28.875905726999918,
+            "maximum": 33.84586292300037,
+            "mad": 0.14109798900040005
+          },
+          "incremental_seconds": 29.15950505300043,
+          "median_peak_rss_mib": 28.2421875,
+          "status": "measured",
+          "warnings": []
+        },
+        "icarus": {
+          "build": {
+            "seconds": 0.007587413000010201,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/stream_pipeline.sv"
+                ],
+                "seconds": 0.007587413000010201,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.005209033000028285,
+            "max_rss_mib": 0.60546875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.005282833000364917,
+                "max_rss_mib": 0.7109375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005218787000103475,
+                "max_rss_mib": 0.6328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005325136999999813,
+                "max_rss_mib": 0.63671875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.00520760999961567,
+                "max_rss_mib": 0.703125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.005323474000306305,
+                "max_rss_mib": 0.640625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 67.19669736399965,
+                "max_rss_mib": 7.578125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 66.9830365339999,
+                "max_rss_mib": 7.546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 67.17210175900027,
+                "max_rss_mib": 7.53125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 66.93966247499975,
+                "max_rss_mib": 7.53125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 66.97112716499987,
+                "max_rss_mib": 7.58984375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${HOME}/work/_temp/benchmark-install/icarus/bin/vvp",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.005282833000364917,
+            "minimum": 0.00520760999961567,
+            "maximum": 0.005325136999999813,
+            "mad": 4.230399963489617e-05
+          },
+          "large_seconds": {
+            "median": 66.9830365339999,
+            "minimum": 66.93966247499975,
+            "maximum": 67.19669736399965,
+            "mad": 0.04337405900014346
+          },
+          "incremental_seconds": 66.97775370099953,
+          "median_peak_rss_mib": 7.546875,
+          "status": "measured",
+          "warnings": []
+        },
+        "verilator": {
+          "build": {
+            "seconds": 6.271501394000097,
+            "steps": [
+              {
+                "command": [
+                  "verilator",
+                  "--binary",
+                  "--timing",
+                  "-Wno-fatal",
+                  "-Wno-lint",
+                  "-Wno-style",
+                  "--build-jobs",
+                  "1",
+                  "-Mdir",
+                  "${WORK}/obj",
+                  "--prefix",
+                  "Vbench",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/stream_pipeline.sv",
+                  "--threads",
+                  "1"
+                ],
+                "seconds": 6.271501394000097,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.0015954519999468175,
+            "max_rss_mib": 0.546875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.0016394679996665218,
+                "max_rss_mib": 0.55859375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.0015410199998768803,
+                "max_rss_mib": 0.484375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.0016095129999484925,
+                "max_rss_mib": 0.55078125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.0015507940001953102,
+                "max_rss_mib": 0.5390625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0016658080003253417,
+                "max_rss_mib": 0.4765625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 0.09962876000008691,
+                "max_rss_mib": 3.83203125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.10136923899972317,
+                "max_rss_mib": 3.86328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.09901929300031043,
+                "max_rss_mib": 3.8203125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.09944444399980057,
+                "max_rss_mib": 3.828125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.10074801100017794,
+                "max_rss_mib": 3.85546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${WORK}/obj/Vbench",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.0016095129999484925,
+            "minimum": 0.0015410199998768803,
+            "maximum": 0.0016658080003253417,
+            "mad": 5.62950003768492e-05
+          },
+          "large_seconds": {
+            "median": 0.09962876000008691,
+            "minimum": 0.09901929300031043,
+            "maximum": 0.10136923899972317,
+            "mad": 0.0006094669997764868
+          },
+          "incremental_seconds": 0.09801924700013842,
+          "median_peak_rss_mib": 3.83203125,
+          "status": "measured",
+          "warnings": []
+        },
+        "icarus_devel": {
+          "build": {
+            "seconds": 0.0058586110001215275,
+            "steps": [
+              {
+                "command": [
+                  "iverilog",
+                  "-g2012",
+                  "-o",
+                  "${WORK}/bench.vvp",
+                  "${HOME}/work/kirimasim-tests/kirimasim-tests/bench/stream_pipeline.sv"
+                ],
+                "seconds": 0.0058586110001215275,
+                "exit_code": 0,
+                "timed_out": false
+              }
+            ]
+          },
+          "warmup": {
+            "seconds": 0.004853958000012426,
+            "max_rss_mib": 0.6171875,
+            "rss_source": "VmHWM sampled 10ms",
+            "exit_code": 0,
+            "timed_out": false,
+            "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+            "result_line_count": 1,
+            "correctness_checked": true
+          },
+          "samples": {
+            "small": [
+              {
+                "seconds": 0.005253458999959548,
+                "max_rss_mib": 0.6796875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 0.005246167999757745,
+                "max_rss_mib": 0.6328125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 0.005249363000075391,
+                "max_rss_mib": 0.625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 0.005283694000354444,
+                "max_rss_mib": 0.640625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 0.0052612899999076035,
+                "max_rss_mib": 0.60546875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=1 checksum=c1aa0550 frames=1",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ],
+            "large": [
+              {
+                "seconds": 55.89282064000008,
+                "max_rss_mib": 7.68359375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 0
+              },
+              {
+                "seconds": 54.478147132999766,
+                "max_rss_mib": 7.71875,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 1
+              },
+              {
+                "seconds": 54.584361573000024,
+                "max_rss_mib": 7.73828125,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 2
+              },
+              {
+                "seconds": 54.676834768999925,
+                "max_rss_mib": 7.74609375,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 3
+              },
+              {
+                "seconds": 54.68309099999988,
+                "max_rss_mib": 7.78515625,
+                "rss_source": "VmHWM sampled 10ms",
+                "exit_code": 0,
+                "timed_out": false,
+                "result_line": "stream_pipeline n=250000 checksum=741abec0 frames=171428",
+                "result_line_count": 1,
+                "correctness_checked": true,
+                "repetition": 4
+              }
+            ]
+          },
+          "command_template": [
+            "${HOME}/work/_temp/benchmark-install/icarus_devel/bin/vvp",
+            "-n",
+            "${WORK}/bench.vvp",
+            "+n=N"
+          ],
+          "small_seconds": {
+            "median": 0.005253458999959548,
+            "minimum": 0.005246167999757745,
+            "maximum": 0.005283694000354444,
+            "mad": 7.291000201803399e-06
+          },
+          "large_seconds": {
+            "median": 54.676834768999925,
+            "minimum": 54.478147132999766,
+            "maximum": 55.89282064000008,
+            "mad": 0.09247319599990078
+          },
+          "incremental_seconds": 54.671581309999965,
+          "median_peak_rss_mib": 7.73828125,
+          "status": "measured",
+          "warnings": []
+        }
+      },
+      "ratios": {
+        "baseline": 0.4073063566206706,
+        "icarus": 0.1773253223304561,
+        "verilator": 121.16856767919128,
+        "icarus_devel": 0.21723995317887845
+      }
+    }
+  ],
+  "inputs_unchanged": true,
+  "machine_end": {
+    "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cores": 4,
+    "load_average": [
+      1.12,
+      1.13,
+      1.1
+    ],
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "memory_gib": 16,
+    "distribution": "Ubuntu 24.04.5 LTS"
+  },
+  "groups": [
+    {
+      "name": "weekly-regression",
+      "peer": "baseline",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ],
+      "expected_count": 3,
+      "available_count": 3,
+      "ratio": 0.4759192867529261,
+      "warning": false,
+      "reason": null
+    },
+    {
+      "name": "weekly-icarus",
+      "peer": "icarus",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ],
+      "expected_count": 3,
+      "available_count": 3,
+      "ratio": 0.22790056238998252,
+      "warning": false,
+      "reason": null
+    },
+    {
+      "name": "weekly-verilator",
+      "peer": "verilator",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ],
+      "expected_count": 3,
+      "available_count": 3,
+      "ratio": 151.9658877018476,
+      "warning": false,
+      "reason": null
+    },
+    {
+      "name": "weekly-icarus14-common",
+      "peer": "icarus_devel",
+      "cases": [
+        "large_hierarchy",
+        "large_memory",
+        "stream_pipeline"
+      ],
+      "expected_count": 3,
+      "available_count": 3,
+      "ratio": 0.4705890806803026,
+      "warning": false,
+      "reason": null
+    }
+  ],
+  "status": "complete",
+  "ratio_definition": "latest kirimasim incremental elapsed / peer incremental elapsed; below 1 favors latest"
+}

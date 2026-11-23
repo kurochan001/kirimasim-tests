@@ -2290,6 +2290,72 @@
         }
       ],
       "profile": "daily"
+    },
+    {
+      "id": "actions-45109202660-1",
+      "started_at": "2026-11-23T04:17:20.572534+00:00",
+      "completed_at": "2026-11-23T04:54:00.119674+00:00",
+      "series": "ce6cd82e24d95f5521139cc2aed3b8a63823b066fed6a07395e1841c0a6b39bb",
+      "status": "complete",
+      "groups": [
+        {
+          "name": "weekly-regression",
+          "peer": "baseline",
+          "cases": [
+            "large_hierarchy",
+            "large_memory",
+            "stream_pipeline"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.4759192867529261,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "weekly-icarus",
+          "peer": "icarus",
+          "cases": [
+            "large_hierarchy",
+            "large_memory",
+            "stream_pipeline"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.22790056238998252,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "weekly-verilator",
+          "peer": "verilator",
+          "cases": [
+            "large_hierarchy",
+            "large_memory",
+            "stream_pipeline"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 151.9658877018476,
+          "warning": false,
+          "reason": null
+        },
+        {
+          "name": "weekly-icarus14-common",
+          "peer": "icarus_devel",
+          "cases": [
+            "large_hierarchy",
+            "large_memory",
+            "stream_pipeline"
+          ],
+          "expected_count": 3,
+          "available_count": 3,
+          "ratio": 0.4705890806803026,
+          "warning": false,
+          "reason": null
+        }
+      ],
+      "profile": "weekly"
     }
   ]
 }
