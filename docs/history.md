@@ -1110,3 +1110,11 @@ The README describes only the current state, so the following text of README.md 
 
 - The kirimasim ratchet of the Nightly now also fails when a test that matched in the previous results becomes unsupported (`tools/results_ratchet.py`, owner's decision). A change to a known difference still does not fail it.
 - The three files that were growing toward GitHub's limits are split (owner's decision): the coverage history `coverage/behavior-history.json` (29.9 MB) into one file a day under `coverage/behavior-history/`, the interaction summary `coverage/interaction-summary.json` (51.3 MB) into `coverage/interaction-summary/` (the plan and the runs of each simulator), and the matching inventory `coverage/test-matching.json` (45.6 MB) into `coverage/test-matching/` (one file per test directory). Each was reassembled and compared with the original before the original was removed. The Nightly's history on the results branch moves to daily files at its next publication. `tools/file_sizes.py --check` in Check fails on a tracked file over 40 MiB; the largest now is `coverage/behaviors.json` (29.7 MiB).
+
+## 2026-11-22
+
+- The sequence test now terminates, and the VPI test checks that `vpiInstance` returns the module that instantiated the interface. One of the 78 entries in the interpretation ledger was resolved, leaving 77 open. [Test corrections](https://github.com/kurochan001/kirimasim-tests/commit/67b4acd9) · [Ledger](interpretation-splits.en.md)
+
+## 2026-11-23
+
+- All 16,071 simulations matched in strict LRM mode on Ghost. Later that day the timeout for the 33-bit dynamic array product constraint test rose from 90 to 180 seconds. The eight-worker rerun matched all 16,071 cases, with the product test finishing in 66.78 seconds. [Run log](../coverage/results/ghost-local-20261123-strict-timeout180.log)

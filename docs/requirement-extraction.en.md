@@ -49,7 +49,7 @@ The registration line contains the occurrences of the same requirement in separa
 
 `coverage/behaviors.json`'s `denominator_review.state` is `approved`. Merely reading every clause does not automatically approve the behavioral-coverage denominator for the entire standard. If a new interpretation issue arises, suspend mapping approval for that row and return the affected clause to `in_progress`. Display material review, denominator approval, test mappings, and verified execution separately.
 
-When requirement extraction finished, before further existing-test comparisons, 94 rows had test mappings and 85 rows had recorded passes for the current inputs. The unconfirmed match does not mean that the case does not exist in the existing test. This task does not add a test. See [Provisional and definitive values and aggregation by operation and environment](behavior-coverage-summary.en.md).
+When requirement extraction finished, before further existing-test comparisons, 94 rows had test mappings and 85 rows had recorded passes for the current inputs. The unconfirmed match does not mean that the case does not exist in the existing test. This task does not add a test. See [Current design and execution coverage by environment](behavior-coverage-summary.en.md).
 
 <a id="保存先と更新"></a>
 

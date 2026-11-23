@@ -6,7 +6,7 @@ Five AI reviewers read the repository as of `82b5713f`, each in its own area: ju
 
 - No tool made a saved result or a published figure wrong. One test does (the first row of [fixes of existing tests](#tests)).
 - The fixes that do not invalidate saved results were made in this review ([fixed](#fixed)).
-- A fix that changes a runner, the normalization or an existing test makes the saved results of Ghost stale, and Ghost's results cannot be produced again locally. Such fixes are listed here, not made, and wait for the next re-save of Ghost's results or the next change of the runners.
+- The November 21 review had no access to a Ghost rerun. It deferred the test and runner changes listed below to preserve the evidence available then. A later full run in strict LRM mode completed on November 23. [Run log](../coverage/results/ghost-local-20261123-strict-timeout180.log)
 - The coverage figures do not change in this review (design 93.15%, execution without Ghost 51.22%, execution with Ghost and kirimasim 78.71%).
 
 <a id="fixed"></a>

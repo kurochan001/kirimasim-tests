@@ -4,7 +4,7 @@
 
 独立した[Daily and weekly benchmarksワークフロー](../.github/workflows/benchmark.yml)で実行時間を測ります。機能テストのNightlyは言語の結果を確認します。速くても結果が誤っていれば、速度値には採用しません。既存の`nightly.yml`、機能判定、`results`ブランチ、過去の速度測定記録は維持します。
 
-[最新の測定回と推移](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)・[Actionsとログ](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)。結果ブランチは最初の正式実行の公開時に作られます。失敗した回も表示し、完了した測定として扱いません。
+[最新の測定回と推移](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)・[Actionsとログ](https://github.com/kurochan001/kirimasim-tests/actions/workflows/benchmark.yml)。正式測定の結果は`benchmark-results`ブランチで公開しています。失敗した回も表示し、完了した測定として扱いません。
 
 ## READMEの総合グラフ
 
@@ -92,7 +92,7 @@ Lyraは初期構成には含めません。手元に実行ファイルや専用�
 
 Nは、手元のMac 1台での正しさの事前確認で、kirimasimの差分時間がそこでおよそ1.5〜2.5秒になるように選び、固定しました。事前確認の値は速度の証拠にしません。3つの比較の集合には、相手が実行できる条件だけを入れます。`holdout-icarus14`（9条件、Icarus 14 devel）、`holdout-regression`（10条件すべて、baseline）、`holdout-verilator`（9条件、Verilator）です。宣言した非対応は欠測として示し、ゼロにはしません。
 
-別枠は週に1回、月曜03:47 UTC／12:47 JSTに、週次の後に同じconcurrency groupで実行します。定期実行は、人が最初の正式な別枠の測定を公開した後にだけ始まります（**Run workflow**で`profile=holdout`）。それまではgateジョブが飛ばします。記録はbenchmark-resultsの`holdout/runs/`、`holdout/history.json`、`latest-holdout.json`と、READMEの折りたたみの中の別の表です。表は公開のたびに`tools/holdout_history.py readme`が入れ直します。`tools/holdout_benchmark.py`は、変更しない日次のドライバを別枠の定義で動かします。条件ごとのオプションのない条件は、固定したアダプタのコマンドのとおりに実行します。定義は別枠のドライバのハッシュを記録するので、ドライバを変えると別枠の定義が変わります。
+別枠は週に1回、月曜03:47 UTC／12:47 JSTに、週次の後に同じconcurrency groupで実行します。gateジョブは`latest-holdout.json`の存在を確認します。このファイルは2026-11-21の[初回の正式な別枠測定](https://github.com/kurochan001/kirimasim-tests/actions/runs/44895777688)で公開されました。記録はbenchmark-resultsの`holdout/runs/`、`holdout/history.json`、`latest-holdout.json`と、READMEの折りたたみの中の別の表です。表は公開のたびに`tools/holdout_history.py readme`が入れ直します。`tools/holdout_benchmark.py`は、変更しない日次のドライバを別枠の定義で動かします。条件ごとのオプションのない条件は、固定したアダプタのコマンドのとおりに実行します。定義は別枠のドライバのハッシュを記録するので、ドライバを変えると別枠の定義が変わります。
 
 ## 何の時間を測るか
 
@@ -130,7 +130,7 @@ Nは、手元のMac 1台での正しさの事前確認で、kirimasimの差分�
 
 ## 手動実行とローカル実行
 
-Actionsの**Daily and weekly benchmarks → Run workflow**で`profile=daily`・`weekly`・`holdout`のどれかと`mode=formal`を選びます。日次は**20:17 UTC／翌日05:17 JST**、週次は**日曜23:47 UTC／月曜08:47 JST**です。機能Nightlyは19:23 UTC／04:23 JSTのままです。両プロファイルは同じconcurrencyとローカルロックで排他し、予定時刻をずらすだけには依存しません。GitHub側の遅延もあるため実際の開始・終了時刻を保存します。測定ジョブの上限は準備を含め180分です。`mode=smoke`は日次の`wide_arith`・`fourstate_mix`・`fifo_stream`・`resolved_bus`、週次の`large_memory`を、固定した完全なNで1反復します。出力・処理回数・終了の検証は残し、正式な性能履歴には入れません。
+Actionsの**Daily and weekly benchmarks → Run workflow**で`profile=daily`・`weekly`・`holdout`のどれかと`mode=formal`を選びます。日次は**20:17 UTC／翌日05:17 JST**、週次は**日曜23:47 UTC／月曜08:47 JST**です。機能Nightlyは19:23 UTC／04:23 JSTのままです。日次・週次・別枠の3プロファイルは同じconcurrency groupとローカルロックで排他し、予定時刻をずらすだけには依存しません。GitHub側の遅延もあるため実際の開始・終了時刻を保存します。測定ジョブの上限は準備を含め180分です。`mode=smoke`は日次の`wide_arith`・`fourstate_mix`・`fifo_stream`・`resolved_bus`、週次の`large_memory`、別枠の`real_filter`・`file_output`・`bus_fabric_vcd`を、固定した完全なNで1反復します。出力・処理回数・終了の検証は残し、正式な性能履歴には入れません。
 
 同じCLIをmacOSとLinuxで使えます。Git、Python 3.10以上、本体が対応するC++23コンパイラ、CMake 3.28以上、Ninja、圧縮ライブラリの開発ファイル、OSSのビルドに必要な道具を用意してください。Ubuntuの導入一覧はワークフローにあります。Homebrewでは十分新しいbison・flexをPATHへ追加します。静かなマシンと新しい出力先を使ってください。
 
@@ -145,7 +145,7 @@ python3 tools/daily_benchmark.py --profile daily --inventory "$WORK/inventory.js
 python3 tools/benchmark_history.py append --directory "$WORK/report" "$WORK/run-001/results.json"
 ```
 
-週次は別の出力先で`--profile weekly`を指定し、準備済みのinventoryを共用できます。別枠は同じinventoryで専用のドライバを使い、`python3 tools/holdout_benchmark.py --inventory "$WORK/inventory.json" --out "$WORK/holdout-001"`と`python3 tools/holdout_history.py append --directory "$WORK/report" "$WORK/holdout-001/results.json"`を実行します。別枠のスモークは`--smoke --only real_filter file_output bus_fabric_vcd`を使えます。各測定回で両開発版の最新をそれぞれ一度だけ解決します。同じinventoryから日次・週次を続けて実行する場合は、意図的に同じSHAを使います。最新を更新するときはresolve・prepareをやり直してください。
+週次は別の出力先で`--profile weekly`を指定し、準備済みのinventoryを共用できます。別枠は同じinventoryで専用のドライバを使い、`python3 tools/holdout_benchmark.py --inventory "$WORK/inventory.json" --out "$WORK/holdout-001"`と`python3 tools/holdout_history.py append --directory "$WORK/report" "$WORK/holdout-001/results.json"`を実行します。別枠のスモークは`--smoke --only real_filter file_output bus_fabric_vcd`を使えます。各測定回で両開発版の最新をそれぞれ一度だけ解決します。いずれのプロファイルも、同じinventoryを使えば各シミュレータの同じコミットを使用します。最新を更新するときはresolve・prepareをやり直してください。
 
 日次スモークでは測定コマンドに`--smoke --only wide_arith fourstate_mix`を追加し、別の出力先を使います。週次スモークは`--profile weekly --smoke --only large_memory`です。`benchmark_history.py append`はスモークを意図的に拒否します。準備済みの実行ファイルを使う場合はinventoryの代わりに、固定したソースの`--benchmark-root`、解決済み完全SHAの`--latest-commit`と、`--tool latest=... --tool baseline=... --tool icarus=... --tool verilator=... --tool icarus_devel=...`と`--tool-commit icarus_devel=完全SHA`を指定できます。本体のSHA・版とOSSのリリース表示を確認します。外部から渡されたOSS実行ファイルにはソースからのビルド証明がないため、その制約を結果へ記録します。再現する正式インストールには準備処理の記録を使ってください。
 

@@ -815,14 +815,16 @@ def report(runs: list[dict], sims: list[str], language: str = "en") -> str:
         "[English](README.md) / [日本語](README.ja.md)",
         "",
         tr(f"The [nightly workflow]({workflow}) of [kirimasim-tests]({SERVER}/{REPOSITORY}) "
-        "writes this branch. Each night it runs every test of the suite's main branch with "
+        "writes this branch. Each night it runs the simulation tests on `main` with "
         "each simulator, adds the results to `history.json` and draws the charts below. "
+        "The suite total includes formal-only tests. Each simulator row counts simulation tests. "
         "Local runs can also be imported and are marked `local`. "
         "A test matches when its output and specified checks agree with the expected result, "
         "or an illegal design is rejected with the required diagnostic; see the suite's "
         "README for what each status means.",
         f"[kirimasim-tests]({SERVER}/{REPOSITORY}) の[夜間ワークフロー]({workflow})がこのブランチを更新します。"
-        "毎晩、main ブランチの全テストを各シミュレータで実行し、結果を `history.json` に追加して、以下の図を生成します。"
+        "毎晩、main ブランチのシミュレーションテストを各シミュレータで実行し、結果を `history.json` に追加して、以下の図を生成します。"
+        "スイート総数には形式検証専用テストも含みます。各シミュレータの行はシミュレーションテストの集計です。"
         "ローカル実行の結果も取り込むことができ、`local` と表示します。"
         "出力と指定された検査が期待結果に一致する場合、または不正な設計が必要な診断付きで拒否される場合に、テストを「一致」と数えます。"
         "各ステータスの意味はスイートの README を参照してください。"),

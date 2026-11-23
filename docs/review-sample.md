@@ -25,6 +25,7 @@
 ## 標本を選ぶ
 
 ```sh
+git fetch origin refs/heads/results:refs/remotes/origin/results
 mkdir -p results/latest
 for s in icarus verilator kirimasim lyra ghost; do
   git show origin/results:latest/$s.json > results/latest/$s.json

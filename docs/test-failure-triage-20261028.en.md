@@ -12,7 +12,7 @@ Scope: These are the 40 test-side cases among 176 failures from running 7,740 te
 
 - Suite: `b83d0ffd` ( 2026-10-28 )
 - Results: local run records (JSON, 7,740 tests, 462 failures)
-- Related: [Re-analysis of failures](https://github.com/kurochan001/kirimasim/blob/main/docs/kirimasim_failure_analysis_2026-10-28.md) and [Triage outside slang](https://github.com/kurochan001/kirimasim/blob/main/docs/kirimasim_nonslang_triage_2026-10-28.md) in kirimasim
+- Related: [Re-analysis of failures](https://github.com/kurochan001/kirimasim/blob/main/docs/history/kirimasim_failure_analysis_2026-10-28.md) and [Triage outside slang](https://github.com/kurochan001/kirimasim/blob/main/docs/history/kirimasim_nonslang_triage_2026-10-28.md) in kirimasim
 
 > This record is a record of judgment. The fixes are collected in `docs/test-side-fixes-20261028.md`, and
 > The test and expected values were corrected according to the paragraphs of the standard.

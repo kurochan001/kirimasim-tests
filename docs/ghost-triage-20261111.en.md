@@ -112,10 +112,12 @@ confirm whether it recurs.
 The public part is reproducible with the runner in this repository and a
 private profile outside it.
 
+For a rerun today, use a private profile with strict LRM checking enabled.
+
 ```sh
 cd kirimasim-tests
 python3 tools/run_ghost.py --simulator /path/to/private/simulator \
-  --profile /path/to/private-profile.json --include /path/to/include \
+  --profile /path/to/private-strict-profile.json --include /path/to/include \
   -j 8 --json out/ghost.json
 ```
 

@@ -71,7 +71,7 @@ Also:
 These add to the rules of the [handoff of 2026-11-10](claude-code-handoff-20261110.en.md#rules).
 
 - Others push to `main` too. Fetch `origin/main` before every push; if it moved, rebase and check again.
-- A change to `tools/suite_results.py`, `tools/normalize_output.py` or `tools/run_<simulator>.py` makes the saved results of that simulator invalid. Ghost's results cannot be saved again locally.
+- A change to `tools/suite_results.py`, `tools/normalize_output.py` or `tools/run_<simulator>.py` makes the saved results of that simulator invalid. The November 12 review could not rerun Ghost locally. With access to the private build and strict profile, a local rerun is possible. See the [November 23 run](../coverage/results/ghost-local-20261123-strict-timeout180.log).
 - An illegal test lists a pinned release only when the release accepts the legal use and rejects only the illegal form at the marked line. Run a legal counterpart to check.
 - New tests and corrected expectations have an author and a separate, independent reviewer.
 - On macOS, giving `OBJCACHE=ccache` straight to the Verilator runner can produce a false build failure.

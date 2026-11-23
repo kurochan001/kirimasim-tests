@@ -117,7 +117,7 @@ def oracle_kind(fields: dict[str, str]) -> str:
 def collect(root: Path = ROOT) -> dict:
     by_chapter: dict[int, dict[str, int]] = {}
     totals = {"tests": 0, "icarus": 0, "verilator": 0, "spec": 0, "human": 0,
-              "fourstate": 0, "dpi_c": 0, "vpi_c": 0, "illegal": 0, "exit": 0, "files": 0,
+              "fourstate": 0, "c_tests": 0, "dpi_c": 0, "vpi_c": 0, "illegal": 0, "exit": 0, "files": 0,
               "args": 0, "defines": 0, "incdirs": 0, "top_module": 0, "generated": {}}
     for test in suite_results.find_tests(root):
         fields = header(test)
@@ -130,6 +130,7 @@ def collect(root: Path = ROOT) -> dict:
         totals[kind] += 1
         totals["human"] += fields.get("spec_check") == "human"
         totals["fourstate"] += fields.get("fourstate") == "yes"
+        totals["c_tests"] += "dpi_c" in fields or "vpi_c" in fields
         totals["dpi_c"] += "dpi_c" in fields
         totals["vpi_c"] += "vpi_c" in fields
         totals["illegal"] += "should_fail_because" in fields
@@ -147,10 +148,10 @@ def collect(root: Path = ROOT) -> dict:
 
 def run_setup(t: dict) -> str:
     """The sentence that counts the tests whose metadata sets up the run, such
-    as "6 tests have more than one source file (`:files:`), and 5 pass
+    as "6 tests list additional source or include files (`:files:`), and 5 pass
     arguments to the simulation (`:args:`). ", or "" if there are none."""
     parts = [f"{n} {one if n == 1 else more}" for n, one, more in (
-        (t["files"], "has more than one source file", "have more than one source file"),
+        (t["files"], "lists additional source or include files", "list additional source or include files"),
         (t["defines"], "defines macros", "define macros"),
         (t["incdirs"], "names include directories", "name include directories"),
         (t["top_module"], "names the top-level module or configuration",
@@ -189,8 +190,8 @@ def markdown(stats: dict, language: str = "en") -> str:
         f"| The standard only, with no fixed-release simulator oracle recorded | {t['spec']} |",
         "",
         f"{t['fourstate']} tests depend on x or z values (`:fourstate: yes`). "
-        f"{t['dpi_c'] + t['vpi_c']} tests come with C code: {t['dpi_c']} DPI tests (`:dpi_c:`) "
-        f"and {t['vpi_c']} VPI tests (`:vpi_c:`). "
+        f"{t['c_tests']} tests include C code. {t['dpi_c']} use DPI (`:dpi_c:`) "
+        f"and {t['vpi_c']} use VPI (`:vpi_c:`). A test can use both. "
         + (f"{t['illegal']} tests are illegal designs, which a simulator has to reject "
            "(`:should_fail_because:`). " if t["illegal"] else "")
         + (f"{t['exit']} tests check the exit code of the simulation (`:expected_exit:`). "
@@ -218,7 +219,7 @@ def markdown(stats: dict, language: str = "en") -> str:
 def markdown_ja(stats: dict) -> str:
     t = stats["totals"]
     setup = "、".join(f"{label}{t[field]}本（`:{field}:`）" for field, label in (
-        ("files", "複数ソースファイル"), ("defines", "マクロ定義"),
+        ("files", "追加ソース・インクルードファイル指定"), ("defines", "マクロ定義"),
         ("incdirs", "インクルードディレクトリ指定"),
         ("top_module", "トップレベルのモジュールまたは構成指定"),
         ("args", "実行時引数")) if t[field])
@@ -233,8 +234,8 @@ def markdown_ja(stats: dict) -> str:
               f"| Verilator 5.052か5.054（Icarus Verilog 13.0のoracle登録なし） | {t['verilator']} |",
               f"| 規格のみ（固定リリースのシミュレータのoracle登録なし） | {t['spec']} |", "",
               f"{t['fourstate']}本はx/z値に依存します（`:fourstate: yes`）。"
-              f"{t['dpi_c'] + t['vpi_c']}本にはCコードがあり、内訳はDPIが{t['dpi_c']}本（`:dpi_c:`）、"
-              f"VPIが{t['vpi_c']}本（`:vpi_c:`）です。"
+              f"{t['c_tests']}本がCコードを含みます。DPIを使うのは{t['dpi_c']}本（`:dpi_c:`）、"
+              f"VPIを使うのは{t['vpi_c']}本（`:vpi_c:`）で、両方を使うテストもあります。"
               + (f"{t['illegal']}本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。"
                  if t["illegal"] else "")
               + (f"{t['exit']}本はシミュレーションの終了コードを確認します（`:expected_exit:`）。"

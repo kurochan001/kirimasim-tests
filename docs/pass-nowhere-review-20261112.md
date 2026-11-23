@@ -90,7 +90,7 @@
 | `ch31/test_illegal_timing_condition_two_signals` | 31.7 | 条件の信号が二つ以上のときは、その論理をspecifyブロックの外でまとめます。 | 文法は`&&&`の後に任意の式を認め、エラーは定められていません。 | どちらの結果も認めるか、テストをやめます。 |
 | `ch36/test_vpi_compatibility_1800v2017_mode`、`ch36/test_vpi_compatibility_1800v2023_mode` | 36.10.2、36.12.2.1、L.2 | 36.12.2.1はこのモードのシンボルを有効としていて、アプリケーションはスタートアップルーチンから表示します。 | 36.10.2は、そこで二つの登録ルーチンしか認めません。また、L.2に載っているヘッダは、このシンボルではコンパイルできません。 | シミュレーション開始のコールバックから表示します。L.2の問題は、規格の中の食い違いとして記録します。 |
 | `ch37/test_vpi_class_relations_scope_typespec` | 37.31 detail 6、8.17 | extendsオブジェクトの`vpiArgument`は、`super.new(v)`の引数を返します。 | extendsオブジェクトはextends節を表し、そこに書いた引数だけを返します。 | どちらの読み方でも返る、extends節に書いた引数を使います。 |
-| `ch37/test_vpi_program_interface_relations` | 37.9、37.10 detail 3 | programからは、そのポートにつながるinterfaceが得られ、`vpiInstance`でprogramに戻ります。 | `vpiInstance`は、interfaceを実体化しているインスタンス、つまりmoduleを返します。 | テストをやめるか、両方を認めます。 |
+| `ch37/test_vpi_program_interface_relations` | 37.9、37.10 detail 3 | programからは、そのポートにつながるinterfaceが得られ、`vpiInstance`でprogramに戻ります。 | `vpiInstance`は、interfaceを実体化しているインスタンス、つまりmoduleを返します。 | 11月12日時点の提案。11月22日に解決し、現在は§37.10の詳細3に従い、interfaceを実体化したmoduleを期待します。[決定記録](interpretation-splits.md#読み方が割れる解決済み) |
 | `gen/ch21/test_gen_cross_litfmt_fill_b_display_param`、`gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65` | 6.20.2、5.7.1 | `localparam P = '1;`は、自己決定の`'1`の1ビットの値を持ちます。 | 6.20.2の最後の項目では、型のないパラメータで値にサイズがなければ、32ビット以上になります。 | 生成器が、そのようなパラメータの幅を固定しないようにします。 |
 
 <a id="vacuous-success-scan"></a>

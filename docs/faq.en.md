@@ -67,7 +67,7 @@ For a first code reading, [Q49 walks through a real test](#q49-read-a-real-test)
 
 Expectations are derived from the cited clauses first. A fixed simulator release is recorded in `:oracle:` when it confirms them. A disagreement requires investigating the test, interpretation and implementation; agreement between tools alone does not decide correctness. See [expectation policy](../README.md#where-the-expected-outputs-come-from).
 
-Comparison removes empty lines and selected tool banners, but does not collapse spaces on nonempty lines. Whitespace differences can therefore fail. Check [normalization](../tools/normalize_output.py) and the banners each runner removes.
+Comparison removes empty lines, whitespace-only lines and selected tool banners. Spaces on lines containing text are significant. Whitespace differences can therefore fail. Check [normalization](../tools/normalize_output.py) and the banners each runner removes.
 
 `:lrm:` identifies the rule being tested; `:oracle:` records standard review and fixed-release confirmation of the expectation. A tool name does not certify its current development build or every requirement in that clause. [Q49](#q49-read-a-real-test) connects a real header to its expected output. A simulator-specific expectation takes precedence over the common one only for justified standard-permitted differences, such as tool-dependent formatting; it is not a majority-vote rule.
 
@@ -83,7 +83,7 @@ Its expectation is standard-derived, but no fixed-release confirmation is record
 
 ### Q6. Why distinguish fixed releases from Nightly development versions?
 
-Fixed releases reproduce recorded oracle results; development versions track new support and regressions. A different release does not inherit `iverilog@13.0`, and a Nightly match is not confirmation by that fixed release. Verilator 5.052 oracle checks also vary the initialization seed. See [expectations](../README.md#where-the-expected-outputs-come-from) and [workflows](../README.md#workflows).
+Fixed releases reproduce recorded oracle results; development versions track new support and regressions. A different release does not inherit `iverilog@13.0`, and a Nightly match is not confirmation by that fixed release. Oracle verification uses two initialization seeds. The routine Verilator Check jobs run with the default seed of 1. See [expectations](../README.md#where-the-expected-outputs-come-from) and [workflows](../README.md#workflows).
 
 <a id="q7-規格違反のコードなら何らかのエラーが出れば合格ですか"></a>
 
@@ -105,7 +105,7 @@ This suite uses the fixed Verilator oracle for tests that do not depend on X/Z. 
 
 ### Q9. What do Match, Differ, Known difference and Unsupported mean?
 
-Match meets the expected result; Differ fails a judgment condition. Known difference separates mismatches without an Icarus/Verilator fixed-release oracle and is not success. kirimasim also uses it when only another simulator's expectation exists, without a common or kirimasim-specific expectation. Unsupported identifies recognized unsupported features or test kinds the runner cannot execute. An unrecognized unsupported-feature build failure may instead be Differ. Compare [definitions](../README.md#result-statuses) and individual logs, not just similarly named columns.
+Match meets the expected result; Differ fails a judgment condition. Icarus records a mismatch as Known difference without `iverilog@13.0`. Verilator does the same without `verilator@5.052`, including when the test lists only `verilator@5.054`. kirimasim also uses it when only another simulator's expectation exists, without a common or kirimasim-specific expectation. Unsupported identifies recognized unsupported features or test kinds the runner cannot execute. An unrecognized unsupported-feature build failure may instead be Differ. Compare [definitions](../README.md#result-statuses) and individual logs, not just similarly named columns.
 
 Match includes correctly rejected illegal designs. Terminal summaries for Icarus/Verilator use fixed-oracle tests as their denominator; `--json` can record `pass` for a mechanically matching test without an oracle, and Nightly counts it. Icarus prints `NOW MATCHES` for such matches; this does not automatically certify an oracle.
 
@@ -186,6 +186,8 @@ They satisfy a direct-citation count. A clause can contain many conditions, bran
 Finishing source review does not approve a denominator. Interpretation holds, duplicate meanings and requirement units must be reconciled and approved. Provisional 100% concerns registered units, not all programs and input combinations. Inspect denominator status, unmapped/held requirements, stale evidence and detection scope. See [measurement rules](../coverage/README.en.md#計測の意味).
 
 The current denominator is 12,332 requirements. AI review approved 12,298 on 2026-10-28, and later, with the owner's approval, rows that mixed an accepted and a rejected form were split (7 on 2026-11-14 and 27 on 2026-11-15). Zero interpretation holds does not mean independent human approval or complete semantic review of every test. The [denominator review](denominator-review-20261028.en.md) records the basis and limitations.
+
+The requirement registry and the test interpretation ledger count different things. On 2026-11-23 the registry had zero rows on hold. The test ledger had 77 unresolved entries and one resolved entry. [Test interpretation ledger](interpretation-splits.en.md)
 
 <a id="q19-複数シミュレータの成功を集めてand集合を合格にできますか"></a>
 

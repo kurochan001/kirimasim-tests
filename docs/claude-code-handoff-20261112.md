@@ -71,7 +71,7 @@
 [2026-11-10の引き継ぎ](claude-code-handoff-20261110.md#rules)の決まりに、次を加えます。
 
 - `main`にはほかの人も入れます。プッシュの前に毎回`origin/main`を取得し、動いていたら載せ直して確認し直します。
-- `tools/suite_results.py`、`tools/normalize_output.py`、`tools/run_<シミュレータ>.py`を変えると、そのシミュレータの保存済みの結果が無効になります。Ghostの結果は手元で取り直せません。
+- `tools/suite_results.py`、`tools/normalize_output.py`、`tools/run_<シミュレータ>.py`を変えると、そのシミュレータの保存済みの結果が無効になります。11月12日のレビュー環境ではGhostを再実行できませんでした。非公開ビルドと厳格モードのプロファイルを使える環境では再実行できます。[11月23日の実行記録](../coverage/results/ghost-local-20261123-strict-timeout180.log)
 - 規格違反テストに固定版の印を付けるのは、そのリリースが合法な使い方を受理し、規格違反の形だけを指定の行で拒否するときに限ります。合法な対照例を実行して確かめます。
 - 新しいテストと期待値の修正は、書く人と、独立に検証する人を分けます。
 - macOSでVerilatorのランナーに`OBJCACHE=ccache`を直接渡すと、偽のビルド失敗が出ることがあります。

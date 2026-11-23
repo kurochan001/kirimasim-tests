@@ -81,10 +81,12 @@
 
 公開部分は、このリポジトリのランナーと、外に置いた非公開プロファイルで再現できる。
 
+現在このコマンドを実行するときは、LRM厳格モードを有効にした非公開プロファイルを使います。
+
 ```sh
 cd kirimasim-tests
 python3 tools/run_ghost.py --simulator /path/to/private/simulator \
-  --profile /path/to/private-profile.json --include /path/to/include \
+  --profile /path/to/private-strict-profile.json --include /path/to/include \
   -j 8 --json out/ghost.json
 ```
 

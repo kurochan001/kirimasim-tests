@@ -19,6 +19,9 @@
 
 The Nightly runs on `main` every night with icarus, verilator, kirimasim, lyra-build, lyra-shards (four parts), lyra (merge), ghost and publish.
 The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
+
+In the [2026-11-23 run](https://github.com/kurochan001/kirimasim-tests/actions/runs/45088300638) on suite `c3179844`, the suite contained 16,338 tests. Each simulator reported on 16,071 simulation cases. The other 267 were formal-only tests. Ghost in strict LRM mode matched all 16,071. kirimasim matched 13,160, differed on 293 and reported 2,618 unsupported.
+
 Before partitioning, the most recent successful Nightly was the [run](https://github.com/kurochan001/kirimasim-tests/actions/runs/44217725110) of 2026-11-18, on suite `befffe90`.
 The [run of 2026-11-19](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011), on suite `68ce2bc2`, passed six jobs including Ghost, but lyra's test step reached its 345-minute limit. It has no Lyra result JSON; the other simulators' results were published.
 To address that timeout, Lyra's tests now run in four parts selected by the SHA-256 of each test id. They are combined only when all assigned tests, input and runner fingerprints, versions and compiler settings agree. Shard artifacts are separate from the publishable `results-*` artifacts.

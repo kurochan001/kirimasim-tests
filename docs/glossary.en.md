@@ -36,7 +36,7 @@ Here, design requirement coverage and execution coverage are defined by this rep
 | Expected result / expected output | Values, rejection or termination conditions accepted as success / the standard-output text compared. `.expected` stores expected output. |
 | Legal-design / illegal-design test | A test of valid source behavior / a deliberately invalid design checking diagnosis and rejection of the intended violation. The latter exercises compiler error handling. |
 | Runner | A `tools/run_*.py` script that builds, executes and judges a test from metadata. Formal verification also has a runner. |
-| Normalization | Removing selected blank lines and tool-specific termination banners before comparison. Spaces, digits and values on nonempty lines remain significant. Each runner defines removed diagnostics/banners. |
+| Normalization | Removing blank lines (including whitespace-only lines) and tool-specific termination banners before comparison. Spaces, digits and values on lines containing text remain significant. Each runner defines removed diagnostics/banners. |
 | stdout / stderr / exit code | Ordinary process output / a diagnostic output channel / process termination status. Simulators may print diagnostics to stdout, so inspect each runner's comparison and diagnostic checks. |
 
 See [test format](../README.md#test-format), [judgment](../README.md#how-a-test-is-judged) and the [catalog](tests/README.md).
@@ -72,7 +72,7 @@ See [metadata](../README.md#metadata), [expectation policy](../README.md#where-t
 | --- | --- |
 | Match / `pass` | Output and specified termination/diagnostic checks match, including correctly rejected illegal designs. |
 | Differ / `fail` | Judgment fails: output differences, build/runtime failure, accepted illegal source, diagnostic mismatch, etc. |
-| Known difference / `known` | A mismatch without an Icarus/Verilator fixed-release oracle; also kirimasim tests with only another simulator's expectation. It is neither success nor the runner's ordinary regression failure. |
+| Known difference / `known` | A mismatch without `iverilog@13.0` for Icarus or `verilator@5.052` for Verilator (including a Verilator test tagged only with `verilator@5.054`); also kirimasim tests with only another simulator's expectation. It is neither success nor the runner's ordinary regression failure. |
 | Unsupported / `unsupported` | A recognized unsupported-feature diagnostic or a kind of test the runner cannot execute. It is not success. |
 | Not run / `not_run` | No record for a test in the selected snapshot. Cross aggregation adds this category; it is separate from the four runner statuses. |
 | Stale / inadmissible evidence | Cross evidence rejected for mismatched inputs/runners or missing version, timestamp or change-during-run provenance. A stored `pass` does not make it current success. |

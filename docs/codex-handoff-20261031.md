@@ -173,7 +173,7 @@ python3 tools/requirement_source.py --source ../IEEE_1800-2023_SystemVerilog \
 python3 tools/run_icarus.py --iverilog-bin DIR [-j N] [--json FILE] [TEST ...]
 python3 tools/run_verilator.py --all --seed 1 [-j N] [--json FILE] [TEST ...]
 python3 tools/run_kirimasim.py --kirimasim BIN [-j N] [--json FILE] [TEST ...]
-python3 tools/run_ghost.py --simulator BIN --profile PRIVATE.json --include DIR [TEST ...]
+python3 tools/run_ghost.py --simulator BIN --profile PRIVATE-STRICT.json --include DIR [TEST ...]
 python3 tools/run_sby.py --sby "$SBY_BIN" --json FILE
 ```
 

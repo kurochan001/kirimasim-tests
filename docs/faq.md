@@ -67,7 +67,7 @@ Icarus・Verilator・kirimasim・Lyra・Ghostは、明示指定でも`:type: for
 
 引用条文から先に期待結果を決め、固定バージョンシミュレータで確認できた場合にその版を`:oracle:`へ記録します。食い違ったときはテスト・規格解釈・実装のどこに原因があるか調べます。複数ツールが同じ値を出すことだけで正解を決めません。[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)を参照してください。
 
-出力比較では空行やツール固有の表示を除きますが、文字のある行の空白は詰めません。空白だけの違いでも不一致になる場合があります。[正規化処理](../tools/normalize_output.py)と各ランナーが除く表示を確認してください。
+出力比較では空行、空白文字だけの行、ツール固有の表示を除きます。文字を含む行の空白はそのまま比較します。空白だけの違いでも不一致になる場合があります。[正規化処理](../tools/normalize_output.py)と各ランナーが除く表示を確認してください。
 
 `:lrm:`は「どの規則を検査するか」、`:oracle:`は「どの規格照合・固定版で期待結果を確認したか」を記録します。後者のツール名は、現在の開発版の成功や、節全体の検証完了を意味しません。実際のヘッダと期待値の対応は[Q49](#q49-read-a-real-test)で確認できます。専用期待値がある場合は共通期待値より優先しますが、規格が許すツール依存の表示等に限り、理由を記録します。多数決で期待値を変える規則ではありません。
 
@@ -83,7 +83,7 @@ Icarus・Verilator・kirimasim・Lyra・Ghostは、明示指定でも`:type: for
 
 ### Q6. 固定バージョンとNightlyの開発版は、なぜ分けるのですか
 
-固定バージョンはoracleに記録した期待結果を継続して再現するため、開発版は機能追加や回帰を追うためです。`iverilog@13.0`の確認を別リリースへ読み替えたり、Nightlyで一致しただけでその固定バージョンの確認済みとしたりはしません。Verilator 5.052のoracle確認では、初期値の乱数seedを変えた実行も行います。[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)と[ワークフロー](../README.ja.md#workflows)を参照してください。
+固定バージョンはoracleに記録した期待結果を継続して再現するため、開発版は機能追加や回帰を追うためです。`iverilog@13.0`の確認を別リリースへ読み替えたり、Nightlyで一致しただけでその固定バージョンの確認済みとしたりはしません。Verilatorのoracleを登録するときは初期値の乱数seedを変えて照合します。通常のCheckは既定のseed 1で実行します。[期待値の決め方](../README.ja.md#where-the-expected-outputs-come-from)と[ワークフロー](../README.ja.md#workflows)を参照してください。
 
 <a id="q7-does-any-error-make-an-illegal-design-test-pass"></a>
 
@@ -105,7 +105,7 @@ Icarus・Verilator・kirimasim・Lyra・Ghostは、明示指定でも`:type: for
 
 ### Q9. Match、Differ、Known difference、Unsupportedは何が違いますか
 
-Matchは期待結果との一致、Differは判定条件の不一致です。Known differenceはIcarus・Verilatorの固定バージョンoracleがないテストの不一致を分ける区分で、成功には数えません。kirimasimでも、使える共通・専用の期待出力がなく、他ツール専用の期待出力だけがある場合はKnown differenceになります。Unsupportedはランナーが認識する未対応機能や実行できないテストの区分です。未対応と認識されないコンパイル失敗がDifferになる場合もあります。ランナーによって区分の条件が異なるので、同じ列名の件数だけで比較せず、[結果の定義](../README.ja.md#result-statuses)と個別ログを確認してください。
+Matchは期待結果との一致、Differは判定条件の不一致です。Icarusは`iverilog@13.0`がないテストの不一致をKnown differenceに数えます。Verilatorでこの判定に使うのは`verilator@5.052`で、`verilator@5.054`だけのテストの不一致もKnown differenceです。kirimasimでも、使える共通・専用の期待出力がなく、他ツール専用の期待出力だけがある場合はKnown differenceになります。Unsupportedはランナーが認識する未対応機能や実行できないテストの区分です。未対応と認識されないコンパイル失敗がDifferになる場合もあります。ランナーによって区分の条件が異なるので、同じ列名の件数だけで比較せず、[結果の定義](../README.ja.md#result-statuses)と個別ログを確認してください。
 
 Matchには規格違反のコードを適切に拒否した結果も含みます。また、Icarus・Verilatorの端末の要約は、その固定バージョンoracleが付いたテストを分母にします。`--json`ではoracle未登録でも判定に一致すれば`pass`となり、Nightlyはその結果も数えます。`NOW MATCHES`はIcarusランナーがこの一致を知らせる表示で、oracleの自動認定ではありません。
 
@@ -186,6 +186,8 @@ mainは現在のテスト・ツールと保存済み証跡、resultsはNightly�
 規格資料の調査完了だけでは分母は確定しません。解釈保留、意味の重複、要求単位を整理し、分母を承認する必要があります。暫定100%も登録した単位の範囲の結果で、全プログラム・全入力の組合せを証明した意味にはなりません。分母の状態、未対応・保留・古い証跡、各テストの検出範囲も確認します。[分母と暫定値の扱い](../coverage/README.md#計測の意味)を参照してください。
 
 現在の分母は12,332要求です。2026-10-28のAIレビューで12,298要求を承認し、その後、所有者の承認を得て、受理される形と拒否される形が混ざった行を分けました（2026-11-14に7行、2026-11-15に27行）。解釈保留は0件ですが、人による独立したレビュー・承認や全テストの内容レビュー完了を示すものではありません。[分母レビュー](denominator-review-20261028.md)に根拠と限界を記録しています。
+
+要求台帳の解釈保留と、個々のテストで期待値の読み方が割れる件数は別々に数えます。2026-11-23時点で要求台帳の保留は0行、テストの台帳は未解決77本・解決済み1本です。[テストの解釈台帳](interpretation-splits.md)
 
 <a id="q19-can-partial-successes-from-different-simulators-satisfy-an-and-group"></a>
 

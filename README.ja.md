@@ -30,8 +30,7 @@ Icarus Verilog、Verilator、kirimasim、
 
 通常のシミュレーションの期待値は、シミュレータに依存しない規格の規則に基づきます。
 実装依存の形式を確認するテストでは前提を明記します。
-[FST波形テスト](docs/fst-tests-20261029.ja.md)はkirimasimのFSTバックエンド向けで、
-すべてのシミュレータにFST形式を要求するものではありません。
+2本の[FSTヘッダーテスト](docs/fst-tests-20261029.ja.md)は、設計内の`$dumpfile("wave.fst")`でFSTが選ばれることを期待します。kirimasimがFSTを選ぶのは`--wave=<file>.fst`を明示したときです。
 
 このスイートには、次の特徴があります。
 
@@ -55,7 +54,7 @@ Icarus Verilog、Verilator、kirimasim、
 
 [![日次25種類の総合所要時間比：小さいほど高速](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/benchmark-results/charts/daily-icarus14.svg)](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)
 
-共通22種類＋4値3種類、固定25種類の「kirimasimの差分時間 ÷ Icarus 14 develの差分時間」の等重み幾何平均です。**0.97なら所要時間が3%短い**意味で、小さいほど高速です。JSTの各日の最後の正式測定を表示し、1種類でも無効なら欠測にします。初回の正式結果が出るまでは測定待ちと表示します。機材・定義ごとに線を分け、GitHub標準ランナーでの参考値として扱います。
+共通22種類＋4値3種類、固定25種類の「kirimasimの差分時間 ÷ Icarus 14 develの差分時間」の等重み幾何平均です。**0.97なら所要時間が3%短い**意味で、小さいほど高速です。JSTの各日の最後の正式測定を表示し、1種類でも無効なら欠測にします。機材・定義ごとに線を分け、GitHub標準ランナーでの参考値として扱います。
 
 独立した[日次・週次速度ベンチマーク](docs/daily-benchmark.ja.md)で**日次25種類・週次の大規模3種類**を実行します。kirimasimとIcarus 14 develの最新コミットを各回の開始時に一度解決して固定します。双方が変化するため、kirimasimの固定基準版・Icarus 13・Verilatorとの比較とケース別結果は[詳細・生データ・推移](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)に残します。機能Nightlyとは別のワークフローと履歴です。週に1回、ほかの10条件（クラス、動的配列、interface、real演算、force/release、遅延、specifyのパス、ファイル出力、VCD/FSTの波形）を[別枠](docs/daily-benchmark.ja.md#別枠holdout報告のみ)として測り、報告だけします。kirimasimの調整には使わず、総合グラフにも入れません。
 
@@ -74,7 +73,7 @@ Icarus Verilog、Verilator、kirimasim、
 | Verilator 5.052か5.054（Icarus Verilog 13.0のoracle登録なし） | 2919 |
 | 規格のみ（固定リリースのシミュレータのoracle登録なし） | 4409 |
 
-4059本はx/z値に依存します（`:fourstate: yes`）。747本にはCコードがあり、内訳はDPIが193本（`:dpi_c:`）、VPIが554本（`:vpi_c:`）です。3060本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。77本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、複数ソースファイル26本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定56本（`:top_module:`）、実行時引数1299本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
+4059本はx/z値に依存します（`:fourstate: yes`）。745本がCコードを含みます。DPIを使うのは193本（`:dpi_c:`）、VPIを使うのは554本（`:vpi_c:`）で、両方を使うテストもあります。3060本はシミュレータが拒否すべき不正な設計です（`:should_fail_because:`）。77本はシミュレーションの終了コードを確認します（`:expected_exit:`）。実行条件の指定は、追加ソース・インクルードファイル指定26本（`:files:`）、マクロ定義4本（`:defines:`）、インクルードディレクトリ指定7本（`:incdirs:`）、トップレベルのモジュールまたは構成指定56本（`:top_module:`）、実行時引数1299本（`:args:`）です。すべてのテストをAIモデルが規格と照合しました（`:spec_check: ai`）。人による照合はまだありません。
 
 | 章 | 題名 | テスト数 | Icarus | Verilator | 規格のみ |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -372,11 +371,11 @@ Lyraは下向き三角、Ghostはオレンジの上向き三角を使います�
 | --- | --- |
 | match（一致） | 出力と、指定された終了コード・実行時診断の検査が一致した、または不正な設計が必要な診断付きで拒否された |
 | differ（不一致） | 結果が一致しない、必要な診断がない、不正な設計が受理された、または他の分類に当たらないビルド・実行の失敗 |
-| known difference（既知の差異） | IcarusまたはVerilatorで一致せず、その固定リリースのoracleトークンもない。または、kirimasimで使える共通・専用の期待出力がなく、他ツール専用の期待出力だけがある |
+| known difference（既知の差異） | Icarusで不一致かつ`iverilog@13.0`がない場合、またはVerilatorで不一致かつ`verilator@5.052`がない場合。`verilator@5.054`だけのテストの不一致も含む。kirimasimでは、他ツール専用の期待出力しかない場合もこの区分 |
 | unsupported（未対応） | 使用した構文などが未対応と診断された、またはその種類のテストを実行できない。kirimasimはDPI/VPI、LyraはVPIのCコードをまだ読み込めない |
 
-Icarus VerilogとVerilatorのNightlyでのdifferは、固定リリースのoracleが付いたテストが、
-選択した開発版で一致しない場合です。oracleのないテストが一致するようになった場合は、
+Nightlyは、Icarusでは`iverilog@13.0`、Verilatorでは`verilator@5.052`が付いたテストの不一致をdifferに分類します。Checkは`verilator@5.054`のテストを5.054で別途照合します。
+oracleのないテストが一致するようになった場合は、
 拒否の理由も含めてレビューする候補になります。結果だけで修正を認定したり、oracleを追加したりはしません。
 
 Nightlyの固定スイートは結果を報告し、不一致だけでは原則として失敗にしません。
@@ -534,12 +533,12 @@ publishジョブは、その実行の要求カバレッジとして`behavior-cov
 
 X/Z・bit/logic・幅と符号で観測が変わる理由は[SVの小さな具体例](docs/faq.md#q50-sv-values-change-observations)、`:lrm:`と`:oracle:`の役割は[Q4](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
-標準出力から空行とシミュレータ自身のバナーを取り除き、期待出力と完全一致すれば合格です
-（`tools/normalize_output.py`と各実行スクリプト）。空でない行の空白は保持します。
+標準出力から空行、空白文字だけの行、シミュレータ自身のバナーを取り除き、期待出力と完全一致すれば合格です
+（`tools/normalize_output.py`と各実行スクリプト）。文字を含む行の空白は保持します。
 `$info`・`$warning`・`$error`・`$fatal`のメッセージは、形式がツールに委ねられ（20.10）、
 Icarus VerilogとVerilatorが標準出力に出すため、取り除きます。
 終了コードや実行時のメッセージは、`:expected_exit:`や`:expected_stderr_regex:`で
-要求された場合だけ確認します。実行時診断の正規表現は、Icarus・Verilator・Lyraでは
+要求された場合だけ確認します。実行時診断の正規表現は、Icarus・Verilator・Lyra・Ghostでは
 除去前の標準出力と標準エラーの両方、kirimasimでは標準エラーだけを対象にします。
 連想配列の診断テストは、正規化後の出力が一致していても、警告の欠落や余計な警告を検出できます。
 警告の重大度を示す印を使い、全文の言い回しやソース位置を固定しません。
@@ -554,8 +553,7 @@ Icarus VerilogとVerilatorが標準出力に出すため、取り除きます。
 各段階には制限時間があります。Icarus VerilogはコンパイルとVPIのビルドが300秒、実行が60秒、
 Verilatorはビルドが900秒、実行が60秒、kirimasimは120秒、Lyraは300秒です。
 Ghostは通常90秒です。[33ビット符号なし動的配列の積制約テスト](tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv)は並列実行時に90秒を超えることがあるため、180秒に設定しています。
-超えた段階は「timed out」として不合格です。実行スクリプトのエラーは、
-それが起きたテストだけを不合格にします。実行スクリプトが記録する理由には、
+超えた段階は「timed out」として不合格です。Icarus・Verilator・kirimasim・Lyraは、テスト処理中の予期しない例外をそのテストの失敗として記録し、次へ進みます。Ghostでは予期しない例外が起きると実行全体が止まることがあります。実行スクリプトが記録する理由には、
 実行した機械のディレクトリ名を残しません。リポジトリのファイルは相対パスで示し、
 一時ディレクトリ、シミュレータのディレクトリ、ホームディレクトリは`<tmp>`、
 `<icarus>`（または`<verilator>`、`<kirimasim>`、`<lyra>`）、`<home>`と表します。
@@ -666,11 +664,11 @@ python3 generators/generate.py --check    # 生成内容が最新か検査
 
 | オプション | 意味 |
 | --- | --- |
-| `TEST ...` | 指定したテストだけを実行。どのシミュレーションランナーも明示指定でも`:type: formal`を除外する。Verilatorの既定は自分のoracleがあるテスト、`--all`はformal以外の全テスト。Icarus・kirimasim・Lyra・Ghostの既定もformal以外の全テスト |
+| `TEST ...` | 指定したテストだけを実行。どのシミュレーションランナーも明示指定でも`:type: formal`を除外する。Verilatorの既定は`verilator@5.052`があるテスト、`--all`はformal以外の全テスト。Icarus・kirimasim・Lyra・Ghostの既定もformal以外の全テスト |
 | `-j N`、`--jobs N` | 同時にN本を実行（既定：1） |
 | `--json FILE` | 各テストの結果をFILEにも保存（`tools/suite_results.py`） |
 
-実行条件のメタデータは、各シミュレータが受け取る形式で渡します。
+以下の4つのランナーは、実行条件のメタデータを表の形式で渡します。[Ghostランナー](#ghost)は非公開の実行プロファイルも読み込みます。
 
 | フィールド | Icarus Verilog | Verilator | kirimasim | Lyra |
 | --- | --- | --- | --- | --- |
@@ -688,7 +686,7 @@ Icarus VerilogとVerilatorは既定で3.12.1のa)の使い方をとるので、�
 `UNSUPPORTED`）を表示します。`tools/run_icarus.py`は、一致するようになった既知の差異も
 `NOW MATCHES`と表示します。最後に要約を出し、集計対象に不一致があれば終了コード1になります。
 
-IcarusとVerilatorの端末の要約が数えるのは、その固定リリースのoracleが付いたテストだけです。
+端末の要約に数えるのは、Icarusでは`iverilog@13.0`、Verilatorでは`verilator@5.052`が付いたテストです。
 JSONには、oracleなしでも一致したテストを`pass`として記録します。
 Nightlyは記録された全結果を読むので、端末の要約とは分母や一致数が異なることがあります。
 oracleメタデータは自動では変わりません。
@@ -723,8 +721,8 @@ python3 tools/run_verilator.py --all -j 8
 ```
 
 既定では`:oracle:`に`verilator@5.052`があるテストだけを実行します。
-`verilator@5.054`があるテストは、Checkと同じく5.054のビルドでテストを指定して実行します。
-`--all`はformal以外の全件を実行し、Verilatorが未登録のテストが一致しなければ既知の差異に数えます。
+`verilator@5.054`があるテストは5.054のビルドに対象パスと`--json FILE`を指定して実行し、JSONの`tests`内の全件が`"status": "pass"`かを確認します。
+`--all`はformal以外の全件を実行し、`verilator@5.052`がないテストの不一致を既知の差異に数えます。`verilator@5.054`だけのテストもこの扱いです。
 `verilator --binary --timing --coverage-user`でビルドし、乱数初期値で実行します
 （`--seed`で指定）。`--coverage-user`なしではcover文が動きません。
 比較前に、標準出力に出るバナーや実行時の`%Warning-...`などを除去します。
@@ -862,15 +860,15 @@ UTCオフセットのない`--time`はUTCとして扱います。
 ## ワークフロー
 
 `.github/workflows/check.yml`は、`tests/`、`tools/`、`generators/`、`docs/`、
-英語版または日本語版README、`coverage/`、`bench/`、速度ベンチマークのワークフロー（`.github/workflows/benchmark.yml`）、
+英語版または日本語版README、`coverage/`、`bench/`、速度ベンチマーク・Nightly・パーサ取得診断の各ワークフロー、
 またはワークフロー自身を変更するmainへのpushとプルリクエストで動きます。
-Actionsタブから手動実行もできます（`workflow_dispatch`）。スイートに問題がある場合に失敗します。
+Actionsタブから手動実行もできます（`workflow_dispatch`）。
 
 - **icarus**：Icarus Verilog 13.0を`v13_0`タグからビルドし、Actionsのキャッシュに保存してformal以外の全件を実行します。
-  `:oracle:`に`iverilog@13.0`があるテストはすべて一致する必要があり、残りは既知の差異です。
+  `:oracle:`に`iverilog@13.0`があるテストはすべて一致する必要があります。このタグがないテストは、不一致なら`known`、一致ならJSON出力を指定した場合に`pass`と記録します。
 - **verilator**：Verilator 5.052を`v5.052`タグからビルドしてキャッシュし、`randomize()`用の`z3`と
   ccacheを導入します。ccacheも次回用に保存します。`verilator@5.052`があるテストを実行し、すべての一致を求めます。
-- **verilator-5054**：Verilator 5.054を`v5.054`タグから同じ方法でビルドし、`verilator@5.054`があるテストを実行して、すべての一致を求めます。
+- **verilator-5054**：Verilator 5.054を`v5.054`タグから同じ方法でビルドし、`verilator@5.054`があるテストを実行してJSONの各判定を照合します。`pass`以外の判定が1件でもあればジョブは失敗します。ステップのサマリーには一致数と、不一致だった各テスト名と理由を表示します。
   固定版を5.052から5.054へ移す間だけのジョブです（[移行中の固定版](docs/simulator-differences.ja.md#verilator-5054-interim)）。
 - **readme**：両言語のREADMEの表（`tools/suite_stats.py --check`）、生成テスト
   （`generators/generate.py --check`）、カタログ（`tools/suite_catalog.py --check`）、

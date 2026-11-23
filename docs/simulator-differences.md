@@ -1298,9 +1298,9 @@ ch30/test_illegal_specify_path_to_input                           failed asserti
 
 ## Verilator 5.054 while the pin moves (from 2026-11-14)
 
-The pinned Verilator moves from 5.052 to 5.054 together with the next saved run of Ghost, because rewriting `verilator@5.052` in the `:oracle:` of about 3,000 tests changes their input digests and would make the saved Ghost passes of those tests stale.
+Check still runs separate jobs for Verilator 5.052 and 5.054 after the Ghost reruns of 2026-11-23. Migrating the older tests requires verifying their expectations on 5.054. Changing an oracle token changes the test input digest, so evidence for that test must be collected again.
 Until then the tests that list `verilator@5.052` keep it, and the Check runs them with 5.052 as before.
-Tests added from 2026-11-14 are run with Verilator 5.054 at seeds 1 and 73 instead, and list `verilator@5.054` when both match and Icarus Verilog 13.0 does not; the job `verilator-5054` of the Check runs them with 5.054 and requires every one to match.
+Tests added from 2026-11-14 are run with Verilator 5.054 at seeds 1 and 73 instead, and list `verilator@5.054` when both match and Icarus Verilog 13.0 does not; the job `verilator-5054` of the Check runs them with 5.054 and lists any non-passing JSON results in its step summary. See the [Check workflow notes](../README.md#workflows) for how to read its status.
 `tools/lint_metadata.py` allows one Verilator release in `:oracle:`, and the execution coverage counts an illegal test with a Verilator run only when the run is of the release that `:oracle:` names.
 In a first run on 5.054 at seed 1, 3,047 of the 3,060 tests then recorded with 5.052 matched; the 13 others are decided from their clauses at the migration, when every test runs again on 5.054.
 

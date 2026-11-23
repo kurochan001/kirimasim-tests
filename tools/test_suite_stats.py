@@ -85,6 +85,13 @@ class BilingualStatsTests(unittest.TestCase):
         self.assertIn("人による照合はまだありません", text)
         self.assertNotIn("本は人が規格と照合済み", text)
 
+    def test_one_test_with_both_c_interfaces_counts_once(self):
+        test = self.root / "tests/ch35/test_both.sv"
+        test.parent.mkdir()
+        test.write_text("/*\n:dpi_c: @dpi.c\n:vpi_c: @vpi.c\n*/\n", encoding="utf-8")
+        totals = suite_stats.collect(self.root)["totals"]
+        self.assertEqual((totals["c_tests"], totals["dpi_c"], totals["vpi_c"]), (1, 1, 1))
+
 
 if __name__ == "__main__":
     unittest.main()

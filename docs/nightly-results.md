@@ -21,6 +21,9 @@
 
 Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra-shards（4分割）・lyra（統合）・ghost・publishを実行します。
 最新の実行の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
+
+[2026-11-23の実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/45088300638)はスイート `c3179844` には16,338本が収録されていました。各シミュレータが集計したのは、形式検証専用267本を除く16,071本です。厳格モードのGhostは16,071本すべてが一致し、kirimasimは13,160本が一致、293本が不一致、2,618本が未対応でした。
+
 分割導入前に最後に成功したNightlyは2026-11-18の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44217725110)で、suite `befffe90`を対象にしました。
 2026-11-19の[実行](https://github.com/kurochan001/kirimasim-tests/actions/runs/44540686011)はsuite `68ce2bc2`を対象にし、Ghostを含む6ジョブは成功しましたが、lyraのテストステップが345分の上限に達しました。lyraの結果JSONはなく、ほかのシミュレータの結果は公開されています。
 この時間切れへの対策として、LyraのテストをIDのSHA-256で4分割し、全分割の担当テスト・入力とランナーの指紋・版・コンパイラ設定が揃う場合だけ統合するようにしました。分割のartifactは公開対象の`results-*`と分けます。

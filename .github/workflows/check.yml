@@ -226,6 +226,7 @@ jobs:
           restore-keys: ccache-verilator-v5.054-ubuntu-24.04-
 
       - name: Run the tests recorded with Verilator 5.054
+        shell: bash
         run: |
           mapfile -t tests < <(grep -rlE --include='*.sv' '^:oracle:.* verilator@5\.054( |$)' tests | sort)
           if [ "${#tests[@]}" -eq 0 ]; then
@@ -233,8 +234,10 @@ jobs:
             exit 0
           fi
           ccache -z
+          # Report per-test results even when the runner exits with an error.
+          runner_status=0
           python3 tools/run_verilator.py --verilator "$HOME/verilator/bin/verilator" \
-            -j "$(nproc)" --json verilator-5054.json "${tests[@]}" | tee verilator-5054.log
+            -j "$(nproc)" --json verilator-5054.json "${tests[@]}" | tee verilator-5054.log || runner_status=$?
           ccache -s
           python3 - <<'EOF' | tee -a "$GITHUB_STEP_SUMMARY"
           import json, sys
@@ -245,6 +248,7 @@ jobs:
               print(f"- {name}: {tests[name].get('reason', '')}")
           sys.exit(1 if bad else 0)
           EOF
+          exit "$runner_status"
 
       - name: Save the compiler cache
         if: ${{ !cancelled() }}

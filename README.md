@@ -35,8 +35,7 @@ format is that of
 
 Most simulation expectations follow simulator-independent standard rules.
 Tests of implementation-defined behavior state the assumed format explicitly;
-the [FST waveform tests](docs/fst-tests-20261029.md) target kirimasim's
-FST backend and are not requirements to use FST in every simulator.
+the two [FST header tests](docs/fst-tests-20261029.md) expect a design's `$dumpfile("wave.fst")` to select FST. kirimasim selects FST with the explicit `--wave=<file>.fst` option.
 
 What sets the suite apart:
 
@@ -66,7 +65,7 @@ For a first test, [walk through 24 real lines](docs/faq.en.md#q49-read-a-real-te
 
 [![Daily 25-design overall elapsed ratio: lower is faster](https://raw.githubusercontent.com/kurochan001/kirimasim-tests/benchmark-results/charts/daily-icarus14.svg)](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme)
 
-Equal-weight geometric mean of `kirimasim incremental elapsed / Icarus 14 devel incremental elapsed` over the fixed 25 daily designs (22 common + 3 four-state). **0.97 means 3% less elapsed time**; lower is faster. Use the last formal attempt per JST day; one invalid member makes the mean missing. Until the first formal result, the graph displays a waiting message. Separate curves identify different machines/definitions. GitHub-hosted values are reference measurements.
+Equal-weight geometric mean of `kirimasim incremental elapsed / Icarus 14 devel incremental elapsed` over the fixed 25 daily designs (22 common + 3 four-state). **0.97 means 3% less elapsed time**; lower is faster. Use the last formal attempt per JST day; one invalid member makes the mean missing. Separate curves identify different machines/definitions. GitHub-hosted values are reference measurements.
 
 Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **25 daily designs and 3 larger weekly designs**. Resolve both latest kirimasim and latest Icarus 14 devel once per campaign, then freeze both commits. Both projects change; comparisons with fixed baseline kirimasim, Icarus 13 and Verilator, plus individual cases, remain in the [details, raw data and trends](https://github.com/kurochan001/kirimasim-tests/tree/benchmark-results#readme). The workflow and history are separate from functional Nightly. A weekly [holdout](docs/daily-benchmark.md#holdout-reported-only) of ten further conditions (classes, dynamic arrays, interfaces, real arithmetic, force/release, delays, specify paths, file output and VCD/FST waveforms) is measured and reported only: it is not used to tune kirimasim and is not in the overall graph.
 
@@ -85,7 +84,7 @@ The suite has **16338 tests** in 38 chapters. 9351 of them are generated. The [g
 | Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2919 |
 | The standard only, with no fixed-release simulator oracle recorded | 4409 |
 
-4059 tests depend on x or z values (`:fourstate: yes`). 747 tests come with C code: 193 DPI tests (`:dpi_c:`) and 554 VPI tests (`:vpi_c:`). 3060 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests have more than one source file (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4059 tests depend on x or z values (`:fourstate: yes`). 745 tests include C code. 193 use DPI (`:dpi_c:`) and 554 use VPI (`:vpi_c:`). A test can use both. 3060 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 77 tests check the exit code of the simulation (`:expected_exit:`). 26 tests list additional source or include files (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -429,11 +428,10 @@ Each test of a run gets one of these statuses:
 | --- | --- |
 | match | The output and any specified exit-code and runtime-diagnostic checks match, or an illegal design is rejected with the required diagnostic. |
 | differ | A result does not match, a required diagnostic is missing, an illegal design is accepted, or a build or run fails without being classified otherwise. |
-| known difference | An Icarus or Verilator test does not match and has no oracle token for that fixed release. Also used by kirimasim when a test has only another simulator's expectation and no common or kirimasim-specific expectation. |
+| known difference | An Icarus mismatch without `iverilog@13.0`, or a Verilator mismatch without `verilator@5.052` (including a test tagged only with `verilator@5.054`). Also used by kirimasim when a test has only another simulator's expectation and no common or kirimasim-specific expectation. |
 | unsupported | The simulator reported a construct it does not support yet, or it cannot run this kind of test (kirimasim cannot load the C code of DPI and VPI tests yet, and Lyra that of VPI tests). |
 
-For Icarus Verilog and Verilator, a Nightly differ is a test tagged for the
-fixed release that does not match with the selected development version.
+Nightly uses `iverilog@13.0` and `verilator@5.052` respectively to classify a mismatch as differ. Check separately compares the `verilator@5.054` tests with that release.
 An untagged test that now matches is a candidate for review, including the
 reason for any rejection; the result alone does not certify a fix or add an
 oracle token.
@@ -606,16 +604,15 @@ it does not know.
 
 For how X/Z, bit/logic, width and signedness change observations, see [small SV examples](docs/faq.en.md#q50-sv-values-change-observations); [Q4](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator) explains `:lrm:` versus `:oracle:`.
 
-A test passes when the simulator's standard output, after removing empty
-lines and the simulator's own banners (see `tools/normalize_output.py` and the
-runners), is exactly the expected output. Spaces on nonempty lines are
-preserved. The messages of the severity tasks
+A test passes when the simulator's standard output, after removing blank lines (including whitespace-only lines)
+and the simulator's own banners (see `tools/normalize_output.py` and the
+runners), is exactly the expected output. On lines containing text, spaces are preserved. The messages of the severity tasks
 (`$info`, `$warning`, `$error` and `$fatal`), whose form the standard leaves to
 the tool (20.10), are removed as well, since Icarus Verilog and Verilator
 print them on standard output. The exit code and runtime messages are checked
 only when the test asks for it with `:expected_exit:` or
-`:expected_stderr_regex:`. For runtime checks, Icarus, Verilator and Lyra
-match the raw standard output plus standard error before those messages are
+`:expected_stderr_regex:`. For runtime checks, Icarus, Verilator, Lyra and Ghost
+match standard output plus standard error before those messages are
 removed; the kirimasim runner matches standard error only.
 The new associative-array diagnostic tests therefore detect a missing warning,
 or an unwanted warning, even when the normalized standard output matches.
@@ -637,8 +634,7 @@ with Verilator, 900 seconds for the build and 60 seconds for the run; with
 kirimasim, 120 seconds; with Lyra, 300 seconds. Ghost allows 90 seconds per
 simulation, or 180 seconds for the [33-bit unsigned dynamic array product constraint test](tests/gen/ch18/test_gen_cross_randreduce_33_unsigned_dynamic_product_wide_3_fail_sat_fail.sv),
 which can exceed 90 seconds during parallel runs. A step that takes longer
-fails as "timed out". An error of a runner fails only the test it happened
-in. The reasons that the runners record name no directory of the machine: a
+fails as "timed out". The Icarus, Verilator, kirimasim and Lyra runners catch unexpected per-test exceptions and continue. An unexpected exception in the Ghost runner can stop the run. The reasons that the runners record name no directory of the machine: a
 file of the repository is named relative to it, and the temporary directory,
 the directory of the simulator and the home directory appear as `<tmp>`,
 `<icarus>` (or `<verilator>`, `<kirimasim>`, `<lyra>`) and `<home>`. A
@@ -780,12 +776,11 @@ The simulation runners need Python 3.10 or later, and have these options in comm
 
 | Option | Meaning |
 | --- | --- |
-| `TEST ...` | Run only these test files. Every simulation runner excludes `:type: formal`, even when explicitly named. Verilator defaults to its oracle-tagged tests; `--all` selects all non-formal tests. Icarus, kirimasim, Lyra and Ghost default to all non-formal tests |
+| `TEST ...` | Run only these test files. Every simulation runner excludes `:type: formal`, even when explicitly named. Verilator defaults to tests tagged `verilator@5.052`; `--all` selects all non-formal tests. Icarus, kirimasim, Lyra and Ghost default to all non-formal tests |
 | `-j N`, `--jobs N` | Run N tests at once (default: 1) |
 | `--json FILE` | Also write the result of every test to FILE (see `tools/suite_results.py`) |
 
-Each simulation runner gives the simulator the metadata that sets up a run, in the
-form the simulator takes:
+The four runners below pass setup metadata using these options. The [Ghost runner](#ghost) also reads its private runtime profile.
 
 | Field | Icarus Verilog | Verilator | kirimasim | Lyra |
 | --- | --- | --- | --- | --- |
@@ -806,8 +801,7 @@ A runner prints one line for each test that does not match (`FAIL`, or
 MATCHES`), then a summary line, and exits with 1 if a test it counts does not
 match.
 
-The Icarus and Verilator terminal summaries count only tests tagged with that
-fixed release's oracle. Their JSON output also records an untagged test as
+The Icarus and Verilator terminal summaries count tests tagged with `iverilog@13.0` and `verilator@5.052`, respectively. Their JSON output also records an untagged test as
 `pass` when it matches. Nightly reads all recorded results, so its denominator
 and matching count can differ from the terminal summary. Oracle metadata is
 not changed automatically.
@@ -850,9 +844,9 @@ python3 tools/run_verilator.py --all -j 8
 ```
 
 By default this runs only the tests whose `:oracle:` lists `verilator@5.052`
-(name the tests that list `verilator@5.054` to run them with a 5.054 build, as the Check does);
-`--all` runs every non-formal test, and counts those not recorded with Verilator as
-known differences when they do not match. Each test is built with
+with no test paths. For 5.054, pass the tagged test paths and `--json FILE` to a 5.054 build. Check that every selected entry in `tests` has `"status": "pass"`.
+
+`--all` runs every non-formal test, and counts mismatches without `verilator@5.052` as known differences, including tests tagged only with `verilator@5.054`. Each test is built with
 `verilator --binary --timing --coverage-user` and run with random initial
 values (`--seed` chooses them); without `--coverage-user`, Verilator does not
 run cover statements. Verilator's own lines are removed before comparing: its
@@ -1020,22 +1014,22 @@ the newest run. A `--time` without a UTC offset is read as UTC.
 `.github/workflows/check.yml` runs on every push to `main` and every pull
 request that changes `tests/`, `tools/`, `generators/`, `docs/`, this
 README or its Japanese version, `coverage/`, `bench/`, the speed-benchmark
-workflow (`.github/workflows/benchmark.yml`)
-or the workflow itself, and can be started by hand from the Actions
-tab (`workflow_dispatch`). Its jobs fail when the
-suite has a problem:
+workflow, the Nightly or parser-checkout workflows,
+or the Check workflow itself, and can be started by hand from the Actions
+tab (`workflow_dispatch`). It runs these jobs:
 
 - **icarus** builds Icarus Verilog 13.0 from its `v13_0` tag (kept in the
   Actions cache) and runs every non-formal test. Every test whose `:oracle:` lists
-  `iverilog@13.0` must match; the others are known differences.
+  `iverilog@13.0` must match. An untagged test that matches is recorded as `pass` in JSON when requested. An untagged mismatch is `known`.
 - **verilator** builds Verilator 5.052 from its `v5.052` tag (kept in the
   cache), installs `z3` for `randomize()` and ccache, whose cache it keeps for
   the next run, and runs the tests whose `:oracle:` lists `verilator@5.052`,
   which must all match.
 - **verilator-5054** builds Verilator 5.054 from its `v5.054` tag in the same
-  way and runs the tests whose `:oracle:` lists `verilator@5.054`, which must
-  all match too. It exists only while the pin moves from 5.052 to 5.054
-  ([the interim pin](docs/simulator-differences.md#verilator-5054-interim)).
+  way and checks the JSON for every test tagged `verilator@5.054`. Any result
+  other than `pass` fails the job. The step summary gives the match count and
+  lists each mismatch with its reason.
+  See [the interim pin](docs/simulator-differences.md#verilator-5054-interim).
 - **readme** checks that the tables of both README language versions are up
   to date
   (`tools/suite_stats.py --check`), that the generated tests are what the

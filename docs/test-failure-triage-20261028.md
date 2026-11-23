@@ -12,7 +12,7 @@
 
 - スイート: `b83d0ffd`（2026-10-28）
 - 結果: 手元の実行記録（JSON、7,740 本、fail 462）
-- 関連: kirimasim の [失敗の再解析](https://github.com/kurochan001/kirimasim/blob/main/docs/kirimasim_failure_analysis_2026-10-28.md)、[非 slang のトリアージ](https://github.com/kurochan001/kirimasim/blob/main/docs/kirimasim_nonslang_triage_2026-10-28.md)
+- 関連: kirimasim の [失敗の再解析](https://github.com/kurochan001/kirimasim/blob/main/docs/history/kirimasim_failure_analysis_2026-10-28.ja.md)、[非 slang のトリアージ](https://github.com/kurochan001/kirimasim/blob/main/docs/history/kirimasim_nonslang_triage_2026-10-28.ja.md)
 
 > この記録は判断の記録です。修正は `docs/test-side-fixes-20261028.md` にまとめ、
 > 規格の節を根拠にテストと期待値を直しました。

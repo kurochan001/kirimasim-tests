@@ -1084,3 +1084,11 @@ READMEには今の情報だけを書く決まりなので、README.ja.mdとREADM
 
 - Nightlyのkirimasimのratchetは、前回の結果で一致したテストが未対応になったときにも失敗するようになりました（`tools/results_ratchet.py`、所有者の決定）。既知の差分への変化では、これまでどおり失敗しません。
 - GitHubの上限に近づいていた3つのファイルを分けました（所有者の決定）。要求カバレッジの履歴`coverage/behavior-history.json`（29.9 MB）は`coverage/behavior-history/`の1日1ファイルに、機能間クロスの集計`coverage/interaction-summary.json`（51.3 MB）は`coverage/interaction-summary/`（計画とシミュレータごとの実行）に、照合台帳`coverage/test-matching.json`（45.6 MB）は`coverage/test-matching/`（テストのディレクトリごとのファイル）に分けました。どれも組み直した内容を元のファイルと比べてから、元を消しました。resultsブランチのNightlyの履歴は、次の公開のときに1日1ファイルに移ります。Checkの`tools/file_sizes.py --check`は、40 MiBを超える追跡ファイルがあると失敗します。今の最大は`coverage/behaviors.json`（29.7 MiB）です。
+
+## 2026-11-22
+
+- シーケンステストの実行を有限にし、VPIの `vpiInstance` がinterfaceを実体化したmoduleを返すことを確認するようテストを修正しました。解釈の台帳78本のうち、1本が解決済み、77本が未解決になりました。[修正コミット](https://github.com/kurochan001/kirimasim-tests/commit/67b4acd9)・[台帳](interpretation-splits.md)
+
+## 2026-11-23
+
+- Ghostの厳格モードでシミュレーション16,071本がすべて一致しました。同日、33ビット動的配列の積制約テストだけ制限時間を90秒から180秒に変更しました。変更後も8並列で16,071本すべてが一致し、対象テストは66.78秒で完了しました。[実行ログ](../coverage/results/ghost-local-20261123-strict-timeout180.log)
