@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[All chapters](README.md). 1131 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 1135 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -94,9 +94,11 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_union_types_edge_cases`](../../tests/ch7/test_union_types_edge_cases.sv) | Test: Union types edge cases | 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_packed_tagged_union_real_member`](../../tests/ch7/test_illegal_packed_tagged_union_real_member.sv) | the members of a packed tagged union have to be of packed types, though their sizes may differ; a real member is an error | 7.3.2 | standard only | illegal design |
 | [`test_packed_tagged_union_read_rejects_previous_member_after_tag_change`](../../tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv) | Reading the previous packed union member after a tag change reports a runtime error | 7.3.2 11.9 | standard only ||
+| [`test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member`](../../tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv) | A packed tagged union preserves its tag and selected payload without testing unspecified bits | 7.3.2 | standard only | x/z |
 | [`test_tagged_union_dynamic_and_chandle_members`](../../tests/ch7/test_tagged_union_dynamic_and_chandle_members.sv) | an unpacked tagged union can have members of dynamic types (string, queue, dynamic and associative arrays, class handle) and of type chandle, which hold their values | 7.3.2 11.9 | standard only ||
 | [`test_tagged_union_packed`](../../tests/ch7/test_tagged_union_packed.sv) | a packed tagged union has the minimum number of tag bits for its members at the most significant end and each member right-justified, tagged union expressions set the tag and the member together, and the member of the current tag can be read and written with dot notation | 7.3.2 11.9 20.6.2 | standard only ||
 | [`test_tagged_union_packed_tag_width_layout`](../../tests/ch7/test_tagged_union_packed_tag_width_layout.sv) | a packed tagged union is as wide as the fewest tag bits that code its member names plus its widest member, with the tag in the top bits, each member in the low bits, and the same layout inside a nested tagged union | 7.3.2 11.9 20.6.2 | standard only ||
+| [`test_unpacked_tagged_union_read_checks_current_nested_tag`](../../tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv) | An unpacked tagged union read checks the active member of an inner union | 7.3.2 11.9 | standard only ||
 | [`test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag`](../../tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv) | Writing a nested field through an inactive tagged union member reports a runtime error | 7.3.2 11.9 | standard only ||
 | [`test_array_access`](../../tests/ch7/test_array_access.sv) | An unpacked array read with a variable index in always_comb | 7.4 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_array_assign`](../../tests/ch7/test_array_assign.sv) | Assigning unpacked array elements, including 2-D, 3-D and packed element types | 7.4 | Icarus Verilog 13.0 ||
@@ -298,10 +300,12 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_assoc_invalid_keys_with_unknown_dynamic_array_elements`](../../tests/ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements.sv) | Unknown bits inside a dynamic array nested in an associative key cannot identify or create an entry | 7.8.5 7.8.6 7.9.3 | standard only | x/z |
 | [`test_assoc_packed_struct_key_xz_cannot_alias_valid_entries`](../../tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv) | An associative key with unknown bits in either nested field cannot create or overwrite an entry | 7.8.5 7.8.6 | standard only | x/z |
 | [`test_associative_key_uses_queue_and_string_values_structurally`](../../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv) | A user-defined associative key compares variable-length queue and string contents | 7.8.5 7.10 11.4.5 | standard only ||
+| [`test_associative_queue_keys_are_copied_and_compared_by_contents`](../../tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv) | Changing the source queue leaves the stored associative key and its lookup intact | 7.8.5 | standard only ||
 | [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) | An associative index type cannot contain a real member | 7.8.5 | standard only | illegal design |
 | [`test_illegal_assoc_shortreal_index`](../../tests/ch7/test_illegal_assoc_shortreal_index.sv) | a shortreal cannot be the index type of an associative array | 7.8.5 | standard only | illegal design |
 | [`test_illegal_assoc_union_real_key`](../../tests/ch7/test_illegal_assoc_union_real_key.sv) | an associative index type cannot be an unpacked union that contains a real member | 7.8.5 | standard only | illegal design |
 | [`test_illegal_associative_index_contains_nested_real`](../../tests/ch7/test_illegal_associative_index_contains_nested_real.sv) | An associative index type cannot contain a real through a nested unpacked structure | 7.8.5 | standard only | illegal design |
+| [`test_illegal_associative_queue_key_of_shortreal`](../../tests/ch7/test_illegal_associative_queue_key_of_shortreal.sv) | An associative index cannot be a queue whose element type is short real | 7.8.5 | standard only | illegal design |
 | [`test_assoc_array_unknown_index`](../../tests/ch7/test_assoc_array_unknown_index.sv) | An index with x or z bits is invalid for an associative array: a read gives the element type's default and a write does nothing | 7.8.6 7.4.5 | standard only | x/z |
 | [`test_assoc_default_and_delete_silent`](../../tests/ch7/test_assoc_default_and_delete_silent.sv) | Defaults and deleting missing keys produce no warning and no new entries | 7.8.6 7.9.11 7.9.2 | Verilator 5.052 | exit code |
 | [`test_assoc_invalid_write_reports_diagnostic`](../../tests/ch7/test_assoc_invalid_write_reports_diagnostic.sv) | An invalid four-state key write is ignored with a warning | 7.8.6 7.8.4 | standard only | exit code, x/z |

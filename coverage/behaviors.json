@@ -54552,7 +54552,37 @@
       "acceptance": "A tagged union member may only be read with a type consistent with its current tag.",
       "source_note": "IEEE 1800-2023 7.3.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv",
+          "observation": "外側のタグを保ったまま内側のタグを切り替え、新しい文字列メンバーは読めるが以前の整数メンバーは読み出し時にエラーとなることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "64e1f110d0399bad045488fbb6404820e4c070ef1c9d2ba79c8bed3c743578c3",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv",
+              "contains": "stale = active.Payload.Count;"
+            },
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv",
+              "contains": "item = tagged Label \"ready\";"
+            },
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.expected",
+              "contains": "active count=42"
+            },
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.expected",
+              "contains": "active label=ready"
+            },
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*(?:tagged|tag mismatch|inactive member))(?=[^\\n]*(?:\\bCount\\b|read|access))[^\\n]+"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "7.3.2",
@@ -54639,6 +54669,27 @@
             {
               "file": "tests/ch12/test_pattern_matching.expected",
               "contains": "0: none\n1: zero\n2: negative -5\n3: number 7\n4: pair with hi 0\n5: pair lo 3 hi 4\n6: something else\n7: go 9"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv",
+          "observation": "大きい値の履歴を変えた二つのケースで値なしメンバーのタグが等しく、小さい値を持つタグと異なることを確かめる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "3c8519e4b77c7ca6586e00ebddd39eed0533e9cf63c3b53d61916e2333671d3f",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv",
+              "contains": "value = tagged Empty;"
+            },
+            {
+              "file": "tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv",
+              "contains": "before_void[13:12] != before_small[13:12]"
+            },
+            {
+              "file": "tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.expected",
+              "contains": "void tags agree=1 differ from small=1"
             }
           ]
         }
@@ -85592,7 +85643,33 @@
       "acceptance": "Weak clear is a no-argument void method.",
       "source_note": "IEEE 1800-2023 8.30.4; complete own-body source review, blocks B002, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv",
+          "observation": "時間を消費できない関数の中で引数なしの文として呼び、戻り値を破棄したときに必要となる警告が出ず、共有した弱参照が消去されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e691f22a802b42e7e5a2b044704a07fb15e35e9d37a5a2f8fa67f069de95dd81",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv",
+              "contains": "reference_handle.clear();"
+            },
+            {
+              "file": "tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv",
+              "contains": "function automatic bit clear_reference"
+            },
+            {
+              "file": "tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv",
+              "contains": ":expected_stderr_regex: \\A(?![\\s\\S]*(?i:\\bwarn(?:ing)?\\b))[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.expected",
+              "contains": "cleared=1 shared=1 independent=1 value=67"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.30.4",
@@ -136372,6 +136449,31 @@
             {
               "file": "tests/ch12/test_unique_and_unique0_overlap_reports_first_branch.expected",
               "contains": "unique=11 unique0=21"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv",
+          "observation": "外側の条件が偽の場合は分岐を実行せず、真の場合だけ二つの条件をともに真とし、重複診断と先に書いた分岐の出力を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "024c68dea9f6430266cfcffb42640ce64426adc08971c03a0eacce6a585384b6",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv",
+              "contains": "choose_even = 1;"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv",
+              "contains": "$display(\"second branch\");"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:warning|error|fatal)\\b)(?=[^\\n]*\\bunique\\b)(?=[^\\n]*(?:overlap|multiple|violation))[^\\n]+"
+            },
+            {
+              "file": "tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.expected",
+              "contains": "first branch"
             }
           ]
         }
@@ -202476,12 +202578,75 @@
       "acceptance": "A default bin catches values outside defined bins; default sequence catches transitions outside defined transition bins.",
       "source_note": "IEEE 1800-2023 19.5; complete own-body source review, blocks B028. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_default_coverpoint_bins_count_only_other_values.sv",
+          "observation": "明示ビンの値を二つサンプリングして受け入れを観測し、その後の範囲外の値に対するデフォルトビンの診断を要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5fc28961625402009b6fbb30463e0538f4b9d634bf60b7181d998678cca17265",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_default_coverpoint_bins_count_only_other_values.sv",
+              "contains": "illegal_bins outside_values = default;"
+            },
+            {
+              "file": "tests/ch19/test_default_coverpoint_bins_count_only_other_values.sv",
+              "contains": "value = 5; recorder.sample();"
+            },
+            {
+              "file": "tests/ch19/test_default_coverpoint_bins_count_only_other_values.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*\\boutside_values\\b)[^\\n]+"
+            },
+            {
+              "file": "tests/ch19/test_default_coverpoint_bins_count_only_other_values.expected",
+              "contains": "known values accepted"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_default_sequence_catches_first_unmatched_transition.sv",
+          "observation": "明示遷移が成立するまで違反を出さず、次の一致しない遷移に対するデフォルト遷移ビンの診断を要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "363b9a8f723809b2fe4e068f46de2b408556c56babfb5dee9237de3ac3a49a97",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_default_sequence_catches_first_unmatched_transition.sv",
+              "contains": "illegal_bins unmatched_path = default sequence;"
+            },
+            {
+              "file": "tests/ch19/test_default_sequence_catches_first_unmatched_transition.sv",
+              "contains": "value = 5; recorder.sample();"
+            },
+            {
+              "file": "tests/ch19/test_default_sequence_catches_first_unmatched_transition.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*\\bunmatched_path\\b)[^\\n]+"
+            },
+            {
+              "file": "tests/ch19/test_default_sequence_catches_first_unmatched_transition.expected",
+              "contains": "known sequence accepted"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "19.5",
           "blocks": [
             "B028"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "default_value_and_sequence",
+          "observation": "明示ビンに含まれない値と遷移を、それぞれのデフォルトビンで検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch19/test_default_coverpoint_bins_count_only_other_values.sv",
+            "tests/ch19/test_default_sequence_catches_first_unmatched_transition.sv"
           ]
         }
       ]
@@ -234836,12 +235001,34 @@
     {
       "id": "SV2023-21.3.4.3-EXTRACT-SCAN-SUPPRESSION",
       "clause": "21.3.4.3",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "A conversion prefixed with * consumes its field without assignment and shall not receive a destination argument.",
       "acceptance": "A conversion prefixed with * consumes its field without assignment and shall not receive a destination argument.",
       "source_note": "IEEE 1800-2023 21.3.4.3; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations.sv",
+          "observation": "幅を指定した変換を読み飛ばして後続の変換だけを数え、次の読み取り位置と余った変数が変わらないことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "ae9ed36484ae7d98e63192f9171d03a96365ff6e37bdbbab564a29c8762ee8ec",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations.sv",
+              "contains": "assignments = $fscanf(fd, \"%*2d%d:%h/%*1s\", word, next_byte, unused);"
+            },
+            {
+              "file": "tests/ch21/test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations.expected",
+              "contains": "count=2 retained digits=345 hex=7f excess=63"
+            },
+            {
+              "file": "tests/ch21/test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations.expected",
+              "contains": "next character=9"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.3.4.3",
@@ -236816,13 +237003,94 @@
       "acceptance": "Load text permits whitespace/comments and binary or hexadecimal numbers without size/base prefixes, with x/X/z/Z and underscores; numbers are separated by whitespace/comments.",
       "source_note": "IEEE 1800-2023 21.4; complete own-body source review, blocks B011, B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_readmem_text_accepts_comments_as_the_only_word_separator.sv",
+          "observation": "二進と十六進の双方でコメントと空白による語の区切り、下線、大文字小文字の未知値と高インピーダンス記号をチェックする。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "93b2e812ca4c39af52a529c5775954d341cf6610c56caef8c371e8728edb8b82",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmem_text_accepts_comments_as_the_only_word_separator.sv",
+              "contains": "$readmemb(\"binary_words.mem\", binary_words);"
+            },
+            {
+              "file": "tests/ch21/test_readmem_text_accepts_comments_as_the_only_word_separator.sv",
+              "contains": "$readmemh(\"hex_words.mem\", hex_words);"
+            },
+            {
+              "file": "tests/ch21/test_readmem_text_accepts_comments_as_the_only_word_separator.expected",
+              "contains": "word 0 binary=00xx11zz hex=xz"
+            },
+            {
+              "file": "tests/ch21/test_readmem_text_accepts_comments_as_the_only_word_separator.expected",
+              "contains": "word 2 binary=11110000 hex=zx"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch21/test_readmemb_rejects_based_literal_in_text.sv",
+          "observation": "基数とサイズを付けた二進表記がメモリテキストの入力で診断されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "210211e3f8a8e09a04e9445041adc0c78d324ed2a6fd95fbf6c39a4d400f0b5e",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmemb_rejects_based_literal_in_text.sv",
+              "contains": "$fwrite(fd, \"01001010 8'b01010101 01001010\\n\");"
+            },
+            {
+              "file": "tests/ch21/test_readmemb_rejects_based_literal_in_text.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*(?:readmem|bad_binary\\.mem))(?=[^\\n]*(?:invalid|illegal|malformed|unexpected|syntax|digit|not part of a number))[^\\n]+"
+            },
+            {
+              "file": "tests/ch21/test_readmemb_rejects_based_literal_in_text.expected",
+              "contains": "reading a sized source literal"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch21/test_readmemh_rejects_based_literal_in_text.sv",
+          "observation": "基数とサイズを付けた十六進表記がメモリテキストの入力で診断されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f5183db4b21fc13a0db5d54588dcfd425bbdf974225afb9d8075f713968c5f9f",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmemh_rejects_based_literal_in_text.sv",
+              "contains": "$fwrite(fd, \"4a 8'h3c 4a\\n\");"
+            },
+            {
+              "file": "tests/ch21/test_readmemh_rejects_based_literal_in_text.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*(?:readmem|bad_hex\\.mem))(?=[^\\n]*(?:invalid|illegal|malformed|unexpected|syntax|digit|not part of a number))[^\\n]+"
+            },
+            {
+              "file": "tests/ch21/test_readmemh_rejects_based_literal_in_text.expected",
+              "contains": "reading a sized source literal"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.4",
           "blocks": [
             "B011",
             "B012"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "binary_and_hexadecimal_memory_lexing",
+          "observation": "二進と十六進の正常なテキストを読み、両形式でサイズ・基数を指定した語を診断する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch21/test_readmem_text_accepts_comments_as_the_only_word_separator.sv",
+            "tests/ch21/test_readmemb_rejects_based_literal_in_text.sv",
+            "tests/ch21/test_readmemh_rejects_based_literal_in_text.sv"
           ]
         }
       ]
@@ -241025,7 +241293,29 @@
       "acceptance": "The simulator shall perform file-writing checks and issue appropriate errors or warnings.",
       "source_note": "IEEE 1800-2023 21.7.3.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_diagnoses_directory_used_as_output_filename.sv",
+          "observation": "存在するディレクトリを出力ファイルとして渡し、ファイルを開けないことを拡張波形ダンプの警告またはエラーで識別する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f51f73ca3c6574e2820dd44c1ec4fc83ac570005555e9a61ea233dc7644da14d",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_diagnoses_directory_used_as_output_filename.sv",
+              "contains": "$dumpports(dut, \".\");"
+            },
+            {
+              "file": "tests/ch21/test_evcd_diagnoses_directory_used_as_output_filename.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:error|warning))(?=[^\\n]*(?:dumpports|evcd))(?=[^\\n]*(?:cannot open|failed to open|could not open|directory|unable to open))[^\\n]+"
+            },
+            {
+              "file": "tests/ch21/test_evcd_diagnoses_directory_used_as_output_filename.expected",
+              "contains": "opening an extended dump"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.3.1",
@@ -242729,12 +243019,38 @@
     {
       "id": "SV2023-21.7.4.2-EXTRACT-PORT-NODE-GRAMMAR",
       "clause": "21.7.4.2",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "Extended node declarations use $var port with scalar 1 or actual vector indices, an integer identifier prefixed by <, the port name, and $end; no other var_type is permitted.",
       "acceptance": "Extended node declarations use $var port with scalar 1 or actual vector indices, an integer identifier prefixed by <, the port name, and $end; no other var_type is permitted.",
       "source_note": "IEEE 1800-2023 21.7.4.2; complete own-body source review, blocks B002, B003, B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_evcd_node_grammar_preserves_both_declared_range_directions.sv",
+          "observation": "生成した拡張波形ファイルのノード行でポート種別、単ビットの幅、昇順と降順のベクター範囲、山括弧で始まる整数識別子、ポート名と終端を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "618a5f537c9da4412078fb2d4d9205c591858c782bebce35203dfe14dccd1e2f",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_node_grammar_preserves_both_declared_range_directions.sv",
+              "contains": "fields = $fscanf(fd, \"%d <%d %s %s\", size, identifier, node_name, end_marker);"
+            },
+            {
+              "file": "tests/ch21/test_evcd_node_grammar_preserves_both_declared_range_directions.sv",
+              "contains": "fields = $fscanf(fd, \" [%d : %d ] <%d %s %s\","
+            },
+            {
+              "file": "tests/ch21/test_evcd_node_grammar_preserves_both_declared_range_directions.sv",
+              "contains": "identifier != count || end_marker != \"$end\""
+            },
+            {
+              "file": "tests/ch21/test_evcd_node_grammar_preserves_both_declared_range_directions.expected",
+              "contains": "ports=3 format errors=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.4.2",
@@ -324248,12 +324564,117 @@
       "acceptance": "A UDP has exactly one output with value 0/1/x, not z; a sequential UDP output equals its internal state.",
       "source_note": "IEEE 1800-2023 29.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.sv",
+          "observation": "順序プリミティブを三種類の出力状態に移し、入力を変えても保持モードで内部状態と出力が一致することを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "7e01b278aae8a6bd7773cbc9fbc834c80cab59e58628197b12e09cf8dc41dfb2",
+          "evidence": [
+            {
+              "file": "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.sv",
+              "contains": "apply_command(2'b11);"
+            },
+            {
+              "file": "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.sv",
+              "contains": "0 ? ? : x : x;"
+            },
+            {
+              "file": "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.expected",
+              "contains": "retain set=1"
+            },
+            {
+              "file": "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.expected",
+              "contains": "retain unknown=x"
+            },
+            {
+              "file": "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.expected",
+              "contains": "retain clear=0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch29/test_illegal_udp_ansi_table_declares_two_outputs.sv",
+          "observation": "出力を二つ宣言したプリミティブをポート宣言の行で拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "12b500a8bb508aaf8610d5f3789143afc94bceeae58b34e7a6abfb0c1ca7edaa",
+          "evidence": [
+            {
+              "file": "tests/ch29/test_illegal_udp_ansi_table_declares_two_outputs.sv",
+              "contains": "primitive two_state_outputs(output first, output second, input command);"
+            },
+            {
+              "file": "tests/ch29/test_illegal_udp_ansi_table_declares_two_outputs.sv",
+              "contains": ":expected_stderr_regex: test_illegal_udp_ansi_table_declares_two_outputs\\.sv:14:"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch29/test_illegal_udp_state_table_produces_high_impedance.sv",
+          "observation": "次状態に高インピーダンスを出力する順序プリミティブを該当する状態表の行で拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "07f927ea619da581e345aeadaa7b007f7f8190853f7c8c161da21e271b4c5c0a",
+          "evidence": [
+            {
+              "file": "tests/ch29/test_illegal_udp_state_table_produces_high_impedance.sv",
+              "contains": "1 : ? : z;"
+            },
+            {
+              "file": "tests/ch29/test_illegal_udp_state_table_produces_high_impedance.sv",
+              "contains": ":expected_stderr_regex: test_illegal_udp_state_table_produces_high_impedance\\.sv:21:(?:\\d+:)?[^\\n]*(?i:UdpInvalidSymbol|invalid symbol|rule[^\\n]*state[^\\n]*['\"]z['\"])"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch29/test_illegal_udp_output_z.sv",
+          "observation": "組合せプリミティブの出力を高インピーダンスにする表の行を拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "463e9a8f0fc7959cdaca68b277e384069fccc4ebde98c366fe2a0e2bbd9d1690",
+          "evidence": [
+            {
+              "file": "tests/ch29/test_illegal_udp_output_z.sv",
+              "contains": "0 : z;"
+            },
+            {
+              "file": "tests/ch29/test_illegal_udp_output_z.sv",
+              "contains": ":expected_stderr_regex: test_illegal_udp_output_z\\.sv:20:"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "29.2",
           "blocks": [
             "B005"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "single_output_and_combinational_no_z",
+          "observation": "三つの正常な出力状態を保持し、二つ目の出力ポートと組合せ表での高インピーダンス出力を拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.sv",
+            "tests/ch29/test_illegal_udp_ansi_table_declares_two_outputs.sv",
+            "tests/ch29/test_illegal_udp_output_z.sv"
+          ]
+        },
+        {
+          "id": "single_output_and_sequential_no_z",
+          "observation": "三つの正常な出力状態を保持し、二つ目の出力ポートと順序表での高インピーダンス出力を拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.sv",
+            "tests/ch29/test_illegal_udp_ansi_table_declares_two_outputs.sv",
+            "tests/ch29/test_illegal_udp_state_table_produces_high_impedance.sv"
           ]
         }
       ]
@@ -405881,7 +406302,37 @@
       "acceptance": "vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.",
       "source_note": "IEEE 1800-2023 37.26; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.sv",
+          "observation": "個別メンバーは読み書きできることを対照に、構造体と共用体それぞれの全体に対する値の読み書きではエラーを要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "70d2b74949ce44b5e877dad66644726335685c8d1d0dce27cf4612b2e5926fbf",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.sv",
+              "contains": "$vt_check_aggregate(1);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^struct read error: [^\\n]+)(?=[\\s\\S]*^struct write error: [^\\n]+)(?=[\\s\\S]*^union read error: [^\\n]+)(?=[\\s\\S]*^union write error: [^\\n]+)[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.c",
+              "contains": "read_error = report_error(kind, \"read\");"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.expected",
+              "contains": "struct member=13 updated=20 whole read error=1 whole write error=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.expected",
+              "contains": "union member=29 updated=36 whole read error=1 whole write error=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.26",
@@ -416133,12 +416584,79 @@
       "acceptance": "vpi_put_value is allowed on a primitive only for a sequential UDP.",
       "source_note": "IEEE 1800-2023 37.35; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+          "observation": "順序プリミティブへの即時書き込みで値が変わり、次の入力エッジで書き込んだ状態を使うことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f23d34b0be9ae16bbdb169012a8f63da4b1a6f6e5fbc11410718fbbfa813d08c",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": "$vt_write_udp_state;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\berror\\b)(?=[^\\n]*vpi_put_value)(?=[^\\n]*\\bUDP\\b)(?=[^\\n]*(?:only|require)[^\\n]*vpiNoDelay)[^\\n]+"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.c",
+              "contains": "vpi_put_value(udp, &value, NULL, vpiNoDelay);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.expected",
+              "contains": "edited: 10:1 26:0"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.expected",
+              "contains": "control: 26:1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+          "observation": "組込みゲートと組合せプリミティブへの値の書き込みで個別の実行時診断を要求し、変数への書き込みは成功することを対照にする。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "6220813bded2d8ee9a3b2ef5caff5dd64d3ea26502ca0521d1284f303de5d849",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+              "contains": "$vt_write_primitives;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^gate write error: [^\\n]*(?:gate|primitive|vpi_put_value))(?=[\\s\\S]*^udp write error: [^\\n]*\\bUDP\\b)[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.c",
+              "contains": "vpi_chk_error(&error) >= vpiError"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.expected",
+              "contains": "gate error=1 udp error=1 variable error=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.35",
           "blocks": [
             "B007"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "sequential_primitive_only",
+          "observation": "順序プリミティブへの即時書き込みを確認し、ゲートと組合せプリミティブへの書き込みでは診断を要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+            "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv"
           ]
         }
       ]
@@ -422711,7 +423229,37 @@
       "acceptance": "Placing value-change callbacks on automatic variables is illegal.",
       "source_note": "IEEE 1800-2023 37.43; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv",
+          "observation": "並行して生存する二つのフレームで、静的変数の登録は成功し、自動変数の登録はハンドルを返さずエラーになることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f985eaf84e5d95fc05c0613c6142dae9fc5e90808b7c677ba793a4b4b309bd18",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv",
+              "contains": "$vt_check_auto(local_value, persistent, id);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.c",
+              "contains": "callback_error = report_error(\"callback\");"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^callback error: [^\\n]*(?:vpi_register_cb[^\\n]*automatic|automatic[^\\n]*callback))(?=[\\s\\S]*^delay error: [^\\n]*(?:vpi_put_value[^\\n]*automatic|automatic[^\\n]*(?:delay|vpiNoDelay)))[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.expected",
+              "contains": "frame 2 automatic callback=0 error=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.expected",
+              "contains": "frame 2 static callback=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.43",
@@ -422729,7 +423277,41 @@
       "acceptance": "Putting a delayed value on an automatic variable is illegal.",
       "source_note": "IEEE 1800-2023 37.43; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv",
+          "observation": "自動変数への遅延書き込みはイベントを登録せずエラーになり、遅延の期限後も即時書き込みの値を保持することを両フレームで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f985eaf84e5d95fc05c0613c6142dae9fc5e90808b7c677ba793a4b4b309bd18",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv",
+              "contains": "#4 $display(\"frame %0d later=%0d\", id, local_value);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.c",
+              "contains": "vpiPureTransportDelay | vpiReturnEvent"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^callback error: [^\\n]*(?:vpi_register_cb[^\\n]*automatic|automatic[^\\n]*callback))(?=[\\s\\S]*^delay error: [^\\n]*(?:vpi_put_value[^\\n]*automatic|automatic[^\\n]*(?:delay|vpiNoDelay)))[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.expected",
+              "contains": "frame 2 scheduled=0 error=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.expected",
+              "contains": "frame 1 later=61"
+            },
+            {
+              "file": "tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.expected",
+              "contains": "frame 2 later=62"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.43",
@@ -458659,7 +459241,41 @@
       "acceptance": "vpiStringVal is illegal for a real variable or vpiRealFunc call; vpiStrengthVal is illegal for a vector update.",
       "source_note": "IEEE 1800-2023 38.34; complete own-body source review, blocks B019. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
+          "observation": "実数変数と実数を返すシステム関数への文字列書き込み、およびベクターへの強度書き込みについて実行時の診断とエラーレベルを照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "420c24c80dedd836f8410e10a25c29051e04f84b7783385fb7a378fcab19a492",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
+              "contains": "$vt_realfn(0)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^.*\\berror\\b[^\\n]*vpi_put_value[^\\n]*string[^\\n]*real)(?=[\\s\\S]*^.*\\berror\\b[^\\n]*vpi_put_value[^\\n]*strength[^\\n]*(?:vector|scalar))[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.c",
+              "contains": "string_to_real_error = vpi_chk_error(NULL) >= vpiError;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.expected",
+              "contains": "string value to a real variable reports an error: 1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.expected",
+              "contains": "strength value to a vector reports an error: 1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_illegal_formats.expected",
+              "contains": "string value to a real system function reports an error: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.34",
@@ -459236,7 +459852,7 @@
           "observation": "順序プリミティブのインスタンスそのものに値を渡し、出力が直ちに変わり次の入力エッジも書き込んだ状態を使うことを確認する。",
           "reviewed_on": "2026-11-24",
           "reviewer": "Codex (AI)",
-          "inputs_sha256": "90a998dc9969a6a24dbcce952b04dec7aa9ad4bf135d5637474f21a98e2bbc90",
+          "inputs_sha256": "f23d34b0be9ae16bbdb169012a8f63da4b1a6f6e5fbc11410718fbbfa813d08c",
           "evidence": [
             {
               "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
@@ -459639,7 +460255,37 @@
       "acceptance": "Sequential UDP updates require vpiNoDelay and ignore primitive-instance delay; other delay modes are errors.",
       "source_note": "IEEE 1800-2023 38.34; complete own-body source review, blocks B022. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+          "observation": "インスタンスに付けた遅延があっても即時に状態が変わり、次のクロックエッジでその状態が使われる一方、純粋トランスポート遅延を指定した書き込みは診断される。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f23d34b0be9ae16bbdb169012a8f63da4b1a6f6e5fbc11410718fbbfa813d08c",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": "$vt_require_no_delay_udp;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\berror\\b)(?=[^\\n]*vpi_put_value)(?=[^\\n]*\\bUDP\\b)(?=[^\\n]*(?:only|require)[^\\n]*vpiNoDelay)[^\\n]+"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.c",
+              "contains": "vpi_put_value(udp, &unchanged, &delay, vpiPureTransportDelay);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.expected",
+              "contains": "edited: 10:1 26:0"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.expected",
+              "contains": "pure-transport is an error=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.34",
@@ -525950,7 +526596,33 @@
       "acceptance": "A defparam may precede/follow the target, be at file end or in another file, and hierarchically affect values used by another defparam; resolving final values requires the complete design.",
       "source_note": "IEEE 1800-2023 C.4.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch23/test_defparam_across_files_propagates_overridden_parent_parameter.sv",
+          "observation": "対象のインスタンスより前と後に上書きを置き、別ファイルで指定する子のパラメータ式も親の上書きを用いて時刻ゼロまでに決まることを確かめる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "01a9bb14c269488045b0dc021e31c0755072335536a28b781066421a1e3651f0",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_defparam_across_files_propagates_overridden_parent_parameter.sv",
+              "contains": "defparam dut.GAIN = 11;"
+            },
+            {
+              "file": "tests/ch23/test_defparam_across_files_propagates_overridden_parent_parameter.sv",
+              "contains": "defparam dut.LAST = 17;"
+            },
+            {
+              "file": "tests/ch23/defparam_chain_middle.sv",
+              "contains": "defparam child.CFG = FIRST + GAIN * 3;"
+            },
+            {
+              "file": "tests/ch23/test_defparam_across_files_propagates_overridden_parent_parameter.expected",
+              "contains": "before=7 child=40 after=17"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "C.4.1",

@@ -49245,72 +49245,6 @@
       ]
     },
     {
-      "test": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
-      "inputs_sha256": "7eda438938d45a49193c6ed87c88b5ea4b31ba9b9dc7a1d5e8b9a3f68957dc3c",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR"
-          ],
-          "disposition": "citation_refinement",
-          "explanation": "この要求は kind=error で登録されているため、照合プロトコルは :should_fail_because: を持つ不正設計テストしか受け付けない。しかし 38.34 の「エラー」は VPI アプリケーションが実行時に起こす API 誤用へのエラーであり、設計の非法性ではないので、どのテストも :type: elaboration にできない。書いたテストは誤用がエラーとして報告されること（と、その前後の合法な呼び出しが値を設定すること）を観測しており、要求の内容は検証しているが、この分類のままでは対応付けを登録できない。要求の kind を実行時エラー用に分ける抽出の見直しが必要。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
-              "contains": "    $vt_illegal;"
-            },
-            {
-              "file": "tests/ch38/test_vpi_put_value_illegal_formats.c",
-              "contains": "    vpi_put_value(r, &val, NULL, vpiNoDelay);"
-            },
-            {
-              "file": "tests/ch38/test_vpi_put_value_illegal_formats.c",
-              "contains": "    vpi_put_value(v, &val, NULL, vpiNoDelay);"
-            },
-            {
-              "file": "tests/ch38/test_vpi_put_value_illegal_formats.expected",
-              "contains": "string value to a real variable reports an error: 1"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR"
-          ],
-          "disposition": "citation_refinement",
-          "explanation": "vpiStringVal on a real variable or a vpiRealFunc call and vpiStrengthVal on a vector are runtime VPI errors, not illegal SystemVerilog designs, so the requirement's error kind cannot be represented by a :should_fail_because: test. Icarus Verilog 13.0 also crashes in vpi_put_value for vpiStrengthVal instead of reporting an error, so the required error state is not observable as a clean vpi_chk_error result.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
-              "contains": "module test_vpi_put_value_illegal_formats;"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR"
-          ],
-          "disposition": "citation_refinement",
-          "explanation": "real 変数・vpiRealFunc への vpiStringVal と vector への vpiStrengthVal は実行時エラーで、テストは vpi_chk_error と値が設定されないことを観測している。要求の kind は error だが照合規則は :should_fail_because: 付きの設計拒否テストだけを認めるため、この合法な設計のテストでは登録できない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch38/test_vpi_put_value_illegal_formats.sv",
-              "contains": "real r;"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch38/test_vpi_put_value_udp_array_errors.sv",
       "inputs_sha256": "26eda33b25f69c50bf33876593389e9de1d8dafb16a3f2099a211b035d6cb073",
       "reviewed_on": "2026-10-26",
@@ -59452,34 +59386,11 @@
     },
     {
       "test": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
-      "inputs_sha256": "90a998dc9969a6a24dbcce952b04dec7aa9ad4bf135d5637474f21a98e2bbc90",
+      "inputs_sha256": "f23d34b0be9ae16bbdb169012a8f63da4b1a6f6e5fbc11410718fbbfa813d08c",
       "reviewed_on": "2026-11-24",
       "reviewer": "Codex (AI)",
       "scope": "Review of the listed requirement observations.",
       "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-38.34-EXTRACT-UDP-NO-DELAY"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "同じ UDP インスタンスに対し即時の書き込みを受け付ける対照と、純粋トランスポート遅延を使う書き込みの実行時エラーを照合する。",
-          "reviewed_on": "2026-11-24",
-          "reviewer": "Codex (AI)",
-          "evidence": [
-            {
-              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
-              "contains": "#1 $vt_write_udp_state;"
-            },
-            {
-              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
-              "contains": "$vt_require_no_delay_udp;"
-            },
-            {
-              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
-              "contains": ":vpi_c:"
-            }
-          ]
-        },
         {
           "requirement_ids": [
             "SV2023-37.35-EXTRACT-DIAGRAM-016"
@@ -59500,42 +59411,6 @@
             {
               "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
               "contains": "#10 clock = 1;"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
-      "inputs_sha256": "4e963cf844d32d3c1c151c3ca51d315395d61fc712d2314621b18649c229f68d",
-      "reviewed_on": "2026-11-24",
-      "reviewer": "Codex (AI)",
-      "scope": "Review of the listed requirement observations.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-37.35-EXTRACT-PRIMITIVE-WRITE"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "ゲートと組合せ UDP のハンドルを確認してから値書き込みを試し、変数への書き込みを対照にして実行時エラーを検査する。",
-          "reviewed_on": "2026-11-24",
-          "reviewer": "Codex (AI)",
-          "evidence": [
-            {
-              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
-              "contains": "and builtin(gate_output, input_value, 1'b1);"
-            },
-            {
-              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
-              "contains": "vpi_combinational_copy combinational(udp_output, input_value);"
-            },
-            {
-              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
-              "contains": "#1 $vt_write_primitives;"
-            },
-            {
-              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
-              "contains": ":vpi_c:"
             }
           ]
         }
@@ -60264,6 +60139,138 @@
             {
               "file": "tests/ch23/test_variable_array_output_ports_preserve_order_after_whole_nba.sv",
               "contains": "variable_array_harness #(1) dut();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv",
+      "inputs_sha256": "3c8519e4b77c7ca6586e00ebddd39eed0533e9cf63c3b53d61916e2333671d3f",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.3.2-EXTRACT-TAGGED-UNDEFINED-GAP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "大きいメンバーから小さいメンバーまたは値なしメンバーに切り替えたとき、定義済みのタグと値を確認する。規格が値を定めない区間は比較対象から外している。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv",
+              "contains": "before_small[2:0], after_small[2:0]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv",
+      "inputs_sha256": "de9972f18a323560ed2dddaa6b305e6692366ad81f386bdbd1602d0523115d1b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.8.5-EXTRACT-EQUALITY-REQUIRED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "別々に作った同内容のキューを同じ添字として読めること、長さが異なるキューは一致しないことを確認する。等価比較を持たない型の拒否は扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv",
+              "contains": "separate = {3, 8};"
+            },
+            {
+              "file": "tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv",
+              "contains": "lookup.exists(separate), lookup.num()"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_illegal_associative_queue_key_of_shortreal.sv",
+      "inputs_sha256": "537e84aab98649b93a10d54f67eab7725d07ddb0cbaa391a6a257080a9df04af",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.8.5-EXTRACT-NO-REAL-CONTAINING-KEY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "単精度実数をキューの要素型として含む添字を拒否する。公開版で同じ診断を確認できていない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_illegal_associative_queue_key_of_shortreal.sv",
+              "contains": "typedef shortreal queue_key[$];"
+            },
+            {
+              "file": "tests/ch7/test_illegal_associative_queue_key_of_shortreal.sv",
+              "contains": "int lookup[queue_key];"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv",
+      "inputs_sha256": "024c68dea9f6430266cfcffb42640ce64426adc08971c03a0eacce6a585384b6",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-12.4.2-EXTRACT-UNIQUENESS-CONTRACT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "外側の分岐で有効にした条件列が重複違反を報告することを検査する。評価の並列性や順序は観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv",
+              "contains": "choose_even = 1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_nonansi_task_formals_distinguish_per_item_dimensions.sv",
+      "inputs_sha256": "f823c237e1fb12643378e5cb72c42654edc0c066300c848aabca9f4921fcc4b7",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.3-EXTRACT-DIM-LIST-72"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ宣言の仮引数が配列次元を個別に保持し、名前付きと位置指定の両方で受け渡せる。仮引数のデフォルト値は13.5.3がANSI形式に限定している。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_nonansi_task_formals_distinguish_per_item_dimensions.sv",
+              "contains": "input int one[2], two[2][2], bias;"
+            },
+            {
+              "file": "tests/ch13/test_nonansi_task_formals_distinguish_per_item_dimensions.sv",
+              "contains": "pick(.two(two), .result(result), .one(one), .bias(7));"
             }
           ]
         }

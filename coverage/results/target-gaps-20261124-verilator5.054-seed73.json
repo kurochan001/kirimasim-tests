@@ -1,0 +1,133 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard": {
+   "status": "known",
+   "reason": "output differs: line 2 is missing, expected 'first branch'",
+   "inputs_sha256": "024c68dea9f6430266cfcffb42640ce64426adc08971c03a0eacce6a585384b6"
+  },
+  "ch13/test_nonansi_task_formals_distinguish_per_item_dimensions": {
+   "status": "pass",
+   "inputs_sha256": "f823c237e1fb12643378e5cb72c42654edc0c066300c848aabca9f4921fcc4b7"
+  },
+  "ch19/test_default_coverpoint_bins_count_only_other_values": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\boutside_values\\\\b)[^\\\\n]+'",
+   "inputs_sha256": "5fc28961625402009b6fbb30463e0538f4b9d634bf60b7181d998678cca17265"
+  },
+  "ch19/test_default_sequence_catches_first_unmatched_transition": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\bunmatched_path\\\\b)[^\\\\n]+'",
+   "inputs_sha256": "363b9a8f723809b2fe4e068f46de2b408556c56babfb5dee9237de3ac3a49a97"
+  },
+  "ch21/test_evcd_diagnoses_directory_used_as_output_filename": {
+   "status": "known",
+   "reason": "output differs: line 2 is extra: '-Info: tests/ch21/test_evcd_diagnoses_directory_used_as_o...'",
+   "inputs_sha256": "f51f73ca3c6574e2820dd44c1ec4fc83ac570005555e9a61ea233dc7644da14d"
+  },
+  "ch21/test_evcd_node_grammar_preserves_both_declared_range_directions": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_evcd_node_grammar_preserves_both_d...', expected 'ports=3 format errors=0'",
+   "inputs_sha256": "618a5f537c9da4412078fb2d4d9205c591858c782bebce35203dfe14dccd1e2f"
+  },
+  "ch21/test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch21/test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations.sv:24:19: Internal: Missing or extra arguments for $display-like format,  expression had 3, format had 2",
+   "inputs_sha256": "ae9ed36484ae7d98e63192f9171d03a96365ff6e37bdbbab564a29c8762ee8ec"
+  },
+  "ch21/test_readmem_text_accepts_comments_as_the_only_word_separator": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'word 0 binary=00001111 hex=da', expected 'word 0 binary=00xx11zz hex=xz'",
+   "inputs_sha256": "93b2e812ca4c39af52a529c5775954d341cf6610c56caef8c371e8728edb8b82"
+  },
+  "ch21/test_readmemb_rejects_based_literal_in_text": {
+   "status": "known",
+   "reason": "output differs: line 2 is extra: '%Error: bad_binary.mem:0: $readmemb (binary) file contain...'",
+   "inputs_sha256": "210211e3f8a8e09a04e9445041adc0c78d324ed2a6fd95fbf6c39a4d400f0b5e"
+  },
+  "ch21/test_readmemh_rejects_based_literal_in_text": {
+   "status": "known",
+   "reason": "output differs: line 2 is extra: '%Error: bad_hex.mem:0: $readmem file syntax error'",
+   "inputs_sha256": "f5183db4b21fc13a0db5d54588dcfd425bbdf974225afb9d8075f713968c5f9f"
+  },
+  "ch23/test_defparam_across_files_propagates_overridden_parent_parameter": {
+   "status": "pass",
+   "inputs_sha256": "01a9bb14c269488045b0dc021e31c0755072335536a28b781066421a1e3651f0"
+  },
+  "ch29/test_illegal_udp_ansi_table_declares_two_outputs": {
+   "status": "pass",
+   "inputs_sha256": "12b500a8bb508aaf8610d5f3789143afc94bceeae58b34e7a6abfb0c1ca7edaa"
+  },
+  "ch29/test_illegal_udp_output_z": {
+   "status": "pass",
+   "inputs_sha256": "463e9a8f0fc7959cdaca68b277e384069fccc4ebde98c366fe2a0e2bbd9d1690"
+  },
+  "ch29/test_illegal_udp_state_table_produces_high_impedance": {
+   "status": "pass",
+   "inputs_sha256": "07f927ea619da581e345aeadaa7b007f7f8190853f7c8c161da21e271b4c5c0a"
+  },
+  "ch29/test_sequential_udp_feedback_keeps_output_equal_to_state": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'unknown=0', expected 'unknown=x'",
+   "inputs_sha256": "7e01b278aae8a6bd7773cbc9fbc834c80cab59e58628197b12e09cf8dc41dfb2"
+  },
+  "ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv:21:5: Unsupported or unknown PLI call: '$vt_check_auto'",
+   "inputs_sha256": "f985eaf84e5d95fc05c0613c6142dae9fc5e90808b7c677ba793a4b4b309bd18"
+  },
+  "ch37/test_vpi_unpacked_aggregates_only_expose_member_values": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.sv:30:5: Unsupported or unknown PLI call: '$vt_check_aggregate'",
+   "inputs_sha256": "70d2b74949ce44b5e877dad66644726335685c8d1d0dce27cf4612b2e5926fbf"
+  },
+  "ch38/test_vpi_put_value_illegal_formats": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_value_illegal_formats.sv:31:5: Unsupported or unknown PLI call: '$vt_values'",
+   "inputs_sha256": "420c24c80dedd836f8410e10a25c29051e04f84b7783385fb7a378fcab19a492"
+  },
+  "ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv:35:8: Unsupported or unknown PLI call: '$vt_write_primitives'",
+   "inputs_sha256": "6220813bded2d8ee9a3b2ef5caff5dd64d3ea26502ca0521d1284f303de5d849"
+  },
+  "ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv:46:8: Unsupported or unknown PLI call: '$vt_write_udp_state'",
+   "inputs_sha256": "f23d34b0be9ae16bbdb169012a8f63da4b1a6f6e5fbc11410718fbbfa813d08c"
+  },
+  "ch7/test_associative_queue_keys_are_copied_and_compared_by_contents": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'different length exists=1 total=2', expected 'different length exists=0 total=2'",
+   "inputs_sha256": "de9972f18a323560ed2dddaa6b305e6692366ad81f386bdbd1602d0523115d1b"
+  },
+  "ch7/test_illegal_associative_queue_key_of_shortreal": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "537e84aab98649b93a10d54f67eab7725d07ddb0cbaa391a6a257080a9df04af"
+  },
+  "ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv:15:5: Unsupported: void (for tagged unions)",
+   "inputs_sha256": "3c8519e4b77c7ca6586e00ebddd39eed0533e9cf63c3b53d61916e2333671d3f"
+  },
+  "ch7/test_unpacked_tagged_union_read_checks_current_nested_tag": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv:20:5: Unsupported: void (for tagged unions)",
+   "inputs_sha256": "64e1f110d0399bad045488fbb6404820e4c070ef1c9d2ba79c8bed3c743578c3"
+  },
+  "ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv:18:16: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "e691f22a802b42e7e5a2b044704a07fb15e35e9d37a5a2f8fa67f069de95dd81"
+  }
+ },
+ "generated_at": "2026-11-24T12:27:14.427849+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

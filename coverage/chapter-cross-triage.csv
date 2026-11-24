@@ -412,7 +412,7 @@ tests/ch7/test_assignment_forms.sv",既存モデルの計画・実行証跡を�
 7,集合データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,681,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_assignment_deep.sv
 tests/ch10/test_contassign_pattern_to_net_array.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1489,"tests/ch10/test_assign_lhs_forms.sv
+7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1490,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_contassign_select_of_struct_member.sv
 tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,185,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
@@ -1433,7 +1433,7 @@ tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv
 tests/ch39/test_vpi_assertion_terminal_notification_ignores_restart.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch40/test_vpi_coverage_extension_constants.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,122,"tests/ch3/test_global_precision_from_timeprecision.sv
+37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,124,"tests/ch3/test_global_precision_from_timeprecision.sv
 tests/ch3/test_global_precision_from_timescale.sv
 tests/ch3/test_global_precision_from_timeunit_slash.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 37,VPIオブジェクトモデル図,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,8,"tests/ch37/test_vpi_assertion_columns.sv

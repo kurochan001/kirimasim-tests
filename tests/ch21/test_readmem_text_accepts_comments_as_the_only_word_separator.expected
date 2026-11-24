@@ -1,0 +1,4 @@
+word 0 binary=00xx11zz hex=xz
+word 1 binary=10100101 hex=af
+word 2 binary=11110000 hex=zx
+word 3 binary=00001111 hex=50

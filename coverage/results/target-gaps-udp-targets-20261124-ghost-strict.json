@@ -1,0 +1,31 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch38/test_vpi_put_value_rejects_user_nettype_subelement": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "ae1a2a0d47bb9c0c4991cad38f8789485c4d5cc3582261fd48821925b6434cad"
+  },
+  "ch38/test_vpi_put_value_sched_event": {
+   "status": "pass",
+   "inputs_sha256": "fd14d8e75cf3787926eb9e80596e8ce7ae4dabd5932933bd09a6067a66c0eb2f"
+  },
+  "ch38/test_vpi_put_value_targets": {
+   "status": "pass",
+   "inputs_sha256": "1bcdbad3815c67a0fcbd18c0050af7a1220d1a071066f9a2c83966689e7fed83"
+  },
+  "ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition": {
+   "status": "pass",
+   "inputs_sha256": "f23d34b0be9ae16bbdb169012a8f63da4b1a6f6e5fbc11410718fbbfa813d08c"
+  }
+ },
+ "generated_at": "2026-11-24T12:29:23.672247+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

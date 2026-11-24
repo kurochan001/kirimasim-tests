@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 503 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 504 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -370,6 +370,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) | A wait on weak_reference get() becoming null resumes when another process clears the reference | 8.30.3 8.30.4 9.4.3 | standard only ||
 | [`test_illegal_weak_reference_clear_takes_no_argument`](../../tests/ch8/test_illegal_weak_reference_clear_takes_no_argument.sv) | The weak reference clear method rejects an argument | 8.30.4 | standard only | illegal design |
 | [`test_illegal_weak_reference_clear_value_from_void_method`](../../tests/ch8/test_illegal_weak_reference_clear_value_from_void_method.sv) | The weak reference clear method cannot be used as a value in an assignment | 8.30.4 13.4.1 | standard only | illegal design |
+| [`test_weak_reference_clear_has_void_function_signature_in_nested_scope`](../../tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv) | Weak clear is callable without arguments from an automatic function and leaves a strong alias valid | 8.30.4 G.7 | standard only ||
 | [`test_weak_reference_clear_void_no_arguments`](../../tests/ch8/test_weak_reference_clear_void_no_arguments.sv) | weak_reference clear() is a void function without arguments: it is called with an empty argument list as a statement, also inside a function, with no warning, and it makes get() of that reference alone return null | 8.30.4 | standard only | exit code |
 | [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) | The static get_id() of weak_reference returns 0 for null and a nonzero value for an object, the same at every call and through every class type of the handle, and different for different objects | 8.30.5 7.8 | standard only ||
 | [`test_weak_reference_get_id_static_longint`](../../tests/ch8/test_weak_reference_get_id_static_longint.sv) | weak_reference get_id() is a static function with one argument obj of the parameter type T and a longint result: it is called through the class scope with no weak_reference object, its argument is bound by position or by the name obj and accepts a handle of a derived class, and its result is a signed 64-bit longint | 8.30.5 | standard only ||

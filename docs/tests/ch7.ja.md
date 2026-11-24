@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1131本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1135本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -94,9 +94,11 @@
 | [`test_union_types_edge_cases`](../../tests/ch7/test_union_types_edge_cases.sv) |試験：ユニオン型エッジケース| 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_packed_tagged_union_real_member`](../../tests/ch7/test_illegal_packed_tagged_union_real_member.sv) |packed packed タグ付けされたユニオンのメンバーは、大きさは異なるものの、必ずしも タイプが同じでなければなりません。実在のメンバーはエラーだ| 7.3.2 |規格のみ|規格違反の設計|
 | [`test_packed_tagged_union_read_rejects_previous_member_after_tag_change`](../../tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv) |packed 共用体のタグ切替後に以前のメンバーを読むと実行時エラーになる| 7.3.2 11.9 |規格のみ||
+| [`test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member`](../../tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv) |packedタグ付き共用体のタグと選択した値だけを検査する| 7.3.2 |規格のみ| x/z |
 | [`test_tagged_union_dynamic_and_chandle_members`](../../tests/ch7/test_tagged_union_dynamic_and_chandle_members.sv) |unpacked タグ付けされたユニオンは、動的タイプのメンバー (文字列、キュー、動的および連想配列、クラスハンドル) と、チャンドルタイプのメンバーを持ち、それらの値を保持します。| 7.3.2 11.9 |規格のみ||
 | [`test_tagged_union_packed`](../../tests/ch7/test_tagged_union_packed.sv) |packed タグ付けのユニオンは、最も有意な端に最小の数のタグビットを持ち、各メンバーは右に並べられています。タグ付けの ユニオン表現は、タグとメンバーを一緒にセットし、現在のタグのメンバーはドット記法で読み書きできます。| 7.3.2 11.9 20.6.2 |規格のみ||
 | [`test_tagged_union_packed_tag_width_layout`](../../tests/ch7/test_tagged_union_packed_tag_width_layout.sv) |packed タグ付けされたユニオンの幅は、そのメンバー名をコードする最小のタグビットと、最も幅の広いメンバーの幅と同じです。タグは上のビットにあり、各メンバーは下のビットにあります。そして、ネストされたタグ付けユニオンの内部のレイアウトは同じです。| 7.3.2 11.9 20.6.2 |規格のみ||
+| [`test_unpacked_tagged_union_read_checks_current_nested_tag`](../../tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv) |内側のunpackedタグ付き共用体は現在のタグで選んだメンバーだけを読み出す| 7.3.2 11.9 |規格のみ||
 | [`test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag`](../../tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv) |タグ付き共用体で非アクティブなメンバーに属するフィールドへの書き込みは実行時エラーになる| 7.3.2 11.9 |規格のみ||
 | [`test_array_access`](../../tests/ch7/test_array_access.sv) |変数のインデックスを always_comb に持つ unpacked 配列を読み込みます。| 7.4 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_array_assign`](../../tests/ch7/test_array_assign.sv) |要素の種類 2 -D, 3 -D, packed を含む unpacked の配列要素を割り当てる| 7.4 | Icarus Verilog 13.0 ||
@@ -298,10 +300,12 @@
 | [`test_assoc_invalid_keys_with_unknown_dynamic_array_elements`](../../tests/ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements.sv) |連想キーに入れ子になった動的配列の要素に不定ビットがあるとき、既存要素を特定したり新しく要素を作ったりしないことを検査する。| 7.8.5 7.8.6 7.9.3 |規格のみ| x/z |
 | [`test_assoc_packed_struct_key_xz_cannot_alias_valid_entries`](../../tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv) |入れ子のフィールドに不定値がある連想配列のキーは要素の作成も上書きもできない| 7.8.5 7.8.6 |規格のみ| x/z |
 | [`test_associative_key_uses_queue_and_string_values_structurally`](../../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv) |ユーザー定義の連想配列キーが可変長キューと文字列の内容を比較する| 7.8.5 7.10 11.4.5 |規格のみ||
+| [`test_associative_queue_keys_are_copied_and_compared_by_contents`](../../tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv) |挿入後に元のキューを変更しても連想配列に保存した添字は独立している| 7.8.5 |規格のみ||
 | [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) |連想配列の添字型は、realメンバーを含められない| 7.8.5 |規格のみ|規格違反の設計|
 | [`test_illegal_assoc_shortreal_index`](../../tests/ch7/test_illegal_assoc_shortreal_index.sv) |ashortreal は連想配列のインデックスタイプではありません| 7.8.5 |規格のみ|規格違反の設計|
 | [`test_illegal_assoc_union_real_key`](../../tests/ch7/test_illegal_assoc_union_real_key.sv) |連想配列の添字型を、realメンバーを含むunpacked共用体にはできない| 7.8.5 |規格のみ|規格違反の設計|
 | [`test_illegal_associative_index_contains_nested_real`](../../tests/ch7/test_illegal_associative_index_contains_nested_real.sv) |連想配列キーの入れ子の unpacked 構造体に real を含めることはできない| 7.8.5 |規格のみ|規格違反の設計|
+| [`test_illegal_associative_queue_key_of_shortreal`](../../tests/ch7/test_illegal_associative_queue_key_of_shortreal.sv) |要素が単精度実数のキューは連想配列の添字型に使えない| 7.8.5 |規格のみ|規格違反の設計|
 | [`test_assoc_array_unknown_index`](../../tests/ch7/test_assoc_array_unknown_index.sv) |x または z ビットのインデックスは連想配列に対して無効です。read は要素のデフォルトタイプを返し、write は何もしません。| 7.8.6 7.4.5 |規格のみ| x/z |
 | [`test_assoc_default_and_delete_silent`](../../tests/ch7/test_assoc_default_and_delete_silent.sv) |デフォルトと欠けているキーを削除すると、警告は出せず、新しいエントリも出ない| 7.8.6 7.9.11 7.9.2 | Verilator 5.052 |出口コード|
 | [`test_assoc_invalid_write_reports_diagnostic`](../../tests/ch7/test_assoc_invalid_write_reports_diagnostic.sv) |無効な 4 状態キー書き込みを無視し、警告を表示します| 7.8.6 7.8.4 |規格のみ|出口コード x/z|

@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 94.85%, execution without Ghost 51.63%, execution with Ghost and kirimasim 89.18%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 94.97%, execution without Ghost 51.66%, execution with Ghost and kirimasim 89.28%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 94.85%. Requirement execution-confirmation rate: 51.63% without Ghost, 89.18% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 94.97%. Requirement execution-confirmation rate: 51.66% without Ghost, 89.28% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11697/12332 ( 94.85% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 10998/12332 ( 89.18% ).
-- Registered but not tested: 635.
+- The requirement coverage (test design) for registered behaviors is 11712/12332 ( 94.97% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11010/12332 ( 89.28% ).
+- Registered but not tested: 620.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -108,11 +108,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 372 entries refer to older inputs.
-- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2998/12332 execution checked; 372 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3888/12332 execution checked; 372 entries refer to older inputs.
+- `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 373 entries refer to older inputs.
+- `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2998/12332 execution checked; 373 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3888/12332 execution checked; 373 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3599/12332 execution checked; 29 entries refer to older inputs.
-- `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 execution checked; 17 entries refer to older inputs.
+- `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 execution checked; 18 entries refer to older inputs.
 - `handle-equality-20261124-ghost-strict.json`: `private build d1a33b327c73` / `2026-11-23T21:21:56.235297+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:21:56.180203+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:21:56.191228+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -347,16 +347,16 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `language-gaps-bs-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T04:39:03.039793+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bs-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:39:02.977055+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bs-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:39:02.984333+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-bt-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:46:35.896259+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-bt-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:46:35.523714+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-bt-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:46:34.827502+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-bt-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:46:35.068672+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-bt-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:46:35.068496+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-bu-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:58:59.645729+00:00` / 5/12332 execution checked; 1 entries refer to older inputs.
-- `language-gaps-bu-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:58:58.886269+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
-- `language-gaps-bu-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:58:58.118901+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
-- `language-gaps-bu-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:58:59.614141+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
-- `language-gaps-bu-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:58:59.649027+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-bt-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:46:35.896259+00:00` / 2/12332 execution checked; 3 entries refer to older inputs.
+- `language-gaps-bt-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:46:35.523714+00:00` / 3/12332 execution checked; 3 entries refer to older inputs.
+- `language-gaps-bt-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:46:34.827502+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
+- `language-gaps-bt-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:46:35.068672+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
+- `language-gaps-bt-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:46:35.068496+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
+- `language-gaps-bu-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:58:59.645729+00:00` / 5/12332 execution checked; 5 entries refer to older inputs.
+- `language-gaps-bu-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:58:58.886269+00:00` / 0/12332 execution checked; 5 entries refer to older inputs.
+- `language-gaps-bu-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:58:58.118901+00:00` / 0/12332 execution checked; 5 entries refer to older inputs.
+- `language-gaps-bu-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:58:59.614141+00:00` / 0/12332 execution checked; 5 entries refer to older inputs.
+- `language-gaps-bu-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:58:59.649027+00:00` / 0/12332 execution checked; 5 entries refer to older inputs.
 - `language-gaps-bv-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T05:00:31.499094+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bv-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T05:00:31.500075+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bv-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T05:00:31.469456+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
@@ -823,6 +823,14 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `sv2023-thin-20261121-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T21:24:40.094672+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `sv2023-thin-20261121-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:25:04.136848+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `sv2023-thin-20261121-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:25:22.711190+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T12:27:10.931832+00:00` / 12/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:27:10.749002+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T12:27:10.274935+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:27:14.850471+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:27:14.923260+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:27:14.426871+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:27:14.427849+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `target-gaps-udp-targets-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T12:29:23.672247+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T21:43:20.959244+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -1175,8 +1183,8 @@ The number of items is the investigation status of the article by heading. This 
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 90.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 148.
 - 6 Data types: No interpretation reservation 92/92, registration 720, test support 712.
-- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 342.
-- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 240.
+- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 343.
+- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 241.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 185.
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 149.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 455.
@@ -1187,9 +1195,9 @@ The number of items is the investigation status of the article by heading. This 
 - 16 Assertions: No interpretation reservation 82/82, registration 557, test support 555.
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 70.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 317 mapped to tests.
-- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 270.
+- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 271.
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 313.
-- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 368.
+- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 372.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 356 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 258.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 26.
@@ -1197,7 +1205,7 @@ The number of items is the investigation status of the article by heading. This 
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 44.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 31.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 384.
-- 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 51.
+- 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 52.
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 151.
 - 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 171.
 - 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 128.
@@ -1205,14 +1213,14 @@ The number of items is the investigation status of the article by heading. This 
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 122.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1682.
-- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 303.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1686.
+- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 305.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 124.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
 - A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 803.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
-- C Deprecation: No interpretation reserve 16/16, registration 20, test support 12.
+- C Deprecation: No interpretation reserve 16/16, registration 20, test support 13.
 - D Optional system tasks and system functions: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
@@ -15668,7 +15676,7 @@ Normative role: `permission`。
 
 ### SV2023-7.3.2-EXTRACT-TAGGED-READ-CONSISTENCY
 
-`7.3.2` / `error` / No mapped test
+`7.3.2` / `error` / Execution confirmed
 
 A tagged union member may only be read with a type consistent with its current tag.
 
@@ -15676,6 +15684,7 @@ Acceptance criterion: A tagged union member may only be read with a type consist
 
 Normative role: `mandatory`。
 
+- [test_unpacked_tagged_union_read_checks_current_nested_tag.sv](../tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv): Keep the outer tag fixed while changing the inner tag, then read the new string member and require a diagnostic for the old integer member.
 
 ### SV2023-7.3.2-EXTRACT-TAGGED-UNDEFINED-GAP
 
@@ -15711,6 +15720,7 @@ Acceptance criterion: A tagged union may contain a void member whose tag carries
 Normative role: `permission`。
 
 - [test_pattern_matching.sv](../tests/ch12/test_pattern_matching.sv): void None/Stop, int Num0 / -5/7, struct Pair3 / 4, and nested Cmd Go9 are constructed with a tagged expression. In addition to the total payload values extracted from pattern dispatch, we expect to distinguish the void tag, and observe the tag/payload update as a whole. The representation is not dependent on the tag bit encoding.
+- [test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv](../tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv): Use two different previous large payloads and check that the tag for the member without a payload agrees in both cases and differs from the small-member tag.
 
 ### SV2023-7.4-EXTRACT-MULTIDIMENSIONAL-PACKED
 
@@ -22546,7 +22556,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.30.4-EXTRACT-SIGNATURE
 
-`8.30.4` / `normal` / No mapped test
+`8.30.4` / `normal` / Execution confirmed
 
 Weak clear is a no-argument void method.
 
@@ -22554,6 +22564,7 @@ Acceptance criterion: Weak clear is a no-argument void method.
 
 Normative role: `definition`。
 
+- [test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv](../tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv): Call the method as a statement without arguments from a function, check the absence of the warning required for a discarded result, and verify that the shared weak reference is cleared.
 
 ### SV2023-8.30.5-EXTRACT-LIFETIME-UNIQUE-ID
 
@@ -33265,6 +33276,7 @@ Acceptance criterion: More than one true unique/unique0 condition reports a viol
 Normative role: `mandatory`。
 
 - [test_unique_and_unique0_overlap_reports_first_branch.sv](../tests/ch12/test_unique_and_unique0_overlap_reports_first_branch.sv): Make two conditions true in each chain and require both violation reports and the first branch result.
+- [test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv](../tests/ch12/test_unique_if_rechecks_overlapping_predicates_after_false_guard.sv): Skip the conditional chain under a false guard, then make both predicates true under a true guard and check the diagnostic and output from only the first branch.
 
 ### SV2023-12.4.2-EXTRACT-UNIQUE-PRIORITY-MISS
 
@@ -50249,7 +50261,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5-EXTRACT-DEFAULT-VALUES
 
-`19.5` / `normal` / No mapped test
+`19.5` / `normal` / Test mapped; execution unconfirmed
 
 A default bin catches values outside defined bins; default sequence catches transitions outside defined transition bins.
 
@@ -50257,6 +50269,8 @@ Acceptance criterion: A default bin catches values outside defined bins; default
 
 Normative role: `definition`。
 
+- [test_default_coverpoint_bins_count_only_other_values.sv](../tests/ch19/test_default_coverpoint_bins_count_only_other_values.sv): Sample both listed values before checking for a diagnostic from the default value bin on a value outside the listed set.
+- [test_default_sequence_catches_first_unmatched_transition.sv](../tests/ch19/test_default_sequence_catches_first_unmatched_transition.sv): Complete the listed transition without a violation and require the default transition bin to diagnose the next unmatched transition.
 
 ### SV2023-19.5-EXTRACT-GROUP-EXPRESSION-VARIABLES
 
@@ -58880,7 +58894,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.3.4.3-EXTRACT-SCAN-SUPPRESSION
 
-`21.3.4.3` / `error` / No mapped test
+`21.3.4.3` / `normal` / Execution confirmed
 
 A conversion prefixed with * consumes its field without assignment and shall not receive a destination argument.
 
@@ -58888,6 +58902,7 @@ Acceptance criterion: A conversion prefixed with * consumes its field without as
 
 Normative role: `mandatory`。
 
+- [test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations.sv](../tests/ch21/test_fscanf_suppressed_width_leaves_unread_bytes_and_destinations.sv): Skip the bounded fields, count only the conversions that assign, and check the next file byte and the unchanged surplus destination.
 
 ### SV2023-21.3.4.3-EXTRACT-SCAN-TIME
 
@@ -59403,7 +59418,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.4-EXTRACT-MEMORY-TEXT-LEXICAL
 
-`21.4` / `error` / No mapped test
+`21.4` / `error` / Execution confirmed
 
 Load text permits whitespace/comments and binary or hexadecimal numbers without size/base prefixes, with x/X/z/Z and underscores; numbers are separated by whitespace/comments.
 
@@ -59411,6 +59426,9 @@ Acceptance criterion: Load text permits whitespace/comments and binary or hexade
 
 Normative role: `mandatory`。
 
+- [test_readmem_text_accepts_comments_as_the_only_word_separator.sv](../tests/ch21/test_readmem_text_accepts_comments_as_the_only_word_separator.sv): Read binary and hexadecimal files with comments and whitespace as token separators, and check underscores and both cases of the unknown and high-impedance symbols.
+- [test_readmemb_rejects_based_literal_in_text.sv](../tests/ch21/test_readmemb_rejects_based_literal_in_text.sv): Require a binary-memory lexical diagnostic on a binary numeral with a SystemVerilog size and base prefix.
+- [test_readmemh_rejects_based_literal_in_text.sv](../tests/ch21/test_readmemh_rejects_based_literal_in_text.sv): Require a hexadecimal-memory lexical diagnostic on a hexadecimal numeral with a SystemVerilog size and base prefix.
 
 ### SV2023-21.4-EXTRACT-MEMORY-WORD-COUNT
 
@@ -60629,7 +60647,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-FILE-CHECKS
 
-`21.7.3.1` / `error` / No mapped test
+`21.7.3.1` / `error` / Execution confirmed
 
 The simulator shall perform file-writing checks and issue appropriate errors or warnings.
 
@@ -60637,6 +60655,7 @@ Acceptance criterion: The simulator shall perform file-writing checks and issue 
 
 Normative role: `mandatory`。
 
+- [test_evcd_diagnoses_directory_used_as_output_filename.sv](../tests/ch21/test_evcd_diagnoses_directory_used_as_output_filename.sv): Pass an existing directory as the output filename and require a warning or error identifying the failure to open the extended dump.
 
 ### SV2023-21.7.3.1-EXTRACT-PORT-FILENAME
 
@@ -61034,7 +61053,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-GRAMMAR
 
-`21.7.4.2` / `error` / No mapped test
+`21.7.4.2` / `normal` / Execution confirmed
 
 Extended node declarations use $var port with scalar 1 or actual vector indices, an integer identifier prefixed by \<, the port name, and $end; no other var_type is permitted.
 
@@ -61042,6 +61061,7 @@ Acceptance criterion: Extended node declarations use $var port with scalar 1 or 
 
 Normative role: `mandatory`。
 
+- [test_evcd_node_grammar_preserves_both_declared_range_directions.sv](../tests/ch21/test_evcd_node_grammar_preserves_both_declared_range_directions.sv): Check that generated extended waveform nodes use the required port type, scalar width, ascending and descending ranges, angle-bracket-prefixed integer identifiers, declared port names, and end marker.
 
 ### SV2023-21.7.4.2-EXTRACT-PORT-NODE-ORDER
 
@@ -77344,7 +77364,7 @@ Normative role: `mandatory`。
 
 ### SV2023-29.2-EXTRACT-UDP-OUTPUT-STATES
 
-`29.2` / `error` / No mapped test
+`29.2` / `error` / Execution confirmed
 
 A UDP has exactly one output with value 0/1/x, not z; a sequential UDP output equals its internal state.
 
@@ -77352,6 +77372,10 @@ Acceptance criterion: A UDP has exactly one output with value 0/1/x, not z; a se
 
 Normative role: `mandatory`。
 
+- [test_sequential_udp_feedback_keeps_output_equal_to_state.sv](../tests/ch29/test_sequential_udp_feedback_keeps_output_equal_to_state.sv): Drive the sequential primitive into each of its three output states and verify that the output still represents the state when inputs change in hold mode.
+- [test_illegal_udp_ansi_table_declares_two_outputs.sv](../tests/ch29/test_illegal_udp_ansi_table_declares_two_outputs.sv): Reject a primitive with two output ports at the port declaration.
+- [test_illegal_udp_state_table_produces_high_impedance.sv](../tests/ch29/test_illegal_udp_state_table_produces_high_impedance.sv): Reject high impedance as the next state of a sequential primitive at its table entry.
+- [test_illegal_udp_output_z.sv](../tests/ch29/test_illegal_udp_output_z.sv): Reject a combinational primitive table entry whose output is high impedance.
 
 ### SV2023-29.3-EXTRACT-UDP-DECLARATION-GRAMMAR
 
@@ -99907,7 +99931,7 @@ Normative role: `definition`。
 
 ### SV2023-37.26-EXTRACT-NO-UNPACKED-VALUE
 
-`37.26` / `error` / No mapped test
+`37.26` / `error` / Test mapped; execution unconfirmed
 
 vpi_get_value/vpi_put_value cannot access an entire unpacked structure or union.
 
@@ -99915,6 +99939,7 @@ Acceptance criterion: vpi_get_value/vpi_put_value cannot access an entire unpack
 
 Normative role: `mandatory`。
 
+- [test_vpi_unpacked_aggregates_only_expose_member_values.sv](../tests/ch37/test_vpi_unpacked_aggregates_only_expose_member_values.sv): Read and write individual members as controls, then require errors for whole-value reads and writes on both an unpacked structure and an unpacked union.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-001
 
@@ -102675,7 +102700,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.35-EXTRACT-PRIMITIVE-WRITE
 
-`37.35` / `error` / No mapped test
+`37.35` / `error` / Test mapped; execution unconfirmed
 
 vpi_put_value is allowed on a primitive only for a sequential UDP.
 
@@ -102683,6 +102708,8 @@ Acceptance criterion: vpi_put_value is allowed on a primitive only for a sequent
 
 Normative role: `mandatory`。
 
+- [test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv](../tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv): Accept the immediate write to a sequential primitive and use the written state at the next input edge.
+- [test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv](../tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv): Require distinct VPI errors when writing a built-in gate and a combinational primitive, and verify that the same operation succeeds for a variable.
 
 ### SV2023-37.35-EXTRACT-TERMINAL-ORDER
 
@@ -104414,7 +104441,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.43-EXTRACT-AUTOMATIC-NO-CALLBACK
 
-`37.43` / `error` / No mapped test
+`37.43` / `error` / Execution confirmed
 
 Placing value-change callbacks on automatic variables is illegal.
 
@@ -104422,10 +104449,11 @@ Acceptance criterion: Placing value-change callbacks on automatic variables is i
 
 Normative role: `mandatory`。
 
+- [test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv](../tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv): Check both active frames: callback registration succeeds for the static variable and returns no handle and an error for the automatic variable.
 
 ### SV2023-37.43-EXTRACT-AUTOMATIC-NO-DELAY
 
-`37.43` / `error` / No mapped test
+`37.43` / `error` / Execution confirmed
 
 Putting a delayed value on an automatic variable is illegal.
 
@@ -104433,6 +104461,7 @@ Acceptance criterion: Putting a delayed value on an automatic variable is illega
 
 Normative role: `mandatory`。
 
+- [test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv](../tests/ch37/test_vpi_automatic_frames_reject_callbacks_and_delayed_writes.sv): Check both frames for a failed delayed write with no scheduled event, and verify that the immediate write remains visible after the delay would have expired.
 
 ### SV2023-37.43-EXTRACT-CURRENT-FRAME
 
@@ -113605,7 +113634,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.34-EXTRACT-PUT-FORMAT-ERROR
 
-`38.34` / `error` / No mapped test
+`38.34` / `error` / Execution confirmed
 
 vpiStringVal is illegal for a real variable or vpiRealFunc call; vpiStrengthVal is illegal for a vector update.
 
@@ -113613,6 +113642,7 @@ Acceptance criterion: vpiStringVal is illegal for a real variable or vpiRealFunc
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_value_illegal_formats.sv](../tests/ch38/test_vpi_put_value_illegal_formats.sv): Check runtime diagnostics and error severity for writing a string to a real variable or real system function and for writing strength to a vector.
 
 ### SV2023-38.34-EXTRACT-PUT-SCALED-TIME
 
@@ -113780,7 +113810,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.34-EXTRACT-UDP-NO-DELAY
 
-`38.34` / `error` / No mapped test
+`38.34` / `error` / Execution confirmed
 
 Sequential UDP updates require vpiNoDelay and ignore primitive-instance delay; other delay modes are errors.
 
@@ -113788,6 +113818,7 @@ Acceptance criterion: Sequential UDP updates require vpiNoDelay and ignore primi
 
 Normative role: `mandatory`。
 
+- [test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv](../tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv): Verify that the state write is immediate despite the instance delay and is used by the next clock edge; require an error for a pure-transport write.
 
 ### SV2023-38.35-EXTRACT-ONE-VALUE
 
@@ -131110,7 +131141,7 @@ Normative role: `definition`。
 
 ### SV2023-C.4.1-EXTRACT-POSITION
 
-`C.4.1` / `normal` / No mapped test
+`C.4.1` / `normal` / Execution confirmed
 
 A defparam may precede/follow the target, be at file end or in another file, and hierarchically affect values used by another defparam; resolving final values requires the complete design.
 
@@ -131118,6 +131149,7 @@ Acceptance criterion: A defparam may precede/follow the target, be at file end o
 
 Normative role: `definition`。
 
+- [test_defparam_across_files_propagates_overridden_parent_parameter.sv](../tests/ch23/test_defparam_across_files_propagates_overridden_parent_parameter.sv): Override parameters before and after the target instantiation, and check at time zero that the child override in a separate file used the final parent values.
 
 ### SV2023-C.4.1-EXTRACT-REQUIRED
 

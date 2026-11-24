@@ -8,6 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
+:expected_stderr_regex: (?im)\A(?=[\s\S]*^gate write error: [^\n]*(?:gate|primitive|vpi_put_value))(?=[\s\S]*^udp write error: [^\n]*\bUDP\b)[\s\S]*\Z
 :expected_stdout: @test_vpi_put_value_rejects_gate_and_combinational_udp_instances.expected
 :vpi_c: @test_vpi_put_value_rejects_gate_and_combinational_udp_instances.c
 */

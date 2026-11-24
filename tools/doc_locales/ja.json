@@ -26249,6 +26249,26 @@
     "Separate nonblocking element writes to a variable array port propagate to both orientations": "変数配列ポートへの個別のノンブロッキング要素代入が、両方向の添字範囲へ伝わる。",
     "A whole nonblocking write to a variable array port propagates in element order to both orientations": "変数配列ポートへの全体ノンブロッキング代入が、両方向の添字範囲へ要素順に伝わる。",
     "A concatenated nonblocking target keeps each half of the right side aligned across clipped and empty slices": "連結したノンブロッキング代入先で、一方が部分的または完全に範囲外でも右辺の各半分の対応を保つ。",
-    "A negative setuphold notifier follows two delayed violating samples and skips the sample before the shifted window": "負のセットアップ制約では、二つの違反サンプルの遅延後の時刻で通知し、移動した区間より前のサンプルを除外する。"
+    "A negative setuphold notifier follows two delayed violating samples and skips the sample before the shifted window": "負のセットアップ制約では、二つの違反サンプルの遅延後の時刻で通知し、移動した区間より前のサンプルを除外する。",
+    "An ZXQPH0QXZ tagged union read checks the active member of an inner union": "内側のZXQPH0QXZタグ付き共用体は現在のタグで選んだメンバーだけを読み出す",
+    "A ZXQPH0QXZ tagged union preserves its tag and selected payload without testing unspecified bits": "ZXQPH0QXZタグ付き共用体のタグと選択した値だけを検査する",
+    "Changing the source queue leaves the stored associative key and its lookup intact": "挿入後に元のキューを変更しても連想配列に保存した添字は独立している",
+    "An associative index cannot be a queue whose element type is short real": "要素が単精度実数のキューは連想配列の添字型に使えない",
+    "Weak clear is callable without arguments from an automatic function and leaves a strong alias valid": "弱参照を消去する関数は引数を取らず強参照の別名から引き続き対象を読める",
+    "Unique if reports overlapping predicates only when the enclosing branch is enabled": "外側の条件が真になったときだけ重複した条件の違反が報告される",
+    "Non- ZXQPH0QXZ task formals keep each ZXQPH1QXZ array dimension attached to its own identifier": "非ZXQPH1QXZ形式のタスクでは各引数に固有のZXQPH0QXZ配列次元が適用される",
+    "An illegal default value bin reports an outside sample after ordinary values are accepted": "明示ビンの値を受け入れた後で範囲外の値をデフォルトビンで診断する",
+    "An illegal default sequence reports an unmatched transition after a known sequence": "明示した系列を受け入れた後で未登録の遷移をデフォルトビンで診断する",
+    "Extended ZXQPH0QXZ dumping diagnoses an existing directory used as the output filename": "ZXQPH0QXZの出力ファイルに既存ディレクトリを指定すると診断される",
+    "Extended ZXQPH0QXZ node declarations identify scalar and vector ports in declaration order": "ZXQPH0QXZのノード宣言にスカラーと両方向のベクター範囲が出力される",
+    "A width-limited suppressed file conversion advances the stream without assigning": "幅を指定した代入抑止はファイルの読取位置を進めるが出力先を消費しない",
+    "Memory files preserve mixed-case unknown digits and accept comments between adjacent words": "メモリファイルはコメントだけで語を区切れ、大文字小文字の未知値を保持する",
+    "A memory text file does not accept a sized and based source literal": "十六進メモリファイルはサイズと基数を指定したリテラルを受け付けない",
+    "Cross-file defparams resolve before time zero even when a later override changes their value": "別ファイルの階層パラメータ変更が子のパラメータ式にも伝わる",
+    "Sequential primitive feedback retains each of the three possible output values": "順序プリミティブの出力は状態と一致し保持時に値が変わらない",
+    "An ZXQPH0QXZ primitive port list cannot declare a second output": "ZXQPH0QXZ形式のプリミティブでは出力を二つ宣言できない",
+    "A sequential primitive cannot assign high impedance to its output state": "順序プリミティブの状態表で高インピーダンスを出力に指定できない",
+    "Two live instances of a task reject callback registration and delayed writes to their automatic variables": "二つの生存中のタスクフレームで自動変数のコールバック登録と遅延書き込みを拒否する",
+    "ZXQPH0QXZ value access distinguishes ZXQPH1QXZ structures and unions from their readable members": "ZXQPH0QXZは個別メンバーの値へのアクセスとZXQPH1QXZ構造体・共用体全体へのアクセスを区別する"
   }
 }

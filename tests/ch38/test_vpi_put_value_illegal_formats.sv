@@ -9,6 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :vpi_c: @test_vpi_put_value_illegal_formats.c
+:expected_stderr_regex: (?im)\A(?=[\s\S]*^.*\berror\b[^\n]*vpi_put_value[^\n]*string[^\n]*real)(?=[\s\S]*^.*\berror\b[^\n]*vpi_put_value[^\n]*strength[^\n]*(?:vector|scalar))[\s\S]*\Z
 :expected_stdout: @test_vpi_put_value_illegal_formats.expected
 */
 // IEEE 1800-2023 §38.34: it is illegal to put a value in the vpiStringVal

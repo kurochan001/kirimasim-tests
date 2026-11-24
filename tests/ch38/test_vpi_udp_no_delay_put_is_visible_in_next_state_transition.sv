@@ -8,6 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
+:expected_stderr_regex: (?im)^(?=[^\n]*\berror\b)(?=[^\n]*vpi_put_value)(?=[^\n]*\bUDP\b)(?=[^\n]*(?:only|require)[^\n]*vpiNoDelay)[^\n]+
 :expected_stdout: @test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.expected
 :vpi_c: @test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.c
 */

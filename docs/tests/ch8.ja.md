@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは503本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは504本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -370,6 +370,7 @@
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) |weak_reference get() が null になるまで待つと、他のプロセスが参照をクリアすると再開します。| 8.30.3 8.30.4 9.4.3 |規格のみ||
 | [`test_illegal_weak_reference_clear_takes_no_argument`](../../tests/ch8/test_illegal_weak_reference_clear_takes_no_argument.sv) |weak_reference の clear に引数を渡すと拒否する| 8.30.4 |規格のみ|規格違反の設計|
 | [`test_illegal_weak_reference_clear_value_from_void_method`](../../tests/ch8/test_illegal_weak_reference_clear_value_from_void_method.sv) |weak_reference の clear の呼び出しを代入の値に使うことはできない| 8.30.4 13.4.1 |規格のみ|規格違反の設計|
+| [`test_weak_reference_clear_has_void_function_signature_in_nested_scope`](../../tests/ch8/test_weak_reference_clear_has_void_function_signature_in_nested_scope.sv) |弱参照を消去する関数は引数を取らず強参照の別名から引き続き対象を読める| 8.30.4 G.7 |規格のみ||
 | [`test_weak_reference_clear_void_no_arguments`](../../tests/ch8/test_weak_reference_clear_void_no_arguments.sv) |weak_reference の clear() は引数の無い void 関数である: 空の引数リストで文として（関数の中でも）警告なしに呼ばれ、その参照の get() だけが null を返すようにする| 8.30.4 |規格のみ|出口コード|
 | [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) |weak_reference の static get_id() はオブジェクトの null と非ゼロ値に対して 0 を返します。ハンドルの各クラスタイプを通して、各呼び出しで同じ値を返します。異なるオブジェクトに対しては異なります。| 8.30.5 7.8 |規格のみ||
 | [`test_weak_reference_get_id_static_longint`](../../tests/ch8/test_weak_reference_get_id_static_longint.sv) |weak_reference の get_id () は、パラメータ型 T の引数 obj を 1 つ取り longint を返す static 関数である: weak_reference オブジェクトなしにクラススコープを通して呼ばれ、引数は位置か名前 obj で結合されて派生クラスのハンドルを受け付け、結果は符号付き 64 bit の longint である| 8.30.5 |規格のみ||

@@ -47,7 +47,7 @@ static PLI_INT32 illegal_calltf(PLI_BYTE8 *user_data)
     val.format = vpiStringVal;
     val.value.str = (PLI_BYTE8 *)"1.25";
     vpi_put_value(r, &val, NULL, vpiNoDelay);
-    string_to_real_error = vpi_chk_error(NULL) != 0;
+    string_to_real_error = vpi_chk_error(NULL) >= vpiError;
 
     strength.logic = vpi1;
     strength.s0 = vpiStrongDrive;
@@ -55,7 +55,7 @@ static PLI_INT32 illegal_calltf(PLI_BYTE8 *user_data)
     val.format = vpiStrengthVal;
     val.value.strength = &strength;
     vpi_put_value(v, &val, NULL, vpiNoDelay);
-    strength_to_vector_error = vpi_chk_error(NULL) != 0;
+    strength_to_vector_error = vpi_chk_error(NULL) >= vpiError;
 
     vpi_printf((PLI_BYTE8 *)"string value to a real variable reports an error: %d\n",
                string_to_real_error);
@@ -88,7 +88,7 @@ static PLI_INT32 realfn_calltf(PLI_BYTE8 *user_data)
         val.format = vpiStringVal;
         val.value.str = (PLI_BYTE8 *)"abc";
         vpi_put_value(call, &val, NULL, vpiNoDelay);
-        string_to_func_error = vpi_chk_error(NULL) != 0;
+        string_to_func_error = vpi_chk_error(NULL) >= vpiError;
     }
     return 0;
 }

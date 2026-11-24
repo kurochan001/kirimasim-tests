@@ -16,29 +16,29 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 4 | [Scheduling semantics](ch4.md) | 481 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 526 | 415 |
 | 6 | [Data types](ch6.md) | 909 | 265 |
-| 7 | [Aggregate data types](ch7.md) | 1131 | 604 |
-| 8 | [Classes](ch8.md) | 503 | 138 |
+| 7 | [Aggregate data types](ch7.md) | 1135 | 604 |
+| 8 | [Classes](ch8.md) | 504 | 138 |
 | 9 | [Processes](ch9.md) | 484 | 233 |
 | 10 | [Assignment statements](ch10.md) | 761 | 521 |
 | 11 | [Operators and expressions](ch11.md) | 2635 | 2054 |
-| 12 | [Procedural programming statements](ch12.md) | 323 | 125 |
-| 13 | [Tasks and functions (subroutines)](ch13.md) | 759 | 504 |
+| 12 | [Procedural programming statements](ch12.md) | 324 | 125 |
+| 13 | [Tasks and functions (subroutines)](ch13.md) | 760 | 504 |
 | 14 | [Clocking blocks](ch14.md) | 173 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 214 | 133 |
 | 16 | [Assertions](ch16.md) | 815 | 133 |
 | 17 | [Checkers](ch17.md) | 134 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 296 | 57 |
-| 19 | [Functional coverage](ch19.md) | 252 | 50 |
+| 19 | [Functional coverage](ch19.md) | 254 | 50 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 709 | 392 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 952 | 708 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 958 | 708 |
 | 22 | [Compiler directives](ch22.md) | 1327 | 1206 |
-| 23 | [Modules and hierarchy](ch23.md) | 444 | 161 |
+| 23 | [Modules and hierarchy](ch23.md) | 445 | 161 |
 | 24 | [Programs](ch24.md) | 222 | 171 |
 | 25 | [Interfaces](ch25.md) | 274 | 134 |
 | 26 | [Packages](ch26.md) | 271 | 179 |
 | 27 | [Generate constructs](ch27.md) | 293 | 180 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 423 | 287 |
-| 29 | [User-defined primitives](ch29.md) | 145 | 61 |
+| 29 | [User-defined primitives](ch29.md) | 148 | 61 |
 | 30 | [Specify blocks](ch30.md) | 73 ||
 | 31 | [Timing checks](ch31.md) | 85 ||
 | 32 | [Backannotation using the standard delay format](ch32.md) | 77 | 18 |
@@ -46,7 +46,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 34 | [Protected envelopes](ch34.md) | 4 ||
 | 35 | [Direct programming interface](ch35.md) | 208 | 48 |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 91 ||
-| 37 | [VPI object model diagrams](ch37.md) | 262 ||
+| 37 | [VPI object model diagrams](ch37.md) | 264 ||
 | 38 | [VPI routine definitions](ch38.md) | 166 ||
 | 39 | [Assertion API](ch39.md) | 50 ||
 | 40 | [Code coverage control and API](ch40.md) | 40 ||

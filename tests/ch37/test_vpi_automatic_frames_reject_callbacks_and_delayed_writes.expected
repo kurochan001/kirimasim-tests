@@ -1,0 +1,10 @@
+frame 1 static callback=1
+frame 1 automatic callback=0 error=1
+frame 1 scheduled=0 error=1
+frame 1 immediate=61
+frame 2 static callback=1
+frame 2 automatic callback=0 error=1
+frame 2 scheduled=0 error=1
+frame 2 immediate=62
+frame 1 later=61
+frame 2 later=62
