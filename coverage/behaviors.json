@@ -3843,12 +3843,34 @@
     {
       "id": "SV2023-3.12-EXTRACT-PRE-SIMULATION-ERROR",
       "clause": "3.12",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "An error classified by the standard as compile-time must be reported before simulation begins.",
       "acceptance": "Do not require a particular internal compilation/elaboration pass, but reject the illegal design before simulation.",
       "source_note": "IEEE 1800-2023 3.12; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv",
+          "observation": "手続き中に代入される変数をパラメータの定数式に使い、時刻ゼロの処理に到達する前のコンパイル診断を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "10e375d1fef71b0630fe16a6de0c21b7ae19ceffc7ffec0255ddb1281d750410",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv",
+              "contains": "localparam int WIDTH = runtime_value;"
+            },
+            {
+              "file": "tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv",
+              "contains": ":expected_stderr_regex: test_illegal_runtime_value_in_parameter_prevents_startup\\.sv:16:(?:\\d+:)?[^\\n]*(?i:constant|parameter|unable to bind)"
+            },
+            {
+              "file": "tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv",
+              "contains": "$display(\"unexpected simulation startup: %0d\", $bits(selected));"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.12",
@@ -4245,7 +4267,7 @@
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
           "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "84b4d82e971c5363bc664e498fe0769f8cf1ee5ed43ff33ddd738fe1adca3ef0",
+          "inputs_sha256": "27daa814633883830a05af9e82170e14485329e3ceea47c28faa13f1617335a1",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",
@@ -21745,17 +21767,72 @@
     {
       "id": "SV2023-6.6.2-EXTRACT-UWIRE-HIERARCHICAL-ENFORCEMENT",
       "clause": "6.6.2",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "The port-connection rules enforce the uwire restriction across hierarchy, or issue a warning if that enforcement is not performed.",
       "acceptance": "Do not silently ignore a cross-hierarchy unidriver violation; preserve the error-versus-warning latitude specified here.",
       "source_note": "IEEE 1800-2023 6.6.2; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.sv",
+          "observation": "二つの出力に重ならない選択範囲を接続し、二段の階層を通してそれぞれの値が伝わることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "b349d6bcbc251ef06bb3cf7341282c7d7b191ae218320123a6c7e47aac4b06f4",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.sv",
+              "contains": "two_bits upper(2'b10, pin[3:2]);"
+            },
+            {
+              "file": "tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.sv",
+              "contains": "two_bits lower(2'b11, pin[1:0]);"
+            },
+            {
+              "file": "tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.expected",
+              "contains": "nonoverlapping drivers=1011"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv",
+          "observation": "中間の一ビットだけ二つの階層出力が競合する構成で、ポート接続時のドライバー診断を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "78e05342cf44bcb55f572fbdebab4524ad00c907175584ac5cbbe76d99f5d30c",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv",
+              "contains": "two_bits upper(2'b10, pin[2:1]);"
+            },
+            {
+              "file": "tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv",
+              "contains": ":expected_stderr_regex: test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit\\.sv:(?:19|20|24|25):(?:\\d+:)?[^\\n]*(?i:(?:uwire|unresolved|single.driver)[^\\n]*(?:driver|driv)|(?:multiple|second)[^\\n]*(?:driver|driv))"
+            },
+            {
+              "file": "tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv",
+              "contains": "two_bits lower(2'b11, pin[1:0]);"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.6.2",
           "blocks": [
             "B003"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "hierarchical_disjoint_and_overlapping_drivers",
+          "observation": "重ならない階層接続が成功し、重なる接続は強制検査を実装するツールで拒否される。強制検査を行わない実装には警告が必要となる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.sv",
+            "tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv"
           ]
         }
       ]
@@ -40054,17 +40131,68 @@
     {
       "id": "SV2023-6.18-EXTRACT-INCOMPLETE-BEFORE-DEFINITION",
       "clause": "6.18",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "A forward-declared type remains incomplete until its final definition.",
       "acceptance": "A forward-declared type remains incomplete until its final definition.",
       "source_note": "IEEE 1800-2023 6.18; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.sv",
+          "observation": "前方宣言中はパッケージ内で型の別名を宣言し、クラス定義の後に同じ型を直接使った変数と別名の変数を読み書きする。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a5fe89e5078f44acc806d9a1746746b2ce82fb5fdc92b7b65f6e386ce1e87da5",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.sv",
+              "contains": "typedef owner::payload deferred_name;"
+            },
+            {
+              "file": "tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.sv",
+              "contains": "owner::payload direct_value;"
+            },
+            {
+              "file": "tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.expected",
+              "contains": "bits=13/13 values=1234/1291"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch6/test_illegal_forward_class_scope_variable_before_completion_in_package.sv",
+          "observation": "型の別名宣言を許す同じスコープで、最終定義前の直接の変数宣言だけを未完了の型として拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "4a6cd414cb50307f7bddbd0d809052e8406ba0f8de8dca059a4b4aed8475e008",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_forward_class_scope_variable_before_completion_in_package.sv",
+              "contains": "owner::payload too_early;"
+            },
+            {
+              "file": "tests/ch6/test_illegal_forward_class_scope_variable_before_completion_in_package.sv",
+              "contains": ":expected_stderr_regex: test_illegal_forward_class_scope_variable_before_completion_in_package\\.sv:17:(?:\\d+:)?[^\\n]*(?i:incomplete|forward|declared before|not yet)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.18",
           "blocks": [
             "B018"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "class_scope_before_and_after_completion",
+          "observation": "定義の前に別名で許される型選択と、直接の変数宣言が拒否される条件を検査し、定義後に直接変数を宣言できることを確かめる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.sv",
+            "tests/ch6/test_illegal_forward_class_scope_variable_before_completion_in_package.sv"
           ]
         }
       ]
@@ -74659,12 +74787,67 @@
       "acceptance": "An SV data-object address cannot be assigned to an object handle or chandle through a C-style address operation.",
       "source_note": "IEEE 1800-2023 8.4; complete own-body source review, blocks B017. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv",
+          "observation": "単項アンパサンドで得られるビット値は通常の縮約結果として使え、外部ハンドルへの代入ではアドレスとして扱われず拒否される。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "6fd780a348d2a2d2220b4beafa32830ea7c0f41da71ccd4d05776a865bc851b2",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv",
+              "contains": "foreign_address = &source;"
+            },
+            {
+              "file": "tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv",
+              "contains": ":expected_stderr_regex: test_illegal_data_address_operator_does_not_create_chandle\\.sv:21:(?:\\d+:)?[^\\n]*(?i:chandle|(?:assign|convert|operator|type)[^\\n]*handle)"
+            },
+            {
+              "file": "tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv",
+              "contains": "reduction_result = &source;"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv",
+          "observation": "縮約結果の正しい代入を対照にして、データ変数のアドレスを取る形でクラスハンドルを得ようとする代入を拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "55e1c7e1899856b1ee4120f6f1444be5112725c0f0dd38e526e94268ea15ff5c",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv",
+              "contains": "object = &source;"
+            },
+            {
+              "file": "tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv",
+              "contains": ":expected_stderr_regex: test_illegal_data_address_operator_does_not_create_object_handle\\.sv:24:(?:\\d+:)?[^\\n]*(?i:class|object|non-class|convert|BadAssignment|logic[^\\n]*assigned to type[^\\n]*entry)"
+            },
+            {
+              "file": "tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv",
+              "contains": "reduction_result = &source;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.4",
           "blocks": [
             "B017"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "address_spelling_cannot_create_either_handle",
+          "observation": "データ変数に対する単項縮約式から外部ハンドルとクラスハンドルのどちらも作成できないことを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv",
+            "tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv"
           ]
         }
       ]
@@ -239116,12 +239299,75 @@
       "acceptance": "dumpvars selects the variables for the dumpfile; multiple calls throughout the model are allowed, but all calls shall execute at the same simulation time.",
       "source_note": "IEEE 1800-2023 21.7.1.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv",
+          "observation": "最初の呼び出しで別の初期手続きを起こして同じ時刻に二度目を呼び、両方の信号だけが波形の宣言に現れることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "2e3928197f7405234465a0ba24b686448ade065880ad2cd27d1800dacb4b483b",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv",
+              "contains": "#3 $dumpvars(0, first_pin);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv",
+              "contains": "wait (selected_first);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv",
+              "contains": "$dumpvars(0, second_pin);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.expected",
+              "contains": "first=1 second=1 unrelated=0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.sv",
+          "observation": "選択済みの二信号を保持し、次の時刻に対する警告またはエラーが出て後から選んだ信号が波形の宣言に現れないことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f851a02da2657b5c9dcdba6f11f3fa443d6d196e7d889e952b78d17fdf773ed5",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.sv",
+              "contains": "#1 $dumpvars(0, late_pin);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:warning|error))(?=[^\\n]*\\$dumpvars)(?=[^\\n]*(?:already|ignored|time|different))[^\\n]+"
+            },
+            {
+              "file": "tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.expected",
+              "contains": "first=1 anchor=1 late=0"
+            },
+            {
+              "file": "tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.icarus.expected",
+              "contains": "previously called at simtime 3"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.1.2",
           "blocks": [
             "B002"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "dumpvars_same_time_and_late",
+          "observation": "最初の呼び出しがゼロ以外の時刻でも同時刻の別プロセスから信号を追加でき、次時刻の追加は拒否されることを確かめる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv",
+            "tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.sv"
           ]
         }
       ]
@@ -296206,12 +296452,111 @@
       "acceptance": "Interface port signals become available specify terminals with interface defaults or modport-restricted directions; inout may serve either direction, while ref cannot be a specify terminal.",
       "source_note": "IEEE 1800-2023 25.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals.sv",
+          "observation": "モッドポートを選ばないインターフェース接続を通るパスで、立ち上がりと立ち下がりが異なる指定遅延を経て伝わることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "cb7e9c909094ae0f7a22cb8ce57d8ffe7367731b813f05a24bf7a6f5ffe82253",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals.sv",
+              "contains": "(pins.source => pins.sink) = (3, 2);"
+            },
+            {
+              "file": "tests/ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals.expected",
+              "contains": "before rise=0"
+            },
+            {
+              "file": "tests/ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals.expected",
+              "contains": "before fall=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch25/test_interface_specify_modport_allows_input_to_output_path.sv",
+          "observation": "入力から出力へのパスを方向付きのモッドポートで宣言し、変化前後の波形を時刻を分けて比較する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "cf0bc585bc3abcee8c0c84c539c98462612c00dae7b54bad2746e72d6d5028ae",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_interface_specify_modport_allows_input_to_output_path.sv",
+              "contains": "modport model(input source, output sink);"
+            },
+            {
+              "file": "tests/ch25/test_interface_specify_modport_allows_input_to_output_path.sv",
+              "contains": "(pins.source => pins.sink) = 4;"
+            },
+            {
+              "file": "tests/ch25/test_interface_specify_modport_allows_input_to_output_path.expected",
+              "contains": "before path delay=1"
+            },
+            {
+              "file": "tests/ch25/test_interface_specify_modport_allows_input_to_output_path.expected",
+              "contains": "after path delay=0"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch25/test_illegal_interface_specify_uses_modport_output_for_source.sv",
+          "observation": "出力専用モッドポートの信号をパス入力に指定して端子方向の診断を要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "c1024cfa209cc921499c967e4205bd842b0920571d51a7e91fd10524fb87c2f0",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_interface_specify_uses_modport_output_for_source.sv",
+              "contains": "(pins.src => pins.dst) = 3;"
+            },
+            {
+              "file": "tests/ch25/test_illegal_interface_specify_uses_modport_output_for_source.sv",
+              "contains": ":expected_stderr_regex: test_illegal_interface_specify_uses_modport_output_for_source\\.sv:25:(?:\\d+:)?[^\\n]*(?i:(?:path|specify|terminal|descriptor)[^\\n]*(?:direction|input|output|modport)|(?:input|output)[^\\n]*(?:path|specify|terminal|descriptor))"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv",
+          "observation": "正しい出力を対照にして、参照で渡る入力信号をパスの始点に指定した場合の診断を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "412a2cc6f174093c9b5ed3159eba7a7b8436e99705c26b4c71fb61f19c12fdb7",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv",
+              "contains": "(pins.source => pins.sink) = 2;"
+            },
+            {
+              "file": "tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv",
+              "contains": ":expected_stderr_regex: test_illegal_interface_specify_uses_ref_modport_terminal\\.sv:25:(?:\\d+:)?[^\\n]*(?i:InvalidSpecifySource|(?:specify|terminal|descriptor|path)[^\\n]*(?:ref|input|inout)|ref[^\\n]*(?:specify|terminal|descriptor|path))"
+            },
+            {
+              "file": "tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv",
+              "contains": "modport model(ref source, output sink);"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "25.6",
           "blocks": [
             "B002"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "specify_interface_terminal_directions",
+          "observation": "インターフェースの既定方向とモッドポートの指定方向で合法なパスを検査し、出力のみと参照のポートが始点に指定された場合の診断を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals.sv",
+            "tests/ch25/test_interface_specify_modport_allows_input_to_output_path.sv",
+            "tests/ch25/test_illegal_interface_specify_uses_modport_output_for_source.sv",
+            "tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv"
           ]
         }
       ]
@@ -297930,17 +298275,76 @@
     {
       "id": "SV2023-25.9.2-EXTRACT-VIRTUAL-CLOCKING-SCOPE-TEXT",
       "clause": "25.9.2",
-      "kind": "boundary",
+      "kind": "error",
       "behavior": "When a virtual interface type selects no modport, its clocking blocks are referenced directly by dot notation. When the type selects a modport, a clocking block is reachable through that virtual interface only if the selected modport includes the clocking block (modport ... (clocking cb), 25.5.5). An interface that declares modports but whose virtual interface type selects none remains directly accessible.",
       "acceptance": "Given interface A_Bus with clocking sb and modport STB (clocking sb): typedef virtual A_Bus.STB T; T s; permits s.sb.req <= 1; typedef virtual A_Bus.DUT U; where DUT does not list clocking sb does not permit u.sb; virtual A_Bus v; with no modport selected permits v.sb.",
       "source_note": "IEEE 1800-2023 25.9.2 (B002), p.805; complete own-body source review, block B002. Quote: \"However, this only works for interfaces with no modports. Typically, a DUT and its testbench exhibit modport direction. This common case can be handled by including the clocking in the corresponding modport as described in 25.5.5.\" The example at p.806 L48-L51 (\"typedef virtual A_Bus.STB SYNCTB;\" then \"s.sb.req <= 1;\") and 25.10 (p.807 L25-L28, \"regardless of the existence of any declared modports\") fix the reading as \"no selected modport\".",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv",
+          "observation": "モッドポートが宣言されているインターフェースに対し、無指定の仮想型とクロッキングを含むモッドポート型の双方から値を取得する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "d520c56a22ae7d21abdba246946b60032af9faa0c3cb57060d2dfd8129dde530",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv",
+              "contains": "full_view.observed.payload"
+            },
+            {
+              "file": "tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv",
+              "contains": "restricted_view.observed.payload"
+            },
+            {
+              "file": "tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.expected",
+              "contains": "first sample=9/9"
+            },
+            {
+              "file": "tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.expected",
+              "contains": "second sample=6/6"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv",
+          "observation": "選択したモッドポートに含まれるクロッキング式を対照にし、別のモッドポートだけが公開するブロックへのアクセスを拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f82bb40c57e3cf677880d1bd3cb322e91fb5921744ac559037ae9b1c3921182f",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv",
+              "contains": "narrowed.hidden.value"
+            },
+            {
+              "file": "tests/ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv",
+              "contains": ":expected_stderr_regex: test_illegal_virtual_modport_cannot_reach_other_clocking_view\\.sv:35:(?:\\d+:)?[^\\n]*(?i:(?:modport|member|clocking|cannot|can.t find)[^\\n]*hidden|hidden[^\\n]*(?:modport|member|clocking|not found))"
+            },
+            {
+              "file": "tests/ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv",
+              "contains": "narrowed.exposed.value"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "25.9.2",
           "blocks": [
             "B002"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "virtual_interface_clocking_view",
+          "observation": "未選択と選択済みの正常な読み取り、およびその選択で非公開となるクロッキングブロックへのアクセス拒否を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv",
+            "tests/ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv"
           ]
         }
       ]
@@ -349049,7 +349453,33 @@
       "acceptance": "Optional log-file character string selects a file receiving an entry for every individual timing annotation.",
       "source_note": "IEEE 1800-2023 32.9; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch32/test_sdf_named_log_has_distinct_entries_for_two_paths.sv",
+          "observation": "名前付きのログを生成するよう指定し、二つの遅延が別のパスへ反映されることと、両方のパスを識別する行が別々に出力されることを照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "fe3259e99c58cf13fe2879a9bfc03b773ec8a8e18ee73538ffe6871ef23f30af",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_named_log_has_distinct_entries_for_two_paths.sv",
+              "contains": "$sdf_annotate(\"annotation.sdf\", , , \"named_annotation.log\");"
+            },
+            {
+              "file": "tests/ch32/test_sdf_named_log_has_distinct_entries_for_two_paths.sv",
+              "contains": "return first_row > 0 && second_row > 0 && first_row != second_row;"
+            },
+            {
+              "file": "tests/ch32/test_sdf_named_log_has_distinct_entries_for_two_paths.expected",
+              "contains": "annotated delays=4/9"
+            },
+            {
+              "file": "tests/ch32/test_sdf_named_log_has_distinct_entries_for_two_paths.expected",
+              "contains": "distinct log entries=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "32.9",
@@ -379604,12 +380034,42 @@
     {
       "id": "SV2023-37.10-EXTRACT-NO-NAME-LOOKUP",
       "clause": "37.10",
-      "kind": "error",
+      "kind": "normal",
       "behavior": "vpi_handle_by_name cannot access imported items or compilation-unit objects.",
       "acceptance": "vpi_handle_by_name cannot access imported items or compilation-unit objects.",
       "source_note": "IEEE 1800-2023 37.10; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv",
+          "observation": "言語から三つの名前を読めることを対照に、名前検索でモジュールとパッケージの宣言のみを取得し、取り込み名とコンパイル単位の名前が取得できないことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a5bd6eae5261007685fac0f382f5e2b88f498777f15c33660fac50bb01869c85",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv",
+              "contains": "import lookup_namespace::imported_data;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv",
+              "contains": "$unit::unit_data"
+            },
+            {
+              "file": "tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.c",
+              "contains": "package_data = vpi_handle_by_name((PLI_BYTE8 *)\"imported_data\", package);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.c",
+              "contains": "explicit_unit = vpi_handle_by_name((PLI_BYTE8 *)\"$unit::unit_data\", NULL);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.expected",
+              "contains": "VPI module=63 package=31 imported=0 unit=0 explicit-unit=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.10",
@@ -514595,17 +515055,68 @@
     {
       "id": "SV2023-A.10-EXTRACT-FOOTNOTE-29",
       "clause": "A.10",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "A covergroup extends specification is allowed only within a class.",
       "acceptance": "A covergroup extends specification is allowed only within a class.",
       "source_note": "IEEE 1800-2023 A.10; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv",
+          "observation": "派生クラスの宣言が基底のカバーポイントを継承し、新しい点を追加できることを両者の集計値で確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "3598c15320b92ab70d57c2d985ccd1972abfae0f54b470aa3b1a530bd032b658",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv",
+              "contains": "covergroup extends recorder;"
+            },
+            {
+              "file": "tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.expected",
+              "contains": "first=100/0"
+            },
+            {
+              "file": "tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.expected",
+              "contains": "second=100/100"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch19/test_illegal_module_scope_covergroup_extends_existing_group.sv",
+          "observation": "参照するグループが既に同じモジュールで宣言されていても、クラス外の継承宣言はエラーとなる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "7acd17e39ce71ea188b93e254638a613a0712273d935890e90ab52a3e1efdfd4",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_illegal_module_scope_covergroup_extends_existing_group.sv",
+              "contains": "covergroup extends known_group;"
+            },
+            {
+              "file": "tests/ch19/test_illegal_module_scope_covergroup_extends_existing_group.sv",
+              "contains": ":expected_stderr_regex: test_illegal_module_scope_covergroup_extends_existing_group\\.sv:19:(?:\\d+:)?[^\\n]*(?i:covergroup[^\\n]*(?:class|extend|inheri)|(?:outside|extend|inheri)[^\\n]*class|unexpected[^\\n]*extends)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.10",
           "blocks": [
             "B003"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "covergroup_extends_inside_and_outside_class",
+          "observation": "基底と派生のカバーグループをクラスで使えることと、モジュールでの継承宣言が拒否されることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv",
+            "tests/ch19/test_illegal_module_scope_covergroup_extends_existing_group.sv"
           ]
         }
       ]
@@ -526986,7 +527497,37 @@
       "acceptance": "vpiMemoryWord is no longer an ordinary object type except compatibility modes; variable element types such as vpiLogicVar/vpiReg represent array elements; the relationship remains.",
       "source_note": "IEEE 1800-2023 C.4.3; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.sv",
+          "observation": "負の下限を持つ配列で旧来の関係をたどると現在の変数型で要素に到達し、添字で得た同じハンドルを使った書き込みが対象要素だけを変更する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "acb9b7567c831ccc51021da261245215b2c505f056ec46dc136ca5aa936422cd",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.sv",
+              "contains": "logic [7:0] locations[-2:0];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.c",
+              "contains": "iterator = vpi_iterate(vpiMemoryWord, array);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.c",
+              "contains": "modern += type == vpiReg || type == vpiLogicVar;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.expected",
+              "contains": "words=3 modern=3 parents=3 selected=1 value=77"
+            },
+            {
+              "file": "tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.expected",
+              "contains": "after write=16/72/b2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "C.4.3",
@@ -537139,17 +537680,68 @@
     {
       "id": "SV2023-G.6-EXTRACT-FINAL",
       "clause": "G.6",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "std process is a final class with state enum FINISHED,RUNNING,WAITING,SUSPENDED,KILLED.",
       "acceptance": "std process is a final class with state enum FINISHED,RUNNING,WAITING,SUSPENDED,KILLED.",
       "source_note": "IEEE 1800-2023 G.6; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv",
+          "observation": "列挙型の先頭と後続要素を順にたどり、標準が示す五つの名前付き値と実行直後の状態を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "af827e1a6528e69a23f7528373687cc8c2948d2994041e8623114e44ce6ae8aa",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv",
+              "contains": "observed_states[0] = expected_states[0].first();"
+            },
+            {
+              "file": "tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv",
+              "contains": "owner.status() == expected_states[1]"
+            },
+            {
+              "file": "tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.expected",
+              "contains": "self running=1 enum matches=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv",
+          "observation": "パッケージ内でプロセス型の別名を作り、その別名からの派生クラス宣言も拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "b68e96f8dc0750c4e8fcc1e346fdd4c63749e7066edf615a9d4c9d8da5d4bf1b",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv",
+              "contains": "class derived_process extends builtin_process;"
+            },
+            {
+              "file": "tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv",
+              "contains": ":expected_stderr_regex: test_illegal_nested_class_derives_from_std_final_process\\.sv:17:(?:\\d+:)?[^\\n]*(?i:final|cannot[^\\n]*extend|deriv[^\\n]*process)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "G.6",
           "blocks": [
             "B003"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "process_state_enum_and_final_type",
+          "observation": "標準プロセスの状態列挙型を値として使えることと、型の別名からも継承できないことを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv",
+            "tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv"
           ]
         }
       ]
@@ -537609,17 +538201,68 @@
     {
       "id": "SV2023-G.7-EXTRACT-PARAMETER",
       "clause": "G.7",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "std weak_reference has required class type parameter T.",
       "acceptance": "std weak_reference has required class type parameter T.",
       "source_note": "IEEE 1800-2023 G.7; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv",
+          "observation": "互いに異なるクラス型で弱参照を特殊化し、取得したハンドルが元の型のメンバーを持ち、元のオブジェクトと一致することを確かめる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "54212f0e79c52ff637e9239933c5bf4be8d6421929ae2fff8bdaa30248da6d86",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv",
+              "contains": "std::weak_reference #(alpha) first_ref;"
+            },
+            {
+              "file": "tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv",
+              "contains": "std::weak_reference #(beta) second_ref;"
+            },
+            {
+              "file": "tests/ch8/test_weak_reference_parameter_sets_return_type_independently.expected",
+              "contains": "typed objects=31/b7 same=1/1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv",
+          "observation": "クラスに型を指定した弱参照を置けることを対照に、型を省略した宣言には既定の特殊化がなく拒否されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "b68608c372c194ee93136afcb7877907a32bb090ec4bc10eee2d2a5be3b54332",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv",
+              "contains": "std::weak_reference missing_type;"
+            },
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv",
+              "contains": ":expected_stderr_regex: test_illegal_weak_reference_untyped_member_has_no_default\\.sv:22:(?:\\d+:)?[^\\n]*(?i:NoDefaultSpecialization|no default[^\\n]*(?:specialization|type)|missing[^\\n]*type parameter)"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "G.7",
           "blocks": [
             "B003"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "weak_reference_explicit_and_missing_type",
+          "observation": "型付き弱参照の戻り値が指定のクラス型となり、型指定が省略できないことを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv",
+            "tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv"
           ]
         }
       ]

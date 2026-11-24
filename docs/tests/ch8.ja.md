@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは504本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは508本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -54,6 +54,8 @@
 | [`test_illegal_class_handle_equality_with_int`](../../tests/ch8/test_illegal_class_handle_equality_with_int.sv) |クラスオブジェクトと比較するときは、 with == を使って int ではなく、他のクラスオブジェクトまたは null と比較する必要があります。| 8.4 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_class_handle_increment`](../../tests/ch8/test_illegal_class_handle_increment.sv) |オブジェクトハンドルは C ポインタのように増加できません| 8.4 |規格のみ|規格違反の設計|
 | [`test_illegal_class_handle_relational_operator`](../../tests/ch8/test_illegal_class_handle_relational_operator.sv) |関係演算子 &lt; はオブジェクトハンドルに有効な演算子の一つではありません| 8.4 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_data_address_operator_does_not_create_chandle`](../../tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv) |SystemVerilog変数の単項演算結果は外部ハンドルに代入できない| 8.4 |規格のみ|規格違反の設計|
+| [`test_illegal_data_address_operator_does_not_create_object_handle`](../../tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv) |SystemVerilog変数の単項演算結果はクラスのオブジェクトハンドルに代入できない| 8.4 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_handle_arithmetic`](../../tests/ch8/test_illegal_handle_arithmetic.sv) |オブジェクトハンドルは増分のような算術演算をサポートしていません| 8.4 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_handle_cast_to_chandle`](../../tests/ch8/test_illegal_handle_cast_to_chandle.sv) |クラスオブジェクトハンドルはチャンドルにキャストできません| 8.4 |規格のみ|規格違反の設計|
 | [`test_illegal_unrelated_handle_compare`](../../tests/ch8/test_illegal_unrelated_handle_compare.sv) |関連のないクラスのオブジェクトハンドルは 等しさのために比較できません| 8.4 |規格のみ|規格違反の設計|
@@ -359,9 +361,11 @@
 | [`test_weak_reference_std_scope_and_strong_reachability`](../../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) |これは、stdがweak_referenceを宣言し、他のスコープが同じ名前のクラスを宣言する場合に、アクティブスコープのハンドルがその参照者を強く到達可能に保つことを意味します。| 8.29 8.30.1 |規格のみ||
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) |std::weak_referenceは、クラス型パラメータT、T型の参照対象を受け取るコンストラクタ、clear()で参照対象がnullにされるまでT型でその参照対象を返すget()、戻り値のないclear()、およびstaticのget_id(T)を持ちます。このstaticメソッドのlongint型の結果は、nullに対して0、オブジェクトに対して0以外であり、同じオブジェクトなら呼び出しのたびに同じ値となります。| 8.30 G.7 |規格のみ||
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) |weak_reference にはクラスタイプパラメータが必要です| 8.30.1 |規格のみ|規格違反の設計|
+| [`test_illegal_weak_reference_untyped_member_has_no_default`](../../tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv) |型指定を省いた弱参照のメンバー宣言は拒否される| 8.30.1 G.7 |規格のみ|規格違反の設計|
 | [`test_illegal_weak_reference_without_required_type_parameter`](../../tests/ch8/test_illegal_weak_reference_without_required_type_parameter.sv) |弱参照の変数が未初期化でも参照先のクラス型を明示する必要がある| 8.30.1 G.7 |規格のみ|規格違反の設計|
 | [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) |弱い包装をクリアすると、他の包装が残り、所有者が保持するオブジェクトのアイデンティティは変わりません。| 8.30.1 8.30.2 8.30.5 8.29 |規格のみ||
 | [`test_weak_reference_identity_survives_base_and_derived_specialization`](../../tests/ch8/test_weak_reference_identity_survives_base_and_derived_specialization.sv) |基底クラスと派生クラスで特殊化した弱参照から、同じオブジェクトの識別子と派生クラスの振る舞いを取得する| 8.30.1 8.30.3 8.30.5 8.20 G.7 |規格のみ||
+| [`test_weak_reference_parameter_sets_return_type_independently`](../../tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv) |弱参照の二つの特殊化はそれぞれ指定したクラス型のハンドルを返す| 8.30.1 G.7 |規格のみ||
 | [`test_weak_reference_type_argument_resolves_after_class_forward_declaration`](../../tests/ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration.sv) |前方宣言したクラスで弱参照を特殊化し、完全なクラス定義の型を使う| 8.30.1 8.30.3 6.18 6.20.3 6.23 G.7 |規格のみ||
 | [`test_weak_references_pass_through_subroutines_and_object_fields`](../../tests/ch8/test_weak_references_pass_through_subroutines_and_object_fields.sv) |弱参照をオブジェクトのフィールドとタスク引数に渡し、同じ参照ラッパーの別名と独立したラッパーを区別する。| 8.30.1 8.30.2 8.30.3 8.30.4 |規格のみ||
 | [`test_weak_reference_null_referent_no_warning`](../../tests/ch8/test_weak_reference_null_referent_no_warning.sv) |null の参照先（リテラルの null、null を保持するクラスハンドル、get() が返す null）から構築した weak_reference は、get() が null を返す新しいオブジェクトであり、警告は出ない| 8.30.2 8.30.3 |規格のみ|出口コード|

@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 94.97%, execution without Ghost 51.66%, execution with Ghost and kirimasim 89.28%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.08%, execution without Ghost 51.69%, execution with Ghost and kirimasim 89.33%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 94.97%. Requirement execution-confirmation rate: 51.66% without Ghost, 89.28% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 95.08%. Requirement execution-confirmation rate: 51.69% without Ghost, 89.33% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11712/12332 ( 94.97% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11010/12332 ( 89.28% ).
-- Registered but not tested: 620.
+- The requirement coverage (test design) for registered behaviors is 11725/12332 ( 95.08% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11016/12332 ( 89.33% ).
+- Registered but not tested: 607.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -98,6 +98,16 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `early-fixed-a622-recheck-20261119ab-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:01.693697+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:08.612448+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:15.548142+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-20261124-ghost-strict.json`: `private build 431141102150` / `2026-11-24T12:49:11.317734+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:49:11.346963+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T12:49:11.080209+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:49:20.823708+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:49:20.888427+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:49:21.497694+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:49:21.535071+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-include-20261124-ghost-strict.json`: `private build 431141102150` / `2026-11-24T12:53:14.276400+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-include-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:53:13.912632+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-include-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:53:14.554597+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12332 execution checked; 0 entries refer to older inputs.
 - `formal-recheck-20261124-sby.json`: `SBY v0.68` / `2026-11-24T00:37:56.416046+00:00` / 289/12332 execution checked; 0 entries refer to older inputs.
 - `formal-recheck-f43-20261124-sby.json`: `SBY v0.68` / `2026-11-24T00:39:48.253709+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -333,13 +343,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `language-gaps-bq-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:10:04.132217+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bq-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:10:06.574282+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bq-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:10:06.531922+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-br-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:26:23.829430+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-br-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:26:23.135735+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-br-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:26:23.067774+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `language-gaps-br-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:26:23.829430+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-br-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:26:23.135735+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-br-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:26:23.067774+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
 - `language-gaps-br-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T04:26:23.232936+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-br-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T04:26:23.232932+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-br-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812415+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-br-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812440+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `language-gaps-br-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812415+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-br-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812440+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
 - `language-gaps-bs-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:38:59.403348+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bs-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:38:59.333441+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-bs-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:38:59.366515+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1179,12 +1189,12 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 134.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 135.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 90.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 148.
-- 6 Data types: No interpretation reservation 92/92, registration 720, test support 712.
+- 6 Data types: No interpretation reservation 92/92, registration 720, test support 714.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 343.
-- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 241.
+- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 242.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 185.
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 149.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 455.
@@ -1197,34 +1207,34 @@ The number of items is the investigation status of the article by heading. This 
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 317 mapped to tests.
 - 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 271.
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 313.
-- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 372.
+- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 373.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 356 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 258.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 26.
-- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 60.
+- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 62.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 44.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 31.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 384.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 52.
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 151.
 - 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 171.
-- 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 128.
+- 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 129.
 - 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 41.
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 122.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1686.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1687.
 - 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 305.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 124.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
-- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 803.
+- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 804.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
-- C Deprecation: No interpretation reserve 16/16, registration 20, test support 13.
+- C Deprecation: No interpretation reserve 16/16, registration 20, test support 14.
 - D Optional system tasks and system functions: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
-- G Std package: no interpretation reserve 8/8, registration 32, test support 30.
+- G Std package: no interpretation reserve 8/8, registration 32, test support 32.
 - H DPI C layer: No interpretation reservation 72/72, registration 223, test support 205.
 - I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 139.
 - J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 1.
@@ -2277,7 +2287,7 @@ Normative role: `definition`。
 
 ### SV2023-3.12-EXTRACT-PRE-SIMULATION-ERROR
 
-`3.12` / `normal` / No mapped test
+`3.12` / `error` / Execution confirmed
 
 An error classified by the standard as compile-time must be reported before simulation begins.
 
@@ -2285,6 +2295,7 @@ Acceptance criterion: Do not require a particular internal compilation/elaborati
 
 Normative role: `mandatory`。
 
+- [test_illegal_runtime_value_in_parameter_prevents_startup.sv](../tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv): Reject the mutable variable in the constant parameter expression during compilation before the time-zero initial procedure can run.
 
 ### SV2023-3.12-EXTRACT-SINGLE-AND-MULTIFILE
 
@@ -7050,7 +7061,7 @@ Normative role: `definition`。
 
 ### SV2023-6.6.2-EXTRACT-UWIRE-HIERARCHICAL-ENFORCEMENT
 
-`6.6.2` / `normal` / No mapped test
+`6.6.2` / `error` / Execution confirmed
 
 The port-connection rules enforce the uwire restriction across hierarchy, or issue a warning if that enforcement is not performed.
 
@@ -7058,6 +7069,8 @@ Acceptance criterion: Do not silently ignore a cross-hierarchy unidriver violati
 
 Normative role: `mandatory`。
 
+- [test_uwire_nested_slice_drivers_leave_no_overlap.sv](../tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.sv): Connect two disjoint output slices and verify that each value propagates across both hierarchy levels.
+- [test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv](../tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv): Check the elaboration diagnostic when the two hierarchical output drivers overlap on just the middle bit.
 
 ### SV2023-6.6.2-EXTRACT-UWIRE-NO-BIDIRECTIONAL-SWITCH
 
@@ -11789,7 +11802,7 @@ Normative role: `permission`。
 
 ### SV2023-6.18-EXTRACT-INCOMPLETE-BEFORE-DEFINITION
 
-`6.18` / `normal` / No mapped test
+`6.18` / `error` / Test mapped; execution unconfirmed
 
 A forward-declared type remains incomplete until its final definition.
 
@@ -11797,6 +11810,8 @@ Acceptance criterion: A forward-declared type remains incomplete until its final
 
 Normative role: `definition`。
 
+- [test_forward_class_scope_resolves_after_definition_in_package.sv](../tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.sv): Create a type alias in the package before the class definition, then read and write variables of the directly and indirectly named type after completion.
+- [test_illegal_forward_class_scope_variable_before_completion_in_package.sv](../tests/ch6/test_illegal_forward_class_scope_variable_before_completion_in_package.sv): Permit the deferred alias in the same scope and reject the direct variable declaration before the final class definition.
 
 ### SV2023-6.18-EXTRACT-INTERFACE-TYPEDEF-LOCAL
 
@@ -19741,7 +19756,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.4-EXTRACT-NO-DATA-ADDRESS-ASSIGNMENT
 
-`8.4` / `error` / No mapped test
+`8.4` / `error` / Test mapped; execution unconfirmed
 
 An SV data-object address cannot be assigned to an object handle or chandle through a C-style address operation.
 
@@ -19749,6 +19764,8 @@ Acceptance criterion: An SV data-object address cannot be assigned to an object 
 
 Normative role: `mandatory`。
 
+- [test_illegal_data_address_operator_does_not_create_chandle.sv](../tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv): Use unary ampersand in a valid reduction and reject assigning the integral result as a foreign handle.
+- [test_illegal_data_address_operator_does_not_create_object_handle.sv](../tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv): Keep the legal reduction assignment as a control and reject using the C-style spelling to obtain a class handle.
 
 ### SV2023-8.4-EXTRACT-NO-HANDLE-ARITHMETIC
 
@@ -59977,7 +59994,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-TIMING
 
-`21.7.1.2` / `error` / No mapped test
+`21.7.1.2` / `error` / Execution confirmed
 
 dumpvars selects the variables for the dumpfile; multiple calls throughout the model are allowed, but all calls shall execute at the same simulation time.
 
@@ -59985,6 +60002,8 @@ Acceptance criterion: dumpvars selects the variables for the dumpfile; multiple 
 
 Normative role: `mandatory`。
 
+- [test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv](../tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv): Use the first call to unblock a different initial process in the same time slot and check that both selected signals appear in the dump declarations.
+- [test_vcd_late_dumpvars_rejects_only_the_late_signal.sv](../tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.sv): Keep the two initial signals and check for the diagnostic and the absence of the signal selected in the next time slot.
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-ZERO
 
@@ -71087,7 +71106,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.6-EXTRACT-INTERFACE-SPECIFY-TERMINALS
 
-`25.6` / `error` / No mapped test
+`25.6` / `error` / Test mapped; execution unconfirmed
 
 Interface port signals become available specify terminals with interface defaults or modport-restricted directions; inout may serve either direction, while ref cannot be a specify terminal.
 
@@ -71095,6 +71114,10 @@ Acceptance criterion: Interface port signals become available specify terminals 
 
 Normative role: `mandatory`。
 
+- [test_interface_specify_paths_treat_unqualified_signals_as_terminals.sv](../tests/ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals.sv): Verify different rise and fall delays along a specify path through an interface port with no selected modport.
+- [test_interface_specify_modport_allows_input_to_output_path.sv](../tests/ch25/test_interface_specify_modport_allows_input_to_output_path.sv): Declare an input-to-output path through a directional modport and compare outputs before and after its delay.
+- [test_illegal_interface_specify_uses_modport_output_for_source.sv](../tests/ch25/test_illegal_interface_specify_uses_modport_output_for_source.sv): Use an output-only modport signal as the path source and require a terminal-direction diagnostic.
+- [test_illegal_interface_specify_uses_ref_modport_terminal.sv](../tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv): Use a valid output and check the diagnostic when the corresponding source descriptor refers to a ref port.
 
 ### SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY
 
@@ -71476,7 +71499,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.9.2-EXTRACT-VIRTUAL-CLOCKING-SCOPE-TEXT
 
-`25.9.2` / `boundary` / No mapped test
+`25.9.2` / `error` / Execution confirmed
 
 When a virtual interface type selects no modport, its clocking blocks are referenced directly by dot notation. When the type selects a modport, a clocking block is reachable through that virtual interface only if the selected modport includes the clocking block (modport ... (clocking cb), 25.5.5). An interface that declares modports but whose virtual interface type selects none remains directly accessible.
 
@@ -71484,6 +71507,8 @@ Acceptance criterion: Given interface A_Bus with clocking sb and modport STB (cl
 
 Normative role: `mandatory`。
 
+- [test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv](../tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv): Read the clocking block through both an unqualified virtual interface and a qualified virtual modport that includes it on an interface with declared modports.
+- [test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv](../tests/ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv): Keep an allowed clocking expression in the selected modport as a control and reject access to a block exposed only by the other modport.
 
 ### SV2023-25.10-EXTRACT-INTERFACE-HIERARCHICAL-ACCESS
 
@@ -83580,7 +83605,7 @@ Normative role: `mandatory`。
 
 ### SV2023-32.9-EXTRACT-SDF-LOG-FILE
 
-`32.9` / `normal` / No mapped test
+`32.9` / `normal` / Test mapped; execution unconfirmed
 
 Optional log-file character string selects a file receiving an entry for every individual timing annotation.
 
@@ -83588,6 +83613,7 @@ Acceptance criterion: Optional log-file character string selects a file receivin
 
 Normative role: `mandatory`。
 
+- [test_sdf_named_log_has_distinct_entries_for_two_paths.sv](../tests/ch32/test_sdf_named_log_has_distinct_entries_for_two_paths.sv): Name the annotation log, verify that two delays update separate paths, and require a distinct identifiable log line for each path.
 
 ### SV2023-32.9-EXTRACT-SDF-MTM-OVERRIDE
 
@@ -93197,7 +93223,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.10-EXTRACT-NO-NAME-LOOKUP
 
-`37.10` / `error` / No mapped test
+`37.10` / `normal` / Execution confirmed
 
 vpi_handle_by_name cannot access imported items or compilation-unit objects.
 
@@ -93205,6 +93231,7 @@ Acceptance criterion: vpi_handle_by_name cannot access imported items or compila
 
 Normative role: `mandatory`。
 
+- [test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv](../tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv): Confirm that the language can read all three names, then require a handle for the module and package declarations while excluding imported names and compilation-unit names.
 
 ### SV2023-37.10-EXTRACT-ROOT-TIME
 
@@ -127641,7 +127668,7 @@ Normative role: `mandatory`。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-29
 
-`A.10` / `normal` / No mapped test
+`A.10` / `error` / Test mapped; execution unconfirmed
 
 A covergroup extends specification is allowed only within a class.
 
@@ -127649,6 +127676,8 @@ Acceptance criterion: A covergroup extends specification is allowed only within 
 
 Normative role: `mandatory`。
 
+- [test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv](../tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv): Check that a derived class covergroup inherits the base point and can add its own point by sampling and observing each coverage result.
+- [test_illegal_module_scope_covergroup_extends_existing_group.sv](../tests/ch19/test_illegal_module_scope_covergroup_extends_existing_group.sv): Even though the referenced group is declared in the same module, reject the inheritance declaration because it is outside a class.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-3
 
@@ -131249,7 +131278,7 @@ Normative role: `definition`。
 
 ### SV2023-C.4.3-EXTRACT-MEMORY-WORD
 
-`C.4.3` / `normal` / No mapped test
+`C.4.3` / `normal` / Execution confirmed
 
 vpiMemoryWord is no longer an ordinary object type except compatibility modes; variable element types such as vpiLogicVar/vpiReg represent array elements; the relationship remains.
 
@@ -131257,6 +131286,7 @@ Acceptance criterion: vpiMemoryWord is no longer an ordinary object type except 
 
 Normative role: `definition`。
 
+- [test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.sv](../tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.sv): Traverse the legacy memory-word relation for a negatively indexed array, verify current variable object types, and check that a write through the indexed handle affects only that element.
 
 ### SV2023-C.4.3-EXTRACT-VALID
 
@@ -134535,7 +134565,7 @@ Normative role: `definition`。
 
 ### SV2023-G.6-EXTRACT-FINAL
 
-`G.6` / `normal` / No mapped test
+`G.6` / `error` / Test mapped; execution unconfirmed
 
 std process is a final class with state enum FINISHED,RUNNING,WAITING,SUSPENDED,KILLED.
 
@@ -134543,6 +134573,8 @@ Acceptance criterion: std process is a final class with state enum FINISHED,RUNN
 
 Normative role: `definition`。
 
+- [test_process_final_class_enum_values_are_distinct_and_typed.sv](../tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv): Traverse the enum using its first and next methods, compare all five declared state names in order, and check the state of the running process.
+- [test_illegal_nested_class_derives_from_std_final_process.sv](../tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv): Create a package-local alias of the standard process class and reject an attempt to derive from that alias.
 
 ### SV2023-G.6-EXTRACT-GET-RANDSTATE
 
@@ -134690,7 +134722,7 @@ Normative role: `definition`。
 
 ### SV2023-G.7-EXTRACT-PARAMETER
 
-`G.7` / `normal` / No mapped test
+`G.7` / `error` / Test mapped; execution unconfirmed
 
 std weak_reference has required class type parameter T.
 
@@ -134698,6 +134730,8 @@ Acceptance criterion: std weak_reference has required class type parameter T.
 
 Normative role: `definition`。
 
+- [test_weak_reference_parameter_sets_return_type_independently.sv](../tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv): Specialize weak references with two different classes and verify that each retrieved handle exposes its class member and still refers to the original object.
+- [test_illegal_weak_reference_untyped_member_has_no_default.sv](../tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv): Place an explicitly typed weak reference in a class as a control and reject the untyped member because the class has no default specialization.
 
 ### SV2023-H.2-EXTRACT-BINARY
 

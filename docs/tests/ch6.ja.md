@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは909本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは913本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -67,8 +67,10 @@
 | [`test_illegal_uwire_on_tran_terminal`](../../tests/ch6/test_illegal_uwire_on_tran_terminal.sv) |トランススイッチの双方向端子に，単一の接続としても，ユーワイヤーネットは接続できない。| 6.6.2 28.8 |規格のみ|規格違反の設計|
 | [`test_illegal_uwire_overlapping_bit_drivers`](../../tests/ch6/test_illegal_uwire_overlapping_bit_drivers.sv) |bit bit を共有する uwire ベクトルの部分に二つの連続的な代入はエラーである。uwire のすべての［1］は一つのドライバしか持たない。| 6.6.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_uwire_two_drivers`](../../tests/ch6/test_illegal_uwire_two_drivers.sv) |2つのドライバを持つ uwire ネットはエラーです| 6.6.2 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit`](../../tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv) |階層出力が未解決ネットの同じbitに重なる場合は拒否する| 6.6.2 23.3.3.7 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_net_uwire`](../../tests/ch6/test_net_uwire.sv) |Uwire ネットタイプ (未解決 wire - 単一ドライバのみ)| 6.6.2 | Icarus Verilog 13.0 ||
 | [`test_uwire_edge_cases`](../../tests/ch6/test_uwire_edge_cases.sv) |1つの連続的な任務を持つuwireネットは| 6.6.2 | Icarus Verilog 13.0 ||
+| [`test_uwire_nested_slice_drivers_leave_no_overlap`](../../tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.sv) |二段の階層ポートを通る駆動はビットが重ならなければ成立する| 6.6.2 23.3.3.7 | Icarus Verilog 13.0 ||
 | [`test_uwire_padded_port_connection_warns`](../../tests/ch6/test_uwire_padded_port_connection_warns.sv) |幅変換によりネットをマージできない未解決ネットのポート接続では警告する| 6.6.2 23.3.3.1 23.3.3.6 |規格のみ|出口コード|
 | [`test_edge_wor_wand`](../../tests/ch6/test_edge_wor_wand.sv) |ワーネットとワンドネットは 2つの不変な要因を解決します| 6.6.3 4.4.2.3 | Icarus Verilog 13.0 | x/z |
 | [`test_net_resolution_multi`](../../tests/ch6/test_net_resolution_multi.sv) |tri0 / tri1 配線網，供給網，引力源，強度分解能| 6.6.3 6.6.5 6.6.6 28.10 28.12 | Icarus Verilog 13.0 | x/z |
@@ -334,9 +336,11 @@
 | [`test_event_variable_alias_null`](../../tests/ch6/test_event_variable_alias_null.sv) |初期化子なしで宣言されたイベント変数は新しい同期オブジェクトを得ます。他のイベントから割り当てられたものはそのオブジェクトを共有します。割り当てられ た null はオブジェクトを持たない。| 6.17 15.5.5 15.5.1 |規格のみ||
 | [`test_ch6_extra_unpacked_type_parameter`](../../tests/ch6/test_ch6_extra_unpacked_type_parameter.sv) |タイプパラメータとして使用される unpacked 配列タイプは、ユーザ定義のタイプ識別子で名付けられる必要があります。| 6.18 6.20.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_data_type_scoped_and_reference_forms`](../../tests/ch6/test_data_type_scoped_and_reference_forms.sv) |packed次元を伴いpackage/classスコープで指定するデータ型、クラス型と入れ子のクラス型、クラススコープの未完成型、パラメータ値指定を伴うクラススコープ、データ型およびキャスト型としての型参照、および単純型・定数一次式・符号指定・string・constをキャスト型とするキャスト| 6.18 6.23 6.24.1 A.2.2.1 |規格のみ||
+| [`test_forward_class_scope_resolves_after_definition_in_package`](../../tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.sv) |前方宣言中の型の別名と完了後に直接指定した型は同じ型として使える| 6.18 | Verilator 5.052 ||
 | [`test_forward_type_qualified_typedef_and_type_parameter_before_completion`](../../tests/ch6/test_forward_type_qualified_typedef_and_type_parameter_before_completion.sv) |前方宣言された未完成のクラス型を、型定義前に許される限定的な修飾参照で使う| 6.18 6.20.3 6.23 8.23 | Verilator 5.054 ||
 | [`test_forward_typedef_forms_and_repeats`](../../tests/ch6/test_forward_typedef_forms_and_repeats.sv) |前進型定義は enum 、struct、union、class、interface クラスの種類と無種類のものが最終定義の前に合法であり、繰り返し可能であり、それに続くものも可能です。| 6.18 8.26 8.27 | Verilator 5.052 ||
 | [`test_illegal_cast_to_unnamed_packed_array_type`](../../tests/ch6/test_illegal_cast_to_unnamed_packed_array_type.sv) |次元が packed のタイプは、キャストのターゲットになるにはユーザ定義のタイプ名が必要です。| 6.18 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_forward_class_scope_variable_before_completion_in_package`](../../tests/ch6/test_illegal_forward_class_scope_variable_before_completion_in_package.sv) |クラスの前方宣言が完了するまで直接参照した型で変数を宣言できない| 6.18 |規格のみ|規格違反の設計|
 | [`test_illegal_forward_enum_defined_as_struct`](../../tests/ch6/test_illegal_forward_enum_defined_as_struct.sv) |前向きの typedef が基本型 enum を名付けた場合、最終定義は enum でなければなりません。構造はエラーであり| 6.18 |規格のみ|規格違反の設計|
 | [`test_illegal_forward_type_scope_prefix_in_variable`](../../tests/ch6/test_illegal_forward_type_scope_prefix_in_variable.sv) |未完成の前方宣言型を経由し::で選択した型を使えるのは、typedef、型演算子、型パラメータ代入だけであり、変数宣言には使えません。| 6.18 |規格のみ|規格違反の設計|
 | [`test_illegal_forward_type_scope_prefix_not_class`](../../tests/ch6/test_illegal_forward_type_scope_prefix_not_class.sv) |クラスの範囲解決演算子の プレフィックスとして使われる 前向きタイプは クラスに解決しなければなりません| 6.18 | Verilator 5.052 |規格違反の設計|

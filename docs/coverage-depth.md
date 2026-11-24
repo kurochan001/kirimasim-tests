@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 16776 |
+| Tests | 16800 |
 | Clauses in scope | 1017 |
 | Clauses out of scope | 142 |
 | Clauses with a direct test | 1017/1017 |
@@ -26,10 +26,10 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 1732 |
-| Icarus Verilog 13.0 only | 7362 |
-| Verilator 5.052 or 5.054 only | 2979 |
-| standard only | 4703 |
+| both releases | 1734 |
+| Icarus Verilog 13.0 only | 7365 |
+| Verilator 5.052 or 5.054 only | 2984 |
+| standard only | 4717 |
 
 <a id="章別"></a>
 
@@ -37,13 +37,13 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 153 | 17 | 9.0 | 0 | 21 |
+| 3 | Design and verification building blocks | 154 | 17 | 9.1 | 0 | 21 |
 | 4 | Scheduling semantics | 481 | 27 | 17.8 | 0 | 29 |
 | 5 | Lexical conventions | 526 | 16 | 32.9 | 0 | 50 |
-| 6 | Data types | 909 | 76 | 12.0 | 0 | 170 |
+| 6 | Data types | 913 | 76 | 12.0 | 0 | 171 |
 | 7 | Aggregate data types | 1135 | 49 | 23.2 | 0 | 319 |
-| 8 | Classes | 504 | 43 | 11.7 | 0 | 153 |
-| 9 | Processes | 484 | 25 | 19.4 | 0 | 77 |
+| 8 | Classes | 508 | 43 | 11.8 | 0 | 156 |
+| 9 | Processes | 486 | 25 | 19.4 | 0 | 78 |
 | 10 | Assignment statements | 761 | 18 | 42.3 | 0 | 86 |
 | 11 | Operators and expressions | 2635 | 42 | 62.7 | 0 | 370 |
 | 12 | Procedural programming statements | 324 | 20 | 16.2 | 0 | 76 |
@@ -53,25 +53,25 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 16 | Assertions | 815 | 69 | 11.8 | 0 | 654 |
 | 17 | Checkers | 134 | 10 | 13.4 | 0 | 85 |
 | 18 | Constrained random value generation | 296 | 44 | 6.7 | 0 | 157 |
-| 19 | Functional coverage | 254 | 24 | 10.6 | 0 | 183 |
+| 19 | Functional coverage | 256 | 24 | 10.7 | 0 | 185 |
 | 20 | Utility system tasks and system functions | 709 | 32 | 22.2 | 0 | 195 |
-| 21 | Input/output system tasks and system functions | 958 | 48 | 20.0 | 0 | 305 |
+| 21 | Input/output system tasks and system functions | 960 | 48 | 20.0 | 0 | 305 |
 | 22 | Compiler directives | 1327 | 21 | 63.2 | 0 | 41 |
 | 23 | Modules and hierarchy | 445 | 34 | 13.1 | 0 | 98 |
 | 24 | Programs | 222 | 7 | 31.7 | 0 | 146 |
-| 25 | Interfaces | 274 | 12 | 22.8 | 0 | 61 |
+| 25 | Interfaces | 280 | 12 | 23.3 | 0 | 65 |
 | 26 | Packages | 271 | 6 | 45.2 | 0 | 103 |
 | 27 | Generate constructs | 293 | 5 | 58.6 | 0 | 35 |
 | 28 | Gate-level and switch-level modeling | 423 | 26 | 16.3 | 0 | 91 |
 | 29 | User-defined primitives | 148 | 14 | 10.6 | 0 | 37 |
 | 30 | Specify blocks | 73 | 23 | 3.2 | 0 | 34 |
 | 31 | Timing checks | 85 | 21 | 4.0 | 0 | 66 |
-| 32 | Backannotation using the standard delay format | 77 | 11 | 7.0 | 0 | 58 |
+| 32 | Backannotation using the standard delay format | 78 | 11 | 7.1 | 0 | 59 |
 | 33 | Configuring the contents of a design | 90 | 13 | 6.9 | 0 | 76 |
 | 34 | Protected envelopes | 4 | 8 | 0.5 | 0 | 0 |
 | 35 | Direct programming interface | 208 | 21 | 9.9 | 0 | 86 |
 | 36 | Programming language interface (PLI/VPI) overview | 91 | 19 | 4.8 | 0 | 38 |
-| 37 | VPI object model diagrams | 264 | 94 | 2.8 | 0 | 244 |
+| 37 | VPI object model diagrams | 266 | 94 | 2.8 | 0 | 246 |
 | 38 | VPI routine definitions | 166 | 46 | 3.6 | 0 | 88 |
 | 39 | Assertion API | 50 | 7 | 7.1 | 0 | 49 |
 | 40 | Code coverage control and API | 40 | 18 | 2.2 | 0 | 37 |

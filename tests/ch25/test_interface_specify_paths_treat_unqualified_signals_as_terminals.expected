@@ -1,0 +1,4 @@
+before rise=0
+after rise=1
+before fall=1
+after fall=0

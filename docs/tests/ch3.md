@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[All chapters](README.md). 153 tests, 48 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 154 tests, 48 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -45,6 +45,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_elaborated_parameters_generate_and_names_at_time_zero`](../../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv) | Before simulation starts, elaboration has given the overridden and derived parameters their values, expanded the generate loops into as many instances as the parameters say, and resolved hierarchical names into those instances, which an initial procedure reads at time 0 | 3.12 23.10.4.1 27.4 23.6 | Icarus Verilog 13.0 ||
 | [`test_illegal_package_import_precedes_package`](../../tests/ch3/test_illegal_package_import_precedes_package.sv) | The compilation of a package has to come before references to its items, so a module that imports a function of a package written only after the module is an error | 3.12 26.3 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_package_scoped_name_precedes_package`](../../tests/ch3/test_illegal_package_scoped_name_precedes_package.sv) | The compilation of a package has to come before references to its items, so a package-scoped name pkg::item in a module written before the package is an error | 3.12 | Icarus Verilog 13.0 | illegal design |
+| [`test_illegal_runtime_value_in_parameter_prevents_startup`](../../tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv) | A runtime-dependent parameter initializer is rejected before the initial block can run | 3.12 6.20.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_compilation_unit_shared_across_files`](../../tests/ch3/test_compilation_unit_shared_across_files.sv) | When use model a) of 3.12.1 is chosen, all files of one command line form one compilation unit, so a variable and a function declared in one file are visible in another file | 3.12.1 | Icarus Verilog 13.0 | several files |
 | [`test_declaration_across_file_boundary`](../../tests/ch3/test_declaration_across_file_boundary.sv) | A declaration that is not complete at the end of a file continues in the next file, as the compilation unit then extends over the following files | 3.12.1 | Icarus Verilog 13.0 | several files |
 | [`test_definitions_visible_from_other_file`](../../tests/ch3/test_definitions_visible_from_other_file.sv) | A package, an interface, a primitive, a module and a program declared in another source file are all found by name from the test's file, whether the two files form one compilation unit or two | 3.12.1 3.12 | Icarus Verilog 13.0 | several files |

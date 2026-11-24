@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは153本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは154本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -45,6 +45,7 @@
 | [`test_elaborated_parameters_generate_and_names_at_time_zero`](../../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv) |シミュレーション開始前のエラボレーションで、上書き・派生パラメータの値が確定し、パラメータに従う個数へgenerateループを展開し、階層名を対応するインスタンスへ解決します。initial手続きは、それらを時刻0で読み出します。| 3.12 23.10.4.1 27.4 23.6 | Icarus Verilog 13.0 ||
 | [`test_illegal_package_import_precedes_package`](../../tests/ch3/test_illegal_package_import_precedes_package.sv) |パッケージのコンパイルはその項目の参照より前でなければならないので、モジュールより後にしか書かれていないパッケージの関数をインポートするモジュールはエラーになる| 3.12 26.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_package_scoped_name_precedes_package`](../../tests/ch3/test_illegal_package_scoped_name_precedes_package.sv) |パッケージのコンパイルはその項目の参照より前でなければならないので、パッケージより前に書かれたモジュールの中のパッケージスコープ名 pkg::item はエラーになる| 3.12 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_illegal_runtime_value_in_parameter_prevents_startup`](../../tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv) |実行時の変数をパラメータの初期値に指定するとシミュレーション開始前に拒否される| 3.12 6.20.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_compilation_unit_shared_across_files`](../../tests/ch3/test_compilation_unit_shared_across_files.sv) |3.12.1のa)の使い方を選んだとき、1つのコマンドラインの全ファイルが1つのコンパイル単位になるので、あるファイルで宣言した変数と関数がほかのファイルから見える| 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_declaration_across_file_boundary`](../../tests/ch3/test_declaration_across_file_boundary.sv) |ファイルの終わりに完了しない宣言は次のファイルで続行されます。コンパイルユニットは次のファイルに拡張されます。| 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_definitions_visible_from_other_file`](../../tests/ch3/test_definitions_visible_from_other_file.sv) |別のソースファイルで宣言した package、interface、primitive、module、program は、2 つのファイルが 1 つのコンパイル単位をなす場合も 2 つをなす場合も、すべてテストのファイルから名前で見つかる| 3.12.1 3.12 | Icarus Verilog 13.0 |複数のファイル|

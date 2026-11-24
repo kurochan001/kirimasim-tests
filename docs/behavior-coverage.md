@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 94.97%、Ghostを除く実行 51.66%、Ghostとkirimasimを含む実行 89.28%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 95.08%、Ghostを除く実行 51.69%、Ghostとkirimasimを含む実行 89.33%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 94.97%。** 規格要求の実行確認率: Ghostを除いて 51.66%、Ghostとkirimasimを含めて 89.28%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 95.08%。** 規格要求の実行確認率: Ghostを除いて 51.69%、Ghostとkirimasimを含めて 89.33%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11712/12332 (94.97%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11010/12332 (89.28%)。
-- 登録済みだがテスト未対応: 620 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11725/12332 (95.08%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11016/12332 (89.33%)。
+- 登録済みだがテスト未対応: 607 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -98,6 +98,16 @@
 - `early-fixed-a622-recheck-20261119ab-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:01.693697+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `early-fixed-a622-recheck-20261119ab-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:08.612448+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `early-fixed-a622-recheck-20261119ab-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:15.548142+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-20261124-ghost-strict.json`: `private build 431141102150` / `2026-11-24T12:49:11.317734+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:49:11.346963+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T12:49:11.080209+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:49:20.823708+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:49:20.888427+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:49:21.497694+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:49:21.535071+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-include-20261124-ghost-strict.json`: `private build 431141102150` / `2026-11-24T12:53:14.276400+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-include-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:53:13.912632+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `focused-gaps-include-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:53:14.554597+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12332 動作確認、古い入力との対応 0 件。
 - `formal-recheck-20261124-sby.json`: `SBY v0.68` / `2026-11-24T00:37:56.416046+00:00` / 289/12332 動作確認、古い入力との対応 0 件。
 - `formal-recheck-f43-20261124-sby.json`: `SBY v0.68` / `2026-11-24T00:39:48.253709+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -333,13 +343,13 @@
 - `language-gaps-bq-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:10:04.132217+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `language-gaps-bq-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:10:06.574282+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `language-gaps-bq-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:10:06.531922+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
-- `language-gaps-br-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:26:23.829430+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
-- `language-gaps-br-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:26:23.135735+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
-- `language-gaps-br-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:26:23.067774+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `language-gaps-br-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:26:23.829430+00:00` / 1/12332 動作確認、古い入力との対応 1 件。
+- `language-gaps-br-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:26:23.135735+00:00` / 1/12332 動作確認、古い入力との対応 1 件。
+- `language-gaps-br-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:26:23.067774+00:00` / 1/12332 動作確認、古い入力との対応 1 件。
 - `language-gaps-br-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T04:26:23.232936+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `language-gaps-br-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T04:26:23.232932+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
-- `language-gaps-br-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812415+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
-- `language-gaps-br-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812440+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `language-gaps-br-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812415+00:00` / 1/12332 動作確認、古い入力との対応 1 件。
+- `language-gaps-br-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T04:26:24.812440+00:00` / 1/12332 動作確認、古い入力との対応 1 件。
 - `language-gaps-bs-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T04:38:59.403348+00:00` / 4/12332 動作確認、古い入力との対応 0 件。
 - `language-gaps-bs-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T04:38:59.333441+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `language-gaps-bs-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T04:38:59.366515+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -1179,12 +1189,12 @@
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
-- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 134。
+- 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 135。
 - 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 90。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 155、テスト対応 148。
-- 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 712。
+- 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 714。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 343。
-- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 241。
+- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 242。
 - 9 Processes: 解釈保留なし 34/34、登録 192、テスト対応 185。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 149。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 455。
@@ -1197,34 +1207,34 @@
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 317。
 - 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 271。
 - 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 313。
-- 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応372。
+- 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応373。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 363、テスト対応 356。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 258。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 26。
-- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 60。
+- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 62。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 44。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 31。
 - 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 384。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 52。
 - 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 151。
 - 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 171。
-- 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 128。
+- 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 129。
 - 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 41。
 - 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 5。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 143、テスト対応 122。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
-- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1686。
+- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1687。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 305。
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 95。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 124。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
-- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 803。
+- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 804。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
-- C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 13。
+- C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 14。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 253。
-- G Std package: 解釈保留なし 8/8、登録 32、テスト対応 30。
+- G Std package: 解釈保留なし 8/8、登録 32、テスト対応 32。
 - H DPI C layer: 解釈保留なし 72/72、登録 223、テスト対応 205。
 - I svdpi.h: 解釈保留なし 4/4、登録 147、テスト対応 139。
 - J Inclusion of foreign language code: 解釈保留なし 7/7、登録 16、テスト対応 1。
@@ -2277,7 +2287,7 @@ SystemVerilog ソース定義にモジュールインスタンスがどのよう
 
 ### SV2023-3.12-EXTRACT-PRE-SIMULATION-ERROR
 
-`3.12` / `normal` / テスト未対応
+`3.12` / `error` / 実行確認あり
 
 標準によりコンパイル時に分類されるエラーはシミュレーションを開始する前に報告されなければならない。
 
@@ -2285,6 +2295,7 @@ SystemVerilog ソース定義にモジュールインスタンスがどのよう
 
 規定の性質: `mandatory`。
 
+- [test_illegal_runtime_value_in_parameter_prevents_startup.sv](../tests/ch3/test_illegal_runtime_value_in_parameter_prevents_startup.sv): 手続き中に代入される変数をパラメータの定数式に使い、時刻ゼロの処理に到達する前のコンパイル診断を確認する。
 
 ### SV2023-3.12-EXTRACT-SINGLE-AND-MULTIFILE
 
@@ -7050,7 +7061,7 @@ wire／triドライバは同じ強度の2つのドライバで，zとzはzに分
 
 ### SV2023-6.6.2-EXTRACT-UWIRE-HIERARCHICAL-ENFORCEMENT
 
-`6.6.2` / `normal` / テスト未対応
+`6.6.2` / `error` / 実行確認あり
 
 ポート接続ルールは，階層を超えてuwire制限を強制するか，それが実行されない場合に警告を出す。
 
@@ -7058,6 +7069,8 @@ wire／triドライバは同じ強度の2つのドライバで，zとzはzに分
 
 規定の性質: `mandatory`。
 
+- [test_uwire_nested_slice_drivers_leave_no_overlap.sv](../tests/ch6/test_uwire_nested_slice_drivers_leave_no_overlap.sv): 二つの出力に重ならない選択範囲を接続し、二段の階層を通してそれぞれの値が伝わることを確認する。
+- [test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv](../tests/ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit.sv): 中間の一ビットだけ二つの階層出力が競合する構成で、ポート接続時のドライバー診断を確認する。
 
 ### SV2023-6.6.2-EXTRACT-UWIRE-NO-BIDIRECTIONAL-SWITCH
 
@@ -11789,7 +11802,7 @@ typedef enum，構造，ユニオン，クラスまたはインタフェース�
 
 ### SV2023-6.18-EXTRACT-INCOMPLETE-BEFORE-DEFINITION
 
-`6.18` / `normal` / テスト未対応
+`6.18` / `error` / テスト対応あり・実行未確認
 
 前方宣言型は最終定義まで不完全である。
 
@@ -11797,6 +11810,8 @@ typedef enum，構造，ユニオン，クラスまたはインタフェース�
 
 規定の性質: `definition`。
 
+- [test_forward_class_scope_resolves_after_definition_in_package.sv](../tests/ch6/test_forward_class_scope_resolves_after_definition_in_package.sv): 前方宣言中はパッケージ内で型の別名を宣言し、クラス定義の後に同じ型を直接使った変数と別名の変数を読み書きする。
+- [test_illegal_forward_class_scope_variable_before_completion_in_package.sv](../tests/ch6/test_illegal_forward_class_scope_variable_before_completion_in_package.sv): 型の別名宣言を許す同じスコープで、最終定義前の直接の変数宣言だけを未完了の型として拒否する。
 
 ### SV2023-6.18-EXTRACT-INTERFACE-TYPEDEF-LOCAL
 
@@ -19741,7 +19756,7 @@ super.new は任意の範囲／引数，宣言，任意の初期値，及び命�
 
 ### SV2023-8.4-EXTRACT-NO-DATA-ADDRESS-ASSIGNMENT
 
-`8.4` / `error` / テスト未対応
+`8.4` / `error` / テスト対応あり・実行未確認
 
 SV データオブジェクトアドレスは，Cスタイルのアドレス操作を通してオブジェクトハンドルまたはチャンドルに割り当てることはできない。
 
@@ -19749,6 +19764,8 @@ SV データオブジェクトアドレスは，Cスタイルのアドレス操�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_data_address_operator_does_not_create_chandle.sv](../tests/ch8/test_illegal_data_address_operator_does_not_create_chandle.sv): 単項アンパサンドで得られるビット値は通常の縮約結果として使え、外部ハンドルへの代入ではアドレスとして扱われず拒否される。
+- [test_illegal_data_address_operator_does_not_create_object_handle.sv](../tests/ch8/test_illegal_data_address_operator_does_not_create_object_handle.sv): 縮約結果の正しい代入を対照にして、データ変数のアドレスを取る形でクラスハンドルを得ようとする代入を拒否する。
 
 ### SV2023-8.4-EXTRACT-NO-HANDLE-ARITHMETIC
 
@@ -59977,7 +59994,7 @@ dumpvars は引数を受け入れません。 階層の深さは 選択肢とし
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-TIMING
 
-`21.7.1.2` / `error` / テスト未対応
+`21.7.1.2` / `error` / 実行確認あり
 
 dumpvarsはダンプファイルの変数を選択しますモデル全体で複数の呼び出しが許されるが、すべての呼び出しは同じシミュレーション時間で実行される。
 
@@ -59985,6 +60002,8 @@ dumpvarsはダンプファイルの変数を選択しますモデル全体で複
 
 規定の性質: `mandatory`。
 
+- [test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv](../tests/ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot.sv): 最初の呼び出しで別の初期手続きを起こして同じ時刻に二度目を呼び、両方の信号だけが波形の宣言に現れることを確認する。
+- [test_vcd_late_dumpvars_rejects_only_the_late_signal.sv](../tests/ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal.sv): 選択済みの二信号を保持し、次の時刻に対する警告またはエラーが出て後から選んだ信号が波形の宣言に現れないことを確認する。
 
 ### SV2023-21.7.1.2-EXTRACT-DUMPVARS-ZERO
 
@@ -71087,7 +71106,7 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 ### SV2023-25.6-EXTRACT-INTERFACE-SPECIFY-TERMINALS
 
-`25.6` / `error` / テスト未対応
+`25.6` / `error` / テスト対応あり・実行未確認
 
 インタフェイスポート信号は，インタフェイスデフォルトまたはモッドポート制限方向を持つ特定の端末に利用可能となる。これは、ref が特定の端末ではない場合にのみ有効です。
 
@@ -71095,6 +71114,10 @@ modport表現は自己決定的であり，代入のようなものではなく�
 
 規定の性質: `mandatory`。
 
+- [test_interface_specify_paths_treat_unqualified_signals_as_terminals.sv](../tests/ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals.sv): モッドポートを選ばないインターフェース接続を通るパスで、立ち上がりと立ち下がりが異なる指定遅延を経て伝わることを検査する。
+- [test_interface_specify_modport_allows_input_to_output_path.sv](../tests/ch25/test_interface_specify_modport_allows_input_to_output_path.sv): 入力から出力へのパスを方向付きのモッドポートで宣言し、変化前後の波形を時刻を分けて比較する。
+- [test_illegal_interface_specify_uses_modport_output_for_source.sv](../tests/ch25/test_illegal_interface_specify_uses_modport_output_for_source.sv): 出力専用モッドポートの信号をパス入力に指定して端子方向の診断を要求する。
+- [test_illegal_interface_specify_uses_ref_modport_terminal.sv](../tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv): 正しい出力を対照にして、参照で渡る入力信号をパスの始点に指定した場合の診断を確認する。
 
 ### SV2023-25.7-EXTRACT-FORKJOIN-TASK-ONLY
 
@@ -71476,7 +71499,7 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 ### SV2023-25.9.2-EXTRACT-VIRTUAL-CLOCKING-SCOPE-TEXT
 
-`25.9.2` / `boundary` / テスト未対応
+`25.9.2` / `error` / 実行確認あり
 
 仮想インタフェースタイプがモッドポートを選択しない場合，そのクロックブロックはドット記法で直接参照される。タイプがモッドポートを選択するとき、クロックブロックはその仮想インタフェースを通してアクセスできるのは、選択したモッドポートがクロックブロックを含む場合のみである。25.5.5）を用いた。仮想インタフェースタイプが無いインタフェースは直接アクセスできない。
 
@@ -71484,6 +71507,8 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 規定の性質: `mandatory`。
 
+- [test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv](../tests/ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view.sv): モッドポートが宣言されているインターフェースに対し、無指定の仮想型とクロッキングを含むモッドポート型の双方から値を取得する。
+- [test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv](../tests/ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view.sv): 選択したモッドポートに含まれるクロッキング式を対照にし、別のモッドポートだけが公開するブロックへのアクセスを拒否する。
 
 ### SV2023-25.10-EXTRACT-INTERFACE-HIERARCHICAL-ACCESS
 
@@ -83580,7 +83605,7 @@ SDF filename は文字列リテラル、文字列表現、または整数文字�
 
 ### SV2023-32.9-EXTRACT-SDF-LOG-FILE
 
-`32.9` / `normal` / テスト未対応
+`32.9` / `normal` / テスト対応あり・実行未確認
 
 各個々のタイミング注釈に対してエントリを受け取るファイルを選択するオプションのログファイル文字列。
 
@@ -83588,6 +83613,7 @@ SDF filename は文字列リテラル、文字列表現、または整数文字�
 
 規定の性質: `mandatory`。
 
+- [test_sdf_named_log_has_distinct_entries_for_two_paths.sv](../tests/ch32/test_sdf_named_log_has_distinct_entries_for_two_paths.sv): 名前付きのログを生成するよう指定し、二つの遅延が別のパスへ反映されることと、両方のパスを識別する行が別々に出力されることを照合する。
 
 ### SV2023-32.9-EXTRACT-SDF-MTM-OVERRIDE
 
@@ -93197,7 +93223,7 @@ vpiNetTypedef は、インスタンスで明示的に宣言されたユーザネ
 
 ### SV2023-37.10-EXTRACT-NO-NAME-LOOKUP
 
-`37.10` / `error` / テスト未対応
+`37.10` / `normal` / 実行確認あり
 
 vpi_handle_by_name はインポートされた項目やコンパイルユニットオブジェクトにアクセスできません。
 
@@ -93205,6 +93231,7 @@ vpi_handle_by_name はインポートされた項目やコンパイルユニッ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv](../tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv): 言語から三つの名前を読めることを対照に、名前検索でモジュールとパッケージの宣言のみを取得し、取り込み名とコンパイル単位の名前が取得できないことを確認する。
 
 ### SV2023-37.10-EXTRACT-ROOT-TIME
 
@@ -127641,7 +127668,7 @@ DPIのfunction／taskの仮引数には、refやクラス型を使用できず�
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-29
 
-`A.10` / `normal` / テスト未対応
+`A.10` / `error` / テスト対応あり・実行未確認
 
 covergroup 拡張仕様はクラス内でのみ許可される。
 
@@ -127649,6 +127676,8 @@ covergroup 拡張仕様はクラス内でのみ許可される。
 
 規定の性質: `mandatory`。
 
+- [test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv](../tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv): 派生クラスの宣言が基底のカバーポイントを継承し、新しい点を追加できることを両者の集計値で確認する。
+- [test_illegal_module_scope_covergroup_extends_existing_group.sv](../tests/ch19/test_illegal_module_scope_covergroup_extends_existing_group.sv): 参照するグループが既に同じモジュールで宣言されていても、クラス外の継承宣言はエラーとなる。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-3
 
@@ -131249,7 +131278,7 @@ vpiMemoryは，IEEE 1364の互換性モードを除いて，もはや一般的�
 
 ### SV2023-C.4.3-EXTRACT-MEMORY-WORD
 
-`C.4.3` / `normal` / テスト未対応
+`C.4.3` / `normal` / 実行確認あり
 
 これは、vpiMemoryWord が互換性モードを除いては、もはや普通のオブジェクトタイプではないことを意味します。変数要素のタイプは、vpiLogicVar/vpiRegのような配列要素を表します。関係は続く
 
@@ -131257,6 +131286,7 @@ vpiMemoryは，IEEE 1364の互換性モードを除いて，もはや一般的�
 
 規定の性質: `definition`。
 
+- [test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.sv](../tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.sv): 負の下限を持つ配列で旧来の関係をたどると現在の変数型で要素に到達し、添字で得た同じハンドルを使った書き込みが対象要素だけを変更する。
 
 ### SV2023-C.4.3-EXTRACT-VALID
 
@@ -134535,7 +134565,7 @@ std randomize は int を返します。
 
 ### SV2023-G.6-EXTRACT-FINAL
 
-`G.6` / `normal` / テスト未対応
+`G.6` / `error` / テスト対応あり・実行未確認
 
 プロセスは状態enum FINISHED, RUNNING, WAITING, SUSPENDED, KILLED を持つ最終クラスである。
 
@@ -134543,6 +134573,8 @@ std randomize は int を返します。
 
 規定の性質: `definition`。
 
+- [test_process_final_class_enum_values_are_distinct_and_typed.sv](../tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv): 列挙型の先頭と後続要素を順にたどり、標準が示す五つの名前付き値と実行直後の状態を検査する。
+- [test_illegal_nested_class_derives_from_std_final_process.sv](../tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv): パッケージ内でプロセス型の別名を作り、その別名からの派生クラス宣言も拒否する。
 
 ### SV2023-G.6-EXTRACT-GET-RANDSTATE
 
@@ -134690,7 +134722,7 @@ std weak_reference は新しい構造子(T参照)を暴露します。
 
 ### SV2023-G.7-EXTRACT-PARAMETER
 
-`G.7` / `normal` / テスト未対応
+`G.7` / `error` / テスト対応あり・実行未確認
 
 クラスタイプパラメータ T を必要とする std weak_reference を使用します。
 
@@ -134698,6 +134730,8 @@ std weak_reference は新しい構造子(T参照)を暴露します。
 
 規定の性質: `definition`。
 
+- [test_weak_reference_parameter_sets_return_type_independently.sv](../tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv): 互いに異なるクラス型で弱参照を特殊化し、取得したハンドルが元の型のメンバーを持ち、元のオブジェクトと一致することを確かめる。
+- [test_illegal_weak_reference_untyped_member_has_no_default.sv](../tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv): クラスに型を指定した弱参照を置けることを対照に、型を省略した宣言には既定の特殊化がなく拒否されることを確認する。
 
 ### SV2023-H.2-EXTRACT-BINARY
 

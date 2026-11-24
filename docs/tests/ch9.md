@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[All chapters](README.md). 484 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 486 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -242,6 +242,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_await_resumes_after_normal_and_forced_exit_then_rejects_self`](../../tests/ch9/test_await_resumes_after_normal_and_forced_exit_then_rejects_self.sv) | Await resumes for natural and forced termination, then reports an error for waiting on the calling process | 9.7 | standard only ||
 | [`test_illegal_class_extends_process`](../../tests/ch9/test_illegal_class_extends_process.sv) | the built-in class process cannot be extended | 9.7 | standard only | illegal design |
 | [`test_illegal_extend_alias_of_final_standard_process_class`](../../tests/ch9/test_illegal_extend_alias_of_final_standard_process_class.sv) | A typedef alias of std process preserves the restriction on deriving another class | 9.7 G.6 8.13 | standard only | illegal design |
+| [`test_illegal_nested_class_derives_from_std_final_process`](../../tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv) | A nested class cannot derive from the standard final process class | 9.7 G.6 | standard only | illegal design |
 | [`test_illegal_new_process_object`](../../tests/ch9/test_illegal_new_process_object.sv) | a process object cannot be created with new | 9.7 | standard only | illegal design |
 | [`test_illegal_process_kill_result_used_as_value`](../../tests/ch9/test_illegal_process_kill_result_used_as_value.sv) | The process method kill() is a void function, so assigning the result of a call of it to a variable is an error | 9.7 | Verilator 5.054 | illegal design |
 | [`test_lexical_process_class_can_be_extended_alongside_qualified_standard_process`](../../tests/ch9/test_lexical_process_class_can_be_extended_alongside_qualified_standard_process.sv) | A lexical process class can be extended while qualified std process retains its separate identity | 9.7 26.7 8.13 G.6 | Verilator 5.052 ||
@@ -249,6 +250,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_process_await_normal_and_forced_termination`](../../tests/ch9/test_process_await_normal_and_forced_termination.sv) | Process await resumes on natural completion or kill and returns at once for a terminal handle | 9.7 G.6 | Verilator 5.054 ||
 | [`test_process_await_rejects_current_process`](../../tests/ch9/test_process_await_rejects_current_process.sv) | A process cannot await itself | 9.7 | standard only ||
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) | The process class: self, status and kill | 9.7 | Verilator 5.052 ||
+| [`test_process_final_class_enum_values_are_distinct_and_typed`](../../tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv) | All built-in process states are distinct values of the process state enum | 9.7 G.6 | Verilator 5.052 ||
 | [`test_process_function_can_suspend_another_waiting_process`](../../tests/ch9/test_process_function_can_suspend_another_waiting_process.sv) | A function may suspend another process and the caller can resume it | 9.7 G.6 | standard only ||
 | [`test_process_function_cannot_suspend_current_process`](../../tests/ch9/test_process_function_cannot_suspend_current_process.sv) | A function calling suspend on its own process reports an error | 9.7 | standard only ||
 | [`test_process_kill_self`](../../tests/ch9/test_process_kill_self.sv) | A process that calls kill() on itself ends at once with the status KILLED, as one killed by another process does | 9.7 | standard only ||

@@ -1,0 +1,125 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_class_covergroup_extends_inherits_and_adds_sampled_bins.sv:28:5: Unsupported: covergroup inheritance (extends)",
+   "inputs_sha256": "3598c15320b92ab70d57c2d985ccd1972abfae0f54b470aa3b1a530bd032b658"
+  },
+  "ch19/test_illegal_module_scope_covergroup_extends_existing_group": {
+   "status": "pass",
+   "inputs_sha256": "7acd17e39ce71ea188b93e254638a613a0712273d935890e90ab52a3e1efdfd4"
+  },
+  "ch21/test_vcd_late_dumpvars_rejects_only_the_late_signal": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_late_dumpvars_rejects_only_the...', expected 'first=1 anchor=1 late=0'",
+   "inputs_sha256": "f851a02da2657b5c9dcdba6f11f3fa443d6d196e7d889e952b78d17fdf773ed5"
+  },
+  "ch21/test_vcd_selection_can_cross_processes_in_the_same_nonzero_time_slot": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_selection_can_cross_processes_...', expected 'first=1 second=1 unrelated=0'",
+   "inputs_sha256": "2e3928197f7405234465a0ba24b686448ade065880ad2cd27d1800dacb4b483b"
+  },
+  "ch25/test_illegal_interface_specify_uses_modport_output_for_source": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_specify_uses_modport_output_for_source\\\\.sv:25:(?:\\\\d+:)?[^\\\\n]*(?i:(?:path|specify|terminal|descriptor)[^\\\\n]*(?:direction|input|output|modport)|(?:input|output)[^\\\\n]*(?:path|specify|terminal|descriptor))'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_interface_specify_uses_modport_output_for_source.sv:20:32: Unsupported: Interfaced port on top level module",
+   "inputs_sha256": "c1024cfa209cc921499c967e4205bd842b0920571d51a7e91fd10524fb87c2f0"
+  },
+  "ch25/test_illegal_interface_specify_uses_ref_modport_terminal": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interface_specify_uses_ref_modport_terminal\\\\.sv:25:(?:\\\\d+:)?[^\\\\n]*(?i:InvalidSpecifySource|(?:specify|terminal|descriptor|path)[^\\\\n]*(?:ref|input|inout)|ref[^\\\\n]*(?:specify|terminal|descriptor|path))'; the first is: %Error-UNSUPPORTED: tests/ch25/test_illegal_interface_specify_uses_ref_modport_terminal.sv:21:32: Unsupported: Interfaced port on top level module",
+   "inputs_sha256": "412a2cc6f174093c9b5ed3159eba7a7b8436e99705c26b4c71fb61f19c12fdb7"
+  },
+  "ch25/test_illegal_virtual_modport_cannot_reach_other_clocking_view": {
+   "status": "pass",
+   "inputs_sha256": "f82bb40c57e3cf677880d1bd3cb322e91fb5921744ac559037ae9b1c3921182f"
+  },
+  "ch25/test_interface_specify_modport_allows_input_to_output_path": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'before path delay=0', expected 'before path delay=1'",
+   "inputs_sha256": "cf0bc585bc3abcee8c0c84c539c98462612c00dae7b54bad2746e72d6d5028ae"
+  },
+  "ch25/test_interface_specify_paths_treat_unqualified_signals_as_terminals": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'before rise=1', expected 'before rise=0'",
+   "inputs_sha256": "cb7e9c909094ae0f7a22cb8ce57d8ffe7367731b813f05a24bf7a6f5ffe82253"
+  },
+  "ch25/test_virtual_modport_clocking_keeps_only_the_selected_sampling_view": {
+   "status": "pass",
+   "inputs_sha256": "d520c56a22ae7d21abdba246946b60032af9faa0c3cb57060d2dfd8129dde530"
+  },
+  "ch3/test_illegal_runtime_value_in_parameter_prevents_startup": {
+   "status": "pass",
+   "inputs_sha256": "10e375d1fef71b0630fe16a6de0c21b7ae19ceffc7ffec0255ddb1281d750410"
+  },
+  "ch32/test_sdf_named_log_has_distinct_entries_for_two_paths": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'annotated delays=0/0', expected 'annotated delays=4/9'",
+   "inputs_sha256": "fe3259e99c58cf13fe2879a9bfc03b773ec8a8e18ee73538ffe6871ef23f30af"
+  },
+  "ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_memory_word_relation_returns_logic_variables_for_negative_bounds.sv:21:5: Unsupported or unknown PLI call: '$vt_check_words'",
+   "inputs_sha256": "acb9b7567c831ccc51021da261245215b2c505f056ec46dc136ca5aa936422cd"
+  },
+  "ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_name_lookup_excludes_imports_and_compilation_unit_values.sv:26:5: Unsupported or unknown PLI call: '$vt_check_visible_names'",
+   "inputs_sha256": "a5bd6eae5261007685fac0f382f5e2b88f498777f15c33660fac50bb01869c85"
+  },
+  "ch6/test_forward_class_scope_resolves_after_definition_in_package": {
+   "status": "pass",
+   "inputs_sha256": "a5fe89e5078f44acc806d9a1746746b2ce82fb5fdc92b7b65f6e386ce1e87da5"
+  },
+  "ch6/test_illegal_forward_class_scope_variable_before_completion_in_package": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "4a6cd414cb50307f7bddbd0d809052e8406ba0f8de8dca059a4b4aed8475e008"
+  },
+  "ch6/test_illegal_uwire_two_hierarchical_drivers_overlap_one_bit": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "78e05342cf44bcb55f572fbdebab4524ad00c907175584ac5cbbe76d99f5d30c"
+  },
+  "ch6/test_uwire_nested_slice_drivers_leave_no_overlap": {
+   "status": "pass",
+   "inputs_sha256": "b349d6bcbc251ef06bb3cf7341282c7d7b191ae218320123a6c7e47aac4b06f4"
+  },
+  "ch8/test_illegal_data_address_operator_does_not_create_chandle": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6fd780a348d2a2d2220b4beafa32830ea7c0f41da71ccd4d05776a865bc851b2"
+  },
+  "ch8/test_illegal_data_address_operator_does_not_create_object_handle": {
+   "status": "pass",
+   "inputs_sha256": "55e1c7e1899856b1ee4120f6f1444be5112725c0f0dd38e526e94268ea15ff5c"
+  },
+  "ch8/test_illegal_weak_reference_untyped_member_has_no_default": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_weak_reference_untyped_member_has_no_default\\\\.sv:22:(?:\\\\d+:)?[^\\\\n]*(?i:NoDefaultSpecialization|no default[^\\\\n]*(?:specialization|type)|missing[^\\\\n]*type parameter)'; the first is: %Error: tests/ch8/test_illegal_weak_reference_untyped_member_has_no_default.sv:19:10: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "b68608c372c194ee93136afcb7877907a32bb090ec4bc10eee2d2a5be3b54332"
+  },
+  "ch8/test_weak_reference_parameter_sets_return_type_independently": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch8/test_weak_reference_parameter_sets_return_type_independently.sv:24:10: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "54212f0e79c52ff637e9239933c5bf4be8d6421929ae2fff8bdaa30248da6d86"
+  },
+  "ch9/test_illegal_nested_class_derives_from_std_final_process": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b68e96f8dc0750c4e8fcc1e346fdd4c63749e7066edf615a9d4c9d8da5d4bf1b"
+  },
+  "ch9/test_process_final_class_enum_values_are_distinct_and_typed": {
+   "status": "pass",
+   "inputs_sha256": "af827e1a6528e69a23f7528373687cc8c2948d2994041e8623114e44ce6ae8aa"
+  }
+ },
+ "generated_at": "2026-11-24T12:49:21.535071+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

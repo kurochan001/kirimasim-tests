@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .テストは484本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは486本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -242,6 +242,7 @@
 | [`test_await_resumes_after_normal_and_forced_exit_then_rejects_self`](../../tests/ch9/test_await_resumes_after_normal_and_forced_exit_then_rejects_self.sv) |await が自然終了と強制終了の両方で戻り、自分自身の終了を待つときにはエラーになることを検査する。| 9.7 |規格のみ||
 | [`test_illegal_class_extends_process`](../../tests/ch9/test_illegal_class_extends_process.sv) |内蔵されたクラスプロセスは拡張できません| 9.7 |規格のみ|規格違反の設計|
 | [`test_illegal_extend_alias_of_final_standard_process_class`](../../tests/ch9/test_illegal_extend_alias_of_final_standard_process_class.sv) |標準 process の typedef 別名を経由しても、継承できないという制約を保つ| 9.7 G.6 8.13 |規格のみ|規格違反の設計|
+| [`test_illegal_nested_class_derives_from_std_final_process`](../../tests/ch9/test_illegal_nested_class_derives_from_std_final_process.sv) |別名を通じても標準プロセスクラスを継承できない| 9.7 G.6 |規格のみ|規格違反の設計|
 | [`test_illegal_new_process_object`](../../tests/ch9/test_illegal_new_process_object.sv) |プロセスオブジェクトは 新しいオブジェクトを作成できません| 9.7 |規格のみ|規格違反の設計|
 | [`test_illegal_process_kill_result_used_as_value`](../../tests/ch9/test_illegal_process_kill_result_used_as_value.sv) |process のメソッド kill() は void 関数なので、その呼び出しの結果を変数に代入するとエラーになる| 9.7 | Verilator 5.054 |規格違反の設計|
 | [`test_lexical_process_class_can_be_extended_alongside_qualified_standard_process`](../../tests/ch9/test_lexical_process_class_can_be_extended_alongside_qualified_standard_process.sv) |字句スコープの process を継承でき、修飾した標準の process は独立した型を保つ| 9.7 26.7 8.13 G.6 | Verilator 5.052 ||
@@ -249,6 +250,7 @@
 | [`test_process_await_normal_and_forced_termination`](../../tests/ch9/test_process_await_normal_and_forced_termination.sv) |process の await は自然終了と強制終了の両方で復帰し、終了済みなら直ちに戻る| 9.7 G.6 | Verilator 5.054 ||
 | [`test_process_await_rejects_current_process`](../../tests/ch9/test_process_await_rejects_current_process.sv) |プロセスは自分自身の終了を待つことはできない| 9.7 |規格のみ||
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) |プロセスクラス: self, status, kill| 9.7 | Verilator 5.052 ||
+| [`test_process_final_class_enum_values_are_distinct_and_typed`](../../tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv) |標準プロセスクラスの全状態が互いに異なるenumの値となる| 9.7 G.6 | Verilator 5.052 ||
 | [`test_process_function_can_suspend_another_waiting_process`](../../tests/ch9/test_process_function_can_suspend_another_waiting_process.sv) |関数は別のプロセスを suspend でき、呼び出し元はそのプロセスを再開できる| 9.7 G.6 |規格のみ||
 | [`test_process_function_cannot_suspend_current_process`](../../tests/ch9/test_process_function_cannot_suspend_current_process.sv) |関数が自分のプロセスを suspend するとエラーを報告する| 9.7 |規格のみ||
 | [`test_process_kill_self`](../../tests/ch9/test_process_kill_self.sv) |プロセス自体が kill() を呼び出すと、他のプロセスによって 殺された場合と同様に、すぐに KILLED の状態で終了します。| 9.7 |規格のみ||
