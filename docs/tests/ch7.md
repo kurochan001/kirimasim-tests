@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[All chapters](README.md). 1135 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 1136 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -287,6 +287,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_string_index_with_int`](../../tests/ch7/test_illegal_string_index_with_int.sv) | an associative array with a string index takes strings and string literals as indices; an int index is a type check error | 7.8.2 | standard only | illegal design |
 | [`test_assoc_class_key_order_is_stable`](../../tests/ch7/test_assoc_class_key_order_is_stable.sv) | Class key traversal repeats for a fixed set without prescribing address order | 7.8.3 | Verilator 5.052 | exit code |
 | [`test_assoc_class_null_and_alias_keys`](../../tests/ch7/test_assoc_class_null_and_alias_keys.sv) | A class indexed associative array accepts null and aliases identify the same object key | 7.8.3 | Verilator 5.052 ||
+| [`test_fork_updates_inherited_associative_array_with_class_key`](../../tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.sv) | Background fork updates the inherited associative array at its class key | 7.8.3 7.9 9.3.2 13.4.4 | Verilator 5.054 | exit code |
 | [`test_illegal_class_index_with_other_class`](../../tests/ch7/test_illegal_class_index_with_other_class.sv) | an associative array with a class index takes objects of that class or of a derived class as indices; an object of an unrelated class is a type check error | 7.8.3 | standard only | illegal design |
 | [`test_assoc_integral_index_cast_context`](../../tests/ch7/test_assoc_integral_index_cast_context.sv) | Typed indices apply cast width and sign context before arithmetic truncation | 7.8.4 | standard only | exit code |
 | [`test_assoc_signed_and_unsigned_key_order`](../../tests/ch7/test_assoc_signed_and_unsigned_key_order.sv) | Equal high-bit key patterns have different signed and unsigned traversal orders | 7.8.4 | standard only | exit code |

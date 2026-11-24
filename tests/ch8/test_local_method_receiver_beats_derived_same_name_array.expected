@@ -1,0 +1,2 @@
+CHECK local_size=7 array_size=2
+CHECK pass

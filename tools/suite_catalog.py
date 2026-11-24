@@ -76,8 +76,9 @@ def notes(fields: dict[str, str]) -> str:
         out.append("include directories")
     if "top_module" in fields:
         out.append("top module")
-    if "args" in fields:
-        out.append("plusargs")
+    if args := fields.get("args"):
+        out.append("plusargs" if all(arg.startswith("+") for arg in args.split())
+                   else "command-line arguments")
     if fields.get("fourstate") == "yes":
         out.append("x/z")
     return ", ".join(out)

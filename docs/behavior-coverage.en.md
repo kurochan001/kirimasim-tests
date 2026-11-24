@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.08%, execution without Ghost 51.69%, execution with Ghost and kirimasim 89.33%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.39%, execution without Ghost 51.77%, execution with Ghost and kirimasim 89.47%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 95.08%. Requirement execution-confirmation rate: 51.69% without Ghost, 89.33% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 95.39%. Requirement execution-confirmation rate: 51.77% without Ghost, 89.47% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11725/12332 ( 95.08% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11016/12332 ( 89.33% ).
-- Registered but not tested: 607.
+- The requirement coverage (test design) for registered behaviors is 11763/12332 ( 95.39% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11033/12332 ( 89.47% ).
+- Registered but not tested: 569.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -59,6 +59,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `arrayrefs-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T11:48:10.984505+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayrefs-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T11:47:57.157440+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayrefs-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T11:48:07.884883+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-ghost-strict.json`: `private build 3fe4000d6ab7` / `2026-11-24T13:37:26.708866+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T13:37:26.495694+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T13:37:26.133789+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:37:31.853974+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:37:31.828742+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.606085+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.585155+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T16:18:16.466764+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-kirimasim-441dddbd0fcd.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T16:18:17.457959+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T16:21:24.078961+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -98,6 +105,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `early-fixed-a622-recheck-20261119ab-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:01.693697+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:08.612448+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:15.548142+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `extended-gaps-20261124-ghost-strict.json`: `private build 111ed40aaaf2` / `2026-11-24T13:11:49.636733+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
+- `extended-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T13:11:49.338399+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `extended-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T13:11:48.923956+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `extended-gaps-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:11:52.585768+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `extended-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:11:52.591017+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `extended-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:11:52.644459+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `extended-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:11:52.646775+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
 - `focused-gaps-20261124-ghost-strict.json`: `private build 431141102150` / `2026-11-24T12:49:11.317734+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `focused-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:49:11.346963+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `focused-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T12:49:11.080209+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -105,9 +119,9 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `focused-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:49:20.888427+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `focused-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:49:21.497694+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `focused-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:49:21.535071+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `focused-gaps-include-20261124-ghost-strict.json`: `private build 431141102150` / `2026-11-24T12:53:14.276400+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `focused-gaps-include-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:53:13.912632+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `focused-gaps-include-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:53:14.554597+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `focused-gaps-include-20261124-ghost-strict.json`: `private build 431141102150` / `2026-11-24T12:53:14.276400+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `focused-gaps-include-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T12:53:13.912632+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `focused-gaps-include-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T12:53:14.554597+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
 - `formal-20261027-sby.json`: `unknown SBY version` / `2026-10-27T13:59:10.011684+00:00` / 290/12332 execution checked; 0 entries refer to older inputs.
 - `formal-recheck-20261124-sby.json`: `SBY v0.68` / `2026-11-24T00:37:56.416046+00:00` / 289/12332 execution checked; 0 entries refer to older inputs.
 - `formal-recheck-f43-20261124-sby.json`: `SBY v0.68` / `2026-11-24T00:39:48.253709+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -122,12 +136,19 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2998/12332 execution checked; 373 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3888/12332 execution checked; 373 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3599/12332 execution checked; 29 entries refer to older inputs.
-- `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9676/12332 execution checked; 18 entries refer to older inputs.
+- `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9678/12332 execution checked; 18 entries refer to older inputs.
 - `handle-equality-20261124-ghost-strict.json`: `private build d1a33b327c73` / `2026-11-23T21:21:56.235297+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:21:56.180203+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:21:56.191228+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:21:56.677218+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:21:56.673809+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `header-scope-20261125-ghost-strict.json`: `private build e484e16d0a5c` / `2026-11-24T17:37:40.607540+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
+- `header-scope-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T17:37:40.387947+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `header-scope-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T17:37:40.017416+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `header-scope-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T17:37:41.838760+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
+- `header-scope-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T17:37:41.838917+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
+- `header-scope-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T17:37:41.838931+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
+- `header-scope-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T17:37:41.839010+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-ghost-strict.json`: `private build 27d21bee0884` / `2026-11-23T12:53:34.138189+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:53:34.126372+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:53:34.067910+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -710,6 +731,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:50.878398+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T02:43:12.104689+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T02:46:26.386745+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-ghost-strict.json`: `private build e7d663777d2f` / `2026-11-24T14:27:12.816285+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T14:27:12.731338+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T14:27:12.168260+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T14:27:13.374369+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T14:27:13.330268+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T14:27:13.353417+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T14:27:13.369678+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `nba-boundaries-20261119h-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T01:44:38.151064+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `nba-boundaries-20261119h-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:44:40.043357+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `nba-boundaries-20261119h-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:44:41.969708+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -800,8 +828,8 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
 - `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 10/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 11/12332 execution checked; 1 entries refer to older inputs.
-- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
-- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 5/12332 execution checked; 1 entries refer to older inputs.
+- `reqgap6-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.959332+00:00` / 5/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap7-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T23:33:37.497509+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T23:33:37.526094+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap7-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T23:33:58.371412+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
@@ -856,6 +884,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `uvm-standalone-20261123-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T14:14:24.285520+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T14:14:29.293139+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T14:14:29.432996+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-sv-repro-20261124-ghost-strict.json`: `private build 4f2b6a3144a8` / `2026-11-24T13:47:17.802215+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-sv-repro-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T13:47:17.750647+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-sv-repro-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T13:47:17.773981+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-sv-repro-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:47:20.413902+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-sv-repro-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:47:20.434715+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-sv-repro-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:47:20.198816+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `uvm-sv-repro-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:47:20.202629+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1189,14 +1224,14 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 135.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 141.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 90.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 148.
-- 6 Data types: No interpretation reservation 92/92, registration 720, test support 714.
+- 6 Data types: No interpretation reservation 92/92, registration 720, test support 715.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 343.
-- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 242.
+- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 243.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 185.
-- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 149.
+- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 150.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 455.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 110.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 121.
@@ -1206,25 +1241,25 @@ The number of items is the investigation status of the article by heading. This 
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 70.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 317 mapped to tests.
 - 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 271.
-- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 313.
-- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 373.
+- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 314.
+- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 374.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 356 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 258.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 26.
 - 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 62.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 44.
-- 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 31.
+- 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 32.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 384.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 52.
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 151.
 - 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 171.
-- 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 129.
+- 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 131.
 - 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 41.
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
-- 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 122.
+- 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 126.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1687.
-- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 305.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1693.
+- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 308.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 124.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
@@ -1235,10 +1270,10 @@ The number of items is the investigation status of the article by heading. This 
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
 - G Std package: no interpretation reserve 8/8, registration 32, test support 32.
-- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 205.
-- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 139.
+- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 209.
+- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 144.
 - J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 1.
-- K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 541.
+- K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 543.
 - L vpi_compatibility.h: no interpretations on hold 3/3; registered 88; test mappings 86.
 - M sv_vpi_user.h: no interpretations on hold 3/3; registered 412; test mappings 410.
 - N Algorithm for probabilistic distribution functions: no interpretation reservation 3/3, registered 39, test-compatible 37.
@@ -2348,7 +2383,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.12.1-EXTRACT-DIRECTIVE-UNIT-ISOLATION
 
-`3.12.1` / `normal` / No mapped test
+`3.12.1` / `normal` / Execution confirmed
 
 Compiler-directive state in one separately compiled unit must not affect another compilation unit.
 
@@ -2356,6 +2391,7 @@ Acceptance criterion: Compiler-directive state in one separately compiled unit m
 
 Normative role: `mandatory`。
 
+- [test_per_file_compilation_does_not_share_macro_or_default_nettype.sv](../tests/ch3/test_per_file_compilation_does_not_share_macro_or_default_nettype.sv): Check that the earlier unit’s macro remains undefined in the later unit and that its implicit-net prohibition does not cross to the later port connection.
 
 ### SV2023-3.12.1-EXTRACT-EXPLICIT-UNIT-RESOLUTION
 
@@ -2445,7 +2481,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.12.1-EXTRACT-PLI-UNIT-ITERATOR
 
-`3.12.1` / `normal` / No mapped test
+`3.12.1` / `normal` / Test mapped; execution unconfirmed
 
 The PLI provides traversal over all compilation units and access to their scoped items.
 
@@ -2453,10 +2489,11 @@ Acceptance criterion: A PLI application can obtain the complete set of compilati
 
 Normative role: `mandatory`。
 
+- [test_vpi_per_file_units_iterate_same_named_locals_separately.sv](../tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.sv): Check the two language-level values and then traverse both compilation-unit scopes to read their distinct values under the same local name.
 
 ### SV2023-3.12.1-EXTRACT-SEPARATE-FILE-MODE
 
-`3.12.1` / `normal` / No mapped test
+`3.12.1` / `normal` / Test mapped; execution unconfirmed
 
 A compliant implementation also provides a use model in which each file is a separate compilation unit.
 
@@ -2464,6 +2501,7 @@ Acceptance criterion: Compilation-unit-scope declarations of one file are not di
 
 Normative role: `mandatory`。
 
+- [test_per_file_compilation_keeps_unit_declarations_private.sv](../tests/ch3/test_per_file_compilation_keeps_unit_declarations_private.sv): Declare the same variable and type names in each per-file unit, call a procedure in the other instance, and check independent values and types.
 
 ### SV2023-3.12.1-EXTRACT-UNIT-BIND
 
@@ -2527,7 +2565,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.12.1-EXTRACT-UNIT-PRIVATE-NAMES
 
-`3.12.1` / `error` / No mapped test
+`3.12.1` / `error` / Test mapped; execution unconfirmed
 
 A compilation-unit-scope declaration cannot be named directly from a different compilation unit.
 
@@ -2535,6 +2573,8 @@ Acceptance criterion: Reject cross-unit source references to another unit's priv
 
 Normative role: `mandatory`。
 
+- [test_single_compilation_unit_can_name_previous_file_declaration.sv](../tests/ch3/test_single_compilation_unit_can_name_previous_file_declaration.sv): Read the declaration from the earlier file through the explicit compilation-unit scope when both files are in one unit.
+- [test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv](../tests/ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv): Separate the files into different units and reject lookup in the current unit when only the preceding unit declares the name.
 
 ### SV2023-3.12.1-EXTRACT-UNIT-SCOPE
 
@@ -2574,7 +2614,7 @@ Normative role: `definition`。
 
 ### SV2023-3.13-EXTRACT-BLOCK-NAMESPACE
 
-`3.13` / `normal` / No mapped test
+`3.13` / `normal` / Execution confirmed
 
 Named and unnamed blocks, specify blocks, functions and tasks introduce a local block namespace for their permitted declarations.
 
@@ -2582,6 +2622,7 @@ Acceptance criterion: Named and unnamed blocks, specify blocks, functions and ta
 
 Normative role: `definition`。
 
+- [test_local_block_namespaces_keep_distinct_declarations.sv](../tests/ch3/test_local_block_namespaces_keep_distinct_declarations.sv): Check that declarations with the same name in named and unnamed blocks, a function, and a task retain their own values, and that a specify-local constant determines the path delay.
 
 ### SV2023-3.13-EXTRACT-DEFINITION-NAMES
 
@@ -2645,6 +2686,7 @@ Acceptance criterion: Reject a second declaration of a name in the same namespac
 Normative role: `mandatory`。
 
 - [test_illegal_redeclaration.sv](../tests/ch6/test_illegal_redeclaration.sv) : logic \[ 3:0 \] count in the same module namespace; immediately after int count; A negative test declaring a fault requires a diagnosis pointing to the line of the declaration (the 19 or 20 line). Distinguishing observation: Incorrect implementation allowing re-declaration in the same namespace and overwriting and merging with later declaration does not result in errors, compilation is successful, and the diagnostic matches of: should_fail_because: and test_illegal_redeclaration.sv:(19 | 20): are not met.
+- [test_illegal_same_block_event_and_variable_name.sv](../tests/ch3/test_illegal_same_block_event_and_variable_name.sv): Use an event in a separate block as a control and require a redeclaration diagnostic where an event and a variable share a name in one block.
 
 ### SV2023-3.13-EXTRACT-PACKAGE-NAMES
 
@@ -2845,7 +2887,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.14.2.1-EXTRACT-TIMESCALE-UNIT-BOUNDARY
 
-`3.14.2.1` / `normal` / No mapped test
+`3.14.2.1` / `normal` / Execution confirmed
 
 A timescale directive is restricted to its current compilation unit and does not cross separately compiled unit boundaries.
 
@@ -2853,6 +2895,7 @@ Acceptance criterion: A timescale directive is restricted to its current compila
 
 Normative role: `mandatory`。
 
+- [test_per_file_timescale_does_not_override_next_unit_timeunit.sv](../tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.sv): Use the same delay in both files and verify that the earlier directive and later compilation-unit declaration independently determine pulse arrival times.
 
 ### SV2023-3.14.2.2-EXTRACT-COMBINED-TIMEUNIT
 
@@ -6232,7 +6275,7 @@ Normative role: `definition`。
 
 ### SV2023-6.3.1-EXTRACT-EVENT-NO-VALUE-STORAGE
 
-`6.3.1` / `normal` / No mapped test
+`6.3.1` / `error` / Test mapped; execution unconfirmed
 
 The event type is not a four-state bit-storage object; its semantics are defined by the event type rules.
 
@@ -6240,6 +6283,8 @@ Acceptance criterion: The event type is not a four-state bit-storage object; its
 
 Normative role: `definition`。
 
+- [test_illegal_event_cannot_store_four_state_bit_value.sv](../tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv): Use a valid event trigger as a control and reject assignment of a four-state value to the event.
+- [test_illegal_event_cannot_initialize_integral_storage.sv](../tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv): Trigger the event before rejecting the use of its name as the integral value assigned to a vector.
 
 ### SV2023-6.3.1-EXTRACT-FOUR-STATE-BITS
 
@@ -19956,6 +20001,7 @@ Normative role: `definition`。
 - [test_class_basic.sv](../tests/ch8/test_class_basic.sv): Calls the setter/getter by modifying the handle of the obj to a method name, and verify that the implicit current object value changes from 10 to 20.
 - [test_class_basic_edge_cases.sv](../tests/ch8/test_class_basic_edge_cases.sv): The nonstatic method updates only the property of the caller c1, while c2 retains 10.
 - [test_method_class.sv](../tests/ch8/test_method_class.sv): In addition to the object-qualified call, call an unqualified member method from the same current object, and get 2 times 112 of value56.
+- [test_local_method_receiver_beats_derived_same_name_array.sv](../tests/ch8/test_local_method_receiver_beats_derived_same_name_array.sv): Check that dot notation invokes the method on the local class handle when the derived class has a same-named array.
 
 ### SV2023-8.7-EXTRACT-BASE-CONSTRUCTOR-FIRST
 
@@ -20593,6 +20639,7 @@ Normative role: `mandatory`。
 - [test_class_cast_edge_cases.sv](../tests/ch8/test_class_cast_edge_cases.sv): $cast is successful and the derived property is accessible when the source of the base static type actually holds the derived object. The edge-case side shows the original update 15 at the cast point.
 - [test_dynamic_cast.sv](../tests/ch8/test_dynamic_cast.sv): $cast is successful and the derived property is accessible when the source of the base static type actually holds the derived object. The edge-case side shows the original update 15 at the cast point.
 - [test_dynamic_cast_into_associative_class_element.sv](../tests/ch6/test_dynamic_cast_into_associative_class_element.sv): Casting the base handle to a derived handle succeeds, creates the missing associative entry, and preserves object identity.
+- [test_same_named_class_cast_preserves_package_identity.sv](../tests/ch8/test_same_named_class_cast_preserves_package_identity.sv): Check that casting from the common base handle succeeds for the runtime type and fails for a same-named derived type in another package.
 
 ### SV2023-8.16-EXTRACT-CAST-FORMS
 
@@ -21081,7 +21128,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.20-EXTRACT-INITIAL-EXTENDS-EXCLUSIVE
 
-`8.20` / `error` / No mapped test
+`8.20` / `error` / Execution confirmed
 
 initial and extends are mutually exclusive, so a method declaration that specifies both is an error.
 
@@ -21089,6 +21136,8 @@ Acceptance criterion: A method declared with both :initial and :extends is rejec
 
 Normative role: `mandatory`。
 
+- [test_method_initial_final_and_extends_final_are_independently_legal.sv](../tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.sv): Use the final specifier on both a new method and an override in the same class and call both.
+- [test_illegal_method_extends_followed_by_initial_in_single_declaration.sv](../tests/ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration.sv): Accept the earlier override declaration and require a specifier-conflict diagnostic where both mutually exclusive specifiers appear together.
 
 ### SV2023-8.20-EXTRACT-INITIAL-NO-IMPLIED-VIRTUAL
 
@@ -23423,6 +23472,7 @@ Acceptance criterion: A begin/end group used as one fork branch is one child pro
 Normative role: `mandatory`。
 
 - [test_fork_join_block_timing.sv](../tests/ch9/test_fork_join_block_timing.sv): The begin/end fork branch performs delays5 then10 sequentially, giving5 then15, while other branches execute concurrently. The whole ordered timestamp trace is the oracle.
+- [test_timed_nested_fork_conditionals_keep_activation_formals.sv](../tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.sv): Check that each parallel branch resumes on its event, executes its sequential block in source order, and records the result for its invocation.
 
 ### SV2023-9.3.3-EXTRACT-BLOCK-START-FINISH
 
@@ -25470,7 +25520,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.3.4-EXTRACT-STRENGTH-SCOPE
 
-`10.3.4` / `error` / No mapped test
+`10.3.4` / `error` / Test mapped; execution unconfirmed
 
 User-specified continuous drive strengths apply to scalar nets other than supply0/supply1 under this clause.
 
@@ -25478,6 +25528,9 @@ Acceptance criterion: User-specified continuous drive strengths apply to scalar 
 
 Normative role: `mandatory`。
 
+- [test_scalar_continuous_drive_strength_resolves_against_pull_driver.sv](../tests/ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver.sv): Drive two scalars from the same input with different strengths and check their distinct results against pull drivers.
+- [test_illegal_user_drive_strength_on_full_vector_net.sv](../tests/ch10/test_illegal_user_drive_strength_on_full_vector_net.sv): Require a scalar-target diagnostic when an explicit drive strength is applied to the whole vector.
+- [test_illegal_user_drive_strength_on_supply_net.sv](../tests/ch10/test_illegal_user_drive_strength_on_supply_net.sv): Require a diagnostic at the explicit-strength continuous assignment to a supply net.
 
 ### SV2023-10.3.4-EXTRACT-TWO-STRENGTHS
 
@@ -35559,6 +35612,7 @@ Acceptance criterion: A function fork-join_none child may contain any task-legal
 Normative role: `permission`。
 
 - [test_sched_fork_join_none_in_function.sv](../tests/ch4/test_sched_fork_join_none_in_function.sv): A function fork-join_none child executes a task-legal #1 delay and displays, while the enabling initial returns from the function at0 before the child starts.
+- [test_fork_updates_inherited_associative_array_with_class_key.sv](../tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.sv): Check that the background branch spawned by the function continues after a delay and deletes the element it added to the inherited associative array.
 
 ### SV2023-13.4.4-EXTRACT-FUNCTION-NO-DELAY
 
@@ -48435,6 +48489,7 @@ Acceptance criterion: post_randomize may be overridden for cleanup/postcondition
 Normative role: `mandatory`。
 
 - [test_randomize_callback_override.sv](../tests/ch18/test_randomize_callback_override.sv): post_randomize () can be overwritten (own_post of cbo_no_super is 1), and in the unoverwritten derivative class cbo_inherit the post_randomize () of the base class is automatically called and the new value 5 is seen ('no override: ok=1 pre=1 post=1 seen 1/5'). Distinguishing observation: In a non-overridden derivative class, a incorrect implementation that does not call the base post_randomize() will result in the 1 line being post = 0 seen.../ 0. The incorrect implementation that calls the base ignoring the overwrite results in the 2 line being own =.../ 0 post = 1.
+- [test_inherited_randomize_hooks_call_defining_super_once.sv](../tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.sv): Check that the inherited post-randomization override invokes its base implementation and that both implementations run once.
 
 ### SV2023-18.6.2-EXTRACT-PRE-CALL-TREE
 
@@ -48459,6 +48514,7 @@ Acceptance criterion: pre_randomize may be overridden for preconditions; absent 
 Normative role: `mandatory`。
 
 - [test_randomize_callback_override.sv](../tests/ch18/test_randomize_callback_override.sv): pre_randomize () can be overwritten (own_pre of cbo_no_super is 1), and in the unoverwritten derivative class cbo_inherit the pre_randomize () of the base class is automatically called ('no override: ok=1 pre=1 ... seen 1/5', see the pre-call value 1). Distinguishing observation: In a non-overridden derived class, a incorrect implementation that does not call the base pre_randomize() will result in the 1 line being pre = 0 seen 0 /... The faulty implementation that ignores the overwrite and calls the base is 2. The line is own = 0 /... The result is pre = 1.
+- [test_inherited_randomize_hooks_call_defining_super_once.sv](../tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.sv): Check that the inherited pre-randomization override invokes its base implementation and that both implementations run once.
 
 ### SV2023-18.6.3-EXTRACT-CALLBACK-NONBLOCKING
 
@@ -56346,7 +56402,7 @@ Normative role: `definition`。
 
 ### SV2023-20.14.2-EXTRACT-POSITIVE-PARAMETERS
 
-`20.14.2` / `error` / No mapped test
+`20.14.2` / `error` / Test mapped; execution unconfirmed
 
 Exponential/poisson/chi-square/t/erlang mean, degree_of_freedom and k_stage arguments where applicable shall be greater than zero.
 
@@ -56354,6 +56410,13 @@ Acceptance criterion: Exponential/poisson/chi-square/t/erlang mean, degree_of_fr
 
 Normative role: `mandatory`。
 
+- [test_distributions_accept_positive_unit_mean_degree_and_stage.sv](../tests/ch20/test_distributions_accept_positive_unit_mean_degree_and_stage.sv): Exercise the positive boundary for means, degrees of freedom, and stages and verify completion of the five distribution calls.
+- [test_distribution_diagnoses_invalid_exponential_mean.sv](../tests/ch20/test_distribution_diagnoses_invalid_exponential_mean.sv): Pass a zero mean to the exponential distribution and check its invalid-argument diagnostic.
+- [test_distribution_diagnoses_invalid_poisson_mean.sv](../tests/ch20/test_distribution_diagnoses_invalid_poisson_mean.sv): Pass a negative mean to the Poisson distribution and check its invalid-argument diagnostic.
+- [test_distribution_diagnoses_invalid_chi_square_degrees.sv](../tests/ch20/test_distribution_diagnoses_invalid_chi_square_degrees.sv): Pass zero degrees of freedom to the chi-square distribution and check its invalid-argument diagnostic.
+- [test_distribution_diagnoses_invalid_t_degrees.sv](../tests/ch20/test_distribution_diagnoses_invalid_t_degrees.sv): Pass zero degrees of freedom to Student’s t distribution and check its invalid-argument diagnostic.
+- [test_distribution_diagnoses_invalid_erlang_mean.sv](../tests/ch20/test_distribution_diagnoses_invalid_erlang_mean.sv): Keep the Erlang stage count positive and require the diagnostic for the zero mean.
+- [test_distribution_diagnoses_invalid_erlang_stages.sv](../tests/ch20/test_distribution_diagnoses_invalid_erlang_stages.sv): Keep the Erlang mean positive and require the diagnostic for the negative stage count.
 
 ### SV2023-20.14.2-EXTRACT-UNIFORM-BOUNDS
 
@@ -60441,7 +60504,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.2.3-EXTRACT-INDIVIDUAL-NET-BITS
 
-`21.7.2.3` / `normal` / No mapped test
+`21.7.2.3` / `normal` / Test mapped; execution unconfirmed
 
 Individual vector net bits may be dumped individually.
 
@@ -60449,6 +60512,7 @@ Acceptance criterion: Individual vector net bits may be dumped individually.
 
 Normative role: `permission`。
 
+- [test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices.sv](../tests/ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices.sv): Select one vector-net bit and require a single scalar declaration and changes for that selected bit only.
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-6
 
@@ -71410,6 +71474,7 @@ Acceptance criterion: Virtual interface variables may be subroutine arguments an
 Normative role: `permission`。
 
 - [test_virtual_interface_modport.sv](../tests/ch25/test_virtual_interface_modport.sv): Passes interface to constructor as a virtual type argument, and checks whether the same class property is updated from b0 to b1 during execution, keeping the original instance and the new reference.
+- [test_virtual_modport_task_wait_selects_rebound_interface.sv](../tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv): Pass two interface instances to the same task in turn and check that only the selected instance's edge resumes the task with its data.
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-MODPORT-NARROWING
 
@@ -72468,7 +72533,7 @@ Normative role: `mandatory`。
 
 ### SV2023-27.6-EXTRACT-UNNAMED-EXTERNAL-NAME
 
-`27.6` / `normal` / No mapped test
+`27.6` / `error` / Test mapped; execution unconfirmed
 
 Unnamed generate blocks receive external-interface names without thereby permitting ordinary external source hierarchical references.
 
@@ -72476,6 +72541,8 @@ Acceptance criterion: Unnamed generate blocks receive external-interface names w
 
 Normative role: `definition`。
 
+- [test_vpi_unnamed_loop_blocks_have_external_indices.sv](../tests/ch27/test_vpi_unnamed_loop_blocks_have_external_indices.sv): Look up two elements of an unnamed generate loop by their external names and distinguish their indexed variables.
+- [test_illegal_unnamed_generate_loop_external_name_used_in_source.sv](../tests/ch27/test_illegal_unnamed_generate_loop_external_name_used_in_source.sv): Reject the source hierarchy path formed with the unnamed generate loop’s external-only name.
 
 ### SV2023-28.3-EXTRACT-PRIMITIVE-GRAMMAR
 
@@ -82485,7 +82552,7 @@ Normative role: `definition`。
 
 ### SV2023-32.4.4-EXTRACT-INTERCONNECT-DIRECTIONS
 
-`32.4.4` / `error` / No mapped test
+`32.4.4` / `error` / Test mapped; execution unconfirmed
 
 Interconnect source ports are output/inout and load ports input/inout.
 
@@ -82493,10 +82560,12 @@ Acceptance criterion: Interconnect source ports are output/inout and load ports 
 
 Normative role: `mandatory`。
 
+- [test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv](../tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv): Annotate an output-to-input route and an inout-to-inout route with different delays and check both arrival times.
+- [test_sdf_interconnect_rejects_reversed_port_directions.sv](../tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv): Require both diagnostics for reversed directions and verify the delay on the separate valid route.
 
 ### SV2023-32.4.4-EXTRACT-INTERCONNECT-ENDPOINTS
 
-`32.4.4` / `error` / No mapped test
+`32.4.4` / `error` / Test mapped; execution unconfirmed
 
 Interconnect annotations represent output/inout-module-port to input/inout-module-port delays without requiring a matching source declaration; primitive pins cannot be endpoints.
 
@@ -82504,6 +82573,8 @@ Acceptance criterion: Interconnect annotations represent output/inout-module-por
 
 Normative role: `mandatory`。
 
+- [test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv](../tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv): Check that both module-port routes acquire their annotated delays without an existing timing declaration.
+- [test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.sv](../tests/ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.sv): Specify primitive pins separately as source and load, require diagnostics, and verify the valid route and unchanged primitive-load timing.
 
 ### SV2023-32.4.4-EXTRACT-INTERCONNECT-HIERARCHICAL-EFFECT
 
@@ -87354,7 +87425,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.3-EXTRACT-CONTEXT-NONTRANSITIVE
 
-`35.5.3` / `error` / No mapped test
+`35.5.3` / `error` / Test mapped; execution unconfirmed
 
 Context applies separately to each import call and does not propagate to subsequent imports; a noncontext import calling an SV export is an error.
 
@@ -87362,6 +87433,7 @@ Acceptance criterion: Context applies separately to each import call and does no
 
 Normative role: `mandatory`。
 
+- [test_dpi_context_task_does_not_authorize_noncontext_child_import.sv](../tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.sv): From a timed task, compare two imports with identical export calls: the context child succeeds and the ordinary child must produce the permission diagnostic.
 
 ### SV2023-35.5.3-EXTRACT-DIRECT-EXPORT-SCOPE
 
@@ -87495,7 +87567,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT
 
-`35.5.4` / `normal` / No mapped test
+`35.5.4` / `normal` / Execution confirmed
 
 DPI uses the deprecated simulator-format packed-array convention; DPI-C uses canonical representation.
 
@@ -87503,6 +87575,7 @@ Acceptance criterion: DPI uses the deprecated simulator-format packed-array conv
 
 Normative role: `definition`。
 
+- [test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv](../tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv): Read and write canonical vectors directly for the current declaration and use the conversion routines for the legacy declaration.
 
 ### SV2023-35.5.4-EXTRACT-FORMAL-DECLARATION
 
@@ -88306,7 +88379,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.8-EXTRACT-NO-TASK-FROM-FUNCTION
 
-`35.8` / `error` / No mapped test
+`35.8` / `error` / Test mapped; execution unconfirmed
 
 An imported function must never call an exported task.
 
@@ -88314,6 +88387,7 @@ Acceptance criterion: An imported function must never call an exported task.
 
 Normative role: `mandatory`。
 
+- [test_dpi_nested_import_function_cannot_enable_export_task.sv](../tests/ch35/test_dpi_nested_import_function_cannot_enable_export_task.sv): Use a successful nested function call as a control and require the failure diagnostic when the same context tries to call an exported task.
 
 ### SV2023-35.8-EXTRACT-TASK-CONTEXT
 
@@ -88389,7 +88463,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.9-EXTRACT-DISABLED-NO-EXPORT
 
-`35.9` / `error` / No mapped test
+`35.9` / `error` / Test mapped; execution unconfirmed
 
 After an import invocation becomes disabled it must make no further export calls.
 
@@ -88397,6 +88471,8 @@ Acceptance criterion: After an import invocation becomes disabled it must make n
 
 Normative role: `mandatory`。
 
+- [test_dpi_disabled_import_rejects_second_exported_task.sv](../tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.sv): Verify that the first task returns in the disabled state and that a subsequent exported task is rejected even when it would return immediately.
+- [test_dpi_disabled_import_task_cannot_call_another_export.sv](../tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv): Check the diagnostic when a disabled import tries to call an exported function after a disabled return from a task.
 
 ### SV2023-35.9-EXTRACT-DISABLED-VALUES
 
@@ -90757,7 +90833,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3.1-EXTRACT-TAGGED-EXPRESSION
 
-`37.3.1` / `error` / No mapped test
+`37.3.1` / `error` / Test mapped; execution unconfirmed
 
 Use vpiLeftRange/vpiRightRange to distinguish part-select bound expressions; vpiExpr from a part-select is illegal because its expression relation is ambiguous.
 
@@ -90765,6 +90841,7 @@ Acceptance criterion: Use vpiLeftRange/vpiRightRange to distinguish part-select 
 
 Normative role: `mandatory`。
 
+- [test_vpi_static_part_select_rejects_ambiguous_expression.sv](../tests/ch37/test_vpi_static_part_select_rejects_ambiguous_expression.sv): Check the separate bounds of ascending and descending part-selects and require a null handle and an error status for the ambiguous expression relationship.
 
 ### SV2023-37.3.2-EXTRACT-ADDITIONAL-TYPE
 
@@ -94819,7 +94896,7 @@ Normative role: `definition`。
 
 ### SV2023-37.14-EXTRACT-INTERFACE-NO-DELAY
 
-`37.14` / `error` / No mapped test
+`37.14` / `error` / Test mapped; execution unconfirmed
 
 vpi_get_delays/vpi_put_delays do not apply to vpiInterfacePort.
 
@@ -94827,6 +94904,7 @@ Acceptance criterion: vpi_get_delays/vpi_put_delays do not apply to vpiInterface
 
 Normative role: `mandatory`。
 
+- [test_vpi_interface_formal_rejects_get_and_put_delays.sv](../tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.sv): Use the readable module path as a control and require diagnostics for both delay routines on the interface formal.
 
 ### SV2023-37.14-EXTRACT-NULL-PORT
 
@@ -97496,7 +97574,7 @@ Normative role: `definition`。
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-073
 
-`37.17` / `normal` / No mapped test
+`37.17` / `normal` / Test mapped; execution unconfirmed
 
 variables exposes vpiArray as Boolean, representing deprecated array membership; access it with the appropriate property routine under 37.3.1.
 
@@ -97504,6 +97582,7 @@ Acceptance criterion: variables exposes vpiArray as Boolean, representing deprec
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_array_property_on_variable_elements.sv](../tests/ch37/test_vpi_legacy_array_property_on_variable_elements.sv): Compare standalone variables against unpacked array elements for two variable types and check that both the legacy and current properties are true only on the elements.
 
 ### SV2023-37.17-EXTRACT-DIAGRAM-074
 
@@ -100270,7 +100349,7 @@ Normative role: `definition`。
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-026
 
-`37.27` / `normal` / No mapped test
+`37.27` / `normal` / Test mapped; execution unconfirmed
 
 named event exposes vpiArray as Boolean, representing deprecated array membership; access it with the appropriate property routine under 37.3.1.
 
@@ -100278,6 +100357,7 @@ Acceptance criterion: named event exposes vpiArray as Boolean, representing depr
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_array_property_on_named_event_elements.sv](../tests/ch37/test_vpi_legacy_array_property_on_named_event_elements.sv): Check that both the standalone event and the element at a negative index are exposed as named events, with the legacy property true only on the array element.
 
 ### SV2023-37.27-EXTRACT-DIAGRAM-027
 
@@ -101396,7 +101476,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-LEXICAL-NO-VALUES
 
-`37.31` / `error` / No mapped test
+`37.31` / `error` / Test mapped; execution unconfirmed
 
 Variable/event handles obtained from a class definition cannot be read/written with vpi_get_value/vpi_put_value.
 
@@ -101404,6 +101484,7 @@ Acceptance criterion: Variable/event handles obtained from a class definition ca
 
 Normative role: `mandatory`。
 
+- [test_vpi_definition_handles_cannot_read_or_write_class_storage.sv](../tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.sv): Reject reads and writes to static and instance variables and an event reached through the definition, while allowing a live event to fire.
 
 ### SV2023-37.32-EXTRACT-BUILTIN-CLASS-DEFINITION
 
@@ -101767,7 +101848,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.32-EXTRACT-NONSTATIC-TYPE-NO-VALUE
 
-`37.32` / `error` / No mapped test
+`37.32` / `error` / Test mapped; execution unconfirmed
 
 Variable/event handles obtained from class typespecs cannot use get/put_value when nonstatic.
 
@@ -101775,6 +101856,7 @@ Acceptance criterion: Variable/event handles obtained from class typespecs canno
 
 Normative role: `mandatory`。
 
+- [test_vpi_typespec_handles_allow_static_storage_only.sv](../tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.sv): Reject reads and writes to instance storage and an event reached through the typespec, and update the static variable reached by the same route.
 
 ### SV2023-37.32-EXTRACT-SPECIALIZATION-CONSTRAINTS
 
@@ -103241,6 +103323,7 @@ Acceptance criterion: 37.39 defines a one-to-one relation from module path to mo
 Normative role: `definition`。
 
 - [test_vpi_mod_path_relations_delays.sv](../tests/ch37/test_vpi_mod_path_relations_delays.sv) : Repeat vpiModPath in 2 instances u1 (cell, path 3) and u2 (other cell, path 1), applying vpi_handle (vpiModule, path) to each path, u1 to test_vpi_mod_path_relations_delays.u1 and u2 to... The u2 is compared to the vpiFullName. Distinguishing observation: mod path→module returns NULL, definition (module type) or top returns, other instances returns in implementations with module test_vpi_mod_path_relations_delays.u1 /. u2' is changed.
+- [test_vpi_modport_specify_paths_belong_to_enclosing_module.sv](../tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv): Check that the legacy relationship returns the declaring module for paths using modport terminals and for a conventional path.
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-003
 
@@ -103253,6 +103336,7 @@ Acceptance criterion: 37.39 defines a one-to-one relation from module path to in
 Normative role: `definition`。
 
 - [test_vpi_path_terms_tchk_args.sv](../tests/ch37/test_vpi_path_terms_tchk_args.sv): Checks that vpiInstance of both mod-paths match cell u and compare_objects.
+- [test_vpi_modport_specify_paths_belong_to_enclosing_module.sv](../tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv): Check that the instance relationship for both paths with modport terminals returns the declaring module.
 
 ### SV2023-37.39-EXTRACT-DIAGRAM-004
 
@@ -111665,7 +111749,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.5-EXTRACT-FLUSH-BUFFERS
 
-`38.5` / `normal` / No mapped test
+`38.5` / `normal` / Test mapped; execution unconfirmed
 
 Flush simulator output-channel and current-log-file buffers.
 
@@ -111673,6 +111757,7 @@ Acceptance criterion: Flush simulator output-channel and current-log-file buffer
 
 Normative role: `mandatory`。
 
+- [test_vpi_flush_exposes_live_console_and_current_log_bytes.sv](../tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.sv): Flush the partial line without a newline and inspect both the console capture and the configured log while simulation is still running.
 
 ### SV2023-38.5-EXTRACT-FLUSH-SIGNATURE
 
@@ -112512,7 +112597,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.15-EXTRACT-VALUE-STORAGE-LIFETIME
 
-`38.15` / `normal` / No mapped test
+`38.15` / `normal` / Execution confirmed
 
 get_value supplies pointed-to str/time/vector/strength/misc storage valid only until the next get_value; put_value requires application allocation. For vpiVectorVal value-change callbacks the simulator allocates the vector and frees it upon callback return.
 
@@ -112520,6 +112605,7 @@ Acceptance criterion: get_value supplies pointed-to str/time/vector/strength/mis
 
 Normative role: `mandatory`。
 
+- [test_vpi_value_storage_survives_until_next_read_and_through_callback.sv](../tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.sv): Check value buffers before the next value read, use application-owned buffers for writes, and verify that a callback-owned vector remains valid through a nested value read.
 
 ### SV2023-38.15-EXTRACT-VALUE-STRING-BUFFER
 
@@ -113252,7 +113338,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.30-EXTRACT-PRINTF-OUTPUT
 
-`38.30` / `normal` / No mapped test
+`38.30` / `normal` / Test mapped; execution unconfirmed
 
 Write C printf-formatted text to both invoking-tool output and current log; return printed character count or EOF on error.
 
@@ -113260,6 +113346,7 @@ Acceptance criterion: Write C printf-formatted text to both invoking-tool output
 
 Normative role: `mandatory`。
 
+- [test_vpi_printf_reports_formatted_length_and_encoding_error.sv](../tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.sv): Check the formatted output, character count and log entry, then verify the return value for a character that cannot be encoded in the C locale.
 
 ### SV2023-38.30-EXTRACT-PRINTF-SIGNATURE
 
@@ -134758,7 +134845,7 @@ Normative role: `definition`。
 
 ### SV2023-H.2-EXTRACT-DEPRECATED
 
-`H.2` / `normal` / No mapped test
+`H.2` / `normal` / Execution confirmed
 
 Specification string DPI enables deprecated implementation-specific packed-data functionality of H.14.
 
@@ -134766,6 +134853,7 @@ Acceptance criterion: Specification string DPI enables deprecated implementation
 
 Normative role: `definition`。
 
+- [test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv](../tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv): Use the deprecated conversion routines under the legacy declaration and check a multiword round trip with known and unknown bits.
 
 ### SV2023-H.2-EXTRACT-DIRECTIONS
 
@@ -136163,7 +136251,7 @@ Normative role: `definition`。
 
 ### SV2023-H.10.1.2-EXTRACT-SIGNED-TEXT
 
-`H.10.1.2` / `normal` / No mapped test
+`H.10.1.2` / `normal` / Execution confirmed
 
 svdpi.h shall contain SV_GET_SIGNED_BITS(VALUE, N) exactly as printed in H.10.1.2: VALUE when N == 32, otherwise a test of bit N of VALUE that selects sign fill (VALUE | ~SV_MASK(N)) or masking (VALUE & SV_MASK(N)). The bit index is recorded as printed and is not corrected to N-1.
 
@@ -136171,6 +136259,7 @@ Acceptance criterion: A conformance check compares the macro definition in svdpi
 
 Normative role: `definition`。
 
+- [test_svdpi_h_signed_bits_macro_tokens.sv](../tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv): Stringify the signed extraction macro without expanding its mask and compare the printed standard token sequence.
 
 ### SV2023-H.10.1.2-EXTRACT-UNSIGNED
 
@@ -137135,7 +137224,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.14-EXTRACT-HANDLES
 
-`H.14` / `normal` / No mapped test
+`H.14` / `normal` / Execution confirmed
 
 If deprecated mode is supported, packed arguments use opaque svLogicPackedArrRef/svBitPackedArrRef without mandatory canonical marshaling; copy/select utilities translate vendor representation.
 
@@ -137143,6 +137232,7 @@ Acceptance criterion: If deprecated mode is supported, packed arguments use opaq
 
 Normative role: `mandatory`。
 
+- [test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv](../tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv): Receive both two-state and four-state values through opaque handles and verify a round trip using the legacy accessors.
 
 ### SV2023-H.14-EXTRACT-OPTIONAL
 
@@ -137372,7 +137462,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.14.2-EXTRACT-VENDOR-SIZE
 
-`H.14.2` / `normal` / No mapped test
+`H.14.2` / `normal` / Execution confirmed
 
 If deprecated SV3.1a functionality is implemented: svSizeOfBitPackedArr(int width) and svSizeOfLogicPackedArr(int width) return int byte size of vendor representation.
 
@@ -137380,6 +137470,7 @@ Acceptance criterion: If deprecated SV3.1a functionality is implemented: svSizeO
 
 Normative role: `mandatory`。
 
+- [test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv](../tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv): Allocate both vendor buffers using the sizes returned for three widths and verify transferring the highest bit.
 
 ### SV2023-H.14.3-EXTRACT-MACROS
 
@@ -138244,7 +138335,7 @@ Normative role: `definition`。
 
 ### SV2023-I.3-EXTRACT-ARRAY-POINTER
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 svGetArrayPtr returns NULL for array not in C layout.
 
@@ -138252,6 +138343,7 @@ Acceptance criterion: svGetArrayPtr returns NULL for array not in C layout.
 
 Normative role: `mandatory`。
 
+- [test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv](../tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv): Read both ends of the native integer array through its pointer and check that the canonical array has no pointer while element access still works.
 
 ### SV2023-I.3-EXTRACT-ARRAY-QUERIES
 
@@ -138267,7 +138359,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-ARRAY-SIZE
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 svSizeOfArray returns byte size or zero if not in C layout.
 
@@ -138275,6 +138367,7 @@ Acceptance criterion: svSizeOfArray returns byte size or zero if not in C layout
 
 Normative role: `mandatory`。
 
+- [test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv](../tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv): Check the byte size from the native element count and element size, and require zero for the canonical packed array.
 
 ### SV2023-I.3-EXTRACT-BIT-TYPE
 
@@ -138397,7 +138490,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-EXTERN
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 DPI_EXTERN defaults empty only when not already defined.
 
@@ -138405,6 +138498,8 @@ Acceptance criterion: DPI_EXTERN defaults empty only when not already defined.
 
 Normative role: `definition`。
 
+- [test_svdpi_h_supplies_empty_default_dpi_extern.sv](../tests/ch35/test_svdpi_h_supplies_empty_default_dpi_extern.sv): Stringify the qualifier while declarations expand and require an empty default at compile time.
+- [test_svdpi_h_uses_application_dpi_extern_in_declarations.sv](../tests/ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations.sv): Use a variable that is declared before the call only if the header expands the application qualifier.
 
 ### SV2023-I.3-EXTRACT-GET-DATA-TEXT
 
@@ -138900,7 +138995,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-LEGACY-SIZE
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 If supported, legacy size APIs return vendor packed-array byte size for width.
 
@@ -138908,6 +139003,7 @@ Acceptance criterion: If supported, legacy size APIs return vendor packed-array 
 
 Normative role: `mandatory`。
 
+- [test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv](../tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv): Allocate both vendor buffers using the sizes returned for three widths and verify transferring the highest bit.
 
 ### SV2023-I.3-EXTRACT-LOGIC-TYPES
 
@@ -139091,7 +139187,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-SIGNED-TEXT
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 Annex I reproduces SV_GET_SIGNED_BITS(VALUE, N) verbatim from H.10.1.2: VALUE when N == 32, otherwise a bit-N test selecting sign fill or masking with SV_MASK(N). Both source occurrences carry the same token sequence and neither is corrected.
 
@@ -139099,6 +139195,7 @@ Acceptance criterion: The macro in the Annex I listing matches the H.10.1.2 defi
 
 Normative role: `definition`。
 
+- [test_svdpi_h_signed_bits_macro_tokens.sv](../tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv): Stringify the signed extraction macro without expanding its mask and compare the printed standard token sequence.
 
 ### SV2023-I.3-EXTRACT-TIME-ALIASES
 
@@ -145556,7 +145653,7 @@ Normative role: `definition`。
 
 ### SV2023-K.2-EXTRACT-DLL
 
-`K.2` / `normal` / No mapped test
+`K.2` / `normal` / Execution confirmed
 
 PLI_DLLISPEC/PLI_DLLESPEC default to dllimport/dllexport for MSVC/MinGW/Cygwin,empty elsewhere,without overriding user definitions; header-created platform qualifiers have cleanup flags.
 
@@ -145564,6 +145661,8 @@ Acceptance criterion: PLI_DLLISPEC/PLI_DLLESPEC default to dllimport/dllexport f
 
 Normative role: `definition`。
 
+- [test_vpi_user_h_applies_application_dll_qualifiers.sv](../tests/ch36/test_vpi_user_h_applies_application_dll_qualifiers.sv): Check that the application import and export qualifiers are both expanded on declarations and remain defined after inclusion.
+- [test_vpi_user_h_macro_linkage_types.sv](../tests/ch36/test_vpi_user_h_macro_linkage_types.sv): Use the case without supplied qualifiers to check platform defaults and cleanup of header-created flags.
 
 ### SV2023-K.2-EXTRACT-ERROR-INFO
 
@@ -145579,7 +145678,7 @@ Normative role: `definition`。
 
 ### SV2023-K.2-EXTRACT-EXTERN
 
-`K.2` / `normal` / No mapped test
+`K.2` / `normal` / Execution confirmed
 
 PLI_EXTERN defaults empty,PLI_VEXTERN defaults extern when not supplied.
 
@@ -145587,6 +145686,7 @@ Acceptance criterion: PLI_EXTERN defaults empty,PLI_VEXTERN defaults extern when
 
 Normative role: `definition`。
 
+- [test_vpi_user_h_supplies_default_external_linkage.sv](../tests/ch36/test_vpi_user_h_supplies_default_external_linkage.sv): Check the empty default for functions and the external linkage default for variables while expanding the startup array declaration.
 
 ### SV2023-K.2-EXTRACT-GUARD
 

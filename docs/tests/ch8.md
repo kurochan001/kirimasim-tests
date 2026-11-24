@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 508 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 512 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -83,6 +83,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_class_methods`](../../tests/ch8/test_class_methods.sv) | Class methods, constructor default arguments and inherited methods | 8.6 8.7 8.13 | Icarus Verilog 13.0 ||
 | [`test_class_methods_2`](../../tests/ch8/test_class_methods_2.sv) | Tests class instantiation, methods, constructors | 8.6 8.7 | Verilator 5.052 ||
 | [`test_illegal_class_method_static_lifetime`](../../tests/ch8/test_illegal_class_method_static_lifetime.sv) | a class method cannot be declared with a static lifetime, unlike a static method | 8.6 8.10 | Verilator 5.052 | illegal design |
+| [`test_local_method_receiver_beats_derived_same_name_array`](../../tests/ch8/test_local_method_receiver_beats_derived_same_name_array.sv) | A method uses its local class receiver despite a derived array name | 8.6 6.21 | Verilator 5.054 | exit code |
 | [`test_method_class`](../../tests/ch8/test_method_class.sv) | Class methods test | 8.6 8.7 13.5.3 | Icarus Verilog 13.0 ||
 | [`test_syntax_class_method_kinds`](../../tests/ch8/test_syntax_class_method_kinds.sv) | Class methods with method qualifiers before a task, a function and a constructor, a constructor declaration with block item declarations, a super.new call and an end label, a constructor prototype completed outside the class, extern task and function prototypes defined out of block, and pure virtual task and function prototypes implemented in a derived class | 8.6 8.7 8.14 8.21 8.24 A.1.9 | Verilator 5.052 ||
 | [`test_class_construct`](../../tests/ch8/test_class_construct.sv) | Class Constructor Tests | 8.7 | Icarus Verilog 13.0 ||
@@ -173,6 +174,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_class_cast_task_failure_reports_error`](../../tests/ch8/test_class_cast_task_failure_reports_error.sv) | $cast called as a task on a class handle that refers to an object of the base class, not of the destination class, fails with a run-time error | 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_dynamic_cast`](../../tests/ch8/test_dynamic_cast.sv) | Assignment and casting | 8.16 6.24.2 | standard only ||
 | [`test_illegal_base_handle_assigned_to_derived`](../../tests/ch8/test_illegal_base_handle_assigned_to_derived.sv) | a superclass handle cannot be assigned directly to a subclass variable, though $cast may do it | 8.16 6.24.2 | Icarus Verilog 13.0 | illegal design |
+| [`test_same_named_class_cast_preserves_package_identity`](../../tests/ch8/test_same_named_class_cast_preserves_package_identity.sv) | Classes with the same name in different packages are distinct cast types | 8.16 26.3 6.24.2 | Verilator 5.054 | exit code |
 | [`test_system_cast`](../../tests/ch8/test_system_cast.sv) | Test $cast - dynamic type casting | 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_type_check`](../../tests/ch8/test_type_check.sv) | Type Checking Tests | 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_class_constructor_default_argument_expansion`](../../tests/ch8/test_class_constructor_default_argument_expansion.sv) | default in a subclass constructor argument list stands for the whole argument list of the superclass constructor, with its order, directions, types, names and default values, an argument right after it is an input of type logic, and a constructor without super.new gets super.new(default) | 8.17 | standard only ||
@@ -221,6 +223,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_final_pure_virtual`](../../tests/ch8/test_illegal_final_pure_virtual.sv) | A pure virtual method cannot be declared :final | 8.20 8.21 | standard only | illegal design |
 | [`test_illegal_initial_method_overrides_pure_virtual`](../../tests/ch8/test_illegal_initial_method_overrides_pure_virtual.sv) | a method declared :initial must not override a pure virtual method of an abstract base class either | 8.20 8.21 | Verilator 5.052 | illegal design |
 | [`test_illegal_initial_method_overrides_virtual`](../../tests/ch8/test_illegal_initial_method_overrides_virtual.sv) | a method declared :initial must not override a virtual method of a base class | 8.20 | Verilator 5.052 | illegal design |
+| [`test_illegal_method_extends_followed_by_initial_in_single_declaration`](../../tests/ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration.sv) | A second dynamic override qualifier cannot follow extends | 8.20 A.2.7 | Verilator 5.052 | illegal design |
 | [`test_illegal_method_extends_without_base`](../../tests/ch8/test_illegal_method_extends_without_base.sv) | A method declared :extends has to override a virtual method of a base class | 8.20 | Verilator 5.052 | illegal design |
 | [`test_illegal_method_initial_and_extends`](../../tests/ch8/test_illegal_method_initial_and_extends.sv) | A method cannot be declared both :initial and :extends | 8.20 | Verilator 5.052 | illegal design |
 | [`test_illegal_method_initial_overrides`](../../tests/ch8/test_illegal_method_initial_overrides.sv) | A method declared :initial cannot override a virtual method | 8.20 | Verilator 5.052 | illegal design |
@@ -233,6 +236,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_virtual_final_method_overridden_in_subclass`](../../tests/ch8/test_illegal_virtual_final_method_overridden_in_subclass.sv) | a virtual method declared :final cannot be overridden in a subclass, also two levels down and without the keyword virtual | 8.20 | Verilator 5.052 | illegal design |
 | [`test_illegal_virtual_override_changes_argument_direction`](../../tests/ch8/test_illegal_virtual_override_changes_argument_direction.sv) | A virtual override cannot replace a reference formal with an input formal | 8.20 13.5.2 | standard only | illegal design |
 | [`test_method_initial_extends`](../../tests/ch8/test_method_initial_extends.sv) | A method declared :initial starts a method and does not override one, and a method declared :extends overrides a virtual method and is virtual itself | 8.20 | Verilator 5.052 ||
+| [`test_method_initial_final_and_extends_final_are_independently_legal`](../../tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.sv) | Initial final and extends final qualify different methods in the same type | 8.20 | Verilator 5.052 ||
 | [`test_method_virtual`](../../tests/ch8/test_method_virtual.sv) | Virtual methods test | 8.20 8.15 | Verilator 5.052 ||
 | [`test_package_virtual_calls_preserve_module_string_updates`](../../tests/ch8/test_package_virtual_calls_preserve_module_string_updates.sv) | Three successive virtual methods append to the same module string | 8.20 23.9 10.4.1 | Verilator 5.054 | exit code |
 | [`test_virt_method`](../../tests/ch8/test_virt_method.sv) | Test virtual methods | 8.20 8.14 | Verilator 5.052 ||

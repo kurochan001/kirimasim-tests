@@ -76,56 +76,56 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **16535 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **16859 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9035 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2961 |
-| The standard only, with no fixed-release simulator oracle recorded | 4539 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9110 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3000 |
+| The standard only, with no fixed-release simulator oracle recorded | 4749 |
 
-4068 tests depend on x or z values (`:fourstate: yes`). 779 tests include C code. 204 use DPI (`:dpi_c:`) and 577 use VPI (`:vpi_c:`). A test can use both. 3108 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 96 tests check the exit code of the simulation (`:expected_exit:`). 36 tests list additional source or include files (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1300 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4121 tests depend on x or z values (`:fourstate: yes`). 872 tests include C code. 220 use DPI (`:dpi_c:`) and 654 use VPI (`:vpi_c:`). A test can use both. 3152 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 128 tests check the exit code of the simulation (`:expected_exit:`). 53 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 58 name the top-level module or configuration (`:top_module:`), and 1315 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 152 | 117 | 15 | 20 |
+| 3 | Design and verification building blocks | 162 | 121 | 15 | 26 |
 | 4 | Scheduling semantics | 481 | 444 | 8 | 29 |
-| 5 | Lexical conventions | 520 | 441 | 29 | 50 |
-| 6 | Data types | 908 | 565 | 174 | 169 |
-| 7 | Aggregate data types | 1117 | 326 | 487 | 304 |
-| 8 | Classes | 498 | 77 | 274 | 147 |
-| 9 | Processes | 469 | 344 | 54 | 71 |
-| 10 | Assignment statements | 751 | 589 | 82 | 80 |
-| 11 | Operators and expressions | 2617 | 2018 | 237 | 362 |
-| 12 | Procedural programming statements | 323 | 214 | 34 | 75 |
-| 13 | Tasks and functions (subroutines) | 756 | 333 | 256 | 167 |
-| 14 | Clocking blocks | 173 |  | 102 | 71 |
-| 15 | Interprocess synchronization and communication | 208 | 2 | 67 | 139 |
-| 16 | Assertions | 812 | 38 | 122 | 652 |
-| 17 | Checkers | 131 |  | 49 | 82 |
-| 18 | Constrained random value generation | 294 | 4 | 135 | 155 |
-| 19 | Functional coverage | 251 |  | 71 | 180 |
-| 20 | Utility system tasks and system functions | 698 | 388 | 123 | 187 |
-| 21 | Input/output system tasks and system functions | 939 | 535 | 109 | 295 |
+| 5 | Lexical conventions | 526 | 445 | 31 | 50 |
+| 6 | Data types | 916 | 567 | 176 | 173 |
+| 7 | Aggregate data types | 1136 | 327 | 490 | 319 |
+| 8 | Classes | 512 | 77 | 279 | 156 |
+| 9 | Processes | 487 | 351 | 58 | 78 |
+| 10 | Assignment statements | 764 | 594 | 82 | 88 |
+| 11 | Operators and expressions | 2635 | 2024 | 241 | 370 |
+| 12 | Procedural programming statements | 324 | 214 | 34 | 76 |
+| 13 | Tasks and functions (subroutines) | 760 | 333 | 258 | 169 |
+| 14 | Clocking blocks | 174 |  | 103 | 71 |
+| 15 | Interprocess synchronization and communication | 215 | 2 | 68 | 145 |
+| 16 | Assertions | 815 | 38 | 123 | 654 |
+| 17 | Checkers | 134 |  | 49 | 85 |
+| 18 | Constrained random value generation | 297 | 4 | 136 | 157 |
+| 19 | Functional coverage | 256 |  | 71 | 185 |
+| 20 | Utility system tasks and system functions | 716 | 397 | 123 | 196 |
+| 21 | Input/output system tasks and system functions | 961 | 546 | 109 | 306 |
 | 22 | Compiler directives | 1327 | 1244 | 42 | 41 |
-| 23 | Modules and hierarchy | 431 | 283 | 57 | 91 |
-| 24 | Programs | 221 | 37 | 38 | 146 |
-| 25 | Interfaces | 273 | 90 | 123 | 60 |
-| 26 | Packages | 268 | 95 | 70 | 103 |
-| 27 | Generate constructs | 291 | 235 | 21 | 35 |
-| 28 | Gate-level and switch-level modeling | 414 | 322 | 3 | 89 |
-| 29 | User-defined primitives | 142 | 95 | 11 | 36 |
-| 30 | Specify blocks | 70 | 37 | 1 | 32 |
-| 31 | Timing checks | 82 | 18 | 1 | 63 |
-| 32 | Backannotation using the standard delay format | 73 | 19 |  | 54 |
-| 33 | Configuring the contents of a design | 89 | 5 | 9 | 75 |
+| 23 | Modules and hierarchy | 445 | 288 | 59 | 98 |
+| 24 | Programs | 223 | 38 | 38 | 147 |
+| 25 | Interfaces | 282 | 90 | 126 | 66 |
+| 26 | Packages | 271 | 98 | 70 | 103 |
+| 27 | Generate constructs | 295 | 238 | 21 | 36 |
+| 28 | Gate-level and switch-level modeling | 423 | 329 | 3 | 91 |
+| 29 | User-defined primitives | 148 | 97 | 14 | 37 |
+| 30 | Specify blocks | 73 | 38 | 1 | 34 |
+| 31 | Timing checks | 85 | 18 | 1 | 66 |
+| 32 | Backannotation using the standard delay format | 80 | 19 |  | 61 |
+| 33 | Configuring the contents of a design | 90 | 5 | 9 | 76 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 201 |  | 122 | 79 |
-| 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
-| 37 | VPI object model diagrams | 249 | 19 | 1 | 229 |
-| 38 | VPI routine definitions | 135 | 64 | 10 | 61 |
-| 39 | Assertion API | 39 |  | 1 | 38 |
-| 40 | Code coverage control and API | 39 | 1 | 2 | 36 |
+| 35 | Direct programming interface | 217 |  | 125 | 92 |
+| 36 | Programming language interface (PLI/VPI) overview | 93 | 34 | 21 | 38 |
+| 37 | VPI object model diagrams | 273 | 19 | 1 | 253 |
+| 38 | VPI routine definitions | 169 | 68 | 10 | 91 |
+| 39 | Assertion API | 50 |  | 1 | 49 |
+| 40 | Code coverage control and API | 40 | 1 | 2 | 37 |
 <!-- suite-stats:end -->
 
 The total includes 267 `:type: formal` tests. They are checked with SymbiYosys
@@ -313,13 +313,13 @@ The requirement denominator is **12,332 requirements**: those that the
 merging duplicate rows, with 34 rows that mixed an accepted and a rejected form
 each split in two with the owner's approval. The [history](docs/history.md)
 records how the denominator changed. The reviewer was an AI, not an independent human.
-Design coverage is **95.08% (11,725/12,332)**;
+Design coverage is **95.39% (11,763/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**51.69% (6,375/12,332)**.
-Of these rows, 6,083 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 89.33% (11,016/12,332).
-Clauses 1 to 40 alone are at 94.27% (8,955/9,499) design coverage.
+**51.77% (6,384/12,332)**.
+Of these rows, 6,092 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 89.47% (11,033/12,332).
+Clauses 1 to 40 alone are at 94.56% (8,982/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.

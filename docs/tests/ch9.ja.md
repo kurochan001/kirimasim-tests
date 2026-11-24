@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .テストは486本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは487本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -126,6 +126,7 @@
 | [`test_illegal_return_inside_fork`](../../tests/ch9/test_illegal_return_inside_fork.sv) |フォークジョイントブロック内の return 命令はコンパイルエラーです| 9.3.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_join_none_children_start_after_parent_blocks`](../../tests/ch9/test_join_none_children_start_after_parent_blocks.sv) |フォーク-join_none によって生成されたプロセスは、親ブロックがブロックされるまでは起動しません。したがって、その時点で静的ループ変数の値を見ることができます。| 9.3.2 | Icarus Verilog 13.0 ||
 | [`test_ref_static_fork_join_none_after_return`](../../tests/ch9/test_ref_static_fork_join_none_after_return.sv) |fork-join_none で生成したプロセスはタスクが戻った後も ref static 引数を読み書きでき、その時点の呼び出し側の変数に到達するが、通常の ref 引数はそこでは fork ブロックの変数の初期化にしか使えない| 9.3.2 13.5.2 6.21 |規格のみ||
+| [`test_timed_nested_fork_conditionals_keep_activation_formals`](../../tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.sv) |時間制御を含む入れ子の並行分岐で起動ごとに仮引数の値を保持する| 9.3.2 6.21 13.5.1 | Verilator 5.054 |出口コード|
 | [`test_block_variable_static_and_automatic_lifetimes`](../../tests/ch9/test_block_variable_static_and_automatic_lifetimes.sv) |static なブロック・task・function の中の lifetime 修飾の無い変数は入るたびに値を保ち、明示的に automatic の変数、automatic な task・function・ブロックの変数、クラスメソッドの変数、宣言した for ループ変数は入るたびに新しく、起動の間で共有されない| 9.3.4 6.21 | Verilator 5.054 ||
 | [`test_ch9_extra_unnamed_block_scope`](../../tests/ch9/test_ch9_extra_unnamed_block_scope.sv) |順序ブロックの名前なしの範囲に属する変数は階層的な名前でアクセスできません| 9.3.4 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_end_name_differs_from_begin_name`](../../tests/ch9/test_illegal_end_name_differs_from_begin_name.sv) |ブロック名は ブロック名の後に付けられる| 9.3.4 9.3.1 | Icarus Verilog 13.0 |規格違反の設計|

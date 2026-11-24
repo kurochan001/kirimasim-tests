@@ -1,0 +1,4 @@
+own read=1 write=1
+shared read=17 write error=0
+pulse read=1 write=1
+storage=19/43 live event fired=1

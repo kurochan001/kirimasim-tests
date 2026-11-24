@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは154本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは162本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -51,13 +51,17 @@
 | [`test_definitions_visible_from_other_file`](../../tests/ch3/test_definitions_visible_from_other_file.sv) |別のソースファイルで宣言した package、interface、primitive、module、program は、2 つのファイルが 1 つのコンパイル単位をなす場合も 2 つをなす場合も、すべてテストのファイルから名前で見つかる| 3.12.1 3.12 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_directives_apply_to_later_text_only`](../../tests/ch3/test_directives_apply_to_later_text_only.sv) |コンパイラ指令は、その後のソーステキストに適用され、モジュール境界を越えて、前のテキストには決して適用されません。テキストマクロの後の定義が 先の定義を置き換えて 残りの入力を処理します| 3.12.1 3.13 22.5.1 22.7 | Icarus Verilog 13.0 ||
 | [`test_files_module_in_other_file`](../../tests/ch3/test_files_module_in_other_file.sv) |テストがモジュールをインスタンス化するとき、同じコンパイルの別のソースファイルに宣言されたモジュールを見つけ、そのパラメータを上書きします。| 3.12.1 3.13 23.3 | Icarus Verilog 13.0 |複数のファイル|
+| [`test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration`](../../tests/ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv) |ファイルごとのコンパイル単位では別の単位の名前を参照できない| 3.12.1 |規格のみ|規格違反の設計、複数ファイル、コマンドライン引数|
 | [`test_illegal_unit_prefix_forward_reference`](../../tests/ch3/test_illegal_unit_prefix_forward_reference.sv) |コンパイルユニットの後で宣言されたコンパイルユニ ット変数への $unit :: 参照は拒否されます。| 3.12.1 |規格のみ|規格違反の設計|
 | [`test_illegal_unit_scope_forward_reference`](../../tests/ch3/test_illegal_unit_scope_forward_reference.sv) |コンパイルユニットの後で宣言されたコンパイルユニ ット変数へのリファレンスは拒否されます。| 3.12.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_unit_scope_hierarchical_reference`](../../tests/ch3/test_illegal_unit_scope_hierarchical_reference.sv) |トップレベルモジュールを通してコンパイルユニット変数にアクセスしようとする階層名は拒否されます。| 3.12.1 23.6 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_unit_scope_import`](../../tests/ch3/test_illegal_unit_scope_import.sv) |コンパイルユニットのスコープを $unit で名付けたインポート宣言は拒否されます| 3.12.1 26.3 | Verilator 5.052 |規格違反の設計|
 | [`test_include_text_joins_compilation_unit`](../../tests/ch3/test_include_text_joins_compilation_unit.sv) |\`include で含まれたファイルのテキストは、どんなモジュールの外でも、含まれたファイルのコンパイルユニットの一部となり、その宣言はそのコンパイルユニ ットの範囲内にある。| 3.12.1 22.4 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_name_lookup_scope_order`](../../tests/ch3/test_name_lookup_scope_order.sv) |単純な名前は、まずネストされたスコープとそのインポート、次にコンパイルユニットスコープとその インポート、そしてサブルーティンの名前は、インスタンス階層で検索されます。| 3.12.1 23.9 23.8 26.3 |規格のみ||
+| [`test_per_file_compilation_does_not_share_macro_or_default_nettype`](../../tests/ch3/test_per_file_compilation_does_not_share_macro_or_default_nettype.sv) |コンパイラ指示によるマクロと暗黙ネット型の状態が別ファイルの単位へ漏れない| 3.12.1 |規格のみ|複数ファイル、コマンドライン引数|
+| [`test_per_file_compilation_keeps_unit_declarations_private`](../../tests/ch3/test_per_file_compilation_keeps_unit_declarations_private.sv) |個別にコンパイルしたファイルでは同じ名前に別の型と値を保持できる| 3.12.1 |規格のみ|複数ファイル、コマンドライン引数|
 | [`test_scope_package_import_collision`](../../tests/ch3/test_scope_package_import_collision.sv) |$unit で同じ名前、ワイルドカードでインポートされたパッケージとモジュール、ローカルで解決、パッケージごとに、$unit と $root で| 3.12.1 26.3 23.7 26.5 | Verilator 5.052 ||
+| [`test_single_compilation_unit_can_name_previous_file_declaration`](../../tests/ch3/test_single_compilation_unit_can_name_previous_file_declaration.sv) |単一コンパイル単位では先のファイルの宣言を明示的に参照できる| 3.12.1 | Icarus Verilog 13.0 |複数ファイル、コマンドライン引数|
 | [`test_unit_hierarchical_reference_from_root`](../../tests/ch3/test_unit_hierarchical_reference_from_root.sv) |コンパイルユニットアイテムの名前を付けないコンパイルユニ ットスコープの階層的な名前は、それを保持するサブルーチンを呼び出すインスタンスに対する相対的な名前ではなく、設計の上部からの完全なパスです。| 3.12.1 23.8 23.3.1 | Icarus Verilog 13.0 ||
 | [`test_unit_root_name_collision`](../../tests/ch3/test_unit_root_name_collision.sv) |$unit とその子モジュールとの間の名前衝突は $unit :: と $root で解決しました| 3.12.1 23.9 23.6 | Verilator 5.052 ||
 | [`test_unit_scope_bind_construct`](../../tests/ch3/test_unit_scope_bind_construct.sv) |バインド構造は、コンパイルユニットの範囲内にあり、どのモジュールの外にもあり、そのモジュールをターゲットモジュールのすべてのインスタンスにインスタンス化する。| 3.12.1 23.11 | Verilator 5.052 ||
@@ -66,6 +70,7 @@
 | [`test_unit_scope_shared_state`](../../tests/ch3/test_unit_scope_shared_state.sv) |コンパイルユニットの範囲で宣言された変数とタスクは、各モジュールに対して1つのオブジェクトと1つのサブルーティンである。| 3.12.1 3.13 | Icarus Verilog 13.0 ||
 | [`test_unit_variables`](../../tests/ch3/test_unit_variables.sv) |コンパイルユニットスコープで宣言された変数は静的で、タイム 0 より前の初期化子から始まり、それらを名付けたすべてのモジュールで共有されます。| 3.12.1 6.21 26.3 | Icarus Verilog 13.0 ||
 | [`test_vpi_compilation_unit_iteration`](../../tests/ch3/test_vpi_compilation_unit_iteration.sv) |PLI は設計のコンパイル単位を反復する: NULL ハンドルからインスタンスを反復すると、コンパイル単位が vpiUnit が真の package として得られ、アプリケーションはそこからコンパイル単位のスコープで宣言した変数と関数にたどり着く| 3.12.1 37.10 |規格のみ| VPI |
+| [`test_vpi_per_file_units_iterate_same_named_locals_separately`](../../tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.sv) |VPIで二つのファイル単位をたどり、それぞれの同名変数を取得する| 3.12.1 37.10 |規格のみ|VPI、複数ファイル、コマンドライン引数|
 | [`test_attribute_namespace`](../../tests/ch3/test_attribute_namespace.sv) |属性名は属性インスタンス分離子の名前空間に属するので、同じ属性名をモジュール、変数、ネットで名前の衝突なしに使用でき、属性の値は変わりません。| 3.13 5.12 | Icarus Verilog 13.0 ||
 | [`test_element_and_block_name_spaces`](../../tests/ch3/test_element_and_block_name_spaces.sv) |各モジュール、インタフェース、パッケージはそれぞれの種類のアイテムに対して独自の名前空間を持ち、名前付けブロック、名前なしブロック、関数、タスクはそれぞれローカルな名前空間を有し、それぞれに同じ名前を宣言できる。| 3.13 |規格のみ||
 | [`test_illegal_definition_name_interface_reused_by_program`](../../tests/ch3/test_illegal_definition_name_interface_reused_by_program.sv) |他のすべての宣言の外で定義した interface と program は、どちらの名前も定義の名前空間にあるので、同じ名前を持つことができない| 3.13 | Icarus Verilog 13.0 |規格違反の設計|
@@ -73,6 +78,8 @@
 | [`test_illegal_definition_name_primitive_reused_by_module`](../../tests/ch3/test_illegal_definition_name_primitive_reused_by_module.sv) |他のすべての宣言の外で定義した primitive と module は、どちらの名前も定義の名前空間にあるので、同じ名前を持つことができない| 3.13 |規格のみ|規格違反の設計|
 | [`test_illegal_definition_name_program_reused_by_primitive`](../../tests/ch3/test_illegal_definition_name_program_reused_by_primitive.sv) |他のすべての宣言の外で定義した program と primitive は、どちらの名前も定義の名前空間にあるので、同じ名前を持つことができない| 3.13 |規格のみ|規格違反の設計|
 | [`test_illegal_package_name_reused_in_other_file`](../../tests/ch3/test_illegal_package_name_reused_in_other_file.sv) |package 名はすべての compilation unit に共通の1つの package 名前空間にあるので、2つの package は別々のソースファイルで定義しても同じ名前を持つことができない| 3.13 |規格のみ|違法な設計 複数のファイル|
+| [`test_illegal_same_block_event_and_variable_name`](../../tests/ch3/test_illegal_same_block_event_and_variable_name.sv) |同じ名前付きブロックに同名のイベントと変数を宣言すると拒否される| 3.13 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_local_block_namespaces_keep_distinct_declarations`](../../tests/ch3/test_local_block_namespaces_keep_distinct_declarations.sv) |名前付きと名前なしのブロック、サブルーチン、specify ブロックがそれぞれローカル宣言を保持する| 3.13 6.20.5 30.4 | Icarus Verilog 13.0 |出口コード|
 | [`test_name_spaces`](../../tests/ch3/test_name_spaces.sv) |同じ識別子はモジュール、パッケージ、テキストマクロ、モジュールの変数、ブロックの変数の名前を付けることができます。| 3.13 26.3 22.5.1 23.6 |規格のみ||
 | [`test_port_kinds_connect_two_name_spaces`](../../tests/ch3/test_port_kinds_connect_two_name_spaces.sv) |module・interface・program・primitive のポートは、両側がどんな名前を使っていても、インスタンス化する側のスコープの物体をインスタンスのポートに結ぶ。input・output ポートは値を一方向に、inout・ref ポートは双方向に運び、primitive は output・input ポートを持つ| 3.13 23.3.3 |規格のみ| x/z |
 | [`test_port_redeclared_as_net_or_variable`](../../tests/ch3/test_port_redeclared_as_net_or_variable.sv) |module・interface・program・primitive では、ネット・変数の型を持たない宣言のポートを同名のネット・変数として宣言し直すことができ、その宣言がポートの種類と符号の有無を決める| 3.13 23.2.2.1 | Icarus Verilog 13.0 ||
@@ -90,6 +97,7 @@
 | [`test_timescale_precision_rounding`](../../tests/ch3/test_timescale_precision_rounding.sv) |時間単位10ns、時間精度1nsを持つ\`timescaleは、遅延を時間単位の10分の1に丸め、$realtimeはその時間単位で遅延を報告します。| 3.14.1 3.14.2.1 20.3.3 | Icarus Verilog 13.0 ||
 | [`test_time_unit_from_directive_or_keywords`](../../tests/ch3/test_time_unit_from_directive_or_keywords.sv) |\`timescale 指令の前にあるモジュールの時間単位と精度は，モジュールの内部にある時間単位と時間精度の宣言によって与えられ，モジュールの宣言は，実際には指令を上回る。| 3.14.2 3.14.2.1 3.14.2.2 3.14.2.3 3.14.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_timescale_precision_coarse`](../../tests/ch3/test_illegal_timescale_precision_coarse.sv) |時間精度が時間単位よりも粗い\`timescaleは違法です| 3.14.2.1 3.14.1 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_per_file_timescale_does_not_override_next_unit_timeunit`](../../tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.sv) |別のコンパイル単位のタイムスケールが後続ファイルの時間単位を上書きしない| 3.14.2.1 3.12.1 |規格のみ|複数ファイル、コマンドライン引数|
 | [`test_timescale_replaced_by_next`](../../tests/ch3/test_timescale_replaced_by_next.sv) |次の \`timescale 指令が置き換わるまで、\`timescale 指示はその後のデザイン要素に適用されます。| 3.14.2.1 22.7 20.3.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_timeprecision_mismatch`](../../tests/ch3/test_illegal_timeprecision_mismatch.sv) |モジュールの後の項目として繰り返した timeprecision 宣言は最初のものと一致しなければならないので、 100 ps の後に置いた 10 ps の timeprecision はエラーになる| 3.14.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_timeunit_after_item`](../../tests/ch3/test_illegal_timeunit_after_item.sv) |時間単位の宣言は、そのモジュールの他の項目の前に来なければなりません。| 3.14.2.2 | Icarus Verilog 13.0 |規格違反の設計|

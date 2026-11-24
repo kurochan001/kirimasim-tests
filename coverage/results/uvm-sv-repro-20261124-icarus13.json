@@ -1,0 +1,51 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch14/test_clocking_output_uses_shadowing_task_local_handle": {
+   "status": "known",
+   "reason": "compile failed: tests/ch14/test_clocking_output_uses_shadowing_task_local_handle.sv:19: syntax error",
+   "inputs_sha256": "e08bcd5cf30adc210ff418a604542a49a192619505db010e5fb71e8fb46d19e3"
+  },
+  "ch15/test_class_event_assignment_binds_new_waiter_to_source": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_class_event_assignment_binds_new_waiter_to_source.sv:19: syntax error",
+   "inputs_sha256": "a5feca5fc67dd036373bc32ebdeafec3624163b3587ce315442fce4607b00850"
+  },
+  "ch18/test_inherited_randomize_hooks_call_defining_super_once": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.sv:44: sorry: Overriding the default variable lifetime is not yet supported.",
+   "inputs_sha256": "ed5429fa23041c78047143002ec5d86acc675b75f6bb12bc9f120b607032843f"
+  },
+  "ch6/test_timed_nested_local_shadow_preserves_outer_task_variable": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_timed_nested_local_shadow_preserves_outer_task_variable.sv:43: sorry: Overriding the default variable lifetime is not yet supported.",
+   "inputs_sha256": "5849929f157dde7960d71f6183e6abc853ee083410ee201be49a5dcafe54f1c1"
+  },
+  "ch7/test_fork_updates_inherited_associative_array_with_class_key": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.sv:39: sorry: Overriding the default variable lifetime is not yet supported.",
+   "inputs_sha256": "e247aa9ecf90197d519e3719f2bbfbd3d67a92fc1413c012b1947bbebfe351d0"
+  },
+  "ch8/test_local_method_receiver_beats_derived_same_name_array": {
+   "status": "known",
+   "reason": "compile failed: tests/ch8/test_local_method_receiver_beats_derived_same_name_array.sv:18: syntax error",
+   "inputs_sha256": "23f887a1fa1ba596dabbb73e682737065ce1cc398233a07f144b6091a3b95b9b"
+  },
+  "ch8/test_same_named_class_cast_preserves_package_identity": {
+   "status": "known",
+   "reason": "output differs: line 1 is '<tmp>/a.vvp: Program not runnable, 2 errors.', expected 'CHECK same_type 1 cross_package 0'",
+   "inputs_sha256": "ddd4be10d5b02ba3c60961c2025bb47312aadc99cd7ed22d0317b0bb35786d7d"
+  },
+  "ch9/test_timed_nested_fork_conditionals_keep_activation_formals": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.sv:20: syntax error",
+   "inputs_sha256": "25c6cdf48d39e8383a155c6129a25538201414279822a55200a5103a5ad1c588"
+  }
+ },
+ "generated_at": "2026-11-24T13:47:17.750647+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

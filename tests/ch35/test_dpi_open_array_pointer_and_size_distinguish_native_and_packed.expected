@@ -1,0 +1,2 @@
+native pointer=1 bytes=1 extremes=1
+packed pointer null=1 bytes zero=1 four-state value=1

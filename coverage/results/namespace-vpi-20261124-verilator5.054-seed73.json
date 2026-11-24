@@ -1,0 +1,46 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch3/test_illegal_same_block_event_and_variable_name": {
+   "status": "pass",
+   "inputs_sha256": "a610fbcf9571365d25e31967bfba6ca2d924e2a616b93b2a4b07f4f6f9218bd8"
+  },
+  "ch3/test_include_text_joins_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "1942d20d20e06741821b30fc55aa17d1ac811b3a089888bebb4ae0e6791e588f"
+  },
+  "ch3/test_local_block_namespaces_keep_distinct_declarations": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'before local delay=1', expected 'before local delay=0'",
+   "inputs_sha256": "c6d6483d0e5f3e240fb0bc4e06e45c09072f706c53151bb045a9ecac4e5733e3"
+  },
+  "ch37/test_vpi_legacy_array_property_on_named_event_elements": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_legacy_array_property_on_named_event_elements.sv:22:8: Unsupported or unknown PLI call: '$probe_array_events'",
+   "inputs_sha256": "9f863d4856849eabf8bf763cf6db8e308f25c7b5afbdf646f6011a31270a972c"
+  },
+  "ch37/test_vpi_legacy_array_property_on_variable_elements": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_legacy_array_property_on_variable_elements.sv:24:8: Unsupported or unknown PLI call: '$probe_array_vars'",
+   "inputs_sha256": "f5cbcbaa2c6f46fea377b3a388668f62e43b3865cd9289f6882d19fc5dd9c7be"
+  },
+  "ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv:44:14: Unsupported or unknown PLI call: '$probe_path_owners'",
+   "inputs_sha256": "64f4345205da472875bc59aced7180454aed8aedfc9622d83aaacd44c78ef1c6"
+  },
+  "ch37/test_vpi_static_part_select_rejects_ambiguous_expression": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_static_part_select_rejects_ambiguous_expression.sv:20:14: Unsupported or unknown PLI call: '$probe_static_parts'",
+   "inputs_sha256": "854c9b3416f8f2eefb5ac2def9013188e24964fb9ecf5dff61250809878b12a6"
+  }
+ },
+ "generated_at": "2026-11-24T14:27:13.369678+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

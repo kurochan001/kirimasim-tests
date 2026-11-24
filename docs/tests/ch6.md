@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 913 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 916 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -15,6 +15,8 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_user_types_built_from_other_types`](../../tests/ch6/test_user_types_built_from_other_types.sv) | User-defined types are built from other user-defined types (a packed array of a 4-bit type, a packed structure of both, an unpacked array of the structure) and declare objects whose sizes and parts follow the types they are built from | 6.2 6.18 7.2.1 7.4.1 | Verilator 5.052 ||
 | [`test_ch6_extra_event_not_bit_storage`](../../tests/ch6/test_ch6_extra_event_not_bit_storage.sv) | The event type has no storage, so a four-state logic value cannot be assigned to an event variable | 6.3.1 6.17 | standard only | illegal design |
 | [`test_four_state_two_state_and_real_storage`](../../tests/ch6/test_four_state_two_state_and_real_storage.sv) | Each bit of a logic vector, and of types built from logic, holds 0, 1, x or z on its own, while a 2-state bit holds only 0 or 1 and a real holds a real number, with x and z bits converted to 0 | 6.3.1 6.11.2 6.12.1 6.8 | Icarus Verilog 13.0 | x/z |
+| [`test_illegal_event_cannot_initialize_integral_storage`](../../tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv) | A named event does not provide a value for an integral assignment | 6.3.1 6.17 | standard only | illegal design |
+| [`test_illegal_event_cannot_store_four_state_bit_value`](../../tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv) | A named event can be triggered but cannot store a four-state logic value | 6.3.1 6.17 | standard only | illegal design, x/z |
 | [`test_logic_basic`](../../tests/ch6/test_logic_basic.sv) | Logic Basic Tests | 6.3.1 6.11 | Icarus Verilog 13.0 ||
 | [`test_logic_value_meanings`](../../tests/ch6/test_logic_value_meanings.sv) | The four basic values behave as false 0, true 1, unknown x and high-impedance z, and 0 and 1 are complements of each other | 6.3.1 12.4 11.4.7 6.6.1 | Icarus Verilog 13.0 | x/z |
 | [`test_value_logic`](../../tests/ch6/test_value_logic.sv) | Test for logic value operations | 6.3.1 11.4.8 | Icarus Verilog 13.0 | x/z |
@@ -568,6 +570,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_static_var_edge_cases`](../../tests/ch6/test_static_var_edge_cases.sv) | Module variables keep their values across statements | 6.21 | Icarus Verilog 13.0 ||
 | [`test_static_var_edge_cases_2`](../../tests/ch6/test_static_var_edge_cases_2.sv) | Static variables edge cases | 6.21 13.4.2 | Verilator 5.052 ||
 | [`test_static_variable_of_block_not_yet_run`](../../tests/ch6/test_static_variable_of_block_not_yet_run.sv) | A static variable of a named block exists before the block first runs and can be written through its hierarchical name | 6.21 23.6 9.3.4 | Icarus Verilog 13.0 ||
+| [`test_timed_nested_local_shadow_preserves_outer_task_variable`](../../tests/ch6/test_timed_nested_local_shadow_preserves_outer_task_variable.sv) | A timed nested block preserves the outer automatic task variable | 6.21 9.3.1 13.5.1 | Verilator 5.054 | exit code |
 | [`test_variables_and_subroutine_calls`](../../tests/ch6/test_variables_and_subroutine_calls.sv) | Module variables, block variables, and function and task calls | 6.21 13.3 13.4 | Icarus Verilog 13.0 ||
 | [`test_ch6_extra_instance_type_identity`](../../tests/ch6/test_ch6_extra_instance_type_identity.sv) | A user-defined type declared inside an instance includes the instance in its scope, so the same declaration in two instances makes two distinct types | 6.22 6.19.3 | Icarus Verilog 13.0 | illegal design |
 | [`test_type_compatibility_five_levels`](../../tests/ch6/test_type_compatibility_five_levels.sv) | Pairs of types at each level of type compatibility, matching, equivalent, assignment compatible, cast compatible and incompatible, are told apart by type comparison, try_get on a typeless mailbox, assignment, casts and $cast; class handles, interface class handles and chandles are incompatible with other types and convert only within their own kind | 6.22 6.22.5 6.22.1 6.22.2 6.22.3 6.22.4 6.24.2 | standard only ||

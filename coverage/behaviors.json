@@ -4085,7 +4085,37 @@
       "acceptance": "Compiler-directive state in one separately compiled unit must not affect another compilation unit.",
       "source_note": "IEEE 1800-2023 3.12.1; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_per_file_compilation_does_not_share_macro_or_default_nettype.sv",
+          "observation": "先のファイルのマクロが後の単位で未定義となり、暗黙のポート接続にも先の単位の暗黙ネット禁止が伝わらないことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a936dbacebbad94cd2149c36d5e680a89d51631d9bdd784472a134c77784e67f",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_per_file_compilation_does_not_share_macro_or_default_nettype.sv",
+              "contains": ":args: --compilation-unit=per-file"
+            },
+            {
+              "file": "tests/ch3/test_per_file_compilation_does_not_share_macro_or_default_nettype.sv",
+              "contains": "source_unit(.value(implicit_result))"
+            },
+            {
+              "file": "tests/ch3/test_per_file_compilation_does_not_share_macro_or_default_nettype.expected",
+              "contains": "macro=0 port=1"
+            },
+            {
+              "file": "tests/ch3/directive_unit_provider.sv",
+              "contains": "`default_nettype none"
+            },
+            {
+              "file": "tests/ch3/directive_unit_provider.sv",
+              "contains": "`define PROVIDER_FEATURE_FLAG 81"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.12.1",
@@ -4267,7 +4297,7 @@
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
           "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "27daa814633883830a05af9e82170e14485329e3ceea47c28faa13f1617335a1",
+          "inputs_sha256": "1942d20d20e06741821b30fc55aa17d1ac811b3a089888bebb4ae0e6791e588f",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",
@@ -4473,7 +4503,41 @@
       "acceptance": "A PLI application can obtain the complete set of compilation-unit objects and traverse their exposed declarations.",
       "source_note": "IEEE 1800-2023 3.12.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.sv",
+          "observation": "別の二単位の値を言語上の対照で確認し、列挙から得た両スコープで同名の変数に別々の値が見えることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "4ff777e6b149d6bccdede6cd55e9190fe31a15b11c3ec7c3b9cc4c753d91fa34",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.sv",
+              "contains": "vpi_per_file_unit_peer peer();"
+            },
+            {
+              "file": "tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.sv",
+              "contains": "$vt_check_units;"
+            },
+            {
+              "file": "tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.expected",
+              "contains": "peer=23 local=57"
+            },
+            {
+              "file": "tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.expected",
+              "contains": "matching units=2 first=1 second=1 other=0"
+            },
+            {
+              "file": "tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.c",
+              "contains": "vpiHandle instances = vpi_iterate(vpiInstance, NULL), instance;"
+            },
+            {
+              "file": "tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.c",
+              "contains": "vpiHandle variables = vpi_iterate(vpiVariables, unit), variable;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.12.1",
@@ -4491,7 +4555,33 @@
       "acceptance": "Compilation-unit-scope declarations of one file are not directly visible from another separately compiled file.",
       "source_note": "IEEE 1800-2023 3.12.1; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_per_file_compilation_keeps_unit_declarations_private.sv",
+          "observation": "ファイル単位のモードで同名の変数と型を宣言し、インスタンスの手続きを呼んでも取得値がそれぞれの単位で独立することを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "ae6647a78f8f6fc3d4506295b076a6646f6a3807a70bfae2ba8fd004a1650783",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_per_file_compilation_keeps_unit_declarations_private.sv",
+              "contains": ":args: --compilation-unit=per-file"
+            },
+            {
+              "file": "tests/ch3/test_per_file_compilation_keeps_unit_declarations_private.sv",
+              "contains": "remote.bump();"
+            },
+            {
+              "file": "tests/ch3/test_per_file_compilation_keeps_unit_declarations_private.expected",
+              "contains": "local=41 bits=6 remote=44"
+            },
+            {
+              "file": "tests/ch3/unit_mode_provider.sv",
+              "contains": "$unit::local_value++;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.12.1",
@@ -4701,12 +4791,67 @@
       "acceptance": "Reject cross-unit source references to another unit's private declaration.",
       "source_note": "IEEE 1800-2023 3.12.1; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_single_compilation_unit_can_name_previous_file_declaration.sv",
+          "observation": "同じ単位にした場合、先のファイルで宣言した名前を明示的な単位スコープから読み取る。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a0194155d1c457be50fbf441da335157659a0dcb850faac1326895ea15badb85",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_single_compilation_unit_can_name_previous_file_declaration.sv",
+              "contains": ":args: --compilation-unit=single"
+            },
+            {
+              "file": "tests/ch3/test_single_compilation_unit_can_name_previous_file_declaration.sv",
+              "contains": "$unit::mode_visible_value"
+            },
+            {
+              "file": "tests/ch3/test_single_compilation_unit_can_name_previous_file_declaration.expected",
+              "contains": "previous declaration=67"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv",
+          "observation": "ファイルごとに単位を分け、先のファイルだけに存在する名前を現在の単位スコープで参照すると拒否される。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5d976c5eee92d7efe22a7552c89622ee8759aed507febda20bdd6bee596b6e73",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv",
+              "contains": ":args: --compilation-unit=per-file"
+            },
+            {
+              "file": "tests/ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv",
+              "contains": "$unit::mode_visible_value"
+            },
+            {
+              "file": "tests/ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv",
+              "contains": ":expected_stderr_regex: test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration\\.sv:17:(?:\\d+:)?[^\\n]*(?i:(?:undeclared|unknown|find|not found|missing|no member)[^\\n]*mode_visible_value|mode_visible_value[^\\n]*(?:undeclared|unknown|not found))"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.12.1",
           "blocks": [
             "B009"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "single_unit_lookup_and_private_file_scope",
+          "observation": "同一単位にした場合だけ先行する宣言を参照でき、単位を分けると拒否されることを照合する。",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24",
+          "tests": [
+            "tests/ch3/test_single_compilation_unit_can_name_previous_file_declaration.sv",
+            "tests/ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration.sv"
           ]
         }
       ]
@@ -4831,7 +4976,33 @@
       "acceptance": "Named and unnamed blocks, specify blocks, functions and tasks introduce a local block namespace for their permitted declarations.",
       "source_note": "IEEE 1800-2023 3.13; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_local_block_namespaces_keep_distinct_declarations.sv",
+          "observation": "名前付きと名前なしのブロック、関数、タスクに置いた同名変数がそれぞれの値を保持し、指定ブロックの局所定数がパスの遅延を決めることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "c6d6483d0e5f3e240fb0bc4e06e45c09072f706c53151bb045a9ecac4e5733e3",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_local_block_namespaces_keep_distinct_declarations.sv",
+              "contains": "specparam path_delay = 3;"
+            },
+            {
+              "file": "tests/ch3/test_local_block_namespaces_keep_distinct_declarations.sv",
+              "contains": "$display(\"unnamed=%0d\", token);"
+            },
+            {
+              "file": "tests/ch3/test_local_block_namespaces_keep_distinct_declarations.expected",
+              "contains": "named=41 function=23 task=31"
+            },
+            {
+              "file": "tests/ch3/test_local_block_namespaces_keep_distinct_declarations.expected",
+              "contains": "restored=41 enclosing value=17\nbefore local delay=0\nafter local delay=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.13",
@@ -5115,6 +5286,23 @@
             {
               "file": "tests/ch6/test_illegal_redeclaration.sv",
               "contains": ":expected_stderr_regex: test_illegal_redeclaration\\.sv:(19|20):"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch3/test_illegal_same_block_event_and_variable_name.sv",
+          "observation": "別のブロックの同名イベントを対照にし、一つのブロック内でイベントと変数が同じ名前を使う箇所に再宣言の診断を要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a610fbcf9571365d25e31967bfba6ca2d924e2a616b93b2a4b07f4f6f9218bd8",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_illegal_same_block_event_and_variable_name.sv",
+              "contains": "event token;\n    int token;"
+            },
+            {
+              "file": "tests/ch3/test_illegal_same_block_event_and_variable_name.sv",
+              "contains": ":expected_stderr_regex: (?i)test_illegal_same_block_event_and_variable_name\\.sv:22:(?=[^\\n]*\\btoken\\b)[^\\n]*(?:redecl|redefin|duplicate|already|conflict)"
             }
           ]
         }
@@ -6167,7 +6355,41 @@
       "acceptance": "A timescale directive is restricted to its current compilation unit and does not cross separately compiled unit boundaries.",
       "source_note": "IEEE 1800-2023 3.14.2.1; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.sv",
+          "observation": "別々のファイルで同じ遅延値を使い、先のファイルの指示と後の単位宣言が各パルスの到着時刻に独立に反映されることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "411bbd1cea0a959d7681f63e6f951b2d6ddf8706a2bdde4f84cc60a459aca6d5",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.sv",
+              "contains": ":args: --compilation-unit=per-file"
+            },
+            {
+              "file": "tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.sv",
+              "contains": "timeunit 1ns/1ps;"
+            },
+            {
+              "file": "tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.sv",
+              "contains": "initial #1.24 done = 1;"
+            },
+            {
+              "file": "tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.expected",
+              "contains": "second=1240 ps"
+            },
+            {
+              "file": "tests/ch3/test_per_file_timescale_does_not_override_next_unit_timeunit.expected",
+              "contains": "first=12000 ps"
+            },
+            {
+              "file": "tests/ch3/isolated_timescale_provider.sv",
+              "contains": "`timescale 10ns/1ns"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.14.2.1",
@@ -18513,17 +18735,72 @@
     {
       "id": "SV2023-6.3.1-EXTRACT-EVENT-NO-VALUE-STORAGE",
       "clause": "6.3.1",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "The event type is not a four-state bit-storage object; its semantics are defined by the event type rules.",
       "acceptance": "The event type is not a four-state bit-storage object; its semantics are defined by the event type rules.",
       "source_note": "IEEE 1800-2023 6.3.1; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv",
+          "observation": "発火操作とは別に四状態値をイベントへ代入し、通常のビット格納としては拒否されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "27370f7b25f2b6be93b4a5de8231e322656ffa15382fe50af7ba4b2d2c7d698c",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv",
+              "contains": "-> wake;"
+            },
+            {
+              "file": "tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv",
+              "contains": "wake = source;"
+            },
+            {
+              "file": "tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv",
+              "contains": ":expected_stderr_regex: test_illegal_event_cannot_store_four_state_bit_value\\.sv:20:(?:\\d+:)?[^\\n]*(?i:(?:event|wake)[^\\n]*(?:logic|assign|type|convert|l-value)|(?:logic|assign|type|convert|l-value)[^\\n]*(?:event|wake))"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv",
+          "observation": "イベント発火後のイベント名をベクターへの代入に用い、整数型の値として読み出せないことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "dbeb3bfdfec47c14c9113e9b3c67c1af8c4f8136f66e3f55d1dec8023d441853",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv",
+              "contains": "-> wake;"
+            },
+            {
+              "file": "tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv",
+              "contains": "captured = wake;"
+            },
+            {
+              "file": "tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv",
+              "contains": ":expected_stderr_regex: test_illegal_event_cannot_initialize_integral_storage\\.sv:20:(?:\\d+:)?[^\\n]*(?i:(?:event|wake)[^\\n]*(?:logic|integral|assign|type|convert)|(?:logic|integral|assign|type|convert)[^\\n]*(?:event|wake))"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "6.3.1",
           "blocks": [
             "B007"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "event_not_read_or_written_as_logic_value",
+          "observation": "イベントは発火できるが、四状態値を書き込むことも整数値として読み出すこともできない。",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24",
+          "tests": [
+            "tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv",
+            "tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv"
           ]
         }
       ]
@@ -75632,6 +75909,23 @@
               "contains": "Test 4 PASS: get_doubled() = 112"
             }
           ]
+        },
+        {
+          "test": "tests/ch8/test_local_method_receiver_beats_derived_same_name_array.sv",
+          "observation": "派生クラスに同名の配列があっても、ドット記法でローカルのクラスハンドルを対象にメソッドを呼び出すことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "23f887a1fa1ba596dabbb73e682737065ce1cc398233a07f144b6091a3b95b9b",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_local_method_receiver_beats_derived_same_name_array.sv",
+              "contains": "return names.size();"
+            },
+            {
+              "file": "tests/ch8/test_local_method_receiver_beats_derived_same_name_array.expected",
+              "contains": "CHECK local_size=7 array_size=2"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -78478,6 +78772,27 @@
               "contains": "CHECK cast=1 exists=1 identity=1"
             }
           ]
+        },
+        {
+          "test": "tests/ch8/test_same_named_class_cast_preserves_package_identity.sv",
+          "observation": "共通基底型のハンドルから実際の型へのキャストは成功し、別パッケージの同名の派生型へのキャストは失敗することを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "ddd4be10d5b02ba3c60961c2025bb47312aadc99cd7ed22d0317b0bb35786d7d",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_same_named_class_cast_preserves_package_identity.sv",
+              "contains": "own_ok = $cast(positive, r);"
+            },
+            {
+              "file": "tests/ch8/test_same_named_class_cast_preserves_package_identity.sv",
+              "contains": "other_ok = $cast(b, r);"
+            },
+            {
+              "file": "tests/ch8/test_same_named_class_cast_preserves_package_identity.expected",
+              "contains": "CHECK same_type 1 cross_package 0"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -80184,13 +80499,64 @@
       "acceptance": "A method declared with both :initial and :extends is rejected at that declaration.",
       "source_note": "IEEE 1800-2023 8.20; complete own-body source review, blocks B024. The rule is paraphrased; conditions and referenced rules remain applicable. Narrowed on 2026-11-15 (approved by the owner; drafted by Claude Opus 5.5 (AI), not an independent human review): that final may be combined with initial or with extends is an accepted form of the specifier grammar, covered by SV2023-A.2.7-EXTRACT-OVERRIDES, so it is removed from this row.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.sv",
+          "observation": "同じクラスで新規メソッドと上書きのそれぞれに最終指定を加え、両者を呼ぶ。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "69363f0b7c0e6376e67d224612e03ea9f55c04344ccac2ff154821fd5958ae4f",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.sv",
+              "contains": "function :initial :final int separate();"
+            },
+            {
+              "file": "tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.sv",
+              "contains": "function :extends :final int value();"
+            },
+            {
+              "file": "tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.expected",
+              "contains": "initial=4 override=8"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration.sv",
+          "observation": "合法な上書き宣言を先に置き、一つの宣言に二つの相互排他的な指定を並べた箇所で指定の衝突を診断する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "fa6a653d6b837918e52203381ce39385f74ac7128a136f51018ed423564c2463",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration.sv",
+              "contains": "function :extends :initial int other();"
+            },
+            {
+              "file": "tests/ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration.sv",
+              "contains": ":expected_stderr_regex: test_illegal_method_extends_followed_by_initial_in_single_declaration\\.sv:25:(?:\\d+:)?[^\\n]*(?i:ClassSpecifierConflict|unexpected[^\\n]*initial[^\\n]*expecting[^\\n]*final|(?:initial|extends)[^\\n]*(?:mutually exclusive|conflicting specifier))"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.20",
           "blocks": [
             "B024"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "override_specifier_exclusivity_with_final",
+          "observation": "最終指定を伴う二つの正常な宣言と、同じ宣言に排他的な指定を併記した場合の診断を照合する。",
+          "tests": [
+            "tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.sv",
+            "tests/ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration.sv"
+          ],
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24"
         }
       ]
     },
@@ -89338,6 +89704,27 @@
               "contains": "5: fork 1, inner block, first\n10: fork 1, #10\n15: fork 1, inner block, second\n30: fork 1, #30\n30: after join\n32: fork 2, #2\n32: after join_any\n32: after join_none\n33: fork 3, #1\n40: fork 2, #10\n52: end"
             }
           ]
+        },
+        {
+          "test": "tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.sv",
+          "observation": "イベントで再開した各並行分岐の順次ブロックが文を記述順に実行し、呼び出しごとに対応する結果を記録することを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "25c6cdf48d39e8383a155c6129a25538201414279822a55200a5103a5ad1c588",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.sv",
+              "contains": "$display(\"CHECK after %0d %0d\", expected, phase.id);"
+            },
+            {
+              "file": "tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.expected",
+              "contains": "CHECK woke 0 0\nCHECK after 0 0\nCHECK woke 1 1\nCHECK after 1 1"
+            },
+            {
+              "file": "tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.expected",
+              "contains": "CHECK recorded=1,2,3"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -97884,12 +98271,93 @@
       "acceptance": "User-specified continuous drive strengths apply to scalar nets other than supply0/supply1 under this clause.",
       "source_note": "IEEE 1800-2023 10.3.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver.sv",
+          "observation": "同じ入力に強い駆動と弱い駆動を指定し、他のプル駆動に対して選ばれるスカラー値が異なることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "8bcd9761b13b96abb66440380dbb3cbd7009056fc65a1ae99ee11c67cd78f4e6",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver.sv",
+              "contains": "assign (weak0, weak1) weaker"
+            },
+            {
+              "file": "tests/ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver.sv",
+              "contains": "assign (strong0, strong1) stronger"
+            },
+            {
+              "file": "tests/ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver.expected",
+              "contains": "low weak=0 strong=0"
+            },
+            {
+              "file": "tests/ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver.expected",
+              "contains": "high weak=0 strong=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_user_drive_strength_on_full_vector_net.sv",
+          "observation": "駆動強度を持つ代入の左辺をベクター全体にしたとき、スカラーという制約に反する箇所を診断する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "8f18ccdf4be4e70b7691e54a5b9e4b411b3486de57d156516b0be1f4cd673422",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_user_drive_strength_on_full_vector_net.sv",
+              "contains": "wire [2:0] bus;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_user_drive_strength_on_full_vector_net.sv",
+              "contains": "assign (weak0, pull1) bus = source;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_user_drive_strength_on_full_vector_net.sv",
+              "contains": ":expected_stderr_regex: test_illegal_user_drive_strength_on_full_vector_net\\.sv:17:(?:\\d+:)?[^\\n]*(?i:(?:strength|assign)[^\\n]*(?:vector|scalar)|(?:vector|scalar)[^\\n]*(?:strength|assign))"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch10/test_illegal_user_drive_strength_on_supply_net.sv",
+          "observation": "電源ネットの連続駆動にユーザー指定の強度を付けた行で診断を要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a0626bf3f6fcfa126bb14e854be64afbde9f67f43f6478ffba3bdd8db3d8b054",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_illegal_user_drive_strength_on_supply_net.sv",
+              "contains": "supply1 supply_rail;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_user_drive_strength_on_supply_net.sv",
+              "contains": "assign (weak0, pull1) supply_rail = source;"
+            },
+            {
+              "file": "tests/ch10/test_illegal_user_drive_strength_on_supply_net.sv",
+              "contains": ":expected_stderr_regex: test_illegal_user_drive_strength_on_supply_net\\.sv:17:(?:\\d+:)?[^\\n]*(?i:(?:strength|assign)[^\\n]*(?:supply|rail)|(?:supply|rail)[^\\n]*(?:strength|assign))"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.3.4",
           "blocks": [
             "B002"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "continuous_user_strength_scalar_vector_supply",
+          "observation": "許可されたスカラー代入で強度が解決に効き、ベクター全体と電源ネットへの代入では明示強度が拒否される。",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24",
+          "tests": [
+            "tests/ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver.sv",
+            "tests/ch10/test_illegal_user_drive_strength_on_full_vector_net.sv",
+            "tests/ch10/test_illegal_user_drive_strength_on_supply_net.sv"
           ]
         }
       ]
@@ -146872,6 +147340,27 @@
             {
               "file": "tests/ch4/test_sched_fork_join_none_in_function.expected",
               "contains": "returned at 0\nspawned 1 starts at 0\nspawned 1 ends at 1\ncaller at 5"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.sv",
+          "observation": "関数が起動したバックグラウンドの分岐が時間制御を経て処理を続け、継承した連想配列に追加した要素を削除することを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e247aa9ecf90197d519e3719f2bbfbd3d67a92fc1413c012b1947bbebfe351d0",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.sv",
+              "contains": "active.delete(key);"
+            },
+            {
+              "file": "tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.expected",
+              "contains": "CHECK registered=1 count=1"
+            },
+            {
+              "file": "tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.expected",
+              "contains": "CHECK cleared=1"
             }
           ]
         }
@@ -195921,6 +196410,23 @@
               "contains": "no override: ok=1 pre=1 post=1 seen 1/5\noverride without super: ok=1 v=5 pre=0 post=0 seen 0/0 own=1/1"
             }
           ]
+        },
+        {
+          "test": "tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.sv",
+          "observation": "継承した乱数化の後処理の上書きから基底クラスの実装を呼び、派生側と基底側の呼び出し回数がそれぞれ一回になることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "ed5429fa23041c78047143002ec5d86acc675b75f6bb12bc9f120b607032843f",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.sv",
+              "contains": "super.post_randomize();"
+            },
+            {
+              "file": "tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.expected",
+              "contains": "CHECK hooks 1 1 base 1 1"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -195999,6 +196505,23 @@
             {
               "file": "tests/ch18/test_randomize_callback_override.expected",
               "contains": "no override: ok=1 pre=1 post=1 seen 1/5\noverride without super: ok=1 v=5 pre=0 post=0 seen 0/0 own=1/1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.sv",
+          "observation": "継承した乱数化の前処理の上書きから基底クラスの実装を呼び、派生側と基底側の呼び出し回数がそれぞれ一回になることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "ed5429fa23041c78047143002ec5d86acc675b75f6bb12bc9f120b607032843f",
+          "evidence": [
+            {
+              "file": "tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.sv",
+              "contains": "super.pre_randomize();"
+            },
+            {
+              "file": "tests/ch18/test_inherited_randomize_hooks_call_defining_super_once.expected",
+              "contains": "CHECK hooks 1 1 base 1 1"
             }
           ]
         }
@@ -225657,13 +226180,178 @@
       "acceptance": "Exponential/poisson/chi-square/t/erlang mean, degree_of_freedom and k_stage arguments where applicable shall be greater than zero.",
       "source_note": "IEEE 1800-2023 20.14.2; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch20/test_distributions_accept_positive_unit_mean_degree_and_stage.sv",
+          "observation": "平均、自由度、段階数を正の境界値にして各分布の呼び出しが完了することを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5d95fcf7f59cb7adbe41a39d4089bc8126fcfed6783f4580b57344128ac23b25",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distributions_accept_positive_unit_mean_degree_and_stage.sv",
+              "contains": "erlang = $dist_erlang(seed, 1, 1);"
+            },
+            {
+              "file": "tests/ch20/test_distributions_accept_positive_unit_mean_degree_and_stage.sv",
+              "contains": "t_sample = $dist_t(seed, 1);"
+            },
+            {
+              "file": "tests/ch20/test_distributions_accept_positive_unit_mean_degree_and_stage.expected",
+              "contains": "positive boundary calls completed=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_distribution_diagnoses_invalid_exponential_mean.sv",
+          "observation": "指数分布にゼロの平均を渡し、引数に関する診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "6337f6626c378502d41f985b74ec2db0a9561955c70f7de3cf60f8730e6c4b77",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_exponential_mean.sv",
+              "contains": "$dist_exponential(seed, 0)"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_exponential_mean.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:error|warning|fatal))(?=[^\\n]*exponential)(?=[^\\n]*(?:mean|argument|nonpositive|positive|invalid|must be >))[^\\n]+"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_exponential_mean.expected",
+              "contains": "checking distribution parameter"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_distribution_diagnoses_invalid_poisson_mean.sv",
+          "observation": "ポアソン分布に負の平均を渡し、引数に関する診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "6886a258b94675d46c9164aa6b37daf403f8f949d8432591a67c0b5317862469",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_poisson_mean.sv",
+              "contains": "$dist_poisson(seed, -1)"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_poisson_mean.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:error|warning|fatal))(?=[^\\n]*poisson)(?=[^\\n]*(?:mean|argument|nonpositive|positive|invalid|must be >))[^\\n]+"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_poisson_mean.expected",
+              "contains": "checking distribution parameter"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_distribution_diagnoses_invalid_chi_square_degrees.sv",
+          "observation": "カイ二乗分布にゼロの自由度を渡し、引数に関する診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "dae61364c69a6ec6dd4ab63bb2dc460e2413fa2421925740267f3b9642b91d0d",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_chi_square_degrees.sv",
+              "contains": "$dist_chi_square(seed, 0)"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_chi_square_degrees.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:error|warning|fatal))(?=[^\\n]*chi_square)(?=[^\\n]*(?:degre|argument|nonpositive|positive|invalid|must be >))[^\\n]+"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_chi_square_degrees.expected",
+              "contains": "checking distribution parameter"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_distribution_diagnoses_invalid_t_degrees.sv",
+          "observation": "スチューデントの分布にゼロの自由度を渡し、引数に関する診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "de33ff39cb350590ec16c76b436e21e7751c1456a99b18b54a34d51ddfc443aa",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_t_degrees.sv",
+              "contains": "$dist_t(seed, 0)"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_t_degrees.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:error|warning|fatal))(?=[^\\n]*(?:\\$dist_t\\b|\\bt distribution\\b))(?=[^\\n]*(?:degre|argument|nonpositive|positive|invalid|must be >))[^\\n]+"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_t_degrees.expected",
+              "contains": "checking distribution parameter"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_distribution_diagnoses_invalid_erlang_mean.sv",
+          "observation": "段階数は正のままアーラン分布にゼロの平均を渡し、その引数に関する診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "0dce65df095d1c25d7bcfa5cac80ab04d225df46c173399ff22df899a56a931a",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_erlang_mean.sv",
+              "contains": "$dist_erlang(seed, 2, 0)"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_erlang_mean.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:error|warning|fatal))(?=[^\\n]*erlang)(?=[^\\n]*(?:mean|argument|nonpositive|positive|invalid|must be >))[^\\n]+"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_erlang_mean.expected",
+              "contains": "checking distribution parameter"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch20/test_distribution_diagnoses_invalid_erlang_stages.sv",
+          "observation": "平均は正のままアーラン分布へ負の段階数を渡し、その引数に関する診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "ac97715cc2e59650006b2ac3822cb53032ab6eafde6dde2cebabc07db74b3584",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_erlang_stages.sv",
+              "contains": "$dist_erlang(seed, -1, 4)"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_erlang_stages.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:error|warning|fatal))(?=[^\\n]*erlang)(?=[^\\n]*(?:stage|argument|nonpositive|positive|invalid|must be >))[^\\n]+"
+            },
+            {
+              "file": "tests/ch20/test_distribution_diagnoses_invalid_erlang_stages.expected",
+              "contains": "checking distribution parameter"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "20.14.2",
           "blocks": [
             "B005"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "distribution_parameter_positive_domain",
+          "observation": "五つの分布の正の境界と、平均・自由度・段階数の非正入力を個別に検査する。",
+          "tests": [
+            "tests/ch20/test_distributions_accept_positive_unit_mean_degree_and_stage.sv",
+            "tests/ch20/test_distribution_diagnoses_invalid_exponential_mean.sv",
+            "tests/ch20/test_distribution_diagnoses_invalid_poisson_mean.sv",
+            "tests/ch20/test_distribution_diagnoses_invalid_chi_square_degrees.sv",
+            "tests/ch20/test_distribution_diagnoses_invalid_t_degrees.sv",
+            "tests/ch20/test_distribution_diagnoses_invalid_erlang_mean.sv",
+            "tests/ch20/test_distribution_diagnoses_invalid_erlang_stages.sv"
+          ],
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24"
         }
       ]
     },
@@ -240827,7 +241515,33 @@
       "acceptance": "Individual vector net bits may be dumped individually.",
       "source_note": "IEEE 1800-2023 21.7.2.3; complete own-body source review, blocks B022. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices.sv",
+          "observation": "ベクターネットから一ビットを指定し、単ビットの宣言とそのビットの変化のみが波形に記録されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "142841da4e8b144f5487b198a15206cd272ddd0012e355d1ed335877224e9c43",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices.sv",
+              "contains": "$dumpvars(0, bus[4]);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices.sv",
+              "contains": "value[5] = 1;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices.sv",
+              "contains": "value[4] = 1;"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices.expected",
+              "contains": "declarations=1 scalar=1 high=1 low=2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.7.2.3",
@@ -297914,6 +298628,31 @@
               "contains": "after pointing d0 at b1: b0.d=01 b1.d=03"
             }
           ]
+        },
+        {
+          "test": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv",
+          "observation": "同じタスクに二つのインターフェースを順に渡し、選択した側のエッジだけで待機から戻り、そのデータを読むことを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "656b698ad8f30e51fd1dc206d4956eddc838551ef37b3b4f465f1418972cba05",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv",
+              "contains": "task automatic receive(virtual grant_link.receiver bus, output int value);"
+            },
+            {
+              "file": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv",
+              "contains": "@(posedge bus.grant);"
+            },
+            {
+              "file": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv",
+              "contains": "selected = right;"
+            },
+            {
+              "file": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.expected",
+              "contains": "first t=4 payload=23\nsecond t=8 payload=51"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -302431,17 +303170,68 @@
     {
       "id": "SV2023-27.6-EXTRACT-UNNAMED-EXTERNAL-NAME",
       "clause": "27.6",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "Unnamed generate blocks receive external-interface names without thereby permitting ordinary external source hierarchical references.",
       "acceptance": "Unnamed generate blocks receive external-interface names without thereby permitting ordinary external source hierarchical references.",
       "source_note": "IEEE 1800-2023 27.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch27/test_vpi_unnamed_loop_blocks_have_external_indices.sv",
+          "observation": "明示的な名前のない生成ループの二要素を外部名で検索し、異なる添字の内部変数が識別されることを確かめる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5c9ec697319f6f0af3b1c899562ead47263ed109ed657bbd272c80fe76823c23",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_vpi_unnamed_loop_blocks_have_external_indices.sv",
+              "contains": "for (genvar i = 0; i < 2; i++) begin"
+            },
+            {
+              "file": "tests/ch27/test_vpi_unnamed_loop_blocks_have_external_indices.expected",
+              "contains": "external loop values=31/32"
+            },
+            {
+              "file": "tests/ch27/test_vpi_unnamed_loop_blocks_have_external_indices.c",
+              "contains": "by_external_name(scope, \"genblk1[1].marker\")"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch27/test_illegal_unnamed_generate_loop_external_name_used_in_source.sv",
+          "observation": "外部からは識別できる生成ループ名でソース内の階層パスを記述したときの拒否を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "191d0dc34f026d79ccad9430e65ea6c5d7dfa325bd5e9baa72a93ce5eb7136d7",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_illegal_unnamed_generate_loop_external_name_used_in_source.sv",
+              "contains": "genblk1[1].marker"
+            },
+            {
+              "file": "tests/ch27/test_illegal_unnamed_generate_loop_external_name_used_in_source.sv",
+              "contains": ":expected_stderr_regex: test_illegal_unnamed_generate_loop_external_name_used_in_source\\.sv:19:(?:\\d+:)?[^\\n]*(?i:(?:unable|unknown|cannot|undeclared|not found|can.t find)[^\\n]*genblk1|genblk1[^\\n]*(?:not found|undeclared|unknown))"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "27.6",
           "blocks": [
             "B002"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "generate_loop_external_only_name",
+          "observation": "名前なし生成ブロックの外部名を外部検索で使える場合とソースの階層参照で拒否される場合を確認する。",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24",
+          "tests": [
+            "tests/ch27/test_vpi_unnamed_loop_blocks_have_external_indices.sv",
+            "tests/ch27/test_illegal_unnamed_generate_loop_external_name_used_in_source.sv"
           ]
         }
       ]
@@ -345218,13 +346008,72 @@
       "acceptance": "Interconnect source ports are output/inout and load ports input/inout.",
       "source_note": "IEEE 1800-2023 32.4.4; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+          "observation": "出力から入力への接続と双方向ポート間の接続に異なる遅延を指定し、両方の到着時刻を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "527dd2e50616fcd5110d9a0f85461119ae29eefebe92cc87eb1ebf0bf3bb4f2e",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+              "contains": "(INTERCONNECT source.drive_io destination.take_io (7))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+              "contains": "(INTERCONNECT source.drive_out destination.take_in (4))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.expected",
+              "contains": "output to input=4 inout to inout=7"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+          "observation": "入力専用の送信側と出力専用の受信側の診断を要求し、別に注釈した正常な経路の遅延も照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "44d2c83147b9d401d4803774131c333b1f57514463f8165a4d9c43d8c99d5a0c",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": "(INTERCONNECT input_as_source.pin alternate_load.pin (5))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": "(INTERCONNECT other_source.pin output_as_load.pin (7))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*(?im:^[^\\n]*(?:warn|error)[^\\n]*input_as_source\\.pin[^\\n]*(?:direction|output|inout)))(?=[\\s\\S]*(?im:^[^\\n]*(?:warn|error)[^\\n]*output_as_load\\.pin[^\\n]*(?:direction|input|inout)))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.expected",
+              "contains": "valid output to input: 13:1 33:0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "32.4.4",
           "blocks": [
             "B011"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "interconnect_legal_and_reversed_port_directions",
+          "observation": "許可された方向と双方向ポートで遅延が適用され、送信・受信を逆に指定すると診断されることを検査する。",
+          "tests": [
+            "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+            "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv"
+          ],
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24"
         }
       ]
     },
@@ -345236,13 +346085,72 @@
       "acceptance": "Interconnect annotations represent output/inout-module-port to input/inout-module-port delays without requiring a matching source declaration; primitive pins cannot be endpoints.",
       "source_note": "IEEE 1800-2023 32.4.4; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+          "observation": "遅延を宣言していないモジュールポートを結び、注釈した値だけで二つの経路の遅延が決まることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "527dd2e50616fcd5110d9a0f85461119ae29eefebe92cc87eb1ebf0bf3bb4f2e",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+              "contains": "assign observed_io = take_io;"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+              "contains": "$sdf_annotate(\"port_routes.sdf\");"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.expected",
+              "contains": "output to input=4 inout to inout=7"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.sv",
+          "observation": "プリミティブ端子を送信側と受信側にそれぞれ指定し、診断を要求しつつ正常な経路だけの遅延を照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "052f12aed4acd1b65b66742f530706d01602fc78628020cf8105bb50e4cdc863",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.sv",
+              "contains": "(INTERCONNECT primitive_source.pin_out real_load.take_in (5))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.sv",
+              "contains": "(INTERCONNECT real_source.drive_out primitive_load.pin_in (8))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^(?=[^\\n]*(?:error|warning))(?=[^\\n]*primitive_source\\.pin_out)(?=[^\\n]*(?:primitive|port|endpoint)))(?=[\\s\\S]*^(?=[^\\n]*(?:error|warning))(?=[^\\n]*primitive_load\\.pin_in)(?=[^\\n]*(?:primitive|port|endpoint)))[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.expected",
+              "contains": "regular route=3 primitive load path=0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "32.4.4",
           "blocks": [
             "B002"
           ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "interconnect_module_ports_and_primitive_endpoints",
+          "observation": "対応する遅延宣言のないモジュールポート間では注釈でき、プリミティブ端子を両端のいずれに指定しても診断される。",
+          "tests": [
+            "tests/ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports.sv",
+            "tests/ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints.sv"
+          ],
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24"
         }
       ]
     },
@@ -357922,7 +358830,37 @@
       "acceptance": "Context applies separately to each import call and does not propagate to subsequent imports; a noncontext import calling an SV export is an error.",
       "source_note": "IEEE 1800-2023 35.5.3; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.sv",
+          "observation": "待ち時間を含むタスクから同じ外部関数を呼び、コンテキスト指定のある子はエクスポートできるが、指定のない子では診断となることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "40efec213ed028c770ee56e5925a5aa42fd0acc72454a14a3b04735e332c71e0",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.sv",
+              "contains": "returned = child_ordinary(tag);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.sv",
+              "contains": "returned = child_context(tag);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal|invalid|illegal)\\b)(?=[^\\n]*(?:dpi|export))(?=[^\\n]*(?:non.?context|requires? (?:a )?context|context required))[^\\n]+"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.expected",
+              "contains": "task returned=107"
+            },
+            {
+              "file": "tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.expected",
+              "contains": "request from noncontext child"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.3",
@@ -358390,7 +359328,37 @@
       "acceptance": "DPI uses the deprecated simulator-format packed-array convention; DPI-C uses canonical representation.",
       "source_note": "IEEE 1800-2023 35.5.4; complete own-body source review, blocks B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+          "observation": "現行指定では正規化されたベクターを直接読み書きし、旧版指定では不透明な値を変換関数で読み書きする。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5655a8f5003958f9735043a97c464339ad72a8b269f85595ff90bae5673c4538",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+              "contains": "import \"DPI\" function void legacy_transfer"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+              "contains": "import \"DPI-C\" function void modern_transfer"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.c",
+              "contains": "svGetLogicVec32(state, b, width);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.expected",
+              "contains": "legacy low=31415926 logic=89abcf0f/00000ff0 top=1"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.expected",
+              "contains": "modern round trip=1 legacy round trip=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.5.4",
@@ -361307,7 +362275,37 @@
       "acceptance": "An imported function must never call an exported task.",
       "source_note": "IEEE 1800-2023 35.8; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_nested_import_function_cannot_enable_export_task.sv",
+          "observation": "入れ子の関数呼び出しが成功することを対照にし、同じコンテキストでタスクを呼ぶと処理が停止して診断されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "c3a539e244b03483aabf30ff4ab446a68983bd90e0592786a3643b5960be9279",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_nested_import_function_cannot_enable_export_task.sv",
+              "contains": "result = first_entry(7, 1);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_import_function_cannot_enable_export_task.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:fatal|error|invalid|illegal)\\b)(?=[^\\n]*(?:DPI|export))(?=[^\\n]*(?:sv_task_nested|task))(?=[^\\n]*function)[^\\n]+"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_import_function_cannot_enable_export_task.expected",
+              "contains": "nested function returned=42"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_import_function_cannot_enable_export_task.expected",
+              "contains": "requesting task from nested import"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_import_function_cannot_enable_export_task.c",
+              "contains": "return use_task ? sv_task_nested(tag) : sv_function_nested(tag);"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.8",
@@ -361572,13 +362570,80 @@
       "acceptance": "After an import invocation becomes disabled it must make no further export calls.",
       "source_note": "IEEE 1800-2023 35.9; complete own-body source review, blocks B004, B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.sv",
+          "observation": "最初のタスクが無効化状態で戻ったことを確認し、即時に戻る別のエクスポートタスクの呼び出しも拒否されることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "9423de09b6c4b01c192b823da1f6c9c3d2c7ba3c35e0baf25891b34bed20a4eb",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.sv",
+              "contains": "disable active_chain;"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:fatal|error)\\b)(?=[^\\n]*(?:dpi|export))(?=[^\\n]*disabl)(?=[^\\n]*(?:cannot|after|prohibit|while|protocol))[^\\n]+"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.expected",
+              "contains": "export status=1 disabled=1"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.expected",
+              "contains": "attempting second task"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.c",
+              "contains": "(void)finish_immediately(tag);"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+          "observation": "エクスポートタスクから無効化状態で戻ったインポートが、エクスポート関数を呼び出す場合も診断を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "7159a85aa02ac08ba7ec5115f11eb88a38332a8ba69524db59ae9b888ac66057",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+              "contains": "observed_import(2);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:fatal|error))(?=[^\\n]*\\b(?:dpi|export)\\b)(?=[^\\n]*disabl)(?=[^\\n]*(?:cannot|after|prohibit|while|protocol))[^\\n]+"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.expected",
+              "contains": "attempting a second export in the disabled state"
+            },
+            {
+              "file": "tests/ch35/test_dpi_import_task_rejects_wrong_status_after_disable.c",
+              "contains": "(void)forbidden_export();"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "35.9",
           "blocks": [
             "B004",
             "B005"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "disabled_import_rejects_function_and_task",
+          "observation": "無効化されたインポートからのエクスポート関数とタスクの呼び出しをどちらも拒否する。",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-24",
+          "tests": [
+            "tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.sv",
+            "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv"
           ]
         }
       ]
@@ -370348,7 +371413,33 @@
       "acceptance": "Use vpiLeftRange/vpiRightRange to distinguish part-select bound expressions; vpiExpr from a part-select is illegal because its expression relation is ambiguous.",
       "source_note": "IEEE 1800-2023 37.3.1; complete own-body source review, blocks B008, B009, B010, B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_static_part_select_rejects_ambiguous_expression.sv",
+          "observation": "昇順と降順の部分選択で左右の境界を照合し、曖昧な式の問い合わせではハンドルを返さずエラー状態になることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "854c9b3416f8f2eefb5ac2def9013188e24964fb9ecf5dff61250809878b12a6",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_static_part_select_rejects_ambiguous_expression.sv",
+              "contains": "$probe_static_parts(ascending_net[5:8], descending_net[10:7]);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_static_part_select_rejects_ambiguous_expression.sv",
+              "contains": ":expected_stderr_regex: (?m)^VPI rejected the ambiguous part-select relation for ascending and descending$"
+            },
+            {
+              "file": "tests/ch37/test_vpi_static_part_select_rejects_ambiguous_expression.c",
+              "contains": "vpi_chk_error(&error) >= vpiError"
+            },
+            {
+              "file": "tests/ch37/test_vpi_static_part_select_rejects_ambiguous_expression.expected",
+              "contains": "ascending left=5 right=8 ambiguous null=1 error=1\ndescending left=10 right=7 ambiguous null=1 error=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.3.1",
@@ -386460,7 +387551,37 @@
       "acceptance": "vpi_get_delays/vpi_put_delays do not apply to vpiInterfacePort.",
       "source_note": "IEEE 1800-2023 37.14; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.sv",
+          "observation": "正常なモジュールパスを対照にして、インターフェース仮ポートでの遅延取得と書き込みの双方で診断を要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "1a3810314ec4a776ca971007d026f1dd00ed89a65abe2d098f54d58517617692",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.sv",
+              "contains": "delayed_port_interface bus, input wire a"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^get delays error: [^\\n]*(?:port|delay|object))(?=[\\s\\S]*^put delays error: [^\\n]*(?:port|delay|object))[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.c",
+              "contains": "vpi_get(vpiPortType, port) == vpiInterfacePort"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.c",
+              "contains": "vpi_put_delays(port, &put);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.expected",
+              "contains": "path delay=3 interface get error=1 interface put error=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.14",
@@ -397584,7 +398705,29 @@
       "acceptance": "variables exposes vpiArray as Boolean, representing deprecated array membership; access it with the appropriate property routine under 37.3.1.",
       "source_note": "IEEE 1800-2023 37.17; complete own-body source review, blocks B001, B002, B003, B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_legacy_array_property_on_variable_elements.sv",
+          "observation": "単独の変数とアンパック配列の要素を二つの変数型で比較し、旧プロパティと現行プロパティの両方が要素だけを真とすることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "f5cbcbaa2c6f46fea377b3a388668f62e43b3865cd9289f6882d19fc5dd9c7be",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_legacy_array_property_on_variable_elements.sv",
+              "contains": "int int_rows [-3:-2];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_legacy_array_property_on_variable_elements.c",
+              "contains": "property(vpiArray, single), property(vpiArray, element),"
+            },
+            {
+              "file": "tests/ch37/test_vpi_legacy_array_property_on_variable_elements.expected",
+              "contains": "logic legacy=0/1 member=0/1\nint legacy=0/1 member=0/1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.17",
@@ -407860,7 +409003,29 @@
       "acceptance": "named event exposes vpiArray as Boolean, representing deprecated array membership; access it with the appropriate property routine under 37.3.1.",
       "source_note": "IEEE 1800-2023 37.27; complete own-body source review, blocks B001, B002, B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_legacy_array_property_on_named_event_elements.sv",
+          "observation": "単独のイベントと負の添字を持つ配列要素がともに名前付きイベントとして取得でき、旧プロパティが配列要素だけを真とすることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "9f863d4856849eabf8bf763cf6db8e308f25c7b5afbdf646f6011a31270a972c",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_legacy_array_property_on_named_event_elements.sv",
+              "contains": "-> events[-1];"
+            },
+            {
+              "file": "tests/ch37/test_vpi_legacy_array_property_on_named_event_elements.c",
+              "contains": "vpi_get(vpiArray, event_handle)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_legacy_array_property_on_named_event_elements.expected",
+              "contains": "standalone named event=1 legacy array=0\narray element named event=1 legacy array=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.27",
@@ -412127,7 +413292,41 @@
       "acceptance": "Variable/event handles obtained from a class definition cannot be read/written with vpi_get_value/vpi_put_value.",
       "source_note": "IEEE 1800-2023 37.31; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.sv",
+          "observation": "クラス定義から取得した静的変数とインスタンス変数およびイベントでは読み書きが拒否され、実体のイベントは発火できることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "6e2e117c16c967c361aa74aea61c29943b61386ca06735f3a83c177054cdd56d",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.sv",
+              "contains": "$vt_check_members(0);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^own read error: [^\\n]+)(?=[\\s\\S]*^own write error: [^\\n]+)(?=[\\s\\S]*^shared read error: [^\\n]+)(?=[\\s\\S]*^shared write error: [^\\n]+)(?=[\\s\\S]*^pulse read error: [^\\n]+)(?=[\\s\\S]*^pulse write error: [^\\n]+)[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.expected",
+              "contains": "own read=1 write=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.expected",
+              "contains": "pulse read=1 write=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.expected",
+              "contains": "storage=19/17 live event fired=1"
+            },
+            {
+              "file": "tests/ch37/vpi_class_scope_access_probes.c",
+              "contains": "vpi_put_value(pulse, NULL, NULL, vpiNoDelay);"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.31",
@@ -413484,7 +414683,41 @@
       "acceptance": "Variable/event handles obtained from class typespecs cannot use get/put_value when nonstatic.",
       "source_note": "IEEE 1800-2023 37.32; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.sv",
+          "observation": "型指定から取得したインスタンス変数とイベントへの読み書きを拒否し、同じ型指定で静的変数を更新できることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "3a5e1fabed160b7e748630a36f827e58542597ce871e660de7c879f8ac417ac5",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.sv",
+              "contains": "$vt_check_members(1);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^own read error: [^\\n]+)(?=[\\s\\S]*^own write error: [^\\n]+)(?=[\\s\\S]*^pulse read error: [^\\n]+)(?=[\\s\\S]*^pulse write error: [^\\n]+)[\\s\\S]*\\Z"
+            },
+            {
+              "file": "tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.expected",
+              "contains": "own read=1 write=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.expected",
+              "contains": "pulse read=1 write=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.expected",
+              "contains": "storage=19/43 live event fired=1"
+            },
+            {
+              "file": "tests/ch37/vpi_class_scope_access_probes.c",
+              "contains": "vpi_put_value(pulse, NULL, NULL, vpiNoDelay);"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.32",
@@ -419056,6 +420289,27 @@
               "contains": "  in: b input, path 1 | out: y output, path 1 | module test_vpi_mod_path_relations_delays.u1"
             }
           ]
+        },
+        {
+          "test": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv",
+          "observation": "モッドポートを端子に使うパスと通常のパスの両方で、旧式の関係から宣言元のモジュールが得られることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "64f4345205da472875bc59aced7180454aed8aedfc9622d83aaacd44c78ef1c6",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv",
+              "contains": "(bus.source => bus.sink_b) = 4;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.c",
+              "contains": "vpiHandle module = vpi_handle(vpiModule, path);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.expected",
+              "contains": "legacy handles=2 matching=2"
+            }
+          ]
         }
       ],
       "source_spans": [
@@ -419096,6 +420350,27 @@
             {
               "file": "tests/ch37/test_vpi_path_terms_tchk_args.c",
               "contains": "vpi_handle(vpiInstance, path)"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv",
+          "observation": "モッドポートを端子に使う二つのパスで、実体を取得する関係が宣言元のモジュールの実体を返すことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "64f4345205da472875bc59aced7180454aed8aedfc9622d83aaacd44c78ef1c6",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv",
+              "contains": "(bus.source => bus.sink_a) = 3;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.c",
+              "contains": "vpiHandle instance = vpi_handle(vpiInstance, path);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.expected",
+              "contains": "modport module found=1 objects=2 paths=2 instance owners=2"
             }
           ]
         }
@@ -452293,7 +453568,41 @@
       "acceptance": "Flush simulator output-channel and current-log-file buffers.",
       "source_note": "IEEE 1800-2023 38.5; complete own-body source review, blocks B005. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.sv",
+          "observation": "改行なしの出力直後にフラッシュし、実行が続く間にコンソール出力と指定したログの両方から同じ文字列を探す。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "b438cab8a7551669c82cdc04452b1dec3a69c79934e263e50310954ea7237d53",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.sv",
+              "contains": "--logfile active-vpi.log"
+            },
+            {
+              "file": "tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.sv",
+              "contains": "$vt_flush_observe;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.c",
+              "contains": "int status = vpi_flush();"
+            },
+            {
+              "file": "tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.c",
+              "contains": "int console_has_marker = contains_line(capture, marker);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.expected",
+              "contains": "flush status=0 output present=1 log present=1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.expected",
+              "contains": "simulation remains active"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.5",
@@ -455366,7 +456675,45 @@
       "acceptance": "get_value supplies pointed-to str/time/vector/strength/misc storage valid only until the next get_value; put_value requires application allocation. For vpiVectorVal value-change callbacks the simulator allocates the vector and frees it upon callback return.",
       "source_note": "IEEE 1800-2023 38.15; complete own-body source review, blocks B022. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.sv",
+          "observation": "次の値取得までバッファ内容を保ち、アプリケーションが確保した領域で書き込めることと、コールバックのベクターが別の値取得中も有効なことを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "2d45a8507064d96ba2f5ad4a586688f2f47b24b1f3c5b07ff9baca9da9b5abe3",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.sv",
+              "contains": "$vt_prepare_buffers;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.sv",
+              "contains": "watched = 66'h2_1357_2468_7654_3210;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.expected",
+              "contains": "time valid=1 string valid=1 strength valid=1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.expected",
+              "contains": "written time=24681357fedcba98 word=KEEP"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.expected",
+              "contains": "callback retained=1 nested read=1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.c",
+              "contains": "vpi_get_value(saved_time, &time_value);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.c",
+              "contains": "value.value.time = &new_time;"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.15",
@@ -458097,7 +459444,41 @@
       "acceptance": "Write C printf-formatted text to both invoking-tool output and current log; return printed character count or EOF on error.",
       "source_note": "IEEE 1800-2023 38.30; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.sv",
+          "observation": "出力文字列、文字数、ログへの書き込みを照合し、定義済みのロケールで符号化できない文字の戻り値も確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "52b2ad224c6761fc5a70c2e41fe7cb083ea09b40e33d43d85ec64ecb420ef2dc",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.sv",
+              "contains": "--logfile format-vpi.log"
+            },
+            {
+              "file": "tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.sv",
+              "contains": "$vt_check_print;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.c",
+              "contains": "int vpi_result = vpi_printf(\"%lc\", outside_c_locale);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.expected",
+              "contains": "formatted [007] +12"
+            },
+            {
+              "file": "tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.expected",
+              "contains": "printed count=20 log contains=1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.expected",
+              "contains": "C encoding error=1 vpi EOF=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.30",
@@ -538353,7 +539734,37 @@
       "acceptance": "Specification string DPI enables deprecated implementation-specific packed-data functionality of H.14.",
       "source_note": "IEEE 1800-2023 H.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+          "observation": "旧版指定から呼んだ側で従来のパック型変換関数を使い、既知ビットと未知ビットが多ワードで往復することを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5655a8f5003958f9735043a97c464339ad72a8b269f85595ff90bae5673c4538",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+              "contains": "import \"DPI\" function void legacy_transfer"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+              "contains": "import \"DPI-C\" function void modern_transfer"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.c",
+              "contains": "svGetLogicVec32(state, b, width);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.expected",
+              "contains": "legacy low=31415926 logic=89abcf0f/00000ff0 top=1"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.expected",
+              "contains": "modern round trip=1 legacy round trip=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "H.2",
@@ -543765,7 +545176,33 @@
       "acceptance": "A conformance check compares the macro definition in svdpi.h with the H.10.1.2 text token for token, including the (1 << (N)) bit test and SV_MASK(N). No test asserts that SV_GET_SIGNED_BITS sign-extends an N-bit value for N != 32; the bit-N versus bit-(N-1) mismatch is recorded as a defect of the supplied header.",
       "source_note": "IEEE 1800-2023 H.10.1.2 (B008), p.1276; complete own-body source review, block B008. Quote: \"#define SV_GET_SIGNED_BITS(VALUE, N)\" whose body is \"((N) == 32 ? (VALUE) :\" and \"(((VALUE) & (1 << (N))) ? ((VALUE) | ~SV_MASK(N)) : ((VALUE) & SV_MASK(N))))\". H.10.1 (p.1276 L10-L12): \"This standard fully defines the svdpi.h file\" and \"all simulators shall use the same file\".",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+          "observation": "マスクのマクロを展開せず符号付き取得マクロを文字列化し、規格に掲載されたトークン列と照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+              "contains": "dpi_signed_bits_text()"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "#undef SV_MASK"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "return strcmp(got, want) == 0;"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected",
+              "contains": "same tokens as H.10.1.2: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "H.10.1.2",
@@ -547612,7 +549049,37 @@
       "acceptance": "If deprecated mode is supported, packed arguments use opaque svLogicPackedArrRef/svBitPackedArrRef without mandatory canonical marshaling; copy/select utilities translate vendor representation.",
       "source_note": "IEEE 1800-2023 H.14; complete own-body source review, blocks B004. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+          "observation": "旧版の二状態値と四状態値を不透明ハンドルとして受け取り、専用の読取と書込を経て同じ値が戻ることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "5655a8f5003958f9735043a97c464339ad72a8b269f85595ff90bae5673c4538",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+              "contains": "import \"DPI\" function void legacy_transfer"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv",
+              "contains": "import \"DPI-C\" function void modern_transfer"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.c",
+              "contains": "svGetLogicVec32(state, b, width);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.expected",
+              "contains": "legacy low=31415926 logic=89abcf0f/00000ff0 top=1"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.expected",
+              "contains": "modern round trip=1 legacy round trip=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "H.14",
@@ -548450,7 +549917,33 @@
       "acceptance": "If deprecated SV3.1a functionality is implemented: svSizeOfBitPackedArr(int width) and svSizeOfLogicPackedArr(int width) return int byte size of vendor representation.",
       "source_note": "IEEE 1800-2023 H.14.2; complete own-body source review, blocks B008, B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv",
+          "observation": "三種類のビット幅それぞれでサイズ関数の戻り値を使って領域を確保し、最上位ビットを転送できることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "d539d11d2488af9af8fb924873b1c174e82a16f5c87096ebf5ebc0e56e16dea5",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv",
+              "contains": "check_legacy_sizes()"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.c",
+              "contains": "int bit_size = svSizeOfBitPackedArr(width);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.c",
+              "contains": "int logic_size = svSizeOfLogicPackedArr(width);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.expected",
+              "contains": "allocation and copy at all three widths=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "H.14.2",
@@ -551297,7 +552790,33 @@
       "acceptance": "svGetArrayPtr returns NULL for array not in C layout.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B032. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv",
+          "observation": "整数の開放配列ではポインター経由で両端の値を読めること、正規化形式の配列ではポインターが空でも個別要素を読めることを照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "cfd320910da0b81d7e905aeda75193cfcbf2393002308a81f2a1871277c37a70",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv",
+              "contains": "inspect_layout(native_values, packed_words);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.c",
+              "contains": "const void *canonical_pointer = svGetArrayPtr(packed);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.expected",
+              "contains": "native pointer=1 bytes=1 extremes=1"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.expected",
+              "contains": "packed pointer null=1 bytes zero=1 four-state value=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -551355,7 +552874,33 @@
       "acceptance": "svSizeOfArray returns byte size or zero if not in C layout.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B033. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv",
+          "observation": "整数配列のサイズは実際の要素数と要素の大きさから求め、正規化形式のパック要素配列ではゼロを要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "cfd320910da0b81d7e905aeda75193cfcbf2393002308a81f2a1871277c37a70",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv",
+              "contains": "input logic [5:0] packed_words[]"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.c",
+              "contains": "int canonical_size = svSizeOfArray(packed);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.expected",
+              "contains": "native pointer=1 bytes=1 extremes=1"
+            },
+            {
+              "file": "tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.expected",
+              "contains": "packed pointer null=1 bytes zero=1 four-state value=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -551767,12 +553312,71 @@
       "acceptance": "DPI_EXTERN defaults empty only when not already defined.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_supplies_empty_default_dpi_extern.sv",
+          "observation": "宣言展開時にアプリ側の確認用マクロから修飾子を文字列化し、既定値が空であることをコンパイル時に確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "3cd97d1b821658a471fd2e72e6b0b8a77b8a0a2b0cdfdc75015845268f46235f",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_supplies_empty_default_dpi_extern.sv",
+              "contains": "check_default_dpi_qualifier()"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_supplies_empty_default_dpi_extern.c",
+              "contains": "sizeof(EXPANDED_TOKENS(DPI_EXTERN)) == 1"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_supplies_empty_default_dpi_extern.expected",
+              "contains": "empty default DPI qualifier=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations.sv",
+          "observation": "アプリが指定した修飾子を宣言時に展開した場合だけ参照できる変数を使い、指定が維持されることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e8187b2537c213d22d3b3972b36e54a7e25b6f3444c42470d9d2ad5912540e5f",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations.sv",
+              "contains": "check_application_dpi_qualifier()"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations.c",
+              "contains": "#define DPI_EXTERN extern int application_qualifier_seen;"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations.c",
+              "contains": "return application_qualifier_seen == 23"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations.expected",
+              "contains": "application DPI qualifier used=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
           "blocks": [
             "B007"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "empty-default-and-application-qualifier",
+          "observation": "同じヘッダーを独立した二つの翻訳単位に取り込み、既定の空の展開とアプリ指定の展開を両方確かめる。",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-25",
+          "tests": [
+            "tests/ch35/test_svdpi_h_supplies_empty_default_dpi_extern.sv",
+            "tests/ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations.sv"
           ]
         }
       ]
@@ -553479,7 +555083,33 @@
       "acceptance": "If supported, legacy size APIs return vendor packed-array byte size for width.",
       "source_note": "IEEE 1800-2023 I.3; complete own-body source review, blocks B059. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv",
+          "observation": "三種類のビット幅それぞれでサイズ関数の戻り値を使って領域を確保し、最上位ビットを転送できることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "d539d11d2488af9af8fb924873b1c174e82a16f5c87096ebf5ebc0e56e16dea5",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.sv",
+              "contains": "check_legacy_sizes()"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.c",
+              "contains": "int bit_size = svSizeOfBitPackedArr(width);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.c",
+              "contains": "int logic_size = svSizeOfLogicPackedArr(width);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers.expected",
+              "contains": "allocation and copy at all three widths=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -554174,7 +555804,33 @@
       "acceptance": "The macro in the Annex I listing matches the H.10.1.2 definition exactly, so reproducing either occurrence satisfies both. Tests compare the text and do not assert sign extension for N != 32.",
       "source_note": "IEEE 1800-2023 I.3 (B018), p.1295; complete own-body source review, block B018. Quote: \"#define SV_GET_SIGNED_BITS(VALUE, N)\" with the body \"((N) == 32 ? (VALUE) :\" and \"(((VALUE) & (1 << (N))) ? ((VALUE) | ~SV_MASK(N)) : ((VALUE) & SV_MASK(N))))\" — identical to H.10.1.2 (p.1276 L61-L63). Both occurrences are retained verbatim; the bit-N test is recorded, not corrected.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+          "observation": "マスクのマクロを展開せず符号付き取得マクロを文字列化し、規格に掲載されたトークン列と照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.sv",
+              "contains": "dpi_signed_bits_text()"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "#undef SV_MASK"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.c",
+              "contains": "return strcmp(got, want) == 0;"
+            },
+            {
+              "file": "tests/ch35/test_svdpi_h_signed_bits_macro_tokens.expected",
+              "contains": "same tokens as H.10.1.2: 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "I.3",
@@ -575870,13 +577526,76 @@
       "acceptance": "PLI_DLLISPEC/PLI_DLLESPEC default to dllimport/dllexport for MSVC/MinGW/Cygwin,empty elsewhere,without overriding user definitions; header-created platform qualifiers have cleanup flags.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B014, B016. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_applies_application_dll_qualifiers.sv",
+          "observation": "アプリが指定したインポートとエクスポートの修飾子をそれぞれ宣言時に展開し、取り込み後も両定義が残ることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a9d2a4f811d0affd46f928d21cad81c40471b4110951c52aa5d4a8e737528ecd",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_applies_application_dll_qualifiers.sv",
+              "contains": "initial #1 $finish;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_applies_application_dll_qualifiers.c",
+              "contains": "#define PLI_DLLISPEC extern int header_import_qualifier_seen;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_applies_application_dll_qualifiers.c",
+              "contains": "#define PLI_DLLESPEC extern int startup_export_qualifier_seen; extern"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_applies_application_dll_qualifiers.expected",
+              "contains": "header import qualifier=1 startup export qualifier=1\nprovided qualifiers remain defined=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+          "observation": "修飾子を指定しない対照でプラットフォーム別の既定値とヘッダーが作った印の後処理を調べる。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.sv",
+              "contains": "module test_vpi_user_h_macro_linkage_types;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "VT_IMPORT_OK"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.c",
+              "contains": "!VT_DLLISPEC_FLAG && !VT_DLLESPEC_FLAG"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_macro_linkage_types.expected",
+              "contains": "PLI_DLLISPEC empty here and removed on MSVC MinGW Cygwin 1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",
           "blocks": [
             "B014",
             "B016"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "platform-default-and-application-qualifiers",
+          "observation": "修飾子の指定がない場合のプラットフォーム別の既定値と、アプリが指定したインポートとエクスポートの修飾子の展開と保持を照合する。",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-25",
+          "tests": [
+            "tests/ch36/test_vpi_user_h_applies_application_dll_qualifiers.sv",
+            "tests/ch36/test_vpi_user_h_macro_linkage_types.sv"
           ]
         }
       ]
@@ -575993,7 +577712,33 @@
       "acceptance": "PLI_EXTERN defaults empty,PLI_VEXTERN defaults extern when not supplied.",
       "source_note": "IEEE 1800-2023 K.2; complete own-body source review, blocks B018, B020. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch36/test_vpi_user_h_supplies_default_external_linkage.sv",
+          "observation": "起動ルーチン配列の宣言を展開する時点で関数用の既定修飾子が空であることと、配列用の既定修飾子が外部リンケージを指定することを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "06a18d8a003e44589da32e5e8f8db1909cdf80257c7c1e5c3df29639d7c61346",
+          "evidence": [
+            {
+              "file": "tests/ch36/test_vpi_user_h_supplies_default_external_linkage.sv",
+              "contains": "initial #1 $finish;"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_supplies_default_external_linkage.c",
+              "contains": "sizeof(EXPANDED_TOKENS(PLI_EXTERN)) == 1"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_supplies_default_external_linkage.c",
+              "contains": "char default_external_linkage[1] = {1};"
+            },
+            {
+              "file": "tests/ch36/test_vpi_user_h_supplies_default_external_linkage.expected",
+              "contains": "default external linkage=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "K.2",

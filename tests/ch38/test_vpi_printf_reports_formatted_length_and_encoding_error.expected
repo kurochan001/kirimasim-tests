@@ -1,0 +1,4 @@
+formatted [007] +12
+printed count=20 log contains=1
+C encoding error=1 vpi EOF=1
+printf check completed

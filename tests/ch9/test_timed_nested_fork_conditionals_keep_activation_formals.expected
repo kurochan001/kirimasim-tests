@@ -1,0 +1,6 @@
+CHECK woke 0 0
+CHECK after 0 0
+CHECK woke 1 1
+CHECK after 1 1
+CHECK recorded=1,2,3
+CHECK pass

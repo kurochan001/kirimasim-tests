@@ -1,0 +1,3 @@
+CHECK registered=1 count=1
+CHECK cleared=1
+CHECK pass

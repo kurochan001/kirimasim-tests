@@ -1,0 +1,5 @@
+module enters exit task at 2
+module returned from exit at 2
+program enters exit task at 4
+module alive at 6
+other program alive at 10

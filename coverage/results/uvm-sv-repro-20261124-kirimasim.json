@@ -1,0 +1,48 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch14/test_clocking_output_uses_shadowing_task_local_handle": {
+   "status": "unsupported",
+   "reason": "virtual interface class property (not implemented yet)",
+   "inputs_sha256": "e08bcd5cf30adc210ff418a604542a49a192619505db010e5fb71e8fb46d19e3"
+  },
+  "ch15/test_class_event_assignment_binds_new_waiter_to_source": {
+   "status": "unsupported",
+   "reason": "managed event class property (not implemented yet)",
+   "inputs_sha256": "a5feca5fc67dd036373bc32ebdeafec3624163b3587ce315442fce4607b00850"
+  },
+  "ch18/test_inherited_randomize_hooks_call_defining_super_once": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "ed5429fa23041c78047143002ec5d86acc675b75f6bb12bc9f120b607032843f"
+  },
+  "ch6/test_timed_nested_local_shadow_preserves_outer_task_variable": {
+   "status": "pass",
+   "inputs_sha256": "5849929f157dde7960d71f6183e6abc853ee083410ee201be49a5dcafe54f1c1"
+  },
+  "ch7/test_fork_updates_inherited_associative_array_with_class_key": {
+   "status": "unsupported",
+   "reason": "variable of type 'test_fork_updates_inherited_associative_array_with_class_key.token$[test_fork_updates_inherited_associative_array_with_class_key.token]' (not implemented yet)",
+   "inputs_sha256": "e247aa9ecf90197d519e3719f2bbfbd3d67a92fc1413c012b1947bbebfe351d0"
+  },
+  "ch8/test_local_method_receiver_beats_derived_same_name_array": {
+   "status": "pass",
+   "inputs_sha256": "23f887a1fa1ba596dabbb73e682737065ce1cc398233a07f144b6091a3b95b9b"
+  },
+  "ch8/test_same_named_class_cast_preserves_package_identity": {
+   "status": "pass",
+   "inputs_sha256": "ddd4be10d5b02ba3c60961c2025bb47312aadc99cd7ed22d0317b0bb35786d7d"
+  },
+  "ch9/test_timed_nested_fork_conditionals_keep_activation_formals": {
+   "status": "unsupported",
+   "reason": "managed event class property (not implemented yet)",
+   "inputs_sha256": "25c6cdf48d39e8383a155c6129a25538201414279822a55200a5103a5ad1c588"
+  }
+ },
+ "generated_at": "2026-11-24T13:47:17.773981+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

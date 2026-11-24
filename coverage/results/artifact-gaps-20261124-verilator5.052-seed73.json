@@ -1,0 +1,104 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch20/test_distribution_diagnoses_invalid_chi_square_degrees": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*(?:error|warning|fatal))(?=[^\\\\n]*chi_square)(?=[^\\\\n]*(?:degre|argument|nonpositive|positive|invalid|must be >))[^\\\\n]+'",
+   "inputs_sha256": "dae61364c69a6ec6dd4ab63bb2dc460e2413fa2421925740267f3b9642b91d0d"
+  },
+  "ch20/test_distribution_diagnoses_invalid_erlang_mean": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*(?:error|warning|fatal))(?=[^\\\\n]*erlang)(?=[^\\\\n]*(?:mean|argument|nonpositive|positive|invalid|must be >))[^\\\\n]+'",
+   "inputs_sha256": "0dce65df095d1c25d7bcfa5cac80ab04d225df46c173399ff22df899a56a931a"
+  },
+  "ch20/test_distribution_diagnoses_invalid_erlang_stages": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*(?:error|warning|fatal))(?=[^\\\\n]*erlang)(?=[^\\\\n]*(?:stage|argument|nonpositive|positive|invalid|must be >))[^\\\\n]+'",
+   "inputs_sha256": "ac97715cc2e59650006b2ac3822cb53032ab6eafde6dde2cebabc07db74b3584"
+  },
+  "ch20/test_distribution_diagnoses_invalid_exponential_mean": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*(?:error|warning|fatal))(?=[^\\\\n]*exponential)(?=[^\\\\n]*(?:mean|argument|nonpositive|positive|invalid|must be >))[^\\\\n]+'",
+   "inputs_sha256": "6337f6626c378502d41f985b74ec2db0a9561955c70f7de3cf60f8730e6c4b77"
+  },
+  "ch20/test_distribution_diagnoses_invalid_poisson_mean": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*(?:error|warning|fatal))(?=[^\\\\n]*poisson)(?=[^\\\\n]*(?:mean|argument|nonpositive|positive|invalid|must be >))[^\\\\n]+'",
+   "inputs_sha256": "6886a258b94675d46c9164aa6b37daf403f8f949d8432591a67c0b5317862469"
+  },
+  "ch20/test_distribution_diagnoses_invalid_t_degrees": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*(?:error|warning|fatal))(?=[^\\\\n]*(?:\\\\$dist_t\\\\b|\\\\bt distribution\\\\b))(?=[^\\\\n]*(?:degre|argument|nonpositive|positive|invalid|must be >))[^\\\\n]+'",
+   "inputs_sha256": "de33ff39cb350590ec16c76b436e21e7751c1456a99b18b54a34d51ddfc443aa"
+  },
+  "ch20/test_distributions_accept_positive_unit_mean_degree_and_stage": {
+   "status": "pass",
+   "inputs_sha256": "5d95fcf7f59cb7adbe41a39d4089bc8126fcfed6783f4580b57344128ac23b25"
+  },
+  "ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'output to input=0 inout to inout=0', expected 'output to input=4 inout to inout=7'",
+   "inputs_sha256": "527dd2e50616fcd5110d9a0f85461119ae29eefebe92cc87eb1ebf0bf3bb4f2e"
+  },
+  "ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'regular route=0 primitive load path=0', expected 'regular route=3 primitive load path=0'",
+   "inputs_sha256": "052f12aed4acd1b65b66742f530706d01602fc78628020cf8105bb50e4cdc863"
+  },
+  "ch32/test_sdf_interconnect_rejects_reversed_port_directions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'valid output to input: 10:1 30:0', expected 'valid output to input: 13:1 33:0'",
+   "inputs_sha256": "44d2c83147b9d401d4803774131c333b1f57514463f8165a4d9c43d8c99d5a0c"
+  },
+  "ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv:17:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+   "inputs_sha256": "5655a8f5003958f9735043a97c464339ad72a8b269f85595ff90bae5673c4538"
+  },
+  "ch35/test_dpi_legacy_vendor_sizes_allocate_two_state_and_four_state_buffers": {
+   "status": "known",
+   "reason": "build failed: %Error: 'make -C <tmp>/obj -f Vt.mk -j 1' exited with 2",
+   "inputs_sha256": "d539d11d2488af9af8fb924873b1c174e82a16f5c87096ebf5ebc0e56e16dea5"
+  },
+  "ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_open_array_pointer_and_size_distinguish_native_and_packed.sv:23:17: Unsupported LHS tristate construct: ARRAYSEL",
+   "inputs_sha256": "cfd320910da0b81d7e905aeda75193cfcbf2393002308a81f2a1871277c37a70"
+  },
+  "ch35/test_svdpi_h_signed_bits_macro_tokens": {
+   "status": "pass",
+   "inputs_sha256": "2cb66e806df15d287665adff7b9490416fffef8cc75765ccfa9dcb33a8894971"
+  },
+  "ch37/test_vpi_interface_formal_rejects_get_and_put_delays": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_interface_formal_rejects_get_and_put_delays.sv:35:14: Unsupported or unknown PLI call: '$vt_probe_delays'",
+   "inputs_sha256": "1a3810314ec4a776ca971007d026f1dd00ed89a65abe2d098f54d58517617692"
+  },
+  "ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes.sv:18:5: Unsupported or unknown PLI call: '$vt_flush_observe'",
+   "inputs_sha256": "b438cab8a7551669c82cdc04452b1dec3a69c79934e263e50310954ea7237d53"
+  },
+  "ch38/test_vpi_printf_reports_formatted_length_and_encoding_error": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_printf_reports_formatted_length_and_encoding_error.sv:17:5: Unsupported or unknown PLI call: '$vt_check_print'",
+   "inputs_sha256": "52b2ad224c6761fc5a70c2e41fe7cb083ea09b40e33d43d85ec64ecb420ef2dc"
+  },
+  "ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration": {
+   "status": "pass",
+   "inputs_sha256": "fa6a653d6b837918e52203381ce39385f74ac7128a136f51018ed423564c2463"
+  },
+  "ch8/test_method_initial_final_and_extends_final_are_independently_legal": {
+   "status": "pass",
+   "inputs_sha256": "69363f0b7c0e6376e67d224612e03ea9f55c04344ccac2ff154821fd5958ae4f"
+  }
+ },
+ "generated_at": "2026-11-24T13:37:31.828742+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

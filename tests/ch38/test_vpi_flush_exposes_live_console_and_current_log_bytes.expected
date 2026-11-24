@@ -1,0 +1,3 @@
+flush probe started
+flush status=0 output present=1 log present=1
+simulation remains active

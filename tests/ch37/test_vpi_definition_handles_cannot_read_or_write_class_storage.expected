@@ -1,0 +1,4 @@
+own read=1 write=1
+shared read=1 write=1
+pulse read=1 write=1
+storage=19/17 live event fired=1

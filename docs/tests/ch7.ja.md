@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1135本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1136本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -287,6 +287,7 @@
 | [`test_illegal_string_index_with_int`](../../tests/ch7/test_illegal_string_index_with_int.sv) |文字列インデックスを持つ連想配列は 文字列と文字列リテラルをインデックスとして受け入れますint のインデックスは タイプチェックエラーです| 7.8.2 |規格のみ|規格違反の設計|
 | [`test_assoc_class_key_order_is_stable`](../../tests/ch7/test_assoc_class_key_order_is_stable.sv) |固定の集合に対して、アドレス順序を指定せずにクラスキートラヴァースを繰り返す| 7.8.3 | Verilator 5.052 |出口コード|
 | [`test_assoc_class_null_and_alias_keys`](../../tests/ch7/test_assoc_class_null_and_alias_keys.sv) |クラスインデックス付き連想配列は null を受け入れ、エイリアスは同じオブジェクトキーを識別します。| 7.8.3 | Verilator 5.052 ||
+| [`test_fork_updates_inherited_associative_array_with_class_key`](../../tests/ch7/test_fork_updates_inherited_associative_array_with_class_key.sv) |バックグラウンドで実行する分岐がクラスハンドルを添字にして継承した連想配列を更新する| 7.8.3 7.9 9.3.2 13.4.4 | Verilator 5.054 |出口コード|
 | [`test_illegal_class_index_with_other_class`](../../tests/ch7/test_illegal_class_index_with_other_class.sv) |クラスインデックスを持つ関連付け配列は、そのクラスまたは派生クラスのオブジェクトをインデックスとして取得します。関連のないクラスのオブジェクトが タイプチェックエラーです| 7.8.3 |規格のみ|規格違反の設計|
 | [`test_assoc_integral_index_cast_context`](../../tests/ch7/test_assoc_integral_index_cast_context.sv) |型付けされた索引は算術的な切り離しの前にキャスト幅と符号コンテキストを適用します| 7.8.4 |規格のみ|出口コード|
 | [`test_assoc_signed_and_unsigned_key_order`](../../tests/ch7/test_assoc_signed_and_unsigned_key_order.sv) |同じ高 bit キーパターンは異なる符号付きと無符号のトラヴァース順序を持つ| 7.8.4 |規格のみ|出口コード|

@@ -1,0 +1,47 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch24/test_exit_uses_thread_origin_in_shared_module_task": {
+   "status": "known",
+   "reason": "output differs: line 3 is missing, expected 'program enters exit task at 4'",
+   "inputs_sha256": "726904c94605d3931bcd26f9d5f75389ebfc7af85b38046f123a47b719843aea"
+  },
+  "ch25/test_illegal_continuous_drive_through_virtual_interface": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_continuous_drive_through_virtual_interface\\\\.sv:24:(?:\\\\d+:)?[^\\\\n]*(?i:virtual|dynamic[^\\\\n]*outside[^\\\\n]*procedural|(?:constant|static)[^\\\\n]*(?:lhs|assignment|connection)|(?:invalid|unsupported)[^\\\\n]*(?:lhs|continuous|hierarch))'; the first is: %Error-CONTASSINIT: tests/ch25/test_illegal_continuous_drive_through_virtual_interface.sv:23:11: Continuous assignment to variable with initial value: 'selected'",
+   "inputs_sha256": "0499ed6b44bcb31202d269f290f441054d9ed39d30aea61401105845c5d510d9"
+  },
+  "ch25/test_virtual_modport_task_wait_selects_rebound_interface": {
+   "status": "pass",
+   "inputs_sha256": "656b698ad8f30e51fd1dc206d4956eddc838551ef37b3b4f465f1418972cba05"
+  },
+  "ch35/test_svdpi_h_supplies_empty_default_dpi_extern": {
+   "status": "pass",
+   "inputs_sha256": "3cd97d1b821658a471fd2e72e6b0b8a77b8a0a2b0cdfdc75015845268f46235f"
+  },
+  "ch35/test_svdpi_h_uses_application_dpi_extern_in_declarations": {
+   "status": "pass",
+   "inputs_sha256": "e8187b2537c213d22d3b3972b36e54a7e25b6f3444c42470d9d2ad5912540e5f"
+  },
+  "ch36/test_vpi_user_h_applies_application_dll_qualifiers": {
+   "status": "pass",
+   "inputs_sha256": "a9d2a4f811d0affd46f928d21cad81c40471b4110951c52aa5d4a8e737528ecd"
+  },
+  "ch36/test_vpi_user_h_macro_linkage_types": {
+   "status": "pass",
+   "inputs_sha256": "1130e6d714f570f6eb0193d5a16ce9a93cb2531d1c19dab28ba881ae79984d05"
+  },
+  "ch36/test_vpi_user_h_supplies_default_external_linkage": {
+   "status": "pass",
+   "inputs_sha256": "06a18d8a003e44589da32e5e8f8db1909cdf80257c7c1e5c3df29639d7c61346"
+  }
+ },
+ "generated_at": "2026-11-24T17:37:41.838931+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

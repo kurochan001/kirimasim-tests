@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは508本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは512本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -83,6 +83,7 @@
 | [`test_class_methods`](../../tests/ch8/test_class_methods.sv) |クラスメソッド、構造子デフォルト引数、継承メソッド| 8.6 8.7 8.13 | Icarus Verilog 13.0 ||
 | [`test_class_methods_2`](../../tests/ch8/test_class_methods_2.sv) |クラスのインスタンス化、メソッド、構造化をテスト| 8.6 8.7 | Verilator 5.052 ||
 | [`test_illegal_class_method_static_lifetime`](../../tests/ch8/test_illegal_class_method_static_lifetime.sv) |静的なメソッドとは異なり 静的な寿命を持つクラスメソッドは宣言できません| 8.6 8.10 | Verilator 5.052 |規格違反の設計|
+| [`test_local_method_receiver_beats_derived_same_name_array`](../../tests/ch8/test_local_method_receiver_beats_derived_same_name_array.sv) |派生クラスに同名の配列があるときメソッド呼び出しの対象がローカルハンドルになる| 8.6 6.21 | Verilator 5.054 |出口コード|
 | [`test_method_class`](../../tests/ch8/test_method_class.sv) |クラスメソッドテスト| 8.6 8.7 13.5.3 | Icarus Verilog 13.0 ||
 | [`test_syntax_class_method_kinds`](../../tests/ch8/test_syntax_class_method_kinds.sv) |task、function、コンストラクタの前にメソッド修飾子を付けたクラスメソッド。ブロック項目宣言、super.new呼出し、終了ラベルを持つコンストラクタ宣言、クラス外で定義を完成させるコンストラクタプロトタイプ、ブロック外で定義するexternのtask／functionプロトタイプ、および派生クラスで実装するpure virtualのtask／functionプロトタイプを含む。| 8.6 8.7 8.14 8.21 8.24 A.1.9 | Verilator 5.052 ||
 | [`test_class_construct`](../../tests/ch8/test_class_construct.sv) |クラスコンストラクタテスト| 8.7 | Icarus Verilog 13.0 ||
@@ -173,6 +174,7 @@
 | [`test_class_cast_task_failure_reports_error`](../../tests/ch8/test_class_cast_task_failure_reports_error.sv) |ターゲットクラスではなくベースクラスのオブジェクトを参照するクラスハンドル上のタスクとして呼び出された $cast はランタイムエラーで失敗しました| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_dynamic_cast`](../../tests/ch8/test_dynamic_cast.sv) |配役・キャスティング| 8.16 6.24.2 |規格のみ||
 | [`test_illegal_base_handle_assigned_to_derived`](../../tests/ch8/test_illegal_base_handle_assigned_to_derived.sv) |クラスハンドルはサブクラス変数に直接割り当てられませんが、$castは割り当てられます。| 8.16 6.24.2 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_same_named_class_cast_preserves_package_identity`](../../tests/ch8/test_same_named_class_cast_preserves_package_identity.sv) |異なるパッケージにある同名クラスをキャストで別の型として扱う| 8.16 26.3 6.24.2 | Verilator 5.054 |出口コード|
 | [`test_system_cast`](../../tests/ch8/test_system_cast.sv) |テスト$cast：動的な型キャスト| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_type_check`](../../tests/ch8/test_type_check.sv) |タイプチェックテスト| 8.16 6.24.2 | Verilator 5.052 ||
 | [`test_class_constructor_default_argument_expansion`](../../tests/ch8/test_class_constructor_default_argument_expansion.sv) |派生クラスのコンストラクタ引数リスト内のdefaultは、順序・方向・型・名前・既定値を含む基底コンストラクタの引数リスト全体を表します。その直後の引数はlogic型のinputになり、super.newを持たないコンストラクタにはsuper.new (default)が入ります。| 8.17 |規格のみ||
@@ -221,6 +223,7 @@
 | [`test_illegal_final_pure_virtual`](../../tests/ch8/test_illegal_final_pure_virtual.sv) |純粋な仮想メソッドは宣言できません:final| 8.20 8.21 |規格のみ|規格違反の設計|
 | [`test_illegal_initial_method_overrides_pure_virtual`](../../tests/ch8/test_illegal_initial_method_overrides_pure_virtual.sv) |:initial と宣言されたメソッドは 抽象ベースクラスの 純粋仮想メソッドを上書きすることもできません| 8.20 8.21 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_initial_method_overrides_virtual`](../../tests/ch8/test_illegal_initial_method_overrides_virtual.sv) |:initial と宣言されたメソッドは ベースクラスの仮想メソッドを上書きできません| 8.20 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_method_extends_followed_by_initial_in_single_declaration`](../../tests/ch8/test_illegal_method_extends_followed_by_initial_in_single_declaration.sv) |一つの宣言で上書き指定に続けて初期宣言の指定を置けない| 8.20 A.2.7 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_method_extends_without_base`](../../tests/ch8/test_illegal_method_extends_without_base.sv) |:extends で宣言されたメソッドはベースクラスの仮想メソッドを上書きしなければなりません。| 8.20 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_method_initial_and_extends`](../../tests/ch8/test_illegal_method_initial_and_extends.sv) |:initialと:extendsの両方を宣言できません。| 8.20 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_method_initial_overrides`](../../tests/ch8/test_illegal_method_initial_overrides.sv) |:initial で宣言されたメソッドは仮想メソッドを上書きできません。| 8.20 | Verilator 5.052 |規格違反の設計|
@@ -233,6 +236,7 @@
 | [`test_illegal_virtual_final_method_overridden_in_subclass`](../../tests/ch8/test_illegal_virtual_final_method_overridden_in_subclass.sv) |:final で宣言された仮想メソッドはサブクラスで上書きできません。 2レベル下のクラスでも、virtual というキーワードがない場合は| 8.20 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_virtual_override_changes_argument_direction`](../../tests/ch8/test_illegal_virtual_override_changes_argument_direction.sv) |仮想メソッドをオーバーライドするときに参照仮引数を入力仮引数に変えることはできない| 8.20 13.5.2 |規格のみ|規格違反の設計|
 | [`test_method_initial_extends`](../../tests/ch8/test_method_initial_extends.sv) |:initial で宣言されたメソッドはメソッドを開始し、他のメソッドを上書きしません。 :extends で宣言された メソッドは仮想メソッドを上 書きし、自身が仮想です。| 8.20 | Verilator 5.052 ||
+| [`test_method_initial_final_and_extends_final_are_independently_legal`](../../tests/ch8/test_method_initial_final_and_extends_final_are_independently_legal.sv) |同じ派生クラスの別メソッドでは初期宣言と上書きの指定それぞれに最終指定を加えられる| 8.20 | Verilator 5.052 ||
 | [`test_method_virtual`](../../tests/ch8/test_method_virtual.sv) |仮想手法テスト| 8.20 8.15 | Verilator 5.052 ||
 | [`test_package_virtual_calls_preserve_module_string_updates`](../../tests/ch8/test_package_virtual_calls_preserve_module_string_updates.sv) |順に呼び出した3つの仮想メソッドが、同じモジュール変数の文字列に追記する| 8.20 23.9 10.4.1 | Verilator 5.054 |出口コード|
 | [`test_virt_method`](../../tests/ch8/test_virt_method.sv) |仮想メソッドをテスト| 8.20 8.14 | Verilator 5.052 ||

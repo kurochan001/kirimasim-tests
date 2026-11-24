@@ -1,0 +1,124 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch10/test_illegal_user_drive_strength_on_full_vector_net": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8f18ccdf4be4e70b7691e54a5b9e4b411b3486de57d156516b0be1f4cd673422"
+  },
+  "ch10/test_illegal_user_drive_strength_on_supply_net": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a0626bf3f6fcfa126bb14e854be64afbde9f67f43f6478ffba3bdd8db3d8b054"
+  },
+  "ch10/test_scalar_continuous_drive_strength_resolves_against_pull_driver": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'high weak=1 strong=1', expected 'high weak=0 strong=1'",
+   "inputs_sha256": "8bcd9761b13b96abb66440380dbb3cbd7009056fc65a1ae99ee11c67cd78f4e6"
+  },
+  "ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_dumpvars_selects_single_bit_wi...', expected 'declarations=1 scalar=1 high=1 low=2'",
+   "inputs_sha256": "142841da4e8b144f5487b198a15206cd272ddd0012e355d1ed335877224e9c43"
+  },
+  "ch27/test_illegal_unnamed_generate_loop_external_name_used_in_source": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "191d0dc34f026d79ccad9430e65ea6c5d7dfa325bd5e9baa72a93ce5eb7136d7"
+  },
+  "ch27/test_vpi_unnamed_loop_blocks_have_external_indices": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch27/test_vpi_unnamed_loop_blocks_have_external_indices.sv:19:14: Unsupported or unknown PLI call: '$vt_inspect_unnamed'",
+   "inputs_sha256": "5c9ec697319f6f0af3b1c899562ead47263ed109ed657bbd272c80fe76823c23"
+  },
+  "ch3/test_illegal_per_file_unit_scope_cannot_name_previous_file_declaration": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "5d976c5eee92d7efe22a7552c89622ee8759aed507febda20bdd6bee596b6e73"
+  },
+  "ch3/test_include_text_joins_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "f6a93a1589ed8c3762008f40cda4354a748a96f87da8c5786cc55493405cf355"
+  },
+  "ch3/test_per_file_compilation_does_not_share_macro_or_default_nettype": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'macro=81 port=1', expected 'macro=0 port=1'",
+   "inputs_sha256": "a936dbacebbad94cd2149c36d5e680a89d51631d9bdd784472a134c77784e67f"
+  },
+  "ch3/test_per_file_compilation_keeps_unit_declarations_private": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch3/test_per_file_compilation_keeps_unit_declarations_private.sv:15:19: Duplicate declaration of TYPEDEF 'item': 'item'",
+   "inputs_sha256": "ae6647a78f8f6fc3d4506295b076a6646f6a3807a70bfae2ba8fd004a1650783"
+  },
+  "ch3/test_per_file_timescale_does_not_override_next_unit_timeunit": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'second=12400 ps', expected 'second=1240 ps'",
+   "inputs_sha256": "411bbd1cea0a959d7681f63e6f951b2d6ddf8706a2bdde4f84cc60a459aca6d5"
+  },
+  "ch3/test_single_compilation_unit_can_name_previous_file_declaration": {
+   "status": "pass",
+   "inputs_sha256": "a0194155d1c457be50fbf441da335157659a0dcb850faac1326895ea15badb85"
+  },
+  "ch3/test_vpi_per_file_units_iterate_same_named_locals_separately": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch3/test_vpi_per_file_units_iterate_same_named_locals_separately.sv:16:5: Duplicate declaration of signal: 'unit_marker'",
+   "inputs_sha256": "4ff777e6b149d6bccdede6cd55e9190fe31a15b11c3ec7c3b9cc4c753d91fa34"
+  },
+  "ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import.sv:31:5: Unsupported: Timing controls inside DPI-exported tasks",
+   "inputs_sha256": "40efec213ed028c770ee56e5925a5aa42fd0acc72454a14a3b04735e332c71e0"
+  },
+  "ch35/test_dpi_cxx_import_handles_local_exception_before_return": {
+   "status": "pass",
+   "inputs_sha256": "16de7b39a4f61909fb12b470aa3dbd45ad0f04c13219517a7574f667c3886e95"
+  },
+  "ch35/test_dpi_disabled_import_rejects_second_exported_task": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_disabled_import_rejects_second_exported_task.sv:23:5: Unsupported: Timing controls inside DPI-exported tasks",
+   "inputs_sha256": "9423de09b6c4b01c192b823da1f6c9c3d2c7ba3c35e0baf25891b34bed20a4eb"
+  },
+  "ch35/test_dpi_disabled_import_task_cannot_call_another_export": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv:22:5: Unsupported: Timing controls inside DPI-exported tasks",
+   "inputs_sha256": "7159a85aa02ac08ba7ec5115f11eb88a38332a8ba69524db59ae9b888ac66057"
+  },
+  "ch35/test_dpi_nested_import_function_cannot_enable_export_task": {
+   "status": "known",
+   "reason": "output differs: line 3 is extra: 'forbidden task executed tag=7'",
+   "inputs_sha256": "c3a539e244b03483aabf30ff4ab446a68983bd90e0592786a3643b5960be9279"
+  },
+  "ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage.sv:31:8: Unsupported or unknown PLI call: '$vt_check_members'",
+   "inputs_sha256": "6e2e117c16c967c361aa74aea61c29943b61386ca06735f3a83c177054cdd56d"
+  },
+  "ch37/test_vpi_typespec_handles_allow_static_storage_only": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_typespec_handles_allow_static_storage_only.sv:31:8: Unsupported or unknown PLI call: '$vt_check_members'",
+   "inputs_sha256": "3a5e1fabed160b7e748630a36f827e58542597ce871e660de7c879f8ac417ac5"
+  },
+  "ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_value_storage_survives_until_next_read_and_through_callback.sv:23:8: Unsupported or unknown PLI call: '$vt_prepare_buffers'",
+   "inputs_sha256": "2d45a8507064d96ba2f5ad4a586688f2f47b24b1f3c5b07ff9baca9da9b5abe3"
+  },
+  "ch6/test_illegal_event_cannot_initialize_integral_storage": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_event_cannot_initialize_integral_storage\\\\.sv:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:event|wake)[^\\\\n]*(?:logic|integral|assign|type|convert)|(?:logic|integral|assign|type|convert)[^\\\\n]*(?:event|wake))'; the first is: ./Vt___024root__0__Slow.cpp:107:33: error: assigning to '::CData' (aka 'unsigned char') from incompatible type '::VlEvent'",
+   "inputs_sha256": "dbeb3bfdfec47c14c9113e9b3c67c1af8c4f8136f66e3f55d1dec8023d441853"
+  },
+  "ch6/test_illegal_event_cannot_store_four_state_bit_value": {
+   "status": "pass",
+   "inputs_sha256": "27370f7b25f2b6be93b4a5de8231e322656ffa15382fe50af7ba4b2d2c7d698c"
+  }
+ },
+ "generated_at": "2026-11-24T13:11:52.644459+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

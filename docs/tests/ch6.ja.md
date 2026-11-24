@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは913本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは916本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -15,6 +15,8 @@
 | [`test_user_types_built_from_other_types`](../../tests/ch6/test_user_types_built_from_other_types.sv) |ユーザ定義型は他のユーザ定義形式（4 - bit型のpacked配列、両者のpacked構造、構造のunpacked配列）から構築され、サイズと部品が構築型に従うオブジェクトを宣言する。| 6.2 6.18 7.2.1 7.4.1 | Verilator 5.052 ||
 | [`test_ch6_extra_event_not_bit_storage`](../../tests/ch6/test_ch6_extra_event_not_bit_storage.sv) |イベントタイプにはストレージがありません。 4 つの状態 logic の値はイベント変数に割り当てられません。| 6.3.1 6.17 |規格のみ|規格違反の設計|
 | [`test_four_state_two_state_and_real_storage`](../../tests/ch6/test_four_state_two_state_and_real_storage.sv) |logicベクトルのbitとlogicから構築したタイプはそれぞれ0 , 1，x，zをそれぞれ持つが，2状態bitは0，1のみを持ち，実数は実数を持ち，xとzビットは0に変換される。| 6.3.1 6.11.2 6.12.1 6.8 | Icarus Verilog 13.0 | x/z |
+| [`test_illegal_event_cannot_initialize_integral_storage`](../../tests/ch6/test_illegal_event_cannot_initialize_integral_storage.sv) |名前付きイベントを整数型の値として読み込めない| 6.3.1 6.17 |規格のみ|規格違反の設計|
+| [`test_illegal_event_cannot_store_four_state_bit_value`](../../tests/ch6/test_illegal_event_cannot_store_four_state_bit_value.sv) |名前付きイベントを発火できてもlogic値を格納できない| 6.3.1 6.17 |規格のみ|違法なデザイン x/z|
 | [`test_logic_basic`](../../tests/ch6/test_logic_basic.sv) |論理基礎テスト| 6.3.1 6.11 | Icarus Verilog 13.0 ||
 | [`test_logic_value_meanings`](../../tests/ch6/test_logic_value_meanings.sv) |4つの基本値は，偽0，真1，未知x，高インピーダンスzとして振舞い，0と1は互いに補完する。| 6.3.1 12.4 11.4.7 6.6.1 | Icarus Verilog 13.0 | x/z |
 | [`test_value_logic`](../../tests/ch6/test_value_logic.sv) |logic 値演算のテスト| 6.3.1 11.4.8 | Icarus Verilog 13.0 | x/z |
@@ -568,6 +570,7 @@
 | [`test_static_var_edge_cases`](../../tests/ch6/test_static_var_edge_cases.sv) |モジュール変数は、ステートメント間で値を保持します。| 6.21 | Icarus Verilog 13.0 ||
 | [`test_static_var_edge_cases_2`](../../tests/ch6/test_static_var_edge_cases_2.sv) |静的変数のエッジケース| 6.21 13.4.2 | Verilator 5.052 ||
 | [`test_static_variable_of_block_not_yet_run`](../../tests/ch6/test_static_variable_of_block_not_yet_run.sv) |ブロックの静的変数はブロックが最初に実行される前に存在し、その階層的な名前を通して書き込めます。| 6.21 23.6 9.3.4 | Icarus Verilog 13.0 ||
+| [`test_timed_nested_local_shadow_preserves_outer_task_variable`](../../tests/ch6/test_timed_nested_local_shadow_preserves_outer_task_variable.sv) |時間制御を含む入れ子のブロックを抜けてもタスクの自動変数の値を保持する| 6.21 9.3.1 13.5.1 | Verilator 5.054 |出口コード|
 | [`test_variables_and_subroutine_calls`](../../tests/ch6/test_variables_and_subroutine_calls.sv) |モジュール変数、ブロック変数、関数とタスクの呼び出し| 6.21 13.3 13.4 | Icarus Verilog 13.0 ||
 | [`test_ch6_extra_instance_type_identity`](../../tests/ch6/test_ch6_extra_instance_type_identity.sv) |ユーザ定義型はインスタンス内で宣言され、その範囲内にインスタンスを含むので、2つのインスタンスで同じ宣言をすると2つの異なるタイプになります。| 6.22 6.19.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_type_compatibility_five_levels`](../../tests/ch6/test_type_compatibility_five_levels.sv) |型の互換性の各段階（一致、等価、代入互換、cast 互換、非互換）にある型の組を、型比較、型無し mailbox の try_get 、代入、cast、 $cast で見分ける;クラスハンドル・インタフェースクラスハンドル・chandle は他の型と非互換で、それぞれの種類の中でだけ変換できる| 6.22 6.22.5 6.22.1 6.22.2 6.22.3 6.22.4 6.24.2 |規格のみ||

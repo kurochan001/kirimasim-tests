@@ -60275,6 +60275,218 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_cxx_import_handles_local_exception_before_return.sv",
+      "inputs_sha256": "16de7b39a4f61909fb12b470aa3dbd45ad0f04c13219517a7574f667c3886e95",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.5.1.6-EXTRACT-CXX-BOUNDARY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "Cリンケージで外部実装を呼び、内部で例外を捕捉して通常復帰する。言語境界を越えた例外は未定義なので実行結果を固定しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_cxx_import_handles_local_exception_before_return.sv",
+              "contains": "checked_cell_index(-1)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch14/test_clocking_output_uses_shadowing_task_local_handle.sv",
+      "inputs_sha256": "e08bcd5cf30adc210ff418a604542a49a192619505db010e5fb71e8fb46d19e3",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-14.16-EXTRACT-DRIVE-SNAPSHOT-NONBLOCKING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "クロッキング出力の駆動値は確認するが、右辺を評価した時点と駆動時点の違いは個別に照合しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch14/test_clocking_output_uses_shadowing_task_local_handle.sv",
+              "contains": "vif.cb.write <= req.write;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch15/test_class_event_assignment_binds_new_waiter_to_source.sv",
+      "inputs_sha256": "a5feca5fc67dd036373bc32ebdeafec3624163b3587ce315442fce4607b00850",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-15.5.5.1-EXTRACT-MERGED-TRIGGER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "代入元のイベント発火で代入先の待機を解除する向きだけを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_class_event_assignment_binds_new_waiter_to_source.sv",
+              "contains": "fork"
+            },
+            {
+              "file": "tests/ch15/test_class_event_assignment_binds_new_waiter_to_source.sv",
+              "contains": "CHECK waiter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_timed_nested_local_shadow_preserves_outer_task_variable.sv",
+      "inputs_sha256": "5849929f157dde7960d71f6183e6abc853ee083410ee201be49a5dcafe54f1c1",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.21-EXTRACT-CLASS-LOOP-AUTOMATIC"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "クラスのタスク内で同名変数を宣言して外側の値の保持を検査するが、ループ変数の寿命は観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_timed_nested_local_shadow_preserves_outer_task_variable.sv",
+              "contains": "CHECK outer=%0d data=%0d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.sv",
+      "inputs_sha256": "25c6cdf48d39e8383a155c6129a25538201414279822a55200a5103a5ad1c588",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.5.1-EXTRACT-DEFAULT-BY-VALUE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "並行分岐に各起動の仮引数が保持されることを検査し、実引数の値を呼び出し後に変更する場合のコピー動作は個別に照合しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_timed_nested_fork_conditionals_keep_activation_formals.sv",
+              "contains": "CHECK after %0d %0d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv",
+      "inputs_sha256": "656b698ad8f30e51fd1dc206d4956eddc838551ef37b3b4f465f1418972cba05",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "タスク内でのイベント待機を確認する。構造的な代入や手続きの感度リストでの拒否はこのケースでは検査しない。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv",
+              "contains": "@(posedge bus.grant);"
+            },
+            {
+              "file": "tests/ch25/test_virtual_modport_task_wait_selects_rebound_interface.sv",
+              "contains": "receive(selected, value);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_illegal_continuous_drive_through_virtual_interface.sv",
+      "inputs_sha256": "0499ed6b44bcb31202d269f290f441054d9ed39d30aea61401105845c5d510d9",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "継続代入の左辺から仮想インターフェースの信号を指定した箇所の拒否を確認する。感度リストと手続き内の対照は別ケースにある。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_continuous_drive_through_virtual_interface.sv",
+              "contains": "assign selected.line = source;"
+            },
+            {
+              "file": "tests/ch25/test_illegal_continuous_drive_through_virtual_interface.sv",
+              "contains": ":should_fail_because:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch24/test_exit_uses_thread_origin_in_shared_module_task.sv",
+      "inputs_sha256": "726904c94605d3931bcd26f9d5f75389ebfc7af85b38046f123a47b719843aea",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-24.7-EXTRACT-PROGRAM-EXIT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "一つのモジュールタスクをプログラムとモジュールから呼び分け、タスクの宣言位置に関係なく呼び出し元の起点で終了動作が決まることを確認する。子スレッドからの呼び出しは既存ケースで検査する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch24/test_exit_uses_thread_origin_in_shared_module_task.sv",
+              "contains": "shared_exit(\"program\");"
+            },
+            {
+              "file": "tests/ch24/test_exit_uses_thread_origin_in_shared_module_task.sv",
+              "contains": "shared_exit(\"module\");"
+            },
+            {
+              "file": "tests/ch24/test_exit_uses_thread_origin_in_shared_module_task.sv",
+              "contains": "$exit;"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
