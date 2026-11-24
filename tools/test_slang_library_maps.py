@@ -73,6 +73,44 @@ class SlangLibraryMaps(unittest.TestCase):
             "right": "parent_cell.sv",
         })
 
+    def test_wildcards_match_empty_segments_and_require_one_character(self):
+        self.write_files({
+            "lib.map": "library selectedLib tree/.../cell?name*.sv;\n",
+            "tree/cellAname.sv": "module shallow_cell; endmodule\n",
+            "tree/child/deeper/cellBname_extra.sv": "module deep_cell; endmodule\n",
+            # These malformed files must stay outside the library's path specification.
+            "tree/cellname.sv": "unexpected file matched a missing character\n",
+            "tree/child/cellABname.sv": "unexpected file matched two characters\n",
+            "top.sv": """
+                module wildcard_top;
+                  shallow_cell shallow();
+                  deep_cell deep();
+                endmodule
+                config wildcard_config;
+                  design work.wildcard_top;
+                  default liblist selectedLib;
+                endconfig
+            """,
+        })
+        result = self.elaborate("top.sv", "wildcard_config:config")
+        self.check_bindings(result, "wildcard_top", {
+            "shallow": "tree/cellAname.sv",
+            "deep": "tree/child/deeper/cellBname_extra.sv",
+        })
+
+    def test_library_map_rejects_module_declaration(self):
+        self.write_files({
+            "lib.map": "library mappedLib mapped.sv;\n;\n",
+            "mapped.sv": "module mapped_top; endmodule\n",
+        })
+        control = self.elaborate("mapped.sv", "mappedLib.mapped_top")
+        self.assertEqual(control.returncode, 0, control.stdout + control.stderr)
+        with (self.directory / "lib.map").open("a", encoding="utf-8") as library_map:
+            library_map.write("module not_a_map_item; endmodule\n")
+        result = self.elaborate("mapped.sv", "mappedLib.mapped_top")
+        self.assertGreater(result.returncode, 0, result.stdout + result.stderr)
+        self.assertRegex(result.stderr, r"lib\.map:3:\d+:\s+error:")
+
     def test_explicit_name_and_wildcard_take_priority_over_directory(self):
         self.write_files({
             "lib.map": """

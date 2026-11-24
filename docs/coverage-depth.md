@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 16869 |
+| Tests | 16877 |
 | Clauses in scope | 1018 |
 | Clauses out of scope | 141 |
 | Clauses with a direct test | 1018/1018 |
@@ -26,10 +26,10 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Oracle | Tests |
 | --- | ---: |
-| both releases | 1739 |
-| Icarus Verilog 13.0 only | 7373 |
-| Verilator 5.052 or 5.054 only | 3000 |
-| standard only | 4757 |
+| both releases | 1742 |
+| Icarus Verilog 13.0 only | 7375 |
+| Verilator 5.052 or 5.054 only | 3001 |
+| standard only | 4759 |
 
 <a id="章別"></a>
 
@@ -37,26 +37,26 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Chapter | Title | Tests | In scope | Tests/clause | One test | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 162 | 17 | 9.5 | 0 | 26 |
+| 3 | Design and verification building blocks | 163 | 17 | 9.6 | 0 | 26 |
 | 4 | Scheduling semantics | 483 | 27 | 17.9 | 0 | 30 |
 | 5 | Lexical conventions | 526 | 16 | 32.9 | 0 | 50 |
 | 6 | Data types | 916 | 76 | 12.1 | 0 | 173 |
 | 7 | Aggregate data types | 1136 | 49 | 23.2 | 0 | 319 |
 | 8 | Classes | 512 | 43 | 11.9 | 0 | 156 |
 | 9 | Processes | 487 | 25 | 19.5 | 0 | 78 |
-| 10 | Assignment statements | 765 | 18 | 42.5 | 0 | 88 |
+| 10 | Assignment statements | 767 | 18 | 42.6 | 0 | 88 |
 | 11 | Operators and expressions | 2635 | 42 | 62.7 | 0 | 370 |
 | 12 | Procedural programming statements | 324 | 20 | 16.2 | 0 | 76 |
 | 13 | Tasks and functions (subroutines) | 760 | 15 | 50.7 | 0 | 169 |
 | 14 | Clocking blocks | 174 | 15 | 11.6 | 0 | 71 |
 | 15 | Interprocess synchronization and communication | 215 | 21 | 10.2 | 0 | 145 |
-| 16 | Assertions | 815 | 69 | 11.8 | 0 | 654 |
+| 16 | Assertions | 817 | 69 | 11.8 | 0 | 656 |
 | 17 | Checkers | 134 | 10 | 13.4 | 0 | 85 |
 | 18 | Constrained random value generation | 297 | 44 | 6.8 | 0 | 157 |
 | 19 | Functional coverage | 256 | 24 | 10.7 | 0 | 185 |
 | 20 | Utility system tasks and system functions | 716 | 32 | 22.4 | 0 | 196 |
-| 21 | Input/output system tasks and system functions | 961 | 48 | 20.0 | 0 | 306 |
-| 22 | Compiler directives | 1327 | 21 | 63.2 | 0 | 41 |
+| 21 | Input/output system tasks and system functions | 963 | 48 | 20.1 | 0 | 306 |
+| 22 | Compiler directives | 1328 | 21 | 63.2 | 0 | 41 |
 | 23 | Modules and hierarchy | 445 | 34 | 13.1 | 0 | 98 |
 | 24 | Programs | 223 | 7 | 31.9 | 0 | 147 |
 | 25 | Interfaces | 282 | 12 | 23.5 | 0 | 66 |

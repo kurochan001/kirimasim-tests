@@ -126,9 +126,9 @@ tests/ch20/test_stime_time_units.sv",既存モデルの計画・実行証跡を�
 3,設計と検証の構成要素,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,243,"tests/ch20/test_timeformat_units_precision.sv
 tests/ch4/test_delta_cycles.sv
 tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w127.sv",既存モデルの計画・実行証跡を維持する,,
-3,設計と検証の構成要素,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,57,"tests/ch20/test_timeunit_timescale_precedence.sv
+3,設計と検証の構成要素,22,コンパイラ指令,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,59,"tests/ch20/test_timeunit_timescale_precedence.sv
 tests/ch22/test_include_guard_two_files.sv
-tests/ch22/test_timescale_child_units_in_parent.sv",既存モデルの計画・実行証跡を維持する,,
+tests/ch22/test_resetall_restores_observed_default_timescale.sv",既存モデルの計画・実行証跡を維持する,,
 3,設計と検証の構成要素,23,モジュールと階層,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,30,"tests/ch23/test_extern_module_headers_wildcard_definition.sv
 tests/ch23/test_module_declaration_all_header_elements.sv
 tests/ch23/test_subroutine_name_resolution.sv",既存モデルの計画・実行証跡を維持する,,

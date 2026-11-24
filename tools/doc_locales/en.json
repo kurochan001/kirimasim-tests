@@ -24695,6 +24695,13 @@
     "ZXQPH0QXZ : 短い先頭部分を読み出した後に残量を超えて読み出し、実際の長さ、末尾のゼロ埋め、警告、残量がない場合のゼロを確認する。": "ZXQPH0QXZ: Read a short prefix, then request more bytes than remain and check the actual length, zero fill, warning and zero return at exhaustion.",
     "ZXQPH0QXZ : 再開の開始と終了の通知を残し、再開前に登録した値変化と実行終了の通知を取り除き、再開後に登録し直した値変化の通知だけを発火させる。": "ZXQPH0QXZ: Retain both restart callbacks, drop the old value-change and end-of-simulation callbacks, and verify that a newly registered value-change callback still runs.",
     "ZXQPH0QXZ : 再開前に同じ呼び出し箇所で保存していたユーザーデータが再開終了後には空であり、その後に登録し直した値だけが取得できることを確認する。": "ZXQPH0QXZ: Check that the pre-restart userdata at one callsite is cleared after restart and that a later lookup returns the new association.",
-    "ZXQPH0QXZ : 再開終了の通知後に、元の呼び出し箇所へ別のユーザーデータを登録して後続の同じ呼び出しから取得できることを確認する。": "ZXQPH0QXZ: After the end-of-restart callback, reassign new userdata and retrieve it on a later invocation at the same source callsite."
+    "ZXQPH0QXZ : 再開終了の通知後に、元の呼び出し箇所へ別のユーザーデータを登録して後続の同じ呼び出しから取得できることを確認する。": "ZXQPH0QXZ: After the end-of-restart callback, reassign new userdata and retrieve it on a later invocation at the same source callsite.",
+    "ZXQPH0QXZ : コンパイル単位の時間単位を宣言せず、粗い指定と細かい指定の直後に宣言したタスクの遅延を、指定前のタスクと既定のモジュールで観測した遅延に照合する。": "ZXQPH0QXZ: Compare delays in compilation-unit tasks declared after coarse and fine directives with the pre-directive task and the default module.",
+    "ZXQPH0QXZ : 粗さが異なる二つの時間指定をそれぞれ解除し、三つの遅延後の観測時刻が指示子のないモジュールと一致することを、具体的な既定値を固定せずに確認する。": "ZXQPH0QXZ: Compare three delay samples after clearing each of two different time scales with the samples in a module without a directive, without fixing the default value.",
+    "ZXQPH0QXZ : 通常の入出力引数で呼出し元の値を読める対照と、出力引数を対象内で設定してから読んだ値を返す場合を照合する。": "ZXQPH0QXZ: Compare the direct inout control that reads the caller's value with a triggered output local assigned inside its operand.",
+    "ZXQPH0QXZ : 呼出し元で値を設定した出力ローカル変数を渡し、対象シーケンスが自分で代入する前に読み出す箇所で診断を要求する。": "ZXQPH0QXZ: Pass a caller-initialized output local and require a diagnostic where the operand reads it before assigning it.",
+    "ZXQPH0QXZ : 右辺の副作用が添字の選択に影響する代入で、どちらの評価順でも決まる値を許し、各式が一度だけ評価されることと他の要素が変わらないことを確認する。": "ZXQPH0QXZ: Allow either result of the unspecified evaluation order when the right-hand side affects the index, and check one evaluation per expression and an untouched guard element.",
+    "ZXQPH0QXZ : ノンブロッキング代入を予約した後に添字と値を変え、予約時に両評価順から得られる組だけが適用され、両式が再評価されないことを確認する。": "ZXQPH0QXZ: Change the index and value sources after scheduling the NBA, accept either scheduling-time pair, and verify neither expression is evaluated again.",
+    "ZXQPH0QXZ : 改行や制御文字を含む同じファイルを二つのモードで読み、バイナリの元の値とそれぞれのモードでホストが返す値の両方に照合する。": "ZXQPH0QXZ: Check the original binary bytes including newline and control characters, then compare both SystemVerilog read modes with the same host C modes."
   }
 }

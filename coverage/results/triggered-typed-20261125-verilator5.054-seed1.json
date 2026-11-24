@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_triggered_output_local_reads_caller_value_before_assignment\\\\.sv:(?:19|26):(?:\\\\d+:)?[^\\\\n]*(?i:(?:unassigned|uninitialized|before[^\\\\n]*assign|not[^\\\\n]*assign))'; the first is: %Error-UNSUPPORTED: tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv:18:30: Unsupported: property port 'local'",
+   "inputs_sha256": "fa03414e1a6d89a9f8141118b6f16cbe1afce783667af0fd88bb966f6b5c05b2"
+  },
+  "ch16/test_triggered_output_local_uses_its_own_assignment": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_triggered_output_local_uses_its_own_assignment.sv:32:28: Unsupported: property port 'local'",
+   "inputs_sha256": "b788abc0f40a56c8b7c7c8a1682ac5a60c2336df5d35f484b31416554915a8cf"
+  }
+ },
+ "generated_at": "2026-11-24T18:58:33.862694+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

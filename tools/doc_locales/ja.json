@@ -26368,6 +26368,14 @@
     "Restart retains its action callbacks and removes a previously registered value-change callback": "再開時には再開の通知を残し以前に登録した値変化の通知を取り除く",
     "Restart clears saved callsite userdata and accepts reassociation at the same callsite": "再開時に呼び出し箇所のユーザーデータを消去し同じ箇所に再関連付けできる",
     "ZXQPH0QXZ , left to the tool or its setup: ZXQPH1QXZ , ZXQPH2QXZ , ZXQPH3QXZ , ZXQPH4QXZ , ZXQPH5QXZ , ZXQPH6QXZ , ZXQPH7QXZ , ZXQPH8QXZ , ZXQPH9QXZ , ZXQPH10QXZ , ZXQPH11QXZ , ZXQPH12QXZ , ZXQPH13QXZ , ZXQPH14QXZ , ZXQPH15QXZ , ZXQPH16QXZ , ZXQPH17QXZ": "ZXQPH0QXZ、ツールや実行設定に委ねられる項目は ZXQPH1QXZ , ZXQPH2QXZ , ZXQPH3QXZ , ZXQPH4QXZ , ZXQPH5QXZ , ZXQPH6QXZ , ZXQPH7QXZ , ZXQPH8QXZ , ZXQPH9QXZ , ZXQPH10QXZ , ZXQPH11QXZ , ZXQPH12QXZ , ZXQPH13QXZ , ZXQPH14QXZ , ZXQPH15QXZ , ZXQPH16QXZ , ZXQPH17QXZ",
-    "exit code, ZXQPH0QXZ , several files": "終了コード、ZXQPH0QXZ、複数ファイル"
+    "exit code, ZXQPH0QXZ , several files": "終了コード、ZXQPH0QXZ、複数ファイル",
+    "A timescale directive leaves the observed compilation-unit time default unchanged": "timescale 指定を挟んでもコンパイル単位スコープで観測する既定の時間単位は変わらない",
+    "Resetall restores the default time unit and delay rounding observed before any directive": "resetall は指示子の前に観測した時間単位と遅延の丸めを復元する",
+    "Triggered uses the output local assigned by its operand sequence": "triggered は対象シーケンスが出力ローカル変数に代入した値を使う",
+    "Triggered disallows reading an output local before the operand assigns it": "triggered の対象が代入する前に出力ローカル変数を読むことはできない",
+    "Untimed blocking assignment evaluates its target and value once in either order": "時間制御のないブロッキング代入は左辺と右辺を順不同で一度ずつ評価する",
+    "Nonblocking assignment captures its target and value once before the update": "ノンブロッキング代入は更新前に左辺と右辺を一度ずつ評価して保持する",
+    "Binary mode preserves file bytes and text mode follows the host": "バイナリモードはバイト列を保持しテキストモードはホストの変換に従う",
+    "Binary seek counts embedded control bytes and distinguishes a high ZXQPH0QXZ from ZXQPH1QXZ": "バイナリ位置指定は制御文字を含めてバイト数を数え、上位ビットが立つ ZXQPH0QXZ と ZXQPH1QXZ を区別する"
   }
 }

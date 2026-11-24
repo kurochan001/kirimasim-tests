@@ -12,35 +12,42 @@ import unittest
 from run_verilator import ROOT, execute
 
 
-FIXTURE = ROOT / "tests/ch35/test_dpi_import_output_inout.sv"
-
-
 @unittest.skipUnless(os.environ.get("GHOST_SIMULATOR") and os.environ.get("GHOST_INCLUDE"),
                      "set GHOST_SIMULATOR and GHOST_INCLUDE for a cross-simulator check")
 @unittest.skipUnless(sys.platform in ("darwin", "linux"), "requires a Unix shared library")
 class DpiBinaryCompatibility(unittest.TestCase):
     def test_compiled_dpi_c_library_runs_in_both_simulators(self):
+        self.check_shared_library("test_dpi_import_output_inout")
+
+    def test_packed_dimensions_and_sized_array_share_a_binary(self):
+        self.check_shared_library("test_dpi_packed_dims_linearized_row_major")
+
+    def test_multiword_bit_and_logic_ports_share_a_binary(self):
+        self.check_shared_library("test_dpi_svdpi_scalar_and_chunk_types")
+
+    def check_shared_library(self, fixture_name):
+        fixture = ROOT / "tests/ch35" / f"{fixture_name}.sv"
         ghost = str(Path(os.environ["GHOST_SIMULATOR"]).resolve())
         include = Path(os.environ["GHOST_INCLUDE"]).resolve()
         verilator = shutil.which(os.environ.get("VERILATOR", "verilator"))
         if verilator is None:
             self.skipTest("Verilator executable unavailable")
         verilator = str(Path(verilator).resolve())
-        expected = FIXTURE.with_suffix(".expected").read_text(encoding="utf-8")
+        expected = fixture.with_suffix(".expected").read_text(encoding="utf-8")
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)
             lib = directory / ("portable.dylib" if sys.platform == "darwin" else "portable.so")
             build = subprocess.run(
                 [
                     os.environ.get("CC", "cc"), "-shared", "-fPIC",
-                    f"-I{include}", "-o", str(lib), str(FIXTURE.with_suffix(".c")),
+                    f"-I{include}", "-o", str(lib), str(fixture.with_suffix(".c")),
                 ],
                 cwd=directory, capture_output=True, text=True, timeout=60,
             )
             self.assertEqual(build.returncode, 0, build.stderr)
             binary_hash = hashlib.sha256(lib.read_bytes()).digest()
             ghost_run = subprocess.run(
-                [ghost, "--quiet", "--lrm-strict", "--lib", str(lib), str(FIXTURE)],
+                [ghost, "--quiet", "--lrm-strict", "--lib", str(lib), str(fixture)],
                 cwd=directory, capture_output=True, text=True, timeout=90,
             )
             self.assertEqual(ghost_run.returncode, 0, ghost_run.stderr or ghost_run.stdout)
@@ -51,8 +58,8 @@ class DpiBinaryCompatibility(unittest.TestCase):
             result = execute(
                 [
                     verilator, "--binary", "--timing", "-Wno-fatal",
-                    "--top-module", FIXTURE.stem, "--prefix", "Vportable",
-                    "--Mdir", "obj", "-LDFLAGS", "../" + lib.name, str(FIXTURE),
+                    "--top-module", fixture.stem, "--prefix", "Vportable",
+                    "--Mdir", "obj", "-LDFLAGS", "../" + lib.name, str(fixture),
                 ],
                 timeout=180, cwd=temporary,
             )

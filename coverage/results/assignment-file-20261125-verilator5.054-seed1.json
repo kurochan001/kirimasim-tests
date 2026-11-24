@@ -1,0 +1,30 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch10/test_blocking_evaluates_target_and_value_once_in_either_order": {
+   "status": "pass",
+   "inputs_sha256": "754fed38d7c3f795dd5551f542cf4b7d42b9788ae2ce45fbd15dc95b8e3d7ad1"
+  },
+  "ch10/test_nba_captures_target_and_value_once_in_either_order": {
+   "status": "pass",
+   "inputs_sha256": "32c1505b4e8eb5a5264ba91de59ef76360af4cb094a0b89d13b91ee8f112de50"
+  },
+  "ch21/test_file_binary_mode_matches_host_translation": {
+   "status": "pass",
+   "inputs_sha256": "ec32ced9143688103044fe3f830b7eb498a4d24f49b9cb943ef3fc7cbff346f7"
+  },
+  "ch21/test_file_binary_seek_counts_all_bytes_before_eof": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'seek=0 offset=4 marker=-1 high=-1 eof=-1 rewind=0 first=65', expected 'seek=0 offset=4 marker=26 high=255 eof=-1 rewind=0 first=65'",
+   "inputs_sha256": "27a359a5d5f61dec1883f40e9c04eb20756ebeb3884265b5c9ed9c08bdbeb40a"
+  }
+ },
+ "generated_at": "2026-11-24T19:06:32.714472+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -9857,7 +9857,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+      "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9905,7 +9905,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+      "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -44976,7 +44976,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+      "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -60561,6 +60561,34 @@
             {
               "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
               "contains": "$restart(\"interleaved-streams.chk\");"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_file_binary_seek_counts_all_bytes_before_eof.sv",
+      "inputs_sha256": "27a359a5d5f61dec1883f40e9c04eb20756ebeb3884265b5c9ed9c08bdbeb40a",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.3.1-EXTRACT-BINARY-MODE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "バイナリファイルの末尾から読み出す位置と制御文字を確認する。ホストのテキスト変換との比較は別ケースで行う。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_file_binary_seek_counts_all_bytes_before_eof.sv",
+              "contains": "fd = $fopen(PATH, \"rb\");"
+            },
+            {
+              "file": "tests/ch21/test_file_binary_seek_counts_all_bytes_before_eof.sv",
+              "contains": "seek_status = $fseek(fd, -2, 2);"
             }
           ]
         }

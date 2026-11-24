@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-25",
+  "platform": "Darwin arm64",
+  "requirements": [
+    "SV2023-H.2-EXTRACT-BINARY",
+    "SV2023-H.4-EXTRACT-PORTABLE"
+  ],
+  "test": "tools/test_dpi_binary_compatibility.py",
+  "cases": {
+    "test_packed_dimensions_and_sized_array_share_a_binary": {
+      "fixture_inputs": {
+        "tests/ch35/test_dpi_packed_dims_linearized_row_major.sv": "02e575cf9920ac2e7c998fe926f13dd6f9e2938124d9eda402525ef0b88548fa",
+        "tests/ch35/test_dpi_packed_dims_linearized_row_major.c": "21f52ec932b6a7cd405ebe61a0c8e261d26d042e52720a38991921b84b41a1ca",
+        "tests/ch35/test_dpi_packed_dims_linearized_row_major.expected": "11fbf048ef7512f18e76bd04b1297e144ad3422c784684b3557503e42e401693"
+      }
+    },
+    "test_multiword_bit_and_logic_ports_share_a_binary": {
+      "fixture_inputs": {
+        "tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.sv": "312554e475ef63a8f473dd6bec451f5443ab585b145024d7c432ebf7764c8ee3",
+        "tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.c": "e562a51ae2746986b0f92fe9c4caede20791235ee494c900a92d23ce0b85d1f6",
+        "tests/ch35/test_dpi_svdpi_scalar_and_chunk_types.expected": "db7bc4bf70eac03a09bb8409304ab3d85f9cf4018c7615a4ae2f87da15cdaa54"
+      }
+    }
+  },
+  "ghost": {
+    "sha256": "2bd9b77abba913e2125bbefd2a42382cc8ae15575b773563795306bff6df37c3"
+  },
+  "runs": [
+    {
+      "verilator_version": "5.054",
+      "verilator_sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "total_tests": 3,
+      "case_results": {
+        "test_packed_dimensions_and_sized_array_share_a_binary": {
+          "binary_sha256": "42b22d2acfd1495dc180a365067322c97ffd3f7bb6dbbaf1fafedc09d6ea52ec",
+          "source_compiles": 1,
+          "ghost_matches_expected": true,
+          "verilator_matches_expected": true
+        },
+        "test_multiword_bit_and_logic_ports_share_a_binary": {
+          "binary_sha256": "1fb713409ac57ca096836e689fe55d601b546f33d2cae9293dbf1ba5bdbfbd67",
+          "source_compiles": 1,
+          "ghost_matches_expected": true,
+          "verilator_matches_expected": true
+        }
+      }
+    },
+    {
+      "verilator_version": "5.052",
+      "verilator_sha256": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+      "total_tests": 3,
+      "case_results": {
+        "test_packed_dimensions_and_sized_array_share_a_binary": {
+          "binary_sha256": "a5aa7d867a098ea58c4517bc11bb71d1d952f3346b67981a4e5d88511fa86f4f",
+          "source_compiles": 1,
+          "ghost_matches_expected": true,
+          "verilator_matches_expected": true
+        },
+        "test_multiword_bit_and_logic_ports_share_a_binary": {
+          "binary_sha256": "28104c978da164f25f8a23b2073c1d742b82bced77be4b2b879a138229d0474a",
+          "source_compiles": 1,
+          "ghost_matches_expected": true,
+          "verilator_matches_expected": true
+        }
+      }
+    }
+  ],
+  "scope": "Each added case compiles its shared library once per run. Ghost and the selected Verilator build check the output and the shared-library hash."
+}

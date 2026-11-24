@@ -126,9 +126,9 @@ tests/ch20/test_stime_time_units.sv",Maintaining the planning and execution evid
 3,Design and verification building blocks,21,Input/output system tasks and system functions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,243,"tests/ch20/test_timeformat_units_precision.sv
 tests/ch4/test_delta_cycles.sv
 tests/gen/ch10/test_gen_nba_boundary_array_bit_delayed_w127.sv",Maintaining the planning and execution evidence of existing models.,,
-3,Design and verification building blocks,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,57,"tests/ch20/test_timeunit_timescale_precedence.sv
+3,Design and verification building blocks,22,Compiler directives,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,59,"tests/ch20/test_timeunit_timescale_precedence.sv
 tests/ch22/test_include_guard_two_files.sv
-tests/ch22/test_timescale_child_units_in_parent.sv",Maintaining the planning and execution evidence of existing models.,,
+tests/ch22/test_resetall_restores_observed_default_timescale.sv",Maintaining the planning and execution evidence of existing models.,,
 3,Design and verification building blocks,23,Modules and hierarchy,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,30,"tests/ch23/test_extern_module_headers_wildcard_definition.sv
 tests/ch23/test_module_declaration_all_header_elements.sv
 tests/ch23/test_subroutine_name_resolution.sv",Maintaining the planning and execution evidence of existing models.,,

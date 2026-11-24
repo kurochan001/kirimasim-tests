@@ -1,0 +1,30 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 2bd9b77abba9",
+ "tests": {
+  "ch10/test_blocking_evaluates_target_and_value_once_in_either_order": {
+   "status": "pass",
+   "inputs_sha256": "754fed38d7c3f795dd5551f542cf4b7d42b9788ae2ce45fbd15dc95b8e3d7ad1"
+  },
+  "ch10/test_nba_captures_target_and_value_once_in_either_order": {
+   "status": "pass",
+   "inputs_sha256": "32c1505b4e8eb5a5264ba91de59ef76360af4cb094a0b89d13b91ee8f112de50"
+  },
+  "ch21/test_file_binary_mode_matches_host_translation": {
+   "status": "pass",
+   "inputs_sha256": "ec32ced9143688103044fe3f830b7eb498a4d24f49b9cb943ef3fc7cbff346f7"
+  },
+  "ch21/test_file_binary_seek_counts_all_bytes_before_eof": {
+   "status": "pass",
+   "inputs_sha256": "27a359a5d5f61dec1883f40e9c04eb20756ebeb3884265b5c9ed9c08bdbeb40a"
+  }
+ },
+ "generated_at": "2026-11-24T19:06:32.203818+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "2bd9b77abba913e2125bbefd2a42382cc8ae15575b773563795306bff6df37c3",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

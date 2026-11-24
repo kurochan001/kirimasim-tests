@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[All chapters](README.md). 162 tests, 48 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 163 tests, 48 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -119,6 +119,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_timeunit_precedence`](../../tests/ch3/test_timeunit_precedence.sv) | A timeunit declaration in a module overrides \`timescale, its slash form also sets the precision, a nested module takes the time unit of its parent, and a module without one takes the last \`timescale | 3.14.2.3 3.14.2.2 3.14.1 23.4 | standard only ||
 | [`test_timeunit_program`](../../tests/ch3/test_timeunit_program.sv) | A delay in a program is in the time unit of the program, not in that of the module that instantiates it | 3.14.2.3 3.14.2.2 3.14.1 24.3 | Icarus Verilog 13.0 ||
 | [`test_timeunit_scope_task`](../../tests/ch3/test_timeunit_scope_task.sv) | A delay in a task declared in the compilation-unit scope is in the time unit of that scope, not in that of the module that calls it | 3.14.2.3 3.14.2.2 3.12.1 20.3.3 | Icarus Verilog 13.0 ||
+| [`test_unit_time_default_is_independent_of_timescale_directive`](../../tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.sv) | A timescale directive leaves the observed compilation-unit time default unchanged | 3.14.2.3 22.7 | Icarus Verilog 13.0 | exit code |
 | [`test_global_precision_from_timeprecision`](../../tests/ch3/test_global_precision_from_timeprecision.sv) | The global time precision, which vpi_get gives for a NULL object, is the finest precision of the design even when only a timeprecision declaration in a submodule sets it | 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |
 | [`test_global_precision_from_timescale`](../../tests/ch3/test_global_precision_from_timescale.sv) | The global time precision, which vpi_get gives for a NULL object, is the finest precision of the design even when only the precision of a \`timescale directive before a submodule sets it | 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |
 | [`test_global_precision_from_timeunit_slash`](../../tests/ch3/test_global_precision_from_timeunit_slash.sv) | The global time precision, which vpi_get gives for a NULL object, is the finest precision of the design even when only the precision argument of a timeunit declaration in a submodule sets it | 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |

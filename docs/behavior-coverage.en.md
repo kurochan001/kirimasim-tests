@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.51%, execution without Ghost 51.78%, execution with Ghost and kirimasim 89.50%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.56%, execution without Ghost 51.82%, execution with Ghost and kirimasim 89.54%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 95.51%. Requirement execution-confirmation rate: 51.78% without Ghost, 89.50% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 95.56%. Requirement execution-confirmation rate: 51.82% without Ghost, 89.54% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11778/12332 ( 95.51% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11037/12332 ( 89.50% ).
-- Registered but not tested: 554.
+- The requirement coverage (test design) for registered behaviors is 11784/12332 ( 95.56% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11042/12332 ( 89.54% ).
+- Registered but not tested: 548.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -66,6 +66,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `artifact-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:37:31.828742+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `artifact-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.606085+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `artifact-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.585155+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `assignment-file-20261125-ghost-strict.json`: `private build 2bd9b77abba9` / `2026-11-24T19:06:32.203818+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `assignment-file-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T19:06:31.980186+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `assignment-file-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T19:06:31.941138+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `assignment-file-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:06:32.714079+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `assignment-file-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:06:32.714058+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `assignment-file-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.714472+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `assignment-file-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.685722+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T16:18:16.466764+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-kirimasim-441dddbd0fcd.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T16:18:17.457959+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T16:21:24.078961+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -101,6 +108,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `constcall-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T07:46:53.963163+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constcall-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T07:46:45.505234+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constcall-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T07:46:53.247659+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-ghost-strict.json`: `private build 2bd9b77abba9` / `2026-11-24T18:56:52.686738+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T18:56:52.759756+00:00` / 10/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T18:56:52.446481+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:56:57.664843+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:56:57.632136+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:56:56.538304+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:56:56.585599+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `division-boundaries-20261119c-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T23:42:55.291969+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:56.026640+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:56.768990+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -738,13 +752,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:50.878398+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T02:43:12.104689+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T02:46:26.386745+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-ghost-strict.json`: `private build e7d663777d2f` / `2026-11-24T14:27:12.816285+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T14:27:12.731338+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T14:27:12.168260+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T14:27:13.374369+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T14:27:13.330268+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T14:27:13.353417+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T14:27:13.369678+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `namespace-vpi-20261124-ghost-strict.json`: `private build e7d663777d2f` / `2026-11-24T14:27:12.816285+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
+- `namespace-vpi-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T14:27:12.731338+00:00` / 2/12332 execution checked; 1 entries refer to older inputs.
+- `namespace-vpi-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T14:27:12.168260+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T14:27:13.374369+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T14:27:13.330268+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T14:27:13.353417+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `namespace-vpi-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T14:27:13.369678+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
 - `nba-boundaries-20261119h-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T01:44:38.151064+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `nba-boundaries-20261119h-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:44:40.043357+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `nba-boundaries-20261119h-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:44:41.969708+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -794,8 +808,8 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T06:27:03.938723+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `packed-read-controls-20261119w-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T06:30:24.144918+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `packed-read-controls-20261119w-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T06:33:32.423404+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `pinned-recheck-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573898+00:00` / 3609/12332 execution checked; 2 entries refer to older inputs.
-- `pinned-recheck-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573866+00:00` / 3609/12332 execution checked; 2 entries refer to older inputs.
+- `pinned-recheck-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573898+00:00` / 3606/12332 execution checked; 7 entries refer to older inputs.
+- `pinned-recheck-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573866+00:00` / 3606/12332 execution checked; 7 entries refer to older inputs.
 - `power-boundaries-20261119f-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T01:05:47.851676+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:48.765507+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:49.677617+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -803,11 +817,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:51.483978+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T01:09:59.513731+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T01:13:51.962818+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `preprocessor-refresh-20261124-ghost-strict.json`: `private build 2865c5a259b8` / `2026-11-23T21:56:44.298114+00:00` / 69/12332 execution checked; 0 entries refer to older inputs.
-- `preprocessor-refresh-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:56:45.008600+00:00` / 73/12332 execution checked; 0 entries refer to older inputs.
-- `preprocessor-refresh-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:56:44.166634+00:00` / 68/12332 execution checked; 0 entries refer to older inputs.
-- `preprocessor-refresh-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.833556+00:00` / 60/12332 execution checked; 0 entries refer to older inputs.
-- `preprocessor-refresh-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.867445+00:00` / 60/12332 execution checked; 0 entries refer to older inputs.
+- `preprocessor-refresh-20261124-ghost-strict.json`: `private build 2865c5a259b8` / `2026-11-23T21:56:44.298114+00:00` / 66/12332 execution checked; 12 entries refer to older inputs.
+- `preprocessor-refresh-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:56:45.008600+00:00` / 67/12332 execution checked; 12 entries refer to older inputs.
+- `preprocessor-refresh-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:56:44.166634+00:00` / 65/12332 execution checked; 12 entries refer to older inputs.
+- `preprocessor-refresh-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.833556+00:00` / 57/12332 execution checked; 12 entries refer to older inputs.
+- `preprocessor-refresh-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.867445+00:00` / 57/12332 execution checked; 12 entries refer to older inputs.
 - `primitives-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T03:51:52.714029+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `primitives-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T03:52:07.416509+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `primitives-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:51:59.846146+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -886,6 +900,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `test-fixes-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:50:43.072508+00:00` / 0/12332 execution checked; 3 entries refer to older inputs.
 - `test-side-fixes-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:34.006223+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `test-side-fixes-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev v5.054` / `2026-11-19T21:25:35.189349+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `triggered-typed-20261125-ghost-strict.json`: `private build 2bd9b77abba9` / `2026-11-24T18:58:33.788737+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `triggered-typed-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T18:58:33.750729+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `triggered-typed-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T18:58:33.750992+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `triggered-typed-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:58:33.866027+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `triggered-typed-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:58:33.898672+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `triggered-typed-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:58:33.862694+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `triggered-typed-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:58:33.887026+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-ghost-strict.json`: `private build e95a514c6d02` / `2026-11-23T14:14:24.310807+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T14:14:24.163875+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T14:14:24.285520+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
@@ -1231,26 +1252,26 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 141.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 142.
 - 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 93.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 148.
 - 6 Data types: No interpretation reservation 92/92, registration 720, test support 715.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 343.
 - 8 Classes: No interpretation restrictions 49/49, registration 255, test support 243.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 185.
-- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 151.
+- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 153.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 455.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 110.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 121.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 87.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 86.
-- 16 Assertions: No interpretation reservation 82/82, registration 557, test support 555.
+- 16 Assertions: No interpretation reservation 82/82, registration 557, test support 556.
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 70.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 317 mapped to tests.
 - 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 271.
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 314.
-- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 374.
-- 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 356 mapped to tests.
+- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 375.
+- 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 357 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 258.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 26.
 - 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 62.
@@ -3029,7 +3050,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.14.2.3-EXTRACT-UNIT-TIME-DEFAULT
 
-`3.14.2.3` / `normal` / No mapped test
+`3.14.2.3` / `normal` / Execution confirmed
 
 Without a compilation-unit timeunit declaration, the compilation-unit scope uses the implementation default time unit.
 
@@ -3037,6 +3058,7 @@ Acceptance criterion: Without a compilation-unit timeunit declaration, the compi
 
 Normative role: `definition`。
 
+- [test_unit_time_default_is_independent_of_timescale_directive.sv](../tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.sv): Compare delays in compilation-unit tasks declared after coarse and fine directives with the pre-directive task and the default module.
 
 ### SV2023-3.14.2.3-EXTRACT-UNIT-TIMEUNIT-ONLY
 
@@ -25655,7 +25677,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.4.1-EXTRACT-BLOCKING-UNTIMED-EVAL-ORDER
 
-`10.4.1` / `normal` / No mapped test
+`10.4.1` / `normal` / Execution confirmed
 
 Without timing control, the order of LHS location evaluation and RHS expression evaluation is undefined.
 
@@ -25663,6 +25685,7 @@ Acceptance criterion: Without timing control, the order of LHS location evaluati
 
 Normative role: `mandatory`。
 
+- [test_blocking_evaluates_target_and_value_once_in_either_order.sv](../tests/ch10/test_blocking_evaluates_target_and_value_once_in_either_order.sv): Allow either result of the unspecified evaluation order when the right-hand side affects the index, and check one evaluation per expression and an untouched guard element.
 
 ### SV2023-10.4.1-EXTRACT-EQUALS-CONTEXT
 
@@ -25714,7 +25737,7 @@ Normative role: `definition`。
 
 ### SV2023-10.4.2-EXTRACT-NBA-EVAL-ORDER
 
-`10.4.2` / `normal` / No mapped test
+`10.4.2` / `normal` / Execution confirmed
 
 The order of the location and RHS evaluations within a nonblocking assignment is undefined.
 
@@ -25722,6 +25745,7 @@ Acceptance criterion: The order of the location and RHS evaluations within a non
 
 Normative role: `mandatory`。
 
+- [test_nba_captures_target_and_value_once_in_either_order.sv](../tests/ch10/test_nba_captures_target_and_value_once_in_either_order.sv): Change the index and value sources after scheduling the NBA, accept either scheduling-time pair, and verify neither expression is evaluated again.
 
 ### SV2023-10.4.2-EXTRACT-NBA-GRAMMAR
 
@@ -41322,7 +41346,7 @@ Normative role: `mandatory`。
 
 ### SV2023-16.10-EXTRACT-NO-PREASSIGNED-TRIGGERED
 
-`16.10` / `normal` / No mapped test
+`16.10` / `error` / Test mapped; execution unconfirmed
 
 A value assigned before a local is passed through triggered is not visible within the operand named sequence under these restrictions.
 
@@ -41330,6 +41354,8 @@ Acceptance criterion: A value assigned before a local is passed through triggere
 
 Normative role: `definition`。
 
+- [test_triggered_output_local_uses_its_own_assignment.sv](../tests/ch16/test_triggered_output_local_uses_its_own_assignment.sv): Compare the direct inout control that reads the caller's value with a triggered output local assigned inside its operand.
+- [test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv](../tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv): Pass a caller-initialized output local and require a diagnostic where the operand reads it before assigning it.
 
 ### SV2023-16.10-EXTRACT-NO-REDECLARED-FORMAL
 
@@ -58335,7 +58361,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.3.1-EXTRACT-BINARY-MODE
 
-`21.3.1` / `normal` / No mapped test
+`21.3.1` / `normal` / Execution confirmed
 
 b distinguishes binary from text where the host maps text data; it may have no effect on systems without that distinction.
 
@@ -58343,6 +58369,7 @@ Acceptance criterion: b distinguishes binary from text where the host maps text 
 
 Normative role: `implementation_defined`。
 
+- [test_file_binary_mode_matches_host_translation.sv](../tests/ch21/test_file_binary_mode_matches_host_translation.sv): Check the original binary bytes including newline and control characters, then compare both SystemVerilog read modes with the same host C modes.
 
 ### SV2023-21.3.1-EXTRACT-CLOSE-FILES
 
@@ -62646,7 +62673,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-TOOL-DEFAULT
 
-`22.7` / `normal` / No mapped test
+`22.7` / `normal` / Execution confirmed
 
 With no timescale or after resetall, default time unit and precision are tool-specific.
 
@@ -62654,6 +62681,7 @@ Acceptance criterion: With no timescale or after resetall, default time unit and
 
 Normative role: `implementation_defined`。
 
+- [test_resetall_restores_observed_default_timescale.sv](../tests/ch22/test_resetall_restores_observed_default_timescale.sv): Compare three delay samples after clearing each of two different time scales with the samples in a module without a directive, without fixing the default value.
 
 ### SV2023-22.7-EXTRACT-TIMESCALE-VALUES
 

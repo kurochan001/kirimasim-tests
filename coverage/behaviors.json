@@ -4297,7 +4297,7 @@
           "observation": "どのスコープにも属さない位置で include したファイルが変数 inc_count=3、enum 型 inc_color_t、関数 inc_double を宣言し、取り込む側のコンパイル単位変数 after_include がその変数から 4 に初期化される。モジュールは $unit::inc_count と $unit::after_include を 3 と 4、取り込んだ型の変数 INC_BLUE=2、関数呼出し 42 として表示する。 区別: include したテキストを取り込む側とは別のコンパイル単位とする誤実装では、$unit::inc_count や after_include の初期化、型名と関数名が解決できずコンパイルエラーとなるか、別の値を表示する。",
           "reviewed_on": "2026-11-07",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "1942d20d20e06741821b30fc55aa17d1ac811b3a089888bebb4ae0e6791e588f",
+          "inputs_sha256": "a16dcdceadd4af558ebb6a41c142ef94ae5de8751bfbb8d8de84a71bf96493f0",
           "evidence": [
             {
               "file": "tests/ch3/test_include_text_joins_compilation_unit.sv",
@@ -6897,7 +6897,33 @@
       "acceptance": "Without a compilation-unit timeunit declaration, the compilation-unit scope uses the implementation default time unit.",
       "source_note": "IEEE 1800-2023 3.14.2.3; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.sv",
+          "observation": "コンパイル単位の時間単位を宣言せず、粗い指定と細かい指定の直後に宣言したタスクの遅延を、指定前のタスクと既定のモジュールで観測した遅延に照合する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "922611394de61f16901ef6f30adf5ee53775e17d013a145b168bcd7df6b9b8a1",
+          "evidence": [
+            {
+              "file": "tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.sv",
+              "contains": "task automatic unit_delay_after_coarse_directive();"
+            },
+            {
+              "file": "tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.sv",
+              "contains": "task automatic unit_delay_after_fine_directive();"
+            },
+            {
+              "file": "tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.sv",
+              "contains": "ticks[0] == ticks[1] && ticks[1] > 0"
+            },
+            {
+              "file": "tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.expected",
+              "contains": "unit matches default=1 after coarse matches=1 after fine matches=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "3.14.2.3",
@@ -98949,7 +98975,29 @@
       "acceptance": "Without timing control, the order of LHS location evaluation and RHS expression evaluation is undefined.",
       "source_note": "IEEE 1800-2023 10.4.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_blocking_evaluates_target_and_value_once_in_either_order.sv",
+          "observation": "右辺の副作用が添字の選択に影響する代入で、どちらの評価順でも決まる値を許し、各式が一度だけ評価されることと他の要素が変わらないことを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "754fed38d7c3f795dd5551f542cf4b7d42b9788ae2ce45fbd15dc95b8e3d7ad1",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_blocking_evaluates_target_and_value_once_in_either_order.sv",
+              "contains": "slots[choose_index()] = evaluate_value();"
+            },
+            {
+              "file": "tests/ch10/test_blocking_evaluates_target_and_value_once_in_either_order.sv",
+              "contains": "marker = 1;"
+            },
+            {
+              "file": "tests/ch10/test_blocking_evaluates_target_and_value_once_in_either_order.expected",
+              "contains": "allowed target=1 evaluations=1 side effect=1 guard=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.4.1",
@@ -99143,7 +99191,29 @@
       "acceptance": "The order of the location and RHS evaluations within a nonblocking assignment is undefined.",
       "source_note": "IEEE 1800-2023 10.4.2; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_nba_captures_target_and_value_once_in_either_order.sv",
+          "observation": "ノンブロッキング代入を予約した後に添字と値を変え、予約時に両評価順から得られる組だけが適用され、両式が再評価されないことを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "32c1505b4e8eb5a5264ba91de59ef76360af4cb094a0b89d13b91ee8f112de50",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_nba_captures_target_and_value_once_in_either_order.sv",
+              "contains": "slots[choose_index()] <= evaluate_value();"
+            },
+            {
+              "file": "tests/ch10/test_nba_captures_target_and_value_once_in_either_order.sv",
+              "contains": "marker = 2;\n    payload = 23;"
+            },
+            {
+              "file": "tests/ch10/test_nba_captures_target_and_value_once_in_either_order.expected",
+              "contains": "pending=1 captured pair=1 evaluations=1 guard=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.4.2",
@@ -170136,17 +170206,80 @@
     {
       "id": "SV2023-16.10-EXTRACT-NO-PREASSIGNED-TRIGGERED",
       "clause": "16.10",
-      "kind": "normal",
+      "kind": "error",
       "behavior": "A value assigned before a local is passed through triggered is not visible within the operand named sequence under these restrictions.",
       "acceptance": "A value assigned before a local is passed through triggered is not visible within the operand named sequence under these restrictions.",
       "source_note": "IEEE 1800-2023 16.10; complete own-body source review, blocks B052. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch16/test_triggered_output_local_uses_its_own_assignment.sv",
+          "observation": "通常の入出力引数で呼出し元の値を読める対照と、出力引数を対象内で設定してから読んだ値を返す場合を照合する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "b788abc0f40a56c8b7c7c8a1682ac5a60c2336df5d35f484b31416554915a8cf",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_triggered_output_local_uses_its_own_assignment.sv",
+              "contains": "sequence read_then_write(local inout int captured);"
+            },
+            {
+              "file": "tests/ch16/test_triggered_output_local_uses_its_own_assignment.sv",
+              "contains": "sequence write_then_read(local output int captured);"
+            },
+            {
+              "file": "tests/ch16/test_triggered_output_local_uses_its_own_assignment.sv",
+              "contains": "write_then_read(captured).triggered"
+            },
+            {
+              "file": "tests/ch16/test_triggered_output_local_uses_its_own_assignment.expected",
+              "contains": "direct=51 hits=1 triggered=29 hits=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv",
+          "observation": "呼出し元で値を設定した出力ローカル変数を渡し、対象シーケンスが自分で代入する前に読み出す箇所で診断を要求する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "fa03414e1a6d89a9f8141118b6f16cbe1afce783667af0fd88bb966f6b5c05b2",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv",
+              "contains": "(probe && sample == 77, sample = observed)"
+            },
+            {
+              "file": "tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv",
+              "contains": "(start_parent, sample = 77)"
+            },
+            {
+              "file": "tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv",
+              "contains": "read_caller_value(sample).triggered"
+            },
+            {
+              "file": "tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv",
+              "contains": ":expected_stderr_regex: test_illegal_triggered_output_local_reads_caller_value_before_assignment\\.sv:(?:19|26):(?:\\d+:)?[^\\n]*(?i:(?:unassigned|uninitialized|before[^\\n]*assign|not[^\\n]*assign))"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "16.10",
           "blocks": [
             "B052"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "typed-output-and-early-read",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "observation": "出力ローカル変数を対象内で代入してから読む対照と、代入前に読み出す場合の拒否を照合する。",
+          "tests": [
+            "tests/ch16/test_triggered_output_local_uses_its_own_assignment.sv",
+            "tests/ch16/test_illegal_triggered_output_local_reads_caller_value_before_assignment.sv"
           ]
         }
       ]
@@ -233149,7 +233282,33 @@
       "acceptance": "b distinguishes binary from text where the host maps text data; it may have no effect on systems without that distinction.",
       "source_note": "IEEE 1800-2023 21.3.1; complete own-body source review, blocks B021. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "implementation_defined",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch21/test_file_binary_mode_matches_host_translation.sv",
+          "observation": "改行や制御文字を含む同じファイルを二つのモードで読み、バイナリの元の値とそれぞれのモードでホストが返す値の両方に照合する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "ec32ced9143688103044fe3f830b7eb498a4d24f49b9cb943ef3fc7cbff346f7",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_file_binary_mode_matches_host_translation.sv",
+              "contains": "binary_bytes = read_bytes(\"rb\", binary_count);"
+            },
+            {
+              "file": "tests/ch21/test_file_binary_mode_matches_host_translation.sv",
+              "contains": "text_bytes = read_bytes(\"r\", text_count);"
+            },
+            {
+              "file": "tests/ch21/test_file_binary_mode_matches_host_translation.c",
+              "contains": "FILE *file = fopen(path, mode);"
+            },
+            {
+              "file": "tests/ch21/test_file_binary_mode_matches_host_translation.expected",
+              "contains": "binary exact=1 binary matches host=1 text matches host=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "21.3.1",
@@ -246484,7 +246643,7 @@
           "observation": "`include のファイル名をマクロ LEX_INCLUDE_FILE で与えて LEX_FROM_INCLUDE=7 を読み込み、`timescale の単位と精度をマクロ LEX_UNIT/LEX_PREC（10ns/1ns）で与えて #1 が 10 ns になることを表示する。ブロックコメント内の `define、行コメント内の `undef、文字列リテラル内の `undef がどれも処理されないことを `ifdef で表示し、文字列は `undef LEX_KEEP_S のまま印字する。 区別: 指令の中でマクロを展開しない実装は `include や `timescale でエラーになるか 10 ns の行が変わる。コメントや文字列の中の指令を認識する実装では block comment/line comment/string の行が processed になり、文字列の印字内容も変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_macro_expansion_not_in_comments_or_strings.sv",
@@ -246624,7 +246783,7 @@
           "observation": "` で始まる `timescale と `define の効果を、定義位置の異なる 3 つのモジュールの #1 の長さと SCOPE_VALUE で観測する。1ns/1 の後の scope_first は 1 ns・1、include したファイルの中の `timescale 1us と再定義 2 はそのファイルの終わりの後の scope_included にも効いて 1000 ns・2、後の `timescale 100ns と再定義 3 がそれを置き換えて scope_superseded は 100 ns・3。 区別: 指令の効果を include したファイルの中だけに限る実装では scope_included の行が 1 ns・1 になる。後の指令で置き換えない実装では scope_superseded の行が 1000 ns・2 になり、表示の順序も変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_directive_scope_across_include_until_superseded.sv",
@@ -246725,7 +246884,7 @@
           "observation": "`resetall の前に `default_nettype tri0、`unconnected_drive pull1、`celldefine を置き、`define と `include でマクロを定義する。`resetall の前に定義したモジュールは開放入力が 1、暗黙ネットが z だけで 0、インスタンスが cell（vpiCellInstance 1）、後に定義したモジュールは開放入力 z、暗黙ネット z、cell でない（0）。マクロ 2 つは値を保ち、`undef したものは未定義のまま。 区別: 既定値を持つ指令を戻さない実装では after の行が 1/0/cell instance 1 のままになる。既定値を持たない `define を `resetall で消す実装では width 4 や 9 の行がエラーになり、`undef したマクロを戻す実装では undefined の行が defined になる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -246843,7 +247002,7 @@
           "observation": "`include \"include_absolute_only_helper.svh\" は合法、`include \"/kirimasim_no_such_dir/include_absolute_only_helper.svh\"（30 行目）が誤り。:expected_stderr_regex: が 30 行目を照合する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv",
@@ -246913,7 +247072,7 @@
           "observation": "1 つ目の `include の後には行コメントだけを置き（合法）、2 つ目の `include の後の同じ行に localparam 宣言を置く（25 行目）。インクルードファイルはガードで 2 回目に何も宣言しないので、他の誤りは無い。:expected_stderr_regex: は 25 行目を照合する。 区別: `include の行に空白とコメント以外を許す実装は宣言を受け付けて設計を受理する（Verilator 5.052）のでテストが失敗する。コメントまで拒む実装は 23 行目でもエラーを出すが、25 行目の照合は変わらない。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_illegal_include_line_trailing_code.sv",
@@ -247068,7 +247227,7 @@
           "observation": "include先のtypedefとfunctionを宣言位置へ挿入し、両memberと関数結果を確認する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_include_file_declarations.sv",
@@ -247102,7 +247261,7 @@
           "observation": "同じincludeを2回読み、guardによりparameterが重複せずdepth6とguard定義を観測する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_twice.sv",
@@ -247119,7 +247278,7 @@
           "observation": "main/helperの両ファイルで同じinclude由来macro7が使え、3倍21を両方で観測する。compilation unitの構成は固定しない。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_include_guard_two_files.sv",
@@ -247136,7 +247295,7 @@
           "observation": "outerがincludeするinnerのparameter5とouterの計算値10を両方確認する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Codex (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_include_nested.sv",
@@ -247206,7 +247365,7 @@
           "observation": "シミュレーションで22.4-EXTRACT-INCLUDE-SYNTAXを観測する。The design uses `include \"file\" on a line of its own before the module and between the items of the module, and `include <file> before the module. The included files supply the macro QUOTED_WIDTH, the macro ANGLE_NAME and the localparam BODY_VALUE, and the pri 区別: 新規テストで要求の条件を刺激し、規格から導いた期待値と比較する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_22_extra_include_syntax.sv",
@@ -247243,7 +247402,7 @@
           "observation": "`resetall の前に `define RESETALL_KEEP_WIDTH 4、`define と `undef の RESETALL_GONE、include したファイルの `define RESETALL_FROM_INCLUDE 9 を置き、`resetall の後のモジュールで $bits を 4、RESETALL_GONE を undefined、RESETALL_FROM_INCLUDE を 9 と表示する。 区別: `resetall でテキストマクロを消す実装では `RESETALL_KEEP_WIDTH と `RESETALL_FROM_INCLUDE が未定義になりエラーになる。マクロの状態を戻す実装（undef を取り消す）では undefined の行が defined に変わる。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
@@ -250440,7 +250599,33 @@
       "acceptance": "With no timescale or after resetall, default time unit and precision are tool-specific.",
       "source_note": "IEEE 1800-2023 22.7; complete own-body source review, blocks B007. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "implementation_defined",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch22/test_resetall_restores_observed_default_timescale.sv",
+          "observation": "粗さが異なる二つの時間指定をそれぞれ解除し、三つの遅延後の観測時刻が指示子のないモジュールと一致することを、具体的な既定値を固定せずに確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "4490540ccebf08134e2c69c2f90d6e031415f018b803fb6cf5966d93664fc0c1",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_resetall_restores_observed_default_timescale.sv",
+              "contains": "module after_coarse_timescale;"
+            },
+            {
+              "file": "tests/ch22/test_resetall_restores_observed_default_timescale.sv",
+              "contains": "module after_fine_timescale;"
+            },
+            {
+              "file": "tests/ch22/test_resetall_restores_observed_default_timescale.sv",
+              "contains": "ticks[0][2] > ticks[0][1]"
+            },
+            {
+              "file": "tests/ch22/test_resetall_restores_observed_default_timescale.expected",
+              "contains": "after coarse matches=1 after fine matches=1 default advances=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "22.7",
@@ -251733,7 +251918,7 @@
           "observation": "インクルードファイルに `begin_keywords \"1364-2005\" だけがあり、インクルード後のモジュールの logic x;（31 行目）が誤り。対の `end_keywords はこのファイルにある。:expected_stderr_regex: が 31 行目を照合する。",
           "reviewed_on": "2026-10-28",
           "reviewer": "Claude Opus 5.5 (AI); not an independent human review",
-          "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
+          "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
           "evidence": [
             {
               "file": "tests/ch22/begin_keywords_1364_2005_helper.svh",

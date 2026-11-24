@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-25",
+  "tool": "Slang",
+  "fixture": "tools/test_slang_library_maps.py",
+  "fixture_sha256": "9d018693d71880a5b9e5d53b70fddb663cbd821bb1064089fe0cae3226aa6ac9",
+  "cases": {
+    "test_wildcards_match_empty_segments_and_require_one_character": {
+      "requirements": [
+        "SV2023-33.3.1-EXTRACT-PATH-HIERARCHY",
+        "SV2023-33.3.1-EXTRACT-PATH-MANY",
+        "SV2023-33.3.1-EXTRACT-PATH-ONE"
+      ],
+      "selected_sources": {
+        "shallow": "tree/cellAname.sv",
+        "deep": "tree/child/deeper/cellBname_extra.sv"
+      },
+      "nonmatching_sources": [
+        "tree/cellname.sv",
+        "tree/child/cellABname.sv"
+      ]
+    },
+    "test_library_map_rejects_module_declaration": {
+      "requirements": [
+        "SV2023-33.3.2-EXTRACT-MAP-LIMITED-CONTENTS-TEXT"
+      ],
+      "control_exit": 0,
+      "diagnostic_location": "lib.map:3"
+    }
+  },
+  "runs": [
+    {
+      "version": "slang version 12.0.0+0",
+      "binary_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "total_tests": 8,
+      "passed_tests": 8,
+      "new_test_results": {
+        "test_wildcards_match_empty_segments_and_require_one_character": "pass",
+        "test_library_map_rejects_module_declaration": "pass"
+      }
+    },
+    {
+      "version": "slang version 12.0.0+a88cbc1b3",
+      "binary_sha256": "5fcf043a7b6a40f2d4747d0a726ddf0c428ff3a19c6ebf3e49d85e870c9a74fd",
+      "total_tests": 8,
+      "passed_tests": 8,
+      "new_test_results": {
+        "test_wildcards_match_empty_segments_and_require_one_character": "pass",
+        "test_library_map_rejects_module_declaration": "pass"
+      }
+    }
+  ]
+}

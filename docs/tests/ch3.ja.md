@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは162本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは163本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -119,6 +119,7 @@
 | [`test_timeunit_precedence`](../../tests/ch3/test_timeunit_precedence.sv) |時間単位の宣言は \`timescale を上書きし、そのスラッシュ形式は精度も設定します。ネストされたモジュールは親モジュールの時間単位を取ります。モジュールがないときは最後の \`timescale を取ります。| 3.14.2.3 3.14.2.2 3.14.1 23.4 |規格のみ||
 | [`test_timeunit_program`](../../tests/ch3/test_timeunit_program.sv) |プログラムの遅延はプログラムの時間単位であり、それをインスタンス化するモジュールの時間単位ではありません。| 3.14.2.3 3.14.2.2 3.14.1 24.3 | Icarus Verilog 13.0 ||
 | [`test_timeunit_scope_task`](../../tests/ch3/test_timeunit_scope_task.sv) |コンパイルユニットスコープで宣言されたタスクの遅延は、そのスコープの時間単位であり、それを呼び出すモジュールの時間単位ではありません。| 3.14.2.3 3.14.2.2 3.12.1 20.3.3 | Icarus Verilog 13.0 ||
+| [`test_unit_time_default_is_independent_of_timescale_directive`](../../tests/ch3/test_unit_time_default_is_independent_of_timescale_directive.sv) |timescale 指定を挟んでもコンパイル単位スコープで観測する既定の時間単位は変わらない| 3.14.2.3 22.7 | Icarus Verilog 13.0 |出口コード|
 | [`test_global_precision_from_timeprecision`](../../tests/ch3/test_global_precision_from_timeprecision.sv) |vpi_get NULL オブジェクトに対して与えられる大域的な時間精度は、サブモジュールの時間精度宣言のみで設定された場合でも、設計の最も精密な精度である。| 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |
 | [`test_global_precision_from_timescale`](../../tests/ch3/test_global_precision_from_timescale.sv) |NULL個のオブジェクトに対してvpi_getが与える全体的な時間精度は，サブモジュールの前の\`timescale個の指令の精度だけで設定しても，設計の最も精密な精度である。| 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |
 | [`test_global_precision_from_timeunit_slash`](../../tests/ch3/test_global_precision_from_timeunit_slash.sv) |vpi_get NULL オブジェクトに対して与えられる大域的な時間精度は，サブモジュールにおける時間単位宣言の精度引数のみがそれを設定する場合でも，設計の最も精密な精度である。| 3.14.3 3.14.2.1 3.14.2.2 37.10 38.6 | Icarus Verilog 13.0 | VPI |
