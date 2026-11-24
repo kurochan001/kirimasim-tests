@@ -1,0 +1,33 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch38/test_vpi_callbacks_keep_both_simtime_words_across_wrap": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_callbacks_keep_both_simtime_words_across_wrap.sv:20:8: Unsupported or unknown PLI call: '$vt_high_time_setup'",
+   "inputs_sha256": "ee899956b49805213db6491b13cf8f48eb7820761d58666452d1343cb9f24c5d"
+  },
+  "ch38/test_vpi_transport_put_emits_one_callback_before_and_after_high_time_word": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_transport_put_emits_one_callback_before_and_after_high_time_word.sv:20:8: Unsupported or unknown PLI call: '$vt_high_put_setup'",
+   "inputs_sha256": "882d663644671a8107a2566864e8304c9aa5ddfee62792f6f987ae02d755d9aa"
+  },
+  "ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv:45:8: Unsupported or unknown PLI call: '$vt_write_udp_state'",
+   "inputs_sha256": "90a998dc9969a6a24dbcce952b04dec7aa9ad4bf135d5637474f21a98e2bbc90"
+  },
+  "ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net.sv:28:8: Unsupported or unknown PLI call: '$vt_watch_value_targets'",
+   "inputs_sha256": "295aebb7e6d19c0b581d1c7b2203395451b93ce6798e2904dcc215549859206f"
+  }
+ },
+ "generated_at": "2026-11-24T04:46:35.068496+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

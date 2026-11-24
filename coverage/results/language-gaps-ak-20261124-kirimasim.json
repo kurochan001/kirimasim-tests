@@ -1,0 +1,36 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch20/test_illegal_pla_async_rejects_net_member_in_output_concatenation": {
+   "status": "unsupported",
+   "reason": "system task $async$and$array (not implemented yet)",
+   "inputs_sha256": "aa9b1e5cce1c44d40395ed83cfdd9e5b4174c6be4e561a80bdf346baf277c873"
+  },
+  "ch20/test_illegal_pla_output_net": {
+   "status": "unsupported",
+   "reason": "system task $async$and$array (not implemented yet)",
+   "inputs_sha256": "e6d7d7c57db6a7d6de2e9aea35002fd0036c1a51a3499453136c442d95328d3b"
+  },
+  "ch20/test_illegal_pla_sync_rejects_net_member_in_output_concatenation": {
+   "status": "unsupported",
+   "reason": "system task $sync$or$plane (not implemented yet)",
+   "inputs_sha256": "581d3ed50e61c514e7cdb694fd04d1e05916e42e1b9c39cba3b4c89694278590"
+  },
+  "ch20/test_pla_sync_snapshot_versus_async_update": {
+   "status": "unsupported",
+   "reason": "system task $async$and$array (not implemented yet)",
+   "inputs_sha256": "4f4ad222769875cecc695ef4af46d6bcd02e151082871c4b8a5e9c6c07f6811c"
+  },
+  "ch20/test_pla_updates_outputs_in_the_time_slot_of_input_or_synchronous_call": {
+   "status": "unsupported",
+   "reason": "system task $async$and$array (not implemented yet)",
+   "inputs_sha256": "a8d452161aaeb27aefefe2e96e0f67cf794ba4b4c8f3835a0e09a0758f7ec51a"
+  }
+ },
+ "generated_at": "2026-11-24T00:09:15.237557+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

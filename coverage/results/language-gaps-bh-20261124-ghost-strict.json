@@ -1,0 +1,23 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch18/test_constraint_function_priority_does_not_prune_high_randc_cycle": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "a1c99dd38ccf64aba7873dedf584dffba0df7b5ca65b05aa4b408f38e33f208b"
+  },
+  "ch18/test_constraint_function_priority_partition": {
+   "status": "pass",
+   "inputs_sha256": "d0e85d5aee11f8fd99a658b9826466880ce5c48bdf348c779bf866a579c4ef29"
+  }
+ },
+ "generated_at": "2026-11-24T02:35:23.499731+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

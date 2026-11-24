@@ -1,0 +1,2 @@
+frame 0 object-calls=1/1 value=17 identity=1 time-null=1/1 frame-before-thread=1
+frame 1 object-calls=1/1 value=27 identity=1 time-null=1/1 frame-before-thread=1

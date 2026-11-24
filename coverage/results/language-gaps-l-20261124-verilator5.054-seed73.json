@@ -1,0 +1,31 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch14/test_illegal_clocking_cycle_delay_negative_integer": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "46100f07092d953a84fd8c067e3c1eb79924726041b607289bac24bddc3d4349"
+  },
+  "ch15/test_illegal_semaphore_put_used_as_value": {
+   "status": "pass",
+   "inputs_sha256": "d2a9b577b3efd773cb051f004fa162e47022cf0ea371d7733ca1381f047ccf7f"
+  },
+  "ch15/test_semaphore_put_named_count_and_default_one": {
+   "status": "pass",
+   "inputs_sha256": "be1b2d6dfaec4a66ad76e9c45315b734896e9d005b68df93dd33cce3782aa569"
+  },
+  "ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'keys=3 known=37 x=1 z=1', expected 'keys=1 known=37 x=0 z=0'",
+   "inputs_sha256": "1beeca98e89f2e54aef4c13d0ded843f46ba8a28231d7715e74e1d2e625ad856"
+  }
+ },
+ "generated_at": "2026-11-23T22:09:43.134250+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

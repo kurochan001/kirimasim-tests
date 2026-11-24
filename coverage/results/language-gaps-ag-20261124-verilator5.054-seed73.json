@@ -1,0 +1,53 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_dpi_import_access_props": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_dpi_import_access_props.sv:36:14: Unsupported or unknown PLI call: '$vt_dpi'",
+   "inputs_sha256": "05429035c36bf93218fee9ab02e54d7e2289f84e6d51a93708b9aff16f2d4fde"
+  },
+  "ch37/test_vpi_dpi_language_and_linkage_name_for_imports_and_exports": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_dpi_language_and_linkage_name_for_imports_and_exports.sv:16:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+   "inputs_sha256": "4d48c7d554c26bccff37ac9d2f1857d0e7bf42c8ac94388af0b6916ebb596e9a"
+  },
+  "ch37/test_vpi_task_function_properties": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_task_function_properties.sv:101:5: Unsupported or unknown PLI call: '$vt_tf'",
+   "inputs_sha256": "d95e3d3e6118161d0a371551a10841d1716602941a6212b5df2b363cf55aeb34"
+  },
+  "ch38/test_vpi_array_get_errors": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'an array is missing', expected 'shortreals is a float pointer 1'",
+   "inputs_sha256": "f357bf5c2fda53dd942558d61dc7e60a5cef86923b4686fe0bfa7e52d10c13fc"
+  },
+  "ch38/test_vpi_bulk_array_checks_element_type_and_storage_lifetime": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_bulk_array_checks_element_type_and_storage_lifetime.sv:29:5: Unsupported or unknown PLI call: '$vt_check_bulk_array'",
+   "inputs_sha256": "fe4d10d73dd2f7b3eb6c84d23632a89e059edf068d4dbc31d7fc7bc4ffb68b74"
+  },
+  "ch38/test_vpi_get_value_array": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_get_value_array.sv:30:5: Unsupported or unknown PLI call: '$vt_read'",
+   "inputs_sha256": "3bf4a69aee8ceb245ba763f3824b48c4d3c552ceda6b1e974e84a283bc3a12ff"
+  },
+  "ch38/test_vpi_put_value_array_order": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'g[1][0:2]: 44 33 22, g[0][0:2]: 11 0 0', expected 'g[1][0:2]: 0 11 22, g[0][0:2]: 33 44 0'",
+   "inputs_sha256": "979a608b9177628bea340b99b4e57ee5e9df3d22a479577ad0687a200c6dbda3"
+  },
+  "ch38/test_vpi_put_value_udp_array_errors": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_value_udp_array_errors.sv:55:5: Unsupported or unknown PLI call: '$vt_udp_put'",
+   "inputs_sha256": "26eda33b25f69c50bf33876593389e9de1d8dafb16a3f2099a211b035d6cb073"
+  }
+ },
+ "generated_at": "2026-11-23T23:48:26.333879+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

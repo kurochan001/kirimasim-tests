@@ -1,0 +1,41 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch6/test_illegal_interconnect_two_equal_delay_values": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interconnect_two_equal_delay_values\\\\.sv:24:(?:\\\\d+:)?[^\\\\n]*(?i:(?:interconnect[^\\\\n]*(?:one|single|multiple|delay)|delay[^\\\\n]*interconnect))'; the first is: tests/ch6/test_illegal_interconnect_two_equal_delay_values.sv:24: syntax error",
+   "inputs_sha256": "a31c11f3badb8e5fa9f410012bd338cfda311f8c156479554138f1f021f4268c"
+  },
+  "ch6/test_interconnect_single_delay_on_inferred_net": {
+   "status": "known",
+   "reason": "compile failed: tests/ch6/test_interconnect_single_delay_on_inferred_net.sv:23: syntax error",
+   "inputs_sha256": "616e97d9d6955be6396242b1b4642553c72490a695206c7eb7a2486a6fc83da6"
+  },
+  "ch7/test_associative_key_uses_queue_and_string_values_structurally": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv:14: sorry: Unpacked structs not supported.",
+   "inputs_sha256": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6"
+  },
+  "ch7/test_illegal_associative_index_contains_nested_real": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_associative_index_contains_nested_real\\\\.sv:17:(?:\\\\d+:)?[^\\\\n]*(?i:(?:associative|index|key)[^\\\\n]*(?:real|floating|element|equality|type)|(?:real|floating)[^\\\\n]*(?:associative|index|key))'",
+   "inputs_sha256": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6"
+  },
+  "ch9/test_process_function_can_suspend_another_waiting_process": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_process_function_can_suspend_another_waiting_process.sv:15: syntax error",
+   "inputs_sha256": "24213c41b19627b5718914e06c3e5d37890adb19fee4874c90448912857d14c0"
+  },
+  "ch9/test_process_function_cannot_suspend_current_process": {
+   "status": "known",
+   "reason": "compile failed: tests/ch9/test_process_function_cannot_suspend_current_process.sv:16: syntax error",
+   "inputs_sha256": "b6f2b2a4ce57ff6ddb3991d938aab3a0813386b624fcdb299bfc091b9c799abd"
+  }
+ },
+ "generated_at": "2026-11-23T22:43:38.091262+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

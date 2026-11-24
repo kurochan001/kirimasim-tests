@@ -1,0 +1,33 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch11/test_illegal_stream_with_negative_index_on_dynamic_array": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_stream_with_negative_index_on_dynamic_array\\\\.sv:19:(?:\\\\d+:)?[^\\\\n]*(?i:(?:stream|range|select|index)[^\\\\n]*(?:negative|positive|out of bounds|out.of.range)|(?:negative|positive)[^\\\\n]*(?:stream|range|select|index))'; the first is: %Error-UNSUPPORTED: tests/ch11/test_illegal_stream_with_negative_index_on_dynamic_array.sv:19:16: Unsupported: with[] stream expression",
+   "inputs_sha256": "93a5d082b87d22f08fe12b5409351722f4aae573174e5ed3ea0ac13f4eda5ff6"
+  },
+  "ch11/test_illegal_stream_with_real_base_for_integral_range": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_stream_with_real_base_for_integral_range\\\\.sv:18:(?:\\\\d+:)?[^\\\\n]*(?i:(?:\\\\breal\\\\b[^\\\\n]*(?:integral|select|range|index)|(?:integral|select|range|index)[^\\\\n]*\\\\breal\\\\b|requires an integral))'; the first is: %Error-UNSUPPORTED: tests/ch11/test_illegal_stream_with_real_base_for_integral_range.sv:18:21: Unsupported: with[] stream expression",
+   "inputs_sha256": "fc79c062f5ef808aa58a8a190bfe54021973c49b6d90a093541a62202c3646a2"
+  },
+  "ch11/test_stream_unpack_dynamic_width_into_descending_fixed_array": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_stream_unpack_dynamic_width_into_descending_fixed_array.sv:23:16: Unsupported: with[] stream expression",
+   "inputs_sha256": "1f88e4cbcd12a441b57f4f72eb7540a72ef59b5f1f99f9dc30015324d5289e2a"
+  },
+  "ch11/test_stream_unpack_outside_fixed_array_updates_only_in_range_entries": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_stream_unpack_outside_fixed_array_updates_only_in_range_entries.sv:25:19: Unsupported: with[] stream expression",
+   "inputs_sha256": "8090eda7909f67b124343f2290af4405f0d617324eef56892d49a561c91e62d8"
+  }
+ },
+ "generated_at": "2026-11-23T23:27:28.923225+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

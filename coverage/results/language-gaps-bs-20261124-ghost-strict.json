@@ -1,0 +1,34 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch8/test_illegal_weak_reference_without_required_type_parameter": {
+   "status": "pass",
+   "inputs_sha256": "046cdde4a1e377afb89e3dcc9855d6e7475f7146725425bed78518f11fce51de"
+  },
+  "ch8/test_weak_reference_identity_survives_base_and_derived_specialization": {
+   "status": "pass",
+   "inputs_sha256": "d220591698e4ddc4fc7ebc8f803cca18ee8b3b1336c2fb638ba8dd57cfa90fc0"
+  },
+  "ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration": {
+   "status": "pass",
+   "inputs_sha256": "b47678190881ee5b69716b97e943afcb7ef205b5f430d7af4b1160d09d3fa041"
+  },
+  "ch9/test_illegal_extend_alias_of_final_standard_process_class": {
+   "status": "pass",
+   "inputs_sha256": "135d88d60fe47e8a85dcab818bc76c286563207e997ffeaebe006766aa993f63"
+  },
+  "ch9/test_lexical_process_class_can_be_extended_alongside_qualified_standard_process": {
+   "status": "pass",
+   "inputs_sha256": "93901b54f67e8b091f1dfa04142d8c98d5d4c397c586ca77e5140c56580c68e9"
+  }
+ },
+ "generated_at": "2026-11-24T04:38:59.403348+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

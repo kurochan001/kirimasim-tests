@@ -1,0 +1,9 @@
+below down=01000000x/xxxxxxxxx up=x10001001/xxxxxxxxx
+above down=xxxxxxxxx/xx1000100 up=xxxxxxxxx/1000000xx
+inside down=011110111/110000000 up=101010111/100010011
+unknown down=xxxxxxxxx/xxxxxxxxx up=xxxxxxxxx/xxxxxxxxx
+unknown preserved=1/1
+floating down=xxxxxxxxx/xxxxxxxxx up=xxxxxxxxx/xxxxxxxxx
+floating preserved=1/1
+outside down=xxxxxxxxx/xxxxxxxxx up=xxxxxxxxx/xxxxxxxxx
+outside preserved=1/1

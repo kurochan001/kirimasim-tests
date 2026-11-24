@@ -1,0 +1,6 @@
+registrations=6
+dynamic: S3/3 S1/1
+queue: S1/1 S0/0
+associative: S1/1 S0/0
+string: S3:"" V:"abc" V:"dog" S1:"dog" V:"z"
+fixed: V3 V5 V0

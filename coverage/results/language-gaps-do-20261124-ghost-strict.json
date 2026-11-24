@@ -1,0 +1,19 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch10/test_nba_concatenated_slices_keep_rhs_alignment_at_boundaries": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "c6afd7fa749a6d9729d0a157eecea1b18cc667ed045231008522620c1ce59540"
+  }
+ },
+ "generated_at": "2026-11-24T09:07:53.138875+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

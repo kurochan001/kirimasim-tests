@@ -1,0 +1,58 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch13/test_illegal_const_ref_static_formal_in_explicit_static_task": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_const_ref_static_formal_in_explicit_static_task\\\\.sv:21:(?:\\\\d+:)?[^\\\\n]*(?i:(?=[^\\\\n]*\\\\b(?:ref|reference)\\\\b)(?=[^\\\\n]*\\\\b(?:static|automatic)\\\\b)(?=[^\\\\n]*\\\\b(?:lifetime|subroutines?|functions?|tasks?)\\\\b)[^\\\\n]*\\\\b(?:illegal|forbid(?:den)?|cannot|not permitted|can only)\\\\b)'; the first is: %Error-UNSUPPORTED: tests/ch13/test_illegal_const_ref_static_formal_in_explicit_static_task.sv:17:26: Unsupported: 'ref static' ports",
+   "inputs_sha256": "abb1635a98aba411da620714483898ba0f8f1a8a425693edc4c86aff0a9d4446"
+  },
+  "ch13/test_illegal_ref_static_formal_in_explicit_static_function": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_ref_static_formal_in_explicit_static_function\\\\.sv:21:(?:\\\\d+:)?[^\\\\n]*(?i:(?=[^\\\\n]*\\\\b(?:ref|reference)\\\\b)(?=[^\\\\n]*\\\\b(?:static|automatic)\\\\b)(?=[^\\\\n]*\\\\b(?:lifetime|subroutines?|functions?|tasks?)\\\\b)[^\\\\n]*\\\\b(?:illegal|forbid(?:den)?|cannot|not permitted|can only)\\\\b)'; the first is: %Error-UNSUPPORTED: tests/ch13/test_illegal_ref_static_formal_in_explicit_static_function.sv:17:34: Unsupported: 'ref static' ports",
+   "inputs_sha256": "9fabe132a9bff1c3d0f329367d563cdaac56b5f3bb19773d825de4f7b72ad4f3"
+  },
+  "ch13/test_ref_static_accepted_actuals": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch13/test_ref_static_accepted_actuals.sv:45:22: Unsupported: 'ref static' ports",
+   "inputs_sha256": "8cde6faf0b7e6a3e89ecb4180e35833d38e6522a39454e59587d6f5584b71d87"
+  },
+  "ch18/test_initialization_rng_starts_with_same_default_seed_in_peer_scopes": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'peer static threads module=0 interface=0 program=0', expected 'peer static threads module=1 interface=1 program=1'",
+   "inputs_sha256": "7d340c5bf3e062aa1599d3289d29e09c4c54701bfd825ee3c1604a8b1b48a35a"
+  },
+  "ch30/test_global_pulse_defaults": {
+   "status": "known",
+   "reason": "output differs: line 1 is '10: y=1', expected '31: y=1'",
+   "inputs_sha256": "6f734dd5864c4e6e5a8f166e3eb892b4975c77c280fadc399a4e257c9f7d752c"
+  },
+  "ch30/test_sdf_pulse_limits_override_local_specparams_in_both_directions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'default: 20:1 23:0 50:1 55:0 80:1 88:0 110:1 122:0', expected 'default: 120:1 132:0'",
+   "inputs_sha256": "551a9013da2eb6dfa913e1fc5fabc7ae54f3e047a2942bffea101a1982756507"
+  },
+  "ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv:25:18: Unsupported: tagged union",
+   "inputs_sha256": "83632339fbfc2310acad9336c3c9e91d1bef4633ef75f882c6013e46d7898224"
+  },
+  "ch7/test_tagged_union_packed": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_tagged_union_packed.sv:24:5: Unsupported: void (for tagged unions)",
+   "inputs_sha256": "cba9516b8bb4065f48b092c714d4a289143bc2af53c5fd02b9fec09acf836516"
+  },
+  "ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv:28:12: Unsupported: tagged union",
+   "inputs_sha256": "ae8be8abf6cc543167385b093503af8f38b12ed8cd7f01ad3f024c8ce72fe52e"
+  }
+ },
+ "generated_at": "2026-11-24T01:52:05.714818+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

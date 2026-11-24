@@ -1,0 +1,38 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch10/test_intra_assignment_delay_keeps_large_ticks_and_target_evaluation_times": {
+   "status": "pass",
+   "inputs_sha256": "71206f6ae028c169b0a7787a3f0a244a7e618b81cf352f4fd48fa06db9abd183"
+  },
+  "ch15/test_delayed_nonblocking_event_preserves_large_integer_tick": {
+   "status": "pass",
+   "inputs_sha256": "752c57c7e20f5be63b27aea74a013e790b3e1c9142628d69dcc6f89d457a6667"
+  },
+  "ch23/test_interconnect_single_port_retains_all_local_wired_drivers": {
+   "status": "unsupported",
+   "reason": "net of kind 'interconnect' (not implemented yet)",
+   "inputs_sha256": "fc22e3d1b4a405222c7b29afa392a5e92611d71a4706e897a2f0ebd83488a011"
+  },
+  "ch23/test_resolved_user_nettype_counts_local_drivers_across_port_merges": {
+   "status": "unsupported",
+   "reason": "net of kind 'counted_net' (not implemented yet)",
+   "inputs_sha256": "9082ad8d7f2dcb5fb1fdff8d836d1c1347f03e0b6af60f88255b19a8d06317de"
+  },
+  "ch23/test_wired_inout_port_retains_multiple_drivers_in_one_instance": {
+   "status": "pass",
+   "inputs_sha256": "87526b2105777af618838a600f51cdf91c180480ee01d4869adfc76ad9a5cf93"
+  },
+  "ch37/test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "c5b05c9ce05864b8edbe3585917bd97e72caa252e2ba9447be1f7b6b4325d24b"
+  }
+ },
+ "generated_at": "2026-11-24T05:53:00.947319+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

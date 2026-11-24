@@ -1,0 +1,32 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch39/test_vpi_assertion_callback_targets": {
+   "status": "pass",
+   "inputs_sha256": "5e9311b415c3789dce026040ccc69dbc5033f46303919cc81390cc294df3d4d2"
+  },
+  "ch39/test_vpi_assertion_initialization_callback_guards_controls": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "85d489fb15cedb656abf658b8a844ac57baae1117f3fc28bd7b862f7a3a2a1a0"
+  },
+  "ch39/test_vpi_assertion_start_occurs_only_for_evaluated_instances": {
+   "status": "pass",
+   "inputs_sha256": "a63862235e27385bbfb0fb4372ae4e65b5572f2b365e33823d9a853ef6b03b01"
+  },
+  "ch39/test_vpi_assertion_system_notifications_follow_lifecycle": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "9a15e03bb4b77eab60dec5f889fdd4964cc0191762c28478e8737fc4f95d5334"
+  }
+ },
+ "generated_at": "2026-11-24T02:13:33.113756+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch10/test_continuous_and_gate_delays_preserve_large_integral_tick": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "6ccff3af10eb3b05c9be6232e42f3c6956e440b39652e6a78d51077b6221c861"
+  },
+  "ch10/test_net_declaration_delay_preserves_large_integral_tick": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "88fe5dc1cfc305fcf7c72ff22d2eeaf1558df398966c0387485528a7cd550915"
+  },
+  "ch30/test_specify_path_delay_preserves_large_integral_tick": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "9e80d3b1e5744ac2efa6a48d8a95bf002adb04b67111f683d266229c07590901"
+  }
+ },
+ "generated_at": "2026-11-24T05:04:55.732429+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

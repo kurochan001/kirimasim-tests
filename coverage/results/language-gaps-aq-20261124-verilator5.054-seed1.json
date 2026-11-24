@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch38/test_vpi_get_value_preserve": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_get_value_preserve.sv:40:8: Unsupported or unknown PLI call: '$vt_read'",
+   "inputs_sha256": "6e92428a330aa0d450a68d7e645283f3875d9311b1c0e2408424c2402ee290cc"
+  },
+  "ch38/test_vpi_put_value_caller_storage": {
+   "status": "known",
+   "reason": "output differs: line 1 is '4: b=00100110 i=0 r=0.000', expected '4: b=xxxxxxxx i=0 r=0.000'",
+   "inputs_sha256": "9b267bd1a80fd8dace0b593b881e753d2a11db2cd26fcc1d5d047418e89e6074"
+  },
+  "ch38/test_vpi_put_value_caller_storage_time_strength": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected '4: tv high 0 low 0, sn logic vpiZ'",
+   "inputs_sha256": "55dce386076d364f3218dfbb4f3e17024bb1303c548a6072c76b13019a0085ca"
+  },
+  "ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage.sv:20:8: Unsupported or unknown PLI call: '$vt_schedule_values'",
+   "inputs_sha256": "139ccc739f44e5da41b3e946c663759601b82705d194b4bca951ded3824b158b"
+  },
+  "ch38/test_vpi_vector_callback_storage_survives_get_value_until_return": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_vector_callback_storage_survives_get_value_until_return.sv:20:8: Unsupported or unknown PLI call: '$vt_watch_vector'",
+   "inputs_sha256": "27b42e6a0e309288f062b03af93e1e8f5642c82e9b20d9f9ff6566530e6cf25c"
+  }
+ },
+ "generated_at": "2026-11-24T00:44:21.828169+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

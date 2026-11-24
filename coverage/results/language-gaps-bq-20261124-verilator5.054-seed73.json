@@ -1,0 +1,37 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch16/test_global_clock_future_functions_action_delay": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_global_clock_future_functions_action_delay.sv:78:60: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "225e360fc64e55aba6b946ec28616194ac6ff3cbf755e2dde62789997e65c7b5"
+  },
+  "ch16/test_global_clock_past_functions_procedural_action": {
+   "status": "pass",
+   "inputs_sha256": "6ea660cdb7df0b2f7cde74f686418634127729b8d0936df3ff8ab91c0bfff838"
+  },
+  "ch16/test_sampled_function_arguments": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_sampled_function_arguments.sv:58:46: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "00f5f492723c156155dd86cfe804e0e64964381431918bbc26bb35832dfa6879"
+  },
+  "ch20/test_global_clock_sampled_functions_evaluate_computed_operands": {
+   "status": "known",
+   "reason": "output differs: line 6 is 'rising: 5 35', expected 'rising: 35'",
+   "inputs_sha256": "12b03c12c6e9d812ef6095223e2c5abaa23d9cf89c5173db126c5cf0ecd43ed3"
+  },
+  "ch20/test_sampled_value_functions_accept_empty_trailing_clock_arguments": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch20/test_sampled_value_functions_accept_empty_trailing_clock_arguments.sv:26:16: Unsupported: $past expr2 and/or clock arguments",
+   "inputs_sha256": "a53a4ffb332fe72756e9d7327656aba4c34501c6335e5ccd5c3353aea714af0e"
+  }
+ },
+ "generated_at": "2026-11-24T04:10:06.531922+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

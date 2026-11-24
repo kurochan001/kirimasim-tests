@@ -1,0 +1,37 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch8/test_illegal_weak_reference_without_required_type_parameter": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_weak_reference_without_required_type_parameter\\\\.sv:19:(?:\\\\d+:)?[^\\\\n]*(?i:(?:NoDefaultSpecialization|no default[^\\\\n]*(?:specialization|type)|missing[^\\\\n]*type parameter))'; the first is: %Error: tests/ch8/test_illegal_weak_reference_without_required_type_parameter.sv:18:8: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "046cdde4a1e377afb89e3dcc9855d6e7475f7146725425bed78518f11fce51de"
+  },
+  "ch8/test_weak_reference_identity_survives_base_and_derived_specialization": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch8/test_weak_reference_identity_survives_base_and_derived_specialization.sv:31:16: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "d220591698e4ddc4fc7ebc8f803cca18ee8b3b1336c2fb638ba8dd57cfa90fc0"
+  },
+  "ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration.sv:15:16: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "b47678190881ee5b69716b97e943afcb7ef205b5f430d7af4b1160d09d3fa041"
+  },
+  "ch9/test_illegal_extend_alias_of_final_standard_process_class": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "135d88d60fe47e8a85dcab818bc76c286563207e997ffeaebe006766aa993f63"
+  },
+  "ch9/test_lexical_process_class_can_be_extended_alongside_qualified_standard_process": {
+   "status": "pass",
+   "inputs_sha256": "93901b54f67e8b091f1dfa04142d8c98d5d4c397c586ca77e5140c56580c68e9"
+  }
+ },
+ "generated_at": "2026-11-24T04:39:02.977055+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

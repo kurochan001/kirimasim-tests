@@ -1,0 +1,4 @@
+outputs=a1 b2 c3
+plain: library=work cell=binding_probe_original config=work.binding_probe_outer
+replaced: library=work cell=binding_probe_outer_cell config=work.binding_probe_outer
+nested: library=work cell=binding_probe_inner_cell config=work.binding_probe_nested

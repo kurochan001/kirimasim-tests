@@ -1,0 +1,31 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch12/test_matches_precedes_boolean_and_or": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_matches_precedes_boolean_and_or.sv:18: syntax error",
+   "inputs_sha256": "a368a11a0d1d428c6115380603696fbd7cc216e937c3ae272594d55dacff6fdd"
+  },
+  "ch16/test_assertion_default_strength_at_end_of_trace": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_assertion_default_strength_at_end_of_trace.sv:19: syntax error",
+   "inputs_sha256": "3c512b3ed3394bca6d78a780f26499c37332ffa5ba70bf239e57523002ca68da"
+  },
+  "ch22/test_current_keyword_sets_nested_under_older_version": {
+   "status": "known",
+   "reason": "compile failed: tests/ch22/test_current_keyword_sets_nested_under_older_version.sv:18: Ignoring unknown keywords string: 1800-2017",
+   "inputs_sha256": "de604a3efa22c2d80be12e1f3d9f5089ebf2e9dcbbae539d59f7e12fb04e934c"
+  },
+  "ch7/test_empty_unpacked_concatenation_constant_primary": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_empty_unpacked_concatenation_constant_primary.sv:14: sorry: unpacked array parameters are not supported yet.",
+   "inputs_sha256": "9a6e3c90d78b69979573028b0cf5a1fbd2504a8bf9d3ee2f48c00372455a4de2"
+  }
+ },
+ "generated_at": "2026-11-23T21:53:38.810927+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

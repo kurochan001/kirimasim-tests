@@ -1,0 +1,4 @@
+outer outer=ffa4/ffa4 inner=ffa4/ffa4
+conflict outer=xxa4/xxa4 inner=xxa4/xxa4
+inner outer=00a4/00a4 inner=00a4/00a4
+released outer=zzzz/zzzz inner=zzzz/zzzz

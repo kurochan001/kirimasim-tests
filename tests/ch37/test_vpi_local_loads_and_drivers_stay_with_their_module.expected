@@ -1,0 +1,9 @@
+parent drivers assignments=1 ports=0 terminals=0 other=0
+parent loads assignments=0 ports=0 terminals=1 other=0
+child-input drivers assignments=0 ports=1 terminals=0 other=0
+child-input loads assignments=0 ports=0 terminals=1 other=0
+child-inout drivers assignments=1 ports=1 terminals=0 other=0
+child-inout loads assignments=0 ports=1 terminals=1 other=0
+expression-input drivers assignments=0 ports=1 terminals=0 other=0
+expression-input loads assignments=0 ports=0 terminals=1 other=0
+connected=1111

@@ -1,0 +1,37 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch38/test_vpi_time_callback_preserves_high_delay_word_and_ignores_next_time_value": {
+   "status": "pass",
+   "inputs_sha256": "f0c528f129de2545c6548adf5c1956838b5366afa5c51b7c2c8da52250424848"
+  },
+  "ch38/test_vpi_time_callback_reentrant_start_stays_before_active_events": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'active t=6', expected 'same region time=0:6'",
+   "inputs_sha256": "00e3dd80320bde1feb52b41f77be5736c389924f68addf66d8bc1305cb977511"
+  },
+  "ch38/test_vpi_time_callback_rejects_null_and_suppressed_time_fields": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'null time rejected=0 vpi-error=0', expected 'null time rejected=1 vpi-error=1'",
+   "inputs_sha256": "d37db97adcc6fa375fe361e9f12a42f4d49b7796aaec2c7a06e84cf57b1e7549"
+  },
+  "ch38/test_vpi_time_callback_rejects_zero_delay_read_write_registration_from_read_only": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'read-only write rejected=0 vpi-error=0', expected 'read-only write rejected=1 vpi-error=1'",
+   "inputs_sha256": "7e3639194c0de7440b1f82c80cb6136f6509b17d297324bef5ab10c635258d3f"
+  },
+  "ch38/test_vpi_time_callback_rejects_zero_delay_start_after_entering_time_slice": {
+   "status": "known",
+   "reason": "output differs: line 5 is 'late start rejected=0 vpi-error=0', expected 'late start rejected=1 vpi-error=1'",
+   "inputs_sha256": "de22a84815f4f2d5cba9a06e56f068c2cd4e959a800f9e59c410f7e9ce1198ad"
+  }
+ },
+ "generated_at": "2026-11-24T08:33:39.428571+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

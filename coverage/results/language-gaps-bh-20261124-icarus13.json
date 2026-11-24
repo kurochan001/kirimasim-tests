@@ -1,0 +1,21 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch18/test_constraint_function_priority_does_not_prune_high_randc_cycle": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_function_priority_does_not_prune_high_randc_cycle.sv:21: sorry: \"inside\" expressions not supported yet.",
+   "inputs_sha256": "a1c99dd38ccf64aba7873dedf584dffba0df7b5ca65b05aa4b408f38e33f208b"
+  },
+  "ch18/test_constraint_function_priority_partition": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_constraint_function_priority_partition.sv:49: sorry: Constraint declarations not supported.",
+   "inputs_sha256": "d0e85d5aee11f8fd99a658b9826466880ce5c48bdf348c779bf866a579c4ef29"
+  }
+ },
+ "generated_at": "2026-11-24T02:35:08.667883+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

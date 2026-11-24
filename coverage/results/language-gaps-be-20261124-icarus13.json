@@ -1,0 +1,75 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch15/test_event_case_comparison_rejects_integral_zero": {
+   "status": "known",
+   "reason": "no error matches 'test_event_case_comparison_rejects_integral_zero\\\\.sv:19:(?:\\\\d+:)?[^\\\\n]*(?i:(event[^\\\\n]*(integer|int|operand|compar)|int[^\\\\n]*event|invalid operands))'; the first is: tests/ch15/test_event_case_comparison_rejects_integral_zero.sv:18: error: Both arguments (class, <no_type>) must be class/null for '!==' operator.",
+   "inputs_sha256": "948ced90d5b627086fc1b1b23a8f727f6fe56a635626170304846f0f1dbb0f64"
+  },
+  "ch15/test_event_case_comparison_rejects_null_class_handle": {
+   "status": "known",
+   "reason": "no error matches 'test_event_case_comparison_rejects_null_class_handle\\\\.sv:24:(?:\\\\d+:)?[^\\\\n]*(?i:(event[^\\\\n]*(class|operand|compar)|class[^\\\\n]*event|invalid operands))'; the first is: tests/ch15/test_event_case_comparison_rejects_null_class_handle.sv:22: error: Both arguments (<no_type>, class) must be class/null for '===' operator.",
+   "inputs_sha256": "8046b59f70afe9988367594063218fa2840e130d2aae641d1588101092d016bb"
+  },
+  "ch15/test_event_compare_arguments": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_event_compare_arguments.sv:26: syntax error",
+   "inputs_sha256": "cd59bd35efce32085e3cc3f2870c89bb7eb69accec60a9c6b427fcf627796791"
+  },
+  "ch15/test_event_null_compare": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_event_null_compare.sv:26: error: Could not find variable ``e2'' in ``test_event_null_compare''",
+   "inputs_sha256": "b8f694ce74d8f038eaee2268d36238e3a8c8bb1f568d871ce14dfb8c34b1a5da"
+  },
+  "ch15/test_illegal_event_compare_relational_operator": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_event_compare_relational_operator\\\\.sv:31:'; the first is: tests/ch15/test_illegal_event_compare_relational_operator.sv:27: error: Both arguments (<no_type>, class) must be class/null for '!=' operator.",
+   "inputs_sha256": "2b2f0b9c39eb24c6ae6d1f0687f4cfe19d1bc1ecb8177ffa086f7b1e6b20c811"
+  },
+  "ch15/test_illegal_event_compare_with_integer": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_event_compare_with_integer\\\\.sv:31:'; the first is: tests/ch15/test_illegal_event_compare_with_integer.sv:27: error: Both arguments (<no_type>, class) must be class/null for '!=' operator.",
+   "inputs_sha256": "7ffb3e12f2fc9228d603635f2f9f5529ad7db87230080a149bab41b785ffb835"
+  },
+  "ch19/test_type_option_goal_defaults_and_shared_targets": {
+   "status": "known",
+   "reason": "compile failed: tests/ch19/test_type_option_goal_defaults_and_shared_targets.sv:16: syntax error",
+   "inputs_sha256": "a9f31fc0f2eef19f4bb0cbbbd520ac1ed2364073cc4b050f7bd7df322c79e33c"
+  },
+  "ch30/test_sdf_transition_pulse_values_override_local_specparam": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: transition_priority.sdf:4: Pulse rejection l...', expected 'local: 50:x 56:0 70:1 90:0 97:1'",
+   "inputs_sha256": "990e3001c03562b4c6c2e22ca895d4f4d68275496ecdb0e7536d68aff6828c91"
+  },
+  "ch32/test_sdf_interconnect_invalid_source_resets_both_driver_delays": {
+   "status": "known",
+   "reason": "crashed (signal 6)",
+   "inputs_sha256": "2efdc3abe1f00594fbc439f2efaff06e48fca89c115f28a99101294fc244e8c9"
+  },
+  "ch32/test_sdf_interconnect_keeps_twenty_four_queued_transitions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: queued_delays.sdf:4: Pulse rejection limits ...', expected 'delivered=24 wrong=0 first=148 last=194'",
+   "inputs_sha256": "07c13bfe8a44aca0fc87bdf949b8c1d4dc054b123e7d488666295240c931b03c"
+  },
+  "ch32/test_sdf_interconnect_pair_warning": {
+   "status": "known",
+   "reason": "crashed (signal 6)",
+   "inputs_sha256": "402445a7642a8fc9a0ad8dd12f6c96b0df3135fe2c953f70d71fc86eeb8deecb"
+  },
+  "ch32/test_sdf_interconnect_transition_values": {
+   "status": "pass",
+   "inputs_sha256": "ddce9f171ec7c9314c1450c1c2b521369606e91a72afab2d23242b9518ecae10"
+  },
+  "ch32/test_sdf_interconnect_uses_trailing_transition_pulse_limits": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SDF WARNING: interconnect_pulse.sdf:5: Pulse rejection li...', expected 'limits: 50:x 57:0 70:1 78:0 90:1 130:x 133:1 150:0 154:1'",
+   "inputs_sha256": "caecb3482396fdee72dbae7cc2f971055f89129f03928b34e303cef656efeb36"
+  }
+ },
+ "generated_at": "2026-11-24T02:05:01.010136+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

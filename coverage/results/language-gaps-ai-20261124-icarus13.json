@@ -1,0 +1,24 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch23/test_illegal_uwire_slice_drivers_overlap_across_nested_ports": {
+   "status": "pass",
+   "inputs_sha256": "c233b33d4a8c7d5160274dc7282086ae2117484504b5ed22a1f0f7652adeb1df"
+  },
+  "ch23/test_uwire_allows_disjoint_slice_drivers_across_nested_ports": {
+   "status": "pass",
+   "inputs_sha256": "e059f6c9251fd75953fcc17ce39001ff5a758c156c98fe835f3204658e1a5ca8"
+  },
+  "ch23/test_uwire_nonmerge_warns_when_port_width_conversion_is_required": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'negative internal=00010/00010 external=00010/00010', expected 'negative internal=11110/00010 external=11110/00010'",
+   "inputs_sha256": "c16e8f389e2799ec5720d687ccb3ae52d7a86cad49a501b662b129a3f9d10b03"
+  }
+ },
+ "generated_at": "2026-11-24T00:12:34.155672+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

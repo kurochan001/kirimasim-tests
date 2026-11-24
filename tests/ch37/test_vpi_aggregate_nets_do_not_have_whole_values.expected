@@ -1,0 +1,6 @@
+array net kind=1 unavailable=1
+structure net kind=1 unavailable=1
+union net kind=1 unavailable=1
+interconnect array kind=1 unavailable=1
+ordinary net=35 array element=6b
+controls record=19 97 union_source=a6 pulled=11

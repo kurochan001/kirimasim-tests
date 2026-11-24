@@ -1,0 +1,43 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch21/test_readmem_stops_at_address_outside_selected_slice_without_resuming": {
+   "status": "pass",
+   "inputs_sha256": "5e8e41d04dc1ea2de32578bd0a3ba27e1a6f96908eb955801694d35a139e8751"
+  },
+  "ch21/test_readmemb_honors_multiple_address_tokens_on_one_line": {
+   "status": "pass",
+   "inputs_sha256": "51cd43c6d98519310c2ee155a43f77dc0c737d061ecc8279c7f2b6b09687b0e8"
+  },
+  "ch3/test_include_text_joins_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "84b4d82e971c5363bc664e498fe0769f8cf1ee5ed43ff33ddd738fe1adca3ef0"
+  },
+  "ch3/test_seven_design_element_keywords_coexist_in_one_source_file": {
+   "status": "known",
+   "reason": "compile failed: tests/ch3/test_seven_design_element_keywords_coexist_in_one_source_file.sv:42: syntax error",
+   "inputs_sha256": "e69348629811e0308779a6080a47fd5c9d73d004cc65b13d9157f8c06b757cdd"
+  },
+  "ch35/test_dpi_imported_function_cannot_enable_exported_task": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/dpi_exported_task_invocation_fixture.sv:4: syntax error",
+   "inputs_sha256": "818c964cd0ab74850d01a58c9f28569d13a799f17986c71305ffb9b6b1936504"
+  },
+  "ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/dpi_exported_task_invocation_fixture.sv:4: syntax error",
+   "inputs_sha256": "cde032a563702204bd61f474218dc804f3d4d0837da0b67675ba62ec4e7601a5"
+  },
+  "ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission.sv:16: syntax error",
+   "inputs_sha256": "f9340e8597069309146a84c8041369eb231e3a61788b4def99292a3ee89ba1c6"
+  }
+ },
+ "generated_at": "2026-11-24T04:26:23.135735+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

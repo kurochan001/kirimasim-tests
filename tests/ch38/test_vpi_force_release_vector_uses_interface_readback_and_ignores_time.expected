@@ -1,0 +1,5 @@
+forced immediately=d00ff55aa12345678
+while forced=d00ff55aa12345678
+release own-buffer=1 input-intact=1 vector=8_a55a1234_56f0c0de/0_00000000_00ff0000
+released immediately=8a55a123456xzc0de
+released after settling=8a55a123456xzc0de

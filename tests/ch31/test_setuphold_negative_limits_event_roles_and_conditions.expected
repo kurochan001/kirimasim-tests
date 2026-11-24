@@ -1,0 +1,3 @@
+negative_setup=1 negative_hold=1
+no_stamp=0 no_check=0
+outside setup=0 hold=0

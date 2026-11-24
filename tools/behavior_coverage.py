@@ -68,6 +68,16 @@ def local_file(name: str) -> Path:
     return path
 
 
+def simulation_output_witness(fields: dict[str, str]) -> bool:
+    return (fields.get("type") == "simulation" and not fields.get("should_fail_because")
+            and bool(fields.get("expected_stdout")))
+
+
+def runtime_diagnostic_witness(fields: dict[str, str]) -> bool:
+    """A simulation that checks both a diagnostic and its expected output."""
+    return simulation_output_witness(fields) and bool(fields.get("expected_stderr_regex"))
+
+
 def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
     """Reject malformed/stale links; an intentionally unmapped obligation is valid."""
     require(inventory.get("schema") == registry.get("schema") == 1, "unknown schema")
@@ -112,7 +122,9 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
         require(all(isinstance(r.get(k), str) and r[k].strip()
                     for k in ("behavior", "acceptance", "source_note")),
                 f"behavior, acceptance and source_note required: {rid}")
-        checks, seen = [], set()
+        groups = r.get("check_groups", [])
+        require(isinstance(groups, list), f"invalid check groups: {rid}")
+        checks, seen, error_witnesses = [], set(), set()
         for c in r["checks"]:
             test = local_file(c["test"])
             require(test in suite_test_paths(), f"not a suite test: {c['test']}")
@@ -121,8 +133,13 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
             fields = suite_results.header(test)
             require(r["clause"] in fields.get("lrm", "").split()[1:],
                     f"test must cite mapped clause {r['clause']}: {c['test']}")
-            require(bool(fields.get("should_fail_because")) == (r["kind"] == "error"),
+            rejected_design = bool(fields.get("should_fail_because"))
+            runtime_error = r["kind"] == "error" and runtime_diagnostic_witness(fields)
+            companion = r["kind"] == "error" and groups and simulation_output_witness(fields)
+            require(rejected_design == (r["kind"] == "error") or runtime_error or companion,
                     f"negative/positive case mismatch: {rid}")
+            if rejected_design or runtime_error:
+                error_witnesses.add(c["test"])
             require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", c.get("reviewed_on", ""))
                     and c.get("reviewer") and c.get("observation"),
                     f"mapping needs review date, reviewer and observation: {rid}")
@@ -136,9 +153,21 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                     f"mapping must identify a stimulus in the test: {rid}")
             expected = fields.get("expected_stdout", "")
             expected_path = (test.parent / expected[1:]).resolve() if expected.startswith("@") else test
-            require(any(local_file(a["file"]) == expected_path for a in anchors)
-                    if r["kind"] != "error" else
-                    any("expected_stderr_regex" in a["contains"] for a in anchors),
+            diagnostic_only = (expected.startswith("@") and expected_path.is_file()
+                               and expected_path.stat().st_size == 0)
+            if rejected_design:
+                checked_oracle = any("expected_stderr_regex" in a["contains"] for a in anchors)
+            else:
+                output_anchor = any(local_file(a["file"]) == expected_path for a in anchors)
+                diagnostic_anchor = any(a["file"] == c["test"] and
+                                        a["contains"] == ":expected_stderr_regex: "
+                                        + fields.get("expected_stderr_regex", "")
+                                        for a in anchors)
+                if runtime_error:
+                    checked_oracle = not diagnostic_only and output_anchor and diagnostic_anchor
+                else:
+                    checked_oracle = diagnostic_anchor if diagnostic_only else output_anchor
+            require(checked_oracle,
                     f"mapping must identify the checked output/diagnostic: {rid}")
             for a in anchors:
                 path = local_file(a["file"])
@@ -146,8 +175,6 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                 require(a.get("contains") and a["contains"] in path.read_text(encoding="utf-8"),
                         f"missing observation anchor: {rid} in {a['file']}")
             checks.append(c)
-        groups = r.get("check_groups", [])
-        require(isinstance(groups, list), f"invalid check groups: {rid}")
         if groups:
             group_ids, members = set(), set()
             for group in groups:
@@ -162,6 +189,8 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                 tests = group.get("tests", [])
                 require(isinstance(tests, list) and tests and len(tests) == len(set(tests))
                         and set(tests) <= seen, f"unknown/duplicate check group member: {rid}")
+                require(r["kind"] != "error" or bool(error_witnesses.intersection(tests)),
+                        f"error check group needs a diagnostic or rejection witness: {rid}")
                 members.update(tests)
             require(members == seen, f"check group leaves an ungrouped test: {rid}")
         rows.append({**r, "mapped": bool(checks)})
@@ -268,16 +297,20 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                     by_test[c["test"]] = (result["status"] if result.get("status") in
                                            ("fail", "known", "unsupported") else "not_run")
                     continue
-                # Unsupported syntax can accidentally satisfy an illegal-test
-                # line regexp. Only a reviewed, pinned negative oracle counts.
+                # Unsupported syntax can satisfy a rejection test's line
+                # regexp. It needs a reviewed, pinned oracle. A runtime
+                # witness has to reach its expected output and diagnostic.
                 # A test recorded with Verilator 5.054 (added while the pin
                 # moves from 5.052) counts only with a 5.054 run, and one
                 # recorded with 5.052 only with a 5.052 run.
-                if r["kind"] == "error":
+                fields = suite_results.header(test) if r["kind"] == "error" else {}
+                positive_witness = (runtime_diagnostic_witness(fields)
+                                    or (r.get("check_groups") and simulation_output_witness(fields)))
+                if r["kind"] == "error" and not positive_witness:
                     oracle = {"icarus": (("iverilog@13.0", r"version 13\.0(?:\s|$)"),),
                               "verilator": (("verilator@5.052", r"Verilator 5\.052(?:\s|$)"),
                                             ("verilator@5.054", r"Verilator 5\.054(?:\s|$)"))}
-                    tokens = suite_results.header(test).get("oracle", "").split()
+                    tokens = fields.get("oracle", "").split()
                     if not any(token in tokens and re.search(version, data["version"])
                                for token, version in oracle.get(simulator, ())):
                         by_test[c["test"]] = "unreviewed_oracle"

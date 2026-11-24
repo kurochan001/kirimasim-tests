@@ -9,7 +9,7 @@
 :fourstate: no
 :nondeterministic: no
 :should_fail_because: $setuphold has the limits -5 ns and 2 ns, whose sum -3 ns is not above 1 ns
-:expected_stderr_regex: test_illegal_setuphold_negative_sum\.sv:22:
+:expected_stderr_regex: test_illegal_setuphold_negative_sum\.sv:22:(?:\d+:)?[^\n]*(?i:(?:sum|setup_limit\s*\+\s*hold_limit|setup[^\n]*hold)[^\n]*(?:precision|greater|positive))
 */
 // When either limit of $setuphold is negative, the setup limit plus the
 // hold limit shall exceed one simulation unit of precision. With the

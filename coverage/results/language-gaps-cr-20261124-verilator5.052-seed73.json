@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch38/test_vpi_bulk_net_deposit_clears_when_equal_resolution_driver_changes": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch38/test_vpi_bulk_net_deposit_clears_when_equal_resolution_driver_changes.sv:30:21: Unsupported tristate construct: INITITEM",
+   "inputs_sha256": "5c4ad46d2cf21e6b2669dac1bc275cddff7e986e152e0aed02055b70248a472a"
+  },
+  "ch38/test_vpi_class_reference_callbacks_report_identity_changes": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_class_reference_callbacks_report_identity_changes.sv:29:8: Unsupported or unknown PLI call: '$watch_class_reference'",
+   "inputs_sha256": "71d89a23fa28c11f3c5c5f084267bd0db50783405cc36ea443f21985c870b7b7"
+  },
+  "ch38/test_vpi_net_array_deposit_works_from_system_task_and_timing_callback": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_net_array_deposit_works_from_system_task_and_timing_callback.sv:30:8: Unsupported or unknown PLI call: '$deposit_from_system_task'",
+   "inputs_sha256": "b533c485b66ce77326f7a4ba6f6028ca52a8f68e4b7e871b248d5c118cfbabd2"
+  },
+  "ch38/test_vpi_timing_violation_callback_points_to_affected_check": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_timing_violation_callback_points_to_affected_check.sv:30:8: Unsupported or unknown PLI call: '$watch_timing_violations'",
+   "inputs_sha256": "714baa6f342866a174bbbf53ea0699d51b7f3467f589f3cbd24d09674cd4ff2c"
+  },
+  "ch38/test_vpi_unresolved_task_callback_supplies_called_name": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_unresolved_task_callback_supplies_called_name.sv:16:5: Unsupported or unknown PLI call: '$public_regression_unregistered_probe'",
+   "inputs_sha256": "d9b3a631cd9a1d7600090b0593321e98abd68a41b86468a54d79859959930bae"
+  }
+ },
+ "generated_at": "2026-11-24T07:36:20.981668+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

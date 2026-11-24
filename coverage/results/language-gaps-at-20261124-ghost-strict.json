@@ -1,0 +1,35 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression": {
+   "status": "pass",
+   "inputs_sha256": "7f6b1144d797678ace89b28481f0a62beb2f43e97f3d517674fcd878cde55d30"
+  },
+  "ch21/test_evcd_port_node_declarations": {
+   "status": "pass",
+   "inputs_sha256": "0dbfa8f189ac4ad9bbfca85ef0c8382efbf27580867896efab5cd1ac10987f62"
+  },
+  "ch35/test_legacy_dpi_open_array_copies_multichunk_elements": {
+   "status": "pass",
+   "inputs_sha256": "cd0f558933ccd8dd35b32b44851aab84368db1b5cb1f7dcb78d9e4ca4eac3e07"
+  },
+  "ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "e819e10ed86756a6f48e62d1dec4f5331ffd3872898d94af9da755950aaf1292"
+  },
+  "ch35/test_mixed_dpi_versions_select_semantics_per_declaration": {
+   "status": "pass",
+   "inputs_sha256": "0068bed6eb168c74ee2d6be371f1b42a8de0aa972233a59a2986881c09050710"
+  }
+ },
+ "generated_at": "2026-11-24T01:01:29.610274+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

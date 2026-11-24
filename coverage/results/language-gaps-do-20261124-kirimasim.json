@@ -1,0 +1,15 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch10/test_nba_concatenated_slices_keep_rhs_alignment_at_boundaries": {
+   "status": "pass",
+   "inputs_sha256": "c6afd7fa749a6d9729d0a157eecea1b18cc667ed045231008522620c1ce59540"
+  }
+ },
+ "generated_at": "2026-11-24T09:07:53.104943+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

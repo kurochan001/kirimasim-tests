@@ -1,0 +1,6 @@
+1 system action disabled
+after scope disable=0,1
+8 system action enabled
+after scope enable=1,2
+18 system action disabled
+after global disable=1,2

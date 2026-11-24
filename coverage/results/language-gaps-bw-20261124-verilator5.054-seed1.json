@@ -1,0 +1,27 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch10/test_continuous_and_gate_delays_preserve_large_integral_tick": {
+   "status": "pass",
+   "inputs_sha256": "6ccff3af10eb3b05c9be6232e42f3c6956e440b39652e6a78d51077b6221c861"
+  },
+  "ch10/test_net_declaration_delay_preserves_large_integral_tick": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'immediate=9007199254740998 delayed=9007199254740998 gap=0', expected 'immediate=5 delayed=9007199254740998 gap=9007199254740993'",
+   "inputs_sha256": "88fe5dc1cfc305fcf7c72ff22d2eeaf1558df398966c0387485528a7cd550915"
+  },
+  "ch30/test_specify_path_delay_preserves_large_integral_tick": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'before input=1 output=1', expected 'before input=x output=x'",
+   "inputs_sha256": "9e80d3b1e5744ac2efa6a48d8a95bf002adb04b67111f683d266229c07590901"
+  }
+ },
+ "generated_at": "2026-11-24T05:04:59.043549+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

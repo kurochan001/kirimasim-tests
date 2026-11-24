@@ -1,0 +1,3 @@
+at24 reference=1 delayed=0 early=0
+at27 reference=1 delayed=1 early=1
+early=1 late=1

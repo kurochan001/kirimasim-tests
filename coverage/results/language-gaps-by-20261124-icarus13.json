@@ -1,0 +1,29 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch24/test_program_automatic_retains_scope_state_and_port_variables": {
+   "status": "pass",
+   "inputs_sha256": "5980cc6a6e21b8893cd8168ca4022fb5ce7b12a393d7e058107754a81d06a095"
+  },
+  "ch28/test_high_impedance_drive_yields_to_opposing_small_strength": {
+   "status": "pass",
+   "inputs_sha256": "f93a85eb1cd2b56433936013f4e429d44d41df19b72947c65a45194d8aee2d54"
+  },
+  "ch33/test_vpi_instance_binding_properties_follow_selected_rules": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "56bad6e2233e92fcb72ac885e723d55b33819047923ab783fefb55c84c0594d3"
+  },
+  "ch38/test_vpi_scalar_callbacks_keep_high_and_low_strength_states": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'read: X X X', expected 'read: H L X'",
+   "inputs_sha256": "6751e666923cee5933b390cfd7311471d84290d76183d410360ce3ec5fcfcd75"
+  }
+ },
+ "generated_at": "2026-11-24T05:32:04.525644+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

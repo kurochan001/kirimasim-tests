@@ -1,0 +1,4 @@
+disable operand property=0 sequence=0
+after operand control pass=1 cover=1
+disable statement property=1 sequence=1
+after statement control pass=1 cover=1

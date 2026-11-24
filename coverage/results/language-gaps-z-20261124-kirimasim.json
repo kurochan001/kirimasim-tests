@@ -1,0 +1,28 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch13/test_function_background_work_from_initial_and_descendant_threads": {
+   "status": "pass",
+   "inputs_sha256": "f2e7e5d488bc74965aad13545ed6bf533048604824a81929a710043aa574d9c5"
+  },
+  "ch13/test_illegal_function_background_work_from_static_initializer": {
+   "status": "pass",
+   "inputs_sha256": "6ad47dba5fb477057cf2d331a6e38f6faa552b2c21c274d0e518213aae0877fc"
+  },
+  "ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment": {
+   "status": "pass",
+   "inputs_sha256": "de13bd4bd030c8671509f94620dde7c09cb6b8ec1619dce6324e7edeb1c6f21c"
+  },
+  "ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed": {
+   "status": "unsupported",
+   "reason": "sequence declaration (not implemented yet)",
+   "inputs_sha256": "19672833829e7aace47b990fe99b067e73c72b542823cd01bb2755fc8aea7872"
+  }
+ },
+ "generated_at": "2026-11-23T23:18:02.143495+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

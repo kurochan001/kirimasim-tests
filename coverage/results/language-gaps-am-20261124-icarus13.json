@@ -1,0 +1,41 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch35/test_dpi_matching_versions_allow_multiple_aliases_for_one_linkage": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_matching_versions_allow_multiple_aliases_for_one_linkage.sv:15: syntax error",
+   "inputs_sha256": "f85dbb7911c33461d7e8729a8de3c389735a48df3c5c5d99374c887c91e8c3e6"
+  },
+  "ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_dpi_versions_share_one_c_linkage_identifier\\\\.sv:17:(?:\\\\d+:)?[^\\\\n]*(?i:(?=[^\\\\n]*shared_foreign)(?=[^\\\\n]*(?:different|mismatch|inconsisten|conflict))(?=[^\\\\n]*(?:DPI|version|specifier|linkage))[^\\\\n]+)'; the first is: tests/ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier.sv:16: syntax error",
+   "inputs_sha256": "e4a560d8f3c12881b6176543070c342cdc99396360476c9fefa9c3ac893f0baf"
+  },
+  "ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary.sv:16: syntax error",
+   "inputs_sha256": "e819e10ed86756a6f48e62d1dec4f5331ffd3872898d94af9da755950aaf1292"
+  },
+  "ch35/test_legacy_dpi_packed_whole_array_transfer": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_legacy_dpi_packed_whole_array_transfer.sv:16: syntax error",
+   "inputs_sha256": "8b43dae4c84be4bc5b345e1d55822f319af4ee3d0bd44510a9c84aa9ba0298d4"
+  },
+  "ch35/test_svdpi_h_deprecated_get_declarations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_deprecated_get_declarations.sv:30: syntax error",
+   "inputs_sha256": "ca8e28b03a2a333e82dead0b49454895e5c59e6cdcfcaae0018b544fbb6a8131"
+  },
+  "ch35/test_svdpi_h_deprecated_put_declarations": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_svdpi_h_deprecated_put_declarations.sv:31: syntax error",
+   "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50"
+  }
+ },
+ "generated_at": "2026-11-24T00:25:35.776303+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

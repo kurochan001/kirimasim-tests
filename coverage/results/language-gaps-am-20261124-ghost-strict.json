@@ -1,0 +1,40 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch35/test_dpi_matching_versions_allow_multiple_aliases_for_one_linkage": {
+   "status": "pass",
+   "inputs_sha256": "f85dbb7911c33461d7e8729a8de3c389735a48df3c5c5d99374c887c91e8c3e6"
+  },
+  "ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e4a560d8f3c12881b6176543070c342cdc99396360476c9fefa9c3ac893f0baf"
+  },
+  "ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "e819e10ed86756a6f48e62d1dec4f5331ffd3872898d94af9da755950aaf1292"
+  },
+  "ch35/test_legacy_dpi_packed_whole_array_transfer": {
+   "status": "pass",
+   "inputs_sha256": "8b43dae4c84be4bc5b345e1d55822f319af4ee3d0bd44510a9c84aa9ba0298d4"
+  },
+  "ch35/test_svdpi_h_deprecated_get_declarations": {
+   "status": "pass",
+   "inputs_sha256": "ca8e28b03a2a333e82dead0b49454895e5c59e6cdcfcaae0018b544fbb6a8131"
+  },
+  "ch35/test_svdpi_h_deprecated_put_declarations": {
+   "status": "pass",
+   "inputs_sha256": "6ce89ca03722274c20819070a96bf87bf17045350ead04a078b429b991831b50"
+  }
+ },
+ "generated_at": "2026-11-24T00:25:36.542222+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

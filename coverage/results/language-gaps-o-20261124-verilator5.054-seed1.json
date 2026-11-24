@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch31/test_setuphold_negative_limits_event_roles_and_conditions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'negative_setup=0 negative_hold=0', expected 'negative_setup=1 negative_hold=1'",
+   "inputs_sha256": "9c8354c3ee6ce6d9cba04dae0a4c2e3faac5612847db5b9a71d91a083e1a3ed9"
+  },
+  "ch31/test_setuphold_positive_limits_isolate_each_window": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'at21 before=0 after=0 safe=0', expected 'at21 before=1 after=0 safe=0'",
+   "inputs_sha256": "c3cfa9d99c74f14ec181e457e1d3d7c9e1b510d88fa5f6533f863876c0f776ae"
+  }
+ },
+ "generated_at": "2026-11-23T23:34:57.716901+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

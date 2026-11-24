@@ -1,0 +1,15 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch21/test_vcd_alias_group_tracks_shared_net_and_independent_port": {
+   "status": "pass",
+   "inputs_sha256": "af2aa04c122b6e87b9a6c795b285657734a2a1189cfab6e98e413565f4fc06b1"
+  }
+ },
+ "generated_at": "2026-11-24T08:50:58.233192+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

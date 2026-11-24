@@ -1,0 +1,36 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch7/test_multidimensional_net_slice_drives_only_selected_rows": {
+   "status": "fail",
+   "reason": "output differs (exit 2)",
+   "inputs_sha256": "c0ea40d403d82911f3f4a500df66c52b1522d06ff9f692956fd518654de7bc01"
+  },
+  "ch7/test_multidimensional_variable_slice_preserves_untouched_rows": {
+   "status": "pass",
+   "inputs_sha256": "2016052d54b5203088de9a7a98adabf06f81ab9beec0e614bdae7fc43d7b141b"
+  },
+  "ch7/test_nested_net_and_variable_arrays_keep_ordinal_positions": {
+   "status": "pass",
+   "inputs_sha256": "a216b4e3936fa49fc8d14ffa2490c3710b8d926e7a60bd9b695803fe1bfd7409"
+  },
+  "ch7/test_nested_rows_resize_dynamic_target_and_respect_queue_bound": {
+   "status": "pass",
+   "inputs_sha256": "0bf8c555f518aecbfae732d36fcc561d67ad486e7709a50ce02e70c65081c0f2"
+  },
+  "ch7/test_queue_of_fixed_rows_copies_into_fixed_array_by_position": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "06d615c5944c13731da3ed502e202698016ca698b380c0c1f31d309d53a14e8d"
+  }
+ },
+ "generated_at": "2026-11-24T07:21:05.405302+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1113本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1131本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -93,9 +93,11 @@
 | [`test_union_types`](../../tests/ch7/test_union_types.sv) |テストユニオン| 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_union_types_edge_cases`](../../tests/ch7/test_union_types_edge_cases.sv) |試験：ユニオン型エッジケース| 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_illegal_packed_tagged_union_real_member`](../../tests/ch7/test_illegal_packed_tagged_union_real_member.sv) |packed packed タグ付けされたユニオンのメンバーは、大きさは異なるものの、必ずしも タイプが同じでなければなりません。実在のメンバーはエラーだ| 7.3.2 |規格のみ|規格違反の設計|
+| [`test_packed_tagged_union_read_rejects_previous_member_after_tag_change`](../../tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv) |packed 共用体のタグ切替後に以前のメンバーを読むと実行時エラーになる| 7.3.2 11.9 |規格のみ||
 | [`test_tagged_union_dynamic_and_chandle_members`](../../tests/ch7/test_tagged_union_dynamic_and_chandle_members.sv) |unpacked タグ付けされたユニオンは、動的タイプのメンバー (文字列、キュー、動的および連想配列、クラスハンドル) と、チャンドルタイプのメンバーを持ち、それらの値を保持します。| 7.3.2 11.9 |規格のみ||
 | [`test_tagged_union_packed`](../../tests/ch7/test_tagged_union_packed.sv) |packed タグ付けのユニオンは、最も有意な端に最小の数のタグビットを持ち、各メンバーは右に並べられています。タグ付けの ユニオン表現は、タグとメンバーを一緒にセットし、現在のタグのメンバーはドット記法で読み書きできます。| 7.3.2 11.9 20.6.2 |規格のみ||
 | [`test_tagged_union_packed_tag_width_layout`](../../tests/ch7/test_tagged_union_packed_tag_width_layout.sv) |packed タグ付けされたユニオンの幅は、そのメンバー名をコードする最小のタグビットと、最も幅の広いメンバーの幅と同じです。タグは上のビットにあり、各メンバーは下のビットにあります。そして、ネストされたタグ付けユニオンの内部のレイアウトは同じです。| 7.3.2 11.9 20.6.2 |規格のみ||
+| [`test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag`](../../tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv) |タグ付き共用体で非アクティブなメンバーに属するフィールドへの書き込みは実行時エラーになる| 7.3.2 11.9 |規格のみ||
 | [`test_array_access`](../../tests/ch7/test_array_access.sv) |変数のインデックスを always_comb に持つ unpacked 配列を読み込みます。| 7.4 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_array_assign`](../../tests/ch7/test_array_assign.sv) |要素の種類 2 -D, 3 -D, packed を含む unpacked の配列要素を割り当てる| 7.4 | Icarus Verilog 13.0 ||
 | [`test_array_elem`](../../tests/ch7/test_array_elem.sv) |配列要素アクセステスト| 7.4 10.9.1 | Icarus Verilog 13.0 ||
@@ -202,15 +204,19 @@
 | [`test_dynamic_array_new_discards_data_and_references`](../../tests/ch7/test_dynamic_array_new_discards_data_and_references.sv) |動的配列をnew \[ \]でサイズ変更または再初期化すると、元の配列を初期化式に指定しない限り、データを破棄する。また、どの場合でも要素への参照は古い参照となる| 7.5.1 13.5.2 |規格のみ||
 | [`test_dynamic_array_new_forms_order_and_size`](../../tests/ch7/test_dynamic_array_new_forms_order_and_size.sv) |動的配列を拡大する new \[ \] は、宣言またはブロック代入の動的配列のサイズを変更し、初期化前にそのサイズを評価し、左端の unpacked 次元が動的な識別子のみを動的配列にする。 size() は $size (配列、1 ) に等しい int であり、 delete() は配列を空にします。| 7.5.1 7.5 7.5.2 7.5.3 20.7 | Verilator 5.052 ||
 | [`test_dynamic_array_new_negative_size_runtime_error`](../../tests/ch7/test_dynamic_array_new_negative_size_runtime_error.sv) |サイズのオペランドの値が実行時に負になる new \[ \] はエラーである| 7.5.1 |規格のみ||
+| [`test_dynamic_array_new_size_converts_xz_bits_to_zero`](../../tests/ch7/test_dynamic_array_new_size_converts_xz_bits_to_zero.sv) |動的配列の二値longintサイズは符号位置を含むXとZをゼロに変換する| 7.5.1 6.11.2 |規格のみ|出口コード x/z|
 | [`test_dynamic_array_new_size_discards_bit64`](../../tests/ch7/test_dynamic_array_new_size_discards_bit64.sv) |動的配列の確保時に符号付き65 bit幅のサイズをlongintに変換する| 7.5.1 6.11 6.11.2 | Icarus Verilog 13.0 ||
 | [`test_dynamic_array_new_size_longint_negative_error`](../../tests/ch7/test_dynamic_array_new_size_longint_negative_error.sv) |new \[ \] のサイズのオペランドは符号付きの型 longint を持つので、最上位 bit が立った 64 bit の値は、下位 32 ビットが小さい正の数であっても負のサイズでありエラーになる| 7.5.1 |規格のみ||
+| [`test_dynamic_array_new_size_side_effects_precede_and_survive_initialization`](../../tests/ch7/test_dynamic_array_new_size_side_effects_precede_and_survive_initialization.sv) |動的配列の初期化式はサイズ式が加えた変更を参照し、既に変換されたサイズは後から変更できない| 7.5.1 6.11.2 | Verilator 5.052 |出口コード|
 | [`test_dynamic_array_queue_size`](../../tests/ch7/test_dynamic_array_queue_size.sv) |new \[ \]、サイズ変更、push_back、delete後の動的配列とキューのサイズ| 7.5.1 7.5.2 7.5.3 7.10.2 | Icarus Verilog 13.0 ||
+| [`test_dynamic_array_resize_converts_unsigned_wide_size_before_copy`](../../tests/ch7/test_dynamic_array_resize_converts_unsigned_wide_size_before_copy.sv) |符号なしの幅広い引数をlongintへ変換した後、自己コピーによるサイズ変更で要素を切り詰め、補い、空にする| 7.5.1 6.11.2 | Icarus Verilog 13.0 |出口コード|
 | [`test_dynamic_resize`](../../tests/ch7/test_dynamic_resize.sv) |動的配列の新規作成、サイズ変更、削除操作| 7.5.1 | Icarus Verilog 13.0 ||
 | [`test_edge_dynamic_array_resize`](../../tests/ch7/test_edge_dynamic_array_resize.sv) |動的配列のnew \[ \]とnew \[ \](old)によるサイズ変更。new \[ 0 \]も含む| 7.5.1 7.5.2 | Verilator 5.052 ||
 | [`test_illegal_dynamic_new_initializer_other_element_type`](../../tests/ch7/test_illegal_dynamic_new_initializer_other_element_type.sv) |動的配列のnewコンストラクタの初期化式は、その動的配列へ代入互換な配列でなければならない。byte要素の配列は該当しないとされていますが、比較対象や後続条件は不明です。原文は「for an array of int」で途切れています。| 7.5.1 7.6 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_dynamic_new_nonblocking_assignment`](../../tests/ch7/test_illegal_dynamic_new_nonblocking_assignment.sv) |動的配列のnewコンストラクタは、宣言内代入またはブロッキング代入の右辺にはできるが、ノンブロッキング代入の右辺にはできない| 7.5.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_dynamic_new_to_fixed_array`](../../tests/ch7/test_illegal_dynamic_new_to_fixed_array.sv) |動的配列のnewコンストラクタは動的配列にだけ代入でき、固定サイズ配列には代入できない| 7.5.1 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_dynamic_new_to_slice`](../../tests/ch7/test_illegal_dynamic_new_to_slice.sv) |動的配列のnewコンストラクタの対象は、範囲選択を付けずに名前を指定した動的配列である。動的配列のスライスは許可されません| 7.5.1 | Verilator 5.052 |規格違反の設計|
+| [`test_nested_dynamic_array_resize_preserves_rows_and_four_state_contents`](../../tests/ch7/test_nested_dynamic_array_resize_preserves_rows_and_four_state_contents.sv) |幅広いサイズで選択した行だけを変更し、四値の要素とコピー先の行を独立に保持する| 7.5.1 6.11.2 |規格のみ|出口コード x/z|
 | [`test_syntax_dynamic_array_new_assignment`](../../tests/ch7/test_syntax_dynamic_array_new_assignment.sv) |new \[ size \]とnew \[ size \](init)を、動的配列変数および動的配列の配列要素へブロッキング代入すると、サイズと要素が設定される| 7.5.1 A.6.2 | Verilator 5.052 ||
 | [`test_dynamic_array_and_queue_operations`](../../tests/ch7/test_dynamic_array_and_queue_operations.sv) |動的配列はnewでサイズを変更し、deleteで空にする。キューは代入するキューのサイズになり、上限付きキューでは上限を超える要素を捨てる| 7.5.2 7.5.3 7.10.1 7.10.2 7.10.2.2 7.10.2.3 7.10.2.6 7.10.2.7 | Icarus Verilog 13.0 ||
 | [`test_dynamic_array_size_edge`](../../tests/ch7/test_dynamic_array_size_edge.sv) |動的配列サイズ() のエッジケースをテスト| 7.5.2 | Verilator 5.052 ||
@@ -231,6 +237,11 @@
 | [`test_illegal_slice_assignment_element_count`](../../tests/ch7/test_illegal_slice_assignment_element_count.sv) |unpacked 配列のスライスに代入るには、スライスと同じ要素数のソースが必要です。| 7.6 7.4.5 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_slice_element_type_not_equivalent`](../../tests/ch7/test_illegal_slice_element_type_not_equivalent.sv) |固定サイズの配列のスライスは 元素タイプが等しいときにのみ 他の配列と代入が互換性があります| 7.6 |規格のみ|規格違反の設計|
 | [`test_illegal_unpacked_array_from_packed_array`](../../tests/ch7/test_illegal_unpacked_array_from_packed_array.sv) |明示的なキャストなしに packed 配列を直接 unpacked 配列に割り当てることはできません| 7.6 | Icarus Verilog 13.0 |規格違反の設計|
+| [`test_multidimensional_net_slice_drives_only_selected_rows`](../../tests/ch7/test_multidimensional_net_slice_drives_only_selected_rows.sv) |多次元ネット配列は隣の行を駆動せず、範囲の異なる配列スライスから選んだ行をコピーする| 7.6 7.4.6 6.22.2 |規格のみ| x/z |
+| [`test_multidimensional_variable_slice_preserves_untouched_rows`](../../tests/ch7/test_multidimensional_variable_slice_preserves_untouched_rows.sv) |固定多次元スライスの代入は二つの次元を対応付け、代入先の範囲外の行を保つ| 7.6 7.4.6 6.22.2 | Verilator 5.052 ||
+| [`test_nested_net_and_variable_arrays_keep_ordinal_positions`](../../tests/ch7/test_nested_net_and_variable_arrays_keep_ordinal_positions.sv) |ネットを介した配列全体のコピーは二つの unpacked 次元の順序を保ち、65 ビットすべてを保持する| 7.6 7.4.2 6.22.2 |規格のみ| x/z |
+| [`test_nested_rows_resize_dynamic_target_and_respect_queue_bound`](../../tests/ch7/test_nested_rows_resize_dynamic_target_and_respect_queue_bound.sv) |幅の広い固定長の行を動的配列と有界キューへコピーすると、外側の次元だけをリサイズし、コピーした各行を保つ| 7.6 7.10.5 6.22.2 |規格のみ| x/z |
+| [`test_queue_of_fixed_rows_copies_into_fixed_array_by_position`](../../tests/ch7/test_queue_of_fixed_rows_copies_into_fixed_array_by_position.sv) |同じ長さと等価な固定行型を持つキューと固定配列は、順番に対応する位置へ値をコピーする| 7.6 6.22.2 7.10 |規格のみ| x/z |
 | [`test_queue_to_fixed_array_size_mismatch_runtime_error`](../../tests/ch7/test_queue_to_fixed_array_size_mismatch_runtime_error.sv) |要素数の異なる固定長配列にキューを代入すると、実行時エラーになり、何の操作も行われない| 7.6 |規格のみ||
 | [`test_array_args_by_value_ref`](../../tests/ch7/test_array_args_by_value_ref.sv) |値で渡された配列はコピーされます。動的配列、キュー、連想配列も同様です。ref 引数は呼び出し者の配列です。| 7.7 7.9.10 13.5.2 13.5.1 | Verilator 5.052 ||
 | [`test_array_argument_fixed_dynamic_queue_compatibility`](../../tests/ch7/test_array_argument_fixed_dynamic_queue_compatibility.sv) |配列の実引数は配列代入の規則に従う。固定サイズの仮引数は、範囲が異なる固定配列や同サイズの動的配列／キューを受け取る。サイズ未指定の動的配列／キューの仮引数は、任意サイズの固定配列・動的配列・キューを受け取り、要素を左から右へ対応付ける| 7.7 7.6 |規格のみ||
@@ -264,6 +275,7 @@
 | [`test_value_assoc`](../../tests/ch7/test_value_assoc.sv) |連想配列値演算のテスト| 7.8 7.9 | Verilator 5.052 ||
 | [`test_assoc_wildcard_packed_key_order`](../../tests/ch7/test_assoc_wildcard_packed_key_order.sv) |bitストリームキャストでワイルドカード添字の符号なし数値順を確認する| 7.8.1 6.24.3 |規格のみ||
 | [`test_assoc_wildcard_string_literal_bits`](../../tests/ch7/test_assoc_wildcard_string_literal_bits.sv) |文字列リテラルワイルドカードキーエリアス 等幅 packed 整数値| 7.8.1 | Verilator 5.052 |出口コード|
+| [`test_assoc_wildcard_wide_invalid_keys_do_not_collapse`](../../tests/ch7/test_assoc_wildcard_wide_invalid_keys_do_not_collapse.sv) |広いワイルドカードキーの上位または下位に不定ビットがある場合に、対応する有効なキーを読み出したり上書きしたりしないことを検査する。| 7.8.1 7.8.6 7.9.3 |規格のみ| x/z |
 | [`test_assoc_wildcard_width_and_sign_aliases`](../../tests/ch7/test_assoc_wildcard_width_and_sign_aliases.sv) |ワイルドカードキーは前のゼロを正規化し、任意の幅の符号なしの値を保持します| 7.8.1 7.8 | Verilator 5.052 |出口コード|
 | [`test_illegal_wildcard_array_find`](../../tests/ch7/test_illegal_wildcard_array_find.sv) |ワイルドカードインデックス型の関連付け式配列には find() のような値の配列を返す配列操作メソッドは許可されていません。| 7.8.1 7.12.1 |規格のみ|規格違反の設計|
 | [`test_illegal_wildcard_array_foreach`](../../tests/ch7/test_illegal_wildcard_array_foreach.sv) |ワイルドカード添字型の連想配列は、foreachループで使用できない| 7.8.1 12.7.3 | Verilator 5.052 |規格違反の設計|
@@ -277,14 +289,19 @@
 | [`test_assoc_integral_index_cast_context`](../../tests/ch7/test_assoc_integral_index_cast_context.sv) |型付けされた索引は算術的な切り離しの前にキャスト幅と符号コンテキストを適用します| 7.8.4 |規格のみ|出口コード|
 | [`test_assoc_signed_and_unsigned_key_order`](../../tests/ch7/test_assoc_signed_and_unsigned_key_order.sv) |同じ高 bit キーパターンは異なる符号付きと無符号のトラヴァース順序を持つ| 7.8.4 |規格のみ|出口コード|
 | [`test_assoc_signed_boundary_order`](../../tests/ch7/test_assoc_signed_boundary_order.sv) |符号付き整数連想鍵はゼロを通って符号付き数値順序で反復する| 7.8.4 |規格のみ||
+| [`test_assoc_signed_invalid_keys_return_user_default`](../../tests/ch7/test_assoc_signed_invalid_keys_return_user_default.sv) |不定ビットを含む符号付き整数キーでユーザー既定値を返し、有効な符号付きキーの要素を保持する。| 7.8.4 7.8.6 7.9.11 |規格のみ| x/z |
 | [`test_associative_array_edge_cases`](../../tests/ch7/test_associative_array_edge_cases.sv) |結合型配列エッジケース| 7.8.4 7.9 | Verilator 5.052 ||
 | [`test_illegal_integral_index_with_real`](../../tests/ch7/test_illegal_integral_index_with_real.sv) |整数インデックスを持つ連想配列のインデックス表現は index 型にキャストされますが real からの暗黙的なキャストは違法です| 7.8.4 |規格のみ|規格違反の設計|
 | [`test_illegal_integral_index_with_shortreal`](../../tests/ch7/test_illegal_integral_index_with_shortreal.sv) |整数インデックスを持つ連想配列のインデックス表現はインデックスタイプにキャストされますが、 shortreal からの暗黙的なキャストは違法です。| 7.8.4 |規格のみ|規格違反の設計|
 | [`test_assoc_composite_empty_null_key_order`](../../tests/ch7/test_assoc_composite_empty_null_key_order.sv) |空の文字列と複合キーのヌルハンドルは安定な順序で有効です| 7.8.5 | Verilator 5.052 |出口コード|
 | [`test_assoc_foreach_struct_key`](../../tests/ch7/test_assoc_foreach_struct_key.sv) |構造キーを用いた連想配列 foreach をテスト| 7.8.5 12.7.3 | Verilator 5.052 ||
+| [`test_assoc_invalid_keys_with_unknown_dynamic_array_elements`](../../tests/ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements.sv) |連想キーに入れ子になった動的配列の要素に不定ビットがあるとき、既存要素を特定したり新しく要素を作ったりしないことを検査する。| 7.8.5 7.8.6 7.9.3 |規格のみ| x/z |
+| [`test_assoc_packed_struct_key_xz_cannot_alias_valid_entries`](../../tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv) |入れ子のフィールドに不定値がある連想配列のキーは要素の作成も上書きもできない| 7.8.5 7.8.6 |規格のみ| x/z |
+| [`test_associative_key_uses_queue_and_string_values_structurally`](../../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv) |ユーザー定義の連想配列キーが可変長キューと文字列の内容を比較する| 7.8.5 7.10 11.4.5 |規格のみ||
 | [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) |連想配列の添字型は、realメンバーを含められない| 7.8.5 |規格のみ|規格違反の設計|
 | [`test_illegal_assoc_shortreal_index`](../../tests/ch7/test_illegal_assoc_shortreal_index.sv) |ashortreal は連想配列のインデックスタイプではありません| 7.8.5 |規格のみ|規格違反の設計|
 | [`test_illegal_assoc_union_real_key`](../../tests/ch7/test_illegal_assoc_union_real_key.sv) |連想配列の添字型を、realメンバーを含むunpacked共用体にはできない| 7.8.5 |規格のみ|規格違反の設計|
+| [`test_illegal_associative_index_contains_nested_real`](../../tests/ch7/test_illegal_associative_index_contains_nested_real.sv) |連想配列キーの入れ子の unpacked 構造体に real を含めることはできない| 7.8.5 |規格のみ|規格違反の設計|
 | [`test_assoc_array_unknown_index`](../../tests/ch7/test_assoc_array_unknown_index.sv) |x または z ビットのインデックスは連想配列に対して無効です。read は要素のデフォルトタイプを返し、write は何もしません。| 7.8.6 7.4.5 |規格のみ| x/z |
 | [`test_assoc_default_and_delete_silent`](../../tests/ch7/test_assoc_default_and_delete_silent.sv) |デフォルトと欠けているキーを削除すると、警告は出せず、新しいエントリも出ない| 7.8.6 7.9.11 7.9.2 | Verilator 5.052 |出口コード|
 | [`test_assoc_invalid_write_reports_diagnostic`](../../tests/ch7/test_assoc_invalid_write_reports_diagnostic.sv) |無効な 4 状態キー書き込みを無視し、警告を表示します| 7.8.6 7.8.4 |規格のみ|出口コード x/z|
@@ -420,6 +437,7 @@
 | [`test_array_predicates`](../../tests/ch7/test_array_predicates.sv) |配列メソッドテスト| 7.12 7.5 7.10 | Icarus Verilog 13.0 ||
 | [`test_comb_queue_methods_ext`](../../tests/ch7/test_comb_queue_methods_ext.sv) |テスト：拡張キューと配列法のエッジケース| 7.12 7.10.2 | Verilator 5.052 ||
 | [`test_comb_queue_with_clause`](../../tests/ch7/test_comb_queue_with_clause.sv) |テスト: 'with' 条件を持つキューメソッド| 7.12 7.12.1 7.12.2 7.12.3 | Verilator 5.052 ||
+| [`test_empty_unpacked_concatenation_constant_primary`](../../tests/ch7/test_empty_unpacked_concatenation_constant_primary.sv) |空の unpacked 連結を動的配列とキューの定数値として使用できる| 7.12 A.8.4 |規格のみ||
 | [`test_ieee1800_2023_array_method_corner`](../../tests/ch7/test_ieee1800_2023_array_method_corner.sv) |配列操作法| 7.12 7.12.1 7.12.2 7.12.3 7.10.2 7.9 | Verilator 5.052 ||
 | [`test_illegal_array_method_with_braces`](../../tests/ch7/test_illegal_array_method_with_braces.sv) |配列操作のwith条件は 表現を括弧に入れます括弧はrandomize() で使われますが| 7.12 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) |配列メソッドは with 節なしでは反復子の名前を付けられません。| 7.12 7.12.3 |規格のみ|規格違反の設計|

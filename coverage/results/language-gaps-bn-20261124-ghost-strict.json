@@ -1,0 +1,32 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch13/test_function_result_selects_use_declared_index_ranges": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "b9e9b6b7be474bfc9647340ae5cc25ad059ae008e258ef34f98e9c6d0499d5d1"
+  },
+  "ch16/test_property_keeps_realtime_samples_in_one_assertion_context": {
+   "status": "pass",
+   "inputs_sha256": "39e0c52bb731e92e054112f5b9ea1d0350616723f9c83baec2ca46bd0c2482bd"
+  },
+  "ch21/test_evcd_dumpports_reports_invalid_output_path": {
+   "status": "pass",
+   "inputs_sha256": "5fb7ebeb22cfcd64ff080aea3167d834c03d7e6937703558ff48722e8302446e"
+  },
+  "ch32/test_sdf_interconnect_rejects_reversed_port_directions": {
+   "status": "fail",
+   "reason": "no message matches '\\\\A(?=[\\\\s\\\\S]*(?im:^[^\\\\n]*(?:warn|error)[^\\\\n]*input_as_source\\\\.pin[^\\\\n]*(?:direction|output|inout)))(?=[\\\\s\\\\S]*(?im:^[^\\\\n]*(?:warn|error)[^\\\\n]*output_as_load\\\\.pin[^\\\\n]*(?:direction|input|inout)))'",
+   "inputs_sha256": "44d2c83147b9d401d4803774131c333b1f57514463f8165a4d9c43d8c99d5a0c"
+  }
+ },
+ "generated_at": "2026-11-24T03:47:58.683799+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

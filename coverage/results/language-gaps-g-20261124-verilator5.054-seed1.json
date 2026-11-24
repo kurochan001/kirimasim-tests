@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch12/test_unique_and_priority_report_when_no_branch_matches": {
+   "status": "known",
+   "reason": "no message matches '(?ms)\\\\A(?=.*?^(?=[^\\\\n]*test_unique_and_priority_report_when_no_branch_matches\\\\.sv:22(?:\\\\D|$))(?=[^\\\\n]*(?i:multiple|more than one|condition[^\\\\n]*overlap|no match|no condition|violation))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*test_unique_and_priority_report_when_no_branch_matches\\\\.sv:26(?:\\\\D|$))(?=[^\\\\n]*(?i:multiple|more than one|condition[^\\\\n]*overlap|no match|no condition|violation))[^\\\\n]+)'",
+   "inputs_sha256": "50185511c7a0b9f9f7e421a22b5c3fe07815a73151138202a535066aba8d2b3e"
+  },
+  "ch12/test_unique_and_unique0_overlap_reports_first_branch": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'unique=0 unique0=0', expected 'unique=11 unique0=21'",
+   "inputs_sha256": "98dc3b22ab826f02981919b5b56598e2cb9e313bbea76338853bf28c3023d146"
+  },
+  "ch27/test_named_generate_arrays_preserve_sparse_indices_and_empty_array": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'sparse: 2=0 3=0 5=0 8=0', expected 'sparse: 2=1 3=0 5=1 8=1'",
+   "inputs_sha256": "f67b30cfd15c1a8a5ba33d69ee3c43f7611f9539fa808487b21293589bf5ed29"
+  }
+ },
+ "generated_at": "2026-11-23T21:56:47.828463+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

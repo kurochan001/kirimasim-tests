@@ -1,0 +1,53 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch21/test_evcd_close_waits_for_finish_even_when_dumping_is_paused": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_evcd_close_waits_for_finish_even_w...', expected 'closed before finish active=0 paused=0'",
+   "inputs_sha256": "ba4a4534c7800f9f9c665b5702d44fb4b0e56322669549c82548c592665c5c85"
+  },
+  "ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_evcd_dumps_whole_port_when_connect...', expected 'whole slice=1 expression port=1 result=1 other=0'",
+   "inputs_sha256": "7f6b1144d797678ace89b28481f0a62beb2f43e97f3d517674fcd878cde55d30"
+  },
+  "ch25/test_broadcast_read_updates_only_addressed_bank": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch25/test_broadcast_read_updates_only_addressed_bank.sv:16:3: Unsupported: extern forkjoin",
+   "inputs_sha256": "b8a82345d540f861251bbbd65f8d8c55735aaa3e44d3ba6d1f37ea8209d7c2b8"
+  },
+  "ch37/test_vpi_assertion_columns": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_assertion_columns.sv:49:14: Unsupported or unknown PLI call: '$vt_columns'",
+   "inputs_sha256": "e74b0d8897896933b1d1e57f972835de90748ebf5b5efdeb2bad43996bc9c42a"
+  },
+  "ch39/test_vpi_assertion_control_rejects_property_and_sequence_instance_handles": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_control_rejects_property_and_sequence_instance_handles.sv:31:8: Unsupported or unknown PLI call: '$vt_control_targets'",
+   "inputs_sha256": "e272b9a6a1acf5681abb6e06e1f66f8581ff7639d946b7d25ddf405e97c2a937"
+  },
+  "ch39/test_vpi_assertion_handles": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_handles.sv:43:11: Unsupported or unknown PLI call: '$vt_assertions'",
+   "inputs_sha256": "32db3ce29558646ce07275000c3faf5b1f2529d1c635357959a69971da874a24"
+  },
+  "ch39/test_vpi_assertion_identity_is_scoped_and_unlabelled_is_not_findable": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_identity_is_scoped_and_unlabelled_is_not_findable.sv:26:8: Unsupported or unknown PLI call: '$vt_check_identity'",
+   "inputs_sha256": "49aeb81a4f83b920d5e8bd47564b02562edef3834f6c0b3d1e90e388769da4cc"
+  },
+  "ch39/test_vpi_assertion_property_and_sequence_routes_match_scope_iteration": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_property_and_sequence_routes_match_scope_iteration.sv:29:14: Unsupported or unknown PLI call: '$vt_compare_routes'",
+   "inputs_sha256": "268461f5483211a62e11220fb5acf163669400c50451c3512d33bb85eb97b0a0"
+  }
+ },
+ "generated_at": "2026-11-24T01:28:02.586014+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

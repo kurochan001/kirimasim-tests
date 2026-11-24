@@ -1,0 +1,8 @@
+put error=0
+fixed=0002
+put error=0
+pure=0022
+put error=1
+after direct=0022
+put error=1
+after nested=0022

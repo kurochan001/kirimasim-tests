@@ -1,0 +1,26 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch5/test_directive_crosses_files_in_one_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "52e27ea4240571e55e0f1328596666c3d66902869e594d10775b432219786854"
+  },
+  "ch5/test_identifier_1024_characters": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'path length=83 last=t', expected 'path length=1056 last=z'",
+   "inputs_sha256": "b9de14962375e331f7ec4d08352485430566f177f2d6bf84c22c40174a9c3ca2"
+  },
+  "ch5/test_lexical_stream_distinguishes_comments_strings_and_escaped_names": {
+   "status": "pass",
+   "inputs_sha256": "aa95a44fd495bae63a86d97b9640739a835d7cf147f43dfbe5ab599a7c1fde0a"
+  }
+ },
+ "generated_at": "2026-11-24T03:55:24.288255+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

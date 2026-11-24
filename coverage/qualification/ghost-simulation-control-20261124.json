@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-24",
+  "simulator": "Ghost (sukimasim)",
+  "simulator_sha256_prefix": "84e9883c2828",
+  "fixture": "tools/test_ghost_simulation_control.py",
+  "fixture_sha256": "51f9a905b5af0e3f1b1bc807ba2199961cc7676f7d79edaad685fde12d41d88f",
+  "finish": {
+    "default": {
+      "flag": "--quiet",
+      "time": 13,
+      "matches_explicit_level_one": true
+    },
+    "level_zero": {
+      "flag": "--quiet-all",
+      "task_diagnostic": false
+    },
+    "level_one": {
+      "flag": "--quiet-all",
+      "time": 13,
+      "caller_location": null
+    },
+    "level_two": {
+      "flag": "--quiet-all",
+      "time": 13,
+      "caller_location": "control_probe.terminal_site",
+      "signal_count": 0,
+      "memory_usage": null,
+      "cpu_usage": null
+    }
+  },
+  "stop": {
+    "flags": [
+      "--quiet",
+      "--interactive"
+    ],
+    "elapsed_time_at_stop": 13,
+    "resumption_requested": true,
+    "same_tick_statement_executed": false,
+    "later_statement_executed": false,
+    "result": "Simulation finished at 13ns after continue"
+  }
+}

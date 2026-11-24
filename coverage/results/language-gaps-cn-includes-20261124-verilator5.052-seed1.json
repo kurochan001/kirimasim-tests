@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch5/test_identifier_1024_characters": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'path length=83 last=t', expected 'path length=1056 last=z'",
+   "inputs_sha256": "5c0dcaa34e087e021974bf2d917572cd2d53d864efba926bc17feaf38d8e41ee"
+  }
+ },
+ "generated_at": "2026-11-24T07:17:50.452945+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

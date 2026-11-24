@@ -1,0 +1,26 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch12/test_pattern_case_priority_allows_overlap_and_reports_miss": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_pattern_case_priority_allows_overlap_and_reports_miss.sv:21: syntax error",
+   "inputs_sha256": "bb36647b075de74ac615f428dd96e5a688743685b8cb376c311981c937dcf372"
+  },
+  "ch12/test_pattern_case_unique_reports_overlap_and_miss": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_pattern_case_unique_reports_overlap_and_miss.sv:21: syntax error",
+   "inputs_sha256": "da1771a19267a2f53d5f4652ea7a04ad485127e3dc3d602de6f7c17f1ab44118"
+  },
+  "ch21/test_scan_reports_destination_for_suppressed_conversion": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\$?sscanf\\\\b)(?=[^\\\\n]*(?:\\\\bargument|\\\\bdestination|\\\\bsuppress))[^\\\\n]+'",
+   "inputs_sha256": "6cc121693e9ad6718957af75abd5c6563c92af6527305db8dc2b9086e72e6e7e"
+  }
+ },
+ "generated_at": "2026-11-23T23:20:38.736945+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

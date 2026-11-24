@@ -1,0 +1,41 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch23/test_bind_scope_instance_list_selects_nonadjacent_targets": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch23/test_bind_scope_instance_list_selects_nonadjacent_targets.sv:24:3: Unsupported: Bind with instance list",
+   "inputs_sha256": "e36b172e42e54ef708495f0625dd4b37895a72f0403ceb857962b70e5649fab3"
+  },
+  "ch23/test_bind_scope_list_resolves_indexed_generate_hierarchies": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch23/test_bind_scope_list_resolves_indexed_generate_hierarchies.sv:30:65: syntax error, unexpected '.'",
+   "inputs_sha256": "182cfa6f1b49e0fd3ac15532882dcc1748afd491a2069af3a599b1b937b721b3"
+  },
+  "ch28/test_illegal_trireg_decay_omits_fall_delay": {
+   "status": "pass",
+   "inputs_sha256": "b4cd48bcf56ecc111fb505ede9ddd68ca76f7903401a0e43753eb2107fc03562"
+  },
+  "ch28/test_illegal_trireg_decay_omits_rise_delay": {
+   "status": "pass",
+   "inputs_sha256": "d585710f84a6dce10da87d209484d9d611b03353f33aab947f6112d46483c8d2"
+  },
+  "ch28/test_illegal_unnamed_bidirectional_switch_array": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_unnamed_bidirectional_switch_array\\\\.sv:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:syntax error|expected[^\\\\n]*(?:identifier|name)|missing[^\\\\n]*(?:identifier|name)|unnamed|expected[ _]*hierarchical[ _]*instantiation))'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_unnamed_bidirectional_switch_array.sv:18:8: Unsupported: Verilog 1995 gate primitive: tran",
+   "inputs_sha256": "4c1728e4d0cb5bf8f0ab6f52941adc13599ec6e44a35b13041f06ed2b951d74c"
+  },
+  "ch28/test_illegal_unnamed_gate_array": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "14ba15639faa0d3e208c494681b27dfb615ff4462ba00ba0aa298b87f94df1e0"
+  }
+ },
+ "generated_at": "2026-11-24T03:31:02.317553+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

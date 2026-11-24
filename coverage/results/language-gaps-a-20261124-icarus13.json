@@ -1,0 +1,38 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch12/test_if_qualifiers_same_input_different_contracts": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_if_qualifiers_same_input_different_contracts.sv:24: syntax error",
+   "inputs_sha256": "56c597d5aaee42224c9c7cd93fb6d7c73865367b524020c8297356d9cf14f398"
+  },
+  "ch12/test_pattern_if_unique_and_priority": {
+   "status": "known",
+   "reason": "compile failed: tests/ch12/test_pattern_if_unique_and_priority.sv:18: syntax error",
+   "inputs_sha256": "cdc491582814f842dbff67d142b276a2d6129927eebb1806bb66e4a512ffdf7e"
+  },
+  "ch18/test_std_randomize_int_return_type": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_std_randomize_int_return_type.sv:19: syntax error",
+   "inputs_sha256": "c9e286e713cc08019d89153ef812795c26d00369099378a8849cc177c31349f0"
+  },
+  "ch26/test_illegal_package_qualification_does_not_import_name": {
+   "status": "pass",
+   "inputs_sha256": "3e246275e4e6f33f6aec7e1be4fff11e13f3f1955a54849836b06211de8cb455"
+  },
+  "ch26/test_package_enum_label_and_value_without_import": {
+   "status": "pass",
+   "inputs_sha256": "68ffd6ce21957268cd7a6349cae7e8b445ca8fcf5ff8af9e02a10d7a951e49b8"
+  },
+  "ch27/test_illegal_empty_generate_array_name_collision": {
+   "status": "pass",
+   "inputs_sha256": "a0f399c77ad1d75afef477ca7d1253d15ddbce22a6cf1ff80f7d217d5c04b4de"
+  }
+ },
+ "generated_at": "2026-11-23T21:38:50.431390+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,44 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch12/test_case_qualifier_flush_is_local_to_retriggered_process": {
+   "status": "pass",
+   "inputs_sha256": "f71e79bd9c8ffd791bc84e561f2c183c360b54cd4220df4795cc5a55875965db"
+  },
+  "ch12/test_case_qualifier_flush_on_comb_and_latch_retrigger": {
+   "status": "pass",
+   "inputs_sha256": "0750f091e4fde07d1f398865387c037fe91c3accecd02f827260bbc137670e12"
+  },
+  "ch17/test_checker_port_property_actual_attributes_and_omissions": {
+   "status": "unsupported",
+   "reason": "property declaration (not implemented yet)",
+   "inputs_sha256": "e71126e0856251c25a1ec99e146df9b3c010af3c57ed6609572bfe868a81b8ca"
+  },
+  "ch23/test_bind_scope_instance_list_selects_nonadjacent_targets": {
+   "status": "pass",
+   "inputs_sha256": "e36b172e42e54ef708495f0625dd4b37895a72f0403ceb857962b70e5649fab3"
+  },
+  "ch23/test_illegal_instance_target_bind_requires_instantiation_terminator": {
+   "status": "pass",
+   "inputs_sha256": "5d7a8d81bd7c0d9ce0902e695201b13c749e2399d8e1bd2b42bc5e5d3e163911"
+  },
+  "ch23/test_syntax_bind_instance_array_bit_select": {
+   "status": "pass",
+   "inputs_sha256": "38d732f7d49093bc97a22a885d352b70ca1539053dc85b98d050435752a4d22b"
+  },
+  "ch6/test_forward_type_qualified_typedef_and_type_parameter_before_completion": {
+   "status": "pass",
+   "inputs_sha256": "590a060326afab218cca9648971ca13eba852bfa0a2f55f81e5b2c3f9c4a48c8"
+  },
+  "ch6/test_illegal_forward_type_scope_prefix_in_variable": {
+   "status": "pass",
+   "inputs_sha256": "469f41d9e2a80bfd34e7a54e4fbe3dd0213104f6f6c5ad109789f75d33e45241"
+  }
+ },
+ "generated_at": "2026-11-23T23:20:39.013142+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,36 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch16/test_global_clock_future_functions_action_delay": {
+   "status": "unsupported",
+   "reason": "variable of type 'string$[string]' (not implemented yet)",
+   "inputs_sha256": "225e360fc64e55aba6b946ec28616194ac6ff3cbf755e2dde62789997e65c7b5"
+  },
+  "ch16/test_global_clock_past_functions_procedural_action": {
+   "status": "unsupported",
+   "reason": "global clocking block (not implemented yet)",
+   "inputs_sha256": "6ea660cdb7df0b2f7cde74f686418634127729b8d0936df3ff8ab91c0bfff838"
+  },
+  "ch16/test_sampled_function_arguments": {
+   "status": "unsupported",
+   "reason": "system function $rose (not implemented yet)",
+   "inputs_sha256": "00f5f492723c156155dd86cfe804e0e64964381431918bbc26bb35832dfa6879"
+  },
+  "ch20/test_global_clock_sampled_functions_evaluate_computed_operands": {
+   "status": "unsupported",
+   "reason": "global clocking block (not implemented yet)",
+   "inputs_sha256": "12b03c12c6e9d812ef6095223e2c5abaa23d9cf89c5173db126c5cf0ecd43ed3"
+  },
+  "ch20/test_sampled_value_functions_accept_empty_trailing_clock_arguments": {
+   "status": "fail",
+   "reason": "output differs (exit 2): error: empty argument not allowed",
+   "inputs_sha256": "a53a4ffb332fe72756e9d7327656aba4c34501c6335e5ccd5c3353aea714af0e"
+  }
+ },
+ "generated_at": "2026-11-24T04:10:04.132217+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

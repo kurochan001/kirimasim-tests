@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "simulator": "Ghost",
+  "binary_sha256": "e1e4ff9291d53e44f3ae8ddade4625ca8add1da15e7e4663a1324986557472d8",
+  "assertion": "tools/test_ghost_covergroup_report.py",
+  "conditions": [
+    "--quiet",
+    "--lrm-strict",
+    "--save-coverage"
+  ],
+  "source_clauses": [
+    "19.5",
+    "19.5.2"
+  ],
+  "tests": [
+    {
+      "test": "tests/ch19/test_default_bins_with_failed_and_pending_transition_paths.sv",
+      "inputs_sha256": "6c736732299eef941aa1bd194be4e10decc41d87a39b57c83ed5401559126c10",
+      "expected_hits": {
+        "values": {
+          "expected_values": 7,
+          "unmatched_value": 2
+        },
+        "transitions": {
+          "long_path": 0,
+          "short_paths": 2,
+          "wait_path": 1,
+          "unmatched_transition": 2
+        }
+      },
+      "actual_hits": {
+        "values": {
+          "expected_values": 7,
+          "unmatched_value": 2
+        },
+        "transitions": {
+          "long_path": 0,
+          "short_paths": 2,
+          "wait_path": 1,
+          "unmatched_transition": 6
+        }
+      },
+      "actual_counted": {
+        "values": {
+          "expected_values": true,
+          "unmatched_value": false
+        },
+        "transitions": {
+          "long_path": true,
+          "short_paths": true,
+          "wait_path": true,
+          "unmatched_transition": false
+        }
+      },
+      "status": "fail"
+    },
+    {
+      "test": "tests/ch19/test_default_transition_bin_ignores_a_pending_nonconsecutive_match.sv",
+      "inputs_sha256": "285888af59958a55b1323a41bcbca13fc3521df0345515991965c6e3e7bd5dd9",
+      "expected_hits": {
+        "transitions": {
+          "wait_path": 1,
+          "unmatched_transition": 0
+        }
+      },
+      "actual_hits": {
+        "transitions": {
+          "wait_path": 1,
+          "unmatched_transition": 3
+        }
+      },
+      "actual_counted": {
+        "transitions": {
+          "wait_path": true,
+          "unmatched_transition": false
+        }
+      },
+      "status": "fail"
+    }
+  ]
+}

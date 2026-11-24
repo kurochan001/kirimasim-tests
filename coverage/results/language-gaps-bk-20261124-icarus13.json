@@ -1,0 +1,51 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch17/test_checker_instantiation_connection_forms": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_instantiation_connection_forms.sv:39: syntax error",
+   "inputs_sha256": "79a130e316deaa3f2e15486ec0b8a9187af2c2b30c98be9cfd054e7fc7cf4d96"
+  },
+  "ch17/test_checker_named_empty_binding_takes_precedence_over_wildcard": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_named_empty_binding_takes_precedence_over_wildcard.sv:17: syntax error",
+   "inputs_sha256": "8ce3b6c75957fd5f91cbab9dca1e9246e6f26af5a450b94549203044a5bf505c"
+  },
+  "ch17/test_checker_port_property_actual_attributes_and_omissions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch17/test_checker_port_property_actual_attributes_and_omissions.sv:16: syntax error",
+   "inputs_sha256": "e71126e0856251c25a1ec99e146df9b3c010af3c57ed6609572bfe868a81b8ca"
+  },
+  "ch17/test_illegal_checker_port_list_has_two_wildcards": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_checker_port_list_has_two_wildcards\\\\.sv:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:multiple|duplicate|more than one|only one|repeat)[^\\\\n]*(?:wildcard|\\\\.\\\\*)|(?:wildcard|\\\\.\\\\*)[^\\\\n]*(?:multiple|duplicate|more than one|only one|repeat))'; the first is: tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv:14: syntax error",
+   "inputs_sha256": "1f9a07939aa0218051c15893e2aba2de7d88de93800cceffb9171b3531ccc1af"
+  },
+  "ch36/test_sv_vpi_user_h_declarations": {
+   "status": "known",
+   "reason": "VPI build failed: 20 errors generated.",
+   "inputs_sha256": "7a75ccece3b372f18c47794779e0553aa8abafd4a82bb018a9946bb0a1678f47"
+  },
+  "ch36/test_vpi_compatibility_mode_uses_null_handle_for_bound_mode": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "3f05cea78830299c637a575bb6906b21c752d4782d0b91bc72d15f16f2df6a7d"
+  },
+  "ch37/test_vpi_clocking_edges_prefix": {
+   "status": "known",
+   "reason": "VPI build failed: 19 errors generated.",
+   "inputs_sha256": "546c9830bf4b24acec2e4752ce572a9a8233f0aae595cfab7beefc3e2c2c8383"
+  },
+  "ch37/test_vpi_clocking_io_edges_use_all_three_header_constants": {
+   "status": "known",
+   "reason": "VPI build failed: 9 errors generated.",
+   "inputs_sha256": "11803ab2153a98395da1d569968c20873cdb8cd5fb356f073a9b234b1ab907e4"
+  }
+ },
+ "generated_at": "2026-11-24T03:12:42.447458+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

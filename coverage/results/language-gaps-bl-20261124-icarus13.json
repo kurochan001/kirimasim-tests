@@ -1,0 +1,29 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch27/test_illegal_generate_loop_keeps_same_genvar": {
+   "status": "pass",
+   "inputs_sha256": "408c458b7957804d0c06009118581ad7299b5561e150d06f3bcf7f80db9c8cca"
+  },
+  "ch27/test_illegal_generate_loop_repeats_nonadjacent_genvar": {
+   "status": "pass",
+   "inputs_sha256": "42a7f9ea6d9d4520854127fa4fb375825ba0b6582cb22c1fb3b5af30d45fc656"
+  },
+  "ch35/test_mixed_dpi_versions_select_semantics_per_declaration": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_mixed_dpi_versions_select_semantics_per_declaration.sv:15: syntax error",
+   "inputs_sha256": "49e6c68bcdc86713225171339f6f10357e781d637878f5e0af6ab7117f8993a8"
+  },
+  "ch36/test_vpi_compatibility_h_1364v2001": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "830c51dc609a1e7f316548a8805307291f461a72afd289195329287fa5d9e2b6"
+  }
+ },
+ "generated_at": "2026-11-24T03:18:31.359282+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

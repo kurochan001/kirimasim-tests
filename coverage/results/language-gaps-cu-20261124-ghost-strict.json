@@ -1,0 +1,18 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch10/test_nba_overlapping_wide_selects_capture_targets_and_keep_order": {
+   "status": "pass",
+   "inputs_sha256": "c4d129e47e76433e434e0f5b1af50370e8d8d011f970510d3ee29b5438c4f7fa"
+  }
+ },
+ "generated_at": "2026-11-24T08:01:08.326503+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

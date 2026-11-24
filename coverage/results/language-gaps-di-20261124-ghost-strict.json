@@ -1,0 +1,18 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch21/test_vcd_alias_group_tracks_shared_net_and_independent_port": {
+   "status": "pass",
+   "inputs_sha256": "af2aa04c122b6e87b9a6c795b285657734a2a1189cfab6e98e413565f4fc06b1"
+  }
+ },
+ "generated_at": "2026-11-24T08:50:58.249953+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

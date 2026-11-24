@@ -1,0 +1,7 @@
+arithmetic accumulator=-15
+bitwise accumulator=31
+shift accumulator=124
+right shifts=-32/2147483632
+nested left=10 right=3 expression=31 packet=33af
+compare=0 old=1
+queued=0

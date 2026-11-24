@@ -1,0 +1,4 @@
+peer type width=5
+first state=17 bits=8 net=34 port=19
+second state=27 net=54 port=29
+connected ports=19 29

@@ -1,0 +1,11 @@
+strengths=St1 HiZ St1
+read: 1 Z 1
+strengths=StH StL StX
+read: H L X
+strengths=HiZ St0 St0
+read: Z 0 0
+strengths=HiZ HiZ HiZ
+read: Z Z Z
+watch 0 (3): 5=1 10=H 15=Z
+watch 1 (4): 5=Z 10=L 15=0 20=Z
+watch 2 (4): 5=1 10=X 15=0 20=Z

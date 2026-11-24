@@ -1,0 +1,33 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch16/test_assertion_default_strength_at_end_of_trace": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_assertion_default_strength_at_end_of_trace.sv:27:20: Unsupported: strong property in assert.",
+   "inputs_sha256": "3c512b3ed3394bca6d78a780f26499c37332ffa5ba70bf239e57523002ca68da"
+  },
+  "ch16/test_assume_property_defaults_to_weak_at_end_of_trace": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_assume_property_defaults_to_weak_at_end_of_trace.sv:27:20: Unsupported: strong property in assume.",
+   "inputs_sha256": "377b624072c8056047c5feb8a4e58f96133909efd8f9dae887d53993e4897e46"
+  },
+  "ch16/test_cover_property_defaults_to_strong_under_property_negation": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_cover_property_defaults_to_strong_under_property_negation.sv:25:53: syntax error, unexpected weak, expecting IDENTIFIER-for-type",
+   "inputs_sha256": "1008e02c54ce9950f22b6bb6441bb38199c7515d50867b0e99aae6901dacd0b0"
+  },
+  "ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace.sv:22:55: syntax error, unexpected strong, expecting IDENTIFIER-for-type",
+   "inputs_sha256": "c02c5847b4d6c1317d4f5b869dfd21c52ab56ab2605e457c31de35603d2df129"
+  }
+ },
+ "generated_at": "2026-11-23T23:27:29.249628+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

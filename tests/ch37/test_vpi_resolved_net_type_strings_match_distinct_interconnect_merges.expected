@@ -1,0 +1,4 @@
+resolved values=0 1
+and: declared-int=1 declared-name=vpiInterconnect resolved-int=1 resolved-name=vpiWand
+or: declared-int=1 declared-name=vpiInterconnect resolved-int=1 resolved-name=vpiWor
+after update=1 1

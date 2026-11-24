@@ -1,0 +1,50 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch17/test_checker_assumptions_see_active_and_reactive_clock_events_at_same_time": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_assumptions_see_active_and_reactive_clock_events_at_same_time.sv:16:3: Unsupported: checker rand",
+   "inputs_sha256": "89911465cd43e7bd87c7b16b2d0d834d577c15829012e23b5c780a7e070fbcd7"
+  },
+  "ch40/test_vpi_fsm_reports_separate_enum_binding_and_partselect_name": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch40/test_vpi_fsm_reports_separate_enum_binding_and_partselect_name.sv:24:8: Unsupported or unknown PLI call: '$vt_fsm_bindings'",
+   "inputs_sha256": "b99e33eb6de5f6c6e38adcda58f1a96305703a90cb4b1173501044057a9fec1e"
+  },
+  "ch7/test_dynamic_array_new_size_converts_xz_bits_to_zero": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_dynamic_array_new_size_converts_xz_bits_to_zero.sv:27:20: Unsupported tristate construct: ARG",
+   "inputs_sha256": "874d0548255e960c534d32281695611a31c5d0cbdb43739a0c1e11adbc1ba514"
+  },
+  "ch7/test_dynamic_array_new_size_discards_bit64": {
+   "status": "pass",
+   "inputs_sha256": "9783fd4bdd173d3ee47920e016c97876bb596fe5dc435a0699f06cd1aabfdd8a"
+  },
+  "ch7/test_dynamic_array_new_size_longint_negative_error": {
+   "status": "known",
+   "reason": "no message matches '(?i:\\\\berror\\\\b)'",
+   "inputs_sha256": "9f54c53c3cc97ff3d89d8b791fefe17df31b6cff6ad9d10ae6df6b19e2469583"
+  },
+  "ch7/test_dynamic_array_new_size_side_effects_precede_and_survive_initialization": {
+   "status": "pass",
+   "inputs_sha256": "c061074ed48fc2875cbff19a7a7c3b49acb43d2f16fff19fd7aad6de0490a962"
+  },
+  "ch7/test_dynamic_array_resize_converts_unsigned_wide_size_before_copy": {
+   "status": "pass",
+   "inputs_sha256": "f9ea817f87d1e529b2ee51551f6dae7fba9a15a9dc99096f1a30e1bb8141c5f3"
+  },
+  "ch7/test_nested_dynamic_array_resize_preserves_rows_and_four_state_contents": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_nested_dynamic_array_resize_preserves_rows_and_four_state_contents.sv:21:12: Unsupported LHS tristate construct: CMETHODHARD 'atWrite'",
+   "inputs_sha256": "ba3c9bde7b4ae01e0a9e8c11e9a96116220281475be53765bf095affcff618af"
+  }
+ },
+ "generated_at": "2026-11-24T05:42:47.461372+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch31/test_negative_setuphold_has_exclusive_window_endpoints": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "4885c9122637b2dc01d86d3bc1cb7b2138f0aada25748fffea38f9dbf3363d54"
+  },
+  "ch31/test_setuphold_uses_explicit_delayed_reference_for_both_checks": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "ae506d33a8a1ee04f11da13b29b3e7f28b636d14193299b1484dacd1e297451f"
+  },
+  "ch31/test_timing_condition_can_use_explicit_delayed_reference_value": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "18e3e45414dd41beae2956a3d40361c3fff0a1231dc687ab72c827df79e3ab94"
+  }
+ },
+ "generated_at": "2026-11-23T23:34:55.618672+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

@@ -1,0 +1,4 @@
+a=0 b=0 local=00 remote=00
+a=0 b=1 local=01 remote=01
+a=1 b=0 local=01 remote=01
+a=1 b=1 local=11 remote=11

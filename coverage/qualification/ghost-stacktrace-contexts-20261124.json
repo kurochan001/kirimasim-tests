@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-24",
+  "tool": "Ghost",
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "fixture": "tools/test_ghost_stacktrace_contexts.py",
+  "fixture_sha256": "3d8a4b3f092c4aed712ea949a67916efd5042ce21a4378b63de1b2f89f1cae2f",
+  "requirements": [
+    "SV2023-20.17.2-EXTRACT-STACKTRACE-CONTEXT"
+  ],
+  "format_scope": "Ghost frame names",
+  "results": {
+    "class": {
+      "status": "fail",
+      "frames": [
+        "capture_leaf",
+        "class_outer"
+      ],
+      "expected": [
+        "capture_leaf",
+        "bridge::capture_middle",
+        "class_outer"
+      ]
+    },
+    "alpha": {
+      "status": "fail",
+      "frames": [
+        "capture_leaf"
+      ],
+      "expected": [
+        "capture_leaf",
+        "alpha"
+      ]
+    },
+    "beta": {
+      "status": "fail",
+      "frames": [
+        "capture_leaf"
+      ],
+      "expected": [
+        "capture_leaf",
+        "beta"
+      ]
+    },
+    "alpha2": {
+      "status": "fail",
+      "frames": [
+        "capture_leaf"
+      ],
+      "expected": [
+        "capture_leaf",
+        "alpha"
+      ]
+    },
+    "beta2": {
+      "status": "fail",
+      "frames": [
+        "capture_leaf"
+      ],
+      "expected": [
+        "capture_leaf",
+        "beta"
+      ]
+    },
+    "after": {
+      "status": "pass",
+      "frames": [
+        "capture_leaf"
+      ],
+      "expected": [
+        "capture_leaf"
+      ]
+    }
+  }
+}

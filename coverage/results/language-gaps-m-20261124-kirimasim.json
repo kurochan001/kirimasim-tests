@@ -1,0 +1,25 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch12/test_illegal_foreach_index_assignment_in_body": {
+   "status": "pass",
+   "inputs_sha256": "059e0a2dbc149975997530fc5669cbd208de71a5644695fc6852f80ff84f5409"
+  },
+  "ch26/test_package_and_unit_sequences_and_enum_labels": {
+   "status": "unsupported",
+   "reason": "concurrent assertion (not implemented yet)",
+   "inputs_sha256": "110542372af8726ed4a4a094ab2848d9d92db97a1dbe57a625cb6afdb12e9562"
+  },
+  "ch9/test_process_await_rejects_current_process": {
+   "status": "unsupported",
+   "reason": "type 'std::process' (not implemented yet)",
+   "inputs_sha256": "2f96c2fd56a859028b4ad4d68e9f16923d9b2daaca2a4e283e09f27d44d71b18"
+  }
+ },
+ "generated_at": "2026-11-23T22:43:38.407529+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

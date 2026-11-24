@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch31/test_negative_setuphold_has_exclusive_window_endpoints": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'negative setup=000000 negative hold=000000', expected 'negative setup=001100 negative hold=001100'",
+   "inputs_sha256": "4885c9122637b2dc01d86d3bc1cb7b2138f0aada25748fffea38f9dbf3363d54"
+  },
+  "ch31/test_setuphold_uses_explicit_delayed_reference_for_both_checks": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'at24 reference=1 delayed=1 early=0', expected 'at24 reference=1 delayed=0 early=0'",
+   "inputs_sha256": "ae506d33a8a1ee04f11da13b29b3e7f28b636d14193299b1484dacd1e297451f"
+  },
+  "ch31/test_timing_condition_can_use_explicit_delayed_reference_value": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'condition input: raw=1 delayed=1', expected 'condition input: raw=1 delayed=0'",
+   "inputs_sha256": "18e3e45414dd41beae2956a3d40361c3fff0a1231dc687ab72c827df79e3ab94"
+  }
+ },
+ "generated_at": "2026-11-23T23:35:01.035612+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

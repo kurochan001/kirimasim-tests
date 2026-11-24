@@ -1,0 +1,26 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch36/test_vpi_legacy_array_property_in_1364v2005_mode": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'integer matching-kind=1/0 legacy-array=0/0', expected 'integer matching-kind=1/1 legacy-array=0/1'",
+   "inputs_sha256": "4d6ae93754c1adb23c67507af507e65122c29bbf65cd954718490aafbe3f5d35"
+  },
+  "ch37/test_vpi_current_array_members_for_legacy_variable_kinds": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "3a38f0d55ae294ecaed09766225398041dd791ec55b1a288ba127e7dda8b9ba3"
+  },
+  "ch37/test_vpi_deprecated_interface_iteration_matches_current_handles": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "b30bb7b87286f3bfae992cf826f76409b4d6c141410c2143b1eeff1abfcfca3b"
+  }
+ },
+ "generated_at": "2026-11-24T06:39:12.112457+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

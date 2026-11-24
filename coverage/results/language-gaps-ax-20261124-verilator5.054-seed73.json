@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch39/test_vpi_assertion_callbacks_preserved_and_installed_while_stopped": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_callbacks_preserved_and_installed_while_stopped.sv:25:8: Unsupported or unknown PLI call: '$vt_place_callbacks'",
+   "inputs_sha256": "ad38969ece44c6f9bf76affeb0d66fad531de2cb29b1d1cbaa250365d1b20722"
+  },
+  "ch39/test_vpi_assertion_system_off_kill_on": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_system_off_kill_on.sv:64:8: Unsupported or unknown PLI call: '$vt_watch'",
+   "inputs_sha256": "c86f3f71b3aa489da237d90e3a153114ada374e5782fc75429b6b5ec37cb3a33"
+  }
+ },
+ "generated_at": "2026-11-24T01:17:54.691353+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

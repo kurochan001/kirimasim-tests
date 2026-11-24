@@ -1,0 +1,29 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build e1e4ff9291d5",
+ "tests": {
+  "ch12/test_pattern_case_priority_allows_overlap_and_reports_miss": {
+   "status": "fail",
+   "reason": "no message matches '(?ms)\\\\A(?!.*?^(?=[^\\\\n]*test_pattern_case_priority_allows_overlap_and_reports_miss\\\\.sv:21:)(?=[^\\\\n]*(?i:warning|violation|error))(?=[^\\\\n]*(?i:\\\\b(?:priority|unique|case)\\\\b))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*test_pattern_case_priority_allows_overlap_and_reports_miss\\\\.sv:29:)(?=[^\\\\n]*(?i:warning|violation|error))(?=[^\\\\n]*(?i:\\\\b(?:priority|unique|case)\\\\b))[^\\\\n]+)'",
+   "inputs_sha256": "bb36647b075de74ac615f428dd96e5a688743685b8cb376c311981c937dcf372"
+  },
+  "ch12/test_pattern_case_unique_reports_overlap_and_miss": {
+   "status": "fail",
+   "reason": "no message matches '(?ms)\\\\A(?!.*?^(?=[^\\\\n]*test_pattern_case_unique_reports_overlap_and_miss\\\\.sv:21:)(?=[^\\\\n]*(?i:warning|violation|error))(?=[^\\\\n]*(?i:\\\\b(?:priority|unique|case)\\\\b))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*test_pattern_case_unique_reports_overlap_and_miss\\\\.sv:27:)(?=[^\\\\n]*(?i:warning|violation|error))(?=[^\\\\n]*(?i:\\\\b(?:priority|unique|case)\\\\b))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*test_pattern_case_unique_reports_overlap_and_miss\\\\.sv:33:)(?=[^\\\\n]*(?i:warning|violation|error))(?=[^\\\\n]*(?i:\\\\b(?:priority|unique|case)\\\\b))[^\\\\n]+)'",
+   "inputs_sha256": "da1771a19267a2f53d5f4652ea7a04ad485127e3dc3d602de6f7c17f1ab44118"
+  },
+  "ch21/test_scan_reports_destination_for_suppressed_conversion": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\$?sscanf\\\\b)(?=[^\\\\n]*(?:\\\\bargument|\\\\bdestination|\\\\bsuppress))[^\\\\n]+'",
+   "inputs_sha256": "6cc121693e9ad6718957af75abd5c6563c92af6527305db8dc2b9086e72e6e7e"
+  }
+ },
+ "generated_at": "2026-11-23T23:20:38.745020+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "e1e4ff9291d53e44f3ae8ddade4625ca8add1da15e7e4663a1324986557472d8",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

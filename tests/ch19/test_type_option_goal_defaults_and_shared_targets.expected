@@ -1,0 +1,5 @@
+defaults=100 100 100
+type targets=83 61 100 47
+instance targets=23 31 100 100
+other type=100 100 100
+shared target=91 91 91

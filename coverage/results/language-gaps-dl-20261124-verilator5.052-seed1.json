@@ -1,0 +1,36 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch29/test_illegal_udp_edge_descriptor_contains_high_impedance": {
+   "status": "pass",
+   "inputs_sha256": "083339baf99bb37b02ce054743f2a7bc0fe4e38ee1f8ee733e541d2d421a99a7"
+  },
+  "ch29/test_illegal_udp_initial_delay": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "88bb144b67aa69c9e4039b2559129d77e4541dfc2b25cf4050d63daf908c2f4e"
+  },
+  "ch29/test_illegal_udp_z_in_table": {
+   "status": "pass",
+   "inputs_sha256": "d75e65e1fb2c9e7825dfa84ac9c57eada0507cb4f9d1508468e888136ad6a463"
+  },
+  "ch29/test_udp_initial_states_drive_separately_delayed_fanout": {
+   "status": "known",
+   "reason": "output differs: line 1 is 't=1 source=10 fanout=01', expected 't=1 source=10 fanout=xx'",
+   "inputs_sha256": "196a3f52f135aa95ae9b9c46eddda2102f0a302bbd5267d807ab41501a061765"
+  },
+  "ch29/test_udp_resolved_high_impedance_uses_explicit_unknown_rows": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'mode=0 data=0 selected=0 x-control=0', expected 'mode=0 data=z selected=1 x-control=1'",
+   "inputs_sha256": "1e0bcac541c2d5cd859ff1803d4dc97281a3822371d28a4ddd75710b8ab4f627"
+  }
+ },
+ "generated_at": "2026-11-24T08:58:04.181627+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

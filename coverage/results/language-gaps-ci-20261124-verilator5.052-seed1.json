@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch36/test_vpi_legacy_array_property_in_1364v2005_mode": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'integer matching-kind=1/1 legacy-array=0/1'",
+   "inputs_sha256": "4d6ae93754c1adb23c67507af507e65122c29bbf65cd954718490aafbe3f5d35"
+  },
+  "ch37/test_vpi_current_array_members_for_legacy_variable_kinds": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'integer kinds=1/1/1 membership=0/0/1'",
+   "inputs_sha256": "3a38f0d55ae294ecaed09766225398041dd791ec55b1a288ba127e7dda8b9ba3"
+  },
+  "ch37/test_vpi_deprecated_interface_iteration_matches_current_handles": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_deprecated_interface_iteration_matches_current_handles.sv:30:8: Unsupported or unknown PLI call: '$probe_interface_iterators'",
+   "inputs_sha256": "b30bb7b87286f3bfae992cf826f76409b4d6c141410c2143b1eeff1abfcfca3b"
+  }
+ },
+ "generated_at": "2026-11-24T06:39:12.401645+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

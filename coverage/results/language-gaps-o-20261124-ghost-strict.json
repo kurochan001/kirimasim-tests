@@ -1,0 +1,23 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch31/test_setuphold_negative_limits_event_roles_and_conditions": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "9c8354c3ee6ce6d9cba04dae0a4c2e3faac5612847db5b9a71d91a083e1a3ed9"
+  },
+  "ch31/test_setuphold_positive_limits_isolate_each_window": {
+   "status": "pass",
+   "inputs_sha256": "c3cfa9d99c74f14ec181e457e1d3d7c9e1b510d88fa5f6533f863876c0f776ae"
+  }
+ },
+ "generated_at": "2026-11-23T23:34:55.356739+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

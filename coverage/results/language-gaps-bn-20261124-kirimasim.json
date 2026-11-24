@@ -1,0 +1,30 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch13/test_function_result_selects_use_declared_index_ranges": {
+   "status": "pass",
+   "inputs_sha256": "b9e9b6b7be474bfc9647340ae5cc25ad059ae008e258ef34f98e9c6d0499d5d1"
+  },
+  "ch16/test_property_keeps_realtime_samples_in_one_assertion_context": {
+   "status": "unsupported",
+   "reason": "property declaration (not implemented yet)",
+   "inputs_sha256": "39e0c52bb731e92e054112f5b9ea1d0350616723f9c83baec2ca46bd0c2482bd"
+  },
+  "ch21/test_evcd_dumpports_reports_invalid_output_path": {
+   "status": "unsupported",
+   "reason": "system task $dumpports (not implemented yet)",
+   "inputs_sha256": "5fb7ebeb22cfcd64ff080aea3167d834c03d7e6937703558ff48722e8302446e"
+  },
+  "ch32/test_sdf_interconnect_rejects_reversed_port_directions": {
+   "status": "unsupported",
+   "reason": "system task $sdf_annotate (not implemented yet)",
+   "inputs_sha256": "44d2c83147b9d401d4803774131c333b1f57514463f8165a4d9c43d8c99d5a0c"
+  }
+ },
+ "generated_at": "2026-11-24T03:47:58.638201+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

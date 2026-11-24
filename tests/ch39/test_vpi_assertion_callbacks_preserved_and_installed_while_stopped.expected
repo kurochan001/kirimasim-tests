@@ -1,0 +1,5 @@
+registered early=11
+registered late=11
+28 old pass/fail=1/1 new pass/fail=0/0
+56 old pass/fail=2/2 new pass/fail=1/1
+failure actions=2

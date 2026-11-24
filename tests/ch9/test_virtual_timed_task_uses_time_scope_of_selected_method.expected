@@ -1,0 +1,4 @@
+inherited small method=1 elapsed=0
+override small method=2 elapsed=50
+inherited large method=1 elapsed=3000
+override large method=2 elapsed=260

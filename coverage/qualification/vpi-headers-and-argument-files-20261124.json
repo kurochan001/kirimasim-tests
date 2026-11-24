@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-24",
+  "simulator": "Ghost (sukimasim)",
+  "simulator_sha256_prefix": "84e9883c2828",
+  "vpi_compatibility_preprocessing": {
+    "check": "tools/test_vpi_compatibility_preprocessing.py",
+    "clause": "36.12.2.1",
+    "compiler": {
+      "c": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+      "c++": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+    },
+    "headers_sha256": {
+      "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+      "vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c"
+    },
+    "per_language": {
+      "single_modes_matched": 8,
+      "single_modes_tested": 8,
+      "conflicting_pairs_rejected": 25,
+      "conflicting_pairs_tested": 28
+    },
+    "unexpected_accepted_pairs": [
+      [
+        "1800v2012",
+        "1800v2017"
+      ],
+      [
+        "1800v2012",
+        "1800v2023"
+      ],
+      [
+        "1800v2017",
+        "1800v2023"
+      ]
+    ],
+    "status": "fail",
+    "check_sha256": "3dd1e1166b0447a11bed2f31faac64bc9b4e17838596b24fe677ee7995f1ebd7",
+    "guard_reentry": {
+      "public_header_twice_guard_present": [
+        "c",
+        "c++"
+      ],
+      "explicit_private_header_after_public_header_unexpectedly_accepted": [
+        "c",
+        "c++"
+      ],
+      "status": "fail"
+    }
+  },
+  "nested_argument_files": {
+    "check": "tools/test_ghost_vpi_argument_files.py",
+    "clause": "38.17",
+    "file_option": "-f",
+    "expected_structure": "nested",
+    "observed_structure": "flat",
+    "parsed_outer_inner_after_values": [
+      17,
+      29,
+      41
+    ],
+    "status": "fail",
+    "check_sha256": "7a7036d1322c0b5877efa0975f9ea7df2de15ec7f0a2f0549408974d4ec462fc"
+  }
+}

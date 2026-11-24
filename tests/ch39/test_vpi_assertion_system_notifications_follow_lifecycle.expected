@@ -1,0 +1,2 @@
+startup passes=1
+lifecycle registrations=3 events=IO

@@ -1,0 +1,29 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch11/test_assignment_operator_level_uses_parentheses_and_nonblocking_rhs": {
+   "status": "pass",
+   "inputs_sha256": "f50adb2ba02369603b3f53c587235d3362582e86d5b1db1b9174b343b41428fd"
+  },
+  "ch11/test_dist_weight_operands_include_arithmetic_and_conditionals": {
+   "status": "pass",
+   "inputs_sha256": "2c95346192be5ba8f8722d4584c0f5627a40907fc9047269d0b040f556b71c15"
+  },
+  "ch11/test_illegal_chained_compound_assignment_without_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "85bd60c2f50f16f01690cde900def527ebe4834d0618d7dfa2f52bd85762de32"
+  },
+  "ch11/test_operator_associativity_each_row": {
+   "status": "pass",
+   "inputs_sha256": "e23a681b8b7bb9bfba32bb36ebedc34f40202d8adc91bad6f447cf759d2fad8b"
+  }
+ },
+ "generated_at": "2026-11-24T08:27:09.761021+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

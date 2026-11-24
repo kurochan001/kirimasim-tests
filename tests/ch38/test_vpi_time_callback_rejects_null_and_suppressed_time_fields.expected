@@ -1,0 +1,5 @@
+null time rejected=1 vpi-error=1
+suppressed time rejected=1 vpi-error=1
+valid registered=1
+valid time=0:2
+fixture t=4

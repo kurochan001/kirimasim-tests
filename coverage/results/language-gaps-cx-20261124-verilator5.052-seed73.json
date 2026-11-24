@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch28/test_delay2_gates_and_enabled_pass_versus_plain_pass": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_delay2_gates_and_enabled_pass_versus_plain_pass.sv:20:11: Unsupported: pullup strength",
+   "inputs_sha256": "44bdc0044a95bff43c54099df13412b2da72d670d68d1474b2475ce6e15070e2"
+  },
+  "ch28/test_delay3_mos_cmos_and_enable_primitives": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_delay3_mos_cmos_and_enable_primitives.sv:18:19: Unsupported: Verilog 1995 gate primitive: cmos",
+   "inputs_sha256": "43c8e77413e7240252d2e793079ee439bbb68e98cfa3de0ab08c226e5fd715fc"
+  },
+  "ch28/test_illegal_three_delays_on_enabled_pass": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_three_delays_on_enabled_pass\\\\.sv:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:delay|syntax|unexpected|expected))'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_three_delays_on_enabled_pass.sv:19:19: Unsupported: Verilog 1995 gate primitive: tranif1",
+   "inputs_sha256": "5fd4f961442436e8b705177c825049151a13d3545cbddd33ca134bb34cfba02f"
+  },
+  "ch28/test_illegal_three_delays_on_n_input_gate": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "9108da5156c71e2b3578a874b3971dd40f9fb1db9712fa000bdcd9849d082547"
+  },
+  "ch28/test_illegal_three_delays_on_n_output_gate": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8ad8e1578cad1ab8e7cfccd26d0ff95cb5214653ee18dd1223a2cb714a5b1f9c"
+  }
+ },
+ "generated_at": "2026-11-24T08:08:41.692691+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

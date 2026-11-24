@@ -1,0 +1,42 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 38ca497df395",
+ "tests": {
+  "ch11/test_illegal_let_scalar_argument_expands_to_invalid_bit_select": {
+   "status": "pass",
+   "inputs_sha256": "c9673e2d61134323b63d4263d16dd99660dc65bcfa6572995db540b31bb1397b"
+  },
+  "ch11/test_let_substitution_preserves_actual_expression_and_result_precedence": {
+   "status": "pass",
+   "inputs_sha256": "20088ca98890ee380228e61f8877ec09961db82a09c371339264f30bccd7d919"
+  },
+  "ch12/test_case_qualifier_flush_is_local_to_retriggered_process": {
+   "status": "pass",
+   "inputs_sha256": "f71e79bd9c8ffd791bc84e561f2c183c360b54cd4220df4795cc5a55875965db"
+  },
+  "ch12/test_case_qualifier_report_respects_assertcontrol": {
+   "status": "pass",
+   "inputs_sha256": "f6fd11c87c3ae5dbf395809a05f3e6994d88d524af579c77fea75a2af2da4a45"
+  },
+  "ch8/test_illegal_weak_reference_clear_takes_no_argument": {
+   "status": "pass",
+   "inputs_sha256": "8178673eec39478f00eebfd3eebd7146b3f8d0e4e9f8edef1cdd3eecf90c388b"
+  },
+  "ch8/test_illegal_weak_reference_clear_value_from_void_method": {
+   "status": "pass",
+   "inputs_sha256": "82419aa040ae603fe00f6b61921928ec5ee64544edbf3ce0628affaedfbe9626"
+  },
+  "ch8/test_weak_reference_clear_void_no_arguments": {
+   "status": "pass",
+   "inputs_sha256": "e75e35ece0f99bf38b80271f005f74ca8e9e179037513a2c8721255f0c8187eb"
+  }
+ },
+ "generated_at": "2026-11-23T22:39:56.102419+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "38ca497df3954cf2cdbcee73176f6d735439470f554bf33a35461d44c5108aca",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

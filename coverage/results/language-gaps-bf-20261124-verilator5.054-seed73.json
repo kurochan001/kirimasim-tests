@@ -1,0 +1,33 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch39/test_vpi_assertion_callback_targets": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_callback_targets.sv:57:8: Unsupported or unknown PLI call: '$vt_place'",
+   "inputs_sha256": "5e9311b415c3789dce026040ccc69dbc5033f46303919cc81390cc294df3d4d2"
+  },
+  "ch39/test_vpi_assertion_initialization_callback_guards_controls": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_initialization_callback_guards_controls.sv:23:8: Unsupported or unknown PLI call: '$vt_watch_ready_assertions'",
+   "inputs_sha256": "85d489fb15cedb656abf658b8a844ac57baae1117f3fc28bd7b862f7a3a2a1a0"
+  },
+  "ch39/test_vpi_assertion_start_occurs_only_for_evaluated_instances": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_start_occurs_only_for_evaluated_instances.sv:39:8: Unsupported or unknown PLI call: '$vt_watch_start'",
+   "inputs_sha256": "a63862235e27385bbfb0fb4372ae4e65b5572f2b365e33823d9a853ef6b03b01"
+  },
+  "ch39/test_vpi_assertion_system_notifications_follow_lifecycle": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv:26:5: Unsupported or unknown PLI call: '$vt_report_lifecycle'",
+   "inputs_sha256": "9a15e03bb4b77eab60dec5f889fdd4964cc0191762c28478e8737fc4f95d5334"
+  }
+ },
+ "generated_at": "2026-11-24T02:13:32.285406+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

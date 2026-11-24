@@ -1,0 +1,26 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch36/test_vpi_legacy_array_property_in_1364v2005_mode": {
+   "status": "pass",
+   "inputs_sha256": "4d6ae93754c1adb23c67507af507e65122c29bbf65cd954718490aafbe3f5d35"
+  },
+  "ch37/test_vpi_current_array_members_for_legacy_variable_kinds": {
+   "status": "pass",
+   "inputs_sha256": "3a38f0d55ae294ecaed09766225398041dd791ec55b1a288ba127e7dda8b9ba3"
+  },
+  "ch37/test_vpi_deprecated_interface_iteration_matches_current_handles": {
+   "status": "pass",
+   "inputs_sha256": "b30bb7b87286f3bfae992cf826f76409b4d6c141410c2143b1eeff1abfcfca3b"
+  }
+ },
+ "generated_at": "2026-11-24T06:39:12.367127+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

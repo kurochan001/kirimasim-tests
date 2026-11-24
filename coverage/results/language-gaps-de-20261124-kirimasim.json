@@ -1,0 +1,36 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch38/test_vpi_time_callback_preserves_high_delay_word_and_ignores_next_time_value": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "f0c528f129de2545c6548adf5c1956838b5366afa5c51b7c2c8da52250424848"
+  },
+  "ch38/test_vpi_time_callback_reentrant_start_stays_before_active_events": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "00e3dd80320bde1feb52b41f77be5736c389924f68addf66d8bc1305cb977511"
+  },
+  "ch38/test_vpi_time_callback_rejects_null_and_suppressed_time_fields": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "d37db97adcc6fa375fe361e9f12a42f4d49b7796aaec2c7a06e84cf57b1e7549"
+  },
+  "ch38/test_vpi_time_callback_rejects_zero_delay_read_write_registration_from_read_only": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "7e3639194c0de7440b1f82c80cb6136f6509b17d297324bef5ab10c635258d3f"
+  },
+  "ch38/test_vpi_time_callback_rejects_zero_delay_start_after_entering_time_slice": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "de22a84815f4f2d5cba9a06e56f068c2cd4e959a800f9e59c410f7e9ce1198ad"
+  }
+ },
+ "generated_at": "2026-11-24T08:33:35.774104+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,26 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch20/test_elaboration_error_selected_scope_observation": {
+   "status": "known",
+   "reason": "no error matches 'test_elaboration_error_selected_scope_observation\\\\.sv:18:(?:\\\\d+:)?[^\\\\n]*(?i:error)[^\\\\n]*ELAB_ERROR_LIMIT'; the first is: ERROR: tests/ch20/test_elaboration_error_selected_scope_observation.sv:18: ELAB_ERROR_LIMIT",
+   "inputs_sha256": "6f33bae5a5a48f81cbfff4cd06c84132026f83d178d0f143aba5558b62fb0b70"
+  },
+  "ch20/test_elaboration_fatal_selected_scope_observation": {
+   "status": "known",
+   "reason": "no error matches 'test_elaboration_fatal_selected_scope_observation\\\\.sv:18:(?:\\\\d+:)?[^\\\\n]*(?i:fatal)[^\\\\n]*ELAB_FATAL_LIMIT'; the first is: 1 error(s) during elaboration.",
+   "inputs_sha256": "dd7b47a22b830fb03ffac00ec1e48d023663da94a4f107a03a2b11c592653c6b"
+  },
+  "ch20/test_elaboration_warning_selected_scope_observation": {
+   "status": "known",
+   "reason": "compile failed: WARNING: tests/ch20/test_elaboration_warning_selected_scope_observation.sv:19:",
+   "inputs_sha256": "9be403e54aa516723bd77d3ceda969a9417096df143e36712471de8b8e6b6bb2"
+  }
+ },
+ "generated_at": "2026-11-23T21:47:11.502933+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

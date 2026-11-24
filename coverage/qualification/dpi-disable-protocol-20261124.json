@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "simulator": "Ghost",
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "source_clauses": [
+    "35.9"
+  ],
+  "tests": [
+    {
+      "test": "tests/ch35/test_dpi_import_task_rejects_wrong_status_after_disable.sv",
+      "inputs_sha256": "1ea6e1335b6f5667ea45da4eeb4bda7c64f3f3c1f65937b8e73ea93ba0adae5a",
+      "exit_code": 0,
+      "fatal_diagnostic_observed": false,
+      "expected_stdout": [
+        "0: entering the imported task",
+        "export status=1 disabled=1"
+      ],
+      "actual_stdout": [
+        "0: entering the imported task",
+        "export status=1 disabled=1",
+        "25: later unrelated process"
+      ],
+      "status": "fail"
+    },
+    {
+      "test": "tests/ch35/test_dpi_import_task_rejects_disable_status_after_normal_return.sv",
+      "inputs_sha256": "2175711cbc7ef50b477c45a2468a098695870e804d1ea687368b26bd6721a343",
+      "exit_code": 0,
+      "fatal_diagnostic_observed": false,
+      "expected_stdout": [
+        "0: entering the imported task",
+        "2: exported task reached its end",
+        "export status=0 disabled=0"
+      ],
+      "actual_stdout": [
+        "0: entering the imported task",
+        "2: exported task reached its end",
+        "export status=0 disabled=0",
+        "2: worker continued",
+        "20: later unrelated process"
+      ],
+      "status": "fail"
+    },
+    {
+      "test": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+      "inputs_sha256": "7159a85aa02ac08ba7ec5115f11eb88a38332a8ba69524db59ae9b888ac66057",
+      "exit_code": 0,
+      "fatal_diagnostic_observed": false,
+      "expected_stdout": [
+        "0: entering the imported task",
+        "export status=1 disabled=1",
+        "attempting a second export in the disabled state"
+      ],
+      "actual_stdout": [
+        "0: entering the imported task",
+        "export status=1 disabled=1",
+        "attempting a second export in the disabled state",
+        "5: forbidden export ran",
+        "25: later unrelated process"
+      ],
+      "status": "fail"
+    },
+    {
+      "test": "tests/ch35/test_dpi_import_task_status_matches_normal_and_disabled_exports.sv",
+      "inputs_sha256": "69f6c2d19db7441e06b678c8320c560d9f6ec9d97e4af7ccd63fbaf32d0956c8",
+      "exit_code": 0,
+      "fatal_diagnostic_observed": false,
+      "expected_stdout": [
+        "0: entering the imported task",
+        "3: exported task reached its end",
+        "export status=0 disabled=0",
+        "export status=1 disabled=1",
+        "27: later unrelated process"
+      ],
+      "actual_stdout": [
+        "0: entering the imported task",
+        "3: exported task reached its end",
+        "export status=0 disabled=0",
+        "export status=1 disabled=1",
+        "27: later unrelated process"
+      ],
+      "status": "pass"
+    }
+  ]
+}

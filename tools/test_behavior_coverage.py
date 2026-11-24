@@ -63,6 +63,72 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertEqual(ignored, [])
         self.assertIn(self.reg["requirements"][0]["id"], execution["executed"])
 
+    def test_diagnostic_only_mapping_requires_the_exact_regex_anchor(self):
+        row = next(r for r in self.registry["requirements"]
+                   if r["id"] == "SV2023-20.10.1-EXTRACT-ELABORATION-ERROR")
+        self.reg["requirements"] = [copy.deepcopy(row)]
+        self.validated()
+        check = self.reg["requirements"][0]["checks"][0]
+        check["evidence"] = [anchor for anchor in check["evidence"]
+                             if not anchor["contains"].startswith(":expected_stderr_regex:")]
+        self.assert_invalid("mapping must identify the checked output/diagnostic")
+
+    def test_runtime_error_mapping_requires_output_and_exact_diagnostic_anchors(self):
+        row = next(r for r in self.registry["requirements"]
+                   if r["id"] == "SV2023-21.4-EXTRACT-FILE-ADDRESS-RANGE-ERROR")
+        self.reg["requirements"] = [copy.deepcopy(row)]
+        self.validated()
+        check = self.reg["requirements"][0]["checks"][0]
+        evidence = check["evidence"]
+        for missing in ("expected output", "diagnostic"):
+            with self.subTest(missing=missing):
+                check["evidence"] = [
+                    anchor for anchor in evidence
+                    if not (anchor["file"].endswith(".expected") if missing == "expected output"
+                            else anchor["contains"].startswith(":expected_stderr_regex:"))
+                ]
+                self.assert_invalid("mapping must identify the checked output/diagnostic")
+
+    def test_runtime_error_simulation_pass_counts_with_fresh_provenance(self):
+        row = next(r for r in self.registry["requirements"]
+                   if r["id"] == "SV2023-21.4-EXTRACT-FILE-ADDRESS-RANGE-ERROR")
+        self.reg["requirements"] = [copy.deepcopy(row)]
+        result = self.result(simulator="ghost")
+        result["version"] = "private build 123456789abc"
+        runs, ignored = self.execute(result)
+        self.assertEqual(ignored, [])
+        self.assertEqual(runs["snapshots"][0]["outcomes"][row["id"]], "pass")
+        next(iter(result["tests"].values()))["status"] = "fail"
+        runs, _ = self.execute(result)
+        self.assertNotIn(row["id"], runs["executed"])
+
+    def test_error_group_requires_a_diagnostic_or_rejection_member(self):
+        row = copy.deepcopy(next(r for r in self.registry["requirements"]
+                                 if r["id"] == "SV2023-29.3.5-EXTRACT-UDP-NO-Z-TABLE"))
+        self.reg["requirements"] = [row]
+        self.validated()
+        row["checks"] = [check for check in row["checks"]
+                         if check["test"].endswith("uses_explicit_unknown_rows.sv")]
+        row["check_groups"][0]["tests"] = [check["test"] for check in row["checks"]]
+        self.assert_invalid("error check group needs a diagnostic or rejection witness")
+
+    def test_error_group_combines_simulated_output_and_pinned_rejection(self):
+        row = next(r for r in self.registry["requirements"]
+                   if r["id"] == "SV2023-29.3.5-EXTRACT-UDP-NO-Z-TABLE")
+        self.reg["requirements"] = [copy.deepcopy(row)]
+        result = self.result(simulator="verilator")
+        result["version"] = "Verilator 5.052 release v5.052"
+        for check in row["checks"]:
+            test = coverage.ROOT / check["test"]
+            result["tests"][suite_results.test_id(test)] = {
+                "status": "pass", "inputs_sha256": suite_results.input_digest(test),
+            }
+        execution, _ = self.execute(result)
+        self.assertIn(row["id"], execution["executed"])
+        result["version"] = "Verilator 5.054 release v5.054"
+        execution, _ = self.execute(result)
+        self.assertEqual(execution["snapshots"][0]["outcomes"][row["id"]], "unreviewed_oracle")
+
     def test_history_drops_snapshots_of_unknown_simulators_and_counts_them(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "behavior-history.json"

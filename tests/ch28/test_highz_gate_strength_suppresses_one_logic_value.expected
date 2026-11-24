@@ -1,0 +1,3 @@
+enabled zero=0,z
+enabled one=z,1
+disabled=z,z

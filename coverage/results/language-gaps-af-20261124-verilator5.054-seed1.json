@@ -1,0 +1,32 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch19/test_cg_bins_value_resolution": {
+   "status": "pass",
+   "inputs_sha256": "d59565be76fa6dda1cdcaa226d297003357ca8c46ae5fd92a18dfc1f6aa30866"
+  },
+  "ch19/test_cg_four_state_literal_wildcard_enum": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_cg_four_state_literal_wildcard_enum.sv:56:36: Unsupported: arguments of 'get_inst_coverage' of coverpoint or cross 'lit'",
+   "inputs_sha256": "3c612de15f2c5e1354a92319cfe9d45d7be1079f18e74291e35759e045cf288d"
+  },
+  "ch19/test_coverpoint_distinguishes_literal_unknowns_from_evaluated_unknowns": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'unknown sample=0.00', expected 'unknown sample=50.00'",
+   "inputs_sha256": "28645d3ce22d29eae21a5b42034e1ae8484412ae2e3d3f4ed791be5ee1cc4b16"
+  },
+  "ch19/test_coverpoint_excludes_ranges_with_unknown_endpoints": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch19/test_coverpoint_excludes_ranges_with_unknown_endpoints.sv:18:27: Four-state (x/z) value in bin range bound; range bounds must be two-state constants",
+   "inputs_sha256": "b1e40d1a72b87c954ad97662bc5cba1c650062e865c72264cd538fc51b7894e5"
+  }
+ },
+ "generated_at": "2026-11-23T23:41:28.002389+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

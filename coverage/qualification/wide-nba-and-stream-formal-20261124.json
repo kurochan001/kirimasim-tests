@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-24",
+  "toolchain": {
+    "oss_cad_suite": "20260816",
+    "yosys": "Yosys 0.68+71 (git sha1 dbe5b7c03-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+    "sby": "SBY v0.68"
+  },
+  "cases": [
+    {
+      "source": "tests/ch10/test_nba_overlapping_wide_selects_capture_targets_and_keep_order.sv",
+      "top": "overlapping_nba_writer",
+      "input_domain": "All binary seed, base and data values. Compare each result after a sampled clock edge.",
+      "input_widths": {
+        "seed": 97,
+        "signed_start": 9,
+        "signed_end": 9,
+        "data_per_write": 9
+      },
+      "requirements": [
+        "SV2023-10.4.2-EXTRACT-NBA-LOCATION-CAPTURE",
+        "SV2023-10.4.2-EXTRACT-ORDERED-NBA-UPDATES"
+      ],
+      "checks": [
+        "Capture the base and value of each overlapping slice",
+        "Apply the two slice writes after the earlier full write",
+        "Apply the later full write after the two slice writes"
+      ],
+      "proofs": [
+        {
+          "frontend": "readverilog",
+          "mode": "prove",
+          "depth": 4,
+          "status": "PASS",
+          "return_code": 0
+        },
+        {
+          "frontend": "slang",
+          "mode": "prove",
+          "depth": 4,
+          "status": "PASS",
+          "return_code": 0
+        }
+      ],
+      "negative_control": {
+        "change": "Move the reverse result full write ahead of the two slice writes.",
+        "frontend": "slang",
+        "mode": "bmc",
+        "depth": 4,
+        "status": "FAIL",
+        "return_code": 2
+      },
+      "source_sha256": "68f44451f2a30e8a9a7dcf18cd1f5afb72f99ea9a67f54e00e7c0dd099fac0a2"
+    },
+    {
+      "source": "tests/ch11/test_wide_stream_unpack_inverts_short_chunk_permutation.sv",
+      "top": "wide_stream_permutation",
+      "input_domain": "All 97-bit binary streams.",
+      "input_widths": {
+        "seed": 97
+      },
+      "requirements": [
+        "SV2023-11.4.14.2-EXTRACT-SLICE-FROM-RIGHT",
+        "SV2023-11.4.14.2-EXTRACT-STREAM-LEFT-BLOCK-REVERSE",
+        "SV2023-11.4.14.2-EXTRACT-STREAM-RIGHT-IDENTITY"
+      ],
+      "checks": [
+        "Forward, repeated and inverse permutations with a six-bit remainder",
+        "Unpack and pack round trip",
+        "Right streaming and slices wider than the source"
+      ],
+      "proofs": [
+        {
+          "frontend": "slang",
+          "mode": "prove",
+          "depth": 4,
+          "status": "PASS",
+          "return_code": 0
+        }
+      ],
+      "negative_control": {
+        "change": "Replace left streaming on the unpack target with right streaming.",
+        "frontend": "slang",
+        "mode": "bmc",
+        "depth": 1,
+        "status": "FAIL",
+        "return_code": 2
+      },
+      "source_sha256": "0fd7f7a41fa12e5479858c633e8ea829215dff94a5f32a16f56e93c6fa157e50"
+    }
+  ]
+}

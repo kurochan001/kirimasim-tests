@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch31/test_negative_setuphold_notifier_tracks_repeated_delayed_edges": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'first data=1 notices=0 delayed=0 aligned=0', expected 'first data=1 notices=1 delayed=1 aligned=1'",
+   "inputs_sha256": "ff90c36bb28b74d817eb8c73bef09ce5adfddbfd18b5b4f7c355757fcd31ef79"
+  }
+ },
+ "generated_at": "2026-11-24T09:15:17.373411+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

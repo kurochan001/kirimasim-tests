@@ -1,0 +1,7 @@
+one value vpi-error=0
+inertial vpi-error=1
+transport vpi-error=1
+pure transport vpi-error=1
+unknown flag vpi-error=1
+now values=11/52/52/44
+later values=11/52/52/44

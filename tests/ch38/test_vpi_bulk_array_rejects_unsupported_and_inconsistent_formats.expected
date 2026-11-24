@@ -1,0 +1,5 @@
+string get vpi-error=1
+shortreal get vpi-error=1
+string put vpi-error=1
+int control=22/33
+SV values=11/22/33/44

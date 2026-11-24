@@ -1,0 +1,36 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch16/test_illegal_property_positional_comma_event_without_parentheses": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_property_positional_comma_event_without_parentheses\\\\.sv:22:(?:\\\\d+:)?[^\\\\n]*(?i:(?:too many|number of|expected|invalid)[^\\\\n]*(?:argument|actual|event))'; the first is: tests/ch16/test_illegal_property_positional_comma_event_without_parentheses.sv:18: syntax error",
+   "inputs_sha256": "423c2fd2850506741a3e2c51fe5f43bb68bd4975829460e84bad49ecf51e432c"
+  },
+  "ch16/test_multiclock_cover_reports_completed_match_and_ignores_pending": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_multiclock_cover_reports_completed_match_and_ignores_pending.sv:19: syntax error",
+   "inputs_sha256": "cfe3a4d25cb1c4b20079d12388ce0725b8a29586f0f0f9def883893bc292daae"
+  },
+  "ch16/test_property_positional_parenthesized_comma_event": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_property_positional_parenthesized_comma_event.sv:19: syntax error",
+   "inputs_sha256": "ff44aea798303d2f2c92ea7b279f5b807c8edc2b733e405566e8840cb9c4bfb3"
+  },
+  "ch25/test_illegal_modport_excludes_signal_from_interface_port_view": {
+   "status": "known",
+   "reason": "no error matches \"test_illegal_modport_excludes_signal_from_interface_port_view\\\\.sv:22:(?:\\\\d+:)?[^\\\\n]*(?=[^\\\\n]*hidden_data)(?i:(?:modport|not found|unknown|undeclared|not a member|cannot|could not|can't find))\"; the first is: tests/ch25/test_illegal_modport_excludes_signal_from_interface_port_view.sv:19: syntax error",
+   "inputs_sha256": "5882db6fa0941f4fd8efde2032520ef3fbf833f353f45e6d1a7e779fbb32f393"
+  },
+  "ch25/test_modport_access_unlisted_type_parameter_and_enum": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_modport_access_unlisted_type_parameter_and_enum.sv:40: syntax error",
+   "inputs_sha256": "48dcf0b79fdc6521b7b32d9a8c0d53fb2d5ce2f5144b32cafa01764a5539f52e"
+  }
+ },
+ "generated_at": "2026-11-23T22:10:48.926775+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

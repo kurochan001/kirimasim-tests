@@ -1,0 +1,35 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch38/test_vpi_time_callback_preserves_high_delay_word_and_ignores_next_time_value": {
+   "status": "pass",
+   "inputs_sha256": "f0c528f129de2545c6548adf5c1956838b5366afa5c51b7c2c8da52250424848"
+  },
+  "ch38/test_vpi_time_callback_reentrant_start_stays_before_active_events": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "00e3dd80320bde1feb52b41f77be5736c389924f68addf66d8bc1305cb977511"
+  },
+  "ch38/test_vpi_time_callback_rejects_null_and_suppressed_time_fields": {
+   "status": "pass",
+   "inputs_sha256": "d37db97adcc6fa375fe361e9f12a42f4d49b7796aaec2c7a06e84cf57b1e7549"
+  },
+  "ch38/test_vpi_time_callback_rejects_zero_delay_read_write_registration_from_read_only": {
+   "status": "pass",
+   "inputs_sha256": "7e3639194c0de7440b1f82c80cb6136f6509b17d297324bef5ab10c635258d3f"
+  },
+  "ch38/test_vpi_time_callback_rejects_zero_delay_start_after_entering_time_slice": {
+   "status": "pass",
+   "inputs_sha256": "de22a84815f4f2d5cba9a06e56f068c2cd4e959a800f9e59c410f7e9ce1198ad"
+  }
+ },
+ "generated_at": "2026-11-24T08:33:36.598891+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

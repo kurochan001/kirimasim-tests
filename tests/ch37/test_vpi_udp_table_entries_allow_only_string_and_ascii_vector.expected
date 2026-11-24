@@ -1,0 +1,6 @@
+combinational text=1?0:1
+combinational vector=31003f00/30003100
+combinational rejected=10/10
+sequential text=0(01):?:-
+sequential vector=30003031/3f002d00
+sequential rejected=10/10

@@ -1,0 +1,3 @@
+unselected cleared=1 wake=0/0
+selection changed wake=4/0
+both cleared wake=4/6 strong=1

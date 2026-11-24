@@ -1,0 +1,9 @@
+array kind=1 unavailable=1
+class kind=1 unavailable=1
+virtual interface kind=1 unavailable=1
+unpacked struct kind=1 unavailable=1
+unpacked union kind=1 unavailable=1
+array element read=23
+packed struct vector=1 value=6a5c
+packed union vector=1 value=b27d
+direct=23 41 37 53 73

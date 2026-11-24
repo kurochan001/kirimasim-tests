@@ -172,9 +172,10 @@ def check(test: Path) -> list[tuple[str, str]]:
             bad("duplicate-field", f":{f}: appears more than once")
         seen_fields.add(f)
     regex = fields.get("expected_stderr_regex")
+    requires_diagnostic = False
     if regex is not None and "expected_stderr_regex" not in empty:
         try:
-            re.compile(regex)
+            requires_diagnostic = re.compile(regex).search("") is None
         except re.error as error:
             bad("stderr-regex", f":expected_stderr_regex: {regex} does not compile: {error}")
 
@@ -250,8 +251,10 @@ def check(test: Path) -> list[tuple[str, str]]:
                 path = test.parent / value[1:]
                 if not path.is_file():
                     bad("expected", f"{value[1:]} does not exist (:{name}:)")
-                elif not path.read_text(encoding="utf-8", errors="replace").strip():
-                    bad("expected", f"{value[1:]} is empty (:{name}:)")
+                else:
+                    output = path.read_text(encoding="utf-8", errors="replace")
+                    if not output.strip() and (output or not requires_diagnostic):
+                        bad("expected", f"{value[1:]} is empty (:{name}:)")
 
     for f in ("files", "incdirs"):
         for name in fields.get(f, "").split():

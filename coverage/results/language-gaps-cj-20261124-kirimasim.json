@@ -1,0 +1,21 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch31/test_negative_timing_notifiers_follow_delayed_violating_edges": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "b72a5e925918e23217ccbba679aa4a99873f9ba597ce0e322c95fcf7e1e7dfa6"
+  },
+  "ch31/test_setuphold_and_recrem_shift_the_same_violation_window": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "dded40c30dd1d2b0f3a88d574ba105a9d09f0c2e1c2aa4b7a753694e62f29147"
+  }
+ },
+ "generated_at": "2026-11-24T06:42:58.343214+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -76,5 +76,26 @@
       "data"
     ],
     "mode": "actions"
+  },
+  "tests/ch20/test_sampled_value_functions_accept_empty_trailing_clock_arguments.sv": {
+    "source_sha256": "a35afe94c0f3e647e294cb479660e20c7d02299d82abd90ba8c8b3498a8c4756",
+    "clock": "clk",
+    "edge": "posedge",
+    "signals": [
+      "left",
+      "right",
+      "enable_sample",
+      "inhibit_sample",
+      "sum_lsb"
+    ],
+    "mode": "procedure",
+    "display_times": [
+      [
+        15,
+        25,
+        35,
+        45
+      ]
+    ]
   }
 }

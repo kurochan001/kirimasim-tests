@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch20/test_finish_diagnostic_two_reports_time_location_memory_and_cpu": {
+   "status": "known",
+   "reason": "no message matches '\\\\A(?=[\\\\s\\\\S]*(?im:^[^\\\\n]*(?:\\\\$finish\\\\b|simulation time)[^\\\\n]*\\\\b37\\\\b))(?=[\\\\s\\\\S]*(?im:^[^\\\\n]*(?:\\\\.sv:20\\\\b|\\\\blocation\\\\b)))(?=[\\\\s\\\\S]*(?im:^(?=[^\\\\n]*\\\\d)[^\\\\n]*\\\\b(?:memory|RSS|heap)\\\\b))(?=[\\\\s\\\\S]*(?im:^(?=[^\\\\n]*\\\\d)[^\\\\n]*\\\\b(?:CPU|processor)\\\\b))'",
+   "inputs_sha256": "7ec7ee3f0e7a4cdaef8e5f5e6f5e9011df971ccb57a4a3c6c4936b279b053db2"
+  }
+ },
+ "generated_at": "2026-11-24T08:27:10.964513+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

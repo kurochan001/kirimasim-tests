@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-24",
+  "tool": "Slang",
+  "version": "slang version 12.1.0+0",
+  "commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+  "fixture": "tools/test_slang_library_maps.py",
+  "fixture_sha256": "2e617437a4a00bedeacec599ba43ac54f9260e418f056d4344cf5cb02db354cf",
+  "test_results": {
+    "included_relative_paths": {
+      "requirements": [
+        "SV2023-33.3.1-EXTRACT-PATH-CURRENT",
+        "SV2023-33.3.1-EXTRACT-PATH-PARENT",
+        "SV2023-33.3.1-EXTRACT-PATH-HIERARCHY",
+        "SV2023-33.3.1-EXTRACT-PATH-ONE",
+        "SV2023-33.3.2-EXTRACT-MAP-INCLUDE",
+        "SV2023-33.3.2-EXTRACT-INCLUDED-MAP-RELATIVE"
+      ],
+      "status": "pass",
+      "body_paths": {
+        "left": "maps/units/level1/level2/depth1.sv",
+        "right": "parent_cell.sv"
+      }
+    },
+    "path_specification_priority": {
+      "requirements": [
+        "SV2023-33.3.1-EXTRACT-MAP-PATH-RELATIVE-DIRECTORY",
+        "SV2023-33.3.1-EXTRACT-PATH-MANY",
+        "SV2023-33.3.1.1-EXTRACT-PATH-SPEC-PRIORITY"
+      ],
+      "status": "pass",
+      "body_paths": {
+        "fixed_name": "inputs/pick.sv",
+        "masked": "inputs/wild.sv",
+        "directory_only": "inputs/base.v"
+      }
+    },
+    "equal_priority_ambiguity": {
+      "requirements": [
+        "SV2023-33.3.1.1-EXTRACT-PATH-LIBRARY-AMBIGUITY"
+      ],
+      "status": "pass",
+      "diagnostic": "same.sv: file matches multiple libraries ('firstLib' and 'secondLib')"
+    },
+    "search_order_override": {
+      "requirements": [
+        "SV2023-33.6.1-EXTRACT-NO-CONFIG-LIBRARY-ORDER",
+        "SV2023-33.8.1-EXTRACT-LIBRARY-SEARCH-OPTION"
+      ],
+      "status": "pass",
+      "body_paths": {
+        "default": "first/adder.sv",
+        "-L secondLib -L firstLib": "second/adder.sv"
+      }
+    },
+    "configuration_and_per_library_include_directories": {
+      "requirements": [
+        "SV2023-33.3.1-EXTRACT-LIBRARY-MAP-GRAMMAR"
+      ],
+      "status": "pass",
+      "resolved_constants": {
+        "alpha": 41,
+        "beta": 73,
+        "supplemental": 85
+      },
+      "missing_include_directory_diagnostic": "maps/src/extra.sv: 'extra.svh': No such file or directory"
+    },
+    "separate_map_order_and_configuration": {
+      "requirements": [
+        "SV2023-33.3.1-EXTRACT-MAP-BEFORE-SOURCE",
+        "SV2023-33.6.1-EXTRACT-NO-CONFIG-LIBRARY-ORDER",
+        "SV2023-33.8-EXTRACT-CONFIG-OVER-DEFAULT-SEARCH"
+      ],
+      "status": "pass",
+      "body_paths": {
+        "first_map_first": "first/selected.sv",
+        "second_map_first": "second/selected.sv",
+        "selected_configuration_with_second_map_and_library_first": "first/selected.sv"
+      }
+    }
+  }
+}

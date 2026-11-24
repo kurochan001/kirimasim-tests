@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-24",
+  "platform": "Darwin arm64",
+  "legacy_open_arrays": {
+    "fixture": "tests/ch35/test_legacy_dpi_open_array_copies_multichunk_elements.sv",
+    "simulator": "Ghost (sukimasim)",
+    "reported_bounds": "bit=11 logic=11",
+    "specialized_and_variadic_reads_and_writes": "pass"
+  },
+  "modern_binary": {
+    "test": "tools/test_dpi_binary_compatibility.py",
+    "fixture": "tests/ch35/test_dpi_import_output_inout.sv",
+    "binary_sha256": "c39f196300d72b049aac56de2a24f1277a7e68c5649e3ab90507162b8b3d99c4",
+    "source_compiles": 1,
+    "simulations": [
+      {
+        "name": "Ghost (sukimasim)",
+        "matches_expected": true
+      },
+      {
+        "name": "Verilator",
+        "version": "5.054",
+        "matches_expected": true
+      }
+    ],
+    "scope": "This observes the same shared object and fixture on both tested implementations."
+  },
+  "evcd_closure": {
+    "test": "tools/test_ghost_evcd_close.py",
+    "fixture": "tests/ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression.sv",
+    "simulator": "Ghost (sukimasim)",
+    "last_change": 4,
+    "end_of_simulation": 17,
+    "close_record": "$vcdclose #17 $end"
+  }
+}

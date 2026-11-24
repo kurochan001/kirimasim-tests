@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "requirement": "SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH",
+  "fixture": "tools/test_standard_include_search.py",
+  "fixture_sha256": "bd48651dd3169042438a98618d17ca532cb57a4b665a2b1edb3bffad351e2416",
+  "filename": "markers/scope_probe.svh",
+  "observations": {
+    "slang": {
+      "version": "12.1.0+0",
+      "commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+      "quoted_user_value": 41,
+      "angle_standard_value": 73,
+      "without_system_path": "file not found"
+    },
+    "ghost": {
+      "binary_sha256_prefix": "84e9883c2828",
+      "quoted_user_value": 41,
+      "user_path_only": "CouldNotOpenIncludeFile for the angle form"
+    }
+  }
+}

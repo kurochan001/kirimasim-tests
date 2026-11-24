@@ -1,0 +1,31 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch13/test_function_background_work_from_initial_and_descendant_threads": {
+   "status": "known",
+   "reason": "crashed (signal 6)",
+   "inputs_sha256": "f2e7e5d488bc74965aad13545ed6bf533048604824a81929a710043aa574d9c5"
+  },
+  "ch13/test_illegal_function_background_work_from_static_initializer": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_function_background_work_from_static_initializer\\\\.sv:24:(?:\\\\d+:)?[^\\\\n]*(?i:(?:initializ[^\\\\n]*(?:fork|spawn|side effect|schedule|nonblocking)|(?:fork|spawn|side effect|schedule|nonblocking)[^\\\\n]*(?:initializ|initial value[^\\\\n]*static|thread|context)))'; the first is: tests/ch13/test_illegal_function_background_work_from_static_initializer.sv:19: error: functions cannot have delay statements.",
+   "inputs_sha256": "6ad47dba5fb477057cf2d331a6e38f6faa552b2c21c274d0e518213aae0877fc"
+  },
+  "ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment\\\\.sv:(?:19|25):(?:\\\\d+:)?[^\\\\n]*(?i:(?:local|formal|triggered)[^\\\\n]*(?:unassigned|before[^\\\\n]*assign|read[^\\\\n]*before)|(?:before[^\\\\n]*assign|unassigned)[^\\\\n]*(?:local|formal|triggered))'; the first is: tests/ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment.sv:18: syntax error",
+   "inputs_sha256": "de13bd4bd030c8671509f94620dde7c09cb6b8ec1619dce6324e7edeb1c6f21c"
+  },
+  "ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed.sv:23: syntax error",
+   "inputs_sha256": "19672833829e7aace47b990fe99b067e73c72b542823cd01bb2755fc8aea7872"
+  }
+ },
+ "generated_at": "2026-11-23T23:18:02.210902+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,27 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 38ca497df395",
+ "tests": {
+  "ch12/test_illegal_foreach_index_assignment_in_body": {
+   "status": "pass",
+   "inputs_sha256": "059e0a2dbc149975997530fc5669cbd208de71a5644695fc6852f80ff84f5409"
+  },
+  "ch26/test_package_and_unit_sequences_and_enum_labels": {
+   "status": "pass",
+   "inputs_sha256": "110542372af8726ed4a4a094ab2848d9d92db97a1dbe57a625cb6afdb12e9562"
+  },
+  "ch9/test_process_await_rejects_current_process": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\bawait\\\\b)(?=[^\\\\n]*\\\\b(?:self|itself|current process)\\\\b)[^\\\\n]+'",
+   "inputs_sha256": "2f96c2fd56a859028b4ad4d68e9f16923d9b2daaca2a4e283e09f27d44d71b18"
+  }
+ },
+ "generated_at": "2026-11-23T22:43:38.469210+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "38ca497df3954cf2cdbcee73176f6d735439470f554bf33a35461d44c5108aca",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

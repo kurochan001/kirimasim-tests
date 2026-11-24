@@ -1,0 +1,37 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch11/test_stream_unpack_below_declared_range_discards_only_prefix": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\r\\\\n]*\\\\berror\\\\b)(?=[^\\\\r\\\\n]*(?:stream|with\\\\s*\\\\[))(?=[^\\\\r\\\\n]*(?:range|bounds|index|extent))[^\\\\r\\\\n]+'",
+   "inputs_sha256": "7631cb508d76dc5feb9f4941238c24a7f9000ac4bfa7cb06d06b9ade1d40d806"
+  },
+  "ch11/test_stream_unpack_reports_fixed_range_overflow_and_preserves_overlap": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\r\\\\n]*\\\\berror\\\\b)(?=[^\\\\r\\\\n]*(?:stream|with\\\\s*\\\\[))(?=[^\\\\r\\\\n]*(?:range|bounds|index|extent))[^\\\\r\\\\n]+'",
+   "inputs_sha256": "8b319275b529197a637e640a52c237ac85f77a1916579dbb3b41fa619ca8fd62"
+  },
+  "ch11/test_stream_with_range_extent_timing_and_partial": {
+   "status": "pass",
+   "inputs_sha256": "267e76ec235dcb95129bb8945224b546652730852d4c0d2d5aae5de54c56a2bc"
+  },
+  "ch20/test_dist_nonpositive_shape_argument_warns_keeps_seed": {
+   "status": "pass",
+   "inputs_sha256": "34c9ef49471db26bcf8fb65274bbbe788644924e45b2fc793da44efa9eef481c"
+  },
+  "ch37/test_vpi_property_variables_expose_declarations_without_values": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "43b825f3e24143bac085b79b90ebfac0485f777f627cdca2312f0509809741ab"
+  }
+ },
+ "generated_at": "2026-11-24T02:47:03.035976+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

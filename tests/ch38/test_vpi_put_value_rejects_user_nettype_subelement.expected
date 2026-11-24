@@ -1,0 +1,4 @@
+whole net error=0 ordinary bit error=0 variable bit error=0
+legal typed=9 net=2 variable=4
+typed-net bit error=1
+after excluded put typed=9

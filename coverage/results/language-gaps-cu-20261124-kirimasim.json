@@ -1,0 +1,15 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch10/test_nba_overlapping_wide_selects_capture_targets_and_keep_order": {
+   "status": "pass",
+   "inputs_sha256": "c4d129e47e76433e434e0f5b1af50370e8d8d011f970510d3ee29b5438c4f7fa"
+  }
+ },
+ "generated_at": "2026-11-24T08:01:08.289842+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,16 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch10/test_nba_array_struct_slices_capture_row_base_and_value": {
+   "status": "known",
+   "reason": "compile failed: tests/ch10/test_nba_array_struct_slices_capture_row_base_and_value.sv:38: assert: elab_lval.cc:1277: failed assertion reg->unpacked_dimensions() == 0",
+   "inputs_sha256": "46ef5a9d6e2b7f90786e8c02a2964fb15f4ca0c80df7ea21528aae41e028688f"
+  }
+ },
+ "generated_at": "2026-11-24T09:00:58.404302+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

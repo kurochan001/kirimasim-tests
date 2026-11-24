@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 905 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 909 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -69,6 +69,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_uwire_two_drivers`](../../tests/ch6/test_illegal_uwire_two_drivers.sv) | A uwire net with two drivers is an error | 6.6.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_net_uwire`](../../tests/ch6/test_net_uwire.sv) | Uwire net type (unresolved wire - single driver only) | 6.6.2 | Icarus Verilog 13.0 ||
 | [`test_uwire_edge_cases`](../../tests/ch6/test_uwire_edge_cases.sv) | uwire nets with a single continuous assignment | 6.6.2 | Icarus Verilog 13.0 ||
+| [`test_uwire_padded_port_connection_warns`](../../tests/ch6/test_uwire_padded_port_connection_warns.sv) | A port with an unresolved net warns when its width conversion prevents the nets from merging | 6.6.2 23.3.3.1 23.3.3.6 | standard only | exit code |
 | [`test_edge_wor_wand`](../../tests/ch6/test_edge_wor_wand.sv) | wor and wand nets resolve two constant drivers | 6.6.3 4.4.2.3 | Icarus Verilog 13.0 | x/z |
 | [`test_net_resolution_multi`](../../tests/ch6/test_net_resolution_multi.sv) | Wired nets, tri0/tri1, supply nets, pull sources and strength resolution | 6.6.3 6.6.5 6.6.6 28.10 28.12 | Icarus Verilog 13.0 | x/z |
 | [`test_net_triand`](../../tests/ch6/test_net_triand.sv) | Triand net type (tri-state AND) | 6.6.3 | Icarus Verilog 13.0 | x/z |
@@ -127,8 +128,10 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_interconnect_initializer`](../../tests/ch6/test_illegal_interconnect_initializer.sv) | an interconnect declaration with an assignment expression is illegal | 6.7.1 | standard only | illegal design |
 | [`test_illegal_interconnect_strength`](../../tests/ch6/test_illegal_interconnect_strength.sv) | an interconnect declaration with a drive strength is illegal | 6.7.1 6.7 | standard only | illegal design, x/z |
 | [`test_illegal_interconnect_two_delays`](../../tests/ch6/test_illegal_interconnect_two_delays.sv) | An interconnect net declaration can specify one delay value but not two | 6.7.1 6.6.8 | standard only | illegal design |
+| [`test_illegal_interconnect_two_equal_delay_values`](../../tests/ch6/test_illegal_interconnect_two_equal_delay_values.sv) | An interconnect cannot specify two delay values even when they are equal | 6.7.1 | standard only | illegal design |
 | [`test_illegal_net_type_reg_in_port_declaration`](../../tests/ch6/test_illegal_net_type_reg_in_port_declaration.sv) | In a port declaration, the net type keyword tri cannot be followed directly by the keyword reg | 6.7.1 23.2.2.3 | standard only | illegal design |
 | [`test_illegal_net_type_then_reg`](../../tests/ch6/test_illegal_net_type_then_reg.sv) | A net type keyword cannot be followed directly by the keyword reg in a declaration | 6.7.1 | standard only | illegal design |
+| [`test_interconnect_single_delay_on_inferred_net`](../../tests/ch6/test_interconnect_single_delay_on_inferred_net.sv) | A single interconnect delay applies to both transitions after endpoints determine the net type | 6.7.1 6.6.8 | standard only ||
 | [`test_net_declaration_data_types`](../../tests/ch6/test_net_declaration_data_types.sv) | A net can have any 4-state integral data type, a typedef or a packed structure, a net without one is logic, and undriven nets hold z in every bit | 6.7.1 6.11.1 7.2.1 | Icarus Verilog 13.0 | x/z |
 | [`test_net_declaration_lists_and_reg_keyword`](../../tests/ch6/test_net_declaration_lists_and_reg_keyword.sv) | One net declaration can list several nets, each with its own unpacked dimensions and optional assignment, all resolved by the leading net type, and reg can follow a net type keyword when another token such as scalared or a drive strength comes between them | 6.7.1 6.7 | Verilator 5.052 ||
 | [`test_net_four_state_data_types`](../../tests/ch6/test_net_four_state_data_types.sv) | A net without a data type, or with only a range, is logic and holds x and z; a net can also be declared with a 4-state data type such as logic, integer, a typedef of logic or a packed structure, or as a fixed-size unpacked array of such nets | 6.7.1 6.11.1 6.11.2 | Icarus Verilog 13.0 | x/z |
@@ -331,6 +334,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_event_variable_alias_null`](../../tests/ch6/test_event_variable_alias_null.sv) | An event variable declared without an initializer gets a new synchronization object, one assigned from another event shares that object, and one assigned null has none | 6.17 15.5.5 15.5.1 | standard only ||
 | [`test_ch6_extra_unpacked_type_parameter`](../../tests/ch6/test_ch6_extra_unpacked_type_parameter.sv) | An unpacked array type used as a type parameter value has to be named by a user-defined type identifier | 6.18 6.20.3 | Icarus Verilog 13.0 | illegal design |
 | [`test_data_type_scoped_and_reference_forms`](../../tests/ch6/test_data_type_scoped_and_reference_forms.sv) | Data types named through a package or class scope with packed dimensions, a class type and a nested class type, an incomplete class-scoped type, a class scope with a parameter value assignment, a type reference as a data type and as a casting type, and casts whose casting type is a simple type, a constant primary, a signing, string or const | 6.18 6.23 6.24.1 A.2.2.1 | standard only ||
+| [`test_forward_type_qualified_typedef_and_type_parameter_before_completion`](../../tests/ch6/test_forward_type_qualified_typedef_and_type_parameter_before_completion.sv) | An incomplete forward class type supports restricted qualified uses before its definition | 6.18 6.20.3 6.23 8.23 | Verilator 5.054 ||
 | [`test_forward_typedef_forms_and_repeats`](../../tests/ch6/test_forward_typedef_forms_and_repeats.sv) | forward typedefs of the enum, struct, union, class and interface class kinds and without a kind are legal before the final definition, may be repeated, and may also follow it | 6.18 8.26 8.27 | Verilator 5.052 ||
 | [`test_illegal_cast_to_unnamed_packed_array_type`](../../tests/ch6/test_illegal_cast_to_unnamed_packed_array_type.sv) | the cast operator takes only a simple type name, so a type with a packed dimension needs a user-defined type name to be the target of a cast | 6.18 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_forward_enum_defined_as_struct`](../../tests/ch6/test_illegal_forward_enum_defined_as_struct.sv) | when a forward typedef names the basic type enum, the final definition has to be an enum; a structure is an error | 6.18 | standard only | illegal design |

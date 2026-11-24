@@ -1,0 +1,6 @@
+put error=0
+constant select=02
+put error=0
+ordinary select=06
+put error=1
+after side effect select=06

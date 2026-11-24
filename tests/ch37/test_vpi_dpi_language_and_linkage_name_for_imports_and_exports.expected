@@ -1,0 +1,5 @@
+C import language=1 linkage=foreign_increment
+legacy import language=1 linkage=legacy_helper
+C export language=1 linkage=foreign_export
+legacy export language=1 linkage=legacy_export
+design completed

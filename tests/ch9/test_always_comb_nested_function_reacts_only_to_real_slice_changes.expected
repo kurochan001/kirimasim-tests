@@ -1,0 +1,8 @@
+initial: nested=9/0 direct=9/0 dynamic=9/0
+same blocking: nested=9/0 direct=9/0 dynamic=9/0
+disjoint blocking: nested=9/0 direct=9/0 dynamic=9/4
+same nba: nested=9/0 direct=9/0 dynamic=9/4
+changed nba: nested=6/8 direct=6/8 dynamic=6/8
+same compound: nested=6/8 direct=6/8 dynamic=6/8
+changed blocking: nested=0/12 direct=0/12 dynamic=0/12
+changed selector: nested=0/12 direct=0/12 dynamic=f/14

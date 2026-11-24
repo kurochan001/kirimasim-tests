@@ -4,13 +4,14 @@
 
 [English](ch5.md) / [日本語](ch5.ja.md)
 
-[すべての章](README.ja.md) .テストは520本で、そのうち415本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは526本で、そのうち415本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
 |テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
 | [`test_lexical_comments_and_keyword_identifiers`](../../tests/ch5/test_lexical_comments_and_keyword_identifiers.sv) |コメントとスペースはトークンを分離しますが、エスクアードキーワードと大文字識別子は使えます。| 5.2 5.3 5.6.2 | Icarus Verilog 13.0 ||
+| [`test_lexical_stream_distinguishes_comments_strings_and_escaped_names`](../../tests/ch5/test_lexical_stream_distinguishes_comments_strings_and_escaped_names.sv) |文字列とエスケープ識別子の中のコメントに似た文字を保ち、隣接する演算子と数値を別のトークンとして扱う| 5.2 5.6.1 5.9.1 | Icarus Verilog 13.0 ||
 | [`test_end_of_file_separates_tokens`](../../tests/ch5/test_end_of_file_separates_tokens.sv) |ソースファイルの終わりは空白であるため、トークンが終わった直後に新しい行が入らないファイルは完了し、最後のトークンは次のファイルの最初のトークンに入らない。| 5.3 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_free_format_layout`](../../tests/ch5/test_free_format_layout.sv) |空白、タブ、新しい行、フォームフィードで区切るだけで、文字列リテラル内の空白とタブは保持されます。| 5.3 5.2 5.9 | Icarus Verilog 13.0 ||
 | [`test_white_space_kinds_separate_tokens`](../../tests/ch5/test_white_space_kinds_separate_tokens.sv) |空白、タブ、新しい行、フォームフィード、ファイルの終わりなどの各種の空白は、それ以外は1つのトークンを形成する2つのトークン を分離します。 つまり、 & &b は論理的な AND ではなく、縮小 AND を伴うビット単位の AND です。| 5.3 A.9.4 A.10 | Icarus Verilog 13.0 |複数のファイル|
@@ -38,8 +39,11 @@
 | [`test_system_call_argument_forms`](../../tests/ch5/test_system_call_argument_forms.sv) |システムタスクとシステム関数は、その構文の 3 つの引数の形で呼ばれる: 省略可能な引数の並び（空の引数を含んでよい）;データ型（単独、または式を続けたもの）;そして、位置を省略した式の後にクロッキングイベントを続けたもの| 5.6.3 21.2.1 20.6.2 20.7 16.9.3 |規格のみ||
 | [`test_system_function_names_cell_reset_and_attributes`](../../tests/ch5/test_system_function_names_cell_reset_and_attributes.sv) |標記関数は，セルタグと数値インスタンス属性を検査する。| 5.6.3 22.10 37.83 38.37.1 |規格のみ| VPI |
 | [`test_system_name_dollar_prefix_not_escaped`](../../tests/ch5/test_system_name_dollar_prefix_not_escaped.sv) |ユーザ名は、ユーザが指定した名前である。ユーザ名はユーザの名前と同じである。ユーザー名は、ユーザーが指定した名称である。ユー ザ名は、ユ ーザが指定する名前である。| 5.6.3 5.6.1 | Verilator 5.052 ||
+| [`test_directive_crosses_files_in_one_compilation_unit`](../../tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv) |先に読むソースファイルのマクロ定義は、同じコンパイル単位の別ファイルから参照できる| 5.6.4 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_directive_effect_from_read_point`](../../tests/ch5/test_directive_effect_from_read_point.sv) |コンパイラ指令は、読み込まれたときに効果を発揮し、他の指令が変更するまで、コンパイラユニットの残りの部分に対して、モジュール境界を超えて保持されます。| 5.6.4 22.5.1 22.5.2 | Icarus Verilog 13.0 ||
 | [`test_directive_redefinition_read_order`](../../tests/ch5/test_directive_redefinition_read_order.sv) |マクロの再定義は、後での使用に影響しますが、既に読まれた宣言には影響しません| 5.6.4 22.5.1 | Icarus Verilog 13.0 ||
+| [`test_directives_from_nested_include_persist_until_superseded`](../../tests/ch5/test_directives_from_nested_include_persist_until_superseded.sv) |入れ子のインクルードから来たマクロと暗黙ネット型の指定を後続の設計要素へ適用し、別の指定で置き換える。| 5.6.4 22.2 22.4 22.5.1 22.8 | Icarus Verilog 13.0 |複数のファイル、x/z|
+| [`test_illegal_implicit_net_after_include_default_nettype_none`](../../tests/ch5/test_illegal_implicit_net_after_include_default_nettype_none.sv) |インクルード内の暗黙ネット禁止が、呼び出し元のファイルに戻った後も有効であることを検査する。| 5.6.4 22.2 22.8 | Icarus Verilog 13.0 |違法な設計 複数のファイル|
 | [`test_constants_edge_cases`](../../tests/ch5/test_constants_edge_cases.sv) |テスト: 定数エッジの場合| 5.7 | Icarus Verilog 13.0 ||
 | [`test_ieee1800_2023_literal_edge`](../../tests/ch5/test_ieee1800_2023_literal_edge.sv) |文字の端の大文字| 5.7 5.7.1 5.7.2 5.9 6.11 6.16 10.7 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_based_value_embedded_space`](../../tests/ch5/test_illegal_based_value_embedded_space.sv) |基底リテラルの値の数字の内部のスペースは拒否されます| 5.7 5.7.1 | Icarus Verilog 13.0 |規格違反の設計|
@@ -81,7 +85,9 @@
 | [`test_illegal_real_literal_no_trailing_digit`](../../tests/ch5/test_illegal_real_literal_no_trailing_digit.sv) |実数字 9. は小数点後の数字がないので、拒否されます。| 5.7.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_real_literal_edge_cases`](../../tests/ch5/test_real_literal_edge_cases.sv) |テスト：実数リテラルの境界ケース| 5.7.2 6.12 | Icarus Verilog 13.0 ||
 | [`test_real_literal_shortreal_cast`](../../tests/ch5/test_real_literal_shortreal_cast.sv) |実数リテラルを shortreal 型に変換する。これは IEEE 754 単精度に丸めます。| 5.7.2 6.24.1 6.12 |規格のみ||
+| [`test_time_literal_default_and_actual_use_their_own_scope_units`](../../tests/ch5/test_time_literal_default_and_actual_use_their_own_scope_units.sv) |既定引数と二つの呼び出し側にある同じ時刻リテラルは、それぞれを記述したスコープの単位で三つの値を取る| 5.8 13.5.3 3.14.2.2 | Verilator 5.052 ||
 | [`test_time_literal_every_unit`](../../tests/ch5/test_time_literal_every_unit.sv) |時間リテラルは integer または固定点数で、次に単位 fs、ps、ns、us、ms、s のいずれかが続き、その値は現在の時間単位にスケールされます。| 5.8 3.14.2.2 | Icarus Verilog 13.0 ||
+| [`test_time_literal_parameter_overrides_use_instantiating_scope_units`](../../tests/ch5/test_time_literal_parameter_overrides_use_instantiating_scope_units.sv) |モジュールパラメーターの既定値と二つのインスタンスの上書きは、それぞれのスコープの単位で同じ時刻リテラルを変換する| 5.8 23.10.2 3.14.2.2 | Verilator 5.052 ||
 | [`test_time_literal_scaled_to_unit`](../../tests/ch5/test_time_literal_scaled_to_unit.sv) |遅延のタイムリテラルはモジュールの時間単位にスケールされ、$time は時間を整数単位に丸めます。$realtime は分数を保持します。| 5.8 22.7 20.3.1 20.3.3 | Icarus Verilog 13.0 ||
 | [`test_time_literal_scaling`](../../tests/ch5/test_time_literal_scaling.sv) |時間リテラルは、表現や遅延において、現在の時間単位にスケールした実値です。| 5.8 3.14.2.1 20.3.3 | Icarus Verilog 13.0 ||
 | [`test_time_literal_units_and_fraction`](../../tests/ch5/test_time_literal_units_and_fraction.sv) |時間リテラルは、integer または固定点数値部分と、fs、ps、ns、us、ms、s の単位の一つを持ち、それぞれが現在の時間単位に変換されます。| 5.8 | Icarus Verilog 13.0 ||

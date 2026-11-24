@@ -1,0 +1,9 @@
+t=15 past=1 edge=01 stable-change=01 named=1/01
+t=25 past=2 edge=00 stable-change=10 named=2/10
+t=35 past=2 edge=10 stable-change=01 named=2/01
+t=45 past=3 edge=01 stable-change=01 named=3/01
+future sum 2: 15 25
+rising: 35
+falling: 15 45
+steady: 25 55
+changing: 15 35 45

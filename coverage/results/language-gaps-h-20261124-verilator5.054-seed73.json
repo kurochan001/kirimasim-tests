@@ -1,0 +1,40 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch21/test_sscanf_suppressed_fields_do_not_consume_destinations": {
+   "status": "pass",
+   "inputs_sha256": "dabe7a6c7dc93241b53f15a8c45e32a838927ffd1f05767991fd0fbee0962219"
+  },
+  "ch38/test_vpi_readonly_callback_cannot_reschedule_current_timestep": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'read_only=1 rejected=0', expected 'read_only=1 rejected=1'",
+   "inputs_sha256": "4f4ad240a3256c2bb28ea098d6f06f492939f17a20d3944af75bbd372e6125f2"
+  },
+  "ch38/test_vpi_readonly_callback_observes_latest_nonblocking_value": {
+   "status": "pass",
+   "inputs_sha256": "cdf51e4cc51febe2e6b6bf7b9678d9caf1262231d47515d099c918bb952b7531"
+  },
+  "ch38/test_vpi_readonly_callback_rejects_immediate_write": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'after=99', expected 'after=37'",
+   "inputs_sha256": "18caa4ae9c9a3c0dcb727329a945c3358837cb36a4ed3f3a5c1ede2f1f676c32"
+  },
+  "ch38/test_vpi_vlog_argument_repetitions_and_empty_value": {
+   "status": "pass",
+   "inputs_sha256": "675adf27860adc35ceaa44d1a823451a01fbc3dcb0fbb6904824803bf2502972"
+  },
+  "ch9/test_process_resume_resensitizes_to_next_event": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'suspended=0', expected 'suspended=1'",
+   "inputs_sha256": "2014eaa829df1d3a90de3598925dc96698dd4f45e1c94e94c471cd13ba992358"
+  }
+ },
+ "generated_at": "2026-11-23T22:02:42.116477+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -1,0 +1,2 @@
+input delay=1 rising=1 falling=1
+output delay=1 rising=1 falling=1

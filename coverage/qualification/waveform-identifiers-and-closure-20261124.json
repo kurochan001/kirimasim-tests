@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-24",
+  "ghost_build_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "vcd_reference_names": {
+    "source": "tests/ch21/test_vcd_alias_group_tracks_shared_net_and_independent_port.sv",
+    "source_sha256": "3151ae6b6a57305796a7f3e8b77328a1de80e04e4b7893ec491a77c9628bb5ec",
+    "observed": {
+      "Icarus Verilog 13.0": {
+        "shared_identifier": true,
+        "independent_identifier": true
+      },
+      "Ghost": {
+        "shared_identifier": false,
+        "independent_identifier": true
+      }
+    }
+  },
+  "evcd_final_time": {
+    "source": "tests/ch21/test_evcd_close_waits_for_finish_even_when_dumping_is_paused.sv",
+    "source_sha256": "e01ec90cb27e19d20e8fbe301bc1e9a4ae88618bdc45da6ca887513a04b9e7a5",
+    "check": "tools/test_ghost_evcd_closure.py",
+    "check_sha256": "97225253344d5a687577f80f49397df82236db838fc00a6577191021de2041b1",
+    "files": {
+      "active.evcd": {
+        "last_event_ns": 11,
+        "close_ns": 29
+      },
+      "paused.evcd": {
+        "last_event_ns": 6,
+        "close_ns": 29
+      }
+    },
+    "requirement": "SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE"
+  }
+}

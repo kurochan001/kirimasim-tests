@@ -1,0 +1,30 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch23/test_real_output_variables_propagate_through_two_port_boundaries": {
+   "status": "pass",
+   "inputs_sha256": "30128b93f6a79b60deec5356a6795419563183bb1515758c36952e37655e6363"
+  },
+  "ch5/test_time_literal_default_and_actual_use_their_own_scope_units": {
+   "status": "pass",
+   "inputs_sha256": "bb5acbadb608b885e0facdefcfa9c039a7043dd70a96809d4181f7dda3cfb2cf"
+  },
+  "ch5/test_time_literal_parameter_overrides_use_instantiating_scope_units": {
+   "status": "pass",
+   "inputs_sha256": "e9c9b0a242ac600e61672d5efe836b803d15ce6d98798c18dd455f443fd8db5d"
+  },
+  "ch9/test_time_literals_preserve_fraction_until_used_as_delays": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'upper=0 value=0.049 inline=490 computed=490', expected 'upper=0 value=0.049 inline=0 computed=0'",
+   "inputs_sha256": "76bf94972b082f51182b93905a8542d78e59a3441aa657272ceefd9249e964c2"
+  }
+ },
+ "generated_at": "2026-11-24T07:15:39.391233+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

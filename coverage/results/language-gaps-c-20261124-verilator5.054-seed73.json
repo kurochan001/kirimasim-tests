@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch35/test_dpi_open_array_pointer_range_checks": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Warning: DPI svOpenArrayHandle function index 1 out of b...', expected 'one=1'",
+   "inputs_sha256": "dec97b80e6d97f4726b09f4f1d2d06e3fd083db62df20dde4492330272d8bba2"
+  },
+  "ch35/test_dpi_scope_switch_and_restore_across_instances": {
+   "status": "known",
+   "reason": "output differs: line 1 is \"%Error: unknown:0: Testbench C called 'instance_id' but t...\", expected 'first=1'",
+   "inputs_sha256": "e87647a415694227602b9cae2e499c75fb0307c8308d5eb057911c3c27fd19af"
+  },
+  "ch38/test_vpi_release_iterator_before_end": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'cannot find top', expected 'first=1 released=1 fresh_count=3'",
+   "inputs_sha256": "3761c5e169236283e668096523498ae99628f3a32f5c0d466b8ef29835b90c27"
+  }
+ },
+ "generated_at": "2026-11-23T21:44:35.343676+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

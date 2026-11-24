@@ -1,0 +1,16 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch35/test_dpi_resolves_imports_from_two_foreign_objects": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "0520d79b7dc1ea3fd7d72076c32252b966a091d039d995e0f63c38adb6de3acc"
+  }
+ },
+ "generated_at": "2026-11-24T00:21:14.798899+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

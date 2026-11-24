@@ -1,0 +1,4 @@
+rise before=0
+rise after=1
+fall before=1
+fall after=0

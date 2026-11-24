@@ -1,0 +1,31 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch14/test_illegal_clocking_cycle_delay_negative_integer": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_clocking_cycle_delay_negative_integer\\\\.sv:23:(?:\\\\d+:)?[^\\\\n]*(?i:(?:negative|greater than or equal|cycle delay|nonnegative)[^\\\\n]*)'; the first is: tests/ch14/test_illegal_clocking_cycle_delay_negative_integer.sv:18: syntax error",
+   "inputs_sha256": "46100f07092d953a84fd8c067e3c1eb79924726041b607289bac24bddc3d4349"
+  },
+  "ch15/test_illegal_semaphore_put_used_as_value": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_semaphore_put_used_as_value\\\\.sv:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:void|return type|nonvalue|assign)[^\\\\n]*)'; the first is: tests/ch15/test_illegal_semaphore_put_used_as_value.sv:15: syntax error",
+   "inputs_sha256": "d2a9b577b3efd773cb051f004fa162e47022cf0ea371d7733ca1381f047ccf7f"
+  },
+  "ch15/test_semaphore_put_named_count_and_default_one": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_semaphore_put_named_count_and_default_one.sv:14: syntax error",
+   "inputs_sha256": "be1b2d6dfaec4a66ad76e9c45315b734896e9d005b68df93dd33cce3782aa569"
+  },
+  "ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv:23: error: Type names are not valid expressions here.",
+   "inputs_sha256": "1beeca98e89f2e54aef4c13d0ded843f46ba8a28231d7715e74e1d2e625ad856"
+  }
+ },
+ "generated_at": "2026-11-23T22:09:41.694926+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

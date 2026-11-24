@@ -4,13 +4,14 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[All chapters](README.md). 152 tests, 48 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 153 tests, 48 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 | Test | What it checks | Clauses | Expected output recorded with | Notes |
 | --- | --- | --- | --- | --- |
 | [`test_design_element_kinds`](../../tests/ch3/test_design_element_kinds.sv) | The seven kinds of design element, introduced by module, program, interface, checker, package, primitive and config, each act as their kind in one design: the package gives an item to import, the interface holds a signal, the primitive computes from its table, the checker's assertion passes, the program runs in the Reactive region and the configuration binds an instance to another module | 3.2 3.10 24.3.1 33.4.1.3 | standard only | top module |
+| [`test_seven_design_element_keywords_coexist_in_one_source_file`](../../tests/ch3/test_seven_design_element_keywords_coexist_in_one_source_file.sv) | Seven design element kinds coexist, including a selected configuration and a program that observes the NBA update | 3.2 24.4 33.4.1.4 | standard only | top module |
 | [`test_module_contains_classes_subroutines_processes`](../../tests/ch3/test_module_contains_classes_subroutines_processes.sv) | A module holds a class declaration, class objects constructed in a declaration and in a procedure, a function and a time-consuming task, a continuous assignment, initial, always, always_ff, always_comb and final procedures, and loop, if and case generate blocks, and each of them works | 3.3 8.3 8.7 13.3 13.4 10.3 9.2 27.4 27.5 | Icarus Verilog 13.0 ||
 | [`test_module_contains_declarations`](../../tests/ch3/test_module_contains_declarations.sv) | A module between module and endmodule holds ports with their declarations, nets, variables, structures and unions, constants, user-defined types and package imports, and each of them works | 3.3 23.2.2 6.20 6.18 26.3 | Icarus Verilog 13.0 ||
 | [`test_module_contains_specify_block`](../../tests/ch3/test_module_contains_specify_block.sv) | A specify block in a module, with specparams and a module path from an input port to an output port with separate rise and fall delays, delays the output by 3 on a rise and 5 on a fall | 3.3 30.3 30.4.1 30.5 30.5.1 | Icarus Verilog 13.0 ||

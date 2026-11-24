@@ -1,0 +1,16 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch20/test_finish_diagnostic_two_reports_time_location_memory_and_cpu": {
+   "status": "known",
+   "reason": "no message matches '\\\\A(?=[\\\\s\\\\S]*(?im:^[^\\\\n]*(?:\\\\$finish\\\\b|simulation time)[^\\\\n]*\\\\b37\\\\b))(?=[\\\\s\\\\S]*(?im:^[^\\\\n]*(?:\\\\.sv:20\\\\b|\\\\blocation\\\\b)))(?=[\\\\s\\\\S]*(?im:^(?=[^\\\\n]*\\\\d)[^\\\\n]*\\\\b(?:memory|RSS|heap)\\\\b))(?=[\\\\s\\\\S]*(?im:^(?=[^\\\\n]*\\\\d)[^\\\\n]*\\\\b(?:CPU|processor)\\\\b))'",
+   "inputs_sha256": "7ec7ee3f0e7a4cdaef8e5f5e6f5e9011df971ccb57a4a3c6c4936b279b053db2"
+  }
+ },
+ "generated_at": "2026-11-24T08:27:08.225304+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

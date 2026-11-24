@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは493本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは503本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -229,11 +229,13 @@
 | [`test_illegal_override_return_type_mismatch`](../../tests/ch8/test_illegal_override_return_type_mismatch.sv) |仮想関数のオバーライドは 対応するタイプまたは派生クラスタイプを返さなければなりません| 8.20 |規格のみ|規格違反の設計|
 | [`test_illegal_pure_virtual_final`](../../tests/ch8/test_illegal_pure_virtual_final.sv) |純粋な仮想手法は 決定的とは言えません| 8.20 |規格のみ|規格違反の設計|
 | [`test_illegal_virtual_final_method_overridden_in_subclass`](../../tests/ch8/test_illegal_virtual_final_method_overridden_in_subclass.sv) |:final で宣言された仮想メソッドはサブクラスで上書きできません。 2レベル下のクラスでも、virtual というキーワードがない場合は| 8.20 | Verilator 5.052 |規格違反の設計|
+| [`test_illegal_virtual_override_changes_argument_direction`](../../tests/ch8/test_illegal_virtual_override_changes_argument_direction.sv) |仮想メソッドをオーバーライドするときに参照仮引数を入力仮引数に変えることはできない| 8.20 13.5.2 |規格のみ|規格違反の設計|
 | [`test_method_initial_extends`](../../tests/ch8/test_method_initial_extends.sv) |:initial で宣言されたメソッドはメソッドを開始し、他のメソッドを上書きしません。 :extends で宣言された メソッドは仮想メソッドを上 書きし、自身が仮想です。| 8.20 | Verilator 5.052 ||
 | [`test_method_virtual`](../../tests/ch8/test_method_virtual.sv) |仮想手法テスト| 8.20 8.15 | Verilator 5.052 ||
 | [`test_package_virtual_calls_preserve_module_string_updates`](../../tests/ch8/test_package_virtual_calls_preserve_module_string_updates.sv) |順に呼び出した3つの仮想メソッドが、同じモジュール変数の文字列に追記する| 8.20 23.9 10.4.1 | Verilator 5.054 |出口コード|
 | [`test_virt_method`](../../tests/ch8/test_virt_method.sv) |仮想メソッドをテスト| 8.20 8.14 | Verilator 5.052 ||
 | [`test_virtual_method`](../../tests/ch8/test_virtual_method.sv) |テスト仮想メソッド| 8.20 | Verilator 5.052 ||
+| [`test_virtual_prototype_protected_and_const_reference`](../../tests/ch8/test_virtual_prototype_protected_and_const_reference.sv) |オーバーライドは保護された仮想メソッドのプロトタイプと定数参照の仮引数を保つ| 8.20 13.5.2 | Verilator 5.054 ||
 | [`test_abstract_class_basic`](../../tests/ch8/test_abstract_class_basic.sv) |二つの派生クラスで実装された純粋仮想メソッドを持つ抽象クラス| 8.21 8.20 | Verilator 5.052 ||
 | [`test_abstract_class_chain_and_handle_array`](../../tests/ch8/test_abstract_class_chain_and_handle_array.sv) |具象クラスを拡張して、pure virtualメソッドを追加したり、メソッドをpureとして上書きしたりする抽象（virtual）クラスを定義できます。抽象クラスから抽象クラスも派生でき、抽象クラス型の変数・配列は派生クラスのオブジェクトを保持できます。| 8.21 8.22 | Verilator 5.052 ||
 | [`test_class_abstract`](../../tests/ch8/test_class_abstract.sv) |8.21 の抽象クラス| 8.21 | Verilator 5.052 ||
@@ -357,14 +359,22 @@
 | [`test_weak_reference_std_scope_and_strong_reachability`](../../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) |これは、stdがweak_referenceを宣言し、他のスコープが同じ名前のクラスを宣言する場合に、アクティブスコープのハンドルがその参照者を強く到達可能に保つことを意味します。| 8.29 8.30.1 |規格のみ||
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) |std::weak_referenceは、クラス型パラメータT、T型の参照対象を受け取るコンストラクタ、clear()で参照対象がnullにされるまでT型でその参照対象を返すget()、戻り値のないclear()、およびstaticのget_id(T)を持ちます。このstaticメソッドのlongint型の結果は、nullに対して0、オブジェクトに対して0以外であり、同じオブジェクトなら呼び出しのたびに同じ値となります。| 8.30 G.7 |規格のみ||
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) |weak_reference にはクラスタイプパラメータが必要です| 8.30.1 |規格のみ|規格違反の設計|
+| [`test_illegal_weak_reference_without_required_type_parameter`](../../tests/ch8/test_illegal_weak_reference_without_required_type_parameter.sv) |弱参照の変数が未初期化でも参照先のクラス型を明示する必要がある| 8.30.1 G.7 |規格のみ|規格違反の設計|
 | [`test_weak_reference_id_alias_after_clear`](../../tests/ch8/test_weak_reference_id_alias_after_clear.sv) |弱い包装をクリアすると、他の包装が残り、所有者が保持するオブジェクトのアイデンティティは変わりません。| 8.30.1 8.30.2 8.30.5 8.29 |規格のみ||
+| [`test_weak_reference_identity_survives_base_and_derived_specialization`](../../tests/ch8/test_weak_reference_identity_survives_base_and_derived_specialization.sv) |基底クラスと派生クラスで特殊化した弱参照から、同じオブジェクトの識別子と派生クラスの振る舞いを取得する| 8.30.1 8.30.3 8.30.5 8.20 G.7 |規格のみ||
+| [`test_weak_reference_type_argument_resolves_after_class_forward_declaration`](../../tests/ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration.sv) |前方宣言したクラスで弱参照を特殊化し、完全なクラス定義の型を使う| 8.30.1 8.30.3 6.18 6.20.3 6.23 G.7 |規格のみ||
+| [`test_weak_references_pass_through_subroutines_and_object_fields`](../../tests/ch8/test_weak_references_pass_through_subroutines_and_object_fields.sv) |弱参照をオブジェクトのフィールドとタスク引数に渡し、同じ参照ラッパーの別名と独立したラッパーを区別する。| 8.30.1 8.30.2 8.30.3 8.30.4 |規格のみ||
 | [`test_weak_reference_null_referent_no_warning`](../../tests/ch8/test_weak_reference_null_referent_no_warning.sv) |null の参照先（リテラルの null、null を保持するクラスハンドル、get() が返す null）から構築した weak_reference は、get() が null を返す新しいオブジェクトであり、警告は出ない| 8.30.2 8.30.3 |規格のみ|出口コード|
+| [`test_weak_get_wait_follows_selected_wrapper_in_object_array`](../../tests/ch8/test_weak_get_wait_follows_selected_wrapper_in_object_array.sv) |オブジェクト配列内の弱参照を待つとき、選択した添字の変更とそのラッパーのクリアに応じて待機を解除する。| 8.30.3 8.30.4 9.4.3 |規格のみ||
 | [`test_weak_reference_get_clear`](../../tests/ch8/test_weak_reference_get_clear.sv) |weak_reference は get() からその参照を返しますが、 clear() が呼び出されるまでは返しません。その後 get() は null を返します。1つの物体に対する2つの弱い参照は 同じ参照を持つ異なる物体であり| 8.30.3 8.30.2 8.30.4 26.7 |規格のみ||
 | [`test_weak_reference_wait_cleared`](../../tests/ch8/test_weak_reference_wait_cleared.sv) |weak_reference get() が null になるまで待つと、他のプロセスが参照をクリアすると再開します。| 8.30.3 8.30.4 9.4.3 |規格のみ||
+| [`test_illegal_weak_reference_clear_takes_no_argument`](../../tests/ch8/test_illegal_weak_reference_clear_takes_no_argument.sv) |weak_reference の clear に引数を渡すと拒否する| 8.30.4 |規格のみ|規格違反の設計|
+| [`test_illegal_weak_reference_clear_value_from_void_method`](../../tests/ch8/test_illegal_weak_reference_clear_value_from_void_method.sv) |weak_reference の clear の呼び出しを代入の値に使うことはできない| 8.30.4 13.4.1 |規格のみ|規格違反の設計|
 | [`test_weak_reference_clear_void_no_arguments`](../../tests/ch8/test_weak_reference_clear_void_no_arguments.sv) |weak_reference の clear() は引数の無い void 関数である: 空の引数リストで文として（関数の中でも）警告なしに呼ばれ、その参照の get() だけが null を返すようにする| 8.30.4 |規格のみ|出口コード|
 | [`test_weak_reference_get_id`](../../tests/ch8/test_weak_reference_get_id.sv) |weak_reference の static get_id() はオブジェクトの null と非ゼロ値に対して 0 を返します。ハンドルの各クラスタイプを通して、各呼び出しで同じ値を返します。異なるオブジェクトに対しては異なります。| 8.30.5 7.8 |規格のみ||
 | [`test_weak_reference_get_id_static_longint`](../../tests/ch8/test_weak_reference_get_id_static_longint.sv) |weak_reference の get_id () は、パラメータ型 T の引数 obj を 1 つ取り longint を返す static 関数である: weak_reference オブジェクトなしにクラススコープを通して呼ばれ、引数は位置か名前 obj で結合されて派生クラスのハンドルを受け付け、結果は符号付き 64 bit の longint である| 8.30.5 |規格のみ||
 | [`test_weak_reference_get_id_unique_across_types`](../../tests/ch8/test_weak_reference_get_id_unique_across_types.sv) |オブジェクトの get_id () の値は、クラスにかかわらず（ weak_reference オブジェクトを含め）同時に存在する他のどのオブジェクトの値とも異なり、他のオブジェクトを多数作っては捨てる間も変わらない| 8.30.5 |規格のみ||
+| [`test_weak_reference_static_id_associative_key`](../../tests/ch8/test_weak_reference_static_id_associative_key.sv) |弱参照の静的な longint は ID 型で、ハンドルの型が異なっても同じ生存オブジェクトを特定する| 8.30.5 G.7 |規格のみ||
 
 <a id="generated-by-generatorsinteraction_class_arraypy"></a>
 

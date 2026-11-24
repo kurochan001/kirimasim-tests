@@ -1,0 +1,24 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch23/test_illegal_uwire_slice_drivers_overlap_across_nested_ports": {
+   "status": "pass",
+   "inputs_sha256": "c233b33d4a8c7d5160274dc7282086ae2117484504b5ed22a1f0f7652adeb1df"
+  },
+  "ch23/test_uwire_allows_disjoint_slice_drivers_across_nested_ports": {
+   "status": "pass",
+   "inputs_sha256": "e059f6c9251fd75953fcc17ce39001ff5a758c156c98fe835f3204658e1a5ca8"
+  },
+  "ch23/test_uwire_nonmerge_warns_when_port_width_conversion_is_required": {
+   "status": "fail",
+   "reason": "no message matches '(?ims)\\\\A(?=.*?^(?=[^\\\\n]*warning)(?=[^\\\\n]*(?:ingress_adapted|narrow_actual))(?=[^\\\\n]*\\\\buwire\\\\b)(?=[^\\\\n]*(?:merg|collaps|unresolved|single.driver))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*warning)(?=[^\\\\n]*(?:egress_adapted|wide_actual))(?=[^\\\\n]*\\\\buwire\\\\b)(?=[^\\\\n]*(?:merg|collaps|unresolved|single.driver))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*warning)(?=[^\\\\n]*(?:ingress_external|narrow_uwire))(?=[^\\\\n]*\\\\buwire\\\\b)(?=[^\\\\n]*(?:merg|collaps|unresolved|single.driver))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*warning)(?=[^\\\\n]*(?:egress_external|wide_uwire))(?=[^\\\\n]*\\\\buwire\\\\b)(?=[^\\\\n]*(?:merg|collaps|unresolved|single.driver))[^\\\\n]+)'",
+   "inputs_sha256": "c16e8f389e2799ec5720d687ccb3ae52d7a86cad49a501b662b129a3f9d10b03"
+  }
+ },
+ "generated_at": "2026-11-24T00:12:34.126104+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-24",
+  "simulator": "Ghost (sukimasim)",
+  "simulator_sha256_prefix": "84e9883c2828",
+  "execution": {
+    "compilation_unit_modes": {
+      "fixture": "tools/test_ghost_compilation_units.py",
+      "flags": [
+        "--quiet",
+        "--lrm-strict",
+        "--compilation-unit"
+      ],
+      "single": {
+        "directives": "origin=7 receiver=7 net=1 package=29",
+        "private_name": "published=29 private=73",
+        "incomplete_declaration": "a=7 b=42"
+      },
+      "per-file": {
+        "directives": "origin=7 receiver=-1 net=1 package=29",
+        "private_name": "undefined identifier unit_private_value",
+        "incomplete_declaration": [
+          "ExpectedToken at end of first file",
+          "NotAllowedInCU on assignment in second file",
+          "UnexpectedEndDelim on endmodule in second file"
+        ]
+      },
+      "requirements": [
+        "SV2023-3.12.1-EXTRACT-DIRECTIVE-UNIT-ISOLATION",
+        "SV2023-3.12.1-EXTRACT-UNIT-PRIVATE-NAMES",
+        "SV2023-3.12.1-EXTRACT-INCOMPLETE-FILE"
+      ]
+    },
+    "vpi_output_log": {
+      "fixture": "tools/test_ghost_vpi_output_log.py",
+      "flags": [
+        "--quiet",
+        "--lrm-strict",
+        "--logfile"
+      ],
+      "output_matches_expected": true,
+      "current_log_contains_sv_display": true,
+      "current_log_contains_vpi_printf": false,
+      "current_log_contains_vpi_vprintf": false,
+      "requirements": [
+        "SV2023-38.30-EXTRACT-PRINTF-OUTPUT"
+      ],
+      "scope": "The check observes the two destinations and successful counts. It does not force an output error."
+    }
+  }
+}

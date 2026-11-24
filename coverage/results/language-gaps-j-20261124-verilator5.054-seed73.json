@@ -1,0 +1,32 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch17/test_checker_packed_rand_becomes_inactive_on_bit_assignment": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_packed_rand_becomes_inactive_on_bit_assignment.sv:15:3: Unsupported: checker rand",
+   "inputs_sha256": "61d06e4784457c208b302e9dea0189db6651a835ff2da0022abbc065821c9290"
+  },
+  "ch18/test_scope_randomize_keeps_selected_variables_after_failure": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'failure=0 values=19964942,-1010566977 state=-23', expected 'failure=0 values=-9,42 state=-23'",
+   "inputs_sha256": "fa5d1bacfa9dd4f1e4a7b5eeeb7bf0215ce347db6c66e7217984db8876e4a944"
+  },
+  "ch8/test_illegal_virtual_override_changes_argument_direction": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "76a96e3cc4ef47236a016584d5bb2343fcdde6cfc48d92f4eaee3444c64964d4"
+  },
+  "ch8/test_virtual_prototype_protected_and_const_reference": {
+   "status": "pass",
+   "inputs_sha256": "b3b275a4060725e28e9ca96064b2936693c4c6fb2b0ac5f22fe2cf8daf2d77f7"
+  }
+ },
+ "generated_at": "2026-11-23T22:05:31.753201+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-24",
+  "tool": "Icarus Verilog 13.0",
+  "source": "tools/test_icarus_stop_control.py",
+  "source_sha256": "b9e4c9681f8a7d6d95697e7e524ec75d0e950313788b90b8dd84539e6d1f87ac",
+  "requirements": [
+    "SV2023-20.2-EXTRACT-STOP",
+    "SV2023-20.2-EXTRACT-CONTROL-DEFAULT"
+  ],
+  "scenarios": [
+    {
+      "commands": [
+        "finish"
+      ],
+      "stopped_times": [
+        7
+      ],
+      "last_marker_time": 7,
+      "result": "pass"
+    },
+    {
+      "commands": [
+        "cont",
+        "finish"
+      ],
+      "stopped_times": [
+        7,
+        13
+      ],
+      "last_marker_time": 13,
+      "result": "pass"
+    },
+    {
+      "commands": [
+        "cont",
+        "cont"
+      ],
+      "stopped_times": [
+        7,
+        13
+      ],
+      "last_marker_time": 22,
+      "result": "pass"
+    }
+  ],
+  "diagnostic_probe": {
+    "change": "Omit the first stop argument in the same test design.",
+    "first_stop_paused": true,
+    "first_stop_reports_source_location": false,
+    "second_stop_reports_source_location": true
+  }
+}

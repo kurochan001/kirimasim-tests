@@ -1,0 +1,4 @@
+legal edges=c2 c5
+legal binary edges=85 82
+ascending before=a1 following=ee excluded=ee
+descending before=a5 following=ee excluded=ee

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24",
+  "clause": "38.5",
+  "check": "tools/test_ghost_vpi_live_log_flush.py",
+  "check_sha256": "71f2a41fa4955d2d1db23a805a6050fa7481b1d65e29102f946c2ef6dcb7bd3c",
+  "simulator": "Ghost (sukimasim)",
+  "simulator_sha256_prefix": "84e9883c2828",
+  "flush_return": 0,
+  "stdout_markers": {
+    "hdl": true,
+    "vpi": true,
+    "after_flush": true
+  },
+  "current_log_during_simulation": {
+    "hdl": true,
+    "vpi": false
+  },
+  "status": "fail"
+}

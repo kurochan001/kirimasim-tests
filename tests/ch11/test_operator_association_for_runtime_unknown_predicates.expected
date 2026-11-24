@@ -1,0 +1,4 @@
+implication then equivalence=1/1/x
+equivalence then implication=x/x/1
+conditional=10x0/10x0/1x10
+mixed equality=1/1/0

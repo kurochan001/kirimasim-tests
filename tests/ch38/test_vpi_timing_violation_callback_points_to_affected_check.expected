@@ -1,0 +1,5 @@
+checks=1/1 registered=1
+notifiers setup=1 hold=1
+violations=2
+t=12 kind=setup check=1 reason=1 same=1
+t=22 kind=hold check=1 reason=1 same=1

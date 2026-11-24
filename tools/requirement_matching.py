@@ -116,6 +116,7 @@ def inventory(tests: list[Path], rows: list[dict]) -> dict:
         fields = suite_results.header(test)
         clauses = list(dict.fromkeys(fields.get("lrm", "").split()[1:]))
         negative = bool(fields.get("should_fail_because"))
+        runtime_diagnostic = coverage.runtime_diagnostic_witness(fields)
         candidates, holds, other_kind = set(), set(), set()
         for clause in clauses:
             for row in by_clause[clause]:
@@ -123,7 +124,7 @@ def inventory(tests: list[Path], rows: list[dict]) -> dict:
                     continue
                 if row.get("interpretation_issue"):
                     holds.add(row["id"])
-                elif (row["kind"] == "error") != negative:
+                elif (row["kind"] == "error") != negative and not runtime_diagnostic:
                     other_kind.add(row["id"])
                 else:
                     candidates.add(row["id"])

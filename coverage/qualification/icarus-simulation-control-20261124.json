@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-24",
+  "tool": "Icarus Verilog",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "fixture": "tools/test_icarus_simulation_control.py",
+  "fixture_sha256": "100e9aaea82375852585e6895916c1ccf61d0daf329c632b901aa05e1734c6bd",
+  "requirements": [
+    "SV2023-20.2-EXTRACT-STOP",
+    "SV2023-20.2-EXTRACT-CONTROL-DEFAULT",
+    "SV2023-20.2-EXTRACT-DIAGNOSTICS-ONE",
+    "SV2023-20.2-EXTRACT-DIAGNOSTICS-ZERO"
+  ],
+  "commands": [
+    "time",
+    "cont"
+  ],
+  "debugger_time": 37,
+  "same_tick_statement_time": 37,
+  "delayed_statement_time": 42,
+  "results": {
+    "default": {
+      "status": "pass",
+      "call_diagnostic": true
+    },
+    "level_one": {
+      "status": "pass",
+      "call_diagnostic": true
+    },
+    "level_zero": {
+      "status": "pass",
+      "call_diagnostic": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression": {
+   "status": "known",
+   "reason": "compile failed: tests/ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression.sv:44: error: A reference to a net or variable (`i') is not allowed in a constant expression.",
+   "inputs_sha256": "7f6b1144d797678ace89b28481f0a62beb2f43e97f3d517674fcd878cde55d30"
+  },
+  "ch21/test_evcd_port_node_declarations": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SORRY: tests/ch21/test_evcd_port_node_declarations.sv:116...', expected 'before the first scope: $date yes, $version yes, $timesca...'",
+   "inputs_sha256": "0dbfa8f189ac4ad9bbfca85ef0c8382efbf27580867896efab5cd1ac10987f62"
+  },
+  "ch35/test_legacy_dpi_open_array_copies_multichunk_elements": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_legacy_dpi_open_array_copies_multichunk_elements.sv:15: syntax error",
+   "inputs_sha256": "cd0f558933ccd8dd35b32b44851aab84368db1b5cb1f7dcb78d9e4ca4eac3e07"
+  },
+  "ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary.sv:16: syntax error",
+   "inputs_sha256": "e819e10ed86756a6f48e62d1dec4f5331ffd3872898d94af9da755950aaf1292"
+  },
+  "ch35/test_mixed_dpi_versions_select_semantics_per_declaration": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_mixed_dpi_versions_select_semantics_per_declaration.sv:15: syntax error",
+   "inputs_sha256": "0068bed6eb168c74ee2d6be371f1b42a8de0aa972233a59a2986881c09050710"
+  }
+ },
+ "generated_at": "2026-11-24T01:01:28.858133+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

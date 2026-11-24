@@ -1,0 +1,33 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch19/test_coverage_db_name_and_type_data_across_two_runs": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv:29:7: Unsupported: IEEE 1800-2005 reserved word not implemented: '$load_coverage_db'",
+   "inputs_sha256": "7a6ac51caebaf49a485e043d55698d4ec702450a336b155efaf8ceb61dce5c4e"
+  },
+  "ch37/test_vpi_delayed_write_refuses_automatic_variable": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_delayed_write_refuses_automatic_variable.sv:20:5: Unsupported or unknown PLI call: '$vt_delayed_write'",
+   "inputs_sha256": "5b87c1581e15c7ad485cdec5ab7def2dbd50f4d23186c35b50db0263014ac12a"
+  },
+  "ch37/test_vpi_net_bits_share_parent_expansion_property": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'basic_net parent_boolean=1 bit_objects=3 equal_flags=3'",
+   "inputs_sha256": "d4d4c87df3a8f2537866cec702b606e2d67f33667b78d76f438cd4127b99cd80"
+  },
+  "ch37/test_vpi_value_change_callback_refuses_automatic_variable": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_value_change_callback_refuses_automatic_variable.sv:20:5: Unsupported or unknown PLI call: '$vt_watch_value'",
+   "inputs_sha256": "4becf7a9250eafbb69b32c0117b10d88a318cb1f49714da8e41738e314f77b01"
+  }
+ },
+ "generated_at": "2026-11-23T23:13:38.481110+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

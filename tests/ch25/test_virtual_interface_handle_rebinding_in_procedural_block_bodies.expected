@@ -1,0 +1,4 @@
+first comb=1 latch=1 sample=0
+physical clock sampled=1
+second comb=7 latch=1 sample=1
+second enabled latch=7 sample=7

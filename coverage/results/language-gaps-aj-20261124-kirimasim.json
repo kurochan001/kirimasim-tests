@@ -1,0 +1,36 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch31/test_31_extra_recrem_negative_limits": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "1595664c07bdd288a6a210448a248f6477888d5fb9c9ef815ee9096da5069f32"
+  },
+  "ch31/test_illegal_recrem_negative_recovery_sum_at_precision": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "cd146b06602b661f8a13fe5485c3417603f3a130ca554db198529b31a6cdb994"
+  },
+  "ch31/test_illegal_recrem_negative_removal_sum_at_precision": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "8bceee9cb749c5cd3c16e51f8a861289e2b4d77cb95aaed43346cfab147e9d06"
+  },
+  "ch31/test_recrem_allows_both_negative_limit_signs_above_sum_boundary": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "7b035ae3eb4cf1d881766b488cc0ac7b7c53ebc33a61033cefb47477cf811480"
+  },
+  "ch31/test_recrem_negative_limits_apply_timestamp_and_timecheck_conditions": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "33e04743a2d0ecd2695d4953344e1e3243611cdeae340b57907edda3b04bac46"
+  }
+ },
+ "generated_at": "2026-11-24T00:09:15.264283+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

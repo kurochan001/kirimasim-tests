@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .テストは464本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは484本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -61,7 +61,9 @@
 | [`test_sensitivity_edge_cases`](../../tests/ch9/test_sensitivity_edge_cases.sv) |テスト: 感度リストエッジケース| 9.2.2.2 9.2.2.4 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_always_comb_class_object_args_only`](../../tests/ch9/test_always_comb_class_object_args_only.sv) |クラスオブジェクトのメソッドを呼び出し、そのメンバーを読み込む always_comb は、メンバーやハンドルに感度がなく、メソッドに渡された引数だけを感受的に読み込む。| 9.2.2.2.1 |規格のみ||
 | [`test_always_comb_excluded_function_write`](../../tests/ch9/test_always_comb_excluded_function_write.sv) |always_comb が呼び出す関数が書き込む表現は 暗黙の感度から除外されます ブロックは入力変更ごとに一度実行されます| 9.2.2.2.1 | Icarus Verilog 13.0 ||
+| [`test_always_comb_function_global_ignores_redundant_whole_writes`](../../tests/ch9/test_always_comb_function_global_ignores_redundant_whole_writes.sv) |別の入力が変化した後、全体に同じ値を書き込んでも、関数内の値を参照する always_comb は再評価されない| 9.2.2.2.1 4.3 | Icarus Verilog 13.0 ||
 | [`test_always_comb_longest_static_prefix_and_locals`](../../tests/ch9/test_always_comb_longest_static_prefix_and_locals.sv) |always_comb bit は、ブロックまたは関数で宣言された変数ではなく、それとその関数が読み込むものの最長の静的なプレフィックスに感受的です。変数インデックスの場合は、全ての配列、定数の場合は、一つの［1］または要素です。| 9.2.2.2.1 9.2.2.2 11.5.3 |規格のみ||
+| [`test_always_comb_nested_function_reacts_only_to_real_slice_changes`](../../tests/ch9/test_always_comb_nested_function_reacts_only_to_real_slice_changes.sv) |入れ子の関数から読む部分選択の値が変化したときに always_comb が再評価される| 9.2.2.2.1 4.3 11.5.3 |規格のみ||
 | [`test_always_comb_qualified_function_calls`](../../tests/ch9/test_always_comb_qualified_function_calls.sv) |パッケージ関数、 :: で呼ばれた静的クラスメソッド、階層的名前で呼ばれた関数が読み込まれるかどうかに always_comb は感度を持ち、他の呼ばれた関数と同様に| 9.2.2.2.1 | Verilator 5.052 ||
 | [`test_always_comb_reads_generate_scope_names`](../../tests/ch9/test_always_comb_reads_generate_scope_names.sv) |always_comb 生成ブロックのプロセスは、他の生成ブロックの階層的な名前を通して読み込んだ変数が変化したときに再実行されます。| 9.2.2.2.1 23.6 27.4 | Icarus Verilog 13.0 ||
 | [`test_always_comb_sensitivity_exceptions`](../../tests/ch9/test_always_comb_sensitivity_exceptions.sv) |always_comb の暗黙感度は，それが書き込む変数，呼び出したタスクの内容，アサーションションアクションブロックの表現を省略するが，タスクの引数と直接アサーションションの表現を含む。| 9.2.2.2.1 9.2.2.2.2 16.3 |規格のみ||
@@ -155,7 +157,15 @@
 | [`test_ch9_extra_specparam_delay`](../../tests/ch9/test_ch9_extra_specparam_delay.sv) |プロセス遅延制御は specparam から値を取って その値で遅延時間を進める| 9.4.1 | Icarus Verilog 13.0 ||
 | [`test_delay_negative_value_is_unsigned_time`](../../tests/ch9/test_delay_negative_value_is_unsigned_time.sv) |遅延制御の式が負の int の場合、その値を 64-bit の符号なし時間として解釈して待機します。このため #(-10) は 2 ** 64-10 で再開します。| 9.4.1 | Icarus Verilog 13.0 ||
 | [`test_delay_x_z_value_is_zero_delay`](../../tests/ch9/test_delay_x_z_value_is_zero_delay.sv) |すべての x またはすべての z の表現を持つ遅延制御は # 0 のように待ちますが、時間を進めません| 9.4.1 4.4.2.2 | Icarus Verilog 13.0 | x/z |
+| [`test_integral_delays_preserve_single_ticks_beyond_double_integer_precision`](../../tests/ch9/test_integral_delays_preserve_single_ticks_beyond_double_integer_precision.sv) |倍精度実数で整数を正確に表せる範囲を超えても、整数遅延と時刻取得は隣接する精度ティックを区別する| 9.4.1 3.14.2 20.3.1 | Icarus Verilog 13.0 ||
+| [`test_negative_delay_reinterprets_full_unsigned_time`](../../tests/ch9/test_negative_delay_reinterprets_full_unsigned_time.sv) |負の符号付き遅延が対応する64ビット符号なし値と同じティックを選び、次のティックも区別できる| 9.4.1 20.3.1 | Icarus Verilog 13.0 ||
+| [`test_partly_unknown_wide_delay_resumes_before_nonblocking_updates`](../../tests/ch9/test_partly_unknown_wide_delay_resumes_before_nonblocking_updates.sv) |上位に不定の bit を含む幅 64 bit の遅延は実行時にゼロとして扱い、ノンブロッキング更新の前に再開する| 9.4.1 4.4.2.3 4.4.2.4 | Icarus Verilog 13.0 | x/z |
+| [`test_runtime_realtime_delay_uses_package_task_time_scope`](../../tests/ch9/test_runtime_realtime_delay_uses_package_task_time_scope.sv) |二つのパッケージのタスクは同じ実行時の実数遅延を各自の精度で丸め、より細かい精度の呼び出し側へ戻る| 9.4.1 3.14.1 3.14.2.2 26.2 | Icarus Verilog 13.0 ||
+| [`test_signed_realtime_below_precision_rounds_to_inactive_delay`](../../tests/ch9/test_signed_realtime_below_precision_rounds_to_inactive_delay.sv) |絶対値の小さな正負の realtime 値は遅延ゼロに丸められ、非アクティブ領域で再開する| 9.4.1 3.14.1 4.4.2.3 | Icarus Verilog 13.0 ||
+| [`test_signed_realtime_rounded_zero_in_fork_resumes_before_nba`](../../tests/ch9/test_signed_realtime_rounded_zero_in_fork_resumes_before_nba.sv) |符号付きの realtime 遅延がゼロに丸められた fork の子プロセスは、ノンブロッキング更新より先に進む| 9.4.1 3.14.1 4.4.2.3 | Verilator 5.052 ||
+| [`test_time_literals_preserve_fraction_until_used_as_delays`](../../tests/ch9/test_time_literals_preserve_fraction_until_used_as_delays.sv) |時刻リテラルは手続き遅延がローカル精度を適用するまで、そのスコープでの小数の realtime 値を保つ| 9.4.1 5.8 3.14.1 3.14.2.2 |規格のみ||
 | [`test_timing_edge_cases`](../../tests/ch9/test_timing_edge_cases.sv) |タイミングエッジ事例テスト| 9.4.1 9.4.5 9.4.2 | Icarus Verilog 13.0 ||
+| [`test_virtual_timed_task_uses_time_scope_of_selected_method`](../../tests/ch9/test_virtual_timed_task_uses_time_scope_of_selected_method.sv) |継承した時限タスクは基底クラスのパッケージの時間尺度を使い、上書きした実装は自身のパッケージの尺度を使う| 9.4.1 3.14.1 3.14.2.2 8.20 26.2 |規格のみ||
 | [`test_A_extra_event_expressions`](../../tests/ch9/test_A_extra_event_expressions.sv) |イベント式には、任意のエッジ指定とiff条件を伴う式、iff条件を伴うシーケンスインスタンス、or・コンマによる結合、括弧を使用できます。各形式で、それぞれのイベントによりプロセスが再開します。| 9.4.2 9.4.3 16.8 A.6.5 | Verilator 5.052 ||
 | [`test_clocked_value_timing`](../../tests/ch9/test_clocked_value_timing.sv) |クロック付きの常に手順で更新される変数、各エッジの後に1時間単位読み込み| 9.4.2 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_clocking_sampled_event`](../../tests/ch9/test_clocking_sampled_event.sv) |クロックブロック入力または出力のイベント制御は、クロックイベントによってサンプルされた値を使用します、サンプルされていない信号ではありません。| 9.4.2 | Verilator 5.052 ||
@@ -196,6 +206,8 @@
 | [`test_intra_assignment_timing`](../../tests/imported/ch9/test_intra_assignment_timing.sv) |命令が実行されるときに，命令の右側を計算するために，アシスト内の遅延またはイベント制御を用いる。ブロッキングはコントロールに合致したときに割り当て、 ターゲットの要素を選択します。 遅延を持つノンブロッキングは、 ステートメントが NBA 領域で実行されると、 それ以降の数時間のステップで、 選択したターゲットを更新します。| 9.4.5 10.4.1 10.4.2 4.9.4 | Icarus Verilog 13.0 ||
 | [`test_intra_event_blocking_saves_rhs`](../../tests/ch9/test_intra_event_blocking_saves_rhs.sv) |代入内イベント制御を持つブロッキング代入は、その文に到達したときに右辺を読み取り、イベントまでプロセスをブロックし、その後で初めて保存した値を書き込む。| 9.4.5 | Icarus Verilog 13.0 ||
 | [`test_intra_repeat_count_not_positive_or_unknown`](../../tests/ch9/test_intra_repeat_count_not_positive_or_unknown.sv) |代入内のrepeatイベント制御は、回数がゼロ、負、x、zの場合、イベントを待たずに直ちに代入する。正の回数の場合は、その回数のイベントを待つ。| 9.4.5 |規格のみ| x/z |
+| [`test_intraassignment_repeat_counts_active_and_nba_edges_in_one_slot`](../../tests/ch9/test_intraassignment_repeat_counts_active_and_nba_edges_in_one_slot.sv) |繰返し制御は、同じ時間スロットのアクティブ領域のエッジと NBA 更新によるエッジを数える| 9.4.5 10.4.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_intraassignment_repeat_counts_two_edges_at_one_time`](../../tests/ch9/test_intraassignment_repeat_counts_two_edges_at_one_time.sv) |繰返し制御はブロッキング代入とノンブロッキング代入で、同じ時間スロットにある二つの別のエッジを数える| 9.4.5 10.4.1 10.4.2 |規格のみ||
 | [`test_syntax_intra_assignment_timing_forms`](../../tests/ch9/test_syntax_intra_assignment_timing_forms.sv) |ブロックアサーションは、アサーション内の#遅延、#(表現)、イベント制御、繰り返しイベント制御および名前付きイベント制御を持ち、ブロックアッセーイは、各種制御を持たず、またはそれらを持たない。| 9.4.5 10.4.1 10.4.2 A.6.2 A.6.4 A.6.5 | Icarus Verilog 13.0 ||
 | [`test_ch9_extra_continuous_thread`](../../tests/ch9/test_ch9_extra_continuous_thread.sv) |それぞれの連続的な代入は 独立して それぞれのソースを追跡し それらの連鎖は 次のタイムステップの前に 決定される 別々の連続的なスレッドがするように| 9.5 | Icarus Verilog 13.0 ||
 | [`test_process_thread_kinds_and_final_process`](../../tests/ch9/test_process_thread_kinds_and_final_process.sv) |initial 手続きのすべてのインスタンス、各 always・ always_comb ・ always_latch ・ always_ff 手続き、fork-join・ join_any ・ join_none の各並列文、各動的プロセスはそれぞれ自分のスレッドで実行され、always 手続きは繰り返しの間 1 つのスレッドを保ち、final 手続きは 1 つのプロセスから実行される| 9.5 9.2.3 |規格のみ||
@@ -227,15 +239,23 @@
 | [`test_task_disable_2`](../../tests/ch9/test_task_disable_2.sv) |タスクテストで無効にする| 9.6.2 13.3 | Verilator 5.052 ||
 | [`test_disable_fork_dynamic_vs_named_static`](../../tests/ch9/test_disable_fork_dynamic_vs_named_static.sv) |disable forkは、別プロセスが同じコードを実行していても、呼出しプロセスが生成したプロセスだけを終了します。一方、名前付きブロックのdisableは、生成元にかかわらず、そのブロックを実行中の全プロセスで終了させます。| 9.6.3 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_fork_ends_loops_and_class_tasks`](../../tests/ch9/test_disable_fork_ends_loops_and_class_tasks.sv) |クラスタスクを実行する子プロセスと while 内で待ち受ける子プロセスを終了させます| 9.6.3 9.3.2 | Icarus Verilog 13.0 ||
+| [`test_await_resumes_after_normal_and_forced_exit_then_rejects_self`](../../tests/ch9/test_await_resumes_after_normal_and_forced_exit_then_rejects_self.sv) |await が自然終了と強制終了の両方で戻り、自分自身の終了を待つときにはエラーになることを検査する。| 9.7 |規格のみ||
 | [`test_illegal_class_extends_process`](../../tests/ch9/test_illegal_class_extends_process.sv) |内蔵されたクラスプロセスは拡張できません| 9.7 |規格のみ|規格違反の設計|
+| [`test_illegal_extend_alias_of_final_standard_process_class`](../../tests/ch9/test_illegal_extend_alias_of_final_standard_process_class.sv) |標準 process の typedef 別名を経由しても、継承できないという制約を保つ| 9.7 G.6 8.13 |規格のみ|規格違反の設計|
 | [`test_illegal_new_process_object`](../../tests/ch9/test_illegal_new_process_object.sv) |プロセスオブジェクトは 新しいオブジェクトを作成できません| 9.7 |規格のみ|規格違反の設計|
 | [`test_illegal_process_kill_result_used_as_value`](../../tests/ch9/test_illegal_process_kill_result_used_as_value.sv) |process のメソッド kill() は void 関数なので、その呼び出しの結果を変数に代入するとエラーになる| 9.7 | Verilator 5.054 |規格違反の設計|
+| [`test_lexical_process_class_can_be_extended_alongside_qualified_standard_process`](../../tests/ch9/test_lexical_process_class_can_be_extended_alongside_qualified_standard_process.sv) |字句スコープの process を継承でき、修飾した標準の process は独立した型を保つ| 9.7 26.7 8.13 G.6 | Verilator 5.052 ||
 | [`test_process_await_from_fork_child`](../../tests/ch9/test_process_await_from_fork_child.sv) |フォークによって開始されたプロセスで呼び出された await() は、待ち受けるプロセスが終了したとき、または既に終了した場合はすぐに返します。| 9.7 9.3.2 |規格のみ||
+| [`test_process_await_normal_and_forced_termination`](../../tests/ch9/test_process_await_normal_and_forced_termination.sv) |process の await は自然終了と強制終了の両方で復帰し、終了済みなら直ちに戻る| 9.7 G.6 | Verilator 5.054 ||
+| [`test_process_await_rejects_current_process`](../../tests/ch9/test_process_await_rejects_current_process.sv) |プロセスは自分自身の終了を待つことはできない| 9.7 |規格のみ||
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) |プロセスクラス: self, status, kill| 9.7 | Verilator 5.052 ||
+| [`test_process_function_can_suspend_another_waiting_process`](../../tests/ch9/test_process_function_can_suspend_another_waiting_process.sv) |関数は別のプロセスを suspend でき、呼び出し元はそのプロセスを再開できる| 9.7 G.6 |規格のみ||
+| [`test_process_function_cannot_suspend_current_process`](../../tests/ch9/test_process_function_cannot_suspend_current_process.sv) |関数が自分のプロセスを suspend するとエラーを報告する| 9.7 |規格のみ||
 | [`test_process_kill_self`](../../tests/ch9/test_process_kill_self.sv) |プロセス自体が kill() を呼び出すと、他のプロセスによって 殺された場合と同様に、すぐに KILLED の状態で終了します。| 9.7 |規格のみ||
 | [`test_process_kill_terminates_descendants`](../../tests/ch9/test_process_kill_terminates_descendants.sv) |kill()は、戻る前に対象プロセスと、そのプロセスがforkした子・孫プロセスを終了させる。また、既に完了したプロセスに対するkill()でも、実行中の子プロセスは終了する。| 9.7 |規格のみ||
 | [`test_process_random_state`](../../tests/ch9/test_process_random_state.sv) |std::processのsrandom(seed)はプロセスの乱数状態を初期化し、同じseedで同じ列を再現します。get_randstate()は状態を文字列として返し、その文字列を渡すset_randstate()により、以後の値の列を再現できます。| 9.7 18.13.3 18.13.4 18.13.5 G.6 | Verilator 5.052 ||
 | [`test_process_randstate_signatures`](../../tests/ch9/test_process_randstate_signatures.sv) |プロセスは int のシードを取って get_randstate を返し、 set_randstate はその文字列を使って次のランダムな値を再現します。| 9.7 | Verilator 5.052 ||
+| [`test_process_resume_resensitizes_to_next_event`](../../tests/ch9/test_process_resume_resensitizes_to_next_event.sv) |待機中のプロセスを停止して再開すると、停止中のイベントを通過して次のイベントに反応する| 9.7 G.6 |規格のみ||
 | [`test_process_resume_waiting_resensitizes`](../../tests/ch9/test_process_resume_waiting_resensitizes.sv) |プロセスを停止する場合は、 返す前に SUSPENDED にするために、 待ち条件と遅延を設定します。条件が既に真であれば、または遅延が過ぎた場合、一度に続けます。そうでなければ、次のイベントまたは遅延の元の終了時に続けます。| 9.7 |規格のみ||
 | [`test_process_self_status_kill`](../../tests/ch9/test_process_self_status_kill.sv) |プロセスの状態を表示するには、std::process::self() は実行中のプロセスを返します。status() はプロセスの寿命に関して RUNNING , WAITING , FINISHED と KILLED を返します。state enumeration は G.6 が与える値 0 から 4 の順に5つの名前を持っています。kill() はプロ セスとその子プロセスを返す前に終了します。| 9.7 G.6 | Verilator 5.052 ||
 | [`test_process_self_suspend_and_noop_controls`](../../tests/ch9/test_process_self_suspend_and_noop_controls.sv) |実行中のプロセスが RUNNING を報告し、自分自身をサスペンドすることができます。続けるには、resume() を使います。プロセスの停止、終了、または殺害の場合は suspend() 、停止されていない場合は resume() を使っても変更はありません。| 9.7 |規格のみ||

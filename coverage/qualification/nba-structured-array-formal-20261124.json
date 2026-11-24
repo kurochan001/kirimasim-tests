@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-24",
+  "source": "tests/ch10/test_nba_array_struct_slices_capture_row_base_and_value.sv",
+  "top": "scheduled_struct_banks",
+  "toolchain": {
+    "oss_cad_suite": "20260816",
+    "yosys": "Yosys 0.68+71 (git sha1 dbe5b7c03-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+    "sby": "SBY v0.68"
+  },
+  "input_domain": "All binary starting rows, signed bases, seed words and replacement values sampled on a clock edge. Both tag fields have fixed initial values.",
+  "free_inputs": {
+    "bank_count": 2,
+    "seed_word_bits": 71,
+    "signed_base_bits": 8,
+    "replacement_bits": 8,
+    "starting_row_bits": 1,
+    "assumptions": 0
+  },
+  "requirements": [
+    "SV2023-10.4.2-EXTRACT-NBA-LOCATION-CAPTURE",
+    "SV2023-11.5.1-EXTRACT-PARTIAL-PART-SELECT"
+  ],
+  "proved": {
+    "frontend": "slang",
+    "mode": "prove",
+    "depth": 4,
+    "status": "PASS",
+    "return_code": 0
+  },
+  "negative_control": {
+    "change": "Keep the original row for the second scheduled write instead of selecting the opposite row.",
+    "frontend": "slang",
+    "mode": "bmc",
+    "depth": 3,
+    "status": "FAIL",
+    "return_code": 2
+  },
+  "source_sha256": "a5bb075c5f5f378b527861cbf6bf332487ac0da505e9a14ed2c9bf5e2bb2beb3"
+}

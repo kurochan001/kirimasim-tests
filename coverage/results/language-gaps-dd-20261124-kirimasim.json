@@ -1,0 +1,21 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch8/test_weak_get_wait_follows_selected_wrapper_in_object_array": {
+   "status": "unsupported",
+   "reason": "type 'std::weak_reference#(test_weak_get_wait_follows_selected_wrapper_in_object_array.payload)' (not implemented yet)",
+   "inputs_sha256": "c9e29b50a4d3cbdae49e0ba8570212b0880d188543de9adaf39e9ec7a2860d15"
+  },
+  "ch8/test_weak_references_pass_through_subroutines_and_object_fields": {
+   "status": "unsupported",
+   "reason": "type 'std::weak_reference#(test_weak_references_pass_through_subroutines_and_object_fields.payload)' (not implemented yet)",
+   "inputs_sha256": "94c4313f3b2c0bcd9d364278cd62361cd7e6a7e7d992aaf28d54d096027a5f00"
+  }
+ },
+ "generated_at": "2026-11-24T08:29:45.455590+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

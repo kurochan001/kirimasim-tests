@@ -98,6 +98,20 @@ class Rules(unittest.TestCase):
         self.assertIn("empty-field", self.rules(empty))
         self.assertNotIn("stderr-regex", self.rules(empty))
 
+    def test_an_empty_stdout_file_requires_an_observable_diagnostic(self):
+        source = LEGAL.format(name="test_a", chapter="ch6", clause="6.1")
+        source = source.replace(":expected_stdout: ok", ":expected_stdout: @test_a.expected")
+        for diagnostic, output, problems in (
+            ("", "", ["expected"]),
+            (":expected_stderr_regex: .*\n", "", ["expected"]),
+            (":expected_stderr_regex: required diagnostic\n", " ", ["expected"]),
+            (":expected_stderr_regex: required diagnostic\n", "", []),
+        ):
+            with self.subTest(diagnostic=diagnostic, output=output):
+                path = self.write("ch6/test_a", source.replace("*/\n", diagnostic + "*/\n"))
+                path.with_suffix(".expected").write_text(output, encoding="utf-8")
+                self.assertEqual(self.rules(path), problems)
+
     def test_an_illegal_regex_must_name_a_file_and_line(self):
         for regex, problems in ((r"test_a\.sv:14:", []), (r"test_a\.sv:(14|15):", []),
                                 (r"inc_a\.svh:3:", []), (r"test_a\.sv:(?:14|15):", []),

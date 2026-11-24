@@ -1,0 +1,34 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch29/test_illegal_udp_edge_descriptor_contains_high_impedance": {
+   "status": "pass",
+   "inputs_sha256": "083339baf99bb37b02ce054743f2a7bc0fe4e38ee1f8ee733e541d2d421a99a7"
+  },
+  "ch29/test_illegal_udp_initial_delay": {
+   "status": "pass",
+   "inputs_sha256": "88bb144b67aa69c9e4039b2559129d77e4541dfc2b25cf4050d63daf908c2f4e"
+  },
+  "ch29/test_illegal_udp_z_in_table": {
+   "status": "pass",
+   "inputs_sha256": "d75e65e1fb2c9e7825dfa84ac9c57eada0507cb4f9d1508468e888136ad6a463"
+  },
+  "ch29/test_udp_initial_states_drive_separately_delayed_fanout": {
+   "status": "pass",
+   "inputs_sha256": "196a3f52f135aa95ae9b9c46eddda2102f0a302bbd5267d807ab41501a061765"
+  },
+  "ch29/test_udp_resolved_high_impedance_uses_explicit_unknown_rows": {
+   "status": "pass",
+   "inputs_sha256": "1e0bcac541c2d5cd859ff1803d4dc97281a3822371d28a4ddd75710b8ab4f627"
+  }
+ },
+ "generated_at": "2026-11-24T08:58:02.193270+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

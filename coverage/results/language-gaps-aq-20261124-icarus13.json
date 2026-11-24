@@ -1,0 +1,34 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch38/test_vpi_get_value_preserve": {
+   "status": "pass",
+   "inputs_sha256": "6e92428a330aa0d450a68d7e645283f3875d9311b1c0e2408424c2402ee290cc"
+  },
+  "ch38/test_vpi_put_value_caller_storage": {
+   "status": "pass",
+   "inputs_sha256": "9b267bd1a80fd8dace0b593b881e753d2a11db2cd26fcc1d5d047418e89e6074"
+  },
+  "ch38/test_vpi_put_value_caller_storage_time_strength": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'objects not found', expected '4: tv high 0 low 0, sn logic vpiZ'",
+   "inputs_sha256": "55dce386076d364f3218dfbb4f3e17024bb1303c548a6072c76b13019a0085ca"
+  },
+  "ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'missing write target', expected 'queued vector=11 string=11'",
+   "inputs_sha256": "139ccc739f44e5da41b3e946c663759601b82705d194b4bca951ded3824b158b"
+  },
+  "ch38/test_vpi_vector_callback_storage_survives_get_value_until_return": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'after get 12/00_f2345678/00000000', expected 'after get 34/00_a1f35608/00f000f0'",
+   "inputs_sha256": "27b42e6a0e309288f062b03af93e1e8f5642c82e9b20d9f9ff6566530e6cf25c"
+  }
+ },
+ "generated_at": "2026-11-24T00:44:20.723530+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

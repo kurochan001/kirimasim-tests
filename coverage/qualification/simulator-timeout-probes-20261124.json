@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-24",
+  "cases": [
+    {
+      "test": "tests/ch37/test_vpi_part_select_uses_distinct_bound_relations.sv",
+      "input_sha256": {
+        "tests/ch37/test_vpi_part_select_uses_distinct_bound_relations.sv": "92ec35754e8d5b15da43da5f4fb42b569b9aaca86a1af0b183966bba3e0e07f0",
+        "tests/ch37/test_vpi_part_select_uses_distinct_bound_relations.c": "dc6858f7e800af79646a90308063175f38446a0c108e6bcea30ae6a9e49dea01",
+        "tests/ch37/test_vpi_part_select_uses_distinct_bound_relations.expected": "8ad628316defb049702ee5962cb1fbeddb22d74e3e6ef406781509d652403030"
+      },
+      "tool": "Ghost private build 84e9883c2828",
+      "full_runs": "Both final full runs timed out.",
+      "isolated_retry": "Timed out with one job.",
+      "checkpoint": "The VPI callback reads left bound 10 and right bound 7. It stalls in vpi_handle(vpiExpr, part).",
+      "controls": [
+        {
+          "change": "Declare the target at module scope and keep the system task call inside the function.",
+          "exit_code": 0,
+          "bounds": [
+            10,
+            7
+          ],
+          "ambiguous_handle_returned": false,
+          "vpi_error_reported": false
+        },
+        {
+          "change": "Keep the automatic target and omit the ambiguous vpiExpr relation query.",
+          "exit_code": 0,
+          "bounds": [
+            10,
+            7
+          ],
+          "ambiguous_handle_returned": false,
+          "vpi_error_reported": false
+        }
+      ]
+    },
+    {
+      "test": "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_var_do_leftright.sv",
+      "input_sha256": {
+        "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_var_do_leftright.sv": "09e11e092fd0d2141cf83e6a66d14c9216ab8e25ed31a7e86ec71c4a467745fb",
+        "tests/gen/ch20/test_gen_cross_arrayloop_dynamic_var_do_leftright.expected": "20b92df991c5b9d1b4daacea451b0f3bef502d7cea7c6daea705aca6bc6aa2a1"
+      },
+      "tool": "Icarus Verilog 13.0",
+      "full_runs": "Both final full runs timed out.",
+      "isolated_retry": "Timed out with one job.",
+      "expected_increment": -1,
+      "observed_increment": {
+        "1": 0,
+        "2": 1,
+        "4": 3,
+        "7": 6
+      },
+      "observed_size_four_indices": [
+        0,
+        -3,
+        -6,
+        -9
+      ],
+      "checkpoint": "The size-four loop subtracts 3 instead of adding 1, and keeps visiting out-of-range negative indices."
+    }
+  ]
+}

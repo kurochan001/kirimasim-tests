@@ -1,0 +1,6 @@
+settled drive=000 control=111 held=000
+early drive=000 control=111 held=000
+updated drive=101 control=010 held=101
+signed=-3/-3
+retained drive=101 control=010 held=101
+decayed drive=zzz control=xxx held=xxx

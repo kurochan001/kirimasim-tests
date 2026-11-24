@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch18/test_constraint_function_priority_does_not_prune_high_randc_cycle": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'partition both=1 joint both=1 isolated cycle=1 bad soluti...', expected 'partition both=0 joint both=1 isolated cycle=1 bad soluti...'",
+   "inputs_sha256": "a1c99dd38ccf64aba7873dedf584dffba0df7b5ca65b05aa4b408f38e33f208b"
+  },
+  "ch18/test_constraint_function_priority_partition": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'argument solved first: at least 28 of 32 calls fail 0', expected 'argument solved first: at least 28 of 32 calls fail 1'",
+   "inputs_sha256": "d0e85d5aee11f8fd99a658b9826466880ce5c48bdf348c779bf866a579c4ef29"
+  }
+ },
+ "generated_at": "2026-11-24T02:35:11.801465+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

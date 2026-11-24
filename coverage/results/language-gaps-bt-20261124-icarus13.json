@@ -1,0 +1,29 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch38/test_vpi_callbacks_keep_both_simtime_words_across_wrap": {
+   "status": "pass",
+   "inputs_sha256": "ee899956b49805213db6491b13cf8f48eb7820761d58666452d1343cb9f24c5d"
+  },
+  "ch38/test_vpi_transport_put_emits_one_callback_before_and_after_high_time_word": {
+   "status": "pass",
+   "inputs_sha256": "882d663644671a8107a2566864e8304c9aa5ddfee62792f6f987ae02d755d9aa"
+  },
+  "ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "90a998dc9969a6a24dbcce952b04dec7aa9ad4bf135d5637474f21a98e2bbc90"
+  },
+  "ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "295aebb7e6d19c0b581d1c7b2203395451b93ce6798e2904dcc215549859206f"
+  }
+ },
+ "generated_at": "2026-11-24T04:46:35.523714+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,5 @@
+settled delayed=28/28 immediate=28 plain=28
+before left delayed=28/28 immediate=42 plain=28
+after left delayed=42/42 immediate=42 plain=42
+before right delayed=42/42 immediate=56 plain=42
+after right delayed=56/56 immediate=56 plain=56

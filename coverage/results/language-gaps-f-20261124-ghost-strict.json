@@ -1,0 +1,31 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 2865c5a259b8",
+ "tests": {
+  "ch12/test_matches_precedes_boolean_and_or": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "a368a11a0d1d428c6115380603696fbd7cc216e937c3ae272594d55dacff6fdd"
+  },
+  "ch16/test_assertion_default_strength_at_end_of_trace": {
+   "status": "pass",
+   "inputs_sha256": "3c512b3ed3394bca6d78a780f26499c37332ffa5ba70bf239e57523002ca68da"
+  },
+  "ch22/test_current_keyword_sets_nested_under_older_version": {
+   "status": "pass",
+   "inputs_sha256": "de604a3efa22c2d80be12e1f3d9f5089ebf2e9dcbbae539d59f7e12fb04e934c"
+  },
+  "ch7/test_empty_unpacked_concatenation_constant_primary": {
+   "status": "pass",
+   "inputs_sha256": "9a6e3c90d78b69979573028b0cf5a1fbd2504a8bf9d3ee2f48c00372455a4de2"
+  }
+ },
+ "generated_at": "2026-11-23T21:53:38.915661+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "2865c5a259b8ec636abaf794c15cd391f3f5a1a11baa58e6882c80009fb42ed1",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

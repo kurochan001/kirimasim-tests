@@ -1,0 +1,55 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build e1e4ff9291d5",
+ "tests": {
+  "ch13/test_nonansi_function_ports_share_declaration_with_distinct_unpacked_ranges": {
+   "status": "pass",
+   "inputs_sha256": "6845557c47764258f0761ca5e8c78c616e94928cccadbc5bf48d941f6ecdd881"
+  },
+  "ch23/test_illegal_upward_name_search_stops_at_class_member_path": {
+   "status": "pass",
+   "inputs_sha256": "3580605ff3f15b95964f3ff85bd91bb7630abb8d0250d9169495dec2d08e4150"
+  },
+  "ch23/test_illegal_upward_name_search_stops_at_covergroup_member_path": {
+   "status": "pass",
+   "inputs_sha256": "ef1b65cdc1cea959be7932bf7fd34fb97d2858cde601bf181286d1263f75ea10"
+  },
+  "ch23/test_illegal_upward_name_search_stops_at_struct_member_path": {
+   "status": "pass",
+   "inputs_sha256": "0dcf5a693e0a53831bfbb2030fd6a9dfdb4ecd5837289dab3cacff0f8252b58f"
+  },
+  "ch23/test_illegal_upward_name_search_stops_at_union_member_path": {
+   "status": "pass",
+   "inputs_sha256": "0c013469183e57148a041d79161012fc2a7d8a555ec60d49734e97b501c470f6"
+  },
+  "ch23/test_upward_name_search_continues_past_missing_generate_member": {
+   "status": "pass",
+   "inputs_sha256": "cc14fcd36f8fdb2a3e4c8c2016bb06a4c3c3f08471c789805f9e6d8ce6a610df"
+  },
+  "ch25/test_illegal_ref_modport_signal_used_as_timing_check_terminal": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "36294bc206541aba855a3a51facbf77c096b29c59506d6ec4c31460a83255859"
+  },
+  "ch25/test_illegal_specify_ref_port_terminal": {
+   "status": "pass",
+   "inputs_sha256": "f26d41fde77707625f1aa45148a40d5e30a2cd066ddbee8a0793d5b72aea9cb2"
+  },
+  "ch25/test_inout_interface_signal_serves_both_specify_terminal_directions": {
+   "status": "pass",
+   "inputs_sha256": "3d5b826c58a1c204602cf4f3d83bc98d34051379b48e66abe6ab29956c3fa61f"
+  },
+  "ch25/test_interface_specify_terminal": {
+   "status": "pass",
+   "inputs_sha256": "f598b29d0a19a2c2286336663e25b3e55d56f4816d91f22d760d7fb170e26e69"
+  }
+ },
+ "generated_at": "2026-11-23T23:06:33.431267+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "e1e4ff9291d53e44f3ae8ddade4625ca8add1da15e7e4663a1324986557472d8",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

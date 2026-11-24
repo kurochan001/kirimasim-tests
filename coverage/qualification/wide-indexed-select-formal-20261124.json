@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-24",
+  "source": "tests/ch11/test_wide_indexed_part_select_clips_nonzero_bounds.sv",
+  "toolchain": {
+    "oss_cad_suite": "20260816",
+    "yosys": "Yosys 0.68+71 (git sha1 dbe5b7c03-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+    "sby": "SBY v0.68"
+  },
+  "top": "wide_clip_writer",
+  "requirement": "SV2023-11.5.1-EXTRACT-PARTIAL-PART-SELECT",
+  "inputs": {
+    "seed_bits": 97,
+    "replacement_bits": 9,
+    "signed_base_bits": 9,
+    "assumptions": 0
+  },
+  "range": {
+    "left": 81,
+    "right": -15
+  },
+  "checks": [
+    "ascending plus",
+    "ascending minus",
+    "descending plus",
+    "descending minus"
+  ],
+  "proofs": [
+    {
+      "frontend": "readverilog",
+      "mode": "prove",
+      "depth": 4,
+      "status": "PASS",
+      "return_code": 0
+    },
+    {
+      "frontend": "slang",
+      "mode": "prove",
+      "depth": 4,
+      "status": "PASS",
+      "return_code": 0
+    }
+  ],
+  "mutation": {
+    "change": "Add one to the descending plus base.",
+    "frontend": "slang",
+    "mode": "bmc",
+    "depth": 1,
+    "status": "FAIL",
+    "return_code": 2
+  },
+  "source_sha256": "8cd7bf66f79ee529dcce455f991b3e75e22e561fbc49163cc20485528540e5b3"
+}

@@ -1,0 +1,3 @@
+centered: setuphold=0001111000 recrem=0001111000
+before: setuphold=0110000000 recrem=0110000000
+after: setuphold=0000000110 recrem=0000000110

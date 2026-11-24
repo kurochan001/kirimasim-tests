@@ -29,7 +29,7 @@ static PLI_INT32 put_calltf(PLI_BYTE8 *user_data)
     v.value.integer = 5;
     vpi_chk_error(NULL);
     vpi_put_value(arg, &v, NULL, vpiNoDelay);
-    vpi_printf((PLI_BYTE8 *)"argument %d: error %d\n", calls, vpi_chk_error(&info) != 0);
+    vpi_printf((PLI_BYTE8 *)"argument %d: error %d\n", calls, vpi_chk_error(&info) >= vpiError);
     return 0;
 }
 

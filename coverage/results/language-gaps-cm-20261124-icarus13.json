@@ -1,0 +1,33 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch9/test_partly_unknown_wide_delay_resumes_before_nonblocking_updates": {
+   "status": "pass",
+   "inputs_sha256": "c82ef7e508bb4b9a6029eecf55d6e72aefc2d6726512644d893594cd77baf7f5"
+  },
+  "ch9/test_runtime_realtime_delay_uses_package_task_time_scope": {
+   "status": "pass",
+   "inputs_sha256": "b4066a284d5e62e76b35984059682b0ce58cdf04105ea55b60aa9b34e352173d"
+  },
+  "ch9/test_signed_realtime_below_precision_rounds_to_inactive_delay": {
+   "status": "pass",
+   "inputs_sha256": "86d9eb103bdd193448455b18e15996c5997ae450a898e440a6ae48a01916f003"
+  },
+  "ch9/test_signed_realtime_rounded_zero_in_fork_resumes_before_nba": {
+   "status": "known",
+   "reason": "crashed (signal 6)",
+   "inputs_sha256": "ef073444477aa22f4548148212ec729835c5ab8b8d7c651f27bbc07bb25ee01d"
+  },
+  "ch9/test_virtual_timed_task_uses_time_scope_of_selected_method": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'override small method=1 elapsed=0', expected 'override small method=2 elapsed=50'",
+   "inputs_sha256": "2ae5297df7fa548c12ba3136ba446b554bf71be1cd9775051c6302516be3deab"
+  }
+ },
+ "generated_at": "2026-11-24T07:11:42.107088+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

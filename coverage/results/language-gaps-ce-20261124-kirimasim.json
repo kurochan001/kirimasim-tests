@@ -1,0 +1,51 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch38/test_vpi_force_and_release_concatenated_net_selections_and_variable": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "2662cc096c062f6614dac5a35ba9ae64e77a86aee66347c19e63c87b165994df"
+  },
+  "ch38/test_vpi_force_release_driver_kinds": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "4c7f4ca9e48da9c9e1ec7fce1f38d5ccb0d87b16ed7c7710fd118b67346ddd44"
+  },
+  "ch38/test_vpi_force_release_fixed_memory_word_keeps_other_words_independent": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "6866e332a3ecc757b25869c350ca726505674d7bf7a368ff1ffed1e656c5b426"
+  },
+  "ch38/test_vpi_force_release_net_part_select": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "774ee37dd3f115d415155cac362c23400ef06725361f24900f887d354c0d7b37"
+  },
+  "ch38/test_vpi_force_release_rejects_variable_and_user_nettype_selections": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "90232b604db5aa44fe9f89b4f8247d945c537e5ed875d616204b90dca3d21f78"
+  },
+  "ch38/test_vpi_force_release_vector_uses_interface_readback_and_ignores_time": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "20936f45c5ca3b0d0708be4e25e752ecd1e30bf1e868fdcfb0a66f2717181978"
+  },
+  "ch38/test_vpi_force_release_whole_resolved_user_nettype": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "d23ba433038762778a293e82eacf754a281bd2e28665d9325aeb1d194e7165b2"
+  },
+  "ch38/test_vpi_put_value_force_net_bit": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "c603db34487655f74321f5a6c5641bee0f8de474cab0fc765f20bec0189cf8cb"
+  }
+ },
+ "generated_at": "2026-11-24T06:19:51.661852+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

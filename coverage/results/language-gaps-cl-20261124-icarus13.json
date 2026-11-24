@@ -1,0 +1,28 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch11/test_operator_association_for_runtime_unknown_predicates": {
+   "status": "pass",
+   "inputs_sha256": "6404417684ff0a44d6895d081de8f43e40c350a5c4c50a660a318a5229066a36"
+  },
+  "ch11/test_operator_association_preserves_wide_and_real_runtime_grouping": {
+   "status": "pass",
+   "inputs_sha256": "57ca7b00d2e0b91dbf592f5d192a7267c6f53d9f83199a408dd6f837a7ffc5cb"
+  },
+  "ch21/test_vcd_shortreal_emits_real_records_from_exact_binary32_values": {
+   "status": "pass",
+   "inputs_sha256": "f19c19de51267f67527ac5eaf7e5b0e7318d90c9a1e2affb4d4a858636e4b0e5"
+  },
+  "ch23/test_bind_actual_can_reference_sibling_from_either_source_order": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_bind_actual_can_reference_sibling_from_either_source_order.sv:22: syntax error",
+   "inputs_sha256": "eae9249e0489fb817a7978bf319cdd6eb926920a3500066e0e24e5b76b8ea35c"
+  }
+ },
+ "generated_at": "2026-11-24T07:00:10.913126+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,5 @@
+mode=0 data=z selected=1 x-control=1
+mode=1 data=z selected=0 x-control=0
+mode=1 data=0 selected=1 x-control=0
+mode=0 data=1 selected=0 x-control=1
+mode=0 data=z selected=1 x-control=1

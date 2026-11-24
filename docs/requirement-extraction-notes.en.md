@@ -409,6 +409,8 @@ A.1.4 adds a semicolon after bind_instantiation, but every alternative in A.4.1 
 - Status at extraction: the clause is `in_progress`; approval of test mappings for the affected row is pending. The application relationship with the related formal definitions is confirmed with rationale before updating.
 - Reconsideration of 2026-10-24 (hold retained): decisive evidence is missing—normative text establishing that bind_directive needs only 1 terminating ';' (such as a correction to BNF or a note in A.10), or official errata. At present, a single ';' is supported only by informative examples and an inference from the explanation of 23.11 B008.
 
+- Acceptance criterion corrected on 2026-11-24. In a module body, the semicolon following a bind terminator is a valid empty item. A.1.4 reaches package_or_generate_item_declaration, which includes this item in A.1.11 and Syntax 26-1. The regression places two binds with constant instance selects in one module and verifies the selected connections with an empty item following one bind.
+
 <a id="sequence-copyout-direction--シーケンスのコピーアウト方向"></a>
 
 ## SEQUENCE-COPYOUT-DIRECTION — direction of the sequence copyout
@@ -520,6 +522,12 @@ N.2 uses long, LONG_MIN / LONG_MAX, signed multiplication, and a union of unsign
 - Ledger ID: `SV2023-N.2-EXTRACT-SEED-UPDATE-TEXT`.
 - Status at extraction: the clause is `in_progress`; approval of test mappings for the affected row is pending. The application relationship with the related formal definitions is confirmed with rationale before updating.
 - Reconsideration of 2026-10-24 (still pending): decisive evidence is missing—a normative statement or official interpretation specifying the integer model for evaluating the C code in N.2. For example: use 32-bit long/unsigned, wrap signed arithmetic modulo 2^32, and treat LONG_MIN / LONG_MAX as the 32-bit limits. The present state can only be inferred from the objective of reproducibility and the result of 32 bits.
+
+<a id="assertion-callback-registration"></a>
+
+## Assertion success and failure callback registration
+
+The registration routine in `SV2023-39.4.1-EXTRACT-SYSTEM-OFF-CALLBACK-TEXT` was corrected on 2026-11-24. Section 39.4.2 specifies `vpi_register_assertion_cb` for callbacks on individual assertions. Under 39.5.1, suspension preserves those registrations and allows outstanding attempts to complete. The same test checks new registrations during suspension and notification after resumption. [Registration and resumption test](../tests/ch39/test_vpi_assertion_callbacks_preserved_and_installed_while_stopped.sv)
 
 <a id="抽出中の訂正と記録の限界"></a>
 

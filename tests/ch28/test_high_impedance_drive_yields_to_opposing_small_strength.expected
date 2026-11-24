@@ -1,0 +1,4 @@
+source=0 only=HiZ St0 mixed=Sm1 St0
+source=1 only=St1 HiZ mixed=St1 Sm0
+source=x only=StH StL mixed=611 610
+source=z only=HiZ HiZ mixed=Sm1 Sm0

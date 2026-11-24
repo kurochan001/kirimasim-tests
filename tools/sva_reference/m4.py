@@ -118,11 +118,14 @@ def generate(test, *, refresh=False, iverilog_bin=None):
             raise Unsupported("procedural-report audit unexpectedly has concurrent directives")
         items = displays(module.stimulus)
         schedule = case.get("display_times")
-        if schedule is not None and len(schedule) != len(items):
-            raise Unsupported("M4 conditional-display schedule no longer applies")
+        if schedule is not None:
+            if len(schedule) != len(items):
+                raise Unsupported("M4 conditional-display schedule no longer applies")
+            # Each report can have one audited time or a list of audited times.
+            schedule = [times if isinstance(times, list) else [times] for times in schedule]
         for tick, sample in enumerate(trace.ticks):
             for i, item in enumerate(items):
-                if schedule is None or sample.time == schedule[i]:
+                if schedule is None or sample.time in schedule[i]:
                     display(item, tick)
     elif case["mode"] == "actions":
         if any((d.spec.clock, d.spec.edge) != (case["clock"], case["edge"]) for d in module.directives):

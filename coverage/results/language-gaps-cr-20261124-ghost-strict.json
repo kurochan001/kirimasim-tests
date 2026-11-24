@@ -1,0 +1,36 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch38/test_vpi_bulk_net_deposit_clears_when_equal_resolution_driver_changes": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "5c4ad46d2cf21e6b2669dac1bc275cddff7e986e152e0aed02055b70248a472a"
+  },
+  "ch38/test_vpi_class_reference_callbacks_report_identity_changes": {
+   "status": "pass",
+   "inputs_sha256": "71d89a23fa28c11f3c5c5f084267bd0db50783405cc36ea443f21985c870b7b7"
+  },
+  "ch38/test_vpi_net_array_deposit_works_from_system_task_and_timing_callback": {
+   "status": "pass",
+   "inputs_sha256": "b533c485b66ce77326f7a4ba6f6028ca52a8f68e4b7e871b248d5c118cfbabd2"
+  },
+  "ch38/test_vpi_timing_violation_callback_points_to_affected_check": {
+   "status": "pass",
+   "inputs_sha256": "714baa6f342866a174bbbf53ea0699d51b7f3467f589f3cbd24d09674cd4ff2c"
+  },
+  "ch38/test_vpi_unresolved_task_callback_supplies_called_name": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "d9b3a631cd9a1d7600090b0593321e98abd68a41b86468a54d79859959930bae"
+  }
+ },
+ "generated_at": "2026-11-24T07:36:21.674168+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

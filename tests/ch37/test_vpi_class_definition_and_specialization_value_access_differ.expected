@@ -1,0 +1,9 @@
+class routes same definition=1 distinct specializations=1
+definition members=11 unavailable=11
+first specialization members=11 own unavailable=1 shared=307
+second specialization members=11 own unavailable=1 shared=709
+class routes same definition=1 distinct specializations=1
+definition members=11 unavailable=11
+first specialization members=11 own unavailable=1 shared=311
+second specialization members=11 own unavailable=1 shared=709
+instance values=31 37 73 static values=311 709

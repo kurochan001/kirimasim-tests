@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch10/test_nba_array_struct_slices_capture_row_base_and_value": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'clipped bank0=2e/5123456789abcdef01 bank1=6d/5e9876543798...', expected 'clipped bank0=2e/5123456789abcdef07 bank1=65/5e9876543210...'",
+   "inputs_sha256": "46ef5a9d6e2b7f90786e8c02a2964fb15f4ca0c80df7ea21528aae41e028688f"
+  }
+ },
+ "generated_at": "2026-11-24T09:00:59.524836+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

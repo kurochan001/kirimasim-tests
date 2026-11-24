@@ -1,0 +1,2 @@
+gate error=1 udp error=1 variable error=0
+gate=0 udp=0 variable=1

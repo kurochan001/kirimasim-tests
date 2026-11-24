@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch11/test_wide_stream_unpack_inverts_short_chunk_permutation": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'mixed packed=1030000206f37bc6b8d9448e2 twice=1888d1d8e06e...', expected 'mixed packed=1030000206f37bc6b8d9448e2 twice=1888d1d8e06e...'",
+   "inputs_sha256": "302a43762ad72dcc4d9a7554070b2c0aec225b1f0f2a2be66a2ea47f56b939b7"
+  },
+  "ch11/test_wide_stream_unpacks_across_fields_and_converts_only_two_state_field": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_wide_stream_unpacks_across_fields_and_converts_only_two_state_field.sv:28:22: Unsupported tristate construct: ARG",
+   "inputs_sha256": "7f46f0975a040d1a08ce48b64c22b32362aff51a426eee8b0fa6688471147e46"
+  }
+ },
+ "generated_at": "2026-11-24T08:06:13.032445+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

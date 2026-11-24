@@ -1,0 +1,32 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch12/test_matches_precedes_boolean_and_or": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_matches_precedes_boolean_and_or.sv:18:23: Unsupported: matches operator",
+   "inputs_sha256": "a368a11a0d1d428c6115380603696fbd7cc216e937c3ae272594d55dacff6fdd"
+  },
+  "ch16/test_assertion_default_strength_at_end_of_trace": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_assertion_default_strength_at_end_of_trace.sv:27:20: Unsupported: strong property in assert.",
+   "inputs_sha256": "3c512b3ed3394bca6d78a780f26499c37332ffa5ba70bf239e57523002ca68da"
+  },
+  "ch22/test_current_keyword_sets_nested_under_older_version": {
+   "status": "pass",
+   "inputs_sha256": "de604a3efa22c2d80be12e1f3d9f5089ebf2e9dcbbae539d59f7e12fb04e934c"
+  },
+  "ch7/test_empty_unpacked_concatenation_constant_primary": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch7/test_empty_unpacked_concatenation_constant_primary.sv:14:35: Expecting expression to be constant, but can't convert a EMPTYQUEUE to constant.",
+   "inputs_sha256": "9a6e3c90d78b69979573028b0cf5a1fbd2504a8bf9d3ee2f48c00372455a4de2"
+  }
+ },
+ "generated_at": "2026-11-23T21:53:39.448552+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

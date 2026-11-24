@@ -1,0 +1,19 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch10/test_nba_array_struct_slices_capture_row_base_and_value": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "46ef5a9d6e2b7f90786e8c02a2964fb15f4ca0c80df7ea21528aae41e028688f"
+  }
+ },
+ "generated_at": "2026-11-24T09:00:58.433360+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

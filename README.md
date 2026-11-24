@@ -76,54 +76,54 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **16371 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **16535 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9017 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2943 |
-| The standard only, with no fixed-release simulator oracle recorded | 4411 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9035 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 2961 |
+| The standard only, with no fixed-release simulator oracle recorded | 4539 |
 
-4059 tests depend on x or z values (`:fourstate: yes`). 745 tests include C code. 193 use DPI (`:dpi_c:`) and 554 use VPI (`:vpi_c:`). A test can use both. 3066 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 95 tests check the exit code of the simulation (`:expected_exit:`). 35 tests list additional source or include files (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1299 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4068 tests depend on x or z values (`:fourstate: yes`). 779 tests include C code. 204 use DPI (`:dpi_c:`) and 577 use VPI (`:vpi_c:`). A test can use both. 3108 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 96 tests check the exit code of the simulation (`:expected_exit:`). 36 tests list additional source or include files (`:files:`), 4 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 56 name the top-level module or configuration (`:top_module:`), and 1300 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 152 | 117 | 15 | 20 |
 | 4 | Scheduling semantics | 481 | 444 | 8 | 29 |
 | 5 | Lexical conventions | 520 | 441 | 29 | 50 |
-| 6 | Data types | 905 | 565 | 173 | 167 |
-| 7 | Aggregate data types | 1113 | 326 | 487 | 300 |
-| 8 | Classes | 493 | 77 | 273 | 143 |
-| 9 | Processes | 464 | 344 | 53 | 67 |
+| 6 | Data types | 908 | 565 | 174 | 169 |
+| 7 | Aggregate data types | 1117 | 326 | 487 | 304 |
+| 8 | Classes | 498 | 77 | 274 | 147 |
+| 9 | Processes | 469 | 344 | 54 | 71 |
 | 10 | Assignment statements | 751 | 589 | 82 | 80 |
-| 11 | Operators and expressions | 2611 | 2018 | 235 | 358 |
-| 12 | Procedural programming statements | 312 | 214 | 33 | 65 |
-| 13 | Tasks and functions (subroutines) | 751 | 333 | 254 | 164 |
-| 14 | Clocking blocks | 172 |  | 102 | 70 |
-| 15 | Interprocess synchronization and communication | 206 | 2 | 65 | 139 |
-| 16 | Assertions | 802 | 38 | 122 | 642 |
-| 17 | Checkers | 129 |  | 49 | 80 |
-| 18 | Constrained random value generation | 292 | 4 | 134 | 154 |
-| 19 | Functional coverage | 246 |  | 71 | 175 |
-| 20 | Utility system tasks and system functions | 690 | 388 | 123 | 179 |
-| 21 | Input/output system tasks and system functions | 936 | 534 | 108 | 294 |
-| 22 | Compiler directives | 1326 | 1244 | 41 | 41 |
-| 23 | Modules and hierarchy | 419 | 281 | 57 | 81 |
+| 11 | Operators and expressions | 2617 | 2018 | 237 | 362 |
+| 12 | Procedural programming statements | 323 | 214 | 34 | 75 |
+| 13 | Tasks and functions (subroutines) | 756 | 333 | 256 | 167 |
+| 14 | Clocking blocks | 173 |  | 102 | 71 |
+| 15 | Interprocess synchronization and communication | 208 | 2 | 67 | 139 |
+| 16 | Assertions | 812 | 38 | 122 | 652 |
+| 17 | Checkers | 131 |  | 49 | 82 |
+| 18 | Constrained random value generation | 294 | 4 | 135 | 155 |
+| 19 | Functional coverage | 251 |  | 71 | 180 |
+| 20 | Utility system tasks and system functions | 698 | 388 | 123 | 187 |
+| 21 | Input/output system tasks and system functions | 939 | 535 | 109 | 295 |
+| 22 | Compiler directives | 1327 | 1244 | 42 | 41 |
+| 23 | Modules and hierarchy | 431 | 283 | 57 | 91 |
 | 24 | Programs | 221 | 37 | 38 | 146 |
-| 25 | Interfaces | 266 | 90 | 120 | 56 |
-| 26 | Packages | 265 | 93 | 70 | 102 |
-| 27 | Generate constructs | 286 | 232 | 21 | 33 |
-| 28 | Gate-level and switch-level modeling | 403 | 318 | 3 | 82 |
+| 25 | Interfaces | 273 | 90 | 123 | 60 |
+| 26 | Packages | 268 | 95 | 70 | 103 |
+| 27 | Generate constructs | 291 | 235 | 21 | 35 |
+| 28 | Gate-level and switch-level modeling | 414 | 322 | 3 | 89 |
 | 29 | User-defined primitives | 142 | 95 | 11 | 36 |
 | 30 | Specify blocks | 70 | 37 | 1 | 32 |
-| 31 | Timing checks | 66 | 17 | 1 | 48 |
-| 32 | Backannotation using the standard delay format | 68 | 19 |  | 49 |
+| 31 | Timing checks | 82 | 18 | 1 | 63 |
+| 32 | Backannotation using the standard delay format | 73 | 19 |  | 54 |
 | 33 | Configuring the contents of a design | 89 | 5 | 9 | 75 |
 | 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 190 |  | 120 | 70 |
+| 35 | Direct programming interface | 201 |  | 122 | 79 |
 | 36 | Programming language interface (PLI/VPI) overview | 89 | 34 | 19 | 36 |
-| 37 | VPI object model diagrams | 234 | 18 | 1 | 215 |
-| 38 | VPI routine definitions | 129 | 60 | 10 | 59 |
+| 37 | VPI object model diagrams | 249 | 19 | 1 | 229 |
+| 38 | VPI routine definitions | 135 | 64 | 10 | 61 |
 | 39 | Assertion API | 39 |  | 1 | 38 |
 | 40 | Code coverage control and API | 39 | 1 | 2 | 36 |
 <!-- suite-stats:end -->
@@ -313,13 +313,13 @@ The requirement denominator is **12,332 requirements**: those that the
 merging duplicate rows, with 34 rows that mixed an accepted and a rejected form
 each split in two with the owner's approval. The [history](docs/history.md)
 records how the denominator changed. The reviewer was an AI, not an independent human.
-Design coverage is **93.16% (11,489/12,332)**;
+Design coverage is **94.85% (11,697/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**51.26% (6,321/12,332)**.
-Of these rows, 6,031 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 88.24% (10,882/12,332).
-Clauses 1 to 40 alone are at 92.25% (8,763/9,499) design coverage.
+**51.63% (6,367/12,332)**.
+Of these rows, 6,075 are confirmed by a simulator and 290 by formal checks alone, which run no simulator.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 89.18% (10,998/12,332).
+Clauses 1 to 40 alone are at 94.03% (8,932/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.
@@ -579,7 +579,7 @@ it does not know.
 | `:spec_check:` | Who checked a `spec` expectation against the standard: `ai` (an AI model read the cited clauses; no person has checked this test yet) or `human` (a person checked it) |
 | `:fourstate:` | Whether the result depends on x or z values (`yes` / `no`). It usually does when the test has x or z literals, tri-state or strength constructs, or x or z in its expected output; a test that applies `$isunknown` or `casex`/`casez` only to known values can be `no`. The lint checks only the x and z literals |
 | `:nondeterministic:` | Whether the result can depend on an ordering the standard leaves open |
-| `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test. It is the fallback for every simulator that has no field of its own |
+| `:expected_stdout:` | Expected standard output, or `@<file>` naming a file next to the test. It is the fallback for every simulator that has no field of its own. An empty file is permitted when the test requires a diagnostic that cannot match empty text |
 | `:expected_stdout_<simulator>:` | Expected standard output for one simulator: `<simulator>` is `icarus`, `verilator`, `kirimasim` or `lyra`. It wins over `:expected_stdout:`, which may stay as the fallback for the other simulators. Add it only when the difference follows from the standard, such as a form the standard leaves to the tool, and say in the test comment why. Every referenced expectation file is part of the input fingerprint, so a change to any of them invalidates the stored execution evidence |
 | `:dpi_c:` | `@<file>`: C code next to the test that implements its DPI imports and calls its exports (chapter 35) |
 | `:vpi_c:` | `@<file>`: a VPI application next to the test, which registers its system tasks and callbacks from `vlog_startup_routines` (chapters 36 to 40) |

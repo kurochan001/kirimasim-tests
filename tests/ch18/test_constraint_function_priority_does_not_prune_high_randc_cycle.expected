@@ -1,0 +1,2 @@
+partition both=0 joint both=1 isolated cycle=1 bad solutions=0
+lower cycle=1

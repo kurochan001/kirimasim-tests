@@ -1,0 +1,36 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch26/test_illegal_wildcard_shadow_use_leaves_later_names_ambiguous": {
+   "status": "pass",
+   "inputs_sha256": "6136885afa7dfd10b825ff3a48b55bd87b2c592f96f8393fe8bada170323ebfa"
+  },
+  "ch26/test_package_qualified_reference_leaves_later_named_import_available": {
+   "status": "pass",
+   "inputs_sha256": "c9350e1918a5efdd5ce507d9b36800003b9e64b70530aa086cb8a349d340cdc1"
+  },
+  "ch26/test_wildcard_reference_in_generate_binds_name_in_enclosing_scope": {
+   "status": "fail",
+   "reason": "output differs (exit 1)",
+   "inputs_sha256": "7b7a4d75309b327c8448a90cd4c1bdba73243af06009f447b4e7729fd0d68335"
+  },
+  "ch9/test_always_comb_function_global_ignores_redundant_whole_writes": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "2bdb9311a868fd0f45e97252506accb01bd47777746699eb8f95bb5b23cfa7ce"
+  },
+  "ch9/test_always_comb_nested_function_reacts_only_to_real_slice_changes": {
+   "status": "pass",
+   "inputs_sha256": "6aa1e57c76b4263b27e375f317b0f94c8fb2fe08eaa9e1b525505af52fc2b757"
+  }
+ },
+ "generated_at": "2026-11-24T06:32:42.315175+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

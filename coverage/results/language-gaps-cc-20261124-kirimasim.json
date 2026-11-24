@@ -1,0 +1,44 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch20/test_elaboration_error_continues_across_parameter_instances": {
+   "status": "pass",
+   "inputs_sha256": "a1fe595f55bef1ab36d70c10d7f231f3b7a5101dc85790c7ffaa813c463d2f1c"
+  },
+  "ch20/test_elaboration_error_reports_each_instance_at_shared_source_site": {
+   "status": "pass",
+   "inputs_sha256": "e66330e2621ecbd690df2cb92c16e5690879a3cf9ea3e129ce6b899509f9f469"
+  },
+  "ch20/test_elaboration_fatal_reports_logical_location_and_blocks_simulation": {
+   "status": "fail",
+   "reason": "no message matches '(?im)\\\\A(?![\\\\s\\\\S]*^SIMULATION_STARTED$)(?![\\\\s\\\\S]*DORMANT_FATAL_SITE)(?=[\\\\s\\\\S]*^(?=[^\\\\n]*logical_elab_fatal\\\\.sv:427(?::|\\\\b))(?=[^\\\\n]*\\\\bfatal\\\\b)[^\\\\n]*SELECTED_FATAL_SITE FILE=logical_elab_fatal\\\\.sv LINE=427(?:[^\\\\n]*\\\\n[ \\\\t]+){0,3}[^\\\\n]*test_elaboration_fatal_reports_logical_location_and_blocks_simulation\\\\.u\\\\.winner)'",
+   "inputs_sha256": "ab373cb4bee89c2095d6669c49cb4324b91c2fb3c57feda27232780eb38753d6"
+  },
+  "ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting": {
+   "status": "unsupported",
+   "reason": "elaboration system task (not implemented yet)",
+   "inputs_sha256": "6243f815d166e63f0a70c715a025813b2946bed1baade1aac3c57e0778b4542d"
+  },
+  "ch21/test_vcd_and_evcd_share_timescale_and_absolute_timestamp_semantics": {
+   "status": "unsupported",
+   "reason": "system task $dumpports (not implemented yet)",
+   "inputs_sha256": "8cb36bbb25f3f44c3ac6d8c1f756f3ad6c24f7712fa9c2f81117b3182ea61a33"
+  },
+  "ch35/test_dpi_matching_scalar_version_crosses_package_and_module": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "b8921e4834e08a60c55e013e6a8524dfb01d7a0a2e12300ad0d15430f1a67e33"
+  },
+  "ch35/test_illegal_dpi_version_mismatch_across_package_and_module": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "e4479bd220269ce27d5d8101afc08dfb7530b0765af168156483a755edf5448d"
+  }
+ },
+ "generated_at": "2026-11-24T06:04:05.899713+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

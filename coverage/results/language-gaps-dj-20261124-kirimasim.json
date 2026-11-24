@@ -1,0 +1,36 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch11/test_constant_primary_null_empty_arrays_and_operator_attributes": {
+   "status": "pass",
+   "inputs_sha256": "58d28482681840e6cf697291431174d102c1ce019ebc23ab15c04a9c670e9155"
+  },
+  "ch11/test_constant_primary_selectors_on_expressions_and_calls": {
+   "status": "pass",
+   "inputs_sha256": "0b48b50455f7e178c8b16a3846e3913fdb45bc86996c7b304044a180a9576a49"
+  },
+  "ch11/test_constant_primary_type_cast_pattern_and_generated_index": {
+   "status": "pass",
+   "inputs_sha256": "08002560d6bf8fd9c58771c5279d65e13e512027a46a2d9b0d93924cfe8110fa"
+  },
+  "ch11/test_general_expression_operators_and_tagged_value": {
+   "status": "unsupported",
+   "reason": "tagged union expression (not implemented yet)",
+   "inputs_sha256": "09619bda7b295e829f21b559a18e2e1d38c1230e640bf5c2d189b7ca1d0eb1da"
+  },
+  "ch11/test_mintypmax_uses_positional_alternatives_across_contexts": {
+   "status": "pass",
+   "inputs_sha256": "39660af30824e995fbd3875ca8d5ff7e940e40f6c74b1b454e4b3ebddf4a1e93"
+  },
+  "ch11/test_specparam_constant_slices_set_two_path_delays": {
+   "status": "pass",
+   "inputs_sha256": "5055d0bfa90f41ccb807e759a81d4c2e3c1438ea6b43fb78de7fee524e0dc7f6"
+  }
+ },
+ "generated_at": "2026-11-24T08:50:58.352335+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

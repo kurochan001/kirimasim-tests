@@ -1,0 +1,37 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch31/test_31_extra_recrem_negative_limits": {
+   "status": "known",
+   "reason": "output differs: line 2 is 't=12 rst_n=1 drst=1 clk=1 dclk=0 q=0', expected 't=12 rst_n=1 drst=1 clk=1 dclk=1 q=1'",
+   "inputs_sha256": "1595664c07bdd288a6a210448a248f6477888d5fb9c9ef815ee9096da5069f32"
+  },
+  "ch31/test_illegal_recrem_negative_recovery_sum_at_precision": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "cd146b06602b661f8a13fe5485c3417603f3a130ca554db198529b31a6cdb994"
+  },
+  "ch31/test_illegal_recrem_negative_removal_sum_at_precision": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "8bceee9cb749c5cd3c16e51f8a861289e2b4d77cb95aaed43346cfab147e9d06"
+  },
+  "ch31/test_recrem_allows_both_negative_limit_signs_above_sum_boundary": {
+   "status": "pass",
+   "inputs_sha256": "7b035ae3eb4cf1d881766b488cc0ac7b7c53ebc33a61033cefb47477cf811480"
+  },
+  "ch31/test_recrem_negative_limits_apply_timestamp_and_timecheck_conditions": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'negative recovery=0 stamp_off=0 check_off=0 outside=0', expected 'negative recovery=1 stamp_off=0 check_off=0 outside=0'",
+   "inputs_sha256": "33e04743a2d0ecd2695d4953344e1e3243611cdeae340b57907edda3b04bac46"
+  }
+ },
+ "generated_at": "2026-11-24T00:09:16.402042+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

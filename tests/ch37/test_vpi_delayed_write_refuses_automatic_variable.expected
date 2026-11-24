@@ -1,0 +1,4 @@
+static scheduled=1 error=0
+automatic scheduled=0 error=1
+automatic value=0
+static value=31

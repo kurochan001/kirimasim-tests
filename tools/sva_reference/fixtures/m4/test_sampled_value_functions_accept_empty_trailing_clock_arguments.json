@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "protocol": "sva-reference-m0-v1",
+  "producer": "iverilog@13.0",
+  "inputs_sha256": "b3ae674c6f5d6c1d28bab16ad50122c6949982280687a5d60050aa350fb2426b",
+  "signals": [
+    "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left",
+    "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right",
+    "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample",
+    "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample",
+    "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb"
+  ],
+  "trace": {
+    "timescale": "1ns",
+    "clock": "test_sampled_value_functions_accept_empty_trailing_clock_arguments.clk",
+    "edge": "posedge",
+    "widths": {
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": 4,
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": 4,
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": 1,
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": 1,
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": 1
+    },
+    "ticks": [
+      {
+        "time": 5,
+        "sampled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "1"
+        },
+        "settled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "1"
+        }
+      },
+      {
+        "time": 15,
+        "sampled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0010",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "0"
+        },
+        "settled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0010",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "0"
+        }
+      },
+      {
+        "time": 25,
+        "sampled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "0"
+        },
+        "settled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "0"
+        }
+      },
+      {
+        "time": 35,
+        "sampled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0010",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "1"
+        },
+        "settled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0010",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0001",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "1"
+        }
+      },
+      {
+        "time": 45,
+        "sampled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "0"
+        },
+        "settled": {
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right": "0000",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample": "1",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample": "0",
+          "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb": "0"
+        }
+      }
+    ],
+    "end_time": 50
+  },
+  "projection": {
+    "protocol": "m4-static-sampled-v1",
+    "source_sha256": "a35afe94c0f3e647e294cb479660e20c7d02299d82abd90ba8c8b3498a8c4756",
+    "projection_sha256": "60d5f47a11f28c36b4c58aa6dbb990e2c19131484336dc8282a6bd981d85bb4f",
+    "clock": "test_sampled_value_functions_accept_empty_trailing_clock_arguments.clk",
+    "edge": "posedge",
+    "signals": [
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.left",
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.right",
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.enable_sample",
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.inhibit_sample",
+      "test_sampled_value_functions_accept_empty_trailing_clock_arguments.sum_lsb"
+    ],
+    "types": {
+      "left": {
+        "width": 4,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      },
+      "right": {
+        "width": 4,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      },
+      "enable_sample": {
+        "width": 1,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      },
+      "inhibit_sample": {
+        "width": 1,
+        "signed": false,
+        "two_state": true,
+        "lsb": 0,
+        "ascending": false
+      },
+      "sum_lsb": {
+        "width": 1,
+        "signed": false,
+        "two_state": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "defaults": {
+      "left": {
+        "bits": "0000",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "right": {
+        "bits": "0000",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "enable_sample": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "inhibit_sample": {
+        "bits": "0",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      },
+      "sum_lsb": {
+        "bits": "x",
+        "signed": false,
+        "fill": false,
+        "lsb": 0,
+        "ascending": false
+      }
+    },
+    "current_mode": null
+  }
+}

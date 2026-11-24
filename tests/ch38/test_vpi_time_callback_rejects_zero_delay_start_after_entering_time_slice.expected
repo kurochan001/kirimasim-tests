@@ -1,0 +1,9 @@
+registered in-slice=1
+registered start=1
+active t=3
+read write time=0:3
+late start rejected=1 vpi-error=1
+start region time=0:6
+same region registered=1
+same region time=0:6
+fixture t=7

@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch12/test_pattern_case_priority_allows_overlap_and_reports_miss": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch12/test_pattern_case_priority_allows_overlap_and_reports_miss.sv:23:14: syntax error, unexpected &&&, expecting ':' or :-then-begin or :-then-fork",
+   "inputs_sha256": "bb36647b075de74ac615f428dd96e5a688743685b8cb376c311981c937dcf372"
+  },
+  "ch12/test_pattern_case_unique_reports_overlap_and_miss": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch12/test_pattern_case_unique_reports_overlap_and_miss.sv:23:14: syntax error, unexpected &&&, expecting ':' or :-then-begin or :-then-fork",
+   "inputs_sha256": "da1771a19267a2f53d5f4652ea7a04ad485127e3dc3d602de6f7c17f1ab44118"
+  },
+  "ch21/test_scan_reports_destination_for_suppressed_conversion": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch21/test_scan_reports_destination_for_suppressed_conversion.sv:20:11: Internal: Missing or extra arguments for $display-like format,  expression had 1, format had 0",
+   "inputs_sha256": "6cc121693e9ad6718957af75abd5c6563c92af6527305db8dc2b9086e72e6e7e"
+  }
+ },
+ "generated_at": "2026-11-23T23:20:38.859042+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

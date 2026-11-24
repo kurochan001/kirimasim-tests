@@ -1,0 +1,48 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch32/test_sdf_interconnect_down_hierarchy_includes_all_sources_above_the_source_port": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'source: 20 60 100 load: 20 60 100 direct: 20 60 100', expected 'source: 20 60 100 load: 25 65 100 direct: 20 60 100'",
+   "inputs_sha256": "5bcd95cf8ce706d78d4b26e7d92fea60e642a443119d8750940ad0d2ab893f60"
+  },
+  "ch32/test_sdf_interconnect_overlaps_parent_and_child_loads": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'parent then child: branch=20 regular=20 special=20', expected 'parent then child: branch=24 regular=24 special=29'",
+   "inputs_sha256": "41a2b219a7a8b5fab8a40bbbf7a2d577ea9fe4ab11011eb2ee74cc30f3d2cae4"
+  },
+  "ch32/test_sdf_interconnect_up_hierarchy_delays_connected_ports_after_load": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'source=20 below=20 ancestor=20 above=20,20', expected 'source=20 below=20 ancestor=26 above=26,26'",
+   "inputs_sha256": "14441d987bd406bf79ae99cacdf3c996d4e869d665740d3118faecedc15278ee"
+  },
+  "ch32/test_sdf_log_file_records_each_annotated_path": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'a=0 b=0', expected 'a=3 b=7'",
+   "inputs_sha256": "e8707b6462d803867014adae876a3c7ade6168d7885acc0c0b7eb07a9478f435"
+  },
+  "ch32/test_sdf_mtm_spec": {
+   "status": "known",
+   "reason": "output differs: line 1 is '10: y1=1 y2=1', expected '12: y1=1 y2=0'",
+   "inputs_sha256": "584940a70903bf6a56ab6d1960abf8aa2f9df54f79d71b6673b5f85064b636fc"
+  },
+  "ch32/test_sdf_scale_type_members": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'w0, not annotated: 0', expected 'w0, not annotated: 1'",
+   "inputs_sha256": "cd4c7556f81151413b2792a433132344b7f2067bc7383fc12dee4a7ba2077c70"
+  },
+  "ch32/test_sdf_task_arguments_override_configuration_scaling": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'default=0 config=0 other=0', expected 'default=5 config=6 other=10'",
+   "inputs_sha256": "07253459ff328dd00315fd6d57f11dbabc2134353284c921d7e29d43c1b5c671"
+  }
+ },
+ "generated_at": "2026-11-24T00:05:58.823376+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

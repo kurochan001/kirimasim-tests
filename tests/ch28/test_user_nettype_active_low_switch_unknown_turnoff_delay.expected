@@ -1,0 +1,9 @@
+initial left=5 right=7
+before turn-on left=5 right=7
+after turn-on left=12 right=12
+before x turn-off left=12 right=12
+after x turn-off left=5 right=7
+after rejoin left=12 right=12
+before z turn-off left=12 right=12
+after z turn-off left=5 right=7
+left changes: 12:12 25:5 32:12 45:5

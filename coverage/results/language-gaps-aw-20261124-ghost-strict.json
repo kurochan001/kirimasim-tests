@@ -1,0 +1,36 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch39/test_vpi_assertion_fail_action_change_callbacks_precede_first_attempt": {
+   "status": "pass",
+   "inputs_sha256": "e6dbd8c981d0413ff17b52482666a79022cd1c607ea80fdd3852e374b89d28f9"
+  },
+  "ch39/test_vpi_assertion_sys_end_discards_and_blocks": {
+   "status": "pass",
+   "inputs_sha256": "f62e233761932a9eb896ac853800dd1f310488c495df3c3a626592fb7018a156"
+  },
+  "ch39/test_vpi_assertion_system_fail_action_controls_respect_scope": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "e6c3c2053fbbf460e847d5a3fc4ba31009a90399b3ba4f68ddfea5bd4f4237c5"
+  },
+  "ch39/test_vpi_assertion_system_notifications_follow_lifecycle": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "9a15e03bb4b77eab60dec5f889fdd4964cc0191762c28478e8737fc4f95d5334"
+  },
+  "ch39/test_vpi_assertion_terminal_notification_ignores_restart": {
+   "status": "pass",
+   "inputs_sha256": "1b09e2fc9b0fc7ace992e3dd8543b8c66f0bc07b85aa25aad4de5daade041526"
+  }
+ },
+ "generated_at": "2026-11-24T01:14:42.249576+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

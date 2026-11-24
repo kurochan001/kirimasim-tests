@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch23/test_bind_instance_can_be_followed_by_an_empty_module_item": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch23/test_bind_instance_can_be_followed_by_an_empty_module_item.sv:23:66: syntax error, unexpected '.'",
+   "inputs_sha256": "9e3ad5886af76eb33bcd7820f2278f36b2fac5eae28a224873827725acae8f08"
+  },
+  "ch37/test_vpi_generate_typedef_and_nettype_iterations_are_local": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_generate_typedef_and_nettype_iterations_are_local.sv:16:3: Unsupported: nettype",
+   "inputs_sha256": "501fbdcf8f77551a7d2b8cee9780d3bfbfb0f94ff4ab6ea38ffadc8034abe7f4"
+  },
+  "ch37/test_vpi_legacy_array_property_on_module_instances": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'instances legacy=0/1 member=0/1'",
+   "inputs_sha256": "f503297c03ee6b9be488522c85421269d523b23d67b3834c030cfe708d6ff3f5"
+  },
+  "ch37/test_vpi_legacy_array_property_on_net_elements": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'nets legacy=0/1 member=0/1'",
+   "inputs_sha256": "2ed358897850fbf094a68688e02727e877da0bf4cf2ac6c614bc429058a60ce6"
+  },
+  "ch37/test_vpi_port_bit_excludes_name_and_port_index": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vector port not found', expected 'port index=0'",
+   "inputs_sha256": "0819bebb4616fa70c8331ceea0bcecb7e30140c8b61cc6919e8a84a0c3683f69"
+  }
+ },
+ "generated_at": "2026-11-23T23:20:42.283724+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

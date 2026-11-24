@@ -1,0 +1,48 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch38/test_vpi_force_and_release_concatenated_net_selections_and_variable": {
+   "status": "known",
+   "reason": "crashed (signal 6)",
+   "inputs_sha256": "2662cc096c062f6614dac5a35ba9ae64e77a86aee66347c19e63c87b165994df"
+  },
+  "ch38/test_vpi_force_release_driver_kinds": {
+   "status": "pass",
+   "inputs_sha256": "4c7f4ca9e48da9c9e1ec7fce1f38d5ccb0d87b16ed7c7710fd118b67346ddd44"
+  },
+  "ch38/test_vpi_force_release_fixed_memory_word_keeps_other_words_independent": {
+   "status": "known",
+   "reason": "compile failed: tests/ch38/test_vpi_force_release_fixed_memory_word_keeps_other_words_independent.sv:38: vvp.tgt sorry: cannot %force/vec4 to the word of a variable array (memory_sv[3]).",
+   "inputs_sha256": "6866e332a3ecc757b25869c350ca726505674d7bf7a368ff1ffed1e656c5b426"
+  },
+  "ch38/test_vpi_force_release_net_part_select": {
+   "status": "pass",
+   "inputs_sha256": "774ee37dd3f115d415155cac362c23400ef06725361f24900f887d354c0d7b37"
+  },
+  "ch38/test_vpi_force_release_rejects_variable_and_user_nettype_selections": {
+   "status": "known",
+   "reason": "compile failed: tests/ch38/test_vpi_force_release_rejects_variable_and_user_nettype_selections.sv:15: syntax error",
+   "inputs_sha256": "90232b604db5aa44fe9f89b4f8247d945c537e5ed875d616204b90dca3d21f78"
+  },
+  "ch38/test_vpi_force_release_vector_uses_interface_readback_and_ignores_time": {
+   "status": "pass",
+   "inputs_sha256": "20936f45c5ca3b0d0708be4e25e752ecd1e30bf1e868fdcfb0a66f2717181978"
+  },
+  "ch38/test_vpi_force_release_whole_resolved_user_nettype": {
+   "status": "known",
+   "reason": "compile failed: tests/ch38/test_vpi_force_release_whole_resolved_user_nettype.sv:21: syntax error",
+   "inputs_sha256": "d23ba433038762778a293e82eacf754a281bd2e28665d9325aeb1d194e7165b2"
+  },
+  "ch38/test_vpi_put_value_force_net_bit": {
+   "status": "known",
+   "reason": "output differs: line 1 is '15: after vpiForceFlag of m[0] to 1, m=10', expected '15: after vpiForceFlag of m[0] to 1, m=11'",
+   "inputs_sha256": "c603db34487655f74321f5a6c5641bee0f8de474cab0fc765f20bec0189cf8cb"
+  }
+ },
+ "generated_at": "2026-11-24T06:19:52.569800+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

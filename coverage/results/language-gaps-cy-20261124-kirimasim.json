@@ -1,0 +1,26 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements": {
+   "status": "unsupported",
+   "reason": "associative key field of this type (not implemented yet)",
+   "inputs_sha256": "a1d46b32ea1a1c59c5e9c40c75dbd02f42369ae233310806e6abd5b763ad50d5"
+  },
+  "ch7/test_assoc_signed_invalid_keys_return_user_default": {
+   "status": "unsupported",
+   "reason": "variable of type 'logic[15:0]$[test_assoc_signed_invalid_keys_return_user_default.key_t]' (not implemented yet)",
+   "inputs_sha256": "c3ab21a006b81ebf13dbaac9de2bbab4737cc035f054d9d6b8bfe249ed19c564"
+  },
+  "ch7/test_assoc_wildcard_wide_invalid_keys_do_not_collapse": {
+   "status": "unsupported",
+   "reason": "wildcard associative index (not implemented yet)",
+   "inputs_sha256": "8fc33e95c95a58d6dd4d4c5b6d0896594aa1d1be53401cf707074c2b74b8c18e"
+  }
+ },
+ "generated_at": "2026-11-24T08:09:35.044947+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

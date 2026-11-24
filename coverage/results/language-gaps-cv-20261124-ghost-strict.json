@@ -1,0 +1,22 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch11/test_wide_stream_unpack_inverts_short_chunk_permutation": {
+   "status": "pass",
+   "inputs_sha256": "302a43762ad72dcc4d9a7554070b2c0aec225b1f0f2a2be66a2ea47f56b939b7"
+  },
+  "ch11/test_wide_stream_unpacks_across_fields_and_converts_only_two_state_field": {
+   "status": "pass",
+   "inputs_sha256": "7f46f0975a040d1a08ce48b64c22b32362aff51a426eee8b0fa6688471147e46"
+  }
+ },
+ "generated_at": "2026-11-24T08:06:11.642652+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

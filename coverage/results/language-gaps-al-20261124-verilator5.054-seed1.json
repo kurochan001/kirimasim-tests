@@ -1,0 +1,48 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch28/test_aliased_user_nettype_switch_connects_original_and_renamed_nets": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_aliased_user_nettype_switch_connects_original_and_renamed_nets.sv:19:3: Unsupported: nettype with",
+   "inputs_sha256": "2a7be620ee487d2c9b8f4f7d6cee60cd858e6e1968b5fee609dab7192c85a736"
+  },
+  "ch28/test_illegal_pass_switch_distinct_user_nettypes": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_pass_switch_distinct_user_nettypes\\\\.sv:23:(?:\\\\d+:)?[^\\\\n]*(?i:(?:different|incompatible|mismatch|mix|built.in|resistive|rtran)[^\\\\n]*(?:nettype|net type|terminal|net)|(?:nettype|net type|terminal|net)[^\\\\n]*(?:different|incompatible|mismatch|mix|built.in|resistive|rtran))'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_pass_switch_distinct_user_nettypes.sv:19:3: Unsupported: nettype with",
+   "inputs_sha256": "333de7ca0c555d0b4b1e544c3676c8d7fb3bafc2eff0208f48a4000df67db547"
+  },
+  "ch28/test_illegal_pass_switch_resistive_switch_on_user_defined_nettype": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_pass_switch_resistive_switch_on_user_defined_nettype\\\\.sv:21:(?:\\\\d+:)?[^\\\\n]*(?i:(?:rtran|resistive)[^\\\\n]*(?:net|terminal)|(?:gate|switch)[^\\\\n]*(?:cannot connect|requires)[^\\\\n]*user.defined net type)'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_pass_switch_resistive_switch_on_user_defined_nettype.sv:19:3: Unsupported: nettype with",
+   "inputs_sha256": "721df63c9bda1b33ec441845baa3a05e9c833700912a729cc5e171d2a6db2186"
+  },
+  "ch28/test_illegal_pass_switch_user_defined_and_builtin_nettypes": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_pass_switch_user_defined_and_builtin_nettypes\\\\.sv:22:(?:\\\\d+:)?[^\\\\n]*(?i:(?:different|incompatible|mismatch|mix|built.in|resistive|rtran)[^\\\\n]*(?:nettype|net type|terminal|net)|(?:nettype|net type|terminal|net)[^\\\\n]*(?:different|incompatible|mismatch|mix|built.in|resistive|rtran))'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_pass_switch_user_defined_and_builtin_nettypes.sv:19:3: Unsupported: nettype with",
+   "inputs_sha256": "243516a86f21f2a372a23d4c541de2b69999a7144d95fdf0ec01fd92c791b7eb"
+  },
+  "ch28/test_illegal_resistive_pass_switch_vector_terminals": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_resistive_pass_switch_vector_terminals\\\\.sv:18:(?:\\\\d+:)?[^\\\\n]*(?i:(?:width|scalar|bits|cannot connect|expects))'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_resistive_pass_switch_vector_terminals.sv:17:12: Unsupported: Verilog 1995 gate primitive: rtranif1",
+   "inputs_sha256": "76de5a388623902ce987d9b16972fa478f1ed1a89777e944f247868df2a03c24"
+  },
+  "ch28/test_user_nettype_active_low_switch_unknown_turnoff_delay": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_user_nettype_active_low_switch_unknown_turnoff_delay.sv:19:3: Unsupported: nettype with",
+   "inputs_sha256": "fee56dde6a6da520888c92bce9b017e989cf2422427282cacb9c89847f602473"
+  },
+  "ch28/test_user_nettype_switch_and_driver_strength": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_user_nettype_switch_and_driver_strength.sv:37:3: Unsupported: nettype with",
+   "inputs_sha256": "fdbe196af559b92f8850d231757767686265d79ff6ae9666393de2b530c96cf2"
+  }
+ },
+ "generated_at": "2026-11-24T00:12:47.754843+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

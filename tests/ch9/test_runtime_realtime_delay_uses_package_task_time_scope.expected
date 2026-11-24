@@ -1,0 +1,3 @@
+below fine half step coarse=0 fine=40
+above fine half step coarse=0 fine=50
+between coarse steps coarse=100 fine=150

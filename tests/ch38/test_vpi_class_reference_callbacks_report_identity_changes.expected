@@ -1,0 +1,8 @@
+start class-kind=1 distinct-ids=1 registered=1/1
+design values=44/22/33
+changes=5 pulses=7
+t=2 identity=first opaque=1 same-handle=1
+t=5 identity=second opaque=1 same-handle=1
+t=6 identity=null opaque=1 same-handle=1
+t=7 identity=first opaque=1 same-handle=1
+t=8 identity=new opaque=1 same-handle=1

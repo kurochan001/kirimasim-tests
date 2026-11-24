@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "simulator": "Ghost",
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "assertion": "tools/test_ghost_sdf_annotation_log.py",
+  "conditions": [
+    "--quiet",
+    "--lrm-strict"
+  ],
+  "source_clauses": [
+    "32.9"
+  ],
+  "test": "tests/ch32/test_sdf_log_file_records_each_annotated_path.sv",
+  "inputs_sha256": "e8707b6462d803867014adae876a3c7ade6168d7885acc0c0b7eb07a9478f435",
+  "requested_log": "selected_annotation.log",
+  "simulated_delays": {
+    "destination_a": 3,
+    "destination_b": 7
+  },
+  "expected_individual_path_entries": [
+    "destination_a",
+    "destination_b"
+  ],
+  "actual_individual_path_entries": [],
+  "actual_summary": {
+    "path_delay_count": 2,
+    "timing_check_count": 0
+  },
+  "status": "fail"
+}

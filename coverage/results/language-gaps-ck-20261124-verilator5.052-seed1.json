@@ -1,0 +1,32 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch21/test_evcd_real_ports_use_sixteen_significant_digits": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_evcd_real_ports_use_sixteen_signif...', expected 'control.vcd t=0 in=1.234567890123456 out=-1.234567890123456'",
+   "inputs_sha256": "33e45912863aaa67449471d70a3aefcaa12b851076d3be5b9c88bde426a048b1"
+  },
+  "ch23/test_bind_output_port_drives_pulled_net_in_target_scope": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'released bound=00 local=00 no-pull=00 undriven=00', expected 'released bound=00 local=00 no-pull=zz undriven=00'",
+   "inputs_sha256": "9667fec6fad9dde96d3c25586d2d8b910752c4cd57b8380352f44022e2c65722"
+  },
+  "ch23/test_bind_uses_configuration_at_directive_for_scope_and_instance": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch23/test_bind_uses_configuration_at_directive_for_scope_and_instance.sv:42:72: syntax error, unexpected '.'",
+   "inputs_sha256": "8e0eee404dbc994db52549049f165e2d2216d82444d7cacaf182fd0c5b014619"
+  },
+  "ch23/test_bound_constant_output_overrides_pull_driver": {
+   "status": "pass",
+   "inputs_sha256": "feff050bdfdf04b8a753c79fe57d9d4ff32f6609ee06532b2e74c07f37ecbb97"
+  }
+ },
+ "generated_at": "2026-11-24T06:53:01.935324+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

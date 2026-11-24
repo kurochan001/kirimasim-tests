@@ -1,0 +1,20 @@
+packed elements get=0 values=21,38
+packed elements put=0
+packed after put=77
+net elements get=0 values=17,23
+net elements put=0
+net after put=77
+unpacked elements get=1 values=none
+unpacked elements put=1
+string elements get=1 values=none
+string elements put=1
+dynamic array get=1 values=none
+dynamic array put=1
+automatic local before put=41
+automatic local automatic=1
+automatic local get=1 values=none
+automatic local put=1
+static local automatic=0
+static local get=0 values=47,48
+static local put=0
+static local after put=77

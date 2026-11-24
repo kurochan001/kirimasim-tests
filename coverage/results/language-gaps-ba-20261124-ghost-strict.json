@@ -1,0 +1,41 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch20/test_elaboration_error_selected_scope_observation": {
+   "status": "pass",
+   "inputs_sha256": "6f33bae5a5a48f81cbfff4cd06c84132026f83d178d0f143aba5558b62fb0b70"
+  },
+  "ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting": {
+   "status": "fail",
+   "reason": "no message matches '(?im)\\\\A(?=[\\\\s\\\\S]*^(?=[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.sv:16(?::|\\\\b))(?=[^\\\\n]*\\\\b(?:warning|warn)\\\\b)[^\\\\n]*\\\\bSELECTED_ONE_MARKER\\\\b(?:[^\\\\n]*\\\\n[ \\\\t]+){0,3}[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.alpha\\\\.warn_site)(?=[\\\\s\\\\S]*^(?=[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.sv:19(?::|\\\\b))(?=[^\\\\n]*\\\\b(?:info|note)\\\\b)[^\\\\n]*\\\\bSELECTED_TWO_MARKER\\\\b(?:[^\\\\n]*\\\\n[ \\\\t]+){0,3}[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.beta\\\\.info_site)'",
+   "inputs_sha256": "6243f815d166e63f0a70c715a025813b2946bed1baade1aac3c57e0778b4542d"
+  },
+  "ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation": {
+   "status": "pass",
+   "inputs_sha256": "b9027ec19bd75663234dc102ef5edc4a2cd9c55739e74e631fd177d54f078898"
+  },
+  "ch21/test_ch21_extra_readmem_enum_values": {
+   "status": "pass",
+   "inputs_sha256": "d5fc8fd68444d2f693d85e45f9a732f6f52536f4ad585b65efd45e5c7427bda5"
+  },
+  "ch21/test_readmemb_stops_after_enum_value_beyond_base_range": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "48884cdbb27d61fc59cc531d7334ec3960b75922b5e37ec64f8e56f856444046"
+  },
+  "ch21/test_readmemh_stops_after_enum_value_beyond_base_range": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "2c1949fea60dd64fec5cfc10f2dd22dd0eb54284db8248fb9327dfb7f1191076"
+  }
+ },
+ "generated_at": "2026-11-24T01:34:46.643002+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

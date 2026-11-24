@@ -1,0 +1,16 @@
+a=0 b=0 direct=00 inout-local=00 remote=00
+a=0 b=1 direct=01 inout-local=01 remote=01
+a=0 b=x direct=0x inout-local=0x remote=0x
+a=0 b=z direct=00 inout-local=00 remote=00
+a=1 b=0 direct=01 inout-local=01 remote=01
+a=1 b=1 direct=11 inout-local=11 remote=11
+a=1 b=x direct=x1 inout-local=x1 remote=x1
+a=1 b=z direct=11 inout-local=11 remote=11
+a=x b=0 direct=0x inout-local=0x remote=0x
+a=x b=1 direct=x1 inout-local=x1 remote=x1
+a=x b=x direct=xx inout-local=xx remote=xx
+a=x b=z direct=xx inout-local=xx remote=xx
+a=z b=0 direct=00 inout-local=00 remote=00
+a=z b=1 direct=11 inout-local=11 remote=11
+a=z b=x direct=xx inout-local=xx remote=xx
+a=z b=z direct=zz inout-local=zz remote=zz

@@ -1,0 +1,48 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch20/test_elaboration_error_continues_across_parameter_instances": {
+   "status": "known",
+   "reason": "output differs: line 1 is extra: 'SIMULATION_STARTED'",
+   "inputs_sha256": "a1fe595f55bef1ab36d70c10d7f231f3b7a5101dc85790c7ffaa813c463d2f1c"
+  },
+  "ch20/test_elaboration_error_reports_each_instance_at_shared_source_site": {
+   "status": "known",
+   "reason": "output differs: line 1 is extra: 'SIMULATION_STARTED'",
+   "inputs_sha256": "e66330e2621ecbd690df2cb92c16e5690879a3cf9ea3e129ce6b899509f9f469"
+  },
+  "ch20/test_elaboration_fatal_reports_logical_location_and_blocks_simulation": {
+   "status": "known",
+   "reason": "output differs: line 1 is extra: 'SIMULATION_STARTED'",
+   "inputs_sha256": "ab373cb4bee89c2095d6669c49cb4324b91c2fb3c57feda27232780eb38753d6"
+  },
+  "ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting": {
+   "status": "known",
+   "reason": "no message matches '(?im)\\\\A(?=[\\\\s\\\\S]*^(?=[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.sv:16(?::|\\\\b))(?=[^\\\\n]*\\\\b(?:warning|warn)\\\\b)[^\\\\n]*\\\\bSELECTED_ONE_MARKER\\\\b(?:[^\\\\n]*\\\\n[ \\\\t]+){0,3}[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.alpha\\\\.warn_site)(?=[\\\\s\\\\S]*^(?=[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.sv:19(?::|\\\\b))(?=[^\\\\n]*\\\\b(?:info|note)\\\\b)[^\\\\n]*\\\\bSELECTED_TWO_MARKER\\\\b(?:[^\\\\n]*\\\\n[ \\\\t]+){0,3}[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.beta\\\\.info_site)'",
+   "inputs_sha256": "6243f815d166e63f0a70c715a025813b2946bed1baade1aac3c57e0778b4542d"
+  },
+  "ch21/test_vcd_and_evcd_share_timescale_and_absolute_timestamp_semantics": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_and_evcd_share_timescale_and_a...', expected 'VCD scale=1 decimal=1 t70ps=1 t180ps=1'",
+   "inputs_sha256": "8cb36bbb25f3f44c3ac6d8c1f756f3ad6c24f7712fa9c2f81117b3182ea61a33"
+  },
+  "ch35/test_dpi_matching_scalar_version_crosses_package_and_module": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_matching_scalar_version_crosses_package_and_module.sv:15:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+   "inputs_sha256": "b8921e4834e08a60c55e013e6a8524dfb01d7a0a2e12300ad0d15430f1a67e33"
+  },
+  "ch35/test_illegal_dpi_version_mismatch_across_package_and_module": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_dpi_version_mismatch_across_package_and_module\\\\.sv:(?:16|20):(?:\\\\d+:)?[^\\\\n]*(?i:(?=[^\\\\n]*scalar_legacy_scope)(?=[^\\\\n]*(?:different|mismatch|inconsisten|conflict))(?=[^\\\\n]*(?:DPI|version|specifier|linkage))[^\\\\n]+)'; the first is: %Error-UNSUPPORTED: tests/ch35/test_illegal_dpi_version_mismatch_across_package_and_module.sv:16:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+   "inputs_sha256": "e4479bd220269ce27d5d8101afc08dfb7530b0765af168156483a755edf5448d"
+  }
+ },
+ "generated_at": "2026-11-24T06:04:08.789576+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-24",
+  "source": "tests/ch10/test_nba_concatenated_slices_keep_rhs_alignment_at_boundaries.sv",
+  "source_sha256": "e2239174e95e7c0cfe113ad57dc823d6dd9b7141813b55b733ceba867c81dfd4",
+  "top": "concatenated_nba_alignment",
+  "scope": "Copy the test DUT storage and scheduling block. Expose its sampled inputs to the solver and compare its four bank values against an independent per-bit model.",
+  "binary_inputs": {
+    "row": 1,
+    "signed_left_base": 6,
+    "signed_right_base": 6,
+    "payload": 8
+  },
+  "seed_words": "Use the four fixed seed values in the simulation fixture.",
+  "frontend": "slang",
+  "sby": "v0.68",
+  "proof": {
+    "mode": "prove",
+    "depth": 4,
+    "status": "PASS",
+    "return_code": 0
+  },
+  "negative_control": {
+    "change": "Swap the halves of saved_packet when capturing the input payload.",
+    "mode": "bmc",
+    "depth": 3,
+    "status": "FAIL",
+    "return_code": 2,
+    "source_sha256": "bd1ffc9f88a84352fc5c12e2fd552d582af62511ba03941771d2a07e9f2dafd0"
+  },
+  "formal_source_sha256": "2efdf1aa136d0eb3231bc8d26b72e9fde49c22453625a4a2cbc865a703600e74",
+  "formal_source": "module concatenated_nba_alignment(input logic clock, row_select,\n                                  input logic signed [5:0] left_start, right_end,\n                                  input logic [7:0] packet);\n  logic [7:-4] left_bank[2];\n  logic [1:12] right_bank[2];\n\n  always @(posedge clock) begin : schedule_update\n    logic row;\n    logic signed [5:0] first_pos, second_pos;\n    logic [7:0] saved_packet;\n    left_bank[0] <= 12'ha54;\n    left_bank[1] <= 12'h627;\n    right_bank[0] <= 12'hd31;\n    right_bank[1] <= 12'h8e6;\n\n    row = row_select;\n    first_pos = left_start;\n    second_pos = right_end;\n    saved_packet = packet;\n    {left_bank[row][first_pos+:4], right_bank[!row][second_pos-:4]} <= saved_packet;\n    row = !row;\n    first_pos = 0;\n    second_pos = 4;\n    saved_packet = 0;\n  end\n\n\n  function automatic logic [11:0] patch_left(\n    input logic [11:0] seed, input int low, input logic [3:0] bits\n  );\n    patch_left = seed;\n    for (int physical = 0; physical < 12; physical++)\n      if (physical - 4 >= low && physical - 4 < low + 4)\n        patch_left[physical] = bits[physical - 4 - low];\n  endfunction\n\n  function automatic logic [11:0] patch_right(\n    input logic [11:0] seed, input int high, input logic [3:0] bits\n  );\n    patch_right = seed;\n    for (int physical = 0; physical < 12; physical++)\n      if (12 - physical <= high && 12 - physical > high - 4)\n        patch_right[physical] = bits[high - (12 - physical)];\n  endfunction\n\n  logic started = 0;\n  logic [11:0] left_0, left_1, right_0, right_1;\n  always @(posedge clock) begin\n    if (started) begin\n      assert(left_bank[0] == left_0);\n      assert(left_bank[1] == left_1);\n      assert(right_bank[0] == right_0);\n      assert(right_bank[1] == right_1);\n    end\n    started <= 1;\n    left_0 <= row_select ? 12'ha54 : patch_left(12'ha54, int'(left_start), packet[7:4]);\n    left_1 <= row_select ? patch_left(12'h627, int'(left_start), packet[7:4]) : 12'h627;\n    right_0 <= row_select ? patch_right(12'hd31, int'(right_end), packet[3:0]) : 12'hd31;\n    right_1 <= row_select ? 12'h8e6 : patch_right(12'h8e6, int'(right_end), packet[3:0]);\n  end\nendmodule\n"
+}

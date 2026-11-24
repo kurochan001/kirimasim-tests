@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements.sv:31:18: Unsupported LHS tristate construct: CMETHODHARD 'atWrite'",
+   "inputs_sha256": "a1d46b32ea1a1c59c5e9c40c75dbd02f42369ae233310806e6abd5b763ad50d5"
+  },
+  "ch7/test_assoc_signed_invalid_keys_return_user_default": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'missing=b5e7/b5e7/b5e7 size=5', expected 'missing=b5e7/b5e7/b5e7 size=3'",
+   "inputs_sha256": "c3ab21a006b81ebf13dbaac9de2bbab4737cc035f054d9d6b8bfe249ed19c564"
+  },
+  "ch7/test_assoc_wildcard_wide_invalid_keys_do_not_collapse": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'invalid=6374/005f exists=1/1 size=3', expected 'invalid=xxxx/xxxx exists=0/0 size=2'",
+   "inputs_sha256": "8fc33e95c95a58d6dd4d4c5b6d0896594aa1d1be53401cf707074c2b74b8c18e"
+  }
+ },
+ "generated_at": "2026-11-24T08:09:36.028296+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

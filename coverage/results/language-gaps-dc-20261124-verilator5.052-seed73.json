@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch5/test_directives_from_nested_include_persist_until_superseded": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch5/directive_extent/extent_switch.svh:1:1: Unsupported: `default_nettype of other than none or wire: '`default_nettype tri1'",
+   "inputs_sha256": "2d6a734aeaeee7301e00421d1ad003020ac41e7e14d4f6490787eda0ececaa06"
+  },
+  "ch5/test_identifier_1024_characters": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'path length=83 last=t', expected 'path length=1056 last=z'",
+   "inputs_sha256": "1896f80f231afea2a7c21ddcaa155d6a140612d2fd72525cffddbe5dfd910087"
+  },
+  "ch5/test_illegal_implicit_net_after_include_default_nettype_none": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "0c1d25f73a1238aa9a13b52f5da2f4223e4d6117b05917ef9b89c56debf0184f"
+  }
+ },
+ "generated_at": "2026-11-24T08:36:49.152458+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

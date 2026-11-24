@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch11/test_mintypmax_uses_positional_alternatives_across_contexts": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'consistent=0', expected 'consistent=1'",
+   "inputs_sha256": "39660af30824e995fbd3875ca8d5ff7e940e40f6c74b1b454e4b3ebddf4a1e93"
+  }
+ },
+ "generated_at": "2026-11-24T07:23:56.804178+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

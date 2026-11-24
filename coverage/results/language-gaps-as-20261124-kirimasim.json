@@ -1,0 +1,26 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch16/test_abort_condition_sampling": {
+   "status": "unsupported",
+   "reason": "concurrent assertion (not implemented yet)",
+   "inputs_sha256": "22e1a7682405587543c4a3bf114c031564d45392ba3a1e11df3938180ae32259"
+  },
+  "ch16/test_property_operator_precedence_temporal": {
+   "status": "unsupported",
+   "reason": "variable of type 'int$[string]' (not implemented yet)",
+   "inputs_sha256": "503a0fd92d615c43e8fa5535092ade8f34d98a4ebb9657667317d4ceab4a408f"
+  },
+  "ch16/test_property_precedence_if_case_and_abort": {
+   "status": "unsupported",
+   "reason": "concurrent assertion (not implemented yet)",
+   "inputs_sha256": "054d8eaf260cb9dc546298b289919be74cb8d98f4731318fd0d738d7ca85e026"
+  }
+ },
+ "generated_at": "2026-11-24T00:51:04.016642+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

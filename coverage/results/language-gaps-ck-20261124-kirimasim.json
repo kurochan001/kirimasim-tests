@@ -1,0 +1,28 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch21/test_evcd_real_ports_use_sixteen_significant_digits": {
+   "status": "unsupported",
+   "reason": "system task $dumpports (not implemented yet)",
+   "inputs_sha256": "33e45912863aaa67449471d70a3aefcaa12b851076d3be5b9c88bde426a048b1"
+  },
+  "ch23/test_bind_output_port_drives_pulled_net_in_target_scope": {
+   "status": "pass",
+   "inputs_sha256": "9667fec6fad9dde96d3c25586d2d8b910752c4cd57b8380352f44022e2c65722"
+  },
+  "ch23/test_bind_uses_configuration_at_directive_for_scope_and_instance": {
+   "status": "pass",
+   "inputs_sha256": "8e0eee404dbc994db52549049f165e2d2216d82444d7cacaf182fd0c5b014619"
+  },
+  "ch23/test_bound_constant_output_overrides_pull_driver": {
+   "status": "pass",
+   "inputs_sha256": "feff050bdfdf04b8a753c79fe57d9d4ff32f6609ee06532b2e74c07f37ecbb97"
+  }
+ },
+ "generated_at": "2026-11-24T06:52:59.730309+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

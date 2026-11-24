@@ -1,0 +1,10 @@
+bit selections
+force errors=1 1 0
+after force=00 40 22
+release errors=1 1 0
+after release=00 40 20
+part selections
+force errors=1 1 0
+after force=00 40 2c
+release errors=1 1 0
+after release=00 40 20

@@ -10,6 +10,7 @@
 :nondeterministic: no
 :vpi_c: @test_vpi_put_value_side_effect.c
 :expected_stdout: @test_vpi_put_value_side_effect.expected
+:expected_stderr_regex: (?m)^argument 1: error 1$
 */
 // IEEE 1800-2023 §37.3.5: it shall be an error to apply vpi_put_value (38.34)
 // to an object one of whose index expressions has side effects, such as the

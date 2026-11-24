@@ -1,0 +1,45 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch28/test_aliased_user_nettype_switch_connects_original_and_renamed_nets": {
+   "status": "fail",
+   "reason": "output differs (exit 1)",
+   "inputs_sha256": "2a7be620ee487d2c9b8f4f7d6cee60cd858e6e1968b5fee609dab7192c85a736"
+  },
+  "ch28/test_illegal_pass_switch_distinct_user_nettypes": {
+   "status": "pass",
+   "inputs_sha256": "333de7ca0c555d0b4b1e544c3676c8d7fb3bafc2eff0208f48a4000df67db547"
+  },
+  "ch28/test_illegal_pass_switch_resistive_switch_on_user_defined_nettype": {
+   "status": "pass",
+   "inputs_sha256": "721df63c9bda1b33ec441845baa3a05e9c833700912a729cc5e171d2a6db2186"
+  },
+  "ch28/test_illegal_pass_switch_user_defined_and_builtin_nettypes": {
+   "status": "pass",
+   "inputs_sha256": "243516a86f21f2a372a23d4c541de2b69999a7144d95fdf0ec01fd92c791b7eb"
+  },
+  "ch28/test_illegal_resistive_pass_switch_vector_terminals": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "76de5a388623902ce987d9b16972fa478f1ed1a89777e944f247868df2a03c24"
+  },
+  "ch28/test_user_nettype_active_low_switch_unknown_turnoff_delay": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "fee56dde6a6da520888c92bce9b017e989cf2422427282cacb9c89847f602473"
+  },
+  "ch28/test_user_nettype_switch_and_driver_strength": {
+   "status": "pass",
+   "inputs_sha256": "fdbe196af559b92f8850d231757767686265d79ff6ae9666393de2b530c96cf2"
+  }
+ },
+ "generated_at": "2026-11-24T00:12:47.645899+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

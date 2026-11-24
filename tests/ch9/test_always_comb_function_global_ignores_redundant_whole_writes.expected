@@ -1,0 +1,7 @@
+initial: function=3/0 direct=3/0
+other input: function=9/2 direct=9/2
+redundant blocking: function=9/2 direct=9/2
+redundant nba: function=9/2 direct=9/2
+redundant compound: function=9/2 direct=9/2
+changed nba: function=11/10 direct=11/10
+changed blocking: function=12/12 direct=12/12

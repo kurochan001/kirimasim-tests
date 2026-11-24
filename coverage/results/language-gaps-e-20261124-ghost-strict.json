@@ -1,0 +1,43 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 2865c5a259b8",
+ "tests": {
+  "ch27/test_conditional_generate_named_and_unnamed_scope": {
+   "status": "pass",
+   "inputs_sha256": "98ea53945265669899352c87aa609042626cc0688d00492c6aa81639e7015979"
+  },
+  "ch28/test_highz_gate_strength_suppresses_one_logic_value": {
+   "status": "pass",
+   "inputs_sha256": "94bd8e12e1fb4d29ca159e9281189b8f1dbd25eb4875e289d52ccdaeb5b8b0fa"
+  },
+  "ch28/test_illegal_pulldown_delay_with_legal_gate_control": {
+   "status": "pass",
+   "inputs_sha256": "c63092b9964f750f83a14ecda6552743e10ea83371484d8bb8549981586a44f8"
+  },
+  "ch28/test_illegal_pullup_delay": {
+   "status": "pass",
+   "inputs_sha256": "c476271edd7896dbf923f3a6494bf00416fe6f0f802d4b67baeb1122cc1c1d57"
+  },
+  "ch28/test_illegal_resistive_pass_switch_vector_terminals": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "76de5a388623902ce987d9b16972fa478f1ed1a89777e944f247868df2a03c24"
+  },
+  "ch28/test_illegal_strength_highz0_highz1_on_gate": {
+   "status": "pass",
+   "inputs_sha256": "13996b704deb11a3fe8fbccc4edd524515035b214fda7025aef7d900c2ecb9dd"
+  },
+  "ch28/test_illegal_three_state_gate_swapped_highz_strengths": {
+   "status": "pass",
+   "inputs_sha256": "afa85cb8dc1f3e3a551b647efb297e66a97b21aa46f95f8c9b40c5c644e62225"
+  }
+ },
+ "generated_at": "2026-11-23T21:51:48.883160+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "2865c5a259b8ec636abaf794c15cd391f3f5a1a11baa58e6882c80009fb42ed1",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

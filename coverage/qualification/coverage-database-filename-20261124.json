@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "test": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
+  "inputs_sha256": "7a6ac51caebaf49a485e043d55698d4ec702450a336b155efaf8ceb61dce5c4e",
+  "assertion": "tools/test_ghost_covergroup_report.py",
+  "simulator": "Ghost",
+  "binary_sha256": "e1e4ff9291d53e44f3ae8ddade4625ca8add1da15e7e4663a1324986557472d8",
+  "source_clause": "19.9",
+  "arguments": [
+    "--quiet",
+    "--lrm-strict",
+    "+save_named_database"
+  ],
+  "exit": 0,
+  "expected_file": "chosen_coverage.json",
+  "actual_files": [],
+  "reported_type_coverage": [
+    "four=25.00 two=50.00"
+  ],
+  "load_phase": "not_run: the selected database was not created",
+  "status": "fail"
+}

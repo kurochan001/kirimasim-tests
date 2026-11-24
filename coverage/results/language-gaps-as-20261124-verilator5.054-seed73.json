@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch16/test_abort_condition_sampling": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_abort_condition_sampling.sv:43:81: Usage of cycle delays requires default clocking (IEEE 1800-2023 14.11)",
+   "inputs_sha256": "22e1a7682405587543c4a3bf114c031564d45392ba3a1e11df3938180ae32259"
+  },
+  "ch16/test_property_operator_precedence_temporal": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch16/test_property_operator_precedence_temporal.sv:45:45: Unsupported: nexttime (in property expression)",
+   "inputs_sha256": "503a0fd92d615c43e8fa5535092ade8f34d98a4ebb9657667317d4ceab4a408f"
+  },
+  "ch16/test_property_precedence_if_case_and_abort": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'accept=0/0 reject=2/2 if=1 case=0', expected 'accept=0/0 reject=1/1 if=1 case=0'",
+   "inputs_sha256": "054d8eaf260cb9dc546298b289919be74cb8d98f4731318fd0d738d7ca85e026"
+  }
+ },
+ "generated_at": "2026-11-24T00:51:05.429106+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch37/test_vpi_aggregate_nets_do_not_have_whole_values": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "15a9514e6310a9a63474e6746905e48396a9aa99a6f80dc86462d10b7ea50778"
+  },
+  "ch37/test_vpi_class_definition_and_specialization_value_access_differ": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "fc86966f5a5d50de61ca69e2f393442c83df2b2f0c8309c4efe73482359ebfc1"
+  },
+  "ch37/test_vpi_class_relations_scope_typespec": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "41ea0fd8ddc0f39d65d6a2f2a198db0bffae82484f30a5838abc8d9c89626521"
+  },
+  "ch37/test_vpi_interconnect_net_type_size": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "472d4360e5bf96832ff9eebfd646cece46c281d6e4cc3900078a3a75a7f58cb1"
+  },
+  "ch37/test_vpi_simulated_net_is_shared_across_interconnect_merges": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "59a7603ae01d1a1d86a4eb49fad117c73868a0f1cbb4f6afe672d88b8467366c"
+  },
+  "ch37/test_vpi_size_callbacks_precede_value_callbacks_and_report_new_size": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "a9a4dbca1769d30b17b6a0ec203c81289b1bb4c4b1431a2f6d7dd9fe82686c61"
+  },
+  "ch37/test_vpi_whole_value_is_unavailable_for_nonvalue_variable_kinds": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "9195a760caa16871f1076a26996e2ca56a80eb88ed6633af2800265ed1ef87bc"
+  }
+ },
+ "generated_at": "2026-11-24T02:59:05.828318+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

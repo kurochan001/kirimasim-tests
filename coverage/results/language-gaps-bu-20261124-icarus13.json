@@ -1,0 +1,40 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "4e963cf844d32d3c1c151c3ca51d315395d61fc712d2314621b18649c229f68d"
+  },
+  "ch38/test_vpi_put_value_rejects_user_nettype_subelement": {
+   "status": "known",
+   "reason": "compile failed: tests/ch38/test_vpi_put_value_rejects_user_nettype_subelement.sv:16: syntax error",
+   "inputs_sha256": "ae1a2a0d47bb9c0c4991cad38f8789485c4d5cc3582261fd48821925b6434cad"
+  },
+  "ch38/test_vpi_put_value_sched_event": {
+   "status": "known",
+   "reason": "output differs: line 1 is '10: a 1 at 20 with vpiReturnEvent: a vpiSchedEvent no, vp...', expected '10: a 1 at 20 with vpiReturnEvent: a vpiSchedEvent yes, v...'",
+   "inputs_sha256": "fd14d8e75cf3787926eb9e80596e8ce7ae4dabd5932933bd09a6067a66c0eb2f"
+  },
+  "ch38/test_vpi_put_value_targets": {
+   "status": "pass",
+   "inputs_sha256": "1bcdbad3815c67a0fcbd18c0050af7a1220d1a071066f9a2c83966689e7fed83"
+  },
+  "ch38/test_vpi_refuses_force_release_disable_callbacks_on_variable_bits": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "f7da38c8dafe5e76da89037eedd9a19c2fef104e882b43c3ed081e7368353759"
+  },
+  "ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "90a998dc9969a6a24dbcce952b04dec7aa9ad4bf135d5637474f21a98e2bbc90"
+  }
+ },
+ "generated_at": "2026-11-24T04:58:58.886269+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

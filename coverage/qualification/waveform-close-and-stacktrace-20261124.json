@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-24",
+  "simulator": "Ghost (sukimasim)",
+  "simulator_sha256_prefix": "84e9883c2828",
+  "evcd": {
+    "check": "tools/test_ghost_evcd_close.py",
+    "status": "pass",
+    "traces": [
+      {
+        "name": "whole_ports.evcd",
+        "last_port_change": 4,
+        "ending_time": 17
+      },
+      {
+        "name": "active.evcd",
+        "last_port_change": 11,
+        "ending_time": 29
+      },
+      {
+        "name": "paused.evcd",
+        "last_port_change": 6,
+        "ending_time": 29
+      }
+    ]
+  },
+  "stacktrace": {
+    "check": "tools/test_ghost_stacktrace.py",
+    "frames": {
+      "function": [
+        "capture_leaf",
+        "capture_middle"
+      ],
+      "before_delay": [
+        "child_task",
+        "outer_task"
+      ],
+      "after_delay": [],
+      "after_return": []
+    },
+    "expected_after_delay": [
+      "child_task",
+      "outer_task"
+    ]
+  }
+}

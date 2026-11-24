@@ -1,0 +1,6 @@
+registered read-only=1
+registered later read-write=1
+read only time=0:5
+read-only write rejected=1 vpi-error=1
+later read-write time=0:8
+fixture t=9

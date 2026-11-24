@@ -9857,7 +9857,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21",
+      "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9905,7 +9905,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21",
+      "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -44976,7 +44976,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "1366a4d000810275c1bb40f6290048c9cb6773604c1cc9e03483f2455c555b21",
+      "inputs_sha256": "a76c5b1ce440fa3a79f8865519e14ef53eb7c7f3a1a426e3fa48eef1f4af3345",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -47654,54 +47654,6 @@
             {
               "file": "tests/ch28/test_ambiguous_strength_ranges_and_levels.sv",
               "contains": ":lrm: 1800-2023 28.12.3 28.12.2 28.11 28.14 21.2.1.4"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch29/test_illegal_udp_z_in_table.sv",
-      "inputs_sha256": "1b3f1b1c6e063fbe8f70b551ebdc85483f3b2023e76202becbc8728ec139de82",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-29.3.5-EXTRACT-UDP-NO-Z-TABLE"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "table の z エントリを拒否する診断は観測するが、実際の入力 z を x として扱う正值動作は刺激せず、error 行の受入条件の一部が未観測。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch29/test_illegal_udp_z_in_table.sv",
-              "contains": ":lrm: 1800-2023 29.3.5 29.3.6"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "test": "tests/ch29/test_illegal_udp_initial_delay.sv",
-      "inputs_sha256": "88bb144b67aa69c9e4039b2559129d77e4541dfc2b25cf4050d63daf908c2f4e",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-29.7-EXTRACT-UDP-INITIAL-TIMING"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "initial 内の遅延を拒否する診断は観測するが、initial 出力がシミュレーション開始時に伝搬遅延と独立に代入され、その値が現在の table 状態になることは刺激しない。",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch29/test_illegal_udp_initial_delay.sv",
-              "contains": ":lrm: 1800-2023 29.7 29.3.3"
             }
           ]
         }
@@ -53234,45 +53186,6 @@
       ]
     },
     {
-      "test": "tests/ch37/test_vpi_put_value_side_effect.sv",
-      "inputs_sha256": "ed6fc861fa36e23ee7530b5a819275665fdcad833a6c4bb83d46bf1e82d27133",
-      "reviewed_on": "2026-10-26",
-      "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-      "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-37.3.5-EXTRACT-PUT-INDEX-EFFECT-ERROR"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "The requirement is that vpi_put_value on an object with a side-effecting index expression is an error. A suite error test must be an illegal design, which a runtime VPI usage error is not.",
-          "reviewed_on": "2026-10-26",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch37/test_vpi_put_value_side_effect.sv",
-              "contains": "module test_vpi_put_value_side_effect;"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-37.3.5-EXTRACT-PUT-INDEX-EFFECT-ERROR"
-          ],
-          "disposition": "oracle_issue",
-          "explanation": "The row makes vpi_put_value on an object with a side-effecting index an error, but the reaction to that illegal request (NULL, the text of vpi_chk_error, or a message) is not fixed, so no output can distinguish a conforming rejection.",
-          "reviewed_on": "2026-10-27",
-          "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
-          "evidence": [
-            {
-              "file": "tests/ch37/test_vpi_put_value_side_effect.sv",
-              "contains": "module test_vpi_put_value_side_effect;"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch37/test_vpi_mod_path_relations_delays.sv",
       "inputs_sha256": "7b991d43a428ceea46b87a0ef789a95844fbb12f626a67f6554b3d7642d22e0e",
       "reviewed_on": "2026-10-26",
@@ -56116,6 +56029,4241 @@
             {
               "file": "tests/ch13/test_function_port_directions_constant_and_runtime.expected",
               "contains": "constant=41 output=11 inout=21 ref=31"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch26/test_illegal_package_qualification_does_not_import_name.sv",
+      "inputs_sha256": "3e246275e4e6f33f6aec7e1be4fff11e13f3f1955a54849836b06211de8cb455",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-26.5-EXTRACT-QUALIFIED-NONE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "限定名で定数を参照した後も単純名は未宣言として拒否される。列挙ラベルと定数の正常系は別テストで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch26/test_illegal_package_qualification_does_not_import_name.sv",
+              "contains": "qualified_step = unimported::step;"
+            },
+            {
+              "file": "tests/ch26/test_illegal_package_qualification_does_not_import_name.sv",
+              "contains": "unqualified_step = step;"
+            },
+            {
+              "file": "tests/ch26/test_illegal_package_qualification_does_not_import_name.sv",
+              "contains": ":expected_stderr_regex: test_illegal_package_qualification_does_not_import_name\\.sv:20:(?:\\d+:)?[^\\n]*(?i:(?:unbound|undeclared|unknown|undefined|not found|cannot|unable|can't)[^\\n]*step|step[^\\n]*(?:unbound|undeclared|unknown|undefined|not found))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch27/test_illegal_empty_generate_array_name_collision.sv",
+      "inputs_sha256": "a0f399c77ad1d75afef477ca7d1253d15ddbce22a6cf1ff80f7d217d5c04b4de",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-27.4-EXTRACT-GENERATE-ARRAY-INDICES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "空のループと後続ループに同名を与え、インスタンスが一つもなくても配列名が確保されることを診断から確認する。疎な添字の分配はこのテストでは検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_illegal_empty_generate_array_name_collision.sv",
+              "contains": "for (genvar i = 0; i < 0; i++) begin : lanes"
+            },
+            {
+              "file": "tests/ch27/test_illegal_empty_generate_array_name_collision.sv",
+              "contains": "for (genvar j = 0; j < 1; j++) begin : lanes"
+            },
+            {
+              "file": "tests/ch27/test_illegal_empty_generate_array_name_collision.sv",
+              "contains": ":expected_stderr_regex: test_illegal_empty_generate_array_name_collision\\.sv:(?:17|20):(?:\\d+:)?[^\\n]*(?i:(?:duplicate|already|redefin|previous|conflict|same name)[^\\n]*lanes|lanes[^\\n]*(?:duplicate|already|redefin|previous|conflict|same name))"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-27.4-EXTRACT-GENERATE-ARRAY-COLLISION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ゼロ回のループで確保した配列名と、別の配列名の衝突を検証する。通常の宣言との衝突は既存の証跡にある。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_illegal_empty_generate_array_name_collision.sv",
+              "contains": "begin : lanes"
+            },
+            {
+              "file": "tests/ch27/test_illegal_empty_generate_array_name_collision.sv",
+              "contains": ":expected_stderr_regex: test_illegal_empty_generate_array_name_collision\\.sv:(?:17|20):(?:\\d+:)?[^\\n]*(?i:(?:duplicate|already|redefin|previous|conflict|same name)[^\\n]*lanes|lanes[^\\n]*(?:duplicate|already|redefin|previous|conflict|same name))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_elaboration_warning_selected_scope_observation.sv",
+      "inputs_sha256": "9be403e54aa516723bd77d3ceda969a9417096df143e36712471de8b8e6b6bb2",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.10.1-EXTRACT-ELABORATION-DIAGNOSTICS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二つのメッセージで診断の種別と位置、ユーザー指定の識別子を照合する。診断の階層名は検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_elaboration_warning_selected_scope_observation.sv",
+              "contains": ":expected_stderr_regex: (?s)\\A(?=.*test_elaboration_warning_selected_scope_observation\\.sv:19:\\d*:?[^\\n]*(?i:warning)[^\\n]*ELAB_WARNING_LIMIT line=19)(?=.*test_elaboration_warning_selected_scope_observation\\.sv:20:\\d*:?[^\\n]*(?i:info|note)[^\\n]*ELAB_INFO_SIBLING line=20)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-20.10.1-EXTRACT-ELABORATION-EXECUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "残った警告と情報の両方を順不同で期待する。致命的タスクで中断可能な場合は別のケースで検証する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_elaboration_warning_selected_scope_observation.sv",
+              "contains": ":expected_stderr_regex: (?s)\\A(?=.*test_elaboration_warning_selected_scope_observation\\.sv:19:\\d*:?[^\\n]*(?i:warning)[^\\n]*ELAB_WARNING_LIMIT line=19)(?=.*test_elaboration_warning_selected_scope_observation\\.sv:20:\\d*:?[^\\n]*(?i:info|note)[^\\n]*ELAB_INFO_SIBLING line=20)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_elaboration_error_selected_scope_observation.sv",
+      "inputs_sha256": "6f33bae5a5a48f81cbfff4cd06c84132026f83d178d0f143aba5558b62fb0b70",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.10.1-EXTRACT-ELABORATION-ERROR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ定義から生成条件が異なる実体を作り、選択されたエラーの位置で設計を拒否することを確認する。他の診断まで処理が続くかは検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_elaboration_error_selected_scope_observation.sv",
+              "contains": "$error(\"ELAB_ERROR_LIMIT\");"
+            },
+            {
+              "file": "tests/ch20/test_elaboration_error_selected_scope_observation.sv",
+              "contains": ":expected_stderr_regex: test_elaboration_error_selected_scope_observation\\.sv:18:(?:\\d+:)?[^\\n]*(?i:error)[^\\n]*ELAB_ERROR_LIMIT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_elaboration_fatal_selected_scope_observation.sv",
+      "inputs_sha256": "dd7b47a22b830fb03ffac00ec1e48d023663da94a4f107a03a2b11c592653c6b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.10.1-EXTRACT-ELABORATION-FATAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "生成条件が真の位置で致命的診断を求める。他のタスクの打ち切り方法や終了番号の扱いは検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_elaboration_fatal_selected_scope_observation.sv",
+              "contains": "$fatal(0, \"ELAB_FATAL_LIMIT\");"
+            },
+            {
+              "file": "tests/ch20/test_elaboration_fatal_selected_scope_observation.sv",
+              "contains": ":expected_stderr_regex: test_elaboration_fatal_selected_scope_observation\\.sv:18:(?:\\d+:)?[^\\n]*(?i:fatal)[^\\n]*ELAB_FATAL_LIMIT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_illegal_resistive_pass_switch_vector_terminals.sv",
+      "inputs_sha256": "76de5a388623902ce987d9b16972fa478f1ed1a89777e944f247868df2a03c24",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.8-EXTRACT-PASS-NET-TYPES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "抵抗性端子に同じ幅のベクトル全体をつなぐと拒否される。ユーザー定義ネット型どうしの互換性はこのテストでは検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_illegal_resistive_pass_switch_vector_terminals.sv",
+              "contains": "rtranif1 good(left[0], right[0], 1'b1);"
+            },
+            {
+              "file": "tests/ch28/test_illegal_resistive_pass_switch_vector_terminals.sv",
+              "contains": "rtranif1 bad(left, right, 1'b0);"
+            },
+            {
+              "file": "tests/ch28/test_illegal_resistive_pass_switch_vector_terminals.sv",
+              "contains": ":expected_stderr_regex: test_illegal_resistive_pass_switch_vector_terminals\\.sv:18:(?:\\d+:)?[^\\n]*(?i:(?:width|scalar|bits|cannot connect|expects))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_highz_gate_strength_suppresses_one_logic_value.sv",
+      "inputs_sha256": "94bd8e12e1fb4d29ca159e9281189b8f1dbd25eb4875e289d52ccdaeb5b8b0fa",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.3.2-EXTRACT-HIGHZ-STRENGTH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "各強度でどちらの論理値だけが高インピーダンスに変わるかを確認する。双方を高インピーダンスにする違反は別テストで検証する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_highz_gate_strength_suppresses_one_logic_value.sv",
+              "contains": "bufif1 (highz1, strong0)"
+            },
+            {
+              "file": "tests/ch28/test_highz_gate_strength_suppresses_one_logic_value.sv",
+              "contains": "bufif1 (highz0, strong1)"
+            },
+            {
+              "file": "tests/ch28/test_highz_gate_strength_suppresses_one_logic_value.sv",
+              "contains": "enabled one=%b,%b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_assertion_default_strength_at_end_of_trace.sv",
+      "inputs_sha256": "3c512b3ed3394bca6d78a780f26499c37332ffa5ba70bf239e57523002ca68da",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.2-EXTRACT-IMPLICIT-STRENGTH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "系列の後半が来ない状態で終了すると、強さを省略したアサーションは失敗せず、強い系列は失敗する。仮定と他のアサーション文の既定値は検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_assertion_default_strength_at_end_of_trace.sv",
+              "contains": "assert property (@(posedge clock) completion)"
+            },
+            {
+              "file": "tests/ch16/test_assertion_default_strength_at_end_of_trace.sv",
+              "contains": "assert property (@(posedge clock) strong(completion))"
+            },
+            {
+              "file": "tests/ch16/test_assertion_default_strength_at_end_of_trace.sv",
+              "contains": "$display(\"strong failed\");"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_readonly_callback_observes_latest_nonblocking_value.sv",
+      "inputs_sha256": "cdf51e4cc51febe2e6b6bf7b9678d9caf1262231d47515d099c918bb952b7531",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-TIME-CBREADONLYSYNCH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二つのノンブロッキング代入のうち最後の値が読み取り専用コールバックでも見えることを確認する。書き込みと再スケジュールの禁止は別条件として扱う。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_readonly_callback_observes_latest_nonblocking_value.sv",
+              "contains": "sample <= 8'd11;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_readonly_callback_observes_latest_nonblocking_value.sv",
+              "contains": "sample <= 8'd37;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_readonly_callback_rejects_immediate_write.sv",
+      "inputs_sha256": "18caa4ae9c9a3c0dcb727329a945c3358837cb36a4ed3f3a5c1ede2f1f676c32",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.2-EXTRACT-TIME-CBREADONLYSYNCH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "読み取り専用のコールバックから値を書こうとする試みについて診断と変数の値を確認する。イベントの再スケジュールは検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_readonly_callback_rejects_immediate_write.sv",
+              "contains": ":expected_stderr_regex: (?i:\\b(?:put|write)\\b[^\\n]*\\bread[ -]?only\\b|\\bread[ -]?only\\b[^\\n]*\\b(?:put|write)\\b)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_readonly_callback_rejects_immediate_write.sv",
+              "contains": "initial #3 $display"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_sscanf_suppressed_fields_do_not_consume_destinations.sv",
+      "inputs_sha256": "dabe7a6c7dc93241b53f15a8c45e32a838927ffd1f05767991fd0fbee0962219",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.3.4.3-EXTRACT-SCAN-SUPPRESSION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "抑止指定を含む書式で必要な数だけ出力先を渡し、全指定が抑止なら出力先なしで件数がゼロになることを確認する。余剰引数には無視の規則があり、特定のエラー診断は期待しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_sscanf_suppressed_fields_do_not_consume_destinations.sv",
+              "contains": "assignments = $sscanf(\"99 12 discard 2f\", \"%*d %d %*s %h\", first, second);"
+            },
+            {
+              "file": "tests/ch21/test_sscanf_suppressed_fields_do_not_consume_destinations.sv",
+              "contains": "assignments = $sscanf(\"99\", \"%*d\");"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_packed_rand_becomes_inactive_on_bit_assignment.sv",
+      "inputs_sha256": "61d06e4784457c208b302e9dea0189db6651a835ff2da0022abbc065821c9290",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-17.7.2-EXTRACT-ACTIVITY-GRANULARITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "パック値の一ビットに代入すると、他のビットも乱数化されずに初期値を保つ。アンパックの要素ごとの区分は検証しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_packed_rand_becomes_inactive_on_bit_assignment.sv",
+              "contains": "rand bit [3:0] flags = 4'b1010;"
+            },
+            {
+              "file": "tests/ch17/test_checker_packed_rand_becomes_inactive_on_bit_assignment.sv",
+              "contains": "flags[0] <= !flags[0];"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_virtual_override_changes_argument_direction.sv",
+      "inputs_sha256": "76a96e3cc4ef47236a016584d5bb2343fcdde6cfc48d92f4eaee3444c64964d4",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.20-EXTRACT-VIRTUAL-PROTOTYPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ名前と型の仮引数で方向だけを変更したとき、オーバーライドの宣言位置で拒否されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_virtual_override_changes_argument_direction.sv",
+              "contains": "virtual function int increment(ref int value);"
+            },
+            {
+              "file": "tests/ch8/test_illegal_virtual_override_changes_argument_direction.sv",
+              "contains": "function int increment(input int value);"
+            },
+            {
+              "file": "tests/ch8/test_illegal_virtual_override_changes_argument_direction.sv",
+              "contains": ":expected_stderr_regex: test_illegal_virtual_override_changes_argument_direction\\.sv:23:(?:\\d+:)?[^\\n]*(?i:(?:direction|argument|formal|signature|prototype|virtual override)[^\\n]*)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_illegal_property_positional_comma_event_without_parentheses.sv",
+      "inputs_sha256": "423c2fd2850506741a3e2c51fe5f43bb68bd4975829460e84bad49ecf51e432c",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-36"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "イベントの括弧だけを省いたとき、カンマが別の位置引数を始めるため診断が出ることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_property_positional_comma_event_without_parentheses.sv",
+              "contains": "on_tick(posedge clock_a, posedge clock_b, armed)"
+            },
+            {
+              "file": "tests/ch16/test_illegal_property_positional_comma_event_without_parentheses.sv",
+              "contains": ":expected_stderr_regex: test_illegal_property_positional_comma_event_without_parentheses\\.sv:22:(?:\\d+:)?[^\\n]*(?i:(?:too many|number of|expected|invalid)[^\\n]*(?:argument|actual|event))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_illegal_modport_excludes_signal_from_interface_port_view.sv",
+      "inputs_sha256": "5882db6fa0941f4fd8efde2032520ef3fbf833f353f45e6d1a7e779fbb32f393",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.10-EXTRACT-MODPORT-ACCESS-LIST"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ポート経由の公開信号を対照に、一覧から除いた信号の参照で診断を求める。列挙ラベルなど一覧に書けない項目へのアクセスは正常系で確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_modport_excludes_signal_from_interface_port_view.sv",
+              "contains": "modport reader(input visible_data);"
+            },
+            {
+              "file": "tests/ch25/test_illegal_modport_excludes_signal_from_interface_port_view.sv",
+              "contains": "bus.hidden_data"
+            },
+            {
+              "file": "tests/ch25/test_illegal_modport_excludes_signal_from_interface_port_view.sv",
+              "contains": ":expected_stderr_regex: test_illegal_modport_excludes_signal_from_interface_port_view\\.sv:22:(?:\\d+:)?[^\\n]*(?=[^\\n]*hidden_data)(?i:(?:modport|not found|unknown|undeclared|not a member|cannot|could not|can't find))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv",
+      "inputs_sha256": "1beeca98e89f2e54aef4c13d0ded843f46ba8a28231d7715e74e1d2e625ad856",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.8.5-EXTRACT-RECURSIVE-XZ-INVALID"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "入れ子フィールドごとの不定ビットで書き込んでも、既存の要素数と正規のキーの値が変わらないことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv",
+              "contains": "bad_x = 4'b11x1;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv",
+              "contains": "bad_z = 4'b110z;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv",
+              "contains": "entries[bad_x] = 61;"
+            },
+            {
+              "file": "tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv",
+              "contains": "entries[bad_z] = 79;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch15/test_illegal_semaphore_put_used_as_value.sv",
+      "inputs_sha256": "d2a9b577b3efd773cb051f004fa162e47022cf0ea371d7733ca1381f047ccf7f",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-15.3.2-EXTRACT-SIGNATURE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "単独文の呼び出しを対照に、代入式の値として使った位置で診断されることを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_illegal_semaphore_put_used_as_value.sv",
+              "contains": "available.put();"
+            },
+            {
+              "file": "tests/ch15/test_illegal_semaphore_put_used_as_value.sv",
+              "contains": "count = available.put(.keyCount(1));"
+            },
+            {
+              "file": "tests/ch15/test_illegal_semaphore_put_used_as_value.sv",
+              "contains": ":expected_stderr_regex: test_illegal_semaphore_put_used_as_value\\.sv:20:(?:\\d+:)?[^\\n]*(?i:(?:void|return type|nonvalue|assign)[^\\n]*)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_illegal_foreach_index_assignment_in_body.sv",
+      "inputs_sha256": "059e0a2dbc149975997530fc5669cbd208de71a5644695fc6852f80ff84f5409",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-12.7.3-EXTRACT-FOREACH-READONLY-INDICES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "読み取りと添字としての利用に続けて、同じループ添字への代入箇所で診断を求める。型は独立した正常系で証跡を取る。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_illegal_foreach_index_assignment_in_body.sv",
+              "contains": "values[index] = index + 10;"
+            },
+            {
+              "file": "tests/ch12/test_illegal_foreach_index_assignment_in_body.sv",
+              "contains": "index = 1;"
+            },
+            {
+              "file": "tests/ch12/test_illegal_foreach_index_assignment_in_body.sv",
+              "contains": ":expected_stderr_regex: test_illegal_foreach_index_assignment_in_body\\.sv:20:(?:\\d+:)?[^\\n]*(?i:(?:read[ -]?only|cannot|not allowed|assignment)[^\\n]*(?:index|variable)|(?:index|variable)[^\\n]*(?:read[ -]?only|cannot|not allowed))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_process_await_rejects_current_process.sv",
+      "inputs_sha256": "2f96c2fd56a859028b4ad4d68e9f16923d9b2daaca2a4e283e09f27d44d71b18",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.7-EXTRACT-AWAIT-END"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "現在のプロセス自身を待つ呼び出しで診断を求め、独立した終了処理でテストの停止を保証する。別プロセスの自然終了と強制終了を待つ場合は関連テストで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_await_rejects_current_process.sv",
+              "contains": "current = std::process::self();"
+            },
+            {
+              "file": "tests/ch9/test_process_await_rejects_current_process.sv",
+              "contains": "current.await();"
+            },
+            {
+              "file": "tests/ch9/test_process_await_rejects_current_process.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*\\bawait\\b)(?=[^\\n]*\\b(?:self|itself|current process)\\b)[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch27/test_unnamed_generate_vpi_name_counts_unselected_construct.sv",
+      "inputs_sha256": "a36871b194da23c6128705c3b4cdd125ab54b6f92b812b318fd6263e55f38221",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-27.6-EXTRACT-UNNAMED-EXTERNAL-NAME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "先行する非選択構文を数えた外部名 genblk2 を VPI で検査する。ソースからの参照禁止は別の異常系で観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_unnamed_generate_vpi_name_counts_unselected_construct.sv",
+              "contains": "if (0) begin : unused"
+            },
+            {
+              "file": "tests/ch27/test_unnamed_generate_vpi_name_counts_unselected_construct.sv",
+              "contains": "int marker = 47;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch27/test_illegal_unnamed_conditional_generate_external_name_in_source.sv",
+      "inputs_sha256": "249b1f6124d4155444045e85945a86083e0384119f5b2fa9a6ed889c1e5a9870",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-27.6-EXTRACT-UNNAMED-EXTERNAL-NAME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ構文配置の外部名 genblk2 が通常のソース参照として拒否される。VPI での取得は別の正常系で観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch27/test_illegal_unnamed_conditional_generate_external_name_in_source.sv",
+              "contains": "genblk2.marker); // illegal"
+            },
+            {
+              "file": "tests/ch27/test_illegal_unnamed_conditional_generate_external_name_in_source.sv",
+              "contains": ":expected_stderr_regex: test_illegal_unnamed_conditional_generate_external_name_in_source\\.sv:21:(?:\\d+:)?[^\\n]*(?i:(?:unable|could not|cannot|can.t find|unknown|not found|undeclared)[^\\n]*genblk2|genblk2[^\\n]*(?:undeclared|not found))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_module_lookup_excludes_unit_and_imported_names.sv",
+      "inputs_sha256": "17bdb13dfd1dbe0f45e299d9f3960b6f200fa7398546fdf733d1d0164dfda9a8",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.10-EXTRACT-NO-NAME-LOOKUP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ソースでは双方の名前を使いつつ、同じモジュールの階層から VPI で検索するとハンドルを返さないことを観測する。実行時の null を検査し、診断は要求しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_module_lookup_excludes_unit_and_imported_names.sv",
+              "contains": "import visible_pkg::imported;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_module_lookup_excludes_unit_and_imported_names.sv",
+              "contains": "actual_member = unit_only + imported;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch31/test_setuphold_negative_sum_two_precision_units.sv",
+      "inputs_sha256": "915fd4eb28cc4d612950ad99f33f68646002ff325124db7db0a03f03f4c1ccea",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-31.3.3-EXTRACT-NEGATIVE-SUM"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "負のホールド限界と精度2単位の和を与え、シミュレーションまで進んで実際に違反時の通知を起こす正常系。精度1単位で拒否するケースは別に検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_setuphold_negative_sum_two_precision_units.sv",
+              "contains": "$setuphold(posedge clk, posedge data, 5, -3, notifier)"
+            },
+            {
+              "file": "tests/ch31/test_setuphold_negative_sum_two_precision_units.sv",
+              "contains": "display(\"notifier=%b\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_interconnect_vector_and_ordinary_scalar_connect_to_primitive_array.sv",
+      "inputs_sha256": "6401e387ddb7dd15299370986d6725b0e0a59fc1b0747e1c2243e8954e69cfa0",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.3.6-EXTRACT-ARRAY-INTERCONNECT-WIDTH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "正常系の幅の合った interconnect でビット分割を観測し、通常のスカラの複製と比較する。幅の不足を拒否することは別の異常系で検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_interconnect_vector_and_ordinary_scalar_connect_to_primitive_array.sv",
+              "contains": "buf sliced_gate[1:0](selected, data)"
+            },
+            {
+              "file": "tests/ch28/test_interconnect_vector_and_ordinary_scalar_connect_to_primitive_array.sv",
+              "contains": "buf repeated_gate[1:0](repeated, scalar)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_additional_primitive_and_net_type_names.sv",
+      "inputs_sha256": "65dd0135c4d44c6320f4ef1bc518ef7fb0b0e032bd4619074832c40b579ee6f7",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3.2-EXTRACT-ADDITIONAL-TYPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "プリミティブ種別とネット種別の整数と名前を観測する。このテストでは遅延、演算、解決後のネット種別、タイミング検査のプロパティは扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_additional_primitive_and_net_type_names.sv",
+              "contains": "buf active_buf(wire_result, drive)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_additional_primitive_and_net_type_names.sv",
+              "contains": "wand wand_result"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+      "inputs_sha256": "27271d1c1633a14ff7985380fdc5858550a3430128cbc5f25b7bfe0b1839e11b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITIONS-NOT-DELAYED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "元のエッジと遅延エッジの間に条件を変え、遅延エッジ時点の条件で通知が変わることを検査する。明示的な遅延信号から条件を組み立てる場合は扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+              "contains": "timestamp_on, , d_clock, d_data"
+            },
+            {
+              "file": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+              "contains": "enables_later = 1;"
+            },
+            {
+              "file": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+              "contains": "disables_later = 0;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITION-ROLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "セットアップ限界が負のとき、先行する遅延基準エッジでタイムスタンプ条件を読むことを検査する。検査条件の対になる動的ケースは扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+              "contains": "timestamp_on, , d_clock, d_data"
+            },
+            {
+              "file": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+              "contains": "#1 data = 1;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-31.9.1-EXTRACT-NEGATIVE-DELAYED-COPIES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "元の基準エッジの後かつデータエッジの前に遅延基準エッジが生じることと、通知への効果を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+              "contains": "timestamp_on, , d_clock, d_data"
+            },
+            {
+              "file": "tests/ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge.sv",
+              "contains": "enable_all.d_clock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_vcd_dumpvars_reports_late_variable_selection.sv",
+      "inputs_sha256": "f660faebcb7b9fb7c0dd0ac4469ecff6278c7f619936cabcb9093da99a66f698",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.1.2-EXTRACT-DUMPVARS-TIMING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "2時刻目の呼び出しが無視されたことを、Icarusの診断とダンプした宣言の読み戻しで検査する。規格の時刻制約を破る呼び出しに対する Icarus の扱いを記録する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_reports_late_variable_selection.sv",
+              "contains": "$dumpvars(0, first_signal)"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_reports_late_variable_selection.sv",
+              "contains": "#1 $dumpvars(0, second_signal)"
+            },
+            {
+              "file": "tests/ch21/test_vcd_dumpvars_reports_late_variable_selection.sv",
+              "contains": ":expected_stderr_regex: (?im)^[^\\n]*(?:warning|error)[^\\n]*\\$dumpvars[^\\n]*(?:already|ignored|time)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_implicit_function_result_keeps_declared_index_labels.sv",
+      "inputs_sha256": "073522acf5b06c2e620cc342d0fa71c13b523fa1d0f5a142707ee8bf62246551",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.4.1-EXTRACT-IMPLICIT-RESULT-INDEX-RANGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "非ゼロ範囲の昇順と降順を使い、関数の結果から左右のビットと内側の範囲を読む。null ハンドルのメンバーへのアクセスは観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_implicit_function_result_keeps_declared_index_labels.sv",
+              "contains": "descending()[10:9]"
+            },
+            {
+              "file": "tests/ch13/test_implicit_function_result_keeps_declared_index_labels.sv",
+              "contains": "ascending()[4:5]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_isunbounded_package_and_hierarchical_parameter_names.sv",
+      "inputs_sha256": "7a6e738c3008ac62aa64b77cf36b3010d1e8de3bd4535371be30fdebfb4c225d",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.6.3-EXTRACT-ISUNBOUNDED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "名前の修飾として許される二つの形式を使用し、どちらでも値に応じた真偽を確認する。非パラメータ名の拒否は別テストで観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_isunbounded_package_and_hierarchical_parameter_names.sv",
+              "contains": "$isunbounded(limits::dynamic_limit)"
+            },
+            {
+              "file": "tests/ch20/test_isunbounded_package_and_hierarchical_parameter_names.sv",
+              "contains": "$isunbounded(unlimited.LIMIT)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_illegal_upward_name_search_stops_at_struct_member_path.sv",
+      "inputs_sha256": "0dcf5a693e0a53831bfbb2030fd6a9dfdb4ecd5837289dab3cacff0f8252b58f",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.8-EXTRACT-UPWARD-DATA-STOP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "手前の構造体に一致して残りのメンバーがない場合、さらに上位にある同じ名前のパスを使わず診断する。union、クラス、covergroup の場合は観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_illegal_upward_name_search_stops_at_struct_member_path.sv",
+              "contains": "route.record.value); // illegal"
+            },
+            {
+              "file": "tests/ch23/test_illegal_upward_name_search_stops_at_struct_member_path.sv",
+              "contains": "struct packed { bit other; } record"
+            },
+            {
+              "file": "tests/ch23/test_illegal_upward_name_search_stops_at_struct_member_path.sv",
+              "contains": ":expected_stderr_regex: test_illegal_upward_name_search_stops_at_struct_member_path\\.sv:15:(?:\\d+:)?[^\\n]*(?i:(?:member[^\\n]*(?:value|record)|(?:value|record)[^\\n]*member))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_upward_name_search_continues_past_missing_generate_member.sv",
+      "inputs_sha256": "7eab167029162c4114388e03586632cd69f494bd0151dc26008fad35dff8004e",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.8-EXTRACT-UPWARD-DATA-STOP"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "探しているメンバーのない手前の generate スコープを通過する正常系。構造体オブジェクトに一致した場合の対照にする。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_upward_name_search_continues_past_missing_generate_member.sv",
+              "contains": "int other = 13;"
+            },
+            {
+              "file": "tests/ch23/test_upward_name_search_continues_past_missing_generate_member.sv",
+              "contains": "int value = 57;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_illegal_virtual_modport_clocking_not_in_selected_view.sv",
+      "inputs_sha256": "37911514aa621fc467ee0d8012e568247dfabeff919f9abbf77f7558d47b77a0",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9.2-EXTRACT-VIRTUAL-CLOCKING-SCOPE-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "通常の信号が見える modport を通じて、含まれないクロッキングブロックへの参照を拒否する。正常系で見える条件は別のテストに含める。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_virtual_modport_clocking_not_in_selected_view.sv",
+              "contains": "virtual sampled_bus.direct_view restricted;"
+            },
+            {
+              "file": "tests/ch25/test_illegal_virtual_modport_clocking_not_in_selected_view.sv",
+              "contains": "restricted.selected.sample); // illegal"
+            },
+            {
+              "file": "tests/ch25/test_illegal_virtual_modport_clocking_not_in_selected_view.sv",
+              "contains": ":expected_stderr_regex: test_illegal_virtual_modport_clocking_not_in_selected_view\\.sv:31:(?:\\d+:)?[^\\n]*(?i:(?:modport|member|clocking|cannot|can.t find)[^\\n]*selected|selected[^\\n]*(?:modport|member|clocking|not found))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_virtual_interface_clocking_access_with_and_without_modport.sv",
+      "inputs_sha256": "2c5986acfb2a3a5c9744d2377796afe065b89eff47c2adf852c179636e225d75",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9.2-EXTRACT-VIRTUAL-CLOCKING-SCOPE-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二つの virtual interface の経路で同じクロッキングイベントを待ち、変化前後の値をそれぞれ参照する。選択していない modport での拒否は別テストで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_interface_clocking_access_with_and_without_modport.sv",
+              "contains": "@(restricted.selected);"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_clocking_access_with_and_without_modport.sv",
+              "contains": "@(unrestricted.selected);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_part_select_uses_distinct_bound_relations.sv",
+      "inputs_sha256": "a89a9a7cb69abb87802761e5f88cd3c20d4a0d47af5c2bd5375d59297bb2eb1b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3.1-EXTRACT-TAGGED-EXPRESSION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "左右の関係で返る値と、曖昧な vpiExpr の返り値・エラー状態を検査する。ハンドル照会の失敗を実行時に観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_part_select_uses_distinct_bound_relations.sv",
+              "contains": "$vt_bounds(nibble[10:7]);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_illegal_let_scalar_argument_expands_to_invalid_bit_select.sv",
+      "inputs_sha256": "c9673e2d61134323b63d4263d16dd99660dc65bcfa6572995db540b31bb1397b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.12-EXTRACT-LET-SUBSTITUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ展開にベクトルを通した後、スカラ実引数でのみ選択の型エラーを起こす。演算の優先順位を確かめる正常系は別に用意した。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_illegal_let_scalar_argument_expands_to_invalid_bit_select.sv",
+              "contains": "vector_result = at_index(vector_data, 2);"
+            },
+            {
+              "file": "tests/ch11/test_illegal_let_scalar_argument_expands_to_invalid_bit_select.sv",
+              "contains": "at_index(scalar_data, 0)); // illegal"
+            },
+            {
+              "file": "tests/ch11/test_illegal_let_scalar_argument_expands_to_invalid_bit_select.sv",
+              "contains": ":expected_stderr_regex: (?i)^(?=[^\\n]*test_illegal_let_scalar_argument_expands_to_invalid_bit_select\\.sv:(?:15|22):)(?=[^\\n]*(?:scalar[^\\n]*(?:select|index)|(?:select|index)[^\\n]*scalar|not indexable|type does not have a bit range[^\\n]*data type is 'bit'))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch12/test_case_qualifier_flush_is_local_to_retriggered_process.sv",
+      "inputs_sha256": "f71e79bd9c8ffd791bc84e561f2c183c360b54cd4220df4795cc5a55875965db",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-12.5.3.1-EXTRACT-CASE-REPORT-MECHANICS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "イベント待ちの再開で同一プロセスの保留違反だけを取り消し、別プロセスで確定する違反を残す。always_comb と always_latch の再実行は含まない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch12/test_case_qualifier_flush_is_local_to_retriggered_process.sv",
+              "contains": "always @(transient_selector)"
+            },
+            {
+              "file": "tests/ch12/test_case_qualifier_flush_is_local_to_retriggered_process.sv",
+              "contains": "always @(stable_selector)"
+            },
+            {
+              "file": "tests/ch12/test_case_qualifier_flush_is_local_to_retriggered_process.sv",
+              "contains": ":expected_stderr_regex: (?ms)\\A(?!.*?^(?=[^\\n]*test_case_qualifier_flush_is_local_to_retriggered_process\\.sv:21:)(?=[^\\n]*(?i:warning|error|violation))(?=[^\\n]*(?i:\\b(unique|case)\\b))[^\\n]+)(?=.*?^(?=[^\\n]*test_case_qualifier_flush_is_local_to_retriggered_process\\.sv:29:)(?=[^\\n]*(?i:warning|error|violation))(?=[^\\n]*(?i:\\b(priority|case)\\b))[^\\n]+)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_weak_reference_clear_value_from_void_method.sv",
+      "inputs_sha256": "82419aa040ae603fe00f6b61921928ec5ee64544edbf3ce0628affaedfbe9626",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.30.4-EXTRACT-SIGNATURE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "clear の呼び出し結果を代入すると void の使用として拒否する。引数個数の制約は別ケースに含める。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_clear_value_from_void_method.sv",
+              "contains": "result = reference_handle.clear(); // illegal"
+            },
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_clear_value_from_void_method.sv",
+              "contains": ":expected_stderr_regex: test_illegal_weak_reference_clear_value_from_void_method\\.sv:25:(?:\\d+:)?[^\\n]*(?i:(?:void[^\\n]*(?:value|expression|assign|conversion|context)|(?:value|expression|assign|conversion|context)[^\\n]*void))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_weak_reference_clear_takes_no_argument.sv",
+      "inputs_sha256": "8178673eec39478f00eebfd3eebd7146b3f8d0e4e9f8edef1cdd3eecf90c388b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.30.4-EXTRACT-SIGNATURE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "余分な位置引数を指定した呼び出しを拒否する。void の戻り型は別ケースで判定する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_clear_takes_no_argument.sv",
+              "contains": "reference_handle.clear(1); // illegal"
+            },
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_clear_takes_no_argument.sv",
+              "contains": ":expected_stderr_regex: test_illegal_weak_reference_clear_takes_no_argument\\.sv:24:(?:\\d+:)?[^\\n]*(?i:(?:too many|no\\s+(?:formal|argument)|expected\\s+(?:0|zero)|(?:argument|parameter)[^\\n]*clear|clear[^\\n]*(?:argument|parameter)))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_interconnect_single_delay_on_inferred_net.sv",
+      "inputs_sha256": "616e97d9d6955be6396242b1b4642553c72490a695206c7eb7a2486a6fc83da6",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.7.1-EXTRACT-INTERCONNECT-SINGLE-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "遅延なしと単一遅延の interconnect に同じ信号を通し、立ち上がりと立ち下がりの前後を比較する正常系。二値の指定は別の異常系で検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_interconnect_single_delay_on_inferred_net.sv",
+              "contains": "interconnect direct_link;"
+            },
+            {
+              "file": "tests/ch6/test_interconnect_single_delay_on_inferred_net.sv",
+              "contains": "interconnect #2 delayed_link;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv",
+      "inputs_sha256": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.8.5-EXTRACT-EQUALITY-REQUIRED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "別々に作った等しいキューと文字列を持つ構造体が同じキーを指すことと、要素数またはラベルの差が別キーを作ることを検査する。比較演算のない型の拒否は観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv",
+              "contains": "data[copied]++;"
+            },
+            {
+              "file": "tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv",
+              "contains": "shorter.samples.delete(1);"
+            },
+            {
+              "file": "tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv",
+              "contains": "first.samples[0] = 9;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_illegal_associative_index_contains_nested_real.sv",
+      "inputs_sha256": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.8.5-EXTRACT-NO-REAL-CONTAINING-KEY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "入れ子の構造体の real メンバーを拒否する追加のケース。shortreal や直接の real は既存のグループで検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_illegal_associative_index_contains_nested_real.sv",
+              "contains": "typedef struct { int serial; real gain; } part_key;"
+            },
+            {
+              "file": "tests/ch7/test_illegal_associative_index_contains_nested_real.sv",
+              "contains": "int data[invalid_key];"
+            },
+            {
+              "file": "tests/ch7/test_illegal_associative_index_contains_nested_real.sv",
+              "contains": ":expected_stderr_regex: test_illegal_associative_index_contains_nested_real\\.sv:17:(?:\\d+:)?[^\\n]*(?i:(?:associative|index|key)[^\\n]*(?:real|floating|element|equality|type)|(?:real|floating)[^\\n]*(?:associative|index|key))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_process_function_can_suspend_another_waiting_process.sv",
+      "inputs_sha256": "24213c41b19627b5718914e06c3e5d37890adb19fee4874c90448912857d14c0",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-9.7-EXTRACT-NO-FUNCTION-SELF-SUSPEND"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ形の関数で他プロセスを停止し、待機条件を真にしても進まず、再開後に処理を終える正常系。自己対象の診断は別ケースで観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_process_function_can_suspend_another_waiting_process.sv",
+              "contains": "pause_target(worker);"
+            },
+            {
+              "file": "tests/ch9/test_process_function_can_suspend_another_waiting_process.sv",
+              "contains": "start_work = 1;"
+            },
+            {
+              "file": "tests/ch9/test_process_function_can_suspend_another_waiting_process.sv",
+              "contains": "worker.resume();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_forward_type_qualified_typedef_and_type_parameter_before_completion.sv",
+      "inputs_sha256": "590a060326afab218cca9648971ca13eba852bfa0a2f55f81e5b2c3f9c4a48c8",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.18-EXTRACT-INCOMPLETE-BEFORE-DEFINITION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "クラス定義前の typedef、type 演算子、型パラメータの許可された使用を検査する。変数の型として直接使う制約は別の異常系で観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_forward_type_qualified_typedef_and_type_parameter_before_completion.sv",
+              "contains": "typedef pending_type::payload_type early_alias;"
+            },
+            {
+              "file": "tests/ch6/test_forward_type_qualified_typedef_and_type_parameter_before_completion.sv",
+              "contains": "typedef type(pending_type::payload_type) early_type_query;"
+            },
+            {
+              "file": "tests/ch6/test_forward_type_qualified_typedef_and_type_parameter_before_completion.sv",
+              "contains": "type_sink #(pending_type::payload_type) instance_under_test();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_bind_scope_instance_list_selects_nonadjacent_targets.sv",
+      "inputs_sha256": "e36b172e42e54ef708495f0625dd4b37895a72f0403ceb857962b70e5649fab3",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.1.4-EXTRACT-BIND-SCOPE-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "スコープ名の後に二つの対象を指定し、リストにない中間のインスタンスだけが駆動されないことを検査する。リストの省略とインターフェースの制約は別ケースにある。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_bind_scope_instance_list_selects_nonadjacent_targets.sv",
+              "contains": "bind scope_target: chosen_left, chosen_right"
+            },
+            {
+              "file": "tests/ch23/test_bind_scope_instance_list_selects_nonadjacent_targets.sv",
+              "contains": "omitted.result === 'z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_illegal_instance_target_bind_requires_instantiation_terminator.sv",
+      "inputs_sha256": "5d7a8d81bd7c0d9ce0902e695201b13c749e2399d8e1bd2b42bc5e5d3e163911",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.1.4-EXTRACT-BIND-INSTANCE-GRAMMAR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "定数で選択したインスタンスに bind する文で、最後のセミコロンを省くと構文診断を出すことを検査する。二重のセミコロンは観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_illegal_instance_target_bind_requires_instantiation_terminator.sv",
+              "contains": ".nodes[2]\n      probe attached(.sample(data))"
+            },
+            {
+              "file": "tests/ch23/test_illegal_instance_target_bind_requires_instantiation_terminator.sv",
+              "contains": ":expected_stderr_regex: test_illegal_instance_target_bind_requires_instantiation_terminator\\.sv:(?:22|23):(?:\\d+:)?[^\\n]*(?i:(?:ExpectedToken|expect[^\\n]*(?:semicolon|[\\x27\\x22];)|(?:semicolon|[\\x27\\x22];)[^\\n]*expect))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch17/test_checker_port_property_actual_attributes_and_omissions.sv",
+      "inputs_sha256": "e71126e0856251c25a1ec99e146df9b3c010af3c57ed6609572bfe868a81b8ca",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "両方の接続形式に属性付きのプロパティ実引数を与え、位置指定の穴と名前指定の省略に既定値を適用する。ワイルドカードおよび明示的な空の名前付き接続は観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_checker_port_property_actual_attributes_and_omissions.sv",
+              "contains": "watch_property by_order"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_property_actual_attributes_and_omissions.sv",
+              "contains": "watch_property by_name"
+            },
+            {
+              "file": "tests/ch17/test_checker_port_property_actual_attributes_and_omissions.sv",
+              "contains": "direct_control: cover property"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_inout_interface_signal_serves_both_specify_terminal_directions.sv",
+      "inputs_sha256": "3d5b826c58a1c204602cf4f3d83bc98d34051379b48e66abe6ab29956c3fa61f",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.6-EXTRACT-INTERFACE-SPECIFY-TERMINALS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "一つ目のパスの出力と二つ目のパスの入力に同じ inout 信号を指定し、二段の遅延を確認する正常系。ref の拒否は別ケースに含める。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_inout_interface_signal_serves_both_specify_terminal_directions.sv",
+              "contains": "(channel.source => channel.link) = 2;"
+            },
+            {
+              "file": "tests/ch25/test_inout_interface_signal_serves_both_specify_terminal_directions.sv",
+              "contains": "(channel.link => result) = 3;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_illegal_ref_modport_signal_used_as_timing_check_terminal.sv",
+      "inputs_sha256": "36294bc206541aba855a3a51facbf77c096b29c59506d6ec4c31460a83255859",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.6-EXTRACT-INTERFACE-SPECIFY-TERMINALS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ modport で入力クロックと ref データを公開し、タイミング検査で ref を使用する箇所の診断を要求する。合法な inout の接続は別ケースで観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_illegal_ref_modport_signal_used_as_timing_check_terminal.sv",
+              "contains": "modport model(input clk, ref shared_data);"
+            },
+            {
+              "file": "tests/ch25/test_illegal_ref_modport_signal_used_as_timing_check_terminal.sv",
+              "contains": "$setup(channel.shared_data, posedge channel.clk, 3, notifier)"
+            },
+            {
+              "file": "tests/ch25/test_illegal_ref_modport_signal_used_as_timing_check_terminal.sv",
+              "contains": ":expected_stderr_regex: test_illegal_ref_modport_signal_used_as_timing_check_terminal\\.sv:21:(?:\\d+:)?[^\\n]*(?i:(?:\\bref\\b[^\\n]*(?:terminal|timing|specify)|(?:terminal|timing|specify)[^\\n]*\\bref\\b))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_nonansi_function_ports_share_declaration_with_distinct_unpacked_ranges.sv",
+      "inputs_sha256": "6845557c47764258f0761ca5e8c78c616e94928cccadbc5bf48d941f6ecdd881",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.3-EXTRACT-DIM-LIST-72"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "一つの非 ANSI 宣言内で二つの入力仮引数を宣言し、異なるアンパック範囲でそれぞれの要素を使う。宣言時初期化は観測しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_nonansi_function_ports_share_declaration_with_distinct_unpacked_ranges.sv",
+              "contains": "input int first [2:3], second [-1:0];"
+            },
+            {
+              "file": "tests/ch13/test_nonansi_function_ports_share_declaration_with_distinct_unpacked_ranges.sv",
+              "contains": "score(a, b)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_default_bins_with_failed_and_pending_transition_paths.sv",
+      "inputs_sha256": "6c736732299eef941aa1bd194be4e10decc41d87a39b57c83ed5401559126c10",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.5-EXTRACT-DEFAULT-VALUES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "通常ランナーで明示ビンの集計値を確認する。Ghost のレポートを別の検査で読み、値の default ビンと、遷移候補の消滅時の default sequence のヒットも確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_default_bins_with_failed_and_pending_transition_paths.sv",
+              "contains": "bins unmatched_value = default;"
+            },
+            {
+              "file": "tests/ch19/test_default_bins_with_failed_and_pending_transition_paths.sv",
+              "contains": "bins unmatched_transition = default sequence;"
+            },
+            {
+              "file": "tests/ch19/test_default_bins_with_failed_and_pending_transition_paths.sv",
+              "contains": "samples = '{1, 2, 5, 6, 5, 8, 0, 0, 10};"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_default_transition_bin_ignores_a_pending_nonconsecutive_match.sv",
+      "inputs_sha256": "285888af59958a55b1323a41bcbca13fc3521df0345515991965c6e3e7bd5dd9",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.5-EXTRACT-DEFAULT-VALUES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "明示した非連続遷移を完了するまで集計値がゼロであることを確かめる。保留中の default sequence のヒット数は別のレポート検査で観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_default_transition_bin_ignores_a_pending_nonconsecutive_match.sv",
+              "contains": "bins wait_path = (1 => 3[->1]);"
+            },
+            {
+              "file": "tests/ch19/test_default_transition_bin_ignores_a_pending_nonconsecutive_match.sv",
+              "contains": "sample_value = 2; recorder.sample();"
+            },
+            {
+              "file": "tests/ch19/test_default_transition_bin_ignores_a_pending_nonconsecutive_match.sv",
+              "contains": "sample_value = 0; recorder.sample();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
+      "inputs_sha256": "7a6ac51caebaf49a485e043d55698d4ec702450a336b155efaf8ceb61dce5c4e",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.9-EXTRACT-SET-DATABASE-NAME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "保存用の実行で名前を二度設定する。別のレポートテストが、最後に指定したファイルが書かれ、先に指定したファイルが作成されないことを確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
+              "contains": "$set_coverage_db_name(\"unused_coverage.json\");"
+            },
+            {
+              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
+              "contains": "$set_coverage_db_name(\"chosen_coverage.json\");"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-19.9-EXTRACT-LOAD-DATABASE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "追加のサンプリングをせずに前の実行のファイルを読み込み、別のレポートテストが両型の累積値を検査する。現在の Ghost では保存段階で対象ファイルが生成されない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
+              "contains": "$load_coverage_db(\"chosen_coverage.json\");"
+            },
+            {
+              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
+              "contains": "four_values::get_coverage(), two_values::get_coverage()"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_value_change_callback_refuses_automatic_variable.sv",
+      "inputs_sha256": "4becf7a9250eafbb69b32c0117b10d88a318cb1f49714da8e41738e314f77b01",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.43-EXTRACT-AUTOMATIC-NO-CALLBACK"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "手続き呼び出し中の自動変数と静的変数に同じコールバックを登録し、静的変数だけが登録されて通知することを期待する。拒否は実行時の API 戻り値とエラー状態で観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_value_change_callback_refuses_automatic_variable.sv",
+              "contains": "$vt_watch_value(local_state, 1);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_value_change_callback_refuses_automatic_variable.sv",
+              "contains": "$vt_watch_value(persistent_state, 0);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_delayed_write_refuses_automatic_variable.sv",
+      "inputs_sha256": "5b87c1581e15c7ad485cdec5ab7def2dbd50f4d23186c35b50db0263014ac12a",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.43-EXTRACT-AUTOMATIC-NO-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "遅延書き込みで静的変数だけを変更することと、自動変数では実行時にイベントハンドルを返さずエラーを示すことを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_delayed_write_refuses_automatic_variable.sv",
+              "contains": "$vt_delayed_write(local_state, 1);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_delayed_write_refuses_automatic_variable.sv",
+              "contains": "$vt_delayed_write(persistent_state, 0);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_function_background_work_from_initial_and_descendant_threads.sv",
+      "inputs_sha256": "f2e7e5d488bc74965aad13545ed6bf533048604824a81929a710043aa574d9c5",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-13.4.4-EXTRACT-BACKGROUND-CALL-CONTEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "initial 本体とその fork の子から同じ関数を呼び、戻り値をすぐ得てから子の遅延処理が完了することを検査する。禁止される静的初期値は別ケースに含める。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_function_background_work_from_initial_and_descendant_threads.sv",
+              "contains": "direct = launch(0, 11);"
+            },
+            {
+              "file": "tests/ch13/test_function_background_work_from_initial_and_descendant_threads.sv",
+              "contains": "from_child = launch(1, 23);"
+            },
+            {
+              "file": "tests/ch13/test_function_background_work_from_initial_and_descendant_threads.sv",
+              "contains": "#3 results[saved_slot] = saved_value;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed.sv",
+      "inputs_sha256": "19672833829e7aace47b990fe99b067e73c72b542823cd01bb2755fc8aea7872",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.10-EXTRACT-NO-PREASSIGNED-TRIGGERED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "呼び出し元で番兵値を代入した後、シーケンス内で別の値を捕捉し、その値が戻ることを検査する。シーケンス内の代入前の読み出しは別ケースで拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed.sv",
+              "contains": "(start_check, local_data = 99)"
+            },
+            {
+              "file": "tests/ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed.sv",
+              "contains": "(start_capture, local_data = stimulus)"
+            },
+            {
+              "file": "tests/ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed.sv",
+              "contains": "capture(local_data).triggered"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment.sv",
+      "inputs_sha256": "de13bd4bd030c8671509f94620dde7c09cb6b8ec1619dce6324e7edeb1c6f21c",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.10-EXTRACT-NO-PREASSIGNED-TRIGGERED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "呼び出し元で代入済みのローカル変数を渡しても、受け取ったシーケンス内で先に読む箇所を診断する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment.sv",
+              "contains": "start_capture && local_data == 99"
+            },
+            {
+              "file": "tests/ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment.sv",
+              "contains": "(1'b1, local_data = 99)"
+            },
+            {
+              "file": "tests/ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment.sv",
+              "contains": ":expected_stderr_regex: test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment\\.sv:(?:19|25):(?:\\d+:)?[^\\n]*(?i:(?:local|formal|triggered)[^\\n]*(?:unassigned|before[^\\n]*assign|read[^\\n]*before)|(?:before[^\\n]*assign|unassigned)[^\\n]*(?:local|formal|triggered))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_scan_reports_destination_for_suppressed_conversion.sv",
+      "inputs_sha256": "6cc121693e9ad6718957af75abd5c6563c92af6527305db8dc2b9086e72e6e7e",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.3.4.3-EXTRACT-SCAN-SUPPRESSION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "代入抑止の変換に代入先を追加した入力に対し、実行段階で引数の診断を要求する。コンパイル時に診断する実装と抑止フィールドを正常に読み飛ばす実行は別扱いとする。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_scan_reports_destination_for_suppressed_conversion.sv",
+              "contains": "$sscanf(\"73\", \"%*d\", unused_destination)"
+            },
+            {
+              "file": "tests/ch21/test_scan_reports_destination_for_suppressed_conversion.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*\\$?sscanf\\b)(?=[^\\n]*(?:\\bargument|\\bdestination|\\bsuppress))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_unpacked_structure_rejects_whole_value_access.sv",
+      "inputs_sha256": "ab64a2d1f642d94048881834823991fc37484f91ff82942c0d6caeb840149e9b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.26-EXTRACT-NO-UNPACKED-VALUE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "メンバーを先に読み書きして対照とし、構造体全体の取得と書き込みのエラーを検査する。異常は実行中の API で観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_unpacked_structure_rejects_whole_value_access.sv",
+              "contains": "packet.serial = 23;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_structure_rejects_whole_value_access.sv",
+              "contains": "packet.reading = 17;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_structure_rejects_whole_value_access.sv",
+              "contains": "$vt_access();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_unpacked_union_rejects_whole_value_access.sv",
+      "inputs_sha256": "00a209f9be63c260d88b3fc9345e3fc65f6989606070100221f3394680fee155",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.26-EXTRACT-NO-UNPACKED-VALUE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "現在有効な共用体メンバーの正常な読み書きを対照として、共用体全体の取得と書き込みのエラーを実行中に検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_unpacked_union_rejects_whole_value_access.sv",
+              "contains": "typedef union {"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_union_rejects_whole_value_access.sv",
+              "contains": "packet.reading = 17;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_unpacked_union_rejects_whole_value_access.sv",
+              "contains": "$vt_access();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index.sv",
+      "inputs_sha256": "617264db30ea952651b8889deb0588474ae985ffd294c58031d6a0869c32ee76",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3.5-EXTRACT-PUT-INDEX-EFFECT-ERROR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "定数添字と副作用なしの変数添字を正常系とし、インクリメントを含む添字の書き込みだけに実行時エラーを要求する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index.sv",
+              "contains": "$vt_put_bit(payload[1]);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index.sv",
+              "contains": "$vt_put_bit(payload[index_value]);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index.sv",
+              "contains": "$vt_put_bit(payload[index_value++]);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_stream_unpack_dynamic_width_into_descending_fixed_array.sv",
+      "inputs_sha256": "1f88e4cbcd12a441b57f4f72eb7540a72ef59b5f1f99f9dc30015324d5289e2a",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.4.14.4-EXTRACT-WITH-INTEGRAL-RANGE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "実行時の整数幅を使う降順範囲で、対象の要素だけを更新する正常系。非整数の型と負の添字は別ケースで拒否する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_stream_unpack_dynamic_width_into_descending_fixed_array.sv",
+              "contains": "byte values [4:1];"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_dynamic_width_into_descending_fixed_array.sv",
+              "contains": "values with [start_index -: count]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_stream_unpack_outside_fixed_array_updates_only_in_range_entries.sv",
+      "inputs_sha256": "8090eda7909f67b124343f2290af4405f0d617324eef56892d49a561c91e62d8",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.4.14.4-EXTRACT-WITH-FIXED-OUTSIDE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "実行時の範囲が固定配列の末尾を越える場合に、範囲内に先頭二要素だけを展開し、診断を出すことを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_stream_unpack_outside_fixed_array_updates_only_in_range_entries.sv",
+              "contains": "byte values [1:4];"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_outside_fixed_array_updates_only_in_range_entries.sv",
+              "contains": "values with [start_index +: count]"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_outside_fixed_array_updates_only_in_range_entries.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*(?:\\bstream|\\bunpack|\\bfixed array))(?=[^\\n]*(?:out of bounds|beyond|outside|outside the range|range exceeds|out.of.range))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace.sv",
+      "inputs_sha256": "c02c5847b4d6c1317d4f5b869dfd21c52ab56ab2605e457c31de35603d2df129",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-16.12.2-EXTRACT-IMPLICIT-STRENGTH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ未完了トレースに対する明示した strong の cover を対照にし、暗黙の強さと終了時の cover 評価を切り分ける。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace.sv",
+              "contains": "not strong(completion)"
+            },
+            {
+              "file": "tests/ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace.sv",
+              "contains": "#7 $finish;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch19/test_coverpoint_excludes_ranges_with_unknown_endpoints.sv",
+      "inputs_sha256": "b1e40d1a72b87c954ad97662bc5cba1c650062e865c72264cd538fc51b7894e5",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-19.5.7-EXTRACT-WARNED-RANGE-REMOVE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "下限の x と上限の z にそれぞれ警告が出て範囲が除外されることを検査する。全値が型に収まらない範囲の検査は既存ケースにある。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch19/test_coverpoint_excludes_ranges_with_unknown_endpoints.sv",
+              "contains": "bins lower ="
+            },
+            {
+              "file": "tests/ch19/test_coverpoint_excludes_ranges_with_unknown_endpoints.sv",
+              "contains": "bins upper ="
+            },
+            {
+              "file": "tests/ch19/test_coverpoint_excludes_ranges_with_unknown_endpoints.sv",
+              "contains": ":expected_stderr_regex: (?ims)\\A(?=.*?^(?=[^\\n]*warning)(?=[^\\n]*(?:\\blower\\b|test_coverpoint_excludes_ranges_with_unknown_endpoints\\.sv:18:))(?=[^\\n]*(?:unknown|x\\s*[/]\\s*z|\\bx\\b|\\bz\\b|indeterminate))[^\\n]+)(?=.*?^(?=[^\\n]*warning)(?=[^\\n]*(?:\\bupper\\b|test_coverpoint_excludes_ranges_with_unknown_endpoints\\.sv:19:))(?=[^\\n]*(?:unknown|x\\s*[/]\\s*z|\\bx\\b|\\bz\\b|indeterminate))[^\\n]+)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch32/test_sdf_log_file_records_each_annotated_path.sv",
+      "inputs_sha256": "e8707b6462d803867014adae876a3c7ade6168d7885acc0c0b7eb07a9478f435",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-32.9-EXTRACT-SDF-LOG-FILE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "シミュレーションの出力は別々の遅延を確認する。ファイルが生成され、注釈ごとの行を含むことは、別の Ghost 用実行テストで終了後に検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_log_file_records_each_annotated_path.sv",
+              "contains": "\"selected_annotation.log\""
+            },
+            {
+              "file": "tests/ch32/test_sdf_log_file_records_each_annotated_path.sv",
+              "contains": "(IOPATH source destination_a (3))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_log_file_records_each_annotated_path.sv",
+              "contains": "(IOPATH source destination_b (7))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_uwire_allows_disjoint_slice_drivers_across_nested_ports.sv",
+      "inputs_sha256": "e059f6c9251fd75953fcc17ce39001ff5a758c156c98fe835f3204658e1a5ca8",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.6.2-EXTRACT-UWIRE-HIERARCHICAL-ENFORCEMENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二段の階層を通る二つの出力が別々のビットに接続される合法ケース。重なる場合の拒否は別ケースで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_uwire_allows_disjoint_slice_drivers_across_nested_ports.sv",
+              "contains": "upper(a, link[3:2])"
+            },
+            {
+              "file": "tests/ch23/test_uwire_allows_disjoint_slice_drivers_across_nested_ports.sv",
+              "contains": "lower(b, link[1:0])"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch31/test_recrem_allows_both_negative_limit_signs_above_sum_boundary.sv",
+      "inputs_sha256": "7b035ae3eb4cf1d881766b488cc0ac7b7c53ebc33a61033cefb47477cf811480",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-31.3.6-EXTRACT-NEGATIVE-SUM"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "境界のすぐ上で recovery と removal のどちらが負でも実行できる合法ケース。境界の拒否は別の二つのテストで検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch31/test_recrem_allows_both_negative_limit_signs_above_sum_boundary.sv",
+              "contains": "posedge clk, -3, 5"
+            },
+            {
+              "file": "tests/ch31/test_recrem_allows_both_negative_limit_signs_above_sum_boundary.sv",
+              "contains": "posedge clk, 5, -3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_legacy_dpi_packed_whole_array_transfer.sv",
+      "inputs_sha256": "8b43dae4c84be4bc5b345e1d55822f319af4ee3d0bd44510a9c84aa9ba0298d4",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-H.14.2-EXTRACT-VENDOR-SIZE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "両サイズ関数が正の整数を返すことを確認する。処理系ごとの内部表現のバイト数は固定しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_legacy_dpi_packed_whole_array_transfer.sv",
+              "contains": "import \"DPI\""
+            },
+            {
+              "file": "tests/ch35/test_legacy_dpi_packed_whole_array_transfer.sv",
+              "contains": "legacy_copy(bit_input"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "従来形式のハンドルで値を取得できる。処理系内部の表現と正規表現が等しいかどうかには依存しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_legacy_dpi_packed_whole_array_transfer.sv",
+              "contains": "import \"DPI\""
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "parse-only で旧形式の入力をコンパイルし、警告またはエラーで新形式と C コードが変更を要する可能性を示すかをツール用テストで検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_legacy_dpi_packed_whole_array_transfer.sv",
+              "contains": "import \"DPI\" function void legacy_copy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier.sv",
+      "inputs_sha256": "e4a560d8f3c12881b6176543070c342cdc99396360476c9fefa9c3ac893f0baf",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.4-EXTRACT-VERSION-CONSISTENCY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "引数型を同じにして C リンク名を共有し、形式を違えた場合の拒否を検査する。型の一致を確認する合法側は別テストに置く。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier.sv",
+              "contains": "\"DPI-C\" shared_foreign"
+            },
+            {
+              "file": "tests/ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier.sv",
+              "contains": "\"DPI\" shared_foreign"
+            },
+            {
+              "file": "tests/ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier.sv",
+              "contains": ":expected_stderr_regex: test_illegal_dpi_versions_share_one_c_linkage_identifier\\.sv:17:(?:\\d+:)?[^\\n]*(?i:(?=[^\\n]*shared_foreign)(?=[^\\n]*(?:different|mismatch|inconsisten|conflict))(?=[^\\n]*(?:DPI|version|specifier|linkage))[^\\n]+)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_matching_versions_allow_multiple_aliases_for_one_linkage.sv",
+      "inputs_sha256": "f85dbb7911c33461d7e8729a8de3c389735a48df3c5c5d99374c887c91e8c3e6",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.4-EXTRACT-VERSION-CONSISTENCY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "現行形式で同一の外部関数を二つの別名から呼ぶ合法の対照ケース。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_matching_versions_allow_multiple_aliases_for_one_linkage.sv",
+              "contains": "first_alias(4), second_alias(14)"
+            },
+            {
+              "file": "tests/ch35/test_dpi_matching_versions_allow_multiple_aliases_for_one_linkage.sv",
+              "contains": "\"DPI-C\" common_number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_resolves_imports_from_two_foreign_objects.sv",
+      "inputs_sha256": "0520d79b7dc1ea3fd7d72076c32252b966a091d039d995e0f63c38adb6de3acc",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-J.3-EXTRACT-ROOT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "通常のテストは関数を実行する。相対パスの基準の比較は、別々にビルドした共有ライブラリを用いるツール用テストで検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_resolves_imports_from_two_foreign_objects.sv",
+              "contains": "from_left(8), from_right(13)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-J.4-EXTRACT-DIRECT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "拡張子のないパス、両方の指定順、重複ロードの抑止は、複数の共有ライブラリを読み込むツール用テストで検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_resolves_imports_from_two_foreign_objects.sv",
+              "contains": "import \"DPI-C\" function int from_left"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-J.4-EXTRACT-MIX"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "マニフェストによる読み込みと直接指定の併用は、ツール用テストで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_resolves_imports_from_two_foreign_objects.sv",
+              "contains": "import \"DPI-C\" function int from_right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_import_task_rejects_wrong_status_after_disable.sv",
+      "inputs_sha256": "1ea6e1335b6f5667ea45da4eeb4bda7c64f3f3c1f65937b8e73ea93ba0adae5a",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.9-EXTRACT-DISABLE-PROTOCOL-FATAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "外側のブロックを無効化し、エクスポートが無効状態を返した後に外部コードが正常完了の状態を返すと、致命的な診断が出て他のプロセスも終了することを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_task_rejects_wrong_status_after_disable.sv",
+              "contains": "observed_import(0);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_import_task_rejects_wrong_status_after_disable.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:fatal|error))(?=[^\\n]*\\b(?:dpi|import)\\b)(?=[^\\n]*disabl)(?=[^\\n]*(?:status|return|acknowledg|protocol))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_import_task_rejects_disable_status_after_normal_return.sv",
+      "inputs_sha256": "2175711cbc7ef50b477c45a2468a098695870e804d1ea687368b26bd6721a343",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.9-EXTRACT-DISABLE-PROTOCOL-FATAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "エクスポートが正常完了した後に外部コードが無効状態を返した場合も、致命的な診断と即時終了を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_import_task_rejects_disable_status_after_normal_return.sv",
+              "contains": "observed_import(1);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_import_task_rejects_disable_status_after_normal_return.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:fatal|error))(?=[^\\n]*\\b(?:dpi|import)\\b)(?=[^\\n]*disabl)(?=[^\\n]*(?:status|return|acknowledg|protocol))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+      "inputs_sha256": "7159a85aa02ac08ba7ec5115f11eb88a38332a8ba69524db59ae9b888ac66057",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.9-EXTRACT-DISABLE-PROTOCOL-FATAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "無効化を受けた外部コードがもう一つのエクスポートを呼んだとき、その本体を開始する前に致命的な診断が出ることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+              "contains": "observed_import(2);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:fatal|error))(?=[^\\n]*\\b(?:dpi|export)\\b)(?=[^\\n]*disabl)(?=[^\\n]*(?:cannot|after|prohibit|while|protocol))[^\\n]+"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-35.9-EXTRACT-DISABLED-NO-EXPORT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "インポートタスクが無効化状態を受け取った後にエクスポートを試みる実行時のケース。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+              "contains": "observed_import(2);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*(?:fatal|error))(?=[^\\n]*\\b(?:dpi|export)\\b)(?=[^\\n]*disabl)(?=[^\\n]*(?:cannot|after|prohibit|while|protocol))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_virtual_interface_handle_rebinding_in_procedural_block_bodies.sv",
+      "inputs_sha256": "3fbaec8f92862ad3f1e554cb287c7a74b85b31809ad6e57320754ac4a0b04fee",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "仮想インターフェースの読み取りを複数の手続きの本体で使い、ハンドルの再束縛で参照先が変わることを検査する。感度リストには実クロックを用いる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_interface_handle_rebinding_in_procedural_block_bodies.sv",
+              "contains": "always_comb combined = selected.data"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_handle_rebinding_in_procedural_block_bodies.sv",
+              "contains": "always_ff @(posedge sample_clock) sampled <= selected.data"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_handle_rebinding_in_procedural_block_bodies.sv",
+              "contains": "selected = second;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch25/test_virtual_interface_event_control_inside_always_begin_end.sv",
+      "inputs_sha256": "a856fc877401678cab65d533febdf2a9f73748094e88dd0672048755dbcf43cf",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ブロック内の手続き的なイベント制御で仮想インターフェース経由のエッジを待ち、同じイベント制御を使う initial との結果を比較する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch25/test_virtual_interface_event_control_inside_always_begin_end.sv",
+              "contains": "always begin"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_event_control_inside_always_begin_end.sv",
+              "contains": "@(posedge selected.clock);"
+            },
+            {
+              "file": "tests/ch25/test_virtual_interface_event_control_inside_always_begin_end.sv",
+              "contains": "initial_events++;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage.sv",
+      "inputs_sha256": "139ccc739f44e5da41b3e946c663759601b82705d194b4bca951ded3824b158b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-PUT-VALUE-ALLOCATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ C 側の文字列とベクターのバッファから二回ずつ予約し、書き換え後も各イベントが呼び出し時の値を保持することを調べる。全形式の検証は既存のテスト組を使う。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage.sv",
+              "contains": "#5 $vt_schedule_values;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage.sv",
+              "contains": "#2 $display(\"at10 %010h %s\", vector_value, text_value);"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.15-EXTRACT-VALUE-STORAGE-LIFETIME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "vpi_put_value へ呼び出し側が確保した文字列とベクターの領域を渡し、後で再利用できることを調べる。取得側やコールバックの寿命はこのテストの対象外である。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage.sv",
+              "contains": "#5 $vt_schedule_values;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_vector_callback_storage_survives_get_value_until_return.sv",
+      "inputs_sha256": "27b42e6a0e309288f062b03af93e1e8f5642c82e9b20d9f9ff6566530e6cf25c",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.15-EXTRACT-VALUE-STORAGE-LIFETIME"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二つの vpiVectorVal コールバックで別の40ビット値を取得しても、戻る前の公開ベクターを読み直すと元の二語を維持することを調べる。復帰後の解放と他形式の受領領域は調べない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_vector_callback_storage_survives_get_value_until_return.sv",
+              "contains": "#1 $vt_watch_vector;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_vector_callback_storage_survives_get_value_until_return.sv",
+              "contains": "#4 watched = 40'h34_a1x3_56z8;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_vector_callback_storage_survives_get_value_until_return.sv",
+              "contains": "#3 watched = 40'h56_zbcx_1234;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression.sv",
+      "inputs_sha256": "7f6b1144d797678ace89b28481f0a62beb2f43e97f3d517674fcd878cde55d30",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "値が最後に変化した後も時刻が進み、終了時刻は別のツールテストで閉じたファイルの vcdclose と比較できる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression.sv",
+              "contains": "#2 mask = 4'h7;"
+            },
+            {
+              "file": "tests/ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression.sv",
+              "contains": "#11 $display(\"design end=%0d\", $time);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv",
+      "inputs_sha256": "9a15e03bb4b77eab60dec5f889fdd4964cc0191762c28478e8737fc4f95d5334",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-39.4.1-EXTRACT-SYSTEM-INITIALIZED"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "既定の有効化と実際の試行より先に初期化のコールバックが届くことを調べる。初期化の通知が未完了の時点ではアサーション専用の操作を行わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv",
+              "contains": "#1 $display(\"startup passes=%0d\", passed);"
+            },
+            {
+              "file": "tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv",
+              "contains": "$vt_report_lifecycle;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_evcd_close_waits_for_finish_even_when_dumping_is_paused.sv",
+      "inputs_sha256": "ba4a4534c7800f9f9c665b5702d44fb4b0e56322669549c82548c592665c5c85",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "進行中と一時停止中の両ファイルに時刻13では終了記録がないことを検査し、時刻29で明示的に終了する。閉鎖後の記録は独立したファイル検査で確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_close_waits_for_finish_even_when_dumping_is_paused.sv",
+              "contains": "#6 $dumpportsoff(\"paused.evcd\");"
+            },
+            {
+              "file": "tests/ch21/test_evcd_close_waits_for_finish_even_when_dumping_is_paused.sv",
+              "contains": "#16 $display(\"explicit finish=%0d\", $time);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting.sv",
+      "inputs_sha256": "6243f815d166e63f0a70c715a025813b2946bed1baade1aac3c57e0778b4542d",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.10.1-EXTRACT-ELABORATION-DIAGNOSTICS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "警告と情報の診断がファイル、行、呼び出し元の階層名、重大度、メッセージを含むことを調べる。エラーと致命的な診断の書式はこのケースに含めない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting.sv",
+              "contains": "$warning(\"SELECTED_ONE_MARKER\");"
+            },
+            {
+              "file": "tests/ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting.sv",
+              "contains": "$info(\"SELECTED_TWO_MARKER\");"
+            },
+            {
+              "file": "tests/ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting.sv",
+              "contains": ":expected_stderr_regex: (?im)\\A(?=[\\s\\S]*^(?=[^\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\.sv:16(?::|\\b))(?=[^\\n]*\\b(?:warning|warn)\\b)[^\\n]*\\bSELECTED_ONE_MARKER\\b(?:[^\\n]*\\n[ \\t]+){0,3}[^\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\.alpha\\.warn_site)(?=[\\s\\S]*^(?=[^\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\.sv:19(?::|\\b))(?=[^\\n]*\\b(?:info|note)\\b)[^\\n]*\\bSELECTED_TWO_MARKER\\b(?:[^\\n]*\\n[ \\t]+){0,3}[^\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\.beta\\.info_site)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation.sv",
+      "inputs_sha256": "b9027ec19bd75663234dc102ef5edc4a2cd9c55739e74e631fd177d54f078898",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.10.1-EXTRACT-ELABORATION-ERROR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二つの異なる分岐を展開し、標準のランナーではいずれかのエラー行を観測する。追加のツールテストでは両方のメッセージと開始マーカーの有無を調べる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation.sv",
+              "contains": "$error(\"FIRST_FAILURE_MARKER\"); // illegal"
+            },
+            {
+              "file": "tests/ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation.sv",
+              "contains": "$error(\"SECOND_FAILURE_MARKER\");"
+            },
+            {
+              "file": "tests/ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation.sv",
+              "contains": ":expected_stderr_regex: (?i)test_elaboration_runs_both_selected_errors_before_stopping_simulation\\.sv:(?:16:(?:\\d+:)?[^\\n]*\\berror\\b[^\\n]*FIRST_FAILURE_MARKER|19:(?:\\d+:)?[^\\n]*\\berror\\b[^\\n]*SECOND_FAILURE_MARKER)"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-20.10.1-EXTRACT-ELABORATION-EXECUTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "選択した二つのエラーの両方を、順序を指定せずツールテストで照合する。致命的な呼び出しでの早期終了条件は含めない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation.sv",
+              "contains": "$error(\"FIRST_FAILURE_MARKER\"); // illegal"
+            },
+            {
+              "file": "tests/ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation.sv",
+              "contains": "$error(\"SECOND_FAILURE_MARKER\");"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_readmemh_stops_after_enum_value_beyond_base_range.sv",
+      "inputs_sha256": "2c1949fea60dd64fec5cfc10f2dd22dd0eb54284db8248fb9327dfb7f1191076",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.4.2-EXTRACT-ENUM-LOAD"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "幅を超える語を有効な二語の間に置きエラーを求める。タスクから戻る場合は最初の語を読み込み、範囲外の語より後が書き込まれないことも調べる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmemh_stops_after_enum_value_beyond_base_range.sv",
+              "contains": "$fdisplay(file, \"2 f 7\");"
+            },
+            {
+              "file": "tests/ch21/test_readmemh_stops_after_enum_value_beyond_base_range.sv",
+              "contains": "words[0] == FIRST, words[2] == KEEP, words[2] == LATER);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_readmemb_stops_after_enum_value_beyond_base_range.sv",
+      "inputs_sha256": "48884cdbb27d61fc59cc531d7334ec3960b75922b5e37ec64f8e56f856444046",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.4.2-EXTRACT-ENUM-LOAD"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "幅を超える語を有効な二語の間に置きエラーを求める。タスクから戻る場合は最初の語を読み込み、範囲外の語より後が書き込まれないことも調べる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmemb_stops_after_enum_value_beyond_base_range.sv",
+              "contains": "$fdisplay(file, \"010 1111 111\");"
+            },
+            {
+              "file": "tests/ch21/test_readmemb_stops_after_enum_value_beyond_base_range.sv",
+              "contains": "words[0] == FIRST, words[2] == KEEP, words[2] == LATER);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv",
+      "inputs_sha256": "83632339fbfc2310acad9336c3c9e91d1bef4633ef75f882c6013e46d7898224",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.3.2-EXTRACT-TAGGED-READ-CONSISTENCY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "有効な二つの読み出しを実行してから、タグ切替後に以前の広いメンバーを読み出す。エラーは実行時に現れることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv",
+              "contains": "word_value = tagged Big 8'ha6;"
+            },
+            {
+              "file": "tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv",
+              "contains": "#1 word_value = tagged Small 4'hb;"
+            },
+            {
+              "file": "tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv",
+              "contains": "#1 unused = word_value.Big;"
+            },
+            {
+              "file": "tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*(?:tagged|tag mismatch|inactive member))(?=[^\\n]*(?:\\bBig\\b|read|access))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv",
+      "inputs_sha256": "ae8be8abf6cc543167385b093503af8f38b12ed8cd7f01ad3f024c8ce72fe52e",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.9-EXTRACT-TAGGED-DOT-READ-WRITE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "有効なメンバーに属するフィールドへの書き込みで値を更新してから別のタグに切り替え、以前のメンバーへの書き込みで実行時エラーを調べる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv",
+              "contains": "item.Color.green = 7;"
+            },
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv",
+              "contains": "#1 item = tagged Count 22;"
+            },
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv",
+              "contains": "#1 item.Color.green = 13;"
+            },
+            {
+              "file": "tests/ch7/test_unpacked_tagged_union_write_rejects_nested_member_of_inactive_tag.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\n]*\\b(?:error|fatal)\\b)(?=[^\\n]*(?:tagged|tag mismatch|inactive member))(?=[^\\n]*(?:\\bColor\\b|writ|access))[^\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_stream_unpack_reports_fixed_range_overflow_and_preserves_overlap.sv",
+      "inputs_sha256": "8b319275b529197a637e640a52c237ac85f77a1916579dbb3b41fa619ca8fd62",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.4.14.4-EXTRACT-WITH-FIXED-OUTSIDE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "正しい範囲の書き込みを対照に、動的な上端越えで指定範囲に入る三要素だけへ値を展開し、実行時の範囲エラーを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_stream_unpack_reports_fixed_range_overflow_and_preserves_overlap.sv",
+              "contains": "{>>{entries with [base +: 4]}} = payload;"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_reports_fixed_range_overflow_and_preserves_overlap.sv",
+              "contains": "32'hb1b2b3b4"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_reports_fixed_range_overflow_and_preserves_overlap.sv",
+              "contains": ":args: +stream_start=2"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_reports_fixed_range_overflow_and_preserves_overlap.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\r\\n]*\\berror\\b)(?=[^\\r\\n]*(?:stream|with\\s*\\[))(?=[^\\r\\n]*(?:range|bounds|index|extent))[^\\r\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_stream_unpack_below_declared_range_discards_only_prefix.sv",
+      "inputs_sha256": "7631cb508d76dc5feb9f4941238c24a7f9000ac4bfa7cb06d06b9ade1d40d806",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.4.14.4-EXTRACT-WITH-FIXED-OUTSIDE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "実行時の下端越えで先頭の送り先が存在しなくても後続のバイト位置を保ち、未選択の末尾を変更せず範囲エラーを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_stream_unpack_below_declared_range_discards_only_prefix.sv",
+              "contains": "{>>{entries with [base:3]}} = raw_data;"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_below_declared_range_discards_only_prefix.sv",
+              "contains": "32'hb1b2b3b4"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_below_declared_range_discards_only_prefix.sv",
+              "contains": ":args: +stream_start=0"
+            },
+            {
+              "file": "tests/ch11/test_stream_unpack_below_declared_range_discards_only_prefix.sv",
+              "contains": ":expected_stderr_regex: (?im)^(?=[^\\r\\n]*\\berror\\b)(?=[^\\r\\n]*(?:stream|with\\s*\\[))(?=[^\\r\\n]*(?:range|bounds|index|extent))[^\\r\\n]+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+      "inputs_sha256": "fc86966f5a5d50de61ca69e2f393442c83df2b2f0c8309c4efe73482359ebfc1",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.31-EXTRACT-LEXICAL-NO-VALUES"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二つの特殊化を同じクラス定義へたどり、クラス定義から得た静的・非静的変数の値が取得できず、書き込みの試行も実際のデータを変更しないことを比較する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "class receipt #(int code = 0);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "static int shared = code * 100;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "#1 $vt_probe_class_value_routes;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "\"instance values=%0d %0d %0d static values=%0d %0d\""
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.32-EXTRACT-NONSTATIC-TYPE-NO-VALUE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "異なるパラメータを持つ二つの特殊化で非静的変数への読み書きを試し、別々に設定した静的変数とクラスインスタンスの値を対照にする。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "typedef receipt #(3) first_type;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "typedef receipt #(7) second_type;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "first_type::shared = 311;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_class_definition_and_specialization_value_access_differ.sv",
+              "contains": "second_type::shared = 709;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv",
+      "inputs_sha256": "1f9a07939aa0218051c15893e2aba2de7d88de93800cceffb9171b3531ccc1af",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.4.1.4-EXTRACT-CHECKER-PORTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ宣言でワイルドカードを一回だけ使う対照と二回使う例を並べ、重複した行での拒否を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv",
+              "contains": "single_wildcard_checker allowed(.*);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv",
+              "contains": "single_wildcard_checker rejected(.*, .*);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_port_list_has_two_wildcards\\.sv:20:(?:\\d+:)?[^\\n]*(?i:(?:multiple|duplicate|more than one|only one|repeat)[^\\n]*(?:wildcard|\\.\\*)|(?:wildcard|\\.\\*)[^\\n]*(?:multiple|duplicate|more than one|only one|repeat))"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-A.10-EXTRACT-FOOTNOTE-34"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "チェッカの接続リスト内でワイルドカードを一回だけ置けることを重複時の診断で検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv",
+              "contains": "single_wildcard_checker allowed(.*);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv",
+              "contains": "single_wildcard_checker rejected(.*, .*);"
+            },
+            {
+              "file": "tests/ch17/test_illegal_checker_port_list_has_two_wildcards.sv",
+              "contains": ":expected_stderr_regex: test_illegal_checker_port_list_has_two_wildcards\\.sv:20:(?:\\d+:)?[^\\n]*(?i:(?:multiple|duplicate|more than one|only one|repeat)[^\\n]*(?:wildcard|\\.\\*)|(?:wildcard|\\.\\*)[^\\n]*(?:multiple|duplicate|more than one|only one|repeat))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_evcd_dumpports_reports_invalid_output_path.sv",
+      "inputs_sha256": "5fb7ebeb22cfcd64ff080aea3167d834c03d7e6937703558ff48722e8302446e",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3.1-EXTRACT-PORT-FILE-CHECKS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ファイルを親ディレクトリに指定した書き込みが実行時に診断されることを、有効な別の出力で時刻1のポート値変化を確認しながら検査する。実行時に発生するためエラーカバレッジのエラボレーション条件を満たさない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_evcd_dumpports_reports_invalid_output_path.sv",
+              "contains": "$dumpports(invalid_target, \"regular_file_parent/invalid.evcd\");"
+            },
+            {
+              "file": "tests/ch21/test_evcd_dumpports_reports_invalid_output_path.sv",
+              "contains": "$dumpports(valid_target, \"valid_output.evcd\");"
+            },
+            {
+              "file": "tests/ch21/test_evcd_dumpports_reports_invalid_output_path.sv",
+              "contains": "if (line[0] == \"p\" && dump_time == 1) saw_change = 1;"
+            },
+            {
+              "file": "tests/ch21/test_evcd_dumpports_reports_invalid_output_path.sv",
+              "contains": ":expected_stderr_regex: (?im:^[^\\n]*(?:error|warn(?:ing)?)[^\\n]*\\$dumpports[^\\n]*(?:open|creat|writ)[^\\n]*regular_file_parent/invalid\\.evcd)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+      "inputs_sha256": "44d2c83147b9d401d4803774131c333b1f57514463f8165a4d9c43d8c99d5a0c",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-32.4.4-EXTRACT-INTERCONNECT-DIRECTIONS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じネット上の入力専用ポートを送信元に、出力専用ポートを別の経路の受信先に指定する。実行時の両診断と独立した正しい経路の遅延を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": "(INTERCONNECT input_as_source.pin alternate_load.pin (5))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": "(INTERCONNECT other_source.pin output_as_load.pin (7))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": "(INTERCONNECT valid_source.pin valid_load.pin (3))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*(?im:^[^\\n]*(?:warn|error)[^\\n]*input_as_source\\.pin[^\\n]*(?:direction|output|inout)))(?=[\\s\\S]*(?im:^[^\\n]*(?:warn|error)[^\\n]*output_as_load\\.pin[^\\n]*(?:direction|input|inout)))"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-32.4.4-EXTRACT-INTERCONNECT-ENDPOINTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "モジュールポートの方向を検査する実行時ケース。プリミティブ端子への注釈は禁止の検証範囲に含めていない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": "(INTERCONNECT input_as_source.pin alternate_load.pin (5))"
+            },
+            {
+              "file": "tests/ch32/test_sdf_interconnect_rejects_reversed_port_directions.sv",
+              "contains": "(INTERCONNECT other_source.pin output_as_load.pin (7))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv",
+      "inputs_sha256": "52e27ea4240571e55e0f1328596666c3d66902869e594d10775b432219786854",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-5.6.4-EXTRACT-DIRECTIVE-UNIT-EXTENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "前のファイルが定義したマクロを次のファイルの条件分岐と定数展開で使う。同じ単位の実行に加えて別単位の比較は Ghost のコンパイルモード検査で観測する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv",
+              "contains": ":compilation_unit: single"
+            },
+            {
+              "file": "tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv",
+              "contains": ":files: compilation_unit_directive_provider.sv"
+            },
+            {
+              "file": "tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv",
+              "contains": "localparam int visible_marker = `COMPILATION_UNIT_DIRECTIVE_MARKER;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-3.12.1-EXTRACT-DIRECTIVE-UNIT-ISOLATION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "このケースの実行では別ファイルを一つの単位にまとめる。単位間の隔離は コンパイルモードを切り替える独立した検査で確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv",
+              "contains": ":compilation_unit: single"
+            },
+            {
+              "file": "tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv",
+              "contains": "`ifdef COMPILATION_UNIT_DIRECTIVE_MARKER"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_readmem_stops_at_address_outside_selected_slice_without_resuming.sv",
+      "inputs_sha256": "5e8e41d04dc1ea2de32578bd0a3ba27e1a6f96908eb955801694d35a139e8751",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.4-EXTRACT-FILE-ADDRESS-RANGE-ERROR"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "有効なメモリ添字でありながら要求した範囲から外れるアドレスをファイルに置き、診断と、後の範囲内のワードに読み込みが再開しないことを調べる実行時の検査。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_readmem_stops_at_address_outside_selected_slice_without_resuming.sv",
+              "contains": "$fdisplay(fd, \"@2 a1 @6 d2 @3 b3\");"
+            },
+            {
+              "file": "tests/ch21/test_readmem_stops_at_address_outside_selected_slice_without_resuming.sv",
+              "contains": "$fdisplay(fd, \"@5 10100101 @1 11010010 @4 10110011\");"
+            },
+            {
+              "file": "tests/ch21/test_readmem_stops_at_address_outside_selected_slice_without_resuming.sv",
+              "contains": "$readmemh(\"ascending_slice.mem\", ascending, 2, 5);"
+            },
+            {
+              "file": "tests/ch21/test_readmem_stops_at_address_outside_selected_slice_without_resuming.sv",
+              "contains": "$readmemb(\"descending_slice.mem\", descending, 5, 2);"
+            },
+            {
+              "file": "tests/ch21/test_readmem_stops_at_address_outside_selected_slice_without_resuming.sv",
+              "contains": ":expected_stderr_regex: \\A(?=[\\s\\S]*(?im:^[^\\n]*ascending_slice\\.mem[^\\n]*address[^\\n]*(?:out of range|outside)))(?=[\\s\\S]*(?im:^[^\\n]*descending_slice\\.mem[^\\n]*address[^\\n]*(?:out of range|outside)))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission.sv",
+      "inputs_sha256": "f9340e8597069309146a84c8041369eb231e3a61788b4def99292a3ee89ba1c6",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.5.3-EXTRACT-CONTEXT-NONTRANSITIVE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ SV のエクスポートに到達する二つの入れ子の外国関数のうち、内側の呼出しの context 有無を変え、許可された側の戻り値と禁止された側の実行時診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission.sv",
+              "contains": "import \"DPI-C\" function int br_noncontext_child(input int tag);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission.sv",
+              "contains": "return forbid_context ? br_noncontext_child(tag) : br_context_child(tag);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission.sv",
+              "contains": "legal_result = br_enter_chain(0, 5);"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission.sv",
+              "contains": "void'(br_enter_chain(1, 7));"
+            },
+            {
+              "file": "tests/ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission.sv",
+              "contains": ":expected_stderr_regex: (?im:^[^\\n]*(?:error|invalid|illegal)[^\\n]*(?:DPI|export)[^\\n]*(?:non.?context|context required|requires? (?:a )?context))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_imported_function_cannot_enable_exported_task.sv",
+      "inputs_sha256": "818c964cd0ab74850d01a58c9f28569d13a799f17986c71305ffb9b6b1936504",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.8-EXTRACT-NO-TASK-FROM-FUNCTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "遅延付きタスクを context のインポートタスクで正常に起動した後、同じエクスポートをインポート関数から呼ぶと実行時に診断されることを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_exported_task.sv",
+              "contains": ":files: dpi_exported_task_invocation_fixture.sv"
+            },
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_exported_task.sv",
+              "contains": ":defines: DPI_FIXTURE_TIMED_ACTION"
+            },
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_exported_task.sv",
+              "contains": "dpi_exported_task_invocation_fixture fixture();"
+            },
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_exported_task.sv",
+              "contains": ":expected_stderr_regex: (?im:^[^\\n]*(?:error|invalid|illegal)[^\\n]*(?:DPI|export)[^\\n]*br_sv_action[^\\n]*function)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task.sv",
+      "inputs_sha256": "cde032a563702204bd61f474218dc804f3d4d0837da0b67675ba62ec4e7601a5",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.8-EXTRACT-NO-TASK-FROM-FUNCTION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "時間制御なしの版を同じステップで動かし、エクスポートタスクをインポートタスクから呼ぶ対照と、インポート関数から呼ぶ実行時診断を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task.sv",
+              "contains": ":files: dpi_exported_task_invocation_fixture.sv"
+            },
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task.sv",
+              "contains": ":dpi_c: @dpi_exported_task_invocation_fixture.c"
+            },
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task.sv",
+              "contains": "dpi_exported_task_invocation_fixture fixture();"
+            },
+            {
+              "file": "tests/ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task.sv",
+              "contains": ":expected_stderr_regex: (?im:^[^\\n]*(?:error|invalid|illegal)[^\\n]*(?:DPI|export)[^\\n]*br_sv_action[^\\n]*function)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration.sv",
+      "inputs_sha256": "b47678190881ee5b69716b97e943afcb7ef205b5f430d7af4b1160d09d3fa041",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.18-EXTRACT-INCOMPLETE-BEFORE-DEFINITION"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "完全な定義の前に型を弱参照の特殊化に使い、定義の後で弱参照からクラス型を取得する構成を検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration.sv",
+              "contains": "typedef class payload_object;"
+            },
+            {
+              "file": "tests/ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration.sv",
+              "contains": "typedef std::weak_reference #(.T(payload_object)) pending_reference;"
+            },
+            {
+              "file": "tests/ch8/test_weak_reference_type_argument_resolves_after_class_forward_declaration.sv",
+              "contains": "class payload_object;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_illegal_weak_reference_without_required_type_parameter.sv",
+      "inputs_sha256": "046cdde4a1e377afb89e3dcc9855d6e7475f7146725425bed78518f11fce51de",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-G.7-EXTRACT-PARAMETER"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "型を明示した弱参照を対照にして、省略時にデフォルト特殊化がないことを該当行の診断で確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_without_required_type_parameter.sv",
+              "contains": "std::weak_reference #(referent_type) valid_reference;"
+            },
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_without_required_type_parameter.sv",
+              "contains": "std::weak_reference missing_type; // illegal"
+            },
+            {
+              "file": "tests/ch8/test_illegal_weak_reference_without_required_type_parameter.sv",
+              "contains": ":expected_stderr_regex: test_illegal_weak_reference_without_required_type_parameter\\.sv:19:(?:\\d+:)?[^\\n]*(?i:(?:NoDefaultSpecialization|no default[^\\n]*(?:specialization|type)|missing[^\\n]*type parameter))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch9/test_illegal_extend_alias_of_final_standard_process_class.sv",
+      "inputs_sha256": "135d88d60fe47e8a85dcab818bc76c286563207e997ffeaebe006766aa993f63",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-G.6-EXTRACT-FINAL"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "標準のプロセス型の型別名を作り、継承を拒否する診断でクラスの制約を確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch9/test_illegal_extend_alias_of_final_standard_process_class.sv",
+              "contains": "typedef std::process process_alias;"
+            },
+            {
+              "file": "tests/ch9/test_illegal_extend_alias_of_final_standard_process_class.sv",
+              "contains": "class forbidden_child extends process_alias; // illegal"
+            },
+            {
+              "file": "tests/ch9/test_illegal_extend_alias_of_final_standard_process_class.sv",
+              "contains": ":expected_stderr_regex: test_illegal_extend_alias_of_final_standard_process_class\\.sv:22:(?:\\d+:)?[^\\n]*(?i:(?:marked.{0,12}final|final[^\\n]*class|sealed[^\\n]*class))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+      "inputs_sha256": "90a998dc9969a6a24dbcce952b04dec7aa9ad4bf135d5637474f21a98e2bbc90",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.34-EXTRACT-UDP-NO-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ UDP インスタンスに対し即時の書き込みを受け付ける対照と、純粋トランスポート遅延を使う書き込みの実行時エラーを照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": "#1 $vt_write_udp_state;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": "$vt_require_no_delay_udp;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": ":vpi_c:"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-37.35-EXTRACT-DIAGRAM-016"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "順序プリミティブの即時の出力変化と、書き込んだ状態を次の入力エッジで使う動作を検査する値書き込みの観測。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": "vpi_udp_toggle #6 edited(modified, clock, reset);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": "#1 $vt_write_udp_state;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition.sv",
+              "contains": "#10 clock = 1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+      "inputs_sha256": "4e963cf844d32d3c1c151c3ca51d315395d61fc712d2314621b18649c229f68d",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.35-EXTRACT-PRIMITIVE-WRITE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ゲートと組合せ UDP のハンドルを確認してから値書き込みを試し、変数への書き込みを対照にして実行時エラーを検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+              "contains": "and builtin(gate_output, input_value, 1'b1);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+              "contains": "vpi_combinational_copy combinational(udp_output, input_value);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+              "contains": "#1 $vt_write_primitives;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances.sv",
+              "contains": ":vpi_c:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch10/test_continuous_and_gate_delays_preserve_large_integral_tick.sv",
+      "inputs_sha256": "6ccff3af10eb3b05c9be6232e42f3c6956e440b39652e6a78d51077b6221c861",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.16-EXTRACT-DELAY-COUNTS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "単一遅延のゲートへの入力変化と出力時刻を大きな整数値で照合する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_continuous_and_gate_delays_preserve_large_integral_tick.sv",
+              "contains": "buf #(LARGE_DELAY) gate_delay(gate_out, source);"
+            },
+            {
+              "file": "tests/ch10/test_continuous_and_gate_delays_preserve_large_integral_tick.sv",
+              "contains": "initial #5 source = 1'b1;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch10/test_net_declaration_delay_preserves_large_integral_tick.sv",
+      "inputs_sha256": "88fe5dc1cfc305fcf7c72ff22d2eeaf1558df398966c0387485528a7cd550915",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-10.3.3-EXTRACT-NET-DELAY-ALL-DRIVERS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "ネット宣言の遅延が別の連続代入の評価時刻から適用されることを、一つのドライバと即時ネットの対照で検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_net_declaration_delay_preserves_large_integral_tick.sv",
+              "contains": "wire #(DELAY) delayed;"
+            },
+            {
+              "file": "tests/ch10/test_net_declaration_delay_preserves_large_integral_tick.sv",
+              "contains": "wire immediate = source;"
+            },
+            {
+              "file": "tests/ch10/test_net_declaration_delay_preserves_large_integral_tick.sv",
+              "contains": "assign delayed = source;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch6/test_uwire_padded_port_connection_warns.sv",
+      "inputs_sha256": "b597b4bb8e81fe0750df70f8247e25c0766c7f7e3d91147d3f4d9edd5577bf5a",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-6.6.2-EXTRACT-UWIRE-HIERARCHICAL-ENFORCEMENT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "幅拡張で合流しないケースの警告を調べるが、同一ビットを階層の両側から駆動する場合の拒否と警告の選択は刺激しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch6/test_uwire_padded_port_connection_warns.sv",
+              "contains": "uwire_padded_input padded_child(source, padded);"
+            },
+            {
+              "file": "tests/ch6/test_uwire_padded_port_connection_warns.sv",
+              "contains": ":expected_stderr_regex: (?im)^[^\\n]*(?:\\bwarn(?:ing)?\\b[^\\n]*\\b(?:port_n|padded_child|uwire|unresolved|unidriver)\\b|\\b(?:port_n|padded_child|uwire|unresolved|unidriver)\\b[^\\n]*\\bwarn(?:ing)?\\b)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch20/test_finish_diagnostic_default.sv",
+      "inputs_sha256": "92aa5ac22d0b5e0a8115fd6c74f6c458843831f1ce1d1d880e1c06186db6e78c",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-20.2-EXTRACT-CONTROL-DEFAULT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "終了の省略形と明示の診断レベル1で時刻と呼び出し位置を照合するが、このテストは停止の省略形や診断レベル2を実行しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch20/test_finish_diagnostic_default.sv",
+              "contains": "$finish;"
+            },
+            {
+              "file": "tests/ch20/test_finish_diagnostic_default.sv",
+              "contains": ":expected_stderr_regex: (?im)^[^\\n]*test_finish_diagnostic_default\\.sv:20\\b[^\\n]*\\$finish[^\\n]*\\b37\\b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_dynamic_array_resize_converts_unsigned_wide_size_before_copy.sv",
+      "inputs_sha256": "f9ea817f87d1e529b2ee51551f6dae7fba9a15a9dc99096f1a30e1bb8141c5f3",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.5.1-EXTRACT-SIZE-LONGINT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "符号なしの幅広いサイズを自己コピー付きで変換する場合を検査する。負値の拒否は既設の組で検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dynamic_array_resize_converts_unsigned_wide_size_before_copy.sv",
+              "contains": "data = new[requested](data);"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_resize_converts_unsigned_wide_size_before_copy.sv",
+              "contains": "cast_control = new[longint'(requested)](cast_control);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch7/test_dynamic_array_new_size_converts_xz_bits_to_zero.sv",
+      "inputs_sha256": "874d0548255e960c534d32281695611a31c5d0cbdb43739a0c1e11adbc1ba514",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-7.5.1-EXTRACT-SIZE-LONGINT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "暗黙変換がサイズの不定値と高インピーダンスを取り除く部分を検査する。上位の既知ビットが作る負値の処理は別のテストで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_converts_xz_bits_to_zero.sv",
+              "contains": "data = new[requested];"
+            },
+            {
+              "file": "tests/ch7/test_dynamic_array_new_size_converts_xz_bits_to_zero.sv",
+              "contains": "cast_control = new[longint'(requested)];"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch37/test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges.sv",
+      "inputs_sha256": "c5b05c9ce05864b8edbe3585917bd97e72caa252e2ba9447be1f7b6b4325d24b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-37.3.2-EXTRACT-ADDITIONAL-TYPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "解決後のネット種別を整数と文字列の両方で要求する。ほかの追加種別、とくに遅延デバイスの種別はこのテストの対象外。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges.sv",
+              "contains": "$vt_resolved_net_names;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges.sv",
+              "contains": "resolved_wor_driver or_a(1'b1, or_link), or_b(second, or_link);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_resolved_user_nettype_counts_local_drivers_across_port_merges.sv",
+      "inputs_sha256": "9082ad8d7f2dcb5fb1fdff8d836d1c1347f03e0b6af60f88255b19a8d06317de",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.3.3-EXTRACT-USER-NETTYPE-BOTH"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ型のポートを接続して解決値を検査する。異なる型の拒否は別の異常系で検査する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_resolved_user_nettype_counts_local_drivers_across_port_merges.sv",
+              "contains": "local_nettype_driver typed_driver(a, b, typed);"
+            },
+            {
+              "file": "tests/ch23/test_resolved_user_nettype_counts_local_drivers_across_port_merges.sv",
+              "contains": "local_nettype_reader typed_reader(typed, typed_result);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch21/test_vcd_and_evcd_share_timescale_and_absolute_timestamp_semantics.sv",
+      "inputs_sha256": "8cb36bbb25f3f44c3ac6d8c1f756f3ad6c24f7712fa9c2f81117b3182ea61a33",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-21.7.3-EXTRACT-EXTENDED-INHERITANCE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "両形式に共通の時刻単位と絶対タイムスタンプを照合する。時刻以外の共通構文はこのテストで比較しない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch21/test_vcd_and_evcd_share_timescale_and_absolute_timestamp_semantics.sv",
+              "contains": "$dumpvars(1, dut);"
+            },
+            {
+              "file": "tests/ch21/test_vcd_and_evcd_share_timescale_and_absolute_timestamp_semantics.sv",
+              "contains": "$dumpports(dut, \"ports.vcd\");"
+            },
+            {
+              "file": "tests/ch21/test_vcd_and_evcd_share_timescale_and_absolute_timestamp_semantics.sv",
+              "contains": "stamp_fs *= scale;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_dpi_matching_scalar_version_crosses_package_and_module.sv",
+      "inputs_sha256": "b8921e4834e08a60c55e013e6a8524dfb01d7a0a2e12300ad0d15430f1a67e33",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.4-EXTRACT-VERSION-CONSISTENCY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "識別子ごとに旧形式・現行形式をそろえた場合を調べる。版が異なる宣言の拒否と旧形式のパック配列規約は別のケースで確認する。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_dpi_matching_scalar_version_crosses_package_and_module.sv",
+              "contains": "import \"DPI\" scalar_legacy_scope"
+            },
+            {
+              "file": "tests/ch35/test_dpi_matching_scalar_version_crosses_package_and_module.sv",
+              "contains": "import \"DPI-C\" scalar_current_scope"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch35/test_illegal_dpi_version_mismatch_across_package_and_module.sv",
+      "inputs_sha256": "e4479bd220269ce27d5d8101afc08dfb7530b0765af168156483a755edf5448d",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-35.4-EXTRACT-VERSION-CONSISTENCY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ整数シグネチャを持つ外部関数に異なる版を指定し、パッケージとモジュールをまたいでも衝突を検査する。パック配列の規約はここでは使わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch35/test_illegal_dpi_version_mismatch_across_package_and_module.sv",
+              "contains": "import \"DPI\" scalar_legacy_scope"
+            },
+            {
+              "file": "tests/ch35/test_illegal_dpi_version_mismatch_across_package_and_module.sv",
+              "contains": "import \"DPI-C\" scalar_legacy_scope"
+            },
+            {
+              "file": "tests/ch35/test_illegal_dpi_version_mismatch_across_package_and_module.sv",
+              "contains": ":expected_stderr_regex: test_illegal_dpi_version_mismatch_across_package_and_module\\.sv:(?:16|20):(?:\\d+:)?[^\\n]*(?i:(?=[^\\n]*scalar_legacy_scope)(?=[^\\n]*(?:different|mismatch|inconsisten|conflict))(?=[^\\n]*(?:DPI|version|specifier|linkage))[^\\n]+)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_operator_association_preserves_wide_and_real_runtime_grouping.sv",
+      "inputs_sha256": "57ca7b00d2e0b91dbf592f5d192a7267c6f53d9f83199a408dd6f837a7ffc5cb",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.3.2-EXTRACT-ASSOCIATIVITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "このケースは幅の広い実行時算術と実数の累乗の結合方向を検査し、代入や連結の構文条件は別の検査に委ねる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_operator_association_preserves_wide_and_real_runtime_grouping.sv",
+              "contains": "word_t'(payload / denom * factor)"
+            },
+            {
+              "file": "tests/ch11/test_operator_association_preserves_wide_and_real_runtime_grouping.sv",
+              "contains": "ratio ** power ** last_power,"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch11/test_operator_association_for_runtime_unknown_predicates.sv",
+      "inputs_sha256": "6404417684ff0a44d6895d081de8f43e40c350a5c4c50a660a318a5229066a36",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-11.3.2-EXTRACT-ASSOCIATIVITY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "不定条件で右結合する三つの演算子と比較演算子の一組を区別し、残りの優先順位と構文条件は別の検査に委ねる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch11/test_operator_association_for_runtime_unknown_predicates.sv",
+              "contains": "a -> b <-> c,"
+            },
+            {
+              "file": "tests/ch11/test_operator_association_for_runtime_unknown_predicates.sv",
+              "contains": "unknown_cond ? first_value : false_cond ? second_value : final_value,"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_real_output_variables_propagate_through_two_port_boundaries.sv",
+      "inputs_sha256": "30128b93f6a79b60deec5356a6795419563183bb1515758c36952e37655e6363",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.3.3.2-EXTRACT-VARIABLE-OUTPUT-VARIABLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "実数出力の連続的な伝播を一段と二段で比較する。駆動数の制約や代入互換性の違反は別の検査に委ねる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_real_output_variables_propagate_through_two_port_boundaries.sv",
+              "contains": "real_chain_source #(.INITIAL_VALUE(0.25)) nested(value, mirror, sequence_id);"
+            },
+            {
+              "file": "tests/ch23/test_real_output_variables_propagate_through_two_port_boundaries.sv",
+              "contains": "real_chain_middle middle(deep, deep_mirror, deep_id);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_timing_violation_callback_points_to_affected_check.sv",
+      "inputs_sha256": "714baa6f342866a174bbbf53ea0699d51b7f3467f589f3cbd24d09674cd4ff2c",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-FIELDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "選ばれたチェックのハンドルと理由を検査し、対話スコープや未解決システムルーチンの通知内容は別のケースに委ねる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_timing_violation_callback_points_to_affected_check.sv",
+              "contains": "$setup(posedge setup_data, posedge setup_ref, 3, setup_notifier);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_timing_violation_callback_points_to_affected_check.sv",
+              "contains": "$hold(posedge hold_ref, posedge hold_data, 3, hold_notifier);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_unresolved_task_callback_supplies_called_name.sv",
+      "inputs_sha256": "d9b3a631cd9a1d7600090b0593321e98abd68a41b86468a54d79859959930bae",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-FIELDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "未解決のシステムタスクでコールバックの理由と呼び出し名を比較し、違反チェックや対話スコープの通知は別のケースに委ねる。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_unresolved_task_callback_supplies_called_name.sv",
+              "contains": "$public_regression_unregistered_probe;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_wire_array_ports_preserve_positions_with_different_bounds.sv",
+      "inputs_sha256": "6a1f58d7992dadc184af037f85a0b57395511877e3b89b0350d134287abac19b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.3.3.3-EXTRACT-NET-INPUT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "互換性のある配列ネットの接続を観測する。ポート未接続時の既定値はこのケースでは扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_wire_array_ports_preserve_positions_with_different_bounds.sv",
+              "contains": "ordinal_port_reader input_reader(inputs_only, direct_input);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_illegal_three_delays_on_enabled_pass.sv",
+      "inputs_sha256": "5fd4f961442436e8b705177c825049151a13d3545cbddd33ca134bb34cfba02f",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.3.3-EXTRACT-PRIMITIVE-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "制御付きパススイッチに指定できる遅延の数を検査する。このテストではプル素子への遅延指定は扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_illegal_three_delays_on_enabled_pass.sv",
+              "contains": "tranif1 #(2, 3) control"
+            },
+            {
+              "file": "tests/ch28/test_illegal_three_delays_on_enabled_pass.sv",
+              "contains": "tranif1 #(2, 3, 5) invalid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_illegal_three_delays_on_n_input_gate.sv",
+      "inputs_sha256": "9108da5156c71e2b3578a874b3971dd40f9fb1db9712fa000bdcd9849d082547",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.3.3-EXTRACT-PRIMITIVE-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "複数入力ゲートに指定できる遅延の数を検査する。このテストではプル素子への遅延指定は扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_illegal_three_delays_on_n_input_gate.sv",
+              "contains": "nand #(2, 3) control"
+            },
+            {
+              "file": "tests/ch28/test_illegal_three_delays_on_n_input_gate.sv",
+              "contains": "nand #(2, 3, 5) invalid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch28/test_illegal_three_delays_on_n_output_gate.sv",
+      "inputs_sha256": "8ad8e1578cad1ab8e7cfccd26d0ff95cb5214653ee18dd1223a2cb714a5b1f9c",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-28.3.3-EXTRACT-PRIMITIVE-DELAY"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "複数出力ゲートに指定できる遅延の数を検査する。このテストではプル素子への遅延指定は扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch28/test_illegal_three_delays_on_n_output_gate.sv",
+              "contains": "not #(2, 3) control"
+            },
+            {
+              "file": "tests/ch28/test_illegal_three_delays_on_n_output_gate.sv",
+              "contains": "not #(2, 3, 5) invalid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch5/test_illegal_implicit_net_after_include_default_nettype_none.sv",
+      "inputs_sha256": "0c1d25f73a1238aa9a13b52f5da2f4223e4d6117b05917ef9b89c56debf0184f",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-22.8-EXTRACT-NETTYPE-DEFAULT-NONE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "インクルード内で暗黙ネットを禁止した後、呼び出し元で拒否されるポート接続を検査する。他の暗黙宣言の構文はこのケースの対象外。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch5/test_illegal_implicit_net_after_include_default_nettype_none.sv",
+              "contains": "`include \"extent_none.svh\""
+            },
+            {
+              "file": "tests/ch5/test_illegal_implicit_net_after_include_default_nettype_none.sv",
+              "contains": "extent_explicit_out forbidden(implicit_net_with_default_disabled);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch8/test_weak_references_pass_through_subroutines_and_object_fields.sv",
+      "inputs_sha256": "94c4313f3b2c0bcd9d364278cd62361cd7e6a7e7d992aaf28d54d096027a5f00",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-8.30.1-EXTRACT-WEAK-REFERENCE-NONRETAINING"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "オブジェクト内に保持し、関数とタスクを経由してアクセスできることを確認する。対象への強参照を保持するため、ガベージコレクションでの非保持性は検査対象外。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_weak_references_pass_through_subroutines_and_object_fields.sv",
+              "contains": "weak_payload items[2];"
+            },
+            {
+              "file": "tests/ch8/test_weak_references_pass_through_subroutines_and_object_fields.sv",
+              "contains": "transfer(second.items[0], first.get_slot(0));"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch29/test_illegal_udp_edge_descriptor_contains_high_impedance.sv",
+      "inputs_sha256": "083339baf99bb37b02ce054743f2a7bc0fe4e38ee1f8ee733e541d2d421a99a7",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-29.3.5-EXTRACT-UDP-NO-Z-TABLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "遷移記号に高インピーダンスを指定したときの拒否を検査する。実際の高インピーダンス入力が不定値の行を選ぶ動作は別のテストで扱う。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch29/test_illegal_udp_edge_descriptor_contains_high_impedance.sv",
+              "contains": "(0x) : ? : 1;"
+            },
+            {
+              "file": "tests/ch29/test_illegal_udp_edge_descriptor_contains_high_impedance.sv",
+              "contains": "(0z) : ? : 1;"
+            },
+            {
+              "file": "tests/ch29/test_illegal_udp_edge_descriptor_contains_high_impedance.sv",
+              "contains": ":expected_stderr_regex: test_illegal_udp_edge_descriptor_contains_high_impedance\\.sv:28:(?:\\d+:)?[^\\n]*(?i:(?:udp|table|descriptor|syntax|unexpected|expected))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_inout_net_array_ports_resolve_drivers_by_element_position.sv",
+      "inputs_sha256": "094a6fbe10be9fbef5a008349bb58666b06b646daff817576620bcd9563d0e5e",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.3.3.3-EXTRACT-NET-INOUT"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "互換性のある二方向のネット配列の接続と両側の値を確認する。変数への接続の拒否やポート未接続時の動作はこのケースでは扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_inout_net_array_ports_resolve_drivers_by_element_position.sv",
+              "contains": "position_inout other(drive_inner, reversed, reversed_local);"
+            },
+            {
+              "file": "tests/ch23/test_inout_net_array_ports_resolve_drivers_by_element_position.sv",
+              "contains": "assign reversed[8] = drive_outer ? 8'hff : 8'hzz;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_variable_array_output_ports_preserve_order_after_element_nbas.sv",
+      "inputs_sha256": "b560c1bdeea69136cfb027ddfe0cc682776c926db81d409965c153c6f5e9c586",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.3.3.2-EXTRACT-VARIABLE-OUTPUT-VARIABLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "互換性のある変数配列への暗黙の出力伝搬を要素ごとの予約書き込みで観測する。受信変数への追加の書き込みはこのケースでは扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_variable_array_output_ports_preserve_order_after_element_nbas.sv",
+              "contains": "variable_array_harness #(0) dut();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch23/test_variable_array_output_ports_preserve_order_after_whole_nba.sv",
+      "inputs_sha256": "75b9ea5e1db661b2ece1be781568d4932667262d09544ff6d1961fd11e0a320b",
+      "reviewed_on": "2026-11-24",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-23.3.3.2-EXTRACT-VARIABLE-OUTPUT-VARIABLE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "互換性のある変数配列への暗黙の出力伝搬を配列全体の予約書き込みで観測する。受信変数への追加の書き込みはこのケースでは扱わない。",
+          "reviewed_on": "2026-11-24",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch23/test_variable_array_output_ports_preserve_order_after_whole_nba.sv",
+              "contains": "variable_array_harness #(1) dut();"
             }
           ]
         }

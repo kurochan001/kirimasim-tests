@@ -1,0 +1,5 @@
+forced net=10 variable=11
+released net=00 variable=11
+refused force=1 release=1 disable=1
+controls net-force=1 net-release=1 variable-force=1 variable-release=1 block-disable=1
+invalid-callback deliveries=0

@@ -1,0 +1,8 @@
+registered=1
+before get 34/00_a1f35608/00f000f0
+nested get 12/00_f2345678/00000000
+after get 34/00_a1f35608/00f000f0
+before get 56/00_0bcf1234/f00f0000
+nested get 12/00_f2345678/00000000
+after get 56/00_0bcf1234/f00f0000
+done

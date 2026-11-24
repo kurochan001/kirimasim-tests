@@ -1,0 +1,26 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch36/test_vpi_legacy_array_property_in_1364v2005_mode": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "4d6ae93754c1adb23c67507af507e65122c29bbf65cd954718490aafbe3f5d35"
+  },
+  "ch37/test_vpi_current_array_members_for_legacy_variable_kinds": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "3a38f0d55ae294ecaed09766225398041dd791ec55b1a288ba127e7dda8b9ba3"
+  },
+  "ch37/test_vpi_deprecated_interface_iteration_matches_current_handles": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "b30bb7b87286f3bfae992cf826f76409b4d6c141410c2143b1eeff1abfcfca3b"
+  }
+ },
+ "generated_at": "2026-11-24T06:39:11.806673+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

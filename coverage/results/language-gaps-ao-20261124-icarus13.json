@@ -1,0 +1,66 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch25/test_illegal_virtual_interface_component_in_always_event_control": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_virtual_interface_component_in_always_event_control\\\\.sv:33:'; the first is: tests/ch25/test_illegal_virtual_interface_component_in_always_event_control.sv:30: syntax error",
+   "inputs_sha256": "455d54fb34fcfd9f8228c5607bfc29e946499ddc1a145af0a574a0136c3b08c9"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_always_ff": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_virtual_interface_component_in_always_ff\\\\.sv:34:'; the first is: tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv:31: syntax error",
+   "inputs_sha256": "424ef18184d722dad6ecc9d14a05a0f43a16f01d94b84fe6748b3d86ab77d39d"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_continuous_assign": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_virtual_interface_component_in_continuous_assign\\\\.sv:31:'; the first is: tests/ch25/test_illegal_virtual_interface_component_in_continuous_assign.sv:29: syntax error",
+   "inputs_sha256": "6e0b98d13f847e92faa4867cac68ed87b259bb7e91aec71760019ea30bc6aad6"
+  },
+  "ch25/test_virtual_interface_event_control_inside_always_begin_end": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_virtual_interface_event_control_inside_always_begin_end.sv:19: syntax error",
+   "inputs_sha256": "a856fc877401678cab65d533febdf2a9f73748094e88dd0672048755dbcf43cf"
+  },
+  "ch25/test_virtual_interface_handle_rebinding_in_procedural_block_bodies": {
+   "status": "known",
+   "reason": "compile failed: tests/ch25/test_virtual_interface_handle_rebinding_in_procedural_block_bodies.sv:19: syntax error",
+   "inputs_sha256": "3fbaec8f92862ad3f1e554cb287c7a74b85b31809ad6e57320754ac4a0b04fee"
+  },
+  "ch35/test_dpi_disable_import_task": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_disable_import_task.sv:26: syntax error",
+   "inputs_sha256": "fba9cf90ef62663987cebdfbeb9fd6bc423639a0d58440bc0b21e2972b90fefe"
+  },
+  "ch35/test_dpi_disabled_import_task_cannot_call_another_export": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv:17: syntax error",
+   "inputs_sha256": "7159a85aa02ac08ba7ec5115f11eb88a38332a8ba69524db59ae9b888ac66057"
+  },
+  "ch35/test_dpi_export_task_disable_status": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_export_task_disable_status.sv:33: syntax error",
+   "inputs_sha256": "152a61c61e5110b36c1f3cf481e2c42748ac38960345914b9d5abed7d6063c3a"
+  },
+  "ch35/test_dpi_import_task_rejects_disable_status_after_normal_return": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_import_task_rejects_disable_status_after_normal_return.sv:17: syntax error",
+   "inputs_sha256": "2175711cbc7ef50b477c45a2468a098695870e804d1ea687368b26bd6721a343"
+  },
+  "ch35/test_dpi_import_task_rejects_wrong_status_after_disable": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_import_task_rejects_wrong_status_after_disable.sv:17: syntax error",
+   "inputs_sha256": "1ea6e1335b6f5667ea45da4eeb4bda7c64f3f3c1f65937b8e73ea93ba0adae5a"
+  },
+  "ch35/test_dpi_import_task_status_matches_normal_and_disabled_exports": {
+   "status": "known",
+   "reason": "compile failed: tests/ch35/test_dpi_import_task_status_matches_normal_and_disabled_exports.sv:16: syntax error",
+   "inputs_sha256": "69f6c2d19db7441e06b678c8320c560d9f6ec9d97e4af7ccd63fbaf32d0956c8"
+  }
+ },
+ "generated_at": "2026-11-24T00:36:06.436467+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

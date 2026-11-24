@@ -1,0 +1,35 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch38/test_vpi_get_value_preserve": {
+   "status": "pass",
+   "inputs_sha256": "6e92428a330aa0d450a68d7e645283f3875d9311b1c0e2408424c2402ee290cc"
+  },
+  "ch38/test_vpi_put_value_caller_storage": {
+   "status": "pass",
+   "inputs_sha256": "9b267bd1a80fd8dace0b593b881e753d2a11db2cd26fcc1d5d047418e89e6074"
+  },
+  "ch38/test_vpi_put_value_caller_storage_time_strength": {
+   "status": "pass",
+   "inputs_sha256": "55dce386076d364f3218dfbb4f3e17024bb1303c548a6072c76b13019a0085ca"
+  },
+  "ch38/test_vpi_transport_value_copies_caller_vector_and_string_storage": {
+   "status": "pass",
+   "inputs_sha256": "139ccc739f44e5da41b3e946c663759601b82705d194b4bca951ded3824b158b"
+  },
+  "ch38/test_vpi_vector_callback_storage_survives_get_value_until_return": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "27b42e6a0e309288f062b03af93e1e8f5642c82e9b20d9f9ff6566530e6cf25c"
+  }
+ },
+ "generated_at": "2026-11-24T00:44:20.568542+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

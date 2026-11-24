@@ -1,0 +1,36 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch7/test_multidimensional_net_slice_drives_only_selected_rows": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_multidimensional_net_slice_drives_only_selected_rows.sv:22: error: the type of the variable 'bus['sd7:'sd6]' doesn't match the context type.",
+   "inputs_sha256": "c0ea40d403d82911f3f4a500df66c52b1522d06ff9f692956fd518654de7bc01"
+  },
+  "ch7/test_multidimensional_variable_slice_preserves_untouched_rows": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_multidimensional_variable_slice_preserves_untouched_rows.sv:26: sorry: Assignment to an  array slice is not yet supported.",
+   "inputs_sha256": "2016052d54b5203088de9a7a98adabf06f81ab9beec0e614bdae7fc43d7b141b"
+  },
+  "ch7/test_nested_net_and_variable_arrays_keep_ordinal_positions": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_nested_net_and_variable_arrays_keep_ordinal_positions.sv:36: error: the type of the variable 'link' doesn't match the context type.",
+   "inputs_sha256": "a216b4e3936fa49fc8d14ffa2490c3710b8d926e7a60bd9b695803fe1bfd7409"
+  },
+  "ch7/test_nested_rows_resize_dynamic_target_and_respect_queue_bound": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_nested_rows_resize_dynamic_target_and_respect_queue_bound.sv:17: Sorry: Dynamic array of type `11netuarray_t` is not yet supported.",
+   "inputs_sha256": "0bf8c555f518aecbfae732d36fcc561d67ad486e7709a50ce02e70c65081c0f2"
+  },
+  "ch7/test_queue_of_fixed_rows_copies_into_fixed_array_by_position": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_queue_of_fixed_rows_copies_into_fixed_array_by_position.sv:18: Sorry: Queue of type `11netuarray_t` is not yet supported.",
+   "inputs_sha256": "06d615c5944c13731da3ed502e202698016ca698b380c0c1f31d309d53a14e8d"
+  }
+ },
+ "generated_at": "2026-11-24T07:21:05.363676+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

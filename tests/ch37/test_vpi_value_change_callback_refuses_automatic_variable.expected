@@ -1,0 +1,5 @@
+static registered=1 error=0
+static callback value=17
+automatic registered=0 error=1
+automatic value=23
+static value=17

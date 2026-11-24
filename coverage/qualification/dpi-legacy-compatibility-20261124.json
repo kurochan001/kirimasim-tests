@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "simulator": "Ghost",
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "conditions": [
+    "--quiet",
+    "--lrm-strict"
+  ],
+  "cases": [
+    {
+      "test": "tests/ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary.sv",
+      "inputs_sha256": "e819e10ed86756a6f48e62d1dec4f5331ffd3872898d94af9da755950aaf1292",
+      "source_clauses": [
+        "H.14.2"
+      ],
+      "expected": [
+        "bit selectors=0/1 part=a6 get=a6/f53295ea/ace013579bd4ca57",
+        "logic selectors=x/z/1/0 part=a5/33",
+        "full chunks bit=f53295ea logic=05280000/01980000",
+        "written bit=1/0/96/0 logic=x/0/1z0xz1x0/0",
+        "wide writes bit=8af12359 logic=axz00xz0 adjacent=00"
+      ],
+      "actual": [
+        "bit selectors=0/1 part=a6 get=a6/f53295ea/000013579bd4ca57",
+        "logic selectors=1/z/1/0 part=05/00",
+        "full chunks bit=f53295ea logic=00280000/00000000",
+        "written bit=1/0/02/0 logic=0/0/00000000/0",
+        "wide writes bit=8af12359 logic=00000000 adjacent=00"
+      ],
+      "status": "fail"
+    },
+    {
+      "test": "tests/ch35/test_legacy_dpi_packed_whole_array_transfer.sv",
+      "inputs_sha256": "8b43dae4c84be4bc5b345e1d55822f319af4ee3d0bd44510a9c84aa9ba0298d4",
+      "source_clauses": [
+        "35.5.4"
+      ],
+      "assertion": "tools/test_ghost_dpi_object_loader.py",
+      "invocation": "--parse-only",
+      "expectation": "deprecation warning or error explaining DPI-C and possible C changes",
+      "compiler_exit": 0,
+      "diagnostic_observed": false,
+      "status": "fail"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+create 1 type=1 token=11 derived=37
+constructor 11 37
+create 2 type=1 token=11 derived=37
+copy 11 37 distinct=1
+after write original=99 copy=11
+total=2 different-objects=1

@@ -1,0 +1,26 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch5/test_directives_from_nested_include_persist_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "2d6a734aeaeee7301e00421d1ad003020ac41e7e14d4f6490787eda0ececaa06"
+  },
+  "ch5/test_identifier_1024_characters": {
+   "status": "pass",
+   "inputs_sha256": "1896f80f231afea2a7c21ddcaa155d6a140612d2fd72525cffddbe5dfd910087"
+  },
+  "ch5/test_illegal_implicit_net_after_include_default_nettype_none": {
+   "status": "pass",
+   "inputs_sha256": "0c1d25f73a1238aa9a13b52f5da2f4223e4d6117b05917ef9b89c56debf0184f"
+  }
+ },
+ "generated_at": "2026-11-24T08:36:48.692113+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

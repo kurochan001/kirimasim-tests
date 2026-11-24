@@ -1,0 +1,36 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch23/test_bind_instance_can_be_followed_by_an_empty_module_item": {
+   "status": "known",
+   "reason": "compile failed: tests/ch23/test_bind_instance_can_be_followed_by_an_empty_module_item.sv:23: syntax error",
+   "inputs_sha256": "9e3ad5886af76eb33bcd7820f2278f36b2fac5eae28a224873827725acae8f08"
+  },
+  "ch37/test_vpi_generate_typedef_and_nettype_iterations_are_local": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "501fbdcf8f77551a7d2b8cee9780d3bfbfb0f94ff4ab6ea38ffadc8034abe7f4"
+  },
+  "ch37/test_vpi_legacy_array_property_on_module_instances": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "f503297c03ee6b9be488522c85421269d523b23d67b3834c030cfe708d6ff3f5"
+  },
+  "ch37/test_vpi_legacy_array_property_on_net_elements": {
+   "status": "known",
+   "reason": "VPI build failed: 2 errors generated.",
+   "inputs_sha256": "2ed358897850fbf094a68688e02727e877da0bf4cf2ac6c614bc429058a60ce6"
+  },
+  "ch37/test_vpi_port_bit_excludes_name_and_port_index": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'port bits=4 parents=4 named=0 indexed=4', expected 'port bits=4 parents=4 named=0 indexed=0'",
+   "inputs_sha256": "0819bebb4616fa70c8331ceea0bcecb7e30140c8b61cc6919e8a84a0c3683f69"
+  }
+ },
+ "generated_at": "2026-11-23T23:20:39.837294+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

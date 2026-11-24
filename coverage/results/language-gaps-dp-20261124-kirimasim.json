@@ -1,0 +1,16 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch31/test_negative_setuphold_notifier_tracks_repeated_delayed_edges": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "ff90c36bb28b74d817eb8c73bef09ce5adfddbfd18b5b4f7c355757fcd31ef79"
+  }
+ },
+ "generated_at": "2026-11-24T09:15:15.734526+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

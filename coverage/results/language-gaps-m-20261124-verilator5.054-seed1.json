@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch12/test_illegal_foreach_index_assignment_in_body": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "059e0a2dbc149975997530fc5669cbd208de71a5644695fc6852f80ff84f5409"
+  },
+  "ch26/test_package_and_unit_sequences_and_enum_labels": {
+   "status": "known",
+   "reason": "build failed: %Error: Internal Error: tests/ch26/test_package_and_unit_sequences_and_enum_labels.sv:16:3: ../V3Ast.cpp:713: Node has no back, already unlinked?",
+   "inputs_sha256": "110542372af8726ed4a4a094ab2848d9d92db97a1dbe57a625cb6afdb12e9562"
+  },
+  "ch9/test_process_await_rejects_current_process": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\bawait\\\\b)(?=[^\\\\n]*\\\\b(?:self|itself|current process)\\\\b)[^\\\\n]+'",
+   "inputs_sha256": "2f96c2fd56a859028b4ad4d68e9f16923d9b2daaca2a4e283e09f27d44d71b18"
+  }
+ },
+ "generated_at": "2026-11-23T22:43:47.387719+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

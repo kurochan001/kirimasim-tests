@@ -4,13 +4,14 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは152本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは153本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
 |テスト|確認する内容|条項|期待出力を記録したリリース|注記|
 | --- | --- | --- | --- | --- |
 | [`test_design_element_kinds`](../../tests/ch3/test_design_element_kinds.sv) |module、program、interface、checker、package、primitive、config で始まる 7 種の設計要素は、1 つの設計の中でそれぞれの種類として働く: package は import する項目を与え、interface は信号を保持し、primitive は表から計算し、checker のアサーションは成功し、program は Reactive 領域で動き、configuration はインスタンスを別のモジュールに結び付ける| 3.2 3.10 24.3.1 33.4.1.3 |規格のみ|トップモジュール|
+| [`test_seven_design_element_keywords_coexist_in_one_source_file`](../../tests/ch3/test_seven_design_element_keywords_coexist_in_one_source_file.sv) |七種類の設計要素を同じソースで使い、構成の選択とプログラムが観測する NBA 更新を確認する| 3.2 24.4 33.4.1.4 |規格のみ|トップモジュール|
 | [`test_module_contains_classes_subroutines_processes`](../../tests/ch3/test_module_contains_classes_subroutines_processes.sv) |モジュールに、class宣言、宣言時・手続き内で生成するクラスオブジェクト、関数、時間を消費するタスク、継続代入、initial・always・always_ff・always_comb・final手続き、およびループ・if・caseのgenerateブロックを記述し、各要素の動作を確認します。| 3.3 8.3 8.7 13.3 13.4 10.3 9.2 27.4 27.5 | Icarus Verilog 13.0 ||
 | [`test_module_contains_declarations`](../../tests/ch3/test_module_contains_declarations.sv) |また，モジュールとエンドモジュールの間のモジュールは，ポートとその宣言，ネット，変数，構造とユニオン，定数，ユーザ定義型，パッケージインポートを保持し，それらはすべて動作する。| 3.3 23.2.2 6.20 6.18 26.3 | Icarus Verilog 13.0 ||
 | [`test_module_contains_specify_block`](../../tests/ch3/test_module_contains_specify_block.sv) |入力ポートから出力ポートへのモジュール経路を指定するブロックは、ライズとファール遅延を分けて、出力をライズで3秒、ファールで5秒遅延させます。| 3.3 30.3 30.4.1 30.5 30.5.1 | Icarus Verilog 13.0 ||

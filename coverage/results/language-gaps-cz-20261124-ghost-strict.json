@@ -1,0 +1,44 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch11/test_stream_unpack_partial_fixed_extent_reports_runtime_error": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*(?:unpack|stream|range|array))(?=[^\\\\n]*(?:out of|outside|bounds|extent))[^\\\\n]+'",
+   "inputs_sha256": "96010f32744b8c987a4c21c9cb9d901868e3e5525e72dd5b71e732b895240223"
+  },
+  "ch21/test_readmem_range_error_keeps_prior_words_with_nonzero_memory_bounds": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*bad_window\\\\.mem)(?=[^\\\\n]*address)(?=[^\\\\n]*(?:out of range|outside))[^\\\\n]+'",
+   "inputs_sha256": "24d660374899e04de7e373400304c1d986b9531ee2d8426bc8bad2ae0ea947f2"
+  },
+  "ch21/test_readmemb_stops_after_enum_value_beyond_base_range": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "48884cdbb27d61fc59cc531d7334ec3960b75922b5e37ec64f8e56f856444046"
+  },
+  "ch21/test_readmemh_stops_after_enum_value_beyond_base_range": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "2c1949fea60dd64fec5cfc10f2dd22dd0eb54284db8248fb9327dfb7f1191076"
+  },
+  "ch9/test_await_resumes_after_normal_and_forced_exit_then_rejects_self": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\bawait\\\\b)(?=[^\\\\n]*\\\\b(?:self|own|current process)\\\\b)[^\\\\n]+'",
+   "inputs_sha256": "b208dd6a9d44ff4a01d0487125bfbcb1b5c8e339a1e2fe610d08cdb00e3d612b"
+  },
+  "ch9/test_process_function_cannot_suspend_current_process": {
+   "status": "fail",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\bsuspend\\\\b)(?=[^\\\\n]*\\\\b(?:self|own|current process|function)\\\\b)[^\\\\n]+'",
+   "inputs_sha256": "b6f2b2a4ce57ff6ddb3991d938aab3a0813386b624fcdb299bfc091b9c799abd"
+  }
+ },
+ "generated_at": "2026-11-24T08:14:05.462489+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

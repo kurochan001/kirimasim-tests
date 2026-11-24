@@ -1,0 +1,35 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch15/test_delayed_nonblocking_event_repeat_counts_only_enabled_edges": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_delayed_nonblocking_event_repeat_counts_only_enabled_edges.sv:24: syntax error",
+   "inputs_sha256": "484a512b38fa7ba0a249c7e38c26143df1939417ffe478aca3286ffe95aa5450"
+  },
+  "ch15/test_nonblocking_event_with_condition_uses_nba_of_enabled_edge": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_nonblocking_event_with_condition_uses_nba_of_enabled_edge.sv:23: syntax error",
+   "inputs_sha256": "4c8b316002c694a4e336968a742a575324a80d1d7c337a4b829a8d70ada7db10"
+  },
+  "ch15/test_nonblocking_event_zero_repeat_enqueues_in_current_nba": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_nonblocking_event_zero_repeat_enqueues_in_current_nba.sv:26: sorry: ->> with repeat event control is not currently supported.",
+   "inputs_sha256": "a0e6fdb2aab84fb350694a0abfd8c7edec89d8b1a64d8da08090760a7cd91d0e"
+  },
+  "ch9/test_intraassignment_repeat_counts_active_and_nba_edges_in_one_slot": {
+   "status": "pass",
+   "inputs_sha256": "fba8803575c386b4f73340e9daed69bc1db49de3eefe0545193639486ca4bd57"
+  },
+  "ch9/test_intraassignment_repeat_counts_two_edges_at_one_time": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'before NBA blocked=0 queued=31 caller=1', expected 'before NBA blocked=31 queued=0 caller=1'",
+   "inputs_sha256": "b874495b3790b94986c9a44a502922b36f589bee3fb7d84a1bafaaa4b10eb3f4"
+  }
+ },
+ "generated_at": "2026-11-24T07:43:25.661782+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,32 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch38/test_vpi_callbacks_keep_both_simtime_words_across_wrap": {
+   "status": "pass",
+   "inputs_sha256": "ee899956b49805213db6491b13cf8f48eb7820761d58666452d1343cb9f24c5d"
+  },
+  "ch38/test_vpi_transport_put_emits_one_callback_before_and_after_high_time_word": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "882d663644671a8107a2566864e8304c9aa5ddfee62792f6f987ae02d755d9aa"
+  },
+  "ch38/test_vpi_udp_no_delay_put_is_visible_in_next_state_transition": {
+   "status": "pass",
+   "inputs_sha256": "90a998dc9969a6a24dbcce952b04dec7aa9ad4bf135d5637474f21a98e2bbc90"
+  },
+  "ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "295aebb7e6d19c0b581d1c7b2203395451b93ce6798e2904dcc215549859206f"
+  }
+ },
+ "generated_at": "2026-11-24T04:46:35.896259+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

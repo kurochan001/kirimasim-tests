@@ -1,0 +1,31 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch38/test_vpi_create_callback_observes_constructed_and_copied_objects": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "75588bc2d2170d4ebbfc7c6e0a63b3127f37b88e8327bc37d773c54e39ba0eea"
+  },
+  "ch38/test_vpi_end_callbacks_observe_live_automatic_frames_before_thread_deletion": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "dffcdeed8ddf62a138175b1e8afa700e4372e7efdab10491ff29f32acdc0e0cf"
+  },
+  "ch38/test_vpi_end_of_frame_or_thread_object_reports_no_time": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "ca6d9b1255dadf9b57f5f1aea59402052b472ae3341b8a903ebc2e903f47c60e"
+  },
+  "ch38/test_vpi_value_change_excludes_whole_dynamic_containers_and_class_objects": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "365f7cfbc5bc86913bc0cd03f0b1115d8376f7b9195efac738cc8d7a72d2b18d"
+  }
+ },
+ "generated_at": "2026-11-24T04:06:01.770068+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

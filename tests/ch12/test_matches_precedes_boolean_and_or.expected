@@ -1,0 +1,4 @@
+allow=0 code=5 and=0 or=1
+allow=1 code=4 and=0 or=1
+allow=1 code=5 and=1 or=1
+allow=0 code=4 and=0 or=0

@@ -1,0 +1,3 @@
+selector=1 unique=11 unique0=21 priority=31
+selector=2 unique=12 unique0=22 priority=32
+selector=3 unique=19 unique0=-1 priority=39

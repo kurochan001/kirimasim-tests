@@ -1,0 +1,21 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch18/test_constraint_function_priority_does_not_prune_high_randc_cycle": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "a1c99dd38ccf64aba7873dedf584dffba0df7b5ca65b05aa4b408f38e33f208b"
+  },
+  "ch18/test_constraint_function_priority_partition": {
+   "status": "unsupported",
+   "reason": "system function randomize (not implemented yet)",
+   "inputs_sha256": "d0e85d5aee11f8fd99a658b9826466880ce5c48bdf348c779bf866a579c4ef29"
+  }
+ },
+ "generated_at": "2026-11-24T02:35:08.687197+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

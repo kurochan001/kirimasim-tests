@@ -1,0 +1,37 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch26/test_illegal_wildcard_shadow_use_leaves_later_names_ambiguous": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6136885afa7dfd10b825ff3a48b55bd87b2c592f96f8393fe8bada170323ebfa"
+  },
+  "ch26/test_package_qualified_reference_leaves_later_named_import_available": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'qualified=1119 explicit=11 untouched=19', expected 'qualified=1119 explicit=37 untouched=19'",
+   "inputs_sha256": "c9350e1918a5efdd5ce507d9b36800003b9e64b70530aa086cb8a349d340cdc1"
+  },
+  "ch26/test_wildcard_reference_in_generate_binds_name_in_enclosing_scope": {
+   "status": "pass",
+   "inputs_sha256": "7b7a4d75309b327c8448a90cd4c1bdba73243af06009f447b4e7729fd0d68335"
+  },
+  "ch9/test_always_comb_function_global_ignores_redundant_whole_writes": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'other input: function=9/0 direct=9/0', expected 'other input: function=9/2 direct=9/2'",
+   "inputs_sha256": "2bdb9311a868fd0f45e97252506accb01bd47777746699eb8f95bb5b23cfa7ce"
+  },
+  "ch9/test_always_comb_nested_function_reacts_only_to_real_slice_changes": {
+   "status": "known",
+   "reason": "output differs: line 3 is 'disjoint blocking: nested=9/0 direct=9/0 dynamic=9/0', expected 'disjoint blocking: nested=9/0 direct=9/0 dynamic=9/4'",
+   "inputs_sha256": "6aa1e57c76b4263b27e375f317b0f94c8fb2fe08eaa9e1b525505af52fc2b757"
+  }
+ },
+ "generated_at": "2026-11-24T06:32:45.278631+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -1,0 +1,6 @@
+registered distant=1
+registered next=1
+next time=0:4
+fixture t=4
+distant time=1:29
+fixture t=4294967325

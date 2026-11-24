@@ -1,0 +1,17 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch21/test_readmemb_honors_multiple_address_tokens_on_one_line": {
+   "status": "pass",
+   "inputs_sha256": "51cd43c6d98519310c2ee155a43f77dc0c737d061ecc8279c7f2b6b09687b0e8"
+  }
+ },
+ "generated_at": "2026-11-24T04:26:23.232936+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

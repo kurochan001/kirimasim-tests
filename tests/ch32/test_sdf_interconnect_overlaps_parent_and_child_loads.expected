@@ -1,0 +1,3 @@
+source=20 outside=20
+parent then child: branch=24 regular=24 special=29
+child then parent: branch=24 regular=24 special=24

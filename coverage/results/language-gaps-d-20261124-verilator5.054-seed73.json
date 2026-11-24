@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch20/test_elaboration_error_selected_scope_observation": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6f33bae5a5a48f81cbfff4cd06c84132026f83d178d0f143aba5558b62fb0b70"
+  },
+  "ch20/test_elaboration_fatal_selected_scope_observation": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "dd7b47a22b830fb03ffac00ec1e48d023663da94a4f107a03a2b11c592653c6b"
+  },
+  "ch20/test_elaboration_warning_selected_scope_observation": {
+   "status": "known",
+   "reason": "no message matches '(?s)\\\\A(?=.*test_elaboration_warning_selected_scope_observation\\\\.sv:19:\\\\d*:?[^\\\\n]*(?i:warning)[^\\\\n]*ELAB_WARNING_LIMIT line=19)(?=.*test_elaboration_warning_selected_scope_observation\\\\.sv:20:\\\\d*:?[^\\\\n]*(?i:info|note)[^\\\\n]*ELAB_INFO_SIBLING line=20)'",
+   "inputs_sha256": "9be403e54aa516723bd77d3ceda969a9417096df143e36712471de8b8e6b6bb2"
+  }
+ },
+ "generated_at": "2026-11-23T21:47:12.398977+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

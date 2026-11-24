@@ -1,0 +1,6 @@
+specialized bit=1234_89abcdef logic=1f00/0f0f_89abcdef/00000000
+variadic bit=0567_01234567 logic=0567/0000_abf04567/00ff0000
+bounds kept bit=11 logic=11
+first writes bit=1a0b5555aaaa logic=07x212zz00aa
+other writes bit=0033fedcba98 logic=0012zx345678
+untouched bit=123489abcdef logic=1x0z89abcdef

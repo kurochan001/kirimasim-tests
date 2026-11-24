@@ -1,0 +1,21 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch9/test_integral_delays_preserve_single_ticks_beyond_double_integer_precision": {
+   "status": "pass",
+   "inputs_sha256": "19d0144d6df324daa8fa189487a9d8b5928aef84d45ff69dfdff195add348ffb"
+  },
+  "ch9/test_negative_delay_reinterprets_full_unsigned_time": {
+   "status": "pass",
+   "inputs_sha256": "1e58ae903cb4e4f1ac9d5a608cb2705179373d2baf468a9c866212635821b4f5"
+  }
+ },
+ "generated_at": "2026-11-24T05:00:33.806993+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

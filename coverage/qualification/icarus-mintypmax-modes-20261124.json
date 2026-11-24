@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-24",
+  "tool": "Icarus Verilog",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "fixture": "tools/test_icarus_mintypmax_modes.py",
+  "fixture_sha256": "55645f66197398b1f3227a096a8be0611d129a47d7f78c5d96b6fd83861458bd",
+  "source": "tests/ch11/test_mintypmax_uses_positional_alternatives_across_contexts.sv",
+  "source_sha256": "de7725d977c3d7c83f3903c898a038b017f35d9f345d747971db8b0a00984279",
+  "requirements": [
+    "SV2023-11.11-EXTRACT-MINTYPMAX-FORM"
+  ],
+  "results": {
+    "min": {
+      "status": "pass",
+      "choice": 13,
+      "procedural": 7,
+      "net": 21,
+      "path": 17
+    },
+    "typ": {
+      "status": "pass",
+      "choice": 5,
+      "procedural": 4,
+      "net": 8,
+      "path": 3
+    },
+    "max": {
+      "status": "pass",
+      "choice": 9,
+      "procedural": 19,
+      "net": 11,
+      "path": 12
+    }
+  }
+}

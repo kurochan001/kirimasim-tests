@@ -1,0 +1,7 @@
+settled output=000 loaded=1
+rise before output=000 loaded=1
+rise after output=111 loaded=1
+fall before output=111 loaded=1
+fall after output=000 loaded=1
+off before output=000 loaded=1
+off after output=zzz loaded=1

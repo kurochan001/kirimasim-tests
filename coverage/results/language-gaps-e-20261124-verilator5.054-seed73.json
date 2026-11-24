@@ -1,0 +1,44 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch27/test_conditional_generate_named_and_unnamed_scope": {
+   "status": "pass",
+   "inputs_sha256": "98ea53945265669899352c87aa609042626cc0688d00492c6aa81639e7015979"
+  },
+  "ch28/test_highz_gate_strength_suppresses_one_logic_value": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_highz_gate_strength_suppresses_one_logic_value.sv:16:11: Unsupported: highz strength",
+   "inputs_sha256": "94bd8e12e1fb4d29ca159e9281189b8f1dbd25eb4875e289d52ccdaeb5b8b0fa"
+  },
+  "ch28/test_illegal_pulldown_delay_with_legal_gate_control": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_pulldown_delay_with_legal_gate_control\\\\.sv:20:(?:\\\\d+:)?[^\\\\n]*(?i:(?:delay|syntax error|unexpected).*)'; the first is: %Error: Internal Error: tests/ch28/test_illegal_pulldown_delay_with_legal_gate_control.sv:20:15: ../V3Ast.h:1167: AstNode is not of expected type, but instead has type 'PULL'",
+   "inputs_sha256": "c63092b9964f750f83a14ecda6552743e10ea83371484d8bb8549981586a44f8"
+  },
+  "ch28/test_illegal_pullup_delay": {
+   "status": "pass",
+   "inputs_sha256": "c476271edd7896dbf923f3a6494bf00416fe6f0f802d4b67baeb1122cc1c1d57"
+  },
+  "ch28/test_illegal_resistive_pass_switch_vector_terminals": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_resistive_pass_switch_vector_terminals\\\\.sv:18:(?:\\\\d+:)?[^\\\\n]*(?i:(?:width|scalar|bits|cannot connect|expects))'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_resistive_pass_switch_vector_terminals.sv:17:12: Unsupported: Verilog 1995 gate primitive: rtranif1",
+   "inputs_sha256": "76de5a388623902ce987d9b16972fa478f1ed1a89777e944f247868df2a03c24"
+  },
+  "ch28/test_illegal_strength_highz0_highz1_on_gate": {
+   "status": "pass",
+   "inputs_sha256": "13996b704deb11a3fe8fbccc4edd524515035b214fda7025aef7d900c2ecb9dd"
+  },
+  "ch28/test_illegal_three_state_gate_swapped_highz_strengths": {
+   "status": "pass",
+   "inputs_sha256": "afa85cb8dc1f3e3a551b647efb297e66a97b21aa46f95f8c9b40c5c644e62225"
+  }
+ },
+ "generated_at": "2026-11-23T21:51:49.372608+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

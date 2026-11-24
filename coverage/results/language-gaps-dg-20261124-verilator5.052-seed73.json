@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch37/test_vpi_put_rejects_hidden_side_effects_in_index_calls": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_put_rejects_hidden_side_effects_in_index_calls.sv:30:8: Unsupported or unknown PLI call: '$vt_put_bit'",
+   "inputs_sha256": "a31707854adfc7b1399b0b971831ed160a840fe706d22709a2869ed4a97b002e"
+  },
+  "ch37/test_vpi_put_value_side_effect": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_put_value_side_effect.sv:31:5: Unsupported or unknown PLI call: '$vt_put'",
+   "inputs_sha256": "6f3de2737978f02c47b87eedac44cf0ea2e323fec1644e35958602201af70464"
+  },
+  "ch38/test_vpi_refuses_force_release_disable_callbacks_on_variable_bits": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_refuses_force_release_disable_callbacks_on_variable_bits.sv:26:8: Unsupported or unknown PLI call: '$vt_select_callback_setup'",
+   "inputs_sha256": "5b042ed55b819e4afbd587037831c58dce956b58b3005a64a78354bce523bd55"
+  }
+ },
+ "generated_at": "2026-11-24T08:38:56.444518+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

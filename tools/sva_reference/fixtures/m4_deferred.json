@@ -597,5 +597,14 @@
       "$rose",
       "clocking event argument"
     ]
+  },
+  "tests/ch20/test_global_clock_sampled_functions_evaluate_computed_operands.sv": {
+    "source_sha256": "fdc941d01d00705b27dd6f3d776e30012b15ed112f1cc3cac37c4d75d1485021",
+    "reason": "Global-clock cover actions with future-function results need a region and reporting audit",
+    "evidence": [
+      "$future_gclk(left + right)",
+      "rising.push_back($time)",
+      "ticks(changing)"
+    ]
   }
 }

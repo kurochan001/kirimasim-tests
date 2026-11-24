@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "simulator": "Ghost",
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "assertion": "tools/test_ghost_dpi_object_loader.py",
+  "conditions": [
+    "--quiet",
+    "--lrm-strict",
+    "-sv_lib",
+    "-sv_root",
+    "-sv_liblist"
+  ],
+  "source_clauses": [
+    "J.3",
+    "J.4",
+    "J.4.1"
+  ],
+  "test": "tests/ch35/test_dpi_resolves_imports_from_two_foreign_objects.sv",
+  "inputs_sha256": "0520d79b7dc1ea3fd7d72076c32252b966a091d039d995e0f63c38adb6de3acc",
+  "cases": [
+    {
+      "case": "explicit filenames relative to the working directory",
+      "expected_order": [
+        "left",
+        "right"
+      ],
+      "observed_order": [
+        "left",
+        "right"
+      ],
+      "actual_return_values": [
+        31,
+        39
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "explicit filenames with a selected root and an absolute path",
+      "expected_order": [
+        "right",
+        "left"
+      ],
+      "observed_order": [
+        "right",
+        "left"
+      ],
+      "actual_return_values": [
+        31,
+        39
+      ],
+      "status": "pass"
+    },
+    {
+      "case": "relative path including a directory, without an extension",
+      "expected_order": [
+        "left",
+        "right"
+      ],
+      "observation": "the loader tried the path without appending the platform extension",
+      "status": "fail"
+    },
+    {
+      "case": "absolute path without an extension",
+      "expected_order": [
+        "right",
+        "left"
+      ],
+      "observation": "the loader tried the absolute path without appending the platform extension",
+      "status": "fail"
+    },
+    {
+      "case": "bootstrap mixed with an absolute direct duplicate",
+      "expected_order": [
+        "left",
+        "right"
+      ],
+      "observation": "the recommended spelling -sv_liblist was rejected as unknown",
+      "status": "fail"
+    }
+  ]
+}

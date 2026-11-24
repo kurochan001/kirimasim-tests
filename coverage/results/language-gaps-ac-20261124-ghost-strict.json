@@ -1,0 +1,32 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch11/test_illegal_stream_with_negative_index_on_dynamic_array": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "93a5d082b87d22f08fe12b5409351722f4aae573174e5ed3ea0ac13f4eda5ff6"
+  },
+  "ch11/test_illegal_stream_with_real_base_for_integral_range": {
+   "status": "pass",
+   "inputs_sha256": "fc79c062f5ef808aa58a8a190bfe54021973c49b6d90a093541a62202c3646a2"
+  },
+  "ch11/test_stream_unpack_dynamic_width_into_descending_fixed_array": {
+   "status": "pass",
+   "inputs_sha256": "1f88e4cbcd12a441b57f4f72eb7540a72ef59b5f1f99f9dc30015324d5289e2a"
+  },
+  "ch11/test_stream_unpack_outside_fixed_array_updates_only_in_range_entries": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "8090eda7909f67b124343f2290af4405f0d617324eef56892d49a561c91e62d8"
+  }
+ },
+ "generated_at": "2026-11-23T23:27:29.256791+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

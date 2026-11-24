@@ -1,0 +1,6 @@
+FSMs=2
+cfg_state: expression=1 width=4 value=1 states=2 codes=202 maximum=2
+frame_rx: expression=1 width=3 value=0 states=3 codes=025 maximum=3
+FSMs=2
+cfg_state: expression=1 width=4 value=9 states=2 codes=202 maximum=2
+frame_rx: expression=1 width=3 value=5 states=3 codes=025 maximum=3

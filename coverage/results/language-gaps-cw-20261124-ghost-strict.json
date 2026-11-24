@@ -1,0 +1,32 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch10/test_builtin_net_declarations_combine_advisory_strength_type_and_delay": {
+   "status": "pass",
+   "inputs_sha256": "e3aedf3854926df4245c25852a0780d7f3285f57408a6699d3f9a0a57401d9d8"
+  },
+  "ch10/test_interconnect_array_declaration_delay_and_two_declarators": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "4f5bf893f3c6aa4392471f07d49dc7ed00589d72f80a08f9945fc5104d244867"
+  },
+  "ch10/test_user_nettype_declaration_delay_applies_to_both_declarators": {
+   "status": "pass",
+   "inputs_sha256": "acce976e2d541ad73f0521b2455f01bd728176cf8ace5818db94c6a301bc9fcf"
+  },
+  "ch23/test_wire_array_ports_preserve_positions_with_different_bounds": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "6a1f58d7992dadc184af037f85a0b57395511877e3b89b0350d134287abac19b"
+  }
+ },
+ "generated_at": "2026-11-24T08:03:16.296081+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

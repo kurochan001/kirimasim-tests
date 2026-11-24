@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-24",
+  "requirement": "SV2023-23.11-EXTRACT-BIND-LIBRARY-MAPPING",
+  "fixture": "tools/test_bind_library_mapping.py",
+  "fixture_sha256": "648eac06a952235e74872905c818c218bce8b5a6918bcbcdf9820210beaa6e81",
+  "ghost": {
+    "binary_sha256_prefix": "84e9883c2828",
+    "status": "pass",
+    "stdout": "target native=29 bound=17 scope native=17 bound=17"
+  },
+  "slang": {
+    "source_commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+    "status": "pass",
+    "bound_to_hierarchical_target": "mapped_top.dut.attached",
+    "bound_to_matching_scope": "mapped_top.scope_target.attached_scope",
+    "unexpected_scope_bind_on_other_definition": false,
+    "bound_module_source": "libraries/inject/binder.sv",
+    "other_module_source": "libraries/target/device.sv"
+  }
+}

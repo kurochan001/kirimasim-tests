@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "source_clauses": [
+    "5.9",
+    "10.9",
+    "21.2.1.6"
+  ],
+  "fixture": "tools/test_ghost_pattern_round_trip.py",
+  "fixture_sha256": "7e2bf47e20861653a7c30c8219d9b617cdc7deb210205809f419f894dcfe6c05",
+  "formatting_tool": "Ghost (sukimasim)",
+  "binary_sha256_prefix": "84e9883c2828",
+  "parser": "Slang 12.1.0+0 (82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb)",
+  "observations": {
+    "plain": {
+      "ghost_reparsed": "pass",
+      "kirimasim_0.2.1_reparsed": "pass"
+    },
+    "delimiters_and_escapes": {
+      "values": [
+        "double quote",
+        "backslash",
+        "tab and newline"
+      ],
+      "ghost_reparsed": "syntax error at the unescaped interior quote",
+      "ghost_raw_newline_inside_string": true,
+      "kirimasim_0.2.1_reparsed": "pass"
+    }
+  }
+}

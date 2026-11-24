@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch10/test_nba_concatenated_slices_keep_rhs_alignment_at_boundaries": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'left clipped left=a54/627 right=d31/826', expected 'left clipped left=a57/627 right=d31/826'",
+   "inputs_sha256": "c6afd7fa749a6d9729d0a157eecea1b18cc667ed045231008522620c1ce59540"
+  }
+ },
+ "generated_at": "2026-11-24T09:07:54.224215+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

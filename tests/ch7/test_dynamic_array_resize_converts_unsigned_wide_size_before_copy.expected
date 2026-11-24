@@ -1,0 +1,4 @@
+low=4 implicit=4: 31 47 0 0 explicit=4: 31 47 0 0
+low=1 implicit=1: 31 explicit=1: 31
+low=0 implicit=0: explicit=0:
+low=2 implicit=2: 0 0 explicit=2: 0 0

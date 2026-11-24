@@ -1,0 +1,46 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch11/test_illegal_let_scalar_argument_expands_to_invalid_bit_select": {
+   "status": "pass",
+   "inputs_sha256": "c9673e2d61134323b63d4263d16dd99660dc65bcfa6572995db540b31bb1397b"
+  },
+  "ch11/test_let_substitution_preserves_actual_expression_and_result_precedence": {
+   "status": "pass",
+   "inputs_sha256": "20088ca98890ee380228e61f8877ec09961db82a09c371339264f30bccd7d919"
+  },
+  "ch12/test_case_qualifier_flush_is_local_to_retriggered_process": {
+   "status": "known",
+   "reason": "no message matches '(?ms)\\\\A(?!.*?^(?=[^\\\\n]*test_case_qualifier_flush_is_local_to_retriggered_process\\\\.sv:21:)(?=[^\\\\n]*(?i:warning|error|violation))(?=[^\\\\n]*(?i:\\\\b(unique|case)\\\\b))[^\\\\n]+)(?=.*?^(?=[^\\\\n]*test_case_qualifier_flush_is_local_to_retriggered_process\\\\.sv:29:)(?=[^\\\\n]*(?i:warning|error|violation))(?=[^\\\\n]*(?i:\\\\b(priority|case)\\\\b))[^\\\\n]+)'",
+   "inputs_sha256": "f71e79bd9c8ffd791bc84e561f2c183c360b54cd4220df4795cc5a55875965db"
+  },
+  "ch12/test_case_qualifier_report_respects_assertcontrol": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch12/test_case_qualifier_report_respects_assertcontrol.sv:19:5: Unsupported: assert control assertion_type",
+   "inputs_sha256": "f6fd11c87c3ae5dbf395809a05f3e6994d88d524af579c77fea75a2af2da4a45"
+  },
+  "ch8/test_illegal_weak_reference_clear_takes_no_argument": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_weak_reference_clear_takes_no_argument\\\\.sv:24:(?:\\\\d+:)?[^\\\\n]*(?i:(?:too many|no\\\\s+(?:formal|argument)|expected\\\\s+(?:0|zero)|(?:argument|parameter)[^\\\\n]*clear|clear[^\\\\n]*(?:argument|parameter)))'; the first is: %Error: tests/ch8/test_illegal_weak_reference_clear_takes_no_argument.sv:21:10: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "8178673eec39478f00eebfd3eebd7146b3f8d0e4e9f8edef1cdd3eecf90c388b"
+  },
+  "ch8/test_illegal_weak_reference_clear_value_from_void_method": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_weak_reference_clear_value_from_void_method\\\\.sv:25:(?:\\\\d+:)?[^\\\\n]*(?i:(?:void[^\\\\n]*(?:value|expression|assign|conversion|context)|(?:value|expression|assign|conversion|context)[^\\\\n]*void))'; the first is: %Error: tests/ch8/test_illegal_weak_reference_clear_value_from_void_method.sv:21:10: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "82419aa040ae603fe00f6b61921928ec5ee64544edbf3ce0628affaedfbe9626"
+  },
+  "ch8/test_weak_reference_clear_void_no_arguments": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch8/test_weak_reference_clear_void_no_arguments.sv:39:11: Can't find typedef/interface: 'weak_reference'",
+   "inputs_sha256": "e75e35ece0f99bf38b80271f005f74ca8e9e179037513a2c8721255f0c8187eb"
+  }
+ },
+ "generated_at": "2026-11-23T22:40:01.906251+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

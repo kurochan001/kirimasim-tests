@@ -1,0 +1,3 @@
+at24 shifted=00 control=11
+at27 shifted=11 control=11
+output edges shifted=25 control=23

@@ -1,0 +1,15 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch10/test_nba_concatenated_slices_keep_rhs_alignment_at_boundaries": {
+   "status": "pass",
+   "inputs_sha256": "c6afd7fa749a6d9729d0a157eecea1b18cc667ed045231008522620c1ce59540"
+  }
+ },
+ "generated_at": "2026-11-24T09:07:53.125271+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

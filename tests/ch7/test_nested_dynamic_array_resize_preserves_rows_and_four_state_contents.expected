@@ -1,0 +1,3 @@
+grow=3 10xz 0101 xxxx sibling=1 0110
+after copy=2 10xz 0101 original=3 1010
+empty=0 sibling=2 10xz 0101

@@ -180,7 +180,35 @@ table("ch16_always_range", "16.12.11",
 
 
 # ---------------------------------------------------------------------------
-# 16.12 Table 16-3 precedence level 10
+# 16.12 Table 16-3 precedence
+
+
+DELAY_PRECEDENCE = parse_sequence("a or b ##1 1'b1 ##1 1'b1")
+
+
+def delay_precedence_code(samples, context, sel):
+    node = DELAY_PRECEDENCE
+    # Concatenation has identical match times under either association.
+    # Inspect the parser tree as well as the observable match counts.
+    left_associative = (node.op == "or" and node.args[1].op == "##"
+                        and node.args[1].args[0].op == "##")
+    match_counts = [0, *(len(ls.tight(node, samples, 0, end, {}))
+                         for end in range(len(samples)))]
+    return (int(left_associative) << 8) | pack(match_counts)
+
+
+table("ch16_delay_precedence", "16.12",
+      "sequence delay binds before or and associates to the left",
+      signals=[("a", 1), ("b", 1)], horizon=3, selectors=1,
+      actual=delay_precedence_code,
+      reference="""
+        // Age 1 has the a branch. Age 3 has the b branch after two delays.
+        assign reference_result = 32'h100 | (s_a_0 ? 32'h004 : 0)
+                                          | (s_b_0 ? 32'h040 : 0);
+      """,
+      why="A true a matches immediately; a true b matches after both delays. "
+          "The parser tree separately observes which concatenation is nested.",
+      limitation="Two one-cycle delays and three-sample words.")
 
 
 PRECEDENCE = [parse_spec("a until b until c").body,
@@ -489,3 +517,38 @@ table("ch16_lead_outer_clock", "16.16.1",
       limitation="One clock and one atom; three-tick words.  Clock identity for "
                  "value-equal but distinct clock expressions is outside a "
                  "single-clock model.")
+
+
+def weak_always_extension_code(samples, _context, _selector):
+    weak = "always[0:2] a"
+    strong = "s_always[0:2] a"
+    prefix = attempt_code(weak, samples[:1])
+    completed = attempt_code(weak, samples)
+    strong_prefix = attempt_code(strong, samples[:1])
+    return prefix | completed << 8 | strong_prefix << 16
+
+
+table(
+    "ch16_holds_and_its_extensions",
+    "16.12.21",
+    "Always [0:2] on a one-sample prefix and its possible extensions",
+    signals=[("a", 1)],
+    horizon=3,
+    actual=weak_always_extension_code,
+    reference="""
+        reg [7:0] prefix, completed, strong_prefix;
+        always @* begin
+          prefix = s_a_0 ? 8'h3f : 8'h10;
+          strong_prefix = s_a_0 ? 8'h4f : 8'h10;
+          if (!s_a_0) completed = 8'h10;
+          else if (!s_a_1) completed = 8'h11;
+          else if (!s_a_2) completed = 8'h12;
+          else completed = 8'h02;
+          reference_result = {8'h00, strong_prefix, completed, prefix};
+        end
+    """,
+    cover="s_a_0 && s_a_1 && s_a_2",
+    why="A clean weak prefix holds. A later bad sample can make it fail, "
+        "while a clean completion holds on all extensions. The strong "
+        "property still has an unmet obligation on the prefix.",
+)

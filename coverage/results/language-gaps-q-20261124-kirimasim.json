@@ -1,0 +1,52 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch13/test_discarded_function_return_warns_only_without_void_cast": {
+   "status": "fail",
+   "reason": "no message matches '(?ms)\\\\A(?=.*?^(?=[^\\\\n]*test_discarded_function_return_warns_only_without_void_cast\\\\.sv:23:)(?=[^\\\\n]*(?i:warning))(?=[^\\\\n]*(?i:IGNOREDRETURN|ignor(?:ed|ing)[^\\\\n]*\\\\breturn\\\\b|discard(?:ed|ing)?[^\\\\n]*return|function[^\\\\n]*called as a task))[^\\\\n]+)(?!.*?^(?=[^\\\\n]*test_discarded_function_return_warns_only_without_void_cast\\\\.sv:24:)[^\\\\n]*(?i:warning))'",
+   "inputs_sha256": "93f024695d79f18b3170c73ee382abdcf4ae65c23369666eac75e8f38ab22c5c"
+  },
+  "ch13/test_implicit_function_result_keeps_declared_index_labels": {
+   "status": "pass",
+   "inputs_sha256": "073522acf5b06c2e620cc342d0fa71c13b523fa1d0f5a142707ee8bf62246551"
+  },
+  "ch20/test_illegal_isunbounded_constant_expression_not_parameter_name": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "5edd5d9f9de0626526c5887dd653b1dcb782d12d3aec61cb6f21bbbaa237d6bf"
+  },
+  "ch20/test_isunbounded_package_and_hierarchical_parameter_names": {
+   "status": "unsupported",
+   "reason": "system function $isunbounded on this argument (not implemented yet)",
+   "inputs_sha256": "7a6e738c3008ac62aa64b77cf36b3010d1e8de3bd4535371be30fdebfb4c225d"
+  },
+  "ch23/test_illegal_upward_name_search_stops_at_struct_member_path": {
+   "status": "pass",
+   "inputs_sha256": "0dcf5a693e0a53831bfbb2030fd6a9dfdb4ecd5837289dab3cacff0f8252b58f"
+  },
+  "ch23/test_upward_name_search_continues_past_missing_generate_member": {
+   "status": "pass",
+   "inputs_sha256": "cc14fcd36f8fdb2a3e4c8c2016bb06a4c3c3f08471c789805f9e6d8ce6a610df"
+  },
+  "ch25/test_illegal_virtual_modport_clocking_not_in_selected_view": {
+   "status": "pass",
+   "inputs_sha256": "37911514aa621fc467ee0d8012e568247dfabeff919f9abbf77f7558d47b77a0"
+  },
+  "ch25/test_virtual_interface_clocking_access_with_and_without_modport": {
+   "status": "unsupported",
+   "reason": "modport-qualified virtual interface handle (not implemented yet)",
+   "inputs_sha256": "2c5986acfb2a3a5c9744d2377796afe065b89eff47c2adf852c179636e225d75"
+  },
+  "ch37/test_vpi_part_select_uses_distinct_bound_relations": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "a89a9a7cb69abb87802761e5f88cd3c20d4a0d47af5c2bd5375d59297bb2eb1b"
+  }
+ },
+ "generated_at": "2026-11-23T22:39:55.692170+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

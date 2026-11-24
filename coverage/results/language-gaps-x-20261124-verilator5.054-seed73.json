@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch19/test_default_bins_with_failed_and_pending_transition_paths": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'value coverage=100.00 transition coverage=33.33', expected 'value coverage=100.00 transition coverage=66.67'",
+   "inputs_sha256": "6c736732299eef941aa1bd194be4e10decc41d87a39b57c83ed5401559126c10"
+  },
+  "ch19/test_default_transition_bin_ignores_a_pending_nonconsecutive_match": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'after match=0.00', expected 'after match=100.00'",
+   "inputs_sha256": "285888af59958a55b1323a41bcbca13fc3521df0345515991965c6e3e7bd5dd9"
+  }
+ },
+ "generated_at": "2026-11-23T23:06:37.361096+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

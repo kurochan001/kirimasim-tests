@@ -1,0 +1,53 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch21/test_vcd_dumpvars_reports_late_variable_selection": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_dumpvars_reports_late_variable...', expected 'first=1 late=0'",
+   "inputs_sha256": "f660faebcb7b9fb7c0dd0ac4469ecff6278c7f619936cabcb9093da99a66f698"
+  },
+  "ch28/test_illegal_interconnect_scalar_connects_to_primitive_array": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_interconnect_scalar_connects_to_primitive_array\\\\.sv:15:(?:\\\\d+:)?[^\\\\n]*(?i:(?:interconnect[^\\\\n]*(?:array|width)|(?:array|width)[^\\\\n]*interconnect))'; the first is: %Error-UNSUPPORTED: tests/ch28/test_illegal_interconnect_scalar_connects_to_primitive_array.sv:14:30: Unsupported: interconnect",
+   "inputs_sha256": "34e9cd1270eb3bd860b74ffd29b1b8a54f747db58050925db392ba7d8f9c73ad"
+  },
+  "ch28/test_interconnect_vector_and_ordinary_scalar_connect_to_primitive_array": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch28/test_interconnect_vector_and_ordinary_scalar_connect_to_primitive_array.sv:13:30: Unsupported: interconnect",
+   "inputs_sha256": "6401e387ddb7dd15299370986d6725b0e0a59fc1b0747e1c2243e8954e69cfa0"
+  },
+  "ch31/test_illegal_setuphold_negative_sum": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "fec6bba1ec33e5d8b4907bb60bb50be882d40caf088f22034d8f76ff1176ef81"
+  },
+  "ch31/test_illegal_setuphold_negative_sum_at_one_precision_unit": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e6b141bd7e0e19e44009b2c8db49a785c529bc3d84f23544cbd69f53ebfd10a3"
+  },
+  "ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'raw clock=1 delayed=1', expected 'raw clock=1 delayed=0'",
+   "inputs_sha256": "27271d1c1633a14ff7985380fdc5858550a3430128cbc5f25b7bfe0b1839e11b"
+  },
+  "ch31/test_setuphold_negative_sum_two_precision_units": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'notifier=0', expected 'notifier=1'",
+   "inputs_sha256": "915fd4eb28cc4d612950ad99f33f68646002ff325124db7db0a03f03f4c1ccea"
+  },
+  "ch37/test_vpi_additional_primitive_and_net_type_names": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'vpiBufPrim number=0 name=0', expected 'vpiBufPrim number=1 name=1'",
+   "inputs_sha256": "65dd0135c4d44c6320f4ef1bc518ef7fb0b0e032bd4619074832c40b579ee6f7"
+  }
+ },
+ "generated_at": "2026-11-23T22:36:33.591868+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

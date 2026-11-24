@@ -1,0 +1,30 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch14/test_illegal_clocking_cycle_delay_negative_integer": {
+   "status": "unsupported",
+   "reason": "timing control (not implemented yet)",
+   "inputs_sha256": "46100f07092d953a84fd8c067e3c1eb79924726041b607289bac24bddc3d4349"
+  },
+  "ch15/test_illegal_semaphore_put_used_as_value": {
+   "status": "pass",
+   "inputs_sha256": "d2a9b577b3efd773cb051f004fa162e47022cf0ea371d7733ca1381f047ccf7f"
+  },
+  "ch15/test_semaphore_put_named_count_and_default_one": {
+   "status": "unsupported",
+   "reason": "type 'std::semaphore' (not implemented yet)",
+   "inputs_sha256": "be1b2d6dfaec4a66ad76e9c45315b734896e9d005b68df93dd33cce3782aa569"
+  },
+  "ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries": {
+   "status": "unsupported",
+   "reason": "system function num (not implemented yet)",
+   "inputs_sha256": "1beeca98e89f2e54aef4c13d0ded843f46ba8a28231d7715e74e1d2e625ad856"
+  }
+ },
+ "generated_at": "2026-11-23T22:09:41.696505+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

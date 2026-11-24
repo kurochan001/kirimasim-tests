@@ -1,0 +1,4 @@
+task entered tag=5 time=0
+task completed tag=5 time=1
+legal task status=0 time=1
+attempting exported task from imported function

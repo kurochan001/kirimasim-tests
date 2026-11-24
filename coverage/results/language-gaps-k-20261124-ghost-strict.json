@@ -1,0 +1,34 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 2865c5a259b8",
+ "tests": {
+  "ch16/test_illegal_property_positional_comma_event_without_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "423c2fd2850506741a3e2c51fe5f43bb68bd4975829460e84bad49ecf51e432c"
+  },
+  "ch16/test_multiclock_cover_reports_completed_match_and_ignores_pending": {
+   "status": "pass",
+   "inputs_sha256": "cfe3a4d25cb1c4b20079d12388ce0725b8a29586f0f0f9def883893bc292daae"
+  },
+  "ch16/test_property_positional_parenthesized_comma_event": {
+   "status": "pass",
+   "inputs_sha256": "ff44aea798303d2f2c92ea7b279f5b807c8edc2b733e405566e8840cb9c4bfb3"
+  },
+  "ch25/test_illegal_modport_excludes_signal_from_interface_port_view": {
+   "status": "pass",
+   "inputs_sha256": "5882db6fa0941f4fd8efde2032520ef3fbf833f353f45e6d1a7e779fbb32f393"
+  },
+  "ch25/test_modport_access_unlisted_type_parameter_and_enum": {
+   "status": "pass",
+   "inputs_sha256": "48dcf0b79fdc6521b7b32d9a8c0d53fb2d5ce2f5144b32cafa01764a5539f52e"
+  }
+ },
+ "generated_at": "2026-11-23T22:10:48.973191+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "2865c5a259b8ec636abaf794c15cd391f3f5a1a11baa58e6882c80009fb42ed1",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

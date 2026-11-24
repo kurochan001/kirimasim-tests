@@ -1,0 +1,39 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch6/test_illegal_interconnect_two_equal_delay_values": {
+   "status": "pass",
+   "inputs_sha256": "a31c11f3badb8e5fa9f410012bd338cfda311f8c156479554138f1f021f4268c"
+  },
+  "ch6/test_interconnect_single_delay_on_inferred_net": {
+   "status": "unsupported",
+   "reason": "net of kind 'interconnect' (not implemented yet)",
+   "inputs_sha256": "616e97d9d6955be6396242b1b4642553c72490a695206c7eb7a2486a6fc83da6"
+  },
+  "ch7/test_associative_key_uses_queue_and_string_values_structurally": {
+   "status": "unsupported",
+   "reason": "associative key field of this type (not implemented yet)",
+   "inputs_sha256": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6"
+  },
+  "ch7/test_illegal_associative_index_contains_nested_real": {
+   "status": "pass",
+   "inputs_sha256": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6"
+  },
+  "ch9/test_process_function_can_suspend_another_waiting_process": {
+   "status": "unsupported",
+   "reason": "type 'std::process' (not implemented yet)",
+   "inputs_sha256": "24213c41b19627b5718914e06c3e5d37890adb19fee4874c90448912857d14c0"
+  },
+  "ch9/test_process_function_cannot_suspend_current_process": {
+   "status": "unsupported",
+   "reason": "type 'std::process' (not implemented yet)",
+   "inputs_sha256": "b6f2b2a4ce57ff6ddb3991d938aab3a0813386b624fcdb299bfc091b9c799abd"
+  }
+ },
+ "generated_at": "2026-11-23T22:43:38.082469+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

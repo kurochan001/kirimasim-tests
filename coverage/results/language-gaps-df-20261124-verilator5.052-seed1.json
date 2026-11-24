@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch38/test_vpi_bulk_array_rejects_delay_and_unknown_flags": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_bulk_array_rejects_delay_and_unknown_flags.sv:20:8: Unsupported or unknown PLI call: '$vt_bad_bulk_flags'",
+   "inputs_sha256": "106000bc90b5082bdbc1f9b39ffd1dde051ae3c70c4212b21f681fd202c67b98"
+  },
+  "ch38/test_vpi_bulk_array_rejects_unsupported_and_inconsistent_formats": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_bulk_array_rejects_unsupported_and_inconsistent_formats.sv:20:8: Unsupported or unknown PLI call: '$vt_bad_bulk_formats'",
+   "inputs_sha256": "8508422329d96999b368087df0930b7c1ed00b550dd907125569c3a6c2c171e9"
+  }
+ },
+ "generated_at": "2026-11-24T08:38:56.282781+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

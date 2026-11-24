@@ -1,0 +1,15 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch10/test_nba_array_struct_slices_capture_row_base_and_value": {
+   "status": "pass",
+   "inputs_sha256": "46ef5a9d6e2b7f90786e8c02a2964fb15f4ca0c80df7ea21528aae41e028688f"
+  }
+ },
+ "generated_at": "2026-11-24T09:00:58.395741+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

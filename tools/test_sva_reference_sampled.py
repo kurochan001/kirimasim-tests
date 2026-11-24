@@ -141,11 +141,11 @@ class M4IntegrationTests(unittest.TestCase):
             return item
         def read(path, *args, **kwargs):
             if path.suffix == ".expected":
-                self.assertEqual(len(generated), 7)
+                self.assertEqual(len(generated), 8)
             return original_read(path, *args, **kwargs)
         with mock.patch.object(m4, "generate", generate), mock.patch.object(Path, "read_text", read):
             result = m4.run()
-        self.assertEqual(result["counts"], {"deferred": 57, "match": 7})
+        self.assertEqual(result["counts"], {"deferred": 58, "match": 8})
 
     def test_emit_only_never_opens_expected_and_writes_evidence(self):
         from sva_reference import m4
@@ -156,9 +156,9 @@ class M4IntegrationTests(unittest.TestCase):
             return original(path, *args, **kwargs)
         with tempfile.TemporaryDirectory() as directory, mock.patch.object(Path,"read_text",read):
             result = m4.run(emit_only=True, output_dir=directory)
-            self.assertEqual(result["counts"], {"deferred": 57, "generated": 7})
-            self.assertEqual(len(list(Path(directory).glob("*.actual"))),7)
-            self.assertEqual(len(list(Path(directory).glob("*.events.json"))),7)
+            self.assertEqual(result["counts"], {"deferred": 58, "generated": 8})
+            self.assertEqual(len(list(Path(directory).glob("*.actual"))), 8)
+            self.assertEqual(len(list(Path(directory).glob("*.events.json"))), 8)
 
     def test_region_separation_survives_nba_stimulus(self):
         from sva_reference import m4
@@ -204,7 +204,7 @@ class M4IntegrationTests(unittest.TestCase):
         from sva_reference import m4
         with mock.patch.object(m4.survey,"candidates",return_value=[]):
             rows=m4.inventory()
-        self.assertEqual(len(rows),7)
+        self.assertEqual(len(rows), 8)
         self.assertTrue(all(row["status"]=="unhandled" for row in rows))
 
     def test_generated_crosses_have_explicit_hashed_deferrals_not_successes(self):

@@ -1,0 +1,30 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch11/test_assignment_operator_level_uses_parentheses_and_nonblocking_rhs": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_assignment_operator_level_uses_parentheses_and_nonblocking_rhs.sv:42: syntax error",
+   "inputs_sha256": "f50adb2ba02369603b3f53c587235d3362582e86d5b1db1b9174b343b41428fd"
+  },
+  "ch11/test_dist_weight_operands_include_arithmetic_and_conditionals": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_dist_weight_operands_include_arithmetic_and_conditionals.sv:18: syntax error",
+   "inputs_sha256": "2c95346192be5ba8f8722d4584c0f5627a40907fc9047269d0b040f556b71c15"
+  },
+  "ch11/test_illegal_chained_compound_assignment_without_parentheses": {
+   "status": "pass",
+   "inputs_sha256": "85bd60c2f50f16f01690cde900def527ebe4834d0618d7dfa2f52bd85762de32"
+  },
+  "ch11/test_operator_associativity_each_row": {
+   "status": "known",
+   "reason": "compile failed: tests/ch11/test_operator_associativity_each_row.sv:43: syntax error",
+   "inputs_sha256": "e23a681b8b7bb9bfba32bb36ebedc34f40202d8adc91bad6f447cf759d2fad8b"
+  }
+ },
+ "generated_at": "2026-11-24T08:27:08.116927+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

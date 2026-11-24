@@ -1,0 +1,42 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch20/test_elaboration_error_selected_scope_observation": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6f33bae5a5a48f81cbfff4cd06c84132026f83d178d0f143aba5558b62fb0b70"
+  },
+  "ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting": {
+   "status": "known",
+   "reason": "no message matches '(?im)\\\\A(?=[\\\\s\\\\S]*^(?=[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.sv:16(?::|\\\\b))(?=[^\\\\n]*\\\\b(?:warning|warn)\\\\b)[^\\\\n]*\\\\bSELECTED_ONE_MARKER\\\\b(?:[^\\\\n]*\\\\n[ \\\\t]+){0,3}[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.alpha\\\\.warn_site)(?=[\\\\s\\\\S]*^(?=[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.sv:19(?::|\\\\b))(?=[^\\\\n]*\\\\b(?:info|note)\\\\b)[^\\\\n]*\\\\bSELECTED_TWO_MARKER\\\\b(?:[^\\\\n]*\\\\n[ \\\\t]+){0,3}[^\\\\n]*test_elaboration_messages_identify_selected_scope_without_user_formatting\\\\.beta\\\\.info_site)'",
+   "inputs_sha256": "6243f815d166e63f0a70c715a025813b2946bed1baade1aac3c57e0778b4542d"
+  },
+  "ch20/test_elaboration_runs_both_selected_errors_before_stopping_simulation": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "b9027ec19bd75663234dc102ef5edc4a2cd9c55739e74e631fd177d54f078898"
+  },
+  "ch21/test_ch21_extra_readmem_enum_values": {
+   "status": "pass",
+   "inputs_sha256": "d5fc8fd68444d2f693d85e45f9a732f6f52536f4ad585b65efd45e5c7427bda5"
+  },
+  "ch21/test_readmemb_stops_after_enum_value_beyond_base_range": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'first=1 later stayed=0 later loaded=1', expected 'first=1 later stayed=1 later loaded=0'",
+   "inputs_sha256": "48884cdbb27d61fc59cc531d7334ec3960b75922b5e37ec64f8e56f856444046"
+  },
+  "ch21/test_readmemh_stops_after_enum_value_beyond_base_range": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'first=1 later stayed=0 later loaded=1', expected 'first=1 later stayed=1 later loaded=0'",
+   "inputs_sha256": "2c1949fea60dd64fec5cfc10f2dd22dd0eb54284db8248fb9327dfb7f1191076"
+  }
+ },
+ "generated_at": "2026-11-24T01:34:49.376448+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch39/test_vpi_assertion_fail_action_change_callbacks_precede_first_attempt": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_fail_action_change_callbacks_precede_first_attempt.sv:21:8: Unsupported or unknown PLI call: '$vt_fail_action_control'",
+   "inputs_sha256": "e6dbd8c981d0413ff17b52482666a79022cd1c607ea80fdd3852e374b89d28f9"
+  },
+  "ch39/test_vpi_assertion_sys_end_discards_and_blocks": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_sys_end_discards_and_blocks.sv:48:8: Unsupported or unknown PLI call: '$vt_watch'",
+   "inputs_sha256": "f62e233761932a9eb896ac853800dd1f310488c495df3c3a626592fb7018a156"
+  },
+  "ch39/test_vpi_assertion_system_fail_action_controls_respect_scope": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_system_fail_action_controls_respect_scope.sv:27:8: Unsupported or unknown PLI call: '$vt_fail_action_control'",
+   "inputs_sha256": "e6c3c2053fbbf460e847d5a3fc4ba31009a90399b3ba4f68ddfea5bd4f4237c5"
+  },
+  "ch39/test_vpi_assertion_system_notifications_follow_lifecycle": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv:26:5: Unsupported or unknown PLI call: '$vt_report_lifecycle'",
+   "inputs_sha256": "9a15e03bb4b77eab60dec5f889fdd4964cc0191762c28478e8737fc4f95d5334"
+  },
+  "ch39/test_vpi_assertion_terminal_notification_ignores_restart": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_terminal_notification_ignores_restart.sv:23:5: Unsupported or unknown PLI call: '$vt_end_system'",
+   "inputs_sha256": "1b09e2fc9b0fc7ace992e3dd8543b8c66f0bc07b85aa25aad4de5daade041526"
+  }
+ },
+ "generated_at": "2026-11-24T01:14:41.237603+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch13/test_function_background_work_from_initial_and_descendant_threads": {
+   "status": "pass",
+   "inputs_sha256": "f2e7e5d488bc74965aad13545ed6bf533048604824a81929a710043aa574d9c5"
+  },
+  "ch13/test_illegal_function_background_work_from_static_initializer": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6ad47dba5fb477057cf2d331a6e38f6faa552b2c21c274d0e518213aae0877fc"
+  },
+  "ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment\\\\.sv:(?:19|25):(?:\\\\d+:)?[^\\\\n]*(?i:(?:local|formal|triggered)[^\\\\n]*(?:unassigned|before[^\\\\n]*assign|read[^\\\\n]*before)|(?:before[^\\\\n]*assign|unassigned)[^\\\\n]*(?:local|formal|triggered))'; the first is: %Error: tests/ch16/test_illegal_triggered_sequence_reads_preassigned_actual_before_its_own_assignment.sv:25:5: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "de13bd4bd030c8671509f94620dde7c09cb6b8ec1619dce6324e7edeb1c6f21c"
+  },
+  "ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch16/test_triggered_local_is_assigned_by_sequence_before_it_is_observed.sv:29:5: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "19672833829e7aace47b990fe99b067e73c72b542823cd01bb2755fc8aea7872"
+  }
+ },
+ "generated_at": "2026-11-23T23:18:03.310544+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

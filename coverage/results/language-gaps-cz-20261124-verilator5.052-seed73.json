@@ -1,0 +1,43 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch11/test_stream_unpack_partial_fixed_extent_reports_runtime_error": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch11/test_stream_unpack_partial_fixed_extent_reports_runtime_error.sv:21:18: Unsupported: with[] stream expression",
+   "inputs_sha256": "96010f32744b8c987a4c21c9cb9d901868e3e5525e72dd5b71e732b895240223"
+  },
+  "ch21/test_readmem_range_error_keeps_prior_words_with_nonzero_memory_bounds": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'before=a31/b72 remaining=c8e/eee outside=135', expected 'before=a31/b72 remaining=eee/eee outside=eee'",
+   "inputs_sha256": "24d660374899e04de7e373400304c1d986b9531ee2d8426bc8bad2ae0ea947f2"
+  },
+  "ch21/test_readmemb_stops_after_enum_value_beyond_base_range": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'first=1 later stayed=0 later loaded=1', expected 'first=1 later stayed=1 later loaded=0'",
+   "inputs_sha256": "48884cdbb27d61fc59cc531d7334ec3960b75922b5e37ec64f8e56f856444046"
+  },
+  "ch21/test_readmemh_stops_after_enum_value_beyond_base_range": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'first=1 later stayed=0 later loaded=1', expected 'first=1 later stayed=1 later loaded=0'",
+   "inputs_sha256": "2c1949fea60dd64fec5cfc10f2dd22dd0eb54284db8248fb9327dfb7f1191076"
+  },
+  "ch9/test_await_resumes_after_normal_and_forced_exit_then_rejects_self": {
+   "status": "known",
+   "reason": "output differs: line 1 is missing, expected 'normal=5:1 forced=7:1'",
+   "inputs_sha256": "b208dd6a9d44ff4a01d0487125bfbcb1b5c8e339a1e2fe610d08cdb00e3d612b"
+  },
+  "ch9/test_process_function_cannot_suspend_current_process": {
+   "status": "known",
+   "reason": "no message matches '(?im)^(?=[^\\\\n]*\\\\b(?:error|fatal)\\\\b)(?=[^\\\\n]*\\\\bsuspend\\\\b)(?=[^\\\\n]*\\\\b(?:self|own|current process|function)\\\\b)[^\\\\n]+'",
+   "inputs_sha256": "b6f2b2a4ce57ff6ddb3991d938aab3a0813386b624fcdb299bfc091b9c799abd"
+  }
+ },
+ "generated_at": "2026-11-24T08:14:08.453211+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

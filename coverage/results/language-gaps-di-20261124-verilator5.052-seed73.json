@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch21/test_vcd_alias_group_tracks_shared_net_and_independent_port": {
+   "status": "known",
+   "reason": "output differs: line 1 is '-Info: tests/ch21/test_vcd_alias_group_tracks_shared_net_...', expected 'declared=1/1/1 distinct control=1'",
+   "inputs_sha256": "af2aa04c122b6e87b9a6c795b285657734a2a1189cfab6e98e413565f4fc06b1"
+  }
+ },
+ "generated_at": "2026-11-24T08:50:59.384346+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

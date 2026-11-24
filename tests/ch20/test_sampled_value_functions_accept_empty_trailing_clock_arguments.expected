@@ -1,0 +1,4 @@
+t=15 value=2 history=1 gated=1 edges=0101 same=1
+t=25 value=2 history=2 gated=1 edges=0010 same=1
+t=35 value=3 history=2 gated=2 edges=1001 same=1
+t=45 value=0 history=3 gated=2 edges=0101 same=1

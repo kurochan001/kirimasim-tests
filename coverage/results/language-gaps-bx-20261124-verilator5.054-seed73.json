@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch20/test_finish_diagnostic_default": {
+   "status": "known",
+   "reason": "no message matches '(?im)^[^\\\\n]*test_finish_diagnostic_default\\\\.sv:20\\\\b[^\\\\n]*\\\\$finish[^\\\\n]*\\\\b37\\\\b'",
+   "inputs_sha256": "92aa5ac22d0b5e0a8115fd6c74f6c458843831f1ce1d1d880e1c06186db6e78c"
+  },
+  "ch20/test_finish_diagnostic_one": {
+   "status": "known",
+   "reason": "no message matches '(?im)^[^\\\\n]*test_finish_diagnostic_one\\\\.sv:20\\\\b[^\\\\n]*\\\\$finish[^\\\\n]*\\\\b37\\\\b'",
+   "inputs_sha256": "8e92a926dd1758afcdc1457927410da1aace15f5b82aa520544f2f7b1a6bb9ea"
+  },
+  "ch20/test_finish_diagnostic_zero": {
+   "status": "known",
+   "reason": "no message matches '\\\\A(?![\\\\s\\\\S]*\\\\$finish\\\\b)'",
+   "inputs_sha256": "0793946423cf0cb01fde90a2068555a9bde642328e6963e313b62fc4ac1470b4"
+  },
+  "ch21/test_pattern_output_limit_has_minimum_and_warns_on_truncation": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'pattern=0 minimum=0', expected 'pattern=1 minimum=1'",
+   "inputs_sha256": "ad10049ae012f727d0e0db87de150f7f7cc1d27bd2f23840137eba794f005e4d"
+  },
+  "ch6/test_uwire_padded_port_connection_warns": {
+   "status": "known",
+   "reason": "no message matches '(?im)^[^\\\\n]*(?:\\\\bwarn(?:ing)?\\\\b[^\\\\n]*\\\\b(?:port_n|padded_child|uwire|unresolved|unidriver)\\\\b|\\\\b(?:port_n|padded_child|uwire|unresolved|unidriver)\\\\b[^\\\\n]*\\\\bwarn(?:ing)?\\\\b)'",
+   "inputs_sha256": "b597b4bb8e81fe0750df70f8247e25c0766c7f7e3d91147d3f4d9edd5577bf5a"
+  }
+ },
+ "generated_at": "2026-11-24T05:15:43.287575+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

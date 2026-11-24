@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index.sv:20:5: Unsupported or unknown PLI call: '$vt_put_bit'",
+   "inputs_sha256": "617264db30ea952651b8889deb0588474ae985ffd294c58031d6a0869c32ee76"
+  },
+  "ch37/test_vpi_unpacked_structure_rejects_whole_value_access": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_unpacked_structure_rejects_whole_value_access.sv:25:8: Unsupported or unknown PLI call: '$vt_access'",
+   "inputs_sha256": "ab64a2d1f642d94048881834823991fc37484f91ff82942c0d6caeb840149e9b"
+  },
+  "ch37/test_vpi_unpacked_union_rejects_whole_value_access": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_unpacked_union_rejects_whole_value_access.sv:24:8: Unsupported or unknown PLI call: '$vt_access'",
+   "inputs_sha256": "00a209f9be63c260d88b3fc9345e3fc65f6989606070100221f3394680fee155"
+  }
+ },
+ "generated_at": "2026-11-23T23:27:28.585115+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

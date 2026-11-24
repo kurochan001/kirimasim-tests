@@ -1,0 +1,25 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch23/test_nested_module_outer_instance_and_local_shadow": {
+   "status": "pass",
+   "inputs_sha256": "57b0364f366d6e2674ec6651ba34401477e748decc0a954a4dff7507b0e5aab6"
+  },
+  "ch8/test_weak_reference_static_id_associative_key": {
+   "status": "unsupported",
+   "reason": "variable of type 'int$[longint]' (not implemented yet)",
+   "inputs_sha256": "58c50876efb7b8c77ba1e93c7cefde5191cd0b9c1fdba1b7766a2c4eeb41c0c2"
+  },
+  "ch9/test_process_await_normal_and_forced_termination": {
+   "status": "unsupported",
+   "reason": "type 'std::process' (not implemented yet)",
+   "inputs_sha256": "3458c4622a01d5e53b48ff8e8552b377ee3a90c8a24f1bc4300c207e4be032ec"
+  }
+ },
+ "generated_at": "2026-11-23T21:41:26.235684+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

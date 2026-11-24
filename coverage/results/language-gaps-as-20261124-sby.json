@@ -1,0 +1,22 @@
+{
+ "simulator": "sby",
+ "name": "SymbiYosys",
+ "version": "SBY v0.68",
+ "tests": {
+  "ch16/test_formal_ch16_delay_precedence": {
+   "status": "pass",
+   "inputs_sha256": "aba6e36198a6ca0037102c5545f260cea0022752a4a79e47549c28ba2fa75a6d"
+  },
+  "ch16/test_formal_ch16_holds_and_its_extensions": {
+   "status": "pass",
+   "inputs_sha256": "bf793b055e50e1774c85b34013b4d7ca65ee6c80e9f1519f5a6d0647aa8a0c1a"
+  }
+ },
+ "generated_at": "2026-11-24T01:01:30.480072+00:00",
+ "runner_sha256": "c38abbc33d5960393f62a67b0e7a9dbb47db9c5f5acf0bb1fa8e1546aea02ede",
+ "runner_changed": false,
+ "configuration": {
+  "prove": true,
+  "timeout": 30
+ }
+}

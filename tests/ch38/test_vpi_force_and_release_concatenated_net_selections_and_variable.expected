@@ -1,0 +1,6 @@
+initial: vpi=0 1 52 sv=0 1 52
+forced: vpi=2 9 a5 sv=2 9 a5
+drivers updated: vpi=b 9 a5 sv=b 9 a5
+release readback=1a5
+released: vpi=9 5 a5 sv=9 5 a5
+procedural write: vpi=9 5 66 sv=9 5 66

@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date": "2026-11-24",
+  "assertion": "tools/test_svdpi_header_preprocessing.py",
+  "assertion_sha256": "0bd6898bcc0be27afeacbed4da1ecd7d7ce63ea6f5c142287bcd74a4eeb32f71",
+  "source_clauses": [
+    "H.10.1.2",
+    "I.3"
+  ],
+  "checks": [
+    "signed macro replacement-list tokens",
+    "caller/default extern behavior",
+    "prototype guard"
+  ],
+  "headers": [
+    {
+      "simulator": "Ghost",
+      "svdpi_h_sha256": "3eed92cf81ac778b5a70536e9531ae8c4bf70ed636a448c7a9a0ea4b0a0c8506",
+      "status": "pass"
+    },
+    {
+      "simulator": "Verilator 5.054",
+      "svdpi_h_sha256": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6",
+      "status": "pass"
+    }
+  ]
+}

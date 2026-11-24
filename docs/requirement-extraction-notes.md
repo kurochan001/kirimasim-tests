@@ -409,6 +409,8 @@ A.1.4はbind_instantiationの後にセミコロンを追加しますが、A.4.1�
 - 抽出時の状態: 該当節を`in_progress`、該当行のテスト対応承認を保留。関連する正式定義との適用関係を根拠付きで確定してから更新します。
 - 2026-10-24の再検討（保留継続）: 決め手として欠けているもの: bind_directive の終端が ';' 1 つで足りることを示す規範の記述（BNF の訂正、A.10 の注記など）、または公式な正誤表。現状、単一の ';' を支持するのは informative な例と、23.11 B008 の説明からの推論だけである。
 
+- 2026-11-24の受入条件の訂正。モジュール本体では、bind の次のセミコロンは独立した空の項目として有効です。A.1.4 のモジュール項目からたどる A.1.11 の package_or_generate_item_declaration と 26.2 の Syntax 26-1 が、この項目を認めています。定数添字を持つ二つの bind を同じモジュールに置き、空項目を続けた側も指定のインスタンスに接続することを実行で検査します。
+
 <a id="sequence-copyout-direction--direction-of-the-sequence-copyout"></a>
 
 ## SEQUENCE-COPYOUT-DIRECTION — シーケンスのコピーアウト方向
@@ -522,6 +524,12 @@ N.2はlongとLONG_MIN／LONG_MAX、符号付き乗算、unsignedとfloatの共�
 - 2026-10-24の再検討（保留継続）: 決め手として欠けているもの: N.2 の C コードをどの整数モデルで評価するかを定める規範の記述、または公式な解釈。たとえば long/unsigned を 32 ビットとすること、符号付き演算を 2^32 を法として折り返すこと、LONG_MIN/LONG_MAX を 32 ビットの限界とすること、などである。現状は、再現性と 32 ビットの結果という目的から推測できるだけである。
 
 <a id="limits-of-correction-and-recording-during-extraction"></a>
+
+<a id="assertion-callback-registration"></a>
+
+## アサーションの成功・失敗コールバックの登録
+
+要件 `SV2023-39.4.1-EXTRACT-SYSTEM-OFF-CALLBACK-TEXT` の登録関数名を2026-11-24に訂正しました。§39.4.2 は個別アサーションのコールバックに `vpi_register_assertion_cb` を指定します。§39.5.1 に基づき、停止中も登録を保持し、停止前に始まった試行は完了します。停止中の追加登録と再開後の通知も同じテストで確認します。 [登録と再開のテスト](../tests/ch39/test_vpi_assertion_callbacks_preserved_and_installed_while_stopped.sv)
 
 ## 抽出中の訂正と記録の限界
 

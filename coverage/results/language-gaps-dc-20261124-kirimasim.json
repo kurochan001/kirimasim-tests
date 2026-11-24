@@ -1,0 +1,23 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch5/test_directives_from_nested_include_persist_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "2d6a734aeaeee7301e00421d1ad003020ac41e7e14d4f6490787eda0ececaa06"
+  },
+  "ch5/test_identifier_1024_characters": {
+   "status": "pass",
+   "inputs_sha256": "1896f80f231afea2a7c21ddcaa155d6a140612d2fd72525cffddbe5dfd910087"
+  },
+  "ch5/test_illegal_implicit_net_after_include_default_nettype_none": {
+   "status": "pass",
+   "inputs_sha256": "0c1d25f73a1238aa9a13b52f5da2f4223e4d6117b05917ef9b89c56debf0184f"
+  }
+ },
+ "generated_at": "2026-11-24T08:36:48.670595+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

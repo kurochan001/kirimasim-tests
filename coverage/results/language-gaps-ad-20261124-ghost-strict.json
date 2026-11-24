@@ -1,0 +1,32 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 84e9883c2828",
+ "tests": {
+  "ch16/test_assertion_default_strength_at_end_of_trace": {
+   "status": "pass",
+   "inputs_sha256": "3c512b3ed3394bca6d78a780f26499c37332ffa5ba70bf239e57523002ca68da"
+  },
+  "ch16/test_assume_property_defaults_to_weak_at_end_of_trace": {
+   "status": "pass",
+   "inputs_sha256": "377b624072c8056047c5feb8a4e58f96133909efd8f9dae887d53993e4897e46"
+  },
+  "ch16/test_cover_property_defaults_to_strong_under_property_negation": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "1008e02c54ce9950f22b6bb6441bb38199c7515d50867b0e99aae6901dacd0b0"
+  },
+  "ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "c02c5847b4d6c1317d4f5b869dfd21c52ab56ab2605e457c31de35603d2df129"
+  }
+ },
+ "generated_at": "2026-11-23T23:27:29.500760+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "84e9883c2828ae62641cb812a64619972a8468b4c82aedf2f5c9d8c1ba4c1fc7",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

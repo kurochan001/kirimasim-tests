@@ -1,0 +1,9 @@
+settled gates=00 pass=z0 pulls=101
+enable before gates=00 pass=z0 pulls=101
+enable after gates=00 pass=00 pulls=101
+rise before gates=00 pass=11 pulls=101
+rise after gates=11 pass=11 pulls=101
+fall before gates=11 pass=00 pulls=101
+fall after gates=00 pass=00 pulls=101
+disable before gates=00 pass=00 pulls=101
+disable after gates=00 pass=z0 pulls=101

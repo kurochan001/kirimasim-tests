@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-24",
+  "clause": "23.3.3.1",
+  "check": "tools/test_port_coercion.py",
+  "check_sha256": "77a94977a483b5717922c50cc640fe7229baf67df3bc488233d530edfe1f1a20",
+  "trials": [
+    "input_driven_internally",
+    "output_driven_externally"
+  ],
+  "controls_for_each_trial": [
+    "0",
+    "1"
+  ],
+  "results": {
+    "ghost": {
+      "build_sha256_prefix": "84e9883c2828",
+      "reverse_each_trial": [
+        "z",
+        "z"
+      ],
+      "warnings": [
+        false,
+        false
+      ],
+      "status": "fail",
+      "arguments": [
+        "--lrm-strict"
+      ]
+    },
+    "icarus": {
+      "version": "13.0",
+      "reverse_each_trial": [
+        "0",
+        "1"
+      ],
+      "warnings": [
+        true,
+        true
+      ],
+      "status": "pass"
+    },
+    "kirimasim": {
+      "version": "0.2.1",
+      "commit": "e93839fdcbea",
+      "reverse_each_trial": [
+        "0",
+        "1"
+      ],
+      "warnings": [
+        true,
+        true
+      ],
+      "status": "pass"
+    }
+  }
+}

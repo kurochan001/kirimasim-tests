@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch15/test_delayed_nonblocking_event_repeat_counts_only_enabled_edges": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch15/test_delayed_nonblocking_event_repeat_counts_only_enabled_edges.sv:25:9: Unsupported: repeat event control",
+   "inputs_sha256": "484a512b38fa7ba0a249c7e38c26143df1939417ffe478aca3286ffe95aa5450"
+  },
+  "ch15/test_nonblocking_event_with_condition_uses_nba_of_enabled_edge": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'next triggered=0 fired=0', expected 'next triggered=0 fired=5'",
+   "inputs_sha256": "4c8b316002c694a4e336968a742a575324a80d1d7c337a4b829a8d70ada7db10"
+  },
+  "ch15/test_nonblocking_event_zero_repeat_enqueues_in_current_nba": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch15/test_nonblocking_event_zero_repeat_enqueues_in_current_nba.sv:26:9: Unsupported: repeat event control",
+   "inputs_sha256": "a0e6fdb2aab84fb350694a0abfd8c7edec89d8b1a64d8da08090760a7cd91d0e"
+  },
+  "ch9/test_intraassignment_repeat_counts_active_and_nba_edges_in_one_slot": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch9/test_intraassignment_repeat_counts_active_and_nba_edges_in_one_slot.sv:22:21: Unsupported: repeat event control",
+   "inputs_sha256": "fba8803575c386b4f73340e9daed69bc1db49de3eefe0545193639486ca4bd57"
+  },
+  "ch9/test_intraassignment_repeat_counts_two_edges_at_one_time": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch9/test_intraassignment_repeat_counts_two_edges_at_one_time.sv:22:21: Unsupported: repeat event control",
+   "inputs_sha256": "b874495b3790b94986c9a44a502922b36f589bee3fb7d84a1bafaaa4b10eb3f4"
+  }
+ },
+ "generated_at": "2026-11-24T07:43:26.789901+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

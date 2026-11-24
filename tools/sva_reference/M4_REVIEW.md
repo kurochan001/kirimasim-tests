@@ -20,6 +20,8 @@ The integration regressions keep the exact seven generated outputs and matches, 
 
 Later deferrals are recorded in [`fixtures/m4_deferred.json`](fixtures/m4_deferred.json) as well: the two checker crosses and the nine program crosses of 2026-11-03, three tests that observe the scheduling regions (two of them through PLI callbacks) and one test that calls `$past` and `$rose` in a procedure. On 2026-11-21, `check.py --sampled` reports the same seven matches and 57 deferrals.
 
+On 2026-11-24, M4 independently matched the sampled-expression test with explicitly empty clock arguments. Its stimulus trace and source audit identify one report that executes at 15, 25, 35 and 45. The global-clock test's future-dependent cover actions require a separate region and reporting audit. The current run reports eight matches and 58 deferrals.
+
 <a id="意味論と規範的チェック"></a>
 
 ## Semantics and normative checks

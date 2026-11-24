@@ -1,0 +1,48 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_local_loads_and_drivers_stay_with_their_module": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_local_loads_and_drivers_stay_with_their_module.sv:35:8: Unsupported or unknown PLI call: '$vt_local_net_relations'",
+   "inputs_sha256": "d03ff3c6cd53f440895a132f98ef24afba012267588992827440e1646e77d4ae"
+  },
+  "ch37/test_vpi_size_callbacks_precede_value_callbacks_and_report_new_size": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_size_callbacks_precede_value_callbacks_and_report_new_size.sv:24:8: Unsupported or unknown PLI call: '$vt_watch_resize'",
+   "inputs_sha256": "a9a4dbca1769d30b17b6a0ec203c81289b1bb4c4b1431a2f6d7dd9fe82686c61"
+  },
+  "ch37/test_vpi_size_change_callback": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_size_change_callback.sv:39:8: Unsupported or unknown PLI call: '$vt_done'",
+   "inputs_sha256": "cad81c2e52acc2f29bc59af2f32e38dce1d3e6625dffe8d85ebea2cc0d003382"
+  },
+  "ch37/test_vpi_udp_table_entries_allow_only_string_and_ascii_vector": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_udp_table_entries_allow_only_string_and_ascii_vector.sv:37:14: Unsupported or unknown PLI call: '$vt_row_formats'",
+   "inputs_sha256": "de0edc422f411d2404bbbd1153187753ca98051f42c677e41c75bc36dd9aacc6"
+  },
+  "ch37/test_vpi_udp_table_primitive": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_udp_table_primitive.sv:45:14: Unsupported or unknown PLI call: '$vt_udp'",
+   "inputs_sha256": "5a2720345ac81d2de7c1e95c9aa59aa89c5082a1724aaf213235625afbfabbbf"
+  },
+  "ch39/test_vpi_assertion_step_callbacks": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_step_callbacks.sv:35:5: Unsupported or unknown PLI call: '$vt_watch'",
+   "inputs_sha256": "43d4997efc67ebc9b65795058b44563badabe650491868e9a87199e36519413c"
+  },
+  "ch39/test_vpi_assertion_step_enable_is_idempotent_for_one_attempt": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch39/test_vpi_assertion_step_enable_is_idempotent_for_one_attempt.sv:24:8: Unsupported or unknown PLI call: '$vt_arm_first'",
+   "inputs_sha256": "f2755bf1df0ee74e5051bc42f08678825de22baa653d92de58d57197b577404a"
+  }
+ },
+ "generated_at": "2026-11-24T02:27:03.090044+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}
