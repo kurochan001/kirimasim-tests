@@ -26356,6 +26356,18 @@
     "The ZXQPH0QXZ header supplies default function and startup array linkage": "ZXQPH0QXZ ヘッダーは関数と起動ルーチン配列に既定のリンケージを与える",
     "A task using a virtual modport waits on each selected interface in turn": "仮想モッドポートを受け取るタスクはその都度選んだインターフェースで待機する",
     "A continuous drive cannot target a signal through a virtual interface": "仮想インターフェースを経由する信号は継続代入の駆動先にできない",
-    "A shared module task applies exit according to the calling thread origin": "共有モジュールタスクは呼び出し元スレッドの起点に従って終了する"
+    "A shared module task applies exit according to the calling thread origin": "共有モジュールタスクは呼び出し元スレッドの起点に従って終了する",
+    "Independent Active processes preserve their own write-before-read order": "アクティブ領域の独立したプロセスは各プロセスの書き込みと読み出しの順序を守る",
+    "Independent Reactive processes preserve their own order and observe the module ZXQPH0QXZ": "リアクティブ領域の独立したプロセスは各プロセス内の順序を守りモジュールの ZXQPH0QXZ 更新を観測する",
+    "Concurrent ZXQPH0QXZ writers allow either final value while ordered writes resolve to the last one": "競合する ZXQPH0QXZ はどちらの値も許し単一プロセス内では最後の代入を適用する",
+    "Interactive scope changes report the selected sibling instance": "対話スコープの変更は選択した兄弟インスタンスを通知する",
+    "ZXQPH0QXZ reset runs after its requesting routine returns and restores the time-zero state": "ZXQPH0QXZ のリセットは要求元のルーチンが戻ってから時刻ゼロの状態を復元する",
+    "A direct reset triggers both callbacks around time-zero restoration": "リセットの直接呼び出しでは時刻ゼロを復元する前後に両方の通知が実行される",
+    "Save and restart preserve two interleaved ZXQPH0QXZ ZXQPH1QXZ streams across different chunk sizes": "保存と再開は交互に書いた二つの ZXQPH0QXZ の ZXQPH1QXZ 列を異なる単位で読み出しても保持する",
+    "A short restart stream read returns the remaining bytes and fills the tail with zeros": "再開時に残量を超えて読み出すと残りのバイトを返し余りをゼロで埋める",
+    "Restart retains its action callbacks and removes a previously registered value-change callback": "再開時には再開の通知を残し以前に登録した値変化の通知を取り除く",
+    "Restart clears saved callsite userdata and accepts reassociation at the same callsite": "再開時に呼び出し箇所のユーザーデータを消去し同じ箇所に再関連付けできる",
+    "ZXQPH0QXZ , left to the tool or its setup: ZXQPH1QXZ , ZXQPH2QXZ , ZXQPH3QXZ , ZXQPH4QXZ , ZXQPH5QXZ , ZXQPH6QXZ , ZXQPH7QXZ , ZXQPH8QXZ , ZXQPH9QXZ , ZXQPH10QXZ , ZXQPH11QXZ , ZXQPH12QXZ , ZXQPH13QXZ , ZXQPH14QXZ , ZXQPH15QXZ , ZXQPH16QXZ , ZXQPH17QXZ": "ZXQPH0QXZ、ツールや実行設定に委ねられる項目は ZXQPH1QXZ , ZXQPH2QXZ , ZXQPH3QXZ , ZXQPH4QXZ , ZXQPH5QXZ , ZXQPH6QXZ , ZXQPH7QXZ , ZXQPH8QXZ , ZXQPH9QXZ , ZXQPH10QXZ , ZXQPH11QXZ , ZXQPH12QXZ , ZXQPH13QXZ , ZXQPH14QXZ , ZXQPH15QXZ , ZXQPH16QXZ , ZXQPH17QXZ",
+    "exit code, ZXQPH0QXZ , several files": "終了コード、ZXQPH0QXZ、複数ファイル"
   }
 }

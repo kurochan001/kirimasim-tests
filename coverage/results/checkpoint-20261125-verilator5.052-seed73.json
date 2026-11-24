@@ -1,0 +1,61 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch10/test_competing_nonblocking_writes_allow_either_last_writer": {
+   "status": "pass",
+   "inputs_sha256": "1fd38459e0e2bc3d1ffcfe2f561b584df7d738034a9efb4a482e87dce26b6bdf"
+  },
+  "ch38/test_vpi_control_scope_change_reports_selected_instance": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_control_scope_change_reports_selected_instance.sv:23:8: Unsupported or unknown PLI call: '$request_scope_change'",
+   "inputs_sha256": "c26ad85225404ad07de5b115f8fce9e1b5b2ad03d35c66f7b19358b0c52bafb0"
+  },
+  "ch38/test_vpi_direct_reset_brackets_time_zero_restoration": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_direct_reset_brackets_time_zero_restoration.sv:24:9: Unsupported or unknown PLI call: '$reset_count'",
+   "inputs_sha256": "acdc0e47941d3ac498aa10d24d803846a60b3076b80dcefe3c76c829904af96c"
+  },
+  "ch38/test_vpi_reset_defers_until_return_and_restores_initial_state": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv:21:5: Unsupported or unknown PLI call: '$probe_reset_userdata'",
+   "inputs_sha256": "98aac47a1524d0d364d5f7cd544d49ab25b12ec81e823c23ef0eff4221a5cc24"
+  },
+  "ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv:21:5: Unsupported or unknown PLI call: '$probe_restart_userdata'",
+   "inputs_sha256": "efe5eeaa4b50157fd2b6d1bf6930ceba3b3689af8c5013e1bd878ec2fed9f51c"
+  },
+  "ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv:24:5: Unsupported or unknown PLI call: '$probe_restart_callbacks'",
+   "inputs_sha256": "a47af57fd53297a0b49681f5207fbf7c3f0ffa866a4b4c307888fcb096d5d5b0"
+  },
+  "ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.sv:21:8: Unsupported or unknown PLI call: '$save'",
+   "inputs_sha256": "e480854f4228140a671b98bda3a733d2ab93f9c645ee5089a67bf9edfed3da2a"
+  },
+  "ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv:21:8: Unsupported or unknown PLI call: '$save'",
+   "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558"
+  },
+  "ch4/test_active_order_preserves_each_process_write_before_read": {
+   "status": "pass",
+   "inputs_sha256": "a7fc2700621519ead5a78d3e5288002b457b3d17f2040a4f9a21d83463581dae"
+  },
+  "ch4/test_reactive_order_preserves_process_order_after_module_nba": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'reactive writes=1 sees module nba=0 valid observations=1', expected 'reactive writes=1 sees module nba=1 valid observations=1'",
+   "inputs_sha256": "22242094e4fda15cf0860f48ef469a788d7e1373bd3fb1cdcb49c9442eef3de8"
+  }
+ },
+ "generated_at": "2026-11-24T18:42:38.634835+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

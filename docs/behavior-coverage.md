@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 95.39%、Ghostを除く実行 51.77%、Ghostとkirimasimを含む実行 89.47%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 95.51%、Ghostを除く実行 51.78%、Ghostとkirimasimを含む実行 89.50%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 95.39%。** 規格要求の実行確認率: Ghostを除いて 51.77%、Ghostとkirimasimを含めて 89.47%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 95.51%。** 規格要求の実行確認率: Ghostを除いて 51.78%、Ghostとkirimasimを含めて 89.50%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 11763/12332 (95.39%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11033/12332 (89.47%)。
-- 登録済みだがテスト未対応: 569 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 11778/12332 (95.51%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11037/12332 (89.50%)。
+- 登録済みだがテスト未対応: 554 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -78,6 +78,13 @@
 - `ch19-tables-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T00:40:59.725559+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `ch19-tables-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:18.641708+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `ch19-tables-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:59.498597+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `checkpoint-20261125-ghost-strict.json`: `private build e484e16d0a5c` / `2026-11-24T18:42:38.685398+00:00` / 4/12332 動作確認、古い入力との対応 0 件。
+- `checkpoint-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T18:42:38.613262+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `checkpoint-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T18:42:37.706724+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `checkpoint-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:42:38.574509+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `checkpoint-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:42:38.634835+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `checkpoint-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.598706+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `checkpoint-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.635198+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `constant-function-ports-20261123-ghost-strict.json`: `private build 698058bc29ba` / `2026-11-23T12:19:55.008109+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `constant-function-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:19:54.956799+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `constant-function-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:19:54.924264+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -1225,13 +1232,13 @@
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
 - 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 141。
-- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 90。
+- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 93。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 155、テスト対応 148。
 - 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 715。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 343。
 - 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 243。
 - 9 Processes: 解釈保留なし 34/34、登録 192、テスト対応 185。
-- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 150。
+- 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 151。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 455。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 110。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 124、テスト対応 121。
@@ -1259,7 +1266,7 @@
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 143、テスト対応 126。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 148。
 - 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1693。
-- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 308。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 319。
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 95。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 124。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
@@ -3272,7 +3279,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 ### SV2023-4.4.2.2-EXTRACT-ACTIVE-ARBITRARY-ORDER
 
-`4.4.2.2` / `normal` / テスト未対応
+`4.4.2.2` / `normal` / 実行確認あり
 
 アクティブにあるイベントは，他の明示的な順序保証と一致する任意の順序で処理できる。
 
@@ -3280,6 +3287,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 規定の性質: `permission`。
 
+- [test_active_order_preserves_each_process_write_before_read.sv](../tests/ch4/test_active_order_preserves_each_process_write_before_read.sv): 同時刻の二つのプロセスで各書き込みを読み出しより先に行い、順序の許されるすべての組を合格とする。
 
 ### SV2023-4.4.2.3-EXTRACT-INACTIVE-AFTER-ACTIVE
 
@@ -3410,7 +3418,7 @@ NBA 更新は，アクティブ領域集合で実行され，現在のスロッ�
 
 ### SV2023-4.4.2.6-EXTRACT-REACTIVE-ARBITRARY-ORDER
 
-`4.4.2.6` / `normal` / テスト未対応
+`4.4.2.6` / `normal` / 実行確認あり
 
 現在 Reactive にあるイベントは、他の法的順序で処理できる。
 
@@ -3418,6 +3426,7 @@ NBA 更新は，アクティブ領域集合で実行され，現在のスロッ�
 
 規定の性質: `permission`。
 
+- [test_reactive_order_preserves_process_order_after_module_nba.sv](../tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv): 二つのプログラムプロセスが同時刻のモジュール更新を読んだ上で、プロセス内の文の順序を守る任意の観測結果を許容する。
 
 ### SV2023-4.4.2.6-EXTRACT-REACTIVE-CODE
 
@@ -3858,7 +3867,7 @@ NBAを通して反応性を排出し，他の領域に戻る。
 
 ### SV2023-4.7-EXTRACT-ARBITRARY-REGION-EVENT
 
-`4.7` / `normal` / テスト未対応
+`4.7` / `normal` / 実行確認あり
 
 アクティブまたはレアティブのイベントは，明示的な配列保証に従って任意の順序で選択できる。
 
@@ -3866,6 +3875,8 @@ NBAを通して反応性を排出し，他の領域に戻る。
 
 規定の性質: `permission`。
 
+- [test_active_order_preserves_each_process_write_before_read.sv](../tests/ch4/test_active_order_preserves_each_process_write_before_read.sv): アクティブ領域で別々のプロセスの前後は指定せず、各プロセス内の書き込みと読み出しの順序に反する結果だけを拒否する。
+- [test_reactive_order_preserves_process_order_after_module_nba.sv](../tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv): モジュール更新より後のリアクティブ領域で、各プロセス内の順序を守る観測結果だけを許す。
 
 ### SV2023-4.7-EXTRACT-PROCEDURAL-INTERLEAVING
 
@@ -25667,7 +25678,7 @@ The = トークンは連続的および手続き的な連続代入にも使用�
 
 ### SV2023-10.4.2-EXTRACT-CONCURRENT-NBA-INDETERMINATE
 
-`10.4.2` / `normal` / テスト未対応
+`10.4.2` / `normal` / 実行確認あり
 
 NBA の異なる値を同じ目的地にスケジュールする並列非秩序ブロックは，最終値を不定にする。
 
@@ -25675,6 +25686,7 @@ NBA の異なる値を同じ目的地にスケジュールする並列非秩序�
 
 規定の性質: `mandatory`。
 
+- [test_competing_nonblocking_writes_allow_either_last_writer.sv](../tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.sv): 同じ時刻に独立したブロックから書いた二つの値をどちらも許し、対照では一つのブロックが最後に指定した値だけを許す。
 
 ### SV2023-10.4.2-EXTRACT-DIFFERENT-BLOCKS-NOT-SUFFICIENT
 
@@ -111703,7 +111715,7 @@ vpiFinishはinteger診断レベルを取得し，アプリケーション返却�
 
 ### SV2023-38.4-EXTRACT-CONTROL-RESET
 
-`38.4` / `normal` / テスト未対応
+`38.4` / `normal` / テスト対応あり・実行未確認
 
 vpiResetは$resetに対応するstop_value , reset_valueとdiagnostics_valueの整数を取って，アプリケーションが返ってきた後に実行する。
 
@@ -111711,6 +111723,7 @@ vpiResetは$resetに対応するstop_value , reset_valueとdiagnostics_valueの�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): シミュレーション続行を指定してリセットを要求し、呼び出しの復帰後に状態と時刻が復元され、指定値が引き継がれることを確認する。
 
 ### SV2023-38.4-EXTRACT-CONTROL-SCOPE
 
@@ -111878,7 +111891,7 @@ get_data を呼び出すのは cbStartOfRestart / cbEndOfRestart ルーチンの
 
 ### SV2023-38.9-EXTRACT-GET-DATA-FAILURE
 
-`38.9` / `boundary` / テスト未対応
+`38.9` / `boundary` / テスト対応あり・実行未確認
 
 失敗した場合は 0 を返します。保存データを超えて読み込むと警告が出て、残りのバイトをコピーし、残りのバイットをゼロにして、実際の保存されたbyteカウントのみを返します。読み込みは保存されたバイトより少ないバイトを読み込むことを許可します。
 
@@ -111886,6 +111899,7 @@ get_data を呼び出すのは cbStartOfRestart / cbEndOfRestart ルーチンの
 
 規定の性質: `mandatory`。
 
+- [test_vpi_restart_stream_warns_and_zero_fills_a_short_read.sv](../tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.sv): 短い先頭部分を読み出した後に残量を超えて読み出し、実際の長さ、末尾のゼロ埋め、警告、残量がない場合のゼロを確認する。
 
 ### SV2023-38.9-EXTRACT-GET-DATA-ID-TRANSPORT
 
@@ -111900,7 +111914,7 @@ ID user_data を通すことを推奨します。
 
 ### SV2023-38.9-EXTRACT-GET-DATA-SEQUENTIAL
 
-`38.9` / `normal` / テスト未対応
+`38.9` / `normal` / テスト対応あり・実行未確認
 
 保存されたストリームから numOfBytes を読み込み、それを ID に変換します。読み出しは最初の put_data 書き込みから始まり、 次の読み出しは前の読み出しが終わった場所から再開します。アプリケーション側で、格納先に十分な記憶領域を割り当てなければならない。
 
@@ -111908,10 +111922,11 @@ ID user_data を通すことを推奨します。
 
 規定の性質: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): 二つの読み出しを識別子ごとに交互に実行し、二回目が前の読み出し位置の続きから始まることを確認する。
 
 ### SV2023-38.9-EXTRACT-GET-DATA-SIGNATURE
 
-`38.9` / `normal` / テスト未対応
+`38.9` / `normal` / テスト対応あり・実行未確認
 
 vpi_get_data（PLI_INT32 id，PLI_BYTE8*dataLoc , PLI_INT32 numOfBytes）は，アプリケーション割り当てメモリに保存／再起動データを検索し，検索した実際のバイトを返す。id は vpi_get (vpiSaveRestartID, NULL) から来ます。
 
@@ -111919,6 +111934,7 @@ vpi_get_data（PLI_INT32 id，PLI_BYTE8*dataLoc , PLI_INT32 numOfBytes）は，�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): 保存時の識別子を再開の通知に渡し、アプリが確保したバッファーと長さを指定して、実際に取得した長さと内容を照合する。
 
 ### SV2023-38.10-EXTRACT-DELAY-ARRAY-MEMORY
 
@@ -112224,7 +112240,7 @@ s_vpi_timeはPLI_INT32 PLI_UINT32はシミュレーションチックに対し�
 
 ### SV2023-38.14-EXTRACT-USERDATA-RESTART
 
-`38.14` / `normal` / テスト未対応
+`38.14` / `normal` / テスト対応あり・実行未確認
 
 再起動後に get_userdata は NULL を返します。put_data / get_dataを cbEndOfRestart / cbEndOfResetに変換すると、アプリケーションは基礎データを保存・復元し、その間にまたはその後に関連性を再確立する。
 
@@ -112232,6 +112248,8 @@ s_vpi_timeはPLI_INT32 PLI_UINT32はシミュレーションチックに対し�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): リセット前の同じ呼び出し箇所でデータが保持され、リセット後は空になり、その後の再関連付けが保持されることを確認する。
+- [test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv](../tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv): 再開前に同じ呼び出し箇所で保存していたユーザーデータが再開終了後には空であり、その後に登録し直した値だけが取得できることを確認する。
 
 ### SV2023-38.14-EXTRACT-USERDATA-RETURN
 
@@ -113373,7 +113391,7 @@ numOfBytes はゼロより大きくなければなりません。dataLoc から�
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-ORDER
 
-`38.31` / `normal` / テスト未対応
+`38.31` / `normal` / テスト対応あり・実行未確認
 
 ID のセーブ毎の書き込み数を制限せず、異なる ID 間で書き込みの順序を交互にする。
 
@@ -113381,6 +113399,7 @@ ID のセーブ毎の書き込み数を制限せず、異なる ID 間で書き�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): 異なる識別子に対する書き込みを交互に二回ずつ行い、各識別子に書いた内容と順番が保持されることを確認する。
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-PHASE
 
@@ -113395,7 +113414,7 @@ put_data は cbStartOfSave / cbEndOfSave のコールバックのみで実行で
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-SIGNATURE
 
-`38.31` / `normal` / テスト未対応
+`38.31` / `normal` / テスト対応あり・実行未確認
 
 vpi_put_data ( PLI_INT32 id, PLI_BYTE8 * dataLoc , PLI_INT32 numOfBytes ) は実際に書かれた byte 個を返します。id は vpi_get (vpiSaveRestartID, NULL) から来ます。
 
@@ -113403,10 +113422,11 @@ vpi_put_data ( PLI_INT32 id, PLI_BYTE8 * dataLoc , PLI_INT32 numOfBytes ) は実
 
 規定の性質: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): 取得した保存用の識別子とバッファーとバイト数を渡し、各呼び出しで実際に書いた長さを返すことを確認する。
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-STREAM
 
-`38.31` / `normal` / テスト未対応
+`38.31` / `normal` / テスト対応あり・実行未確認
 
 次のように同じID書き込みを連続的に保存します。 get_data は byte のストリームを異なるチャンクサイズで検索できます。
 
@@ -113414,6 +113434,7 @@ vpi_put_data ( PLI_INT32 id, PLI_BYTE8 * dataLoc , PLI_INT32 numOfBytes ) は実
 
 規定の性質: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): 連続する書き込みを一列に連結したとき、書き込み境界と異なる長さで読み出しても元の内容を取得できることを確認する。
 
 ### SV2023-38.32-EXTRACT-PUT-DELAY-ALLOCATION
 
@@ -113586,7 +113607,7 @@ mtm_flag =True, pulsere_flag =True の場合、9 * no_of_delays 要素を提供�
 
 ### SV2023-38.33-EXTRACT-PUT-USERDATA-RESET
 
-`38.33` / `normal` / テスト未対応
+`38.33` / `normal` / テスト対応あり・実行未確認
 
 ユーザデータの関連付けを NULL にリセット/リスタートする;これは、アプリケーションのデータを put_data / get_data を使って保存/復元し、 end-of-reset/restart コールバックの間/後に再関連化することができる。
 
@@ -113594,6 +113615,8 @@ mtm_flag =True, pulsere_flag =True の場合、9 * no_of_delays 要素を提供�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): リセット後に空になった同じ呼び出し箇所へ、異なるデータを再関連付けできることを確認する。
+- [test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv](../tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv): 再開終了の通知後に、元の呼び出し箇所へ別のユーザーデータを登録して後続の同じ呼び出しから取得できることを確認する。
 
 ### SV2023-38.33-EXTRACT-PUT-USERDATA-RETRIEVE
 
@@ -115398,7 +115421,7 @@ VPI 互換ツールはすべてアクションコールバックを必要とし�
 
 ### SV2023-38.36.3-EXTRACT-RESET-CALLBACK-ORDER
 
-`38.36.3` / `normal` / テスト未対応
+`38.36.3` / `normal` / テスト対応あり・実行未確認
 
 cbStartOfReset はリセット時間がゼロに戻る前に発生します。cbEndOfResetは時間／初期のネット変数復元後と初期／常に手続き的実行の前に起こる。$resetとvpi_controlの直接リセットに対して両方とも起こる。
 
@@ -115406,10 +115429,12 @@ cbStartOfReset はリセット時間がゼロに戻る前に発生します。cb
 
 規定の性質: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): 制御ルーチンからのリセットで時刻と変数とネットを開始通知および終了通知で照合し、その後に初期手続きが走ることを確認する。
+- [test_vpi_direct_reset_brackets_time_zero_restoration.sv](../tests/ch38/test_vpi_direct_reset_brackets_time_zero_restoration.sv): 直接リセットしたときにも、時刻と変数とネットの復元を挟んで両通知が走り、その後に初期手続きが実行されることを確認する。
 
 ### SV2023-38.36.3-EXTRACT-RESTART-CALLBACK-SURVIVAL
 
-`38.36.3` / `normal` / テスト未対応
+`38.36.3` / `normal` / テスト対応あり・実行未確認
 
 再起動は cbStartOfRestart / cbEndOfRestart を除くすべてのコールバックを削除します。既存の登録のみが生き残ります
 
@@ -115417,6 +115442,7 @@ cbStartOfReset はリセット時間がゼロに戻る前に発生します。cb
 
 規定の性質: `mandatory`。
 
+- [test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv](../tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv): 再開の開始と終了の通知を残し、再開前に登録した値変化と実行終了の通知を取り除き、再開後に登録し直した値変化の通知だけを発火させる。
 
 ### SV2023-38.36.3-EXTRACT-SIGNAL-CALLBACK
 

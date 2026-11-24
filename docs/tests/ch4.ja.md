@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .テストは481本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは483本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -22,6 +22,7 @@
 | [`test_one_step_sample_before_time_slot`](../../tests/ch4/test_one_step_sample_before_time_slot.sv) |クロックブロックの #1step 入力は、そのスロットのアクティブまたは NBA 領域に書き込まれた値ではなく、クロックエッジのタイムスロット直前に信号が持っていた値をサンプリングします。| 4.4.2.1 14.4 14.3 | Verilator 5.052 ||
 | [`test_preponed_sample_observed_before_action`](../../tests/ch4/test_preponed_sample_observed_before_action.sv) |コンカレントアサーションションは NBA 更新の前にサンプルを取るが、そのパスアクションは更新されたライブ値を見る| 4.4.2.1 4.4.2.5 16.5.1 |規格のみ||
 | [`test_preponed_sampling`](../../tests/ch4/test_preponed_sampling.sv) |コンカレントアッセリは、同じ時間ステップでクロックエッジの直前に変化する変数に対しても、その時間ステップの変化の前からの Preponed 領域の値を使用します。| 4.4.2.1 16.5.1 16.9.3 | Verilator 5.052 ||
+| [`test_active_order_preserves_each_process_write_before_read`](../../tests/ch4/test_active_order_preserves_each_process_write_before_read.sv) |アクティブ領域の独立したプロセスは各プロセスの書き込みと読み出しの順序を守る| 4.4.2.2 4.7 | Icarus Verilog 13.0 |出口コード|
 | [`test_edge_event_regions`](../../tests/ch4/test_edge_event_regions.sv) |アクティブ、インアクティブ、NBA領域、$strobeから見たブロック、ブロックしない、# 0の更新| 4.4.2.2 4.4.2.3 4.4.2.4 21.2.2 | Icarus Verilog 13.0 ||
 | [`test_sched_disable_fork_ends_grandchildren`](../../tests/ch4/test_sched_disable_fork_ends_grandchildren.sv) |呼び出しプロセスの子プロセスが生成したプロセスも終了します| 4.4.2.2 9.6.3 9.3.2 | Icarus Verilog 13.0 ||
 | [`test_sched_disable_fork_in_called_task`](../../tests/ch4/test_sched_disable_fork_in_called_task.sv) |タスクのフォークを無効にすると、タスクを呼び出したプロセスが生成したプロセスを終了させます。| 4.4.2.2 9.6.3 13.3 | Verilator 5.052 ||
@@ -53,6 +54,7 @@
 | [`test_sched_wait_resumes_on_nonblocking_update`](../../tests/ch4/test_sched_wait_resumes_on_nonblocking_update.sv) |ブロックしない更新が真であることを示す条件を満たすキューは、その時間ステップで再開されます。| 4.4.2.4 9.4.3 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_sched_wait_true_does_not_block`](../../tests/ch4/test_sched_wait_true_does_not_block.sv) |条件が既に真であれば、wait ステートメントはブロックされません。プロセスはブロックしない更新が待ち受ける前に続行します。| 4.4.2.4 9.4.3 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_assertion_action_block_in_reactive`](../../tests/ch4/test_assertion_action_block_in_reactive.sv) |NBA 更新後，プログラムプロセスとともに，アクティブ領域セットが再び実行される前に，並行アサーションのパスおよびフェールアクションブロックは，タイムスロットの反応領域で実行される。| 4.4.2.5 4.4.2.6 4.5 16.14.1 24.3.1 |規格のみ||
+| [`test_reactive_order_preserves_process_order_after_module_nba`](../../tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv) |リアクティブ領域の独立したプロセスは各プロセス内の順序を守りモジュールの NBA 更新を観測する| 4.4.2.6 4.7 24.4 |規格のみ|出口コード|
 | [`test_program_zero_delay_resumes_in_reinactive`](../../tests/ch4/test_program_zero_delay_resumes_in_reinactive.sv) |プログラムプロセスの # 0 は、他の反応イベントがタイムスロットの後に起こり、ブロックされた書き込みが起動したモジュールプロセスが起動する前に、Re-Inactive領域でプロセスを再開します。| 4.4.2.7 4.5 24.3.1 |規格のみ||
 | [`test_reactive_region_set_order`](../../tests/ch4/test_reactive_region_set_order.sv) |プログラムの中で、#0 は Re-Inactive 領域のプロセスを Re-NBA 領域が Reactive 領域で作成したブロックしない代入を更新する前に再開し、その更新によって起動されたプログラムプロセスは、それによって起動されたモジュールプロセスよりも先に実行されます。| 4.4.2.7 4.4.2.8 4.5 24.3 | Icarus Verilog 13.0 ||
 | [`test_sched_deferred_action_arguments`](../../tests/ch4/test_sched_deferred_action_arguments.sv) |observed deferred assertionのアクションブロックはReactive領域で実行し、値渡し引数はアサーション評価時の値を使用します。一方、const ref引数は非ブロッキング更新後の値を読み出します。| 4.4.2.7 16.4 4.4.2.4 13.5.2 |規格のみ||

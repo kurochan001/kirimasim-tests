@@ -1,0 +1,4 @@
+save bytes=4
+read first count=1 data=10
+short count=3 data=20,30,40,0,0 warning=1
+empty count=0 data=0,0 warning=1

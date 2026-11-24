@@ -1,0 +1,8 @@
+initial userdata set=1
+before reset same userdata=1
+request accepted=1 t=7 state=71 net=71
+start reset t=7 state=71 net=71
+end reset t=0 state=19 net=19
+initial t=0 state=19 reset count=1 reset value=73
+reset userdata cleared=1 restored=1
+later reset userdata matches=1

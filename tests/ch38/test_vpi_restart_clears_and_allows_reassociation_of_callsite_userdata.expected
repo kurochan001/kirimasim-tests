@@ -1,0 +1,4 @@
+userdata attached=1
+before restart same userdata=1
+restart callback=1 cleared=1 reassociated=1
+later userdata matches=1

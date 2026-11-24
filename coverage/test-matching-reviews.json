@@ -60487,6 +60487,84 @@
           ]
         }
       ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_control_scope_change_reports_selected_instance.sv",
+      "inputs_sha256": "c26ad85225404ad07de5b115f8fce9e1b5b2ad03d35c66f7b19358b0c52bafb0",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.4-EXTRACT-CONTROL-SCOPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "二つの異なる実体を指定したときに対応する変更通知を受けることを確かめる。呼び出しが戻る前にスコープが切り替わったかは観測しない。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_control_scope_change_reports_selected_instance.sv",
+              "contains": "#1 $report_scope_change;"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-FIELDS"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "対話スコープ変更の通知の理由と対象を照合する。タイミング違反や未解決タスクの通知はこのケースでは刺激しない。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_control_scope_change_reports_selected_instance.sv",
+              "contains": "$request_scope_change;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+      "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.31-EXTRACT-PUT-DATA-PHASE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "保存開始の通知内で書き込みと保存先の照会を行う。通知外の書き込みは試験しない。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+              "contains": "$save(\"interleaved-streams.chk\");"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.9-EXTRACT-GET-DATA-CALLBACK-SCOPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "再開終了の通知内で読み出しと保存先の照会を行う。通知外の読み出しは試験しない。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+              "contains": "$restart(\"interleaved-streams.chk\");"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

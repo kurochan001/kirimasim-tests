@@ -181,9 +181,9 @@ tests/gen/ch10/test_gen_cross_delay_129_bit_x_three_short_direct.sv",Maintaining
 4,Scheduling semantics,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,698,"tests/ch10/test_intra_assignment_delay_keeps_large_ticks_and_target_evaluation_times.sv
 tests/ch10/test_intra_assignment_delay_nba_concatenation.sv
 tests/ch10/test_nba_then_event_control_same_step.sv",Maintaining the planning and execution evidence of existing models.,,
-4,Scheduling semantics,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1192,"tests/ch10/test_assign_nba.sv
-tests/ch10/test_edge_delta_cycle_chain.sv
-tests/ch10/test_intra_assignment_delay_keeps_large_ticks_and_target_evaluation_times.sv",Maintaining the planning and execution evidence of existing models.,,
+4,Scheduling semantics,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1193,"tests/ch10/test_assign_nba.sv
+tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.sv
+tests/ch10/test_edge_delta_cycle_chain.sv",Maintaining the planning and execution evidence of existing models.,,
 4,Scheduling semantics,11,Operators and expressions,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,511,"tests/ch10/test_nba_overlapping_wide_selects_capture_targets_and_keep_order.sv
 tests/ch4/test_range_select_lhs.sv
 tests/ch4/test_sched_nonblocking_target_index_at_execution.sv",Maintaining the planning and execution evidence of existing models.,,
@@ -216,7 +216,7 @@ tests/ch4/test_edge_event_regions.sv",Maintaining the planning and execution evi
 4,Scheduling semantics,23,Modules and hierarchy,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,5,"tests/ch24/test_program_port_reactive_variable_and_net.sv
 tests/ch4/test_inout_port_keeps_strength.sv
 tests/ch4/test_port_complex_expr_extended.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-4,Scheduling semantics,24,Programs,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,93,"tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv
+4,Scheduling semantics,24,Programs,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,94,"tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv
 tests/ch14/test_clocking_zero_skew_input_not_resampled.sv
 tests/ch24/test_program_assertion_clocked_by_program_variable.sv",Maintaining the planning and execution evidence of existing models.,,
 4,Scheduling semantics,25,Interfaces,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,181,"tests/ch10/test_nba_then_event_control_same_step.sv
@@ -1434,7 +1434,7 @@ tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv
 tests/ch39/test_vpi_assertion_terminal_notification_ignores_restart.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 36,Programming language interface (PLI/VPI) overview,40,Code coverage control and API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,1,tests/ch40/test_vpi_coverage_extension_constants.sv,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 36,Programming language interface (PLI/VPI) overview,41,Data read API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,0,,"The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
-37,VPI object model diagrams,38,VPI routine definitions,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,129,"tests/ch3/test_global_precision_from_timeprecision.sv
+37,VPI object model diagrams,38,VPI routine definitions,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,130,"tests/ch3/test_global_precision_from_timeprecision.sv
 tests/ch3/test_global_precision_from_timescale.sv
 tests/ch3/test_global_precision_from_timeunit_slash.sv","The candidates and sources of the citation search are verified, and the classification into E/C/N is examined.",,
 37,VPI object model diagrams,39,Assertion API,R,Reverse and re-examination,未評価,0,The chapter pair alone does not specify the verification objective. The detailed examination of individual interactions is postponed.,Unprepared,,Unprepared,0,,8,"tests/ch37/test_vpi_assertion_columns.sv

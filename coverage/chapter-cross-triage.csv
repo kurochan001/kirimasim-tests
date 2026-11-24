@@ -181,9 +181,9 @@ tests/gen/ch10/test_gen_cross_delay_129_bit_x_three_short_direct.sv",既存モ�
 4,スケジューリングの意味論,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,698,"tests/ch10/test_intra_assignment_delay_keeps_large_ticks_and_target_evaluation_times.sv
 tests/ch10/test_intra_assignment_delay_nba_concatenation.sv
 tests/ch10/test_nba_then_event_control_same_step.sv",既存モデルの計画・実行証跡を維持する,,
-4,スケジューリングの意味論,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1192,"tests/ch10/test_assign_nba.sv
-tests/ch10/test_edge_delta_cycle_chain.sv
-tests/ch10/test_intra_assignment_delay_keeps_large_ticks_and_target_evaluation_times.sv",既存モデルの計画・実行証跡を維持する,,
+4,スケジューリングの意味論,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1193,"tests/ch10/test_assign_nba.sv
+tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.sv
+tests/ch10/test_edge_delta_cycle_chain.sv",既存モデルの計画・実行証跡を維持する,,
 4,スケジューリングの意味論,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,511,"tests/ch10/test_nba_overlapping_wide_selects_capture_targets_and_keep_order.sv
 tests/ch4/test_range_select_lhs.sv
 tests/ch4/test_sched_nonblocking_target_index_at_execution.sv",既存モデルの計画・実行証跡を維持する,,
@@ -216,7 +216,7 @@ tests/ch4/test_edge_event_regions.sv",既存モデルの計画・実行証跡を
 4,スケジューリングの意味論,23,モジュールと階層,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,5,"tests/ch24/test_program_port_reactive_variable_and_net.sv
 tests/ch4/test_inout_port_keeps_strength.sv
 tests/ch4/test_port_complex_expr_extended.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-4,スケジューリングの意味論,24,プログラム,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,93,"tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv
+4,スケジューリングの意味論,24,プログラム,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,94,"tests/ch14/test_clocking_block_event_after_nba_before_reactive.sv
 tests/ch14/test_clocking_zero_skew_input_not_resampled.sv
 tests/ch24/test_program_assertion_clocked_by_program_variable.sv",既存モデルの計画・実行証跡を維持する,,
 4,スケジューリングの意味論,25,インターフェース,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,181,"tests/ch10/test_nba_then_event_control_same_step.sv
@@ -1434,7 +1434,7 @@ tests/ch39/test_vpi_assertion_system_notifications_follow_lifecycle.sv
 tests/ch39/test_vpi_assertion_terminal_notification_ignores_restart.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch40/test_vpi_coverage_extension_constants.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 36,プログラミング言語インターフェース（PLI/VPI）の概要,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,129,"tests/ch3/test_global_precision_from_timeprecision.sv
+37,VPIオブジェクトモデル図,38,VPIルーチンの定義,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,130,"tests/ch3/test_global_precision_from_timeprecision.sv
 tests/ch3/test_global_precision_from_timescale.sv
 tests/ch3/test_global_precision_from_timeunit_slash.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 37,VPIオブジェクトモデル図,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,8,"tests/ch37/test_vpi_assertion_columns.sv

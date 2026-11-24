@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.39%, execution without Ghost 51.77%, execution with Ghost and kirimasim 89.47%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.51%, execution without Ghost 51.78%, execution with Ghost and kirimasim 89.50%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 95.39%. Requirement execution-confirmation rate: 51.77% without Ghost, 89.47% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 95.51%. Requirement execution-confirmation rate: 51.78% without Ghost, 89.50% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11763/12332 ( 95.39% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11033/12332 ( 89.47% ).
-- Registered but not tested: 569.
+- The requirement coverage (test design) for registered behaviors is 11778/12332 ( 95.51% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11037/12332 ( 89.50% ).
+- Registered but not tested: 554.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -78,6 +78,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `ch19-tables-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T00:40:59.725559+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `ch19-tables-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:18.641708+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `ch19-tables-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:59.498597+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `checkpoint-20261125-ghost-strict.json`: `private build e484e16d0a5c` / `2026-11-24T18:42:38.685398+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `checkpoint-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T18:42:38.613262+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `checkpoint-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T18:42:37.706724+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `checkpoint-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:42:38.574509+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `checkpoint-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:42:38.634835+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `checkpoint-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.598706+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `checkpoint-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.635198+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-ghost-strict.json`: `private build 698058bc29ba` / `2026-11-23T12:19:55.008109+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:19:54.956799+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:19:54.924264+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1225,13 +1232,13 @@ The number of items is the investigation status of the article by heading. This 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 141.
-- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 90.
+- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 93.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 148.
 - 6 Data types: No interpretation reservation 92/92, registration 720, test support 715.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 343.
 - 8 Classes: No interpretation restrictions 49/49, registration 255, test support 243.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 185.
-- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 150.
+- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 151.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 455.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 110.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 121.
@@ -1259,7 +1266,7 @@ The number of items is the investigation status of the article by heading. This 
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 126.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
 - 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1693.
-- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 308.
+- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 319.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 124.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
@@ -3272,7 +3279,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.2.2-EXTRACT-ACTIVE-ARBITRARY-ORDER
 
-`4.4.2.2` / `normal` / No mapped test
+`4.4.2.2` / `normal` / Execution confirmed
 
 Events currently in Active may be processed in any order consistent with other explicit ordering guarantees.
 
@@ -3280,6 +3287,7 @@ Acceptance criterion: A test cannot demand one fixed order between otherwise uno
 
 Normative role: `permission`。
 
+- [test_active_order_preserves_each_process_write_before_read.sv](../tests/ch4/test_active_order_preserves_each_process_write_before_read.sv): Have each process write before reading at the same time and accept all observation pairs permitted by that ordering.
 
 ### SV2023-4.4.2.3-EXTRACT-INACTIVE-AFTER-ACTIVE
 
@@ -3410,7 +3418,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.2.6-EXTRACT-REACTIVE-ARBITRARY-ORDER
 
-`4.4.2.6` / `normal` / No mapped test
+`4.4.2.6` / `normal` / Execution confirmed
 
 Events currently in Reactive may be processed in any otherwise-legal order.
 
@@ -3418,6 +3426,7 @@ Acceptance criterion: Events currently in Reactive may be processed in any other
 
 Normative role: `permission`。
 
+- [test_reactive_order_preserves_process_order_after_module_nba.sv](../tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv): Check that both program processes see the module update and accept any observation consistent with their statement order.
 
 ### SV2023-4.4.2.6-EXTRACT-REACTIVE-CODE
 
@@ -3858,7 +3867,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.7-EXTRACT-ARBITRARY-REGION-EVENT
 
-`4.7` / `normal` / No mapped test
+`4.7` / `normal` / Execution confirmed
 
 Events in Active or Reactive may be selected in any order consistent with the explicit sequencing guarantees.
 
@@ -3866,6 +3875,8 @@ Acceptance criterion: Events in Active or Reactive may be selected in any order 
 
 Normative role: `permission`。
 
+- [test_active_order_preserves_each_process_write_before_read.sv](../tests/ch4/test_active_order_preserves_each_process_write_before_read.sv): Reject only the outcome inconsistent with the order within each process in the Active region.
+- [test_reactive_order_preserves_process_order_after_module_nba.sv](../tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv): Allow each Reactive region observation consistent with per-process order after the module update.
 
 ### SV2023-4.7-EXTRACT-PROCEDURAL-INTERLEAVING
 
@@ -25667,7 +25678,7 @@ Normative role: `definition`。
 
 ### SV2023-10.4.2-EXTRACT-CONCURRENT-NBA-INDETERMINATE
 
-`10.4.2` / `normal` / No mapped test
+`10.4.2` / `normal` / Execution confirmed
 
 Concurrent unordered blocks scheduling different NBA values to the same destination can leave its final value indeterminate.
 
@@ -25675,6 +25686,7 @@ Acceptance criterion: Concurrent unordered blocks scheduling different NBA value
 
 Normative role: `mandatory`。
 
+- [test_competing_nonblocking_writes_allow_either_last_writer.sv](../tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.sv): Accept either value written by the independent blocks at the same time and require the last value from the ordered block as a control.
 
 ### SV2023-10.4.2-EXTRACT-DIFFERENT-BLOCKS-NOT-SUFFICIENT
 
@@ -111703,7 +111715,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.4-EXTRACT-CONTROL-RESET
 
-`38.4` / `normal` / No mapped test
+`38.4` / `normal` / Test mapped; execution unconfirmed
 
 vpiReset takes stop_value, reset_value and diagnostics_value integers matching $reset and executes it after application return.
 
@@ -111711,6 +111723,7 @@ Acceptance criterion: vpiReset takes stop_value, reset_value and diagnostics_val
 
 Normative role: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): Request reset with immediate processing, check deferral until the calling routine returns, and verify restored state, time and the supplied reset value.
 
 ### SV2023-38.4-EXTRACT-CONTROL-SCOPE
 
@@ -111878,7 +111891,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.9-EXTRACT-GET-DATA-FAILURE
 
-`38.9` / `boundary` / No mapped test
+`38.9` / `boundary` / Test mapped; execution unconfirmed
 
 Return 0 on failure. Reading beyond saved data emits a warning, copies remaining bytes, fills the rest with zero bytes and returns only the actual saved-byte count. Reading fewer bytes than stored is allowed.
 
@@ -111886,6 +111899,7 @@ Acceptance criterion: Return 0 on failure. Reading beyond saved data emits a war
 
 Normative role: `mandatory`。
 
+- [test_vpi_restart_stream_warns_and_zero_fills_a_short_read.sv](../tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.sv): Read a short prefix, then request more bytes than remain and check the actual length, zero fill, warning and zero return at exhaustion.
 
 ### SV2023-38.9-EXTRACT-GET-DATA-ID-TRANSPORT
 
@@ -111900,7 +111914,7 @@ Normative role: `recommendation`。
 
 ### SV2023-38.9-EXTRACT-GET-DATA-SEQUENTIAL
 
-`38.9` / `normal` / No mapped test
+`38.9` / `normal` / Test mapped; execution unconfirmed
 
 Read numOfBytes from the saved stream for that ID; the first read starts at its first put_data write and subsequent reads resume where the previous read ended. The application must allocate enough destination storage.
 
@@ -111908,10 +111922,11 @@ Acceptance criterion: Read numOfBytes from the saved stream for that ID; the fir
 
 Normative role: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): Interleave reads from the two IDs and check that the second read for each ID resumes at its own offset.
 
 ### SV2023-38.9-EXTRACT-GET-DATA-SIGNATURE
 
-`38.9` / `normal` / No mapped test
+`38.9` / `normal` / Test mapped; execution unconfirmed
 
 vpi_get_data(PLI_INT32 id,PLI_BYTE8* dataLoc,PLI_INT32 numOfBytes) retrieves save/restart data into application-allocated storage and returns actual bytes retrieved; id comes from vpi_get(vpiSaveRestartID,NULL).
 
@@ -111919,6 +111934,7 @@ Acceptance criterion: vpi_get_data(PLI_INT32 id,PLI_BYTE8* dataLoc,PLI_INT32 num
 
 Normative role: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): Pass the save ID to restart, read into application-owned buffers, and compare actual byte counts and content.
 
 ### SV2023-38.10-EXTRACT-DELAY-ARRAY-MEMORY
 
@@ -112224,7 +112240,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.14-EXTRACT-USERDATA-RESTART
 
-`38.14` / `normal` / No mapped test
+`38.14` / `normal` / Test mapped; execution unconfirmed
 
 After reset/restart get_userdata returns NULL; the application saves/restores underlying data through put_data/get_data and may reestablish associations during/after cbEndOfRestart/cbEndOfReset.
 
@@ -112232,6 +112248,8 @@ Acceptance criterion: After reset/restart get_userdata returns NULL; the applica
 
 Normative role: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): Check that userdata persists at one callsite before reset, is cleared by reset, and persists again after reassociation.
+- [test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv](../tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv): Check that the pre-restart userdata at one callsite is cleared after restart and that a later lookup returns the new association.
 
 ### SV2023-38.14-EXTRACT-USERDATA-RETURN
 
@@ -113373,7 +113391,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-ORDER
 
-`38.31` / `normal` / No mapped test
+`38.31` / `normal` / Test mapped; execution unconfirmed
 
 Do not restrict the number of writes per save ID or interleaving order of writes across distinct IDs.
 
@@ -113381,6 +113399,7 @@ Acceptance criterion: Do not restrict the number of writes per save ID or interl
 
 Normative role: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): Alternate two writes per ID and check that each ID retains its own data in order.
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-PHASE
 
@@ -113395,7 +113414,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-SIGNATURE
 
-`38.31` / `normal` / No mapped test
+`38.31` / `normal` / Test mapped; execution unconfirmed
 
 vpi_put_data(PLI_INT32 id,PLI_BYTE8* dataLoc,PLI_INT32 numOfBytes) returns actual written byte count; id comes from vpi_get(vpiSaveRestartID,NULL).
 
@@ -113403,10 +113422,11 @@ Acceptance criterion: vpi_put_data(PLI_INT32 id,PLI_BYTE8* dataLoc,PLI_INT32 num
 
 Normative role: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): Pass an acquired save ID, buffer, and byte count and check the written-byte result of every call.
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-STREAM
 
-`38.31` / `normal` / No mapped test
+`38.31` / `normal` / Test mapped; execution unconfirmed
 
 Store successive same-ID writes so get_data can retrieve the byte stream in different chunk sizes.
 
@@ -113414,6 +113434,7 @@ Acceptance criterion: Store successive same-ID writes so get_data can retrieve t
 
 Normative role: `mandatory`。
 
+- [test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv](../tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv): Read the byte stream using chunk boundaries different from those of the writes and compare the original byte sequence.
 
 ### SV2023-38.32-EXTRACT-PUT-DELAY-ALLOCATION
 
@@ -113586,7 +113607,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.33-EXTRACT-PUT-USERDATA-RESET
 
-`38.33` / `normal` / No mapped test
+`38.33` / `normal` / Test mapped; execution unconfirmed
 
 Reset/restart clears userdata associations to NULL; application data must be saved/restored using put_data/get_data and may be reassociated during/after end-of-reset/restart callbacks.
 
@@ -113594,6 +113615,8 @@ Acceptance criterion: Reset/restart clears userdata associations to NULL; applic
 
 Normative role: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): Verify that the cleared callsite accepts a different userdata association after reset.
+- [test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv](../tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv): After the end-of-restart callback, reassign new userdata and retrieve it on a later invocation at the same source callsite.
 
 ### SV2023-38.33-EXTRACT-PUT-USERDATA-RETRIEVE
 
@@ -115398,7 +115421,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.3-EXTRACT-RESET-CALLBACK-ORDER
 
-`38.36.3` / `normal` / No mapped test
+`38.36.3` / `normal` / Test mapped; execution unconfirmed
 
 cbStartOfReset occurs before reset time returns to zero; cbEndOfReset occurs after time/initial net-variable restoration and before initial/always procedural execution. Both occur for direct $reset and vpi_control reset.
 
@@ -115406,10 +115429,12 @@ Acceptance criterion: cbStartOfReset occurs before reset time returns to zero; c
 
 Normative role: `mandatory`。
 
+- [test_vpi_reset_defers_until_return_and_restores_initial_state.sv](../tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv): Check time, variable and net values in both callbacks for a control reset and require initial procedure execution after the end callback.
+- [test_vpi_direct_reset_brackets_time_zero_restoration.sv](../tests/ch38/test_vpi_direct_reset_brackets_time_zero_restoration.sv): For a direct reset, verify both callbacks around restoration of time, the variable and the net, followed by the initial procedure.
 
 ### SV2023-38.36.3-EXTRACT-RESTART-CALLBACK-SURVIVAL
 
-`38.36.3` / `normal` / No mapped test
+`38.36.3` / `normal` / Test mapped; execution unconfirmed
 
 Restart removes all callbacks except cbStartOfRestart/cbEndOfRestart; only those existing registrations survive.
 
@@ -115417,6 +115442,7 @@ Acceptance criterion: Restart removes all callbacks except cbStartOfRestart/cbEn
 
 Normative role: `mandatory`。
 
+- [test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv](../tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv): Retain both restart callbacks, drop the old value-change and end-of-simulation callbacks, and verify that a newly registered value-change callback still runs.
 
 ### SV2023-38.36.3-EXTRACT-SIGNAL-CALLBACK
 

@@ -24676,6 +24676,25 @@
     "ZXQPH0QXZ : アプリが指定したインポートとエクスポートの修飾子をそれぞれ宣言時に展開し、取り込み後も両定義が残ることを確認する。": "ZXQPH0QXZ: Check that the application import and export qualifiers are both expanded on declarations and remain defined after inclusion.",
     "ZXQPH0QXZ : 修飾子を指定しない対照でプラットフォーム別の既定値とヘッダーが作った印の後処理を調べる。": "ZXQPH0QXZ: Use the case without supplied qualifiers to check platform defaults and cleanup of header-created flags.",
     "ZXQPH0QXZ : 起動ルーチン配列の宣言を展開する時点で関数用の既定修飾子が空であることと、配列用の既定修飾子が外部リンケージを指定することを確認する。": "ZXQPH0QXZ: Check the empty default for functions and the external linkage default for variables while expanding the startup array declaration.",
-    "ZXQPH0QXZ : 同じタスクに二つのインターフェースを順に渡し、選択した側のエッジだけで待機から戻り、そのデータを読むことを確認する。": "ZXQPH0QXZ: Pass two interface instances to the same task in turn and check that only the selected instance's edge resumes the task with its data."
+    "ZXQPH0QXZ : 同じタスクに二つのインターフェースを順に渡し、選択した側のエッジだけで待機から戻り、そのデータを読むことを確認する。": "ZXQPH0QXZ: Pass two interface instances to the same task in turn and check that only the selected instance's edge resumes the task with its data.",
+    "ZXQPH0QXZ : 同時刻の二つのプロセスで各書き込みを読み出しより先に行い、順序の許されるすべての組を合格とする。": "ZXQPH0QXZ: Have each process write before reading at the same time and accept all observation pairs permitted by that ordering.",
+    "ZXQPH0QXZ : アクティブ領域で別々のプロセスの前後は指定せず、各プロセス内の書き込みと読み出しの順序に反する結果だけを拒否する。": "ZXQPH0QXZ: Reject only the outcome inconsistent with the order within each process in the Active region.",
+    "ZXQPH0QXZ : 二つのプログラムプロセスが同時刻のモジュール更新を読んだ上で、プロセス内の文の順序を守る任意の観測結果を許容する。": "ZXQPH0QXZ: Check that both program processes see the module update and accept any observation consistent with their statement order.",
+    "ZXQPH0QXZ : モジュール更新より後のリアクティブ領域で、各プロセス内の順序を守る観測結果だけを許す。": "ZXQPH0QXZ: Allow each Reactive region observation consistent with per-process order after the module update.",
+    "ZXQPH0QXZ : 同じ時刻に独立したブロックから書いた二つの値をどちらも許し、対照では一つのブロックが最後に指定した値だけを許す。": "ZXQPH0QXZ: Accept either value written by the independent blocks at the same time and require the last value from the ordered block as a control.",
+    "ZXQPH0QXZ : シミュレーション続行を指定してリセットを要求し、呼び出しの復帰後に状態と時刻が復元され、指定値が引き継がれることを確認する。": "ZXQPH0QXZ: Request reset with immediate processing, check deferral until the calling routine returns, and verify restored state, time and the supplied reset value.",
+    "ZXQPH0QXZ : 制御ルーチンからのリセットで時刻と変数とネットを開始通知および終了通知で照合し、その後に初期手続きが走ることを確認する。": "ZXQPH0QXZ: Check time, variable and net values in both callbacks for a control reset and require initial procedure execution after the end callback.",
+    "ZXQPH0QXZ : リセット前の同じ呼び出し箇所でデータが保持され、リセット後は空になり、その後の再関連付けが保持されることを確認する。": "ZXQPH0QXZ: Check that userdata persists at one callsite before reset, is cleared by reset, and persists again after reassociation.",
+    "ZXQPH0QXZ : リセット後に空になった同じ呼び出し箇所へ、異なるデータを再関連付けできることを確認する。": "ZXQPH0QXZ: Verify that the cleared callsite accepts a different userdata association after reset.",
+    "ZXQPH0QXZ : 直接リセットしたときにも、時刻と変数とネットの復元を挟んで両通知が走り、その後に初期手続きが実行されることを確認する。": "ZXQPH0QXZ: For a direct reset, verify both callbacks around restoration of time, the variable and the net, followed by the initial procedure.",
+    "ZXQPH0QXZ : 取得した保存用の識別子とバッファーとバイト数を渡し、各呼び出しで実際に書いた長さを返すことを確認する。": "ZXQPH0QXZ: Pass an acquired save ID, buffer, and byte count and check the written-byte result of every call.",
+    "ZXQPH0QXZ : 異なる識別子に対する書き込みを交互に二回ずつ行い、各識別子に書いた内容と順番が保持されることを確認する。": "ZXQPH0QXZ: Alternate two writes per ID and check that each ID retains its own data in order.",
+    "ZXQPH0QXZ : 連続する書き込みを一列に連結したとき、書き込み境界と異なる長さで読み出しても元の内容を取得できることを確認する。": "ZXQPH0QXZ: Read the byte stream using chunk boundaries different from those of the writes and compare the original byte sequence.",
+    "ZXQPH0QXZ : 二つの読み出しを識別子ごとに交互に実行し、二回目が前の読み出し位置の続きから始まることを確認する。": "ZXQPH0QXZ: Interleave reads from the two IDs and check that the second read for each ID resumes at its own offset.",
+    "ZXQPH0QXZ : 保存時の識別子を再開の通知に渡し、アプリが確保したバッファーと長さを指定して、実際に取得した長さと内容を照合する。": "ZXQPH0QXZ: Pass the save ID to restart, read into application-owned buffers, and compare actual byte counts and content.",
+    "ZXQPH0QXZ : 短い先頭部分を読み出した後に残量を超えて読み出し、実際の長さ、末尾のゼロ埋め、警告、残量がない場合のゼロを確認する。": "ZXQPH0QXZ: Read a short prefix, then request more bytes than remain and check the actual length, zero fill, warning and zero return at exhaustion.",
+    "ZXQPH0QXZ : 再開の開始と終了の通知を残し、再開前に登録した値変化と実行終了の通知を取り除き、再開後に登録し直した値変化の通知だけを発火させる。": "ZXQPH0QXZ: Retain both restart callbacks, drop the old value-change and end-of-simulation callbacks, and verify that a newly registered value-change callback still runs.",
+    "ZXQPH0QXZ : 再開前に同じ呼び出し箇所で保存していたユーザーデータが再開終了後には空であり、その後に登録し直した値だけが取得できることを確認する。": "ZXQPH0QXZ: Check that the pre-restart userdata at one callsite is cleared after restart and that a later lookup returns the new association.",
+    "ZXQPH0QXZ : 再開終了の通知後に、元の呼び出し箇所へ別のユーザーデータを登録して後続の同じ呼び出しから取得できることを確認する。": "ZXQPH0QXZ: After the end-of-restart callback, reassign new userdata and retrieve it on a later invocation at the same source callsite."
   }
 }

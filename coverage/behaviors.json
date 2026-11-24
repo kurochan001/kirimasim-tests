@@ -7760,7 +7760,29 @@
       "acceptance": "A test cannot demand one fixed order between otherwise unordered Active events.",
       "source_note": "IEEE 1800-2023 4.4.2.2; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch4/test_active_order_preserves_each_process_write_before_read.sv",
+          "observation": "同時刻の二つのプロセスで各書き込みを読み出しより先に行い、順序の許されるすべての組を合格とする。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a7fc2700621519ead5a78d3e5288002b457b3d17f2040a4f9a21d83463581dae",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_active_order_preserves_each_process_write_before_read.sv",
+              "contains": "left_ready = 1;\n    left_saw_right = right_ready;"
+            },
+            {
+              "file": "tests/ch4/test_active_order_preserves_each_process_write_before_read.sv",
+              "contains": "right_ready = 1;\n    right_saw_left = left_ready;"
+            },
+            {
+              "file": "tests/ch4/test_active_order_preserves_each_process_write_before_read.expected",
+              "contains": "active writes=1 both at three=1 valid observations=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "4.4.2.2",
@@ -8805,7 +8827,29 @@
       "acceptance": "Events currently in Reactive may be processed in any otherwise-legal order.",
       "source_note": "IEEE 1800-2023 4.4.2.6; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv",
+          "observation": "二つのプログラムプロセスが同時刻のモジュール更新を読んだ上で、プロセス内の文の順序を守る任意の観測結果を許容する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "22242094e4fda15cf0860f48ef469a788d7e1373bd3fb1cdcb49c9442eef3de8",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv",
+              "contains": "initial #3 from_module <= 37;"
+            },
+            {
+              "file": "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv",
+              "contains": "left_saw_right || right_saw_left"
+            },
+            {
+              "file": "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.expected",
+              "contains": "reactive writes=1 sees module nba=1 valid observations=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "4.4.2.6",
@@ -10253,12 +10297,59 @@
       "acceptance": "Events in Active or Reactive may be selected in any order consistent with the explicit sequencing guarantees.",
       "source_note": "IEEE 1800-2023 4.7; complete own-body source review, blocks B002. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "permission",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch4/test_active_order_preserves_each_process_write_before_read.sv",
+          "observation": "アクティブ領域で別々のプロセスの前後は指定せず、各プロセス内の書き込みと読み出しの順序に反する結果だけを拒否する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a7fc2700621519ead5a78d3e5288002b457b3d17f2040a4f9a21d83463581dae",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_active_order_preserves_each_process_write_before_read.sv",
+              "contains": "left_saw_right || right_saw_left"
+            },
+            {
+              "file": "tests/ch4/test_active_order_preserves_each_process_write_before_read.expected",
+              "contains": "valid observations=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv",
+          "observation": "モジュール更新より後のリアクティブ領域で、各プロセス内の順序を守る観測結果だけを許す。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "22242094e4fda15cf0860f48ef469a788d7e1373bd3fb1cdcb49c9442eef3de8",
+          "evidence": [
+            {
+              "file": "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv",
+              "contains": "right_ready = 1;\n    right_saw_left = left_ready;"
+            },
+            {
+              "file": "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.expected",
+              "contains": "sees module nba=1 valid observations=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "4.7",
           "blocks": [
             "B002"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "active-and-reactive-process-order",
+          "observation": "アクティブとリアクティブの両領域で、プロセス間に一つの順序を要求せず、個々のプロセス内の順序に反する結果を拒否する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch4/test_active_order_preserves_each_process_write_before_read.sv",
+            "tests/ch4/test_reactive_order_preserves_process_order_after_module_nba.sv"
           ]
         }
       ]
@@ -98920,7 +99011,29 @@
       "acceptance": "Concurrent unordered blocks scheduling different NBA values to the same destination can leave its final value indeterminate.",
       "source_note": "IEEE 1800-2023 10.4.2; complete own-body source review, blocks B023. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.sv",
+          "observation": "同じ時刻に独立したブロックから書いた二つの値をどちらも許し、対照では一つのブロックが最後に指定した値だけを許す。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "1fd38459e0e2bc3d1ffcfe2f561b584df7d738034a9efb4a482e87dce26b6bdf",
+          "evidence": [
+            {
+              "file": "tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.sv",
+              "contains": "initial #3 contested <= 13;"
+            },
+            {
+              "file": "tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.sv",
+              "contains": "ordered <= 11;\n    ordered <= 17;"
+            },
+            {
+              "file": "tests/ch10/test_competing_nonblocking_writes_allow_either_last_writer.expected",
+              "contains": "competing value allowed=1 ordered last=17"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "10.4.2",
@@ -453440,7 +453553,33 @@
       "acceptance": "vpiReset takes stop_value, reset_value and diagnostics_value integers matching $reset and executes it after application return.",
       "source_note": "IEEE 1800-2023 38.4; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+          "observation": "シミュレーション続行を指定してリセットを要求し、呼び出しの復帰後に状態と時刻が復元され、指定値が引き継がれることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "98aac47a1524d0d364d5f7cd544d49ab25b12ec81e823c23ef0eff4221a5cc24",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+              "contains": "#1 $request_vpi_reset;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.c",
+              "contains": "vpi_control(vpiReset, 1, 73, 0)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.expected",
+              "contains": "request accepted=1 t=7 state=71 net=71\nstart reset t=7 state=71 net=71"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.expected",
+              "contains": "initial t=0 state=19 reset count=1 reset value=73"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.4",
@@ -453973,7 +454112,33 @@
       "acceptance": "Return 0 on failure. Reading beyond saved data emits a warning, copies remaining bytes, fills the rest with zero bytes and returns only the actual saved-byte count. Reading fewer bytes than stored is allowed.",
       "source_note": "IEEE 1800-2023 38.9; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.sv",
+          "observation": "短い先頭部分を読み出した後に残量を超えて読み出し、実際の長さ、末尾のゼロ埋め、警告、残量がない場合のゼロを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e480854f4228140a671b98bda3a733d2ab93f9c645ee5089a67bf9edfed3da2a",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.sv",
+              "contains": "$restart(\"short-stream.chk\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.c",
+              "contains": "int short_warning = warned();"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.c",
+              "contains": "vpi_get_data(key, empty, sizeof empty)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_stream_warns_and_zero_fills_a_short_read.expected",
+              "contains": "short count=3 data=20,30,40,0,0 warning=1\nempty count=0 data=0,0 warning=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.9",
@@ -454009,7 +454174,29 @@
       "acceptance": "Read numOfBytes from the saved stream for that ID; the first read starts at its first put_data write and subsequent reads resume where the previous read ended. The application must allocate enough destination storage.",
       "source_note": "IEEE 1800-2023 38.9; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+          "observation": "二つの読み出しを識別子ごとに交互に実行し、二回目が前の読み出し位置の続きから始まることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+              "contains": "$restart(\"interleaved-streams.chk\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "vpi_get_data(keys[1], right + 4, 1)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.expected",
+              "contains": "counts=3,4,2,1 left=1 right=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.9",
@@ -454027,7 +454214,33 @@
       "acceptance": "vpi_get_data(PLI_INT32 id,PLI_BYTE8* dataLoc,PLI_INT32 numOfBytes) retrieves save/restart data into application-allocated storage and returns actual bytes retrieved; id comes from vpi_get(vpiSaveRestartID,NULL).",
       "source_note": "IEEE 1800-2023 38.9; complete own-body source review, blocks B003, B004, B006, B008, B009, B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+          "observation": "保存時の識別子を再開の通知に渡し、アプリが確保したバッファーと長さを指定して、実際に取得した長さと内容を照合する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+              "contains": "$restart(\"interleaved-streams.chk\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "PLI_BYTE8 right[5] = {0};"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "register_action(cbEndOfRestart, read_streams, ids)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.expected",
+              "contains": "counts=3,4,2,1 left=1 right=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.9",
@@ -455229,12 +455442,71 @@
       "acceptance": "After reset/restart get_userdata returns NULL; the application saves/restores underlying data through put_data/get_data and may reestablish associations during/after cbEndOfRestart/cbEndOfReset.",
       "source_note": "IEEE 1800-2023 38.14; complete own-body source review, blocks B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+          "observation": "リセット前の同じ呼び出し箇所でデータが保持され、リセット後は空になり、その後の再関連付けが保持されることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "98aac47a1524d0d364d5f7cd544d49ab25b12ec81e823c23ef0eff4221a5cc24",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+              "contains": "task observe_link(input int stage);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.c",
+              "contains": "vpi_get_userdata(call) == NULL"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.expected",
+              "contains": "before reset same userdata=1"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.expected",
+              "contains": "reset userdata cleared=1 restored=1\nlater reset userdata matches=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv",
+          "observation": "再開前に同じ呼び出し箇所で保存していたユーザーデータが再開終了後には空であり、その後に登録し直した値だけが取得できることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "efe5eeaa4b50157fd2b6d1bf6930ceba3b3689af8c5013e1bd878ec2fed9f51c",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv",
+              "contains": "task inspect(input int stage);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.c",
+              "contains": "int cleared = vpi_get_userdata(call) == NULL;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.expected",
+              "contains": "before restart same userdata=1\nrestart callback=1 cleared=1 reassociated=1\nlater userdata matches=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.14",
           "blocks": [
             "B011"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "clear-and-reassociate-after-reset-and-restart",
+          "observation": "リセットと再開のそれぞれで、ユーザーデータの消去と再関連付けを同じ呼び出し箇所から確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+            "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv"
           ]
         }
       ]
@@ -459557,7 +459829,33 @@
       "acceptance": "Do not restrict the number of writes per save ID or interleaving order of writes across distinct IDs.",
       "source_note": "IEEE 1800-2023 38.31; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+          "observation": "異なる識別子に対する書き込みを交互に二回ずつ行い、各識別子に書いた内容と順番が保持されることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+              "contains": "$restart(\"interleaved-streams.chk\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "vpi_put_data(ids[0], left_tail, sizeof left_tail)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "vpi_put_data(ids[1], right_tail, sizeof right_tail)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.expected",
+              "contains": "left=1 right=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.31",
@@ -459593,7 +459891,33 @@
       "acceptance": "vpi_put_data(PLI_INT32 id,PLI_BYTE8* dataLoc,PLI_INT32 numOfBytes) returns actual written byte count; id comes from vpi_get(vpiSaveRestartID,NULL).",
       "source_note": "IEEE 1800-2023 38.31; complete own-body source review, blocks B003, B004, B006, B008, B009, B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+          "observation": "取得した保存用の識別子とバッファーとバイト数を渡し、各呼び出しで実際に書いた長さを返すことを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+              "contains": "$save(\"interleaved-streams.chk\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "ids[0] = vpi_get(vpiSaveRestartID, NULL);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "vpi_put_data(ids[0], left_head, sizeof left_head)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.expected",
+              "contains": "save distinct ids=1 path=1 writes=2,3,3,2"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.31",
@@ -459616,7 +459940,29 @@
       "acceptance": "Store successive same-ID writes so get_data can retrieve the byte stream in different chunk sizes.",
       "source_note": "IEEE 1800-2023 38.31; complete own-body source review, blocks B013. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+          "observation": "連続する書き込みを一列に連結したとき、書き込み境界と異なる長さで読み出しても元の内容を取得できることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv",
+              "contains": "$restart(\"interleaved-streams.chk\");"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.c",
+              "contains": "int left_first = vpi_get_data(keys[0], left, 3);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.expected",
+              "contains": "restart path=1 counts=3,4,2,1 left=1 right=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.31",
@@ -460295,12 +460641,67 @@
       "acceptance": "Reset/restart clears userdata associations to NULL; application data must be saved/restored using put_data/get_data and may be reassociated during/after end-of-reset/restart callbacks.",
       "source_note": "IEEE 1800-2023 38.33; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+          "observation": "リセット後に空になった同じ呼び出し箇所へ、異なるデータを再関連付けできることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "98aac47a1524d0d364d5f7cd544d49ab25b12ec81e823c23ef0eff4221a5cc24",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+              "contains": "observe_link(2);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.c",
+              "contains": "vpi_put_userdata(call, &after_reset)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.expected",
+              "contains": "reset userdata cleared=1 restored=1\nlater reset userdata matches=1"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv",
+          "observation": "再開終了の通知後に、元の呼び出し箇所へ別のユーザーデータを登録して後続の同じ呼び出しから取得できることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "efe5eeaa4b50157fd2b6d1bf6930ceba3b3689af8c5013e1bd878ec2fed9f51c",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv",
+              "contains": "inspect(2);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.c",
+              "contains": "vpi_put_userdata(call, &restored_userdata)"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.expected",
+              "contains": "restart callback=1 cleared=1 reassociated=1\nlater userdata matches=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.33",
           "blocks": [
             "B012"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "reassociate-after-reset-and-restart",
+          "observation": "リセット後と再開後に、消去された呼び出し箇所へ別のデータを関連付ける。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+            "tests/ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata.sv"
           ]
         }
       ]
@@ -468039,12 +468440,67 @@
       "acceptance": "cbStartOfReset occurs before reset time returns to zero; cbEndOfReset occurs after time/initial net-variable restoration and before initial/always procedural execution. Both occur for direct $reset and vpi_control reset.",
       "source_note": "IEEE 1800-2023 38.36.3; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+          "observation": "制御ルーチンからのリセットで時刻と変数とネットを開始通知および終了通知で照合し、その後に初期手続きが走ることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "98aac47a1524d0d364d5f7cd544d49ab25b12ec81e823c23ef0eff4221a5cc24",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+              "contains": "wire [7:0] mirrored_state = 8'(state);"
+            },
+            {
+              "file": "tests/ch38/checkpoint_fixtures/reset_trace.h",
+              "contains": "register_action(cbEndOfReset, reset_action, NULL);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.expected",
+              "contains": "start reset t=7 state=71 net=71\nend reset t=0 state=19 net=19\ninitial t=0 state=19"
+            }
+          ]
+        },
+        {
+          "test": "tests/ch38/test_vpi_direct_reset_brackets_time_zero_restoration.sv",
+          "observation": "直接リセットしたときにも、時刻と変数とネットの復元を挟んで両通知が走り、その後に初期手続きが実行されることを確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "acdc0e47941d3ac498aa10d24d803846a60b3076b80dcefe3c76c829904af96c",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_direct_reset_brackets_time_zero_restoration.sv",
+              "contains": "$reset(1, 43, 0);"
+            },
+            {
+              "file": "tests/ch38/checkpoint_fixtures/reset_trace.h",
+              "contains": "register_action(cbStartOfReset, reset_action, NULL);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_direct_reset_brackets_time_zero_restoration.expected",
+              "contains": "start reset t=6 state=52 net=52\nend reset t=0 state=23 net=23\ninitial t=0 state=23 net=23"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.36.3",
           "blocks": [
             "B009"
+          ]
+        }
+      ],
+      "check_groups": [
+        {
+          "id": "direct-and-vpi-reset",
+          "observation": "直接呼び出しと制御ルーチン経由の両方で、復元前後の通知と初期手続きの順序を照合する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "tests": [
+            "tests/ch38/test_vpi_reset_defers_until_return_and_restores_initial_state.sv",
+            "tests/ch38/test_vpi_direct_reset_brackets_time_zero_restoration.sv"
           ]
         }
       ]
@@ -468057,7 +468513,33 @@
       "acceptance": "Restart removes all callbacks except cbStartOfRestart/cbEndOfRestart; only those existing registrations survive.",
       "source_note": "IEEE 1800-2023 38.36.3; complete own-body source review, blocks B010, B011. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv",
+          "observation": "再開の開始と終了の通知を残し、再開前に登録した値変化と実行終了の通知を取り除き、再開後に登録し直した値変化の通知だけを発火させる。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "inputs_sha256": "a47af57fd53297a0b49681f5207fbf7c3f0ffa866a4b4c307888fcb096d5d5b0",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv",
+              "contains": "watched = 22;"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.c",
+              "contains": "register_action(cbEndOfSimulation, stale_end_of_simulation, NULL);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.c",
+              "contains": "watch(object, fresh_change);"
+            },
+            {
+              "file": "tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.expected",
+              "contains": "retained start=1 end=1 old before=1 old after=0 new after=1"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "38.36.3",
