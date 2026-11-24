@@ -6,9 +6,9 @@
 
 This report is only for registered finite models. The coverage of the requirements and the combination of all languages is not the same. The coverage on the plan and the confirmation of the pass based on the execution result are divided. The existing test is not reduced. A reduction in selected case count is not a measured reduction in runtime.
 
-For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/docs/interaction-verification.en.md).
+For the source, use, and limits of application, see [Import procedure](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/interaction-verification.en.md).
 
-See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
+See [a 4-row example](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.en.md#q28-why-not-simply-cross-every-feature) for what 100% of 2-factor coverage establishes, and [passing-execution satisfaction](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.en.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution) for the difference between the plan and actual PASS.
 
 ## scheduling_visibility / model 1
 
@@ -2337,8 +2337,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/ghost.json
 
-- Environment: private build d495d11ae498.
-- Execution timestamp: 2026-11-23T01:22:58.492836+00:00.
+- Environment: private build ddc1a7154d2d.
+- Execution timestamp: 2026-11-24T05:20:23.762968+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -2809,9 +2809,9 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 8/8.
   - Case statuses: pass=72, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - implicit_sensitivity_update:
-  - The confirmed combination of the 2 factor: 177/177.
+  - The confirmed combination of the 2 factor: 176/177.
   - Mandatory case: 25/25.
-  - Case statuses: pass=61, fail=0, known=0, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=60, fail=1, known=0, unsupported=0, stale=0, not_run=0.
 - interface_member_expression:
   - The confirmed combination of the 2 factor: 264/264.
   - Mandatory case: 7/7.
@@ -2897,8 +2897,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/icarus.json
 
-- Environment: Icarus Verilog version 14.0 (devel) (s20260301-1278-g8a4ce429).
-- Execution timestamp: 2026-11-23T02:06:51.563638+00:00.
+- Environment: Icarus Verilog version 14.0 (devel) (s20260301-1283-gaddeab31).
+- Execution timestamp: 2026-11-24T04:58:17.735790+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -3325,10 +3325,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 6/6.
   - Case statuses: pass=36, fail=0, known=0, unsupported=0, stale=0, not_run=0.
 - formatted_scan_partial_write:
-  - The confirmed combination of the 2 factor: 222/292.
-  - The confirmed combination of the 3 factor: 67/142.
-  - Mandatory case: 3/6.
-  - Case statuses: pass=17, fail=0, known=19, unsupported=0, stale=0, not_run=0.
+  - The confirmed combination of the 2 factor: 274/292.
+  - The confirmed combination of the 3 factor: 98/142.
+  - Mandatory case: 5/6.
+  - Case statuses: pass=24, fail=0, known=12, unsupported=0, stale=0, not_run=0.
 - program_task_frame_lifetime:
   - The confirmed combination of the 2 factor: 150/249.
   - The confirmed combination of the 3 factor: 32/100.
@@ -3457,8 +3457,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/kirimasim.json
 
-- Environment: kirimasim 0.1.3 (commit 1d2cac97a4fe), built with GNU 13.3.0.
-- Execution timestamp: 2026-11-23T01:06:05.175741+00:00.
+- Environment: kirimasim 0.2.1 (commit e93839fdcbea), built with GNU 13.3.0.
+- Execution timestamp: 2026-11-24T05:10:44.478510+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -4017,8 +4017,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/lyra.json
 
-- Environment: Lyra (commit 12bffd35ebfa).
-- Execution timestamp: 2026-11-23T04:24:37.701359+00:00.
+- Environment: Lyra (commit 3a8b6c77f2a9).
+- Execution timestamp: 2026-11-24T07:21:42.915339+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 111/126.
@@ -4577,8 +4577,8 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
 
 ### results/verilator.json
 
-- Environment: Verilator 5.055 devel rev v5.054-356-ga53cbcd6.
-- Execution timestamp: 2026-11-23T02:23:34.849836+00:00.
+- Environment: Verilator 5.055 devel rev v5.054-373-g9dee5c5f.
+- Execution timestamp: 2026-11-24T06:42:05.390146+00:00.
 
 - scheduling_visibility:
   - The confirmed combination of the 2 factor: 126/126.
@@ -5035,10 +5035,10 @@ Each snapshot is evaluated independently. Do not synthesize partial successes of
   - Mandatory case: 2/8.
   - Case statuses: pass=39, fail=0, known=27, unsupported=0, stale=0, not_run=0.
 - gate_array_connection:
-  - The confirmed combination of the 2 factor: 94/278.
-  - The confirmed combination of the 3 factor: 18/135.
+  - The confirmed combination of the 2 factor: 102/278.
+  - The confirmed combination of the 3 factor: 20/135.
   - Mandatory case: 1/6.
-  - Case statuses: pass=6, fail=0, known=45, unsupported=0, stale=0, not_run=0.
+  - Case statuses: pass=7, fail=0, known=44, unsupported=0, stale=0, not_run=0.
 - macro_expansion_context:
   - The confirmed combination of the 2 factor: 463/463.
   - Mandatory case: 9/9.

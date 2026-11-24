@@ -65211,8 +65211,8 @@
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build d495d11ae498",
-      "generated_at": "2026-11-23T01:22:58.492836+00:00",
+      "version": "private build ddc1a7154d2d",
+      "generated_at": "2026-11-24T05:20:23.762968+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -68152,8 +68152,8 @@
         },
         "implicit_sensitivity_update": {
           "case_statuses": {
-            "pass": 61,
-            "fail": 0,
+            "pass": 60,
+            "fail": 1,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -68161,9 +68161,9 @@
           },
           "coverage": {
             "2": {
-              "passed": 177,
+              "passed": 176,
               "total": 177,
-              "missing": 0
+              "missing": 1
             }
           },
           "mandatory_witnesses": {
@@ -68194,7 +68194,7 @@
             "tests/gen/ch4/test_gen_cross_sense_comb_part_same_nba.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": true
+          "complete": false
         },
         "interface_member_expression": {
           "case_statuses": {
@@ -68762,8 +68762,8 @@
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1278-g8a4ce429)",
-      "generated_at": "2026-11-23T02:06:51.563638+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1283-gaddeab31)",
+      "generated_at": "2026-11-24T04:58:17.735790+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -71413,32 +71413,32 @@
         },
         "formatted_scan_partial_write": {
           "case_statuses": {
-            "pass": 17,
+            "pass": 24,
             "fail": 0,
-            "known": 19,
+            "known": 12,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
-              "passed": 222,
+              "passed": 274,
               "total": 292,
-              "missing": 70
+              "missing": 18
             },
             "3": {
-              "passed": 67,
+              "passed": 98,
               "total": 142,
-              "missing": 75
+              "missing": 44
             }
           },
           "mandatory_witnesses": {
             "tests/gen/ch21/test_gen_cross_scansel_1_bit_known_bin_all_whole_target_low_literal.sv": "pass",
-            "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv": "known",
+            "tests/gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime.sv": "pass",
             "tests/gen/ch21/test_gen_cross_scansel_65_logic_x_bin_bad_second_plus_target_high_literal.sv": "pass",
             "tests/gen/ch21/test_gen_cross_scansel_33_bit_z_hex_empty_minus_word_low_runtime.sv": "known",
             "tests/gen/ch21/test_gen_cross_scansel_32_logic_known_hex_long_first_plus_word_low_literal.sv": "pass",
-            "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv": "known"
+            "tests/gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime.sv": "pass"
           },
           "provenance_problem": "",
           "complete": false
@@ -72313,8 +72313,8 @@
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.1.3 (commit 1d2cac97a4fe), built with GNU 13.3.0",
-      "generated_at": "2026-11-23T01:06:05.175741+00:00",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with GNU 13.3.0",
+      "generated_at": "2026-11-24T05:10:44.478510+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -75864,8 +75864,8 @@
     {
       "source": "results/lyra.json",
       "simulator": "lyra",
-      "version": "Lyra (commit 12bffd35ebfa)",
-      "generated_at": "2026-11-23T04:24:37.701359+00:00",
+      "version": "Lyra (commit 3a8b6c77f2a9)",
+      "generated_at": "2026-11-24T07:21:42.915339+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -79415,8 +79415,8 @@
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-356-ga53cbcd6",
-      "generated_at": "2026-11-23T02:23:34.849836+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-373-g9dee5c5f",
+      "generated_at": "2026-11-24T06:42:05.390146+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -82260,23 +82260,23 @@
         },
         "gate_array_connection": {
           "case_statuses": {
-            "pass": 6,
+            "pass": 7,
             "fail": 0,
-            "known": 45,
+            "known": 44,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
-              "passed": 94,
+              "passed": 102,
               "total": 278,
-              "missing": 184
+              "missing": 176
             },
             "3": {
-              "passed": 18,
+              "passed": 20,
               "total": 135,
-              "missing": 117
+              "missing": 115
             }
           },
           "mandatory_witnesses": {

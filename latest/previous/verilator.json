@@ -1,9 +1,9 @@
 {
  "name": "Verilator",
- "version": "Verilator 5.055 devel rev v5.054-354-g005ee501",
- "time": "2026-11-22T03:51:03Z",
- "suite_commit": "8569148236db9a89e43ebd5bd56fa5ffe904aaf1",
- "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/44963740828",
+ "version": "Verilator 5.055 devel rev v5.054-356-ga53cbcd6",
+ "time": "2026-11-23T04:25:04Z",
+ "suite_commit": "c3179844ed6b0dcb893e4e3f3f5aa45044560de5",
+ "run_url": "https://github.com/kurochan001/kirimasim-tests/actions/runs/45088300638",
  "tests": {
   "ch10/test_a6_7_1_assignment_pattern_keys": "pass",
   "ch10/test_adder_edge_cases": "pass",

@@ -2,17 +2,17 @@
 
 [English](review-candidates.md)
 
-期待値の根拠が規格の読み方にしかないテストと条項を、各シミュレータの最新の結果から挙げます。候補は誤りの指摘ではなく、規格と照らした見直しで判断します。[見直しの記録の仕方](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/docs/review-candidates.md)。
+期待値の根拠が規格の読み方にしかないテストと条項を、各シミュレータの最新の結果から挙げます。候補は誤りの指摘ではなく、規格と照らした見直しで判断します。[見直しの記録の仕方](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/review-candidates.md)。
 
 ## 読んだ結果
 
 | シミュレータ | 版 | 時刻 | スイートのコミット |
 | --- | --- | --- | --- |
-| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1278-g8a4ce429)` | 2026-11-23T04:25:04Z | `c3179844` |
-| Verilator | `Verilator 5.055 devel rev v5.054-356-ga53cbcd6` | 2026-11-23T04:25:04Z | `c3179844` |
-| kirimasim | `kirimasim 0.1.3 (commit 1d2cac97a4fe), built with GNU 13.3.0` | 2026-11-23T04:25:04Z | `c3179844` |
-| Lyra | `Lyra (commit 12bffd35ebfa)` | 2026-11-23T04:25:04Z | `c3179844` |
-| Ghost | `private build d495d11ae498` | 2026-11-23T04:25:04Z | `c3179844` |
+| Icarus Verilog | `Icarus Verilog version 14.0 (devel) (s20260301-1283-gaddeab31)` | 2026-11-24T07:22:08Z | `cbbd51a3` |
+| Verilator | `Verilator 5.055 devel rev v5.054-373-g9dee5c5f` | 2026-11-24T07:22:08Z | `cbbd51a3` |
+| kirimasim | `kirimasim 0.2.1 (commit e93839fdcbea), built with GNU 13.3.0` | 2026-11-24T07:22:08Z | `cbbd51a3` |
+| Lyra | `Lyra (commit 3a8b6c77f2a9)` | 2026-11-24T07:22:08Z | `cbbd51a3` |
+| Ghost | `private build ddc1a7154d2d` | 2026-11-24T07:22:08Z | `cbbd51a3` |
 
 ## 件数
 
@@ -21,7 +21,7 @@
 | specのみで、Ghost・kirimasim・Lyraのすべてでfail | 0 |
 | specのみで、kirimasimだけがpass | 0 |
 | specのみで、どこでもpassしないその他のテスト | 0 |
-| 固定版のoracleがあり、GhostとLyraの両方でfail | 0 |
+| 固定版のoracleがあり、GhostとLyraの両方でfail | 1 |
 | 引用するテストがすべてspecのみの条項 | 210 |
 | 読み方が割れるテスト | 78 |
 
@@ -41,7 +41,9 @@
 
 ## 固定版のoracleがあり、GhostとLyraの両方でfail
 
-なし。
+| テスト | 結果 |
+| --- | --- |
+| [`ch26/test_package_wildcard_binding_across_functions`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch26/test_package_wildcard_binding_across_functions.sv) | `Ip Vp Kf Lf Gf` |
 
 ## 引用するテストがすべてspecのみの条項
 
@@ -260,85 +262,85 @@
 
 ## 読み方が割れるテスト
 
-[読み方が割れるテストの台帳](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/docs/interpretation-splits.md)のテストを別枠で挙げます。上の候補にもそのまま含まれ、件数は変わりません。
+[読み方が割れるテストの台帳](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/interpretation-splits.md)のテストを別枠で挙げます。上の候補にもそのまま含まれ、件数は変わりません。
 
 | テスト | 区分 | 状態 | 結果 |
 | --- | --- | --- | --- |
-| [`ch11/test_equality_class_interface_chandle_handles`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch11/test_equality_class_interface_chandle_handles.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`ch11/test_illegal_stream_with_on_two_dimensional_array`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch11/test_illegal_stream_with_on_two_dimensional_array.sv) | `contested` | `unresolved` | `Ip Vp Ku Lf Gp` |
-| [`ch16/test_first_match_items_and_boolean_or`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch16/test_first_match_items_and_boolean_or.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch16/test_sequence_consecutive_repetition`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch16/test_sequence_consecutive_repetition.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch16/test_sequence_empty_match_concatenation`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch16/test_sequence_empty_match_concatenation.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch16/test_sequence_empty_match_fusion`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch16/test_sequence_empty_match_fusion.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch16/test_sequence_local_formal_assignment`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch16/test_sequence_local_formal_assignment.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch17/test_checker_assertion_placement`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch17/test_checker_assertion_placement.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch18/test_inline_local_scope_binding`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch18/test_inline_local_scope_binding.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
-| [`ch18/test_rand_mode_inactive_handle`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch18/test_rand_mode_inactive_handle.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
-| [`ch18/test_randomize_callback_override`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch18/test_randomize_callback_override.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
-| [`ch19/test_cg_four_state_literal_wildcard_enum`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch19/test_cg_four_state_literal_wildcard_enum.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
-| [`ch19/test_cg_option_levels_readback`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch19/test_cg_option_levels_readback.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
-| [`ch20/test_pla_all_forms`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch20/test_pla_all_forms.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch20/test_pla_sync_snapshot_versus_async_update`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch20/test_pla_sync_snapshot_versus_async_update.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch21/test_fwrite_unformatted_aggregates`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch21/test_fwrite_unformatted_aggregates.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch21/test_illegal_value_plusargs_bad_format`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch21/test_illegal_value_plusargs_bad_format.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`ch22/test_illegal_include_absolute_path_in_angle_brackets`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch22/test_illegal_include_absolute_path_in_angle_brackets.sv) | `contested` | `unresolved` | `Ip Vk Kf Lf Gp` |
-| [`ch23/test_defparam_block_task_function_parameters`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch23/test_defparam_block_task_function_parameters.sv) | `contested` | `unresolved` | `If Vk Kf Lf Gp` |
-| [`ch23/test_port_collapse_uwire_external_delay`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch23/test_port_collapse_uwire_external_delay.sv) | `contested` | `unresolved` | `Ik Vp Kf Lf Gp` |
-| [`ch30/test_illegal_specify_edge_path_same_edge_and_condition`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch30/test_illegal_specify_edge_path_same_edge_and_condition.sv) | `contested` | `unresolved` | `Ip Vk Ku Lf Gp` |
-| [`ch31/test_illegal_setuphold_negative_sum`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch31/test_illegal_setuphold_negative_sum.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`ch31/test_illegal_timing_condition_two_signals`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch31/test_illegal_timing_condition_two_signals.sv) | `contested` | `unresolved` | `Ip Vk Ku Lf Gp` |
-| [`ch31/test_timing_check_condition_x`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch31/test_timing_check_condition_x.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`ch32/test_sdf_scale_type_members`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch32/test_sdf_scale_type_members.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch33/test_config_cell_parameter`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch33/test_config_cell_parameter.sv) | `contested` | `unresolved` | `Ik Vk Kp Lf Gp` |
-| [`ch33/test_duplicate_cell_last_definition_wins`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch33/test_duplicate_cell_last_definition_wins.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
-| [`ch36/test_vpi_chk_error_callbacks`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch36/test_vpi_chk_error_callbacks.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch36/test_vpi_compatibility_1800v2017_mode`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch36/test_vpi_compatibility_1800v2017_mode.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch36/test_vpi_compatibility_1800v2023_mode`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch36/test_vpi_compatibility_1800v2023_mode.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch36/test_vpi_compiletf_sizetf`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch36/test_vpi_compiletf_sizetf.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_atomic_task_call_label`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_atomic_task_call_label.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_attribute_value_types`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_attribute_value_types.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_class_relations_scope_typespec`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_class_relations_scope_typespec.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_cont_assign_bits_delays`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_cont_assign_bits_delays.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_generate_nettype_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_generate_nettype_typedef.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_interconnect_array_ranges`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_interconnect_array_ranges.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_iterator_objects`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_iterator_objects.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_module_paths`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_module_paths.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_named_event_relations`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_named_event_relations.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_named_events`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_named_events.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_net_driver_objects`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_net_driver_objects.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_nettype_alias_chain_relations`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_nettype_alias_chain_relations.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_nettype_declarations`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_nettype_declarations.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_nettype_net_parts`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_nettype_net_parts.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_nettype_relations`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_nettype_relations.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_prefix_allocation`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_prefix_allocation.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_program_interface_relations.sv) | `contested` | `resolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_property_operator_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_property_operator_kinds.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_select_objects_event_arrays`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_select_objects_event_arrays.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_size_change_callback`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_size_change_callback.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_statement_control_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_statement_control_kinds.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_tf_call_kinds_relations`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_tf_call_kinds_relations.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch37/test_vpi_unbounded_const_ranges`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch37/test_vpi_unbounded_const_ranges.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch38/test_vpi_error_callback_runtime_errors`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch38/test_vpi_error_callback_runtime_errors.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch38/test_vpi_get_value_array`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch38/test_vpi_get_value_array.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch38/test_vpi_get_value_real_conversion`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch38/test_vpi_get_value_real_conversion.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch38/test_vpi_mcd_open_reuse`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch38/test_vpi_mcd_open_reuse.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch38/test_vpi_value_change_event`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch38/test_vpi_value_change_event.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch39/test_vpi_assertion_reset_restores_initial_state`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch39/test_vpi_assertion_reset_restores_initial_state.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch40/test_coverage_control_package_scope`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch40/test_coverage_control_package_scope.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch40/test_coverage_fsm_next_state_pragmas`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch40/test_coverage_fsm_next_state_pragmas.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch40/test_vpi_coverage_save_merge`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch40/test_vpi_coverage_save_merge.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch6/test_a2_1_3_interconnect_declaration_identifiers`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
-| [`ch6/test_builtin_net_declaration_forms`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch6/test_builtin_net_declaration_forms.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
-| [`ch7/test_array_ordering_methods_and_index_queries`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch7/test_array_ordering_methods_and_index_queries.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`ch7/test_illegal_string_in_untagged_union`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch7/test_illegal_string_in_untagged_union.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`ch7/test_illegal_unique_index_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch7/test_illegal_unique_index_without_with_struct_elements.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`ch7/test_illegal_unique_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/ch7/test_illegal_unique_without_with_struct_elements.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
-| [`gen/ch21/test_gen_cross_litfmt_fill_b_display_param`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch21/test_gen_cross_litfmt_fill_b_display_param.sv) | `contested` | `unresolved` | `Ip Vp Kp Lf Gp` |
-| [`gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
-| [`gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
-| [`gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
-| [`gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
-| [`gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65`](https://github.com/kurochan001/kirimasim-tests/blob/c3179844ed6b0dcb893e4e3f3f5aa45044560de5/tests/gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65.sv) | `contested` | `unresolved` | `Ip Vp Kp Lf Gp` |
+| [`ch11/test_equality_class_interface_chandle_handles`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch11/test_equality_class_interface_chandle_handles.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`ch11/test_illegal_stream_with_on_two_dimensional_array`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch11/test_illegal_stream_with_on_two_dimensional_array.sv) | `contested` | `unresolved` | `Ip Vp Ku Lf Gp` |
+| [`ch16/test_first_match_items_and_boolean_or`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch16/test_first_match_items_and_boolean_or.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch16/test_sequence_consecutive_repetition`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch16/test_sequence_consecutive_repetition.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch16/test_sequence_empty_match_concatenation`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch16/test_sequence_empty_match_concatenation.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch16/test_sequence_empty_match_fusion`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch16/test_sequence_empty_match_fusion.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch16/test_sequence_local_formal_assignment`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch16/test_sequence_local_formal_assignment.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch17/test_checker_assertion_placement`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch17/test_checker_assertion_placement.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch18/test_inline_local_scope_binding`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch18/test_inline_local_scope_binding.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
+| [`ch18/test_rand_mode_inactive_handle`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch18/test_rand_mode_inactive_handle.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
+| [`ch18/test_randomize_callback_override`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch18/test_randomize_callback_override.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
+| [`ch19/test_cg_four_state_literal_wildcard_enum`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch19/test_cg_four_state_literal_wildcard_enum.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
+| [`ch19/test_cg_option_levels_readback`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch19/test_cg_option_levels_readback.sv) | `contested` | `unresolved` | `Ik Vk Ku Lp Gp` |
+| [`ch20/test_pla_all_forms`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch20/test_pla_all_forms.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch20/test_pla_sync_snapshot_versus_async_update`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch20/test_pla_sync_snapshot_versus_async_update.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch21/test_fwrite_unformatted_aggregates`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch21/test_fwrite_unformatted_aggregates.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch21/test_illegal_value_plusargs_bad_format`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch21/test_illegal_value_plusargs_bad_format.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`ch22/test_illegal_include_absolute_path_in_angle_brackets`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch22/test_illegal_include_absolute_path_in_angle_brackets.sv) | `contested` | `unresolved` | `Ip Vk Kf Lf Gp` |
+| [`ch23/test_defparam_block_task_function_parameters`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch23/test_defparam_block_task_function_parameters.sv) | `contested` | `unresolved` | `If Vk Kf Lf Gp` |
+| [`ch23/test_port_collapse_uwire_external_delay`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch23/test_port_collapse_uwire_external_delay.sv) | `contested` | `unresolved` | `Ik Vp Kf Lf Gp` |
+| [`ch30/test_illegal_specify_edge_path_same_edge_and_condition`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch30/test_illegal_specify_edge_path_same_edge_and_condition.sv) | `contested` | `unresolved` | `Ip Vk Ku Lf Gp` |
+| [`ch31/test_illegal_setuphold_negative_sum`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch31/test_illegal_setuphold_negative_sum.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`ch31/test_illegal_timing_condition_two_signals`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch31/test_illegal_timing_condition_two_signals.sv) | `contested` | `unresolved` | `Ip Vk Ku Lf Gp` |
+| [`ch31/test_timing_check_condition_x`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch31/test_timing_check_condition_x.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`ch32/test_sdf_scale_type_members`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch32/test_sdf_scale_type_members.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch33/test_config_cell_parameter`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch33/test_config_cell_parameter.sv) | `contested` | `unresolved` | `Ik Vk Kp Lf Gp` |
+| [`ch33/test_duplicate_cell_last_definition_wins`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch33/test_duplicate_cell_last_definition_wins.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
+| [`ch36/test_vpi_chk_error_callbacks`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch36/test_vpi_chk_error_callbacks.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch36/test_vpi_compatibility_1800v2017_mode`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch36/test_vpi_compatibility_1800v2017_mode.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch36/test_vpi_compatibility_1800v2023_mode`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch36/test_vpi_compatibility_1800v2023_mode.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch36/test_vpi_compiletf_sizetf`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch36/test_vpi_compiletf_sizetf.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_atomic_task_call_label`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_atomic_task_call_label.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_attribute_value_types`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_attribute_value_types.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_class_relations_scope_typespec`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_class_relations_scope_typespec.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_cont_assign_bits_delays`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_cont_assign_bits_delays.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_generate_nettype_typedef`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_generate_nettype_typedef.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_interconnect_array_ranges`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_interconnect_array_ranges.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_iterator_objects`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_iterator_objects.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_module_paths`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_module_paths.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_named_event_relations`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_named_event_relations.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_named_events`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_named_events.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_net_driver_objects`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_net_driver_objects.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_nettype_alias_chain_relations`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_nettype_alias_chain_relations.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_nettype_declarations`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_nettype_declarations.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_nettype_net_parts`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_nettype_net_parts.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_nettype_relations`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_nettype_relations.sv) | `standard_gap` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_prefix_allocation`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_prefix_allocation.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_program_interface_relations`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_program_interface_relations.sv) | `contested` | `resolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_property_operator_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_property_operator_kinds.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_select_objects_event_arrays`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_select_objects_event_arrays.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_size_change_callback`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_size_change_callback.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_statement_control_kinds`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_statement_control_kinds.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_tf_call_kinds_relations`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_tf_call_kinds_relations.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch37/test_vpi_unbounded_const_ranges`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch37/test_vpi_unbounded_const_ranges.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch38/test_vpi_error_callback_runtime_errors`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch38/test_vpi_error_callback_runtime_errors.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch38/test_vpi_get_value_array`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch38/test_vpi_get_value_array.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch38/test_vpi_get_value_real_conversion`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch38/test_vpi_get_value_real_conversion.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch38/test_vpi_mcd_open_reuse`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch38/test_vpi_mcd_open_reuse.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch38/test_vpi_value_change_event`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch38/test_vpi_value_change_event.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch39/test_vpi_assertion_reset_restores_initial_state`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch39/test_vpi_assertion_reset_restores_initial_state.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch40/test_coverage_control_package_scope`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch40/test_coverage_control_package_scope.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch40/test_coverage_fsm_next_state_pragmas`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch40/test_coverage_fsm_next_state_pragmas.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch40/test_vpi_coverage_save_merge`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch40/test_vpi_coverage_save_merge.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch6/test_a2_1_3_interconnect_declaration_identifiers`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv) | `contested` | `unresolved` | `Ik Vk Kf Lu Gp` |
+| [`ch6/test_builtin_net_declaration_forms`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch6/test_builtin_net_declaration_forms.sv) | `contested` | `unresolved` | `Ik Vk Ku Lu Gp` |
+| [`ch7/test_array_ordering_methods_and_index_queries`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch7/test_array_ordering_methods_and_index_queries.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`ch7/test_illegal_string_in_untagged_union`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch7/test_illegal_string_in_untagged_union.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`ch7/test_illegal_unique_index_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch7/test_illegal_unique_index_without_with_struct_elements.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`ch7/test_illegal_unique_without_with_struct_elements`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/ch7/test_illegal_unique_without_with_struct_elements.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch20/test_gen_cross_dpiquery_1_up_neg_one_4_sized_offset_same_variable.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch20/test_gen_cross_dpiquery_2_up_pos_one_4_sized_offset_same_variable.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch20/test_gen_cross_dpiquery_3_up_neg_one_4_open_offset_switch_literal.sv) | `contested` | `unresolved` | `Ik Vk Ku Lf Gp` |
+| [`gen/ch21/test_gen_cross_litfmt_fill_b_display_param`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch21/test_gen_cross_litfmt_fill_b_display_param.sv) | `contested` | `unresolved` | `Ip Vp Kp Lf Gp` |
+| [`gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch33/test_gen_cross_config_1_both_reset_all_0_if_literal_direct.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
+| [`gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_case_literal_wrapped.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
+| [`gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch33/test_gen_cross_config_32_defparam_reset_all_0_if_literal_direct.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
+| [`gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch33/test_gen_cross_config_64_both_reset_all_0_if_literal_wrapped.sv) | `contested` | `unresolved` | `Ik Vk Kf Lf Gp` |
+| [`gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65`](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/tests/gen/ch5/test_gen_cross_literal_fill_unsigned_unsized_one_add_signed_logic_65.sv) | `contested` | `unresolved` | `Ip Vp Kp Lf Gp` |
