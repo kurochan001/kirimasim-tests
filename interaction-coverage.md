@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2337,8 +2337,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/ghost.json
 
-- 環境: private build ddc1a7154d2d。
-- 実行日時: 2026-11-24T05:20:23.762968+00:00。
+- 環境: private build a4db8bcf783c。
+- 実行日時: 2026-11-25T03:49:07.053617+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2897,8 +2897,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-1283-gaddeab31)。
-- 実行日時: 2026-11-24T04:58:17.735790+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-1291-g3f05f92b)。
+- 実行日時: 2026-11-25T03:35:31.003215+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3457,8 +3457,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.2.1 (commit e93839fdcbea), built with GNU 13.3.0。
-- 実行日時: 2026-11-24T05:10:44.478510+00:00。
+- 環境: kirimasim 0.2.2 (commit a50ec73c37d8), built with GNU 13.3.0。
+- 実行日時: 2026-11-25T03:36:17.239103+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -4017,8 +4017,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/lyra.json
 
-- 環境: Lyra (commit 3a8b6c77f2a9)。
-- 実行日時: 2026-11-24T07:21:42.915339+00:00。
+- 環境: Lyra (commit b1666593b9f4)。
+- 実行日時: 2026-11-25T05:35:42.335225+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -4577,8 +4577,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-373-g9dee5c5f。
-- 実行日時: 2026-11-24T06:42:05.390146+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-394-g342ca8e0。
+- 実行日時: 2026-11-25T04:56:24.137771+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。

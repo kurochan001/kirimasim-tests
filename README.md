@@ -4,67 +4,55 @@
 
 The [nightly workflow](https://github.com/kurochan001/kirimasim-tests/actions/workflows/nightly.yml) of [kirimasim-tests](https://github.com/kurochan001/kirimasim-tests) writes this branch. Each night it runs the simulation tests on `main` with each simulator, adds the results to `history.json` and draws the charts below. The suite total includes formal-only tests. Each simulator row counts simulation tests. Local runs can also be imported and are marked `local`. A test matches when its output and specified checks agree with the expected result, or an illegal design is rejected with the required diagnostic; see the suite's README for what each status means.
 
-Latest run: 2026-11-24 07:22 UTC, suite commit [`cbbd51a`](https://github.com/kurochan001/kirimasim-tests/commit/cbbd51a3258858ad65d0759ba41cb7d4b44fd540), 16371 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/45325586796).
+Latest run: 2026-11-25 05:36 UTC, suite commit [`f029182`](https://github.com/kurochan001/kirimasim-tests/commit/f029182b31bfe8fded04eeb649f19517d988ca97), 16877 tests, [workflow run](https://github.com/kurochan001/kirimasim-tests/actions/runs/45537366608).
 
 ## Latest results per simulator
 
 Each row and chapter-table column uses that simulator's most recent recorded run. Dates, suite commits and test counts can differ; older results retain their own dates and are not treated as part of the latest run.
 
-A green workflow does not mean every test passed: [why Differ can remain](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results). Read [status meanings and per-test evidence](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) before comparing totals.
+A green workflow does not mean every test passed: [why Differ can remain](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.en.md#q11-why-can-nightly-be-green-with-differ-results). Read [status meanings and per-test evidence](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.en.md#q9-what-do-match-differ-known-difference-and-unsupported-mean) before comparing totals.
 
 | Simulator | Version | Run (UTC) | Suite | Source | Match | Differ | Known differences | Unsupported |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1283-gaddeab31) | 2026-11-24 07:22 | [`cbbd51a`](https://github.com/kurochan001/kirimasim-tests/commit/cbbd51a3258858ad65d0759ba41cb7d4b44fd540) | nightly | 10351 (64.3%) | 12 | 5741 | 0 |
-| Verilator | Verilator 5.055 devel rev v5.054-373-g9dee5c5f | 2026-11-24 07:22 | [`cbbd51a`](https://github.com/kurochan001/kirimasim-tests/commit/cbbd51a3258858ad65d0759ba41cb7d4b44fd540) | nightly | 9175 (57.0%) | 29 | 6900 | 0 |
-| kirimasim | kirimasim 0.2.1 (commit e93839fdcbea), built with GNU 13.3.0 | 2026-11-24 07:22 | [`cbbd51a`](https://github.com/kurochan001/kirimasim-tests/commit/cbbd51a3258858ad65d0759ba41cb7d4b44fd540) | nightly | 13180 (81.8%) | 296 | 0 | 2628 |
-| Lyra | Lyra (commit 3a8b6c77f2a9) | 2026-11-24 07:22 | [`cbbd51a`](https://github.com/kurochan001/kirimasim-tests/commit/cbbd51a3258858ad65d0759ba41cb7d4b44fd540) | nightly | 13497 (83.8%) | 861 | 0 | 1746 |
-| Ghost | private build ddc1a7154d2d | 2026-11-24 07:22 | [`cbbd51a`](https://github.com/kurochan001/kirimasim-tests/commit/cbbd51a3258858ad65d0759ba41cb7d4b44fd540) | nightly | 16102 (100.0%) | 2 | 0 | 0 |
+| Icarus Verilog | Icarus Verilog version 14.0 (devel) (s20260301-1291-g3f05f92b) | 2026-11-25 05:36 | [`f029182`](https://github.com/kurochan001/kirimasim-tests/commit/f029182b31bfe8fded04eeb649f19517d988ca97) | nightly | 10466 (63.0%) | 13 | 6129 | 0 |
+| Verilator | Verilator 5.055 devel rev v5.054-394-g342ca8e0 | 2026-11-25 05:36 | [`f029182`](https://github.com/kurochan001/kirimasim-tests/commit/f029182b31bfe8fded04eeb649f19517d988ca97) | nightly | 9290 (55.9%) | 29 | 7289 | 0 |
+| kirimasim | kirimasim 0.2.2 (commit a50ec73c37d8), built with GNU 13.3.0 | 2026-11-25 05:36 | [`f029182`](https://github.com/kurochan001/kirimasim-tests/commit/f029182b31bfe8fded04eeb649f19517d988ca97) | nightly | 13368 (80.5%) | 332 | 0 | 2908 |
+| Lyra | Lyra (commit b1666593b9f4) | 2026-11-25 05:36 | [`f029182`](https://github.com/kurochan001/kirimasim-tests/commit/f029182b31bfe8fded04eeb649f19517d988ca97) | nightly | 13743 (82.7%) | 960 | 0 | 1905 |
+| Ghost | private build a4db8bcf783c | 2026-11-25 05:36 | [`f029182`](https://github.com/kurochan001/kirimasim-tests/commit/f029182b31bfe8fded04eeb649f19517d988ca97) | nightly | 16419 (98.9%) | 189 | 0 | 0 |
 
 Ghost is an unidentified simulator taking part before its public debut. For now, only its test results step out from behind the curtain. Its name, source and build logs remain private; build IDs are executable hashes.
 
-![Tests that match their expected results](charts/overview.svg?v=20261124T072208)
+![Tests that match their expected results](charts/overview.svg?v=20261125T053607)
 
-![Share of the tests that match](charts/rate.svg?v=20261124T072208)
+![Share of the tests that match](charts/rate.svg?v=20261125T053607)
 
 ## Changes in the latest run
 
 Tests that match now but did not in the previous run of the same simulator, and tests that matched then but do not now. Tests added to the suite are counted in the table above.
 
-### Icarus Verilog
-
-Newly match (10): `ch21/test_sscanf_format_from_variables`, `ch31/test_31_extra_negative_condition_args`, `ch31/test_timing_check_forms_and_arguments`, `gen/ch21/test_gen_cross_scansel_129_bit_known_bin_empty_plus_target_low_runtime`, `gen/ch21/test_gen_cross_scansel_129_logic_z_hex_long_first_minus_word_high_runtime`, `gen/ch21/test_gen_cross_scansel_1_logic_x_hex_bad_second_minus_word_low_runtime`, `gen/ch21/test_gen_cross_scansel_32_bit_known_bin_bad_second_plus_target_low_runtime`, `gen/ch21/test_gen_cross_scansel_32_logic_z_bin_empty_whole_target_low_runtime`, `gen/ch21/test_gen_cross_scansel_33_bit_known_bin_long_first_plus_target_low_runtime`, `gen/ch21/test_gen_cross_scansel_64_bit_known_bin_bad_second_whole_target_low_runtime`
-
-### Verilator
-
-Newly match (1): `gen/ch28/test_gen_cross_gatearray_not_offset_whole_up_scalar_none_two_known`
-
-### Lyra
-
-Newly match (1): `ch18/test_illegal_solve_before_unpacked_array`
-
 ### Ghost
 
 No longer match (1):
 
-- `gen/ch4/test_gen_cross_sense_comb_fnglobal_same_blocking`: differ — output differs
+- `ch8/test_weak_reference_std_scope_and_strong_reachability`: differ — output differs
 
 ## By chapter
 
-Cells show matching tests / recorded results, including known and unsupported in the denominator: [8/10 example](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.en.md#q12-what-percentage-does-by-chapter-show). This is [not requirement coverage](https://github.com/kurochan001/kirimasim-tests/blob/cbbd51a3258858ad65d0759ba41cb7d4b44fd540/docs/faq.en.md#q15-is-the-nightly-match-rate-requirement-coverage).
+Cells show matching tests / recorded results, including known and unsupported in the denominator: [8/10 example](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.en.md#q12-what-percentage-does-by-chapter-show). This is [not requirement coverage](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.en.md#q15-is-the-nightly-match-rate-requirement-coverage).
 
-![Matching tests by chapter](charts/chapters.svg?v=20261124T072208)
+![Matching tests by chapter](charts/chapters.svg?v=20261125T053607)
 
 ## Each simulator over time
 
-![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261124T072208)
+![Icarus Verilog: results by status](charts/status-icarus.svg?v=20261125T053607)
 
-![Verilator: results by status](charts/status-verilator.svg?v=20261124T072208)
+![Verilator: results by status](charts/status-verilator.svg?v=20261125T053607)
 
-![kirimasim: results by status](charts/status-kirimasim.svg?v=20261124T072208)
+![kirimasim: results by status](charts/status-kirimasim.svg?v=20261125T053607)
 
-![Lyra: results by status](charts/status-lyra.svg?v=20261124T072208)
+![Lyra: results by status](charts/status-lyra.svg?v=20261125T053607)
 
-![Ghost: results by status](charts/status-ghost.svg?v=20261124T072208)
+![Ghost: results by status](charts/status-ghost.svg?v=20261125T053607)
 
 ## Recent runs
 
@@ -72,6 +60,7 @@ Matching tests of each simulator, with the change since its previous run. The ve
 
 | Run (UTC) | Suite | Tests | Icarus Verilog | Verilator | kirimasim | Lyra | Ghost |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [2026-11-25 05:36](https://github.com/kurochan001/kirimasim-tests/actions/runs/45537366608) | [`f029182`](https://github.com/kurochan001/kirimasim-tests/commit/f029182b31bfe8fded04eeb649f19517d988ca97) | 16877 | 10466 (+115 −0) `14.0 devel 3f05f92` | 9290 (+115 −0) `5.055 devel 342ca8e` | 13368 (+188 −0) `a50ec73c3` | 13743 (+246 −0) `b1666593b` | 16419 (+318 −1) `private build a4db8bcf783c` |
 | [2026-11-24 07:22](https://github.com/kurochan001/kirimasim-tests/actions/runs/45325586796) | [`cbbd51a`](https://github.com/kurochan001/kirimasim-tests/commit/cbbd51a3258858ad65d0759ba41cb7d4b44fd540) | 16371 | 10351 (+24 −0) `14.0 devel addeab3` | 9175 (+31 −0) `5.055 devel 9dee5c5` | 13180 (+20 −0) `e93839fdc` | 13497 (+31 −0) `3a8b6c77f` | 16102 (+32 −1) `private build ddc1a7154d2d` |
 | [2026-11-23 04:25](https://github.com/kurochan001/kirimasim-tests/actions/runs/45088300638) | [`c317984`](https://github.com/kurochan001/kirimasim-tests/commit/c3179844ed6b0dcb893e4e3f3f5aa45044560de5) | 16338 | 10327 (+6 −1) `14.0 devel 8a4ce42` | 9144 `5.055 devel a53cbcd` | 13160 `1d2cac97a` | 13466 (+8 −4) `12bffd35e` | 16071 (+24 −0) `private build d495d11ae498` |
 | [2026-11-22 03:51](https://github.com/kurochan001/kirimasim-tests/actions/runs/44963740828) | [`8569148`](https://github.com/kurochan001/kirimasim-tests/commit/8569148236db9a89e43ebd5bd56fa5ffe904aaf1) | 16338 | 10322 `14.0 devel a225510` | 9144 `5.055 devel 005ee50` | 13160 (+17 −0) `ad004a67d` | 13462 (+19 −1) `387248dcd` | 16047 (+3 −0) `private build 1663bc821744` |
@@ -101,7 +90,6 @@ Matching tests of each simulator, with the change since its previous run. The ve
 | [2026-11-04 03:25](https://github.com/kurochan001/kirimasim-tests/actions/runs/41743702063) | [`9926160`](https://github.com/kurochan001/kirimasim-tests/commit/9926160a1397f514cdd09f84384392c832de2cc5) | 10672 | 6250 (+6 −0) `14.0 devel 16efc8c` | 5767 (+1 −2) `5.055 devel c0e51ca` | 7868 (+5 −0) `911395591` | 8110 `7c55e9f93` | 9701 (+0 −1) `private build 1c85ee891430` |
 | [2026-11-03 16:13](https://github.com/kurochan001/kirimasim-tests/actions/runs/41650010801) | [`e8d991a`](https://github.com/kurochan001/kirimasim-tests/commit/e8d991a97b2abb12a41a1fb6b89c2406f9aa7292) | 10672 | 6244 (+36 −0) | 5768 (+66 −0) `5.055 devel a9e5a51` | 7863 (+160 −0) `d73d8922d` | 8110 (+164 −2) `fff84e924` | 9702 (+248 −2) `private build e629cbd964b4` |
 | [2026-11-03 05:51](https://github.com/kurochan001/kirimasim-tests/actions/runs/41561194045) | [`9064ac9`](https://github.com/kurochan001/kirimasim-tests/commit/9064ac95375dae023c6128b1ef30ac464715009c) | 10511 | 6208 (+3 −0) | 5702 (+135 −0) `5.055 devel 094b04d` | 7703 (+28 −0) `f3ea0379a` | 7948 (+170 −1) `554db457a` | 9456 (+269 −0) `private build 3499c4a8842c` |
-| [2026-11-02 15:52](https://github.com/kurochan001/kirimasim-tests/actions/runs/41454861438) | [`0afc896`](https://github.com/kurochan001/kirimasim-tests/commit/0afc89659c16a22f88c82816358e305de3f34d93) | 10289 | 6205 (+44 −0) `14.0 devel 61dbc3c` | 5567 (+119 −1) `5.055 devel 4298d7b` | 7675 (+252 −1) `2edfebbc6` | 7779 (+137 −1) `099acd527` | 9187 (+281 −2) `private build 4d414f2efa2c` |
 
 ## Files
 

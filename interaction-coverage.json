@@ -65211,8 +65211,8 @@
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build ddc1a7154d2d",
-      "generated_at": "2026-11-24T05:20:23.762968+00:00",
+      "version": "private build a4db8bcf783c",
+      "generated_at": "2026-11-25T03:49:07.053617+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -68762,8 +68762,8 @@
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1283-gaddeab31)",
-      "generated_at": "2026-11-24T04:58:17.735790+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1291-g3f05f92b)",
+      "generated_at": "2026-11-25T03:35:31.003215+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -72313,8 +72313,8 @@
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with GNU 13.3.0",
-      "generated_at": "2026-11-24T05:10:44.478510+00:00",
+      "version": "kirimasim 0.2.2 (commit a50ec73c37d8), built with GNU 13.3.0",
+      "generated_at": "2026-11-25T03:36:17.239103+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -75864,8 +75864,8 @@
     {
       "source": "results/lyra.json",
       "simulator": "lyra",
-      "version": "Lyra (commit 3a8b6c77f2a9)",
-      "generated_at": "2026-11-24T07:21:42.915339+00:00",
+      "version": "Lyra (commit b1666593b9f4)",
+      "generated_at": "2026-11-25T05:35:42.335225+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -79415,8 +79415,8 @@
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-373-g9dee5c5f",
-      "generated_at": "2026-11-24T06:42:05.390146+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-394-g342ca8e0",
+      "generated_at": "2026-11-25T04:56:24.137771+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
