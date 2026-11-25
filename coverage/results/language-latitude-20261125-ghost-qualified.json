@@ -1,0 +1,96 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch10/test_assignment_pattern_side_effect_observation": {
+   "status": "pass",
+   "inputs_sha256": "b96e337299a8aeb17c647cb36c339fc9fa29000c3d50bf9ec5d3ffaafae2052a"
+  },
+  "ch12/test_unique_and_unique0_condition_contract": {
+   "status": "pass",
+   "inputs_sha256": "70a3954d66465a5e60414382a4d7e2b9f2a82b84c34b5067e89e198e9e560843"
+  },
+  "ch12/test_unique_overlap_optional_evaluation": {
+   "status": "pass",
+   "inputs_sha256": "9a85c6ce09c9f33403df17328afb7d3c2a318ac3e495047b052662f8c5650e1d"
+  },
+  "ch13/test_defparam_constant_function_observation": {
+   "status": "pass",
+   "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372"
+  },
+  "ch15/test_mailbox_negative_bound_observation": {
+   "status": "pass",
+   "inputs_sha256": "cc1f92d5a47cefda65129e0978d692e35ee47191cb039df25677fee3e78dcfa1"
+  },
+  "ch15/test_null_event_wait_observation": {
+   "status": "pass",
+   "inputs_sha256": "7df76b88f7bd6a90226503b265f4e3fc8fa961dc57e632b31a8b7b022a5b1485"
+  },
+  "ch16/test_assertion_clock_multiple_transitions_observation": {
+   "status": "pass",
+   "inputs_sha256": "92ff8b96f5b150dcbd6593ebdad1f756f25d405cee9a2eda45e988e31bb0e87d"
+  },
+  "ch18/test_randsequence_ungenerated_result_observation": {
+   "status": "pass",
+   "inputs_sha256": "80abe1781abb299b5f7a2b40e257e5c764f2684ccd2efa08f026a55a95cf98e7"
+  },
+  "ch18/test_rng_state_format_and_replay": {
+   "status": "pass",
+   "inputs_sha256": "56b303fe82eaba547e1344595073c777ad71948ab97e3643d9d0a5b0c79ea540"
+  },
+  "ch23/test_port_type_time_zero_events": {
+   "status": "pass",
+   "inputs_sha256": "997ea6cc79a9f1e9341d39c8a3a14edcaaae5e54e98f5fa34cc2997836e240eb"
+  },
+  "ch24/test_design_and_program_assertion_clocks": {
+   "status": "pass",
+   "inputs_sha256": "6b4c53e911bb0fa2d0ccdcc20881448cf6b87c377fc4d97c50513081c83a4a18"
+  },
+  "ch24/test_exit_outside_program_optional_warning": {
+   "status": "pass",
+   "inputs_sha256": "334cba26c27ddd37ef4f6dfee3d644dbb5783a89174107022388bbee25a66584"
+  },
+  "ch3/test_combined_compile_elaboration_results": {
+   "status": "pass",
+   "inputs_sha256": "2fe6fece64eb55a0f4c0e0ca1e2a687b6f704255695c1da80c94825d5ca221eb"
+  },
+  "ch4/test_active_sample_and_reactive_settling": {
+   "status": "pass",
+   "inputs_sha256": "30a8bcd8f3950d7395f40da0b5fbbbfe25474e6c8c2b547b7d0948d5bd913679"
+  },
+  "ch6/test_variable_drive_strength_warning_observation": {
+   "status": "pass",
+   "inputs_sha256": "89d90c9b5aa02427dccbdc109dfb7919fbc4020454c5f7c32564a03db4329994"
+  },
+  "ch7/test_locator_with_side_effect_observation": {
+   "status": "pass",
+   "inputs_sha256": "0d446df44b2359f6251004585e869168841ed1ef9a67504c79d8ead54c34de6a"
+  },
+  "ch7/test_tagged_union_initial_tag_and_unused_bits": {
+   "status": "pass",
+   "inputs_sha256": "f3296383f5dd9b73fc22dbb67553311688053ea8f03dd769ac531e975e2e1c74"
+  },
+  "ch8/test_class_property_before_initializer_observation": {
+   "status": "pass",
+   "inputs_sha256": "43f33f493f15b6866d2c1ba8f115f4758b7f53767ba5d85d7570a2de1ca08a88"
+  },
+  "ch9/test_event_method_unrelated_member_observation": {
+   "status": "pass",
+   "inputs_sha256": "0f2d68f2e008d41902ffac618730cce4f944dfb912be23533aefc0159e9e2271"
+  },
+  "ch9/test_function_disable_caller_observation": {
+   "status": "pass",
+   "inputs_sha256": "e8fac21ddd45970d6ff098537e716980b4c348597fe68c32492e6c182a572c91"
+  }
+ },
+ "generated_at": "2026-11-25T05:58:37.687285+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-language-latitude",
+  "checker_sha256": "e1d4f0bf2d70a9aed52c2fe250da393849b061603c2912dfad336f415901d914",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "runtime_profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+ }
+}

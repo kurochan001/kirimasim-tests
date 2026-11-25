@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-25",
+  "lrm": [
+    "6.6.7",
+    "6.7.3",
+    "38.36.1"
+  ],
+  "replay": "Run the test with its VPI application loaded and add +resolver_trace to show the recorded sums.",
+  "snapshots": {
+    "ghost": "results/resolver-history-20261125-ghost.json",
+    "icarus": "results/resolver-history-20261125-icarus13.json",
+    "verilator": "results/resolver-history-20261125-verilator5.054.json",
+    "kirimasim": "results/resolver-history-20261125-kirimasim.json"
+  },
+  "ghost": {
+    "same_region": {
+      "before": 105,
+      "tick": 1,
+      "observed_values": [
+        110,
+        118
+      ],
+      "evaluation_lower_bound": 2
+    },
+    "separate_regions_control": {
+      "tick": 2,
+      "separator": "#0",
+      "observed_values": [
+        124,
+        130
+      ]
+    },
+    "time_zero": {
+      "observed_values": [
+        102,
+        105
+      ],
+      "undriven_at_end_of_slot": 100,
+      "driven_at_end_of_slot": 105,
+      "reversed_blocking_assignments": [
+        103,
+        105
+      ],
+      "blocking_assignments_deferred_by_zero_delay": [
+        102,
+        105
+      ]
+    }
+  },
+  "portability": {
+    "icarus": "Syntax rejection at nettype in both fixtures.",
+    "verilator": "nettype with is unsupported.",
+    "kirimasim": "The suite runner classifies the VPI-backed cases as unsupported. Direct runs with only the VPI call removed reject the nettype in both fixtures."
+  },
+  "oracle_branch_checks": {
+    "permitted_histories_accepted": 9,
+    "malformed_histories_rejected": 8
+  },
+  "interpretation": [
+    "A one-driver sum that differs from the final sum establishes at least two evaluations.",
+    "Duplicate sums are not counted as distinct evaluations.",
+    "The guaranteed time-zero call cannot be identified from net changes when it returns the current value."
+  ]
+}

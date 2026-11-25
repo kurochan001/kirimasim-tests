@@ -1,0 +1,31 @@
+{
+  "tool": "ghost",
+  "version": "private build 6fa9a05abb0c",
+  "evidence_profile": "ghost-language-defaults",
+  "checker_sha256": "79953ea29e50e0564daa831e36a67a8f81d8bfc9f40b0be9aa9057b300e46419",
+  "binary_sha256": {
+    "executable": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4"
+  },
+  "case": "ch3/test_selected_defaults_set_time_unit_and_precision",
+  "inputs_sha256": "aaa327d46dc991ee339386d182db53e38db57d2c0e791cd586153744a926d3ae",
+  "checks": {
+    "1ns/100ps": {
+      "pass": true,
+      "compiler_exit": null,
+      "run_exit": 0,
+      "observed_steps": [
+        "unit=1.000 absolute=1.000 fraction=0.300"
+      ],
+      "expected_steps": "unit=1.000 absolute=1.000 fraction=0.300"
+    },
+    "10ns/10ps": {
+      "pass": true,
+      "compiler_exit": null,
+      "run_exit": 0,
+      "observed_steps": [
+        "unit=1.000 absolute=0.100 fraction=0.263"
+      ],
+      "expected_steps": "unit=1.000 absolute=0.100 fraction=0.263"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+controls: physical=1 reader=1 writer=1 distinct=1 assignments=2
+whole: interface=1 modport=0 physical=1 reader=0 writer=0
+view: interface=0 modport=1 physical=0 reader=1 writer=0
+HDL views=1,1

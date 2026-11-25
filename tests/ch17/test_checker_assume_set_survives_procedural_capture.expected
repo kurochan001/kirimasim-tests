@@ -1,0 +1,6 @@
+solve 1 t=5
+sample 2 t=10
+first keep static=1 procedural=1 ticks=1
+skipped keep procedural=1 ticks=2
+sample 2 t=30
+reached again keep procedural=1 ticks=3

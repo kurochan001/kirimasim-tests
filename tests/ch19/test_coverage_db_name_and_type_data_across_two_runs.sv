@@ -23,9 +23,12 @@ module test_coverage_db_name_and_type_data_across_two_runs;
   four_values first;
   two_values second;
   initial begin
+    int database;
     first = new;
     second = new;
     if ($test$plusargs("load_named_database")) begin
+      $display("before load four=%.2f two=%.2f",
+               four_values::get_coverage(), two_values::get_coverage());
       $load_coverage_db("chosen_coverage.json");
     end else begin
       if ($test$plusargs("save_named_database")) begin
@@ -36,6 +39,14 @@ module test_coverage_db_name_and_type_data_across_two_runs;
       two_value = 1;
       first.sample();
       second.sample();
+      if ($test$plusargs("save_named_database")) begin
+        #1;
+        database = $fopen("chosen_coverage.json", "r");
+        $display("database absent before end=%0d", database == 0);
+        if (database != 0)
+          $fclose(database);
+        #1;
+      end
     end
     $display("four=%.2f two=%.2f", four_values::get_coverage(), two_values::get_coverage());
   end

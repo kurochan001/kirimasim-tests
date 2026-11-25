@@ -1,0 +1,43 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch37/test_vpi_get_value_classifies_assignment_and_builtin_side_effects": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_get_value_classifies_assignment_and_builtin_side_effects.sv:34:5: Unsupported or unknown PLI call: '$vt_twice'",
+   "inputs_sha256": "d89206a93c6653712543e51be1982fd5239d0b8fad57366cc584206f73c75a62"
+  },
+  "ch37/test_vpi_index_relation_preserves_side_effecting_call": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_index_relation_preserves_side_effecting_call.sv:25:5: Unsupported or unknown PLI call: '$vt_index_query'",
+   "inputs_sha256": "1fc5a7303f11e8fb061b366e2aa454605bf33edcb68f7a05a2d9aabe6bf5a8c9"
+  },
+  "ch37/test_vpi_reads_keep_staged_indices_and_arguments_stable": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_reads_keep_staged_indices_and_arguments_stable.sv:35:5: Unsupported or unknown PLI call: '$vt_twice'",
+   "inputs_sha256": "92594120d3c536fc0dab492c9431e3f5826fc1891fea0086e201df2086c0bdb4"
+  },
+  "ch37/test_vpi_size_query_preserves_side_effecting_string_call": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_size_query_preserves_side_effecting_string_call.sv:28:5: Unsupported or unknown PLI call: '$vt_property_query'",
+   "inputs_sha256": "f669272192a4976974489abe90e25fa2b9a9c304e71fe9e78327eae748745eef"
+  },
+  "ch38/test_vpi_removed_timer_callback_disappears_from_iteration": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_removed_timer_callback_disappears_from_iteration.sv:17:8: Unsupported or unknown PLI call: '$vt_remove_after_delay'",
+   "inputs_sha256": "2730abbe3798fb36b2e0a8e4bb834f4f4b495de6c0a0725614fb5ff161848d1d"
+  },
+  "ch38/test_vpi_removed_value_callback_disappears_from_iteration": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_removed_value_callback_disappears_from_iteration.sv:19:8: Unsupported or unknown PLI call: '$vt_remove_value_change'",
+   "inputs_sha256": "bb8b6bb7b73e0576ab988ad8e1d490ffb571c098dc9693fde1c16bc66d7c3f2a"
+  }
+ },
+ "generated_at": "2026-11-24T21:45:16.654028+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

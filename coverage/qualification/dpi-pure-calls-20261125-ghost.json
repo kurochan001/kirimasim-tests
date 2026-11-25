@@ -1,0 +1,133 @@
+{
+  "tool": "ghost",
+  "version": "private build 6fa9a05abb0c",
+  "configuration": {
+    "evidence_profile": "ghost-dpi-pure-calls",
+    "checker_sha256": "0e9b2ea76809eaa518b6c7e42b1d70927d1ace59ef427ac302d92fc38ecfee44",
+    "binary_sha256": {
+      "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+      "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+    },
+    "debugger_version": "lldb-2103.0.34.407",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch35/test_dpi_pure_call_optimization": {
+      "inputs_sha256": "0b3116d80eec800e94213af8b55636b30baf5171db387d1079fbfc8b27dd0d38",
+      "pass": true,
+      "trials": {
+        "unobserved": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "pure: 23,23,35,23",
+            "before history calls",
+            "local history: 4,5,6",
+            "global history: 14,15,16"
+          ],
+          "c_entries": {
+            "dpi_pure_lookup": {
+              "29": 1,
+              "19": 1,
+              "7": 1,
+              "11": 1
+            },
+            "dpi_local_history": {
+              "3": 3
+            },
+            "dpi_global_history": {
+              "13": 3
+            }
+          }
+        },
+        "visible": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "pure: 23,23,35,23",
+            "before history calls",
+            "local history: 4,5,6",
+            "global history: 14,15,16",
+            "visible: 89"
+          ],
+          "c_entries": {
+            "dpi_pure_lookup": {
+              "29": 1,
+              "19": 1,
+              "7": 1,
+              "11": 1
+            },
+            "dpi_local_history": {
+              "3": 3
+            },
+            "dpi_global_history": {
+              "13": 3
+            }
+          }
+        },
+        "static_local": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "pure: 23,23,35,23",
+            "before history calls",
+            "local history: 4,4,4",
+            "global history: 14,15,16"
+          ],
+          "c_entries": {
+            "dpi_pure_lookup": {
+              "29": 1,
+              "19": 1,
+              "7": 1,
+              "11": 1
+            },
+            "dpi_local_history": {
+              "3": 1
+            },
+            "dpi_global_history": {
+              "13": 3
+            }
+          }
+        },
+        "global": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "pure: 23,23,35,23",
+            "before history calls",
+            "local history: 4,5,6",
+            "global history: 14,14,14"
+          ],
+          "c_entries": {
+            "dpi_pure_lookup": {
+              "29": 1,
+              "19": 1,
+              "7": 1,
+              "11": 1
+            },
+            "dpi_local_history": {
+              "3": 3
+            },
+            "dpi_global_history": {
+              "13": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

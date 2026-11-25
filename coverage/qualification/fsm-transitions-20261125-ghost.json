@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "configuration": {
+    "evidence_profile": "ghost-fsm-transition-coverage",
+    "checker_sha256": "e30b19a9f01b2442a747f76b9172d88a38eb371f4f259cb72d16ecdb4caafeda",
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch40/test_fsm_coverage_distinguishes_directed_transitions": {
+      "inputs_sha256": "009504fc3b4c88289a32a4c4c85b1f82572e00fac71975b9a26a69e6d164be74",
+      "status": "pass",
+      "reason": "",
+      "control": {
+        "exit": 0,
+        "completed": true,
+        "expected_states": [
+          "states=0,0",
+          "states=1,2",
+          "states=2,1",
+          "states=1,2",
+          "states=2,1"
+        ],
+        "observed_states": [
+          "states=0,0",
+          "states=1,2",
+          "states=2,1",
+          "states=1,2",
+          "states=2,1"
+        ],
+        "report_present": false
+      },
+      "enabled": {
+        "exit": 0,
+        "completed": true,
+        "expected_states": [
+          "states=0,0",
+          "states=1,2",
+          "states=2,1",
+          "states=1,2",
+          "states=2,1"
+        ],
+        "observed_states": [
+          "states=0,0",
+          "states=1,2",
+          "states=2,1",
+          "states=1,2",
+          "states=2,1"
+        ],
+        "report_present": true,
+        "expected_edges": [
+          "forward_path.state S0->S1 1",
+          "forward_path.state S1->S2 2",
+          "forward_path.state S2->S1 1",
+          "reverse_path.state S0->S2 1",
+          "reverse_path.state S1->S2 1",
+          "reverse_path.state S2->S1 2"
+        ],
+        "observed_edges": [
+          "forward_path.state S0->S1 1",
+          "forward_path.state S1->S2 2",
+          "forward_path.state S2->S1 1",
+          "reverse_path.state S0->S2 1",
+          "reverse_path.state S1->S2 1",
+          "reverse_path.state S2->S1 2"
+        ]
+      }
+    }
+  }
+}

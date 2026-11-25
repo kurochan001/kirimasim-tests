@@ -1,0 +1,40 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 77dad69755fc",
+ "tests": {
+  "ch13/test_illegal_default_argument_in_non_ansi_declaration": {
+   "status": "pass",
+   "inputs_sha256": "dcca85ed0eada95aec171af85dcd8298704a404ac2649e52063255f01108d180"
+  },
+  "ch13/test_non_ansi_task_argument_list_preserves_each_declarator": {
+   "status": "pass",
+   "inputs_sha256": "160c05f6c3c0abf44dd64a5734183072f9eb33bb7978a8d47ead019640552c70"
+  },
+  "ch35/test_dpi_packed_aliases_keep_version_by_linkage_and_scope": {
+   "status": "pass",
+   "inputs_sha256": "7d57ca9f8c2ec20c8b91a729939ca297f97249c482dcc830449d4ab76e1439e0"
+  },
+  "ch35/test_illegal_dpi_version_mismatch_across_package_and_module": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e4479bd220269ce27d5d8101afc08dfb7530b0765af168156483a755edf5448d"
+  },
+  "ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "e4a560d8f3c12881b6176543070c342cdc99396360476c9fefa9c3ac893f0baf"
+  },
+  "ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module": {
+   "status": "pass",
+   "inputs_sha256": "64f4345205da472875bc59aced7180454aed8aedfc9622d83aaacd44c78ef1c6"
+  }
+ },
+ "generated_at": "2026-11-24T19:54:30.261407+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "77dad69755fc06925aa58881ed90cc8e9a9d0cfb42e2047ce9e2e0b56d7cbb7a",
+  "profile_sha256": "97031d69da172c45818271cf0de09fff82a7bb2444597701b8fe46a390eeb68b"
+ }
+}

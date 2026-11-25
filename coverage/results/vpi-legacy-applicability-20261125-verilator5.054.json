@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch36/test_vpi_legacy_class_interface_views": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'scopes defn=0 typespec=0 plain=1 plain_classes=0', expected 'scopes defn=1 typespec=1 plain=1 plain_classes=0'",
+   "inputs_sha256": "890c7e99a8cc1577322fa4c4a246133fb260223457edfd97c33c505f719f7f92"
+  },
+  "ch36/test_vpi_legacy_real_array_root_types": {
+   "status": "known",
+   "reason": "output differs: line 4 is 'vpi=2.25,-0.50,-0.50', expected 'vpi=2.25,1.75,-0.50'",
+   "inputs_sha256": "80a1084fed8dd885d09d4588fc95e801fcffb30269ab9660eb7aa5f444adec26"
+  }
+ },
+ "generated_at": "2026-11-25T03:13:49.846352+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

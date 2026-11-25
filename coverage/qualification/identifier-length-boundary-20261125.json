@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-5.6-EXTRACT-IDENTIFIER-LIMIT-ERROR"
+  ],
+  "qualified": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "configuration": {
+      "evidence_profile": "icarus-identifier-length",
+      "checker_sha256": "fe243684ca2fb8636efdbc9fcb0b510fc042288baeb79f4f405dadea309a4368",
+      "binary_sha256": {
+        "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+        "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+      }
+    },
+    "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+    "tests": {
+      "ch5/test_identifier_length_boundary": {
+        "inputs_sha256": "bb6fa4e993c37b0749907044c499771115bbb15d808e31ab08b1667b41ccde85",
+        "minimum_length": 1024,
+        "probe_max_length": 262144,
+        "probes": [
+          {
+            "length": 1024,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 2048,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 4096,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 8192,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16384,
+            "compile_exit": 2,
+            "diagnostic": "input buffer overflow, can't enlarge buffer because scanner uses REJECT",
+            "outcome": "lexer_diagnostic"
+          },
+          {
+            "length": 12288,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 14336,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 15360,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 15872,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16128,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16256,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16320,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16352,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16368,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16376,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16380,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16382,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16383,
+            "compile_exit": 2,
+            "diagnostic": "input buffer overflow, can't enlarge buffer because scanner uses REJECT",
+            "outcome": "lexer_diagnostic"
+          },
+          {
+            "length": 16382,
+            "compile_exit": 0,
+            "run_exit": 0,
+            "stdout_matches": true,
+            "outcome": "accepted"
+          },
+          {
+            "length": 16383,
+            "compile_exit": 2,
+            "diagnostic": "input buffer overflow, can't enlarge buffer because scanner uses REJECT",
+            "outcome": "lexer_diagnostic"
+          }
+        ],
+        "last_accepted": 16382,
+        "first_rejected": 16383,
+        "longest_rejected_source_line": 32809,
+        "long_line_control": {
+          "line_length": 32846,
+          "compile_exit": 0,
+          "run_exit": 0,
+          "stdout_matches": true,
+          "outcome": "accepted"
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch5/test_identifier_length_boundary": {
+          "status": "pass",
+          "inputs_sha256": "bb6fa4e993c37b0749907044c499771115bbb15d808e31ab08b1667b41ccde85"
+        }
+      },
+      "generated_at": "2026-11-25T10:03:24.447712+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch5/test_identifier_length_boundary": {
+          "status": "pass",
+          "inputs_sha256": "bb6fa4e993c37b0749907044c499771115bbb15d808e31ab08b1667b41ccde85"
+        }
+      },
+      "generated_at": "2026-11-25T10:03:24.443168+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch5/test_identifier_length_boundary": {
+          "status": "pass",
+          "inputs_sha256": "bb6fa4e993c37b0749907044c499771115bbb15d808e31ab08b1667b41ccde85"
+        }
+      },
+      "generated_at": "2026-11-25T10:03:28.334562+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch5/test_identifier_length_boundary": {
+          "status": "pass",
+          "inputs_sha256": "bb6fa4e993c37b0749907044c499771115bbb15d808e31ab08b1667b41ccde85"
+        }
+      },
+      "generated_at": "2026-11-25T10:03:24.421448+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "minimum_requalification": {
+    "requirement": "SV2023-5.6-EXTRACT-IDENTIFIER-MINIMUM-LIMIT",
+    "inputs": [
+      "tests/ch5/identifier_1024/identifier_1024_characters.svh",
+      "tests/ch5/test_identifier_1024_characters.expected",
+      "tests/ch5/test_identifier_1024_characters.sv"
+    ],
+    "outcomes": {
+      "icarus": {
+        "simulator": "icarus",
+        "name": "Icarus Verilog",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "tests": {
+          "ch5/test_identifier_1024_characters": {
+            "status": "pass",
+            "inputs_sha256": "c17a3103654e7011ac32f83fbdbd188ccc78b06d2634b00c565f513d703c5bd5"
+          }
+        },
+        "generated_at": "2026-11-25T10:05:27.695853+00:00",
+        "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+        "runner_changed": false,
+        "configuration": {}
+      },
+      "verilator": {
+        "simulator": "verilator",
+        "name": "Verilator",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "tests": {
+          "ch5/test_identifier_1024_characters": {
+            "status": "known",
+            "reason": "output differs: line 2 is 'path length=67 last=J', expected 'path length=1056 last=z'",
+            "inputs_sha256": "c17a3103654e7011ac32f83fbdbd188ccc78b06d2634b00c565f513d703c5bd5"
+          }
+        },
+        "generated_at": "2026-11-25T10:05:31.747686+00:00",
+        "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+        "runner_changed": false,
+        "configuration": {
+          "seed": 1
+        }
+      },
+      "kirimasim": {
+        "simulator": "kirimasim",
+        "name": "kirimasim",
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "tests": {
+          "ch5/test_identifier_1024_characters": {
+            "status": "pass",
+            "inputs_sha256": "c17a3103654e7011ac32f83fbdbd188ccc78b06d2634b00c565f513d703c5bd5"
+          }
+        },
+        "generated_at": "2026-11-25T10:05:27.676762+00:00",
+        "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+        "runner_changed": false,
+        "configuration": {}
+      },
+      "ghost": {
+        "simulator": "ghost",
+        "name": "Ghost",
+        "version": "private build 6fa9a05abb0c",
+        "tests": {
+          "ch5/test_identifier_1024_characters": {
+            "status": "pass",
+            "inputs_sha256": "c17a3103654e7011ac32f83fbdbd188ccc78b06d2634b00c565f513d703c5bd5"
+          }
+        },
+        "generated_at": "2026-11-25T10:05:27.706413+00:00",
+        "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+        "runner_changed": false,
+        "configuration": {
+          "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+          "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+        }
+      },
+      "slang": {
+        "reference": "slang",
+        "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+        "slang_version": "slang version 12.0.0+0",
+        "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+        "generated_at": "2026-11-25T10:05:27.661740+00:00",
+        "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+        "options": [
+          "--std=1800-2023",
+          "-Wno-error=index-oob",
+          "-Wno-error=string-int-concat",
+          "-Wno-error=string-in-constraint",
+          "--threads",
+          "1",
+          "-q"
+        ],
+        "summary": {
+          "illegal": {
+            "tests": 0,
+            "rejected_at_line": 0,
+            "rejected_elsewhere": 0,
+            "accepted": 0,
+            "timeout": 0,
+            "crashed": 0
+          },
+          "legal": {
+            "tests": 1,
+            "clean": 1,
+            "rejected": 0,
+            "timeout": 0,
+            "crashed": 0
+          },
+          "legal_vpi": {
+            "tests": 0,
+            "clean": 0,
+            "rejected": 0,
+            "timeout": 0,
+            "crashed": 0
+          }
+        },
+        "tests": {
+          "ch5/test_identifier_1024_characters": {
+            "kind": "legal",
+            "status": "clean",
+            "inputs_sha256": "c17a3103654e7011ac32f83fbdbd188ccc78b06d2634b00c565f513d703c5bd5"
+          }
+        }
+      }
+    }
+  }
+}

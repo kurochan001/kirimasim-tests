@@ -1,0 +1,8 @@
+legacy low=31415926 logic=89abcf0f/00000ff0 top=1
+package legacy=1
+modern low=31415926 logic=89abcf0f/00000ff0 top=1
+package current=1
+legacy low=62373095 logic=010f4567/00ff0000 top=0
+module legacy=1
+modern low=62373095 logic=010f4567/00ff0000 top=0
+module current=1

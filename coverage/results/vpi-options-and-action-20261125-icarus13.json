@@ -1,0 +1,35 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch38/test_vpi_action_error_callback_information": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'error actions=0', expected 'error actions=2'",
+   "inputs_sha256": "5204f8797b8bd0cfd83f11d64884b3300b6568f809f7ca72b2eb1ac1b465837a"
+  },
+  "ch38/test_vpi_control_scope_change_reports_selected_instance": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'first accepted=0 callback count=0 reason=0 new scope=0', expected 'first accepted=1 callback count=1 reason=1 new scope=1'",
+   "inputs_sha256": "c26ad85225404ad07de5b115f8fce9e1b5b2ad03d35c66f7b19358b0c52bafb0"
+  },
+  "ch38/test_vpi_timing_violation_callback_points_to_affected_check": {
+   "status": "known",
+   "reason": "VPI build failed: 8 errors generated.",
+   "inputs_sha256": "714baa6f342866a174bbbf53ea0699d51b7f3467f589f3cbd24d09674cd4ff2c"
+  },
+  "ch38/test_vpi_unresolved_task_callback_supplies_called_name": {
+   "status": "known",
+   "reason": "output differs: line 1 is '<tmp>/a.vvp: Program not runnable, 1 errors.', expected 'unresolved reason=1 name=public_regression_unregistered_p...'",
+   "inputs_sha256": "d9b3a631cd9a1d7600090b0593321e98abd68a41b86468a54d79859959930bae"
+  },
+  "ch38/test_vpi_vlog_info_nested_option_files": {
+   "status": "pass",
+   "inputs_sha256": "383b662bb2c3932a6196a8b929a8f869b3dd35ade7bc72b4e122d17a0c4aec7c"
+  }
+ },
+ "generated_at": "2026-11-25T03:55:23.316261+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,66 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_preprocessor_line_emission_modes_preserve_manual_origin": {
+   "status": "pass",
+   "inputs_sha256": "291f1e775b259a5914a95fa2cc0ab43e842254ef870f2722142e6edb958c82b9"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_undef_never_defined_macro_preserves_other_definitions": {
+   "status": "pass",
+   "inputs_sha256": "12cef4cba42ad0e20e864d92b2d26f9ab50ecf376d1d4bf72a179e683eae636b"
+  }
+ },
+ "generated_at": "2026-11-25T04:34:15.349577+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+ }
+}

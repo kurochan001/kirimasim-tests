@@ -19,7 +19,7 @@ measurements are in the [history](docs/history.md).
 The [document index](docs/README.md) links every guide, generated report and historical record in both languages.
 The Nightly runs all simulator, build and publication jobs on `main` every night. Its latest results are in the
 [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme), and the [Nightly guide](docs/nightly-results.en.md) explains how to read them.
-For resuming development, use the current guides with the newest [handoff](docs/claude-code-handoff-20261112.en.md).
+For resuming development, see the [OpenCode handoff](HANDOFF.md) at the repository root.
 
 Each simulation test is a small, self-contained design with an expected result.
 A legal design passes when its normalized standard output matches and any specified
@@ -76,56 +76,56 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **16877 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **17114 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9117 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3001 |
-| The standard only, with no fixed-release simulator oracle recorded | 4759 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9170 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3021 |
+| The standard only, with no fixed-release simulator oracle recorded | 4923 |
 
-4121 tests depend on x or z values (`:fourstate: yes`). 880 tests include C code. 221 use DPI (`:dpi_c:`) and 661 use VPI (`:vpi_c:`). A test can use both. 3153 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 145 tests check the exit code of the simulation (`:expected_exit:`). 58 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 7 name include directories (`:incdirs:`), 58 name the top-level module or configuration (`:top_module:`), and 1315 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4127 tests depend on x or z values (`:fourstate: yes`). 959 tests include C code. 250 use DPI (`:dpi_c:`) and 713 use VPI (`:vpi_c:`). A test can use both. 3155 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 180 tests check the exit code of the simulation (`:expected_exit:`). 101 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 8 name include directories (`:incdirs:`), 155 name the top-level module or configuration (`:top_module:`), and 1317 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
-| 3 | Design and verification building blocks | 163 | 122 | 15 | 26 |
-| 4 | Scheduling semantics | 483 | 445 | 8 | 30 |
-| 5 | Lexical conventions | 526 | 445 | 31 | 50 |
-| 6 | Data types | 916 | 567 | 176 | 173 |
-| 7 | Aggregate data types | 1136 | 327 | 490 | 319 |
-| 8 | Classes | 512 | 77 | 279 | 156 |
-| 9 | Processes | 487 | 351 | 58 | 78 |
-| 10 | Assignment statements | 767 | 597 | 82 | 88 |
-| 11 | Operators and expressions | 2635 | 2024 | 241 | 370 |
-| 12 | Procedural programming statements | 324 | 214 | 34 | 76 |
-| 13 | Tasks and functions (subroutines) | 760 | 333 | 258 | 169 |
+| 3 | Design and verification building blocks | 166 | 123 | 15 | 28 |
+| 4 | Scheduling semantics | 485 | 446 | 8 | 31 |
+| 5 | Lexical conventions | 533 | 447 | 31 | 55 |
+| 6 | Data types | 924 | 571 | 176 | 177 |
+| 7 | Aggregate data types | 1139 | 327 | 491 | 321 |
+| 8 | Classes | 514 | 78 | 280 | 156 |
+| 9 | Processes | 493 | 353 | 58 | 82 |
+| 10 | Assignment statements | 770 | 599 | 83 | 88 |
+| 11 | Operators and expressions | 2638 | 2026 | 241 | 371 |
+| 12 | Procedural programming statements | 328 | 216 | 34 | 78 |
+| 13 | Tasks and functions (subroutines) | 764 | 335 | 259 | 170 |
 | 14 | Clocking blocks | 174 |  | 103 | 71 |
-| 15 | Interprocess synchronization and communication | 215 | 2 | 68 | 145 |
-| 16 | Assertions | 817 | 38 | 123 | 656 |
-| 17 | Checkers | 134 |  | 49 | 85 |
-| 18 | Constrained random value generation | 297 | 4 | 136 | 157 |
-| 19 | Functional coverage | 256 |  | 71 | 185 |
-| 20 | Utility system tasks and system functions | 716 | 397 | 123 | 196 |
-| 21 | Input/output system tasks and system functions | 963 | 547 | 110 | 306 |
-| 22 | Compiler directives | 1328 | 1245 | 42 | 41 |
-| 23 | Modules and hierarchy | 445 | 288 | 59 | 98 |
-| 24 | Programs | 223 | 38 | 38 | 147 |
+| 15 | Interprocess synchronization and communication | 217 | 3 | 68 | 146 |
+| 16 | Assertions | 819 | 38 | 123 | 658 |
+| 17 | Checkers | 141 |  | 49 | 92 |
+| 18 | Constrained random value generation | 302 | 4 | 139 | 159 |
+| 19 | Functional coverage | 259 |  | 71 | 188 |
+| 20 | Utility system tasks and system functions | 723 | 399 | 123 | 201 |
+| 21 | Input/output system tasks and system functions | 971 | 548 | 111 | 312 |
+| 22 | Compiler directives | 1332 | 1245 | 42 | 45 |
+| 23 | Modules and hierarchy | 448 | 290 | 59 | 99 |
+| 24 | Programs | 225 | 38 | 38 | 149 |
 | 25 | Interfaces | 282 | 90 | 126 | 66 |
 | 26 | Packages | 271 | 98 | 70 | 103 |
 | 27 | Generate constructs | 295 | 238 | 21 | 36 |
 | 28 | Gate-level and switch-level modeling | 423 | 329 | 3 | 91 |
 | 29 | User-defined primitives | 148 | 97 | 14 | 37 |
 | 30 | Specify blocks | 73 | 38 | 1 | 34 |
-| 31 | Timing checks | 85 | 18 | 1 | 66 |
+| 31 | Timing checks | 89 | 18 | 1 | 70 |
 | 32 | Backannotation using the standard delay format | 80 | 19 |  | 61 |
-| 33 | Configuring the contents of a design | 90 | 5 | 9 | 76 |
-| 34 | Protected envelopes | 4 | 2 | 2 |  |
-| 35 | Direct programming interface | 217 |  | 125 | 92 |
-| 36 | Programming language interface (PLI/VPI) overview | 93 | 34 | 21 | 38 |
-| 37 | VPI object model diagrams | 273 | 19 | 1 | 253 |
-| 38 | VPI routine definitions | 176 | 68 | 10 | 98 |
+| 33 | Configuring the contents of a design | 109 | 7 | 9 | 93 |
+| 34 | Protected envelopes | 52 | 24 | 2 | 26 |
+| 35 | Direct programming interface | 247 |  | 136 | 111 |
+| 36 | Programming language interface (PLI/VPI) overview | 101 | 35 | 22 | 44 |
+| 37 | VPI object model diagrams | 294 | 20 | 1 | 273 |
+| 38 | VPI routine definitions | 190 | 70 | 10 | 110 |
 | 39 | Assertion API | 50 |  | 1 | 49 |
-| 40 | Code coverage control and API | 40 | 1 | 2 | 37 |
+| 40 | Code coverage control and API | 45 | 1 | 2 | 42 |
 <!-- suite-stats:end -->
 
 The total includes 267 `:type: formal` tests. They are checked with SymbiYosys
@@ -313,13 +313,13 @@ The requirement denominator is **12,332 requirements**: those that the
 merging duplicate rows, with 34 rows that mixed an accepted and a rejected form
 each split in two with the owner's approval. The [history](docs/history.md)
 records how the denominator changed. The reviewer was an AI, not an independent human.
-Design coverage is **95.56% (11,784/12,332)**;
+Design coverage is **98.98% (12,206/12,332)**;
 execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**51.82% (6,391/12,332)**.
-Of these rows, 6,099 are confirmed by a simulator and 292 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 89.54% (11,042/12,332).
-Clauses 1 to 40 alone are at 94.78% (9,003/9,499) design coverage.
+**52.34% (6,455/12,332)**.
+Of these rows, 6,163 are confirmed by a simulator and 292 by formal checks alone, which run no simulator.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 90.76% (11,192/12,332).
+Clauses 1 to 40 alone are at 98.73% (9,378/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.
@@ -1162,10 +1162,11 @@ A new test should:
   and a net has a four-state integral type or an array or structure of them
   (23.2.2.3, 6.7.1);
 - if it is an illegal design, give the reason in `:should_fail_because:` and
-  the file and line of the error in `:expected_stderr_regex:` (each line where
-  a tool can rightly report it, when there are several), and contain no other
-  error. When a release rejects the design on that line only because it does
-  not support a construct there, the comment of the test says so;
+  anchor `:expected_stderr_regex:` to the error's file and line. For a
+  library-map diagnostic about an entire source file, anchor it to the
+  declared source file and the specific error. Accept every valid diagnostic
+  location and keep the design free of other errors. If a release rejects
+  the design because the construct is unsupported, record that in the test;
 - have its expected output decided from the standard and, where possible,
   confirmed with Icarus Verilog 13.0 or with Verilator (5.054 until the pin
   moves from 5.052, see [the interim pin](docs/simulator-differences.md#verilator-5054-interim))
@@ -1210,7 +1211,7 @@ Keep current status here; put dated work and measurements in the [history](docs/
 the fields and their values, a field without a value, a field written twice, a `:name:` that another
 test has, an `:expected_stderr_regex:` that does not compile, `:lrm:`, its clauses and the directory, x or z literals in a
 test with `:fourstate: no`, the expected output, the fields of an illegal
-design and whether its `:expected_stderr_regex:` names a file and line, the files that the metadata names, the line lengths, comment lines
+design and its diagnostic location, the files that the metadata names, the line lengths, comment lines
 that start with the word Verilator, a `` `timescale `` when a time is printed,
 and TODO left from the skeleton. Its docstring lists the rules.
 `tools/lint_baseline.txt` holds, for each test and rule, the number of known

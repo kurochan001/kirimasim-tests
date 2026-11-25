@@ -1,0 +1,2 @@
+include nested/content.map;
+library middleLib source/middle.sv;

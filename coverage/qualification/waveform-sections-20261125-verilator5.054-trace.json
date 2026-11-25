@@ -1,0 +1,19 @@
+{
+  "tool": "Verilator",
+  "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "binary_sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+  "tests": {
+    "ch21/test_evcd_keyword_sections_extend_vcd": {
+      "inputs_sha256": "8ee482ea9dac610062c6da87f954ead6d7eb8c490df212852bb6df3613d5a3bb",
+      "arguments": [
+        "--binary",
+        "--trace-vcd",
+        "--timing",
+        "-Wno-fatal"
+      ],
+      "simulation_output_matched": true,
+      "ordinary_vcd_exists": true,
+      "extended_vcd_exists": false
+    }
+  }
+}

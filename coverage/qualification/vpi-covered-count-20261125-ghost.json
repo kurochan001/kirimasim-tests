@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "configuration": {
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch40/test_vpi_covered_count_assertion_successes": {
+      "inputs_sha256": "7b3b74b82f4f568476d687bb42458257a960cf83a4b8562954f6d04e0e7cf186",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "completed": true,
+      "expected": [
+        "hdl passes=3,1",
+        "all: assertion=1 attempts=3 successes=3 covered_count=3",
+        "selected: assertion=1 attempts=3 successes=1 covered_count=1"
+      ],
+      "observed": [
+        "hdl passes=3,1",
+        "all: assertion=1 attempts=3 successes=3 covered_count=0",
+        "selected: assertion=1 attempts=3 successes=1 covered_count=0"
+      ]
+    },
+    "ch40/test_vpi_covered_count_fsm_state_sum": {
+      "inputs_sha256": "cc7dff479f2de0ba3368941a157677d189f7345ee3c57b4884278e6f0fa57962",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "completed": true,
+      "expected": [
+        "hdl visits=0,3,2,0",
+        "fsm: first_sum=1 final_sum=1 added=4",
+        "states added=0,2,2,0 unused_count=0"
+      ],
+      "observed": [
+        "hdl visits=0,3,2,0",
+        "fsm: first_sum=1 final_sum=1 added=4",
+        "states added=0,2,2,0 unused_count=0"
+      ],
+      "reported_state_visits": [
+        "S0: 1 hits",
+        "S1: 3 hits",
+        "S2: 2 hits",
+        "S3: 0 hits [NOT COVERED]"
+      ]
+    },
+    "ch40/test_vpi_covered_count_optional_entity_sums": {
+      "inputs_sha256": "751705ce3913a0d9dd71a3c8bc91cb5fc7da1d5f932b29d2090482ada7de35c9",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "completed": true,
+      "expected": [
+        "hdl statements=2,4 signal=000",
+        "statements: block=1 children=2 count_rule=1",
+        "signal: vector=1 bits=3 count_rule=1"
+      ],
+      "observed": [
+        "hdl statements=2,4 signal=000",
+        "statements: block=1 children=2 count_rule=1",
+        "signal: vector=1 bits=3 count_rule=1"
+      ],
+      "instrumented_optional_counts": {
+        "args": [
+          "--code-coverage",
+          "all",
+          "+observe_optional_counts"
+        ],
+        "exit": 0,
+        "coverage_report_present": true,
+        "raw": [
+          "statement raw: started=0 total=-1 children=-1,-1",
+          "signal raw: started=0 total=-1 bits=-1,-1,-1"
+        ]
+      }
+    }
+  }
+}

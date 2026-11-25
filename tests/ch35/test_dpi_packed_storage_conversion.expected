@@ -1,0 +1,8 @@
+bit record words=02f34560,2
+bit record reply=1
+bit grid words=02f34560,2
+bit grid reply=1
+logic record words=02f34560/00000000,2/0
+logic record reply=1
+logic grid words=02f34560/00000000,2/0
+logic grid reply=1

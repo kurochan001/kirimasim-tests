@@ -1,0 +1,5 @@
+native input=1
+native reply=1
+packet words=02f34560/00f0000f,2/3
+grid words=02f34560/00f0000f,2/3
+canonical reply packet=1 grid=1

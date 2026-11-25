@@ -1,0 +1,33 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_simulated_net_is_shared_across_interconnect_merges": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_simulated_net_is_shared_across_interconnect_merges.sv:18:57: Unsupported: interconnect",
+   "inputs_sha256": "59a7603ae01d1a1d86a4eb49fad117c73868a0f1cbb4f6afe672d88b8467366c"
+  },
+  "ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.sv:21:8: Unsupported or unknown PLI call: '$save'",
+   "inputs_sha256": "206ada2ad47390b7add2dcc50847fe70c2cf471f6d971b12cbb8c1c285067386"
+  },
+  "ch38/test_vpi_end_save_data_is_available_at_start_of_restart": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_end_save_data_is_available_at_start_of_restart.sv:21:8: Unsupported or unknown PLI call: '$save'",
+   "inputs_sha256": "0a3fff6be3f279dcdc0b071fb34ca3b95a9811367299e16687b25187442ba3fa"
+  },
+  "ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks.sv:21:8: Unsupported or unknown PLI call: '$save'",
+   "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558"
+  }
+ },
+ "generated_at": "2026-11-24T19:40:14.227134+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

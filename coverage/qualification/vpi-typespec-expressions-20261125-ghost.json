@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "configuration": {
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch37/test_vpi_direct_modport_expression": {
+      "inputs_sha256": "5503b0166222200ccb117b25fba426d1788601e3809a53b765ebac9a2dd39b5f",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "expected": [
+        "controls: physical=1 reader=1 writer=1 distinct=1 assignments=2",
+        "whole: interface=1 modport=0 physical=1 reader=0 writer=0",
+        "view: interface=0 modport=1 physical=0 reader=1 writer=0",
+        "HDL views=1,1"
+      ],
+      "observed": [
+        "controls: physical=1 reader=1 writer=1 distinct=1 assignments=2",
+        "whole: interface=1 modport=0 physical=1 reader=0 writer=0",
+        "view: interface=1 modport=0 physical=1 reader=0 writer=0",
+        "HDL views=1,1"
+      ]
+    },
+    "ch37/test_vpi_inline_member_typespec_name": {
+      "inputs_sha256": "c7be25d2103d6088dc18bf71e4848af6703f1940ea7a54142ad8f56a5918b764",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "expected": [
+        "inline_field: member=1 struct=1 inner_int=1 name_ok=1",
+        "named_field: member=1 struct=1 inner_int=1 name_ok=1",
+        "HDL fields=19,41"
+      ],
+      "observed": [
+        "inline_field: unexpected typespec name $anon$1",
+        "inline_field: member=1 struct=1 inner_int=1 name_ok=0",
+        "named_field: member=1 struct=1 inner_int=1 name_ok=1",
+        "HDL fields=19,41"
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "tool": "ghost",
+  "version": "private build 6fa9a05abb0c",
+  "configuration": {
+    "evidence_profile": "ghost-sequence-method-migration",
+    "checker_sha256": "f7145a2760c699ab4353a09644791f04d4addd4be74ce7be7c944fa28ff06461",
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch16/test_sequence_triggered_replaces_ended": {
+      "inputs_sha256": "671316ca026108efec236566d90093df95ced3ba5bc58ed6514fb39bdd3d4fd7",
+      "pass": true,
+      "trials": {
+        "current": {
+          "returncode": 0,
+          "stdout": [
+            "matched t=15",
+            "matches=1"
+          ],
+          "member_diagnostic": false,
+          "diagnostics": [],
+          "selector_line": 30,
+          "outcome": "current",
+          "pass": true
+        },
+        "legacy": {
+          "returncode": 0,
+          "stdout": [
+            "matched t=15",
+            "matches=1"
+          ],
+          "member_diagnostic": false,
+          "diagnostics": [],
+          "selector_line": 26,
+          "outcome": "legacy_alias",
+          "pass": true
+        },
+        "unknown": {
+          "returncode": 1,
+          "stdout": [],
+          "member_diagnostic": true,
+          "diagnostics": [
+            "[ERROR] SEQUENCE-MEMBER-ACCESS-01: a sequence has no visible member of this name (its local variables are not visible outside it) (IEEE 1800-2023 \u00a716.10) at test_sequence_triggered_replaces_ended.sv:28:36"
+          ],
+          "selector_line": 28,
+          "outcome": "selector_rejected",
+          "pass": true
+        }
+      }
+    }
+  }
+}

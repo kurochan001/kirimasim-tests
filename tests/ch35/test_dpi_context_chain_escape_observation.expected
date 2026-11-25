@@ -1,0 +1,6 @@
+entered distinct scopes=1
+nested C scope=1
+nested scope selected=1
+export returned normally
+C normal value=41 scope restored=1
+SV observed result=42

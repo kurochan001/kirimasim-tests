@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "configuration": {
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch38/test_vpi_action_error_callback_information": {
+      "inputs_sha256": "5204f8797b8bd0cfd83f11d64884b3300b6568f809f7ca72b2eb1ac1b465837a",
+      "plugin_build_exit": 0,
+      "simulation_exit": 2,
+      "completed": true,
+      "expected": [
+        "design completed",
+        "error actions=2",
+        "t=1 reason=1 severity=1 runtime=1 message=1",
+        "t=3 reason=1 severity=1 runtime=1 message=1"
+      ],
+      "observed": [
+        "design completed",
+        "error actions=2",
+        "t=1 reason=1 severity=0 runtime=0 message=0",
+        "t=3 reason=1 severity=0 runtime=0 message=0"
+      ]
+    },
+    "ch38/test_vpi_control_scope_change_reports_selected_instance": {
+      "inputs_sha256": "c26ad85225404ad07de5b115f8fce9e1b5b2ad03d35c66f7b19358b0c52bafb0",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "completed": true,
+      "expected": [
+        "first accepted=1 callback count=1 reason=1 new scope=1",
+        "second accepted=1 callback count=1 reason=1 new scope=1"
+      ],
+      "observed": [
+        "first accepted=1 callback count=0 reason=0 new scope=0",
+        "second accepted=1 callback count=0 reason=0 new scope=0"
+      ]
+    },
+    "ch38/test_vpi_timing_violation_callback_points_to_affected_check": {
+      "inputs_sha256": "714baa6f342866a174bbbf53ea0699d51b7f3467f589f3cbd24d09674cd4ff2c",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "completed": true,
+      "expected": [
+        "checks=1/1 registered=1",
+        "notifiers setup=1 hold=1",
+        "violations=2",
+        "t=12 kind=setup check=1 reason=1 same=1",
+        "t=22 kind=hold check=1 reason=1 same=1"
+      ],
+      "observed": [
+        "checks=1/1 registered=1",
+        "notifiers setup=1 hold=1",
+        "violations=2",
+        "t=12 kind=setup check=1 reason=1 same=1",
+        "t=22 kind=hold check=1 reason=1 same=1"
+      ]
+    },
+    "ch38/test_vpi_unresolved_task_callback_supplies_called_name": {
+      "inputs_sha256": "d9b3a631cd9a1d7600090b0593321e98abd68a41b86468a54d79859959930bae",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "completed": true,
+      "expected": [
+        "unresolved reason=1 name=public_regression_unregistered_probe"
+      ],
+      "observed": [
+        "unresolved reason=1 name=registration context"
+      ]
+    }
+  }
+}

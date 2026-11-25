@@ -1,0 +1,9 @@
+;
+include parts/extra.map;
+library annexLib plain.sv, computed.sv
+  -incdir first_include, second_include;
+config annex_layout;
+  design work.test_annex_library_map_path_lists;
+  default liblist annexLib extraLib;
+endconfig
+;

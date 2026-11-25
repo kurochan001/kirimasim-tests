@@ -1,0 +1,4 @@
+inactive t=1 winner=7 stage=0
+wake t=1 stage=7 winner=9 settled=0
+postponed t=1 stage=7 winner=9 settled=17
+next t=2 stage=7 winner=9 settled=17

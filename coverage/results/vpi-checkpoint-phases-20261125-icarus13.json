@@ -1,0 +1,31 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch37/test_vpi_simulated_net_is_shared_across_interconnect_merges": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "59a7603ae01d1a1d86a4eb49fad117c73868a0f1cbb4f6afe672d88b8467366c"
+  },
+  "ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback": {
+   "status": "known",
+   "reason": "VPI build failed: 1 error generated.",
+   "inputs_sha256": "206ada2ad47390b7add2dcc50847fe70c2cf471f6d971b12cbb8c1c285067386"
+  },
+  "ch38/test_vpi_end_save_data_is_available_at_start_of_restart": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "0a3fff6be3f279dcdc0b071fb34ca3b95a9811367299e16687b25187442ba3fa"
+  },
+  "ch38/test_vpi_save_restart_reads_interleaved_streams_in_new_chunks": {
+   "status": "known",
+   "reason": "VPI build failed: 5 errors generated.",
+   "inputs_sha256": "e5aab09c5acb347c6d41694223cf2943c77bc4ede5ae973a78e67964d07a8558"
+  }
+ },
+ "generated_at": "2026-11-24T19:40:14.129882+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

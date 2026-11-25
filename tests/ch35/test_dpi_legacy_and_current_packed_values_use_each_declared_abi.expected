@@ -1,3 +1,6 @@
 modern low=31415926 logic=89abcf0f/00000ff0 top=1
 legacy low=31415926 logic=89abcf0f/00000ff0 top=1
 modern round trip=1 legacy round trip=1
+legacy low=31415926 logic=89abc0ff/00000ff0 top=0
+modern low=31415926 logic=89abc0ff/00000ff0 top=0
+second round trip modern=1 legacy=1

@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_clocked_sequence_body": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_clocked_sequence_body.sv:23:47: syntax error, unexpected '@', expecting IDENTIFIER-for-type",
+   "inputs_sha256": "de3fe198eda0211890b848df4621b0b106d79319219eb3be9e9a1d89530380f8"
+  },
+  "ch37/test_vpi_ref_port_simple_expression_use": {
+   "status": "known",
+   "reason": "output differs: line 1 is '%Error: <verilator>/share/verilator/include/verilated_vpi...', expected 'controls: distinct_actuals=1 distinct_assignments=1'",
+   "inputs_sha256": "92c3e25ff7d6f05e34e5bc05b23641c7a568016b6393ec4c0a41f8a019254477"
+  }
+ },
+ "generated_at": "2026-11-25T03:28:42.890949+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

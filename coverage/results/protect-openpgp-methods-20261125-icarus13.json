@@ -1,0 +1,19 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch34/test_protect_elgamal_recovers_the_declared_payload": {
+   "status": "pass",
+   "inputs_sha256": "1935a56fb1f5b4267624d2553b061019b14044cc5b85c115ba4a1288f31f8d74"
+  },
+  "ch34/test_protect_pgp_rsa_recovers_the_declared_payload": {
+   "status": "pass",
+   "inputs_sha256": "2639aca5858cd9e30ae66e5724eba171a710522129a437e0f7fae3ce2aa7daa5"
+  }
+ },
+ "generated_at": "2026-11-25T03:05:08.624161+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

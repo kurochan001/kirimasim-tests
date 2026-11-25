@@ -122,6 +122,26 @@ class Rules(unittest.TestCase):
                 path = self.write("ch6/test_a", ILLEGAL.format(name="test_a", regex=regex))
                 self.assertEqual(self.rules(path), problems)
 
+    def test_a_whole_file_library_map_diagnostic_must_name_a_declared_source(self):
+        regex = r"^error: '[^']*[/]choiceA\.sv': file matches multiple libraries"
+        source = ILLEGAL.format(name="test_a", regex=regex)
+        case = self.write("ch6/test_a", source.replace("*/", ":files: rules.map choiceA.sv\n*/"))
+        (case.parent / "rules.map").write_text("", encoding="utf-8")
+        (case.parent / "choiceA.sv").write_text("", encoding="utf-8")
+        self.assertEqual(self.rules(case), [])
+
+        case.write_text(source.replace("*/", ":files: rules.map\n*/"), encoding="utf-8")
+        self.assertEqual(self.rules(case), ["stderr-location"])
+
+    def test_a_top_config_can_be_declared_in_a_library_map(self):
+        source = LEGAL.format(name="test_a", chapter="ch6", clause="6.1")
+        case = self.write("ch6/test_a", source.replace("*/", ":files: lib.map\n:top_module: selected\n*/"))
+        library_map = case.parent / "lib.map"
+        library_map.write_text("config selected; design work.m; endconfig\n", encoding="utf-8")
+        self.assertEqual(self.rules(case), [])
+        library_map.write_text("module selected; endmodule\n", encoding="utf-8")
+        self.assertEqual(self.rules(case), ["top-module"])
+
     def test_a_clause_that_the_standard_lacks_is_reported(self):
         path = self.write("ch6/test_a", LEGAL.format(name="test_a", chapter="ch6", clause="6.1 6.12.2"))
         self.assertEqual(dict(lint.check(path)).get("lrm-clause"), "6.12.2 is not a section of the standard")

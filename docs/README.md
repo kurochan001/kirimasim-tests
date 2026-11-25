@@ -25,6 +25,7 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Document | English | 日本語 |
 | --- | --- | --- |
 | kirimasim-tests | [English](../README.md) | [日本語](../README.ja.md) |
+| OpenCode handoff | [English](../HANDOFF.md) | [日本語](../HANDOFF.ja.md) |
 | Managing the coverage of the standard requirements. | [English](../coverage/README.en.md) | [日本語](../coverage/README.md) |
 | Auxiliary evidence for cross-functional verification | [English](../coverage/interaction-qualification/README.en.md) | [日本語](../coverage/interaction-qualification/README.md) |
 | Chapter interaction matrix | [English](chapter-cross-matrix.en.md) | [日本語](chapter-cross-matrix.md) |
@@ -53,6 +54,8 @@ Code, identifiers, raw execution evidence and license terms retain their origina
 | Daily and weekly simulation-speed benchmarks | [English](daily-benchmark.md) | [日本語](daily-benchmark.ja.md) |
 | Human review of a sample of tests | [English](review-sample.en.md) | [日本語](review-sample.md) |
 | Metamorphic checks | [English](metamorphic.en.md) | [日本語](metamorphic.md) |
+| Specify blocks in interfaces and VPI | [English](vpi-interface-specify-interpretation.en.md) | [日本語](vpi-interface-specify-interpretation.md) |
+| Program interface ports and VPI | [English](vpi-program-interface-port-interpretation.en.md) | [日本語](vpi-program-interface-port-interpretation.md) |
 
 <a id="自動生成レポートカタログ"></a>
 

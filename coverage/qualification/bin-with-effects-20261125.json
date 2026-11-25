@@ -1,0 +1,395 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-19.5.1.1-EXTRACT-WITH-SIDE-EFFECTS",
+    "SV2023-19.6.1.2-EXTRACT-CROSS-WITH-SIDE-EFFECTS"
+  ],
+  "scope": "The pure filters have a portable expectation. The side-effect outputs are observations of specific builds.",
+  "qualified": {
+    "versions": {
+      "verilator": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "ghost": "private build 6fa9a05abb0c"
+    },
+    "configuration": {
+      "evidence_profile": "coverage-bin-effects",
+      "checker_sha256": "fdd3d0c02e0d0a04f63dcfe5042ca5dc9057ebc4ba59cfcc24d3164e1474ce52",
+      "binary_sha256": {
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+        "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+      },
+      "seeds": [
+        1,
+        73
+      ]
+    },
+    "artifact_sha256": {
+      "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5",
+      "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+      "ghost_profile": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+    },
+    "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+    "tests": {
+      "ch19/test_cg_point_with_side_effect_observation": {
+        "inputs_sha256": "4bf939e881338c56fe1d3c22445f28d0e087f286ed2e8afcce488007a65442bc",
+        "verilator": {
+          "pure": {
+            "build_exit": 0,
+            "warning_codes": [],
+            "runs": [
+              {
+                "seed": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50"
+                ],
+                "checks_match": true
+              },
+              {
+                "seed": 73,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50"
+                ],
+                "checks_match": true
+              }
+            ],
+            "pass": true
+          },
+          "effects": {
+            "build_exit": 0,
+            "warning_codes": [],
+            "runs": [
+              {
+                "seed": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50",
+                  "effect point=50 evaluations=4"
+                ],
+                "checks_match": true,
+                "observed_percent": "50",
+                "observed_counter": "4"
+              },
+              {
+                "seed": 73,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50",
+                  "effect point=50 evaluations=4"
+                ],
+                "checks_match": true,
+                "observed_percent": "50",
+                "observed_counter": "4"
+              }
+            ],
+            "pass": true
+          }
+        },
+        "ghost": {
+          "pure": {
+            "runs": [
+              {
+                "attempt": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50"
+                ],
+                "checks_match": true
+              },
+              {
+                "attempt": 2,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50"
+                ],
+                "checks_match": true
+              }
+            ],
+            "pass": true
+          },
+          "effects": {
+            "runs": [
+              {
+                "attempt": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50",
+                  "effect point=25 evaluations=8"
+                ],
+                "checks_match": true,
+                "observed_percent": "25",
+                "observed_counter": "8"
+              },
+              {
+                "attempt": 2,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50",
+                  "effect point=25 evaluations=8"
+                ],
+                "checks_match": true,
+                "observed_percent": "25",
+                "observed_counter": "8"
+              }
+            ],
+            "pass": true
+          }
+        }
+      },
+      "ch19/test_cg_cross_with_side_effect_observation": {
+        "inputs_sha256": "5f92cdb0650156c2ef765eda8f78d9a3703de1f648c7a8a1fca93d18f8b8fd4f",
+        "verilator": {
+          "pure": {
+            "build_exit": 0,
+            "warning_codes": [],
+            "runs": [
+              {
+                "seed": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14"
+                ],
+                "checks_match": true
+              },
+              {
+                "seed": 73,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14"
+                ],
+                "checks_match": true
+              }
+            ],
+            "pass": true
+          },
+          "effects": {
+            "build_exit": 0,
+            "warning_codes": [],
+            "runs": [
+              {
+                "seed": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14",
+                  "effect cross=100 evaluations=1"
+                ],
+                "checks_match": true,
+                "observed_percent": "100",
+                "observed_counter": "1"
+              },
+              {
+                "seed": 73,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14",
+                  "effect cross=100 evaluations=1"
+                ],
+                "checks_match": true,
+                "observed_percent": "100",
+                "observed_counter": "1"
+              }
+            ],
+            "pass": true
+          }
+        },
+        "ghost": {
+          "pure": {
+            "runs": [
+              {
+                "attempt": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14"
+                ],
+                "checks_match": true
+              },
+              {
+                "attempt": 2,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14"
+                ],
+                "checks_match": true
+              }
+            ],
+            "pass": true
+          },
+          "effects": {
+            "runs": [
+              {
+                "attempt": 1,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14",
+                  "effect cross=12 evaluations=0"
+                ],
+                "checks_match": true,
+                "observed_percent": "12",
+                "observed_counter": "0"
+              },
+              {
+                "attempt": 2,
+                "run_exit": 0,
+                "stdout": [
+                  "pure point=50 cross=14",
+                  "effect cross=12 evaluations=0"
+                ],
+                "checks_match": true,
+                "observed_percent": "12",
+                "observed_counter": "0"
+              }
+            ],
+            "pass": true
+          }
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch19/test_cg_cross_with_side_effect_observation": {
+          "status": "pass",
+          "inputs_sha256": "5f92cdb0650156c2ef765eda8f78d9a3703de1f648c7a8a1fca93d18f8b8fd4f"
+        },
+        "ch19/test_cg_point_with_side_effect_observation": {
+          "status": "pass",
+          "inputs_sha256": "4bf939e881338c56fe1d3c22445f28d0e087f286ed2e8afcce488007a65442bc"
+        }
+      },
+      "generated_at": "2026-11-25T10:32:45.349762+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch19/test_cg_cross_with_side_effect_observation": {
+          "status": "pass",
+          "inputs_sha256": "5f92cdb0650156c2ef765eda8f78d9a3703de1f648c7a8a1fca93d18f8b8fd4f"
+        },
+        "ch19/test_cg_point_with_side_effect_observation": {
+          "status": "pass",
+          "inputs_sha256": "4bf939e881338c56fe1d3c22445f28d0e087f286ed2e8afcce488007a65442bc"
+        }
+      },
+      "generated_at": "2026-11-25T10:32:51.228693+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch19/test_cg_cross_with_side_effect_observation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch19/test_cg_cross_with_side_effect_observation.sv:16: syntax error",
+          "inputs_sha256": "5f92cdb0650156c2ef765eda8f78d9a3703de1f648c7a8a1fca93d18f8b8fd4f"
+        },
+        "ch19/test_cg_point_with_side_effect_observation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch19/test_cg_point_with_side_effect_observation.sv:16: syntax error",
+          "inputs_sha256": "4bf939e881338c56fe1d3c22445f28d0e087f286ed2e8afcce488007a65442bc"
+        }
+      },
+      "generated_at": "2026-11-25T10:32:45.317356+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch19/test_cg_cross_with_side_effect_observation": {
+          "status": "unsupported",
+          "reason": "type 'pure_group' (not implemented yet)",
+          "inputs_sha256": "5f92cdb0650156c2ef765eda8f78d9a3703de1f648c7a8a1fca93d18f8b8fd4f"
+        },
+        "ch19/test_cg_point_with_side_effect_observation": {
+          "status": "unsupported",
+          "reason": "type 'pure_group' (not implemented yet)",
+          "inputs_sha256": "4bf939e881338c56fe1d3c22445f28d0e087f286ed2e8afcce488007a65442bc"
+        }
+      },
+      "generated_at": "2026-11-25T10:32:45.328774+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "slang": {
+    "ordinary": {
+      "reference": "slang",
+      "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+      "slang_version": "slang version 12.0.0+0",
+      "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+      "generated_at": "2026-11-25T10:32:45.300973+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 2,
+          "clean": 2,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch19/test_cg_cross_with_side_effect_observation": {
+          "kind": "legal",
+          "status": "clean",
+          "inputs_sha256": "5f92cdb0650156c2ef765eda8f78d9a3703de1f648c7a8a1fca93d18f8b8fd4f"
+        },
+        "ch19/test_cg_point_with_side_effect_observation": {
+          "kind": "legal",
+          "status": "clean",
+          "inputs_sha256": "4bf939e881338c56fe1d3c22445f28d0e087f286ed2e8afcce488007a65442bc"
+        }
+      }
+    },
+    "optional_defines": [
+      "OBSERVE_BIN_EFFECTS"
+    ],
+    "optional_compile_exit": 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch18/test_active_constraint_functions_execute": {
+   "status": "pass",
+   "inputs_sha256": "e3c1fc513617ba85609bd67575cdc78bb999dde0bf6bd2481e8e69bc8afc92a1"
+  }
+ },
+ "generated_at": "2026-11-25T06:47:47.720459+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-active-constraint-calls",
+  "checker_sha256": "77c2f2c01465a85a82ef62b34674131cf8b069d6b6bdd07e353153cdea69d7ce",
+  "binary_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "coverage": "903356657c910eeeae54f57a0b1193215c966319324c7f58aa56b9dd2432cc93",
+   "compiler": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5",
+   "coverage_backend": "662f48221f77567b031682b5b671d016c84caaa64ce5753c2658b62d242ec27c"
+  }
+ }
+}

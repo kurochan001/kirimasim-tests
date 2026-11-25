@@ -1,0 +1,266 @@
+{
+  "tool": "ghost",
+  "version": "private build 6fa9a05abb0c",
+  "configuration": {
+    "evidence_profile": "ghost-dpi-pure-io",
+    "checker_sha256": "552690b9d0cbb74685fbcfaeb1cbe0e09831b7f16f87d1d882f38531cc84790d",
+    "binary_sha256": {
+      "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+      "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+    },
+    "debugger_version": "lldb-2103.0.34.407",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch35/test_dpi_pure_file_access_observation": {
+      "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c",
+      "pass": true,
+      "trials": {
+        "ordinary": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "file probes entered",
+            "direct=18,18 indirect=53,53"
+          ],
+          "native_events": {
+            "dpi_file_direct": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ],
+            "dpi_file_indirect": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ]
+          }
+        },
+        "direct": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "file probes entered",
+            "direct declared pure",
+            "direct=18,18 indirect=53,53"
+          ],
+          "native_events": {
+            "dpi_file_direct": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ],
+            "dpi_file_indirect": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ]
+          }
+        },
+        "indirect": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "file probes entered",
+            "indirect declared pure",
+            "direct=18,18 indirect=53,53"
+          ],
+          "native_events": {
+            "dpi_file_direct": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ],
+            "dpi_file_indirect": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ]
+          }
+        }
+      }
+    },
+    "ch35/test_dpi_pure_external_state_observation": {
+      "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f",
+      "pass": true,
+      "trials": {
+        "ordinary": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "external probes entered",
+            "env=18,18 shared=36,36"
+          ],
+          "native_events": {
+            "dpi_env_pid": [
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv",
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv"
+            ],
+            "dpi_shared_socket": [
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap",
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap"
+            ]
+          }
+        },
+        "direct": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "external probes entered",
+            "direct declared pure",
+            "env=18,18 shared=36,36"
+          ],
+          "native_events": {
+            "dpi_env_pid": [
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv"
+            ],
+            "dpi_shared_socket": [
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap",
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap"
+            ]
+          }
+        },
+        "indirect": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "external probes entered",
+            "indirect declared pure",
+            "env=18,18 shared=36,36"
+          ],
+          "native_events": {
+            "dpi_env_pid": [
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv",
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv"
+            ],
+            "dpi_shared_socket": [
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

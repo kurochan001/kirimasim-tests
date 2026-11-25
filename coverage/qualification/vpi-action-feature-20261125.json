@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "requirement": "SV2023-38.36.3-EXTRACT-ACTIONS-VERSUS-FEATURES",
+  "native_feature": {
+    "inputs_sha256": "2b0ffe257f585fe189a3c48030625f35688fd083c453d8e0e7fc2f9fad2899f4",
+    "ghost": {
+      "exit": 0,
+      "stdout": [
+        "feature start save reason=1",
+        "feature end save reason=1",
+        "restart request time=7 value=77",
+        "feature start restart reason=1",
+        "feature end restart reason=1",
+        "resume value=29 saved-time-range=1"
+      ],
+      "checkpoint_time": 3,
+      "restored_time": 3
+    },
+    "icarus": {
+      "exit": 1,
+      "callback_registration_unavailable": [
+        "feature start save registration unavailable",
+        "feature end save registration unavailable",
+        "feature start restart registration unavailable",
+        "feature end restart registration unavailable"
+      ],
+      "system_tasks_unavailable": [
+        "$save",
+        "$restart"
+      ]
+    }
+  },
+  "ordinary": {
+    "ghost-combined": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch36/test_vpi_simulation_action_callbacks": {
+          "status": "pass",
+          "inputs_sha256": "b6756fa453a9af7c008b7c6061fe190bdaeb3af5f54512b1a75a0dd9ef04868b"
+        },
+        "ch38/test_vpi_end_of_simulation_no_events": {
+          "status": "pass",
+          "inputs_sha256": "8091dd66433dacc2c19065ed47f304674c90fa32c8b3da84cf1df3f83a6a09c7"
+        },
+        "ch38/test_vpi_error_callback_runtime_errors": {
+          "status": "pass",
+          "inputs_sha256": "201a0d5562af2b7bda6d2725d2b087b4c01f7c015bd64a7038c5cd87490758f6"
+        },
+        "ch38/test_vpi_feature_callbacks_bracket_state_restore": {
+          "status": "pass",
+          "inputs_sha256": "2b0ffe257f585fe189a3c48030625f35688fd083c453d8e0e7fc2f9fad2899f4"
+        },
+        "ch38/test_vpi_pli_error_callback_counts_failed_calls": {
+          "status": "pass",
+          "inputs_sha256": "c7d3f359793bc957b4429d73d260e8666f837b4758cc642cf492b8193b9ef523"
+        },
+        "ch38/test_vpi_signal_callback": {
+          "status": "pass",
+          "inputs_sha256": "bb745c6052baea64efcfda7f7c47e990b78d6e1f5611c4543f4452aac3b0f7ed"
+        },
+        "ch38/test_vpi_tchk_violation_callback": {
+          "status": "pass",
+          "inputs_sha256": "479188d0eeeefb14bd8f13584a2444ecad60b488362e8d59af18710cfba75c48"
+        }
+      },
+      "generated_at": "2026-11-25T09:28:07.256761+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "c599a149d1ba221c9798c9c0d0b9a3b936174357f383b5efc16ad2a489321994"
+      }
+    },
+    "icarus-combined": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch36/test_vpi_simulation_action_callbacks": {
+          "status": "pass",
+          "inputs_sha256": "b6756fa453a9af7c008b7c6061fe190bdaeb3af5f54512b1a75a0dd9ef04868b"
+        },
+        "ch38/test_vpi_end_of_simulation_no_events": {
+          "status": "pass",
+          "inputs_sha256": "8091dd66433dacc2c19065ed47f304674c90fa32c8b3da84cf1df3f83a6a09c7"
+        },
+        "ch38/test_vpi_error_callback_runtime_errors": {
+          "status": "known",
+          "reason": "output differs: line 2 is 'cbError calls: 0, reason cbError 1, at:', expected 'cbError calls: 2, reason cbError 1, at: 1 2'",
+          "inputs_sha256": "201a0d5562af2b7bda6d2725d2b087b4c01f7c015bd64a7038c5cd87490758f6"
+        },
+        "ch38/test_vpi_feature_callbacks_bracket_state_restore": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'feature start save registration unavailable', expected 'feature start save reason=1'",
+          "inputs_sha256": "2b0ffe257f585fe189a3c48030625f35688fd083c453d8e0e7fc2f9fad2899f4"
+        },
+        "ch38/test_vpi_pli_error_callback_counts_failed_calls": {
+          "status": "known",
+          "reason": "VPI build failed: 2 errors generated.",
+          "inputs_sha256": "c7d3f359793bc957b4429d73d260e8666f837b4758cc642cf492b8193b9ef523"
+        },
+        "ch38/test_vpi_signal_callback": {
+          "status": "known",
+          "reason": "VPI build failed: 2 errors generated.",
+          "inputs_sha256": "bb745c6052baea64efcfda7f7c47e990b78d6e1f5611c4543f4452aac3b0f7ed"
+        },
+        "ch38/test_vpi_tchk_violation_callback": {
+          "status": "known",
+          "reason": "VPI build failed: 4 errors generated.",
+          "inputs_sha256": "479188d0eeeefb14bd8f13584a2444ecad60b488362e8d59af18710cfba75c48"
+        }
+      },
+      "generated_at": "2026-11-25T09:28:06.912116+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator-feature": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch38/test_vpi_feature_callbacks_bracket_state_restore": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch38/test_vpi_feature_callbacks_bracket_state_restore.sv:25:8: Unsupported or unknown PLI call: '$save'",
+          "inputs_sha256": "2b0ffe257f585fe189a3c48030625f35688fd083c453d8e0e7fc2f9fad2899f4"
+        }
+      },
+      "generated_at": "2026-11-25T09:28:06.306378+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim-feature": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch38/test_vpi_feature_callbacks_bracket_state_restore": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "2b0ffe257f585fe189a3c48030625f35688fd083c453d8e0e7fc2f9fad2899f4"
+        }
+      },
+      "generated_at": "2026-11-25T09:28:06.226159+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

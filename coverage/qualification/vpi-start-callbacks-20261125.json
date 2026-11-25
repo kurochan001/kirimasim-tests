@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "clause": "38.36.1",
+  "qualified": {
+    "tool": "ghost",
+    "version": "private build 6fa9a05abb0c",
+    "configuration": {
+      "checker_sha256": "3a3612e04b56a363419b0d9264a037785a09e3294a7c7c75314cfd37ec653626",
+      "artifact_sha256": {
+        "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+        "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe"
+      },
+      "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+      "debugger_version": "lldb-2103.0.34.407"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+        "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6",
+        "debugger_exit": 0,
+        "target_exits": [
+          0
+        ],
+        "events": [
+          {
+            "event": "registered",
+            "kind": "thread",
+            "object": 1,
+            "accepted": true
+          },
+          {
+            "event": "thread_callback",
+            "thread": 1,
+            "typed": true
+          },
+          {
+            "event": "registered",
+            "kind": "frame",
+            "object": 1,
+            "accepted": true
+          },
+          {
+            "event": "frame_callback",
+            "frame": 1,
+            "thread": 1,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "frame_body",
+            "frame": 1,
+            "thread": 1,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "fixture",
+            "line": "before fork"
+          },
+          {
+            "event": "registered",
+            "kind": "thread",
+            "object": 2,
+            "accepted": true
+          },
+          {
+            "event": "thread_callback",
+            "thread": 2,
+            "typed": true
+          },
+          {
+            "event": "registered",
+            "kind": "frame",
+            "object": 2,
+            "accepted": true
+          },
+          {
+            "event": "frame_callback",
+            "frame": 2,
+            "thread": 2,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "frame_body",
+            "frame": 2,
+            "thread": 2,
+            "typed": true,
+            "argument": 37,
+            "local": 58
+          },
+          {
+            "event": "fixture",
+            "line": "task body argument=37 local=58"
+          },
+          {
+            "event": "registered",
+            "kind": "thread",
+            "object": 3,
+            "accepted": true
+          },
+          {
+            "event": "thread_callback",
+            "thread": 3,
+            "typed": true
+          },
+          {
+            "event": "registered",
+            "kind": "frame",
+            "object": 3,
+            "accepted": true
+          },
+          {
+            "event": "frame_callback",
+            "frame": 3,
+            "thread": 3,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "frame_body",
+            "frame": 3,
+            "thread": 3,
+            "typed": true,
+            "argument": 51,
+            "local": 72
+          },
+          {
+            "event": "fixture",
+            "line": "task body argument=51 local=72"
+          },
+          {
+            "event": "fixture",
+            "line": "after join"
+          }
+        ],
+        "results": {
+          "thread": {
+            "qualified": true,
+            "pass": true,
+            "observations": [
+              {
+                "thread": 1,
+                "callback_before_body": true
+              },
+              {
+                "thread": 2,
+                "callback_before_body": true
+              },
+              {
+                "thread": 3,
+                "callback_before_body": true
+              }
+            ],
+            "status": "pass"
+          },
+          "frame": {
+            "qualified": true,
+            "pass": false,
+            "observations": [
+              {
+                "frame": 2,
+                "thread": 2,
+                "callback_before_body": true,
+                "callback_argument": null,
+                "callback_local": null,
+                "body_argument": 37,
+                "body_local": 58,
+                "initialized": false
+              },
+              {
+                "frame": 3,
+                "thread": 3,
+                "callback_before_body": true,
+                "callback_argument": null,
+                "callback_local": null,
+                "body_argument": 51,
+                "body_local": 72,
+                "initialized": false
+              }
+            ],
+            "status": "fail"
+          }
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+          "status": "pass",
+          "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6"
+        }
+      },
+      "generated_at": "2026-11-25T08:48:55.575174+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+          "status": "known",
+          "reason": "VPI build failed: 7 errors generated.",
+          "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6"
+        }
+      },
+      "generated_at": "2026-11-25T08:48:55.353006+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "v52": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch38/test_vpi_callbacks_at_thread_and_frame_start.sv:19:7: Unsupported or unknown PLI call: '$inspect_start_frame'",
+          "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6"
+        }
+      },
+      "generated_at": "2026-11-25T08:48:55.398466+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "v54": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch38/test_vpi_callbacks_at_thread_and_frame_start.sv:19:7: Unsupported or unknown PLI call: '$inspect_start_frame'",
+          "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6"
+        }
+      },
+      "generated_at": "2026-11-25T08:48:55.398491+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6"
+        }
+      },
+      "generated_at": "2026-11-25T08:48:55.302709+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

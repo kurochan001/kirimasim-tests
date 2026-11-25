@@ -1,0 +1,26 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch35/test_dpi_disabled_transfer_values": {
+   "status": "pass",
+   "inputs_sha256": "180d1b9140a2219bc828a297cf4ef6d68f5da4edfd628f79168e8748c4ec9745"
+  }
+ },
+ "generated_at": "2026-11-25T11:04:10.289631+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-dpi-disabled-values",
+  "checker_sha256": "755e29ecc1c18d80d182713cbca0594dccf423d0b74e8dc63ee7967d4b869c4d",
+  "artifact_sha256": {
+   "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+   "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "profile": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+   "svdpi": "3eed92cf81ac778b5a70536e9531ae8c4bf70ed636a448c7a9a0ea4b0a0c8506",
+   "function_frame_header": "31180aba877b6914fd50fb3992d778bc750bd23c92787389fbd1601d3fe96da8"
+  },
+  "cxx_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+ }
+}

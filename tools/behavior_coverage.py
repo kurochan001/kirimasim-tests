@@ -23,6 +23,79 @@ from pathlib import Path
 
 import suite_results
 import doc_localization
+import run_annex_n_reference
+import run_coverage_bin_effects
+import run_defparam_sources
+import run_dpi_binary_compatibility
+import run_dpi_chain_escape
+import run_dpi_cxx_boundary
+import run_dpi_foreign_preconditions
+import run_dpi_native_struct_layout
+import run_dpi_output_initial
+import run_dpi_optional_packed_compatibility
+import run_dpi_packed_storage
+import run_dpi_prototype_guard
+import run_dpi_pure_calls
+import run_dpi_pure_io
+import run_dpi_vpi_boundaries
+import run_domain_boundaries
+import run_fsm_transition_coverage
+import run_ghost_checker_initialization
+import run_ghost_coverage_database
+import run_ghost_dpi_load
+import run_ghost_class_stream_cycle
+import run_ghost_dpi_disabled_values
+import run_ghost_dpi_function_ack
+import run_ghost_dpi_versioned_dependencies
+import run_ghost_evcd
+import run_ghost_language_latitude
+import run_ghost_sequence_method
+import run_ghost_vpi_interactive_scope
+import run_ghost_vpi_runtime_release
+import run_ghost_vpi_start_callbacks
+import run_ghost_library_cells
+import run_icarus_control
+import run_icarus_identifier_length
+import run_icarus_iterator_release
+import run_icarus_library_phases
+import run_icarus_live_handle_release
+import run_icarus_queue_allocation
+import run_icarus_vendor_startup
+import run_language_defaults
+import run_language_diagnostics
+import run_null_instance_access
+import run_optional_lexical
+import run_preprocessor_effects
+import run_protect_author_digests
+import run_protect_block_boundaries
+import run_protect_cipher_methods
+import run_protect_digests
+import run_protect_encodings
+import run_protect_encryption
+import run_protect_licenses
+import run_protect_multiple_recipients
+import run_protect_nested_decryption
+import run_protect_openpgp_methods
+import run_protect_pragma_syntax
+import run_protect_public_keys
+import run_annex_declaration_checks
+import run_slang_annex_library_map
+import run_slang_source_checks
+import run_soft_distribution
+import run_scheduler_reference
+import run_stacktrace
+import run_verilator_dpi_context
+import run_verilator_directive_extension
+import run_verilator_constraint_calls
+import run_verilator_libmap
+import run_verilator_vpi_dpi_bridge
+import run_verilator_width_diagnostics
+import run_vpi_compatibility_headers
+import run_vpi_compatibility_scope
+import run_vpi_legacy_applicability
+import run_vpi_reserved_constant_ranges
+import run_vpi_vlog_option_files
+import run_waveform_sections
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "coverage"
@@ -40,6 +113,127 @@ SIMULATORS = {"icarus", "verilator", "kirimasim", "lyra", "ghost", "sby"}
 # them out; the first one is the union over every environment.
 REPRODUCIBLE_SIMULATORS = ("icarus", "verilator", "sby")
 FORMAL_TOOLS = ("sby",)
+EVIDENCE_PROFILES = {
+    run_coverage_bin_effects.PROFILE: ("verilator", run_coverage_bin_effects, run_coverage_bin_effects.CASES),
+    **{profile: ("ghost", run_annex_n_reference, run_annex_n_reference.CASES)
+       for profile in run_annex_n_reference.PROFILES.values()},
+    **{profile: ("ghost", run_ghost_coverage_database, run_ghost_coverage_database.CASES)
+       for profile, _, _ in run_ghost_coverage_database.SCENARIOS.values()},
+    **{profile: (tool, run_language_diagnostics, run_language_diagnostics.CASES)
+       for tool, profile in run_language_diagnostics.PROFILES.items()},
+    **{profile: (tool, run_optional_lexical, dict.fromkeys(run_optional_lexical.CASES[tool]))
+       for tool, profile in run_optional_lexical.PROFILES.items()},
+    **{profile: (tool, run_language_defaults, run_language_defaults.CASES[tool])
+       for tool, profile in run_language_defaults.PROFILES.items()},
+    **{profile: (tool, run_waveform_sections, run_waveform_sections.CASES[tool])
+       for tool, profile in run_waveform_sections.PROFILES.items()},
+    run_dpi_binary_compatibility.PROFILE: ("ghost", run_dpi_binary_compatibility, run_dpi_binary_compatibility.CASES),
+    **{profile: ("ghost", run_dpi_optional_packed_compatibility, run_dpi_optional_packed_compatibility.CASES)
+       for profile in run_dpi_optional_packed_compatibility.PROFILES.values()},
+    run_dpi_cxx_boundary.PROFILE: ("verilator", run_dpi_cxx_boundary, run_dpi_cxx_boundary.CASES),
+    run_dpi_chain_escape.PROFILE: ("ghost", run_dpi_chain_escape, run_dpi_chain_escape.CASES),
+    run_dpi_foreign_preconditions.PROFILE: (
+        "verilator", run_dpi_foreign_preconditions, run_dpi_foreign_preconditions.CASES),
+    run_dpi_native_struct_layout.PROFILE: ("ghost", run_dpi_native_struct_layout, run_dpi_native_struct_layout.CASES),
+    run_dpi_packed_storage.PROFILE: ("ghost", run_dpi_packed_storage, run_dpi_packed_storage.CASES),
+    **{profile: (tool, run_dpi_vpi_boundaries, dict.fromkeys([run_dpi_vpi_boundaries.CASE_BY_TOOL[tool]]))
+       for tool, profile in run_dpi_vpi_boundaries.PROFILES.items()},
+    run_verilator_vpi_dpi_bridge.PROFILE: (
+        "verilator", run_verilator_vpi_dpi_bridge, run_verilator_vpi_dpi_bridge.CASES),
+    run_defparam_sources.PROFILE: ("icarus", run_defparam_sources, run_defparam_sources.CASES),
+    run_dpi_output_initial.PROFILE: ("verilator", run_dpi_output_initial, run_dpi_output_initial.CASES),
+    run_dpi_prototype_guard.PROFILE: ("verilator", run_dpi_prototype_guard, run_dpi_prototype_guard.CASES),
+    **{profile: (tool, run_dpi_pure_calls, run_dpi_pure_calls.CASES)
+       for tool, profile in run_dpi_pure_calls.PROFILES.items()},
+    **{profile: (tool, run_dpi_pure_io, run_dpi_pure_io.CASES)
+       for tool, profile in run_dpi_pure_io.PROFILES.items()},
+    run_domain_boundaries.PROFILE: ("icarus", run_domain_boundaries, run_domain_boundaries.CASES),
+    run_fsm_transition_coverage.PROFILE: (
+        "ghost", run_fsm_transition_coverage, run_fsm_transition_coverage.CASES),
+    run_ghost_dpi_load.PROFILE: ("ghost", run_ghost_dpi_load, run_ghost_dpi_load.CASES),
+    run_ghost_dpi_function_ack.PROFILE: ("ghost", run_ghost_dpi_function_ack, run_ghost_dpi_function_ack.CASES),
+    run_ghost_dpi_disabled_values.PROFILE: (
+        "ghost", run_ghost_dpi_disabled_values, run_ghost_dpi_disabled_values.CASES),
+    run_ghost_dpi_versioned_dependencies.PROFILE: (
+        "ghost", run_ghost_dpi_versioned_dependencies, run_ghost_dpi_versioned_dependencies.CASES),
+    run_ghost_evcd.PROFILE: ("ghost", run_ghost_evcd, run_ghost_evcd.CASE_METHODS),
+    run_ghost_class_stream_cycle.PROFILE: (
+        "ghost", run_ghost_class_stream_cycle, run_ghost_class_stream_cycle.CASES),
+    run_ghost_language_latitude.PROFILE: (
+        "ghost", run_ghost_language_latitude, run_ghost_language_latitude.CASES),
+    run_ghost_sequence_method.PROFILE: ("ghost", run_ghost_sequence_method, run_ghost_sequence_method.CASES),
+    run_ghost_vpi_interactive_scope.PROFILE: (
+        "ghost", run_ghost_vpi_interactive_scope, run_ghost_vpi_interactive_scope.CASES),
+    run_ghost_vpi_runtime_release.PROFILE: (
+        "ghost", run_ghost_vpi_runtime_release, run_ghost_vpi_runtime_release.CASES),
+    **{profile: ("ghost", run_ghost_vpi_start_callbacks, run_ghost_vpi_start_callbacks.CASES)
+       for profile in run_ghost_vpi_start_callbacks.PROFILES.values()},
+    run_null_instance_access.PROFILE: ("verilator", run_null_instance_access, run_null_instance_access.CASES),
+    run_stacktrace.PROFILE: ("ghost", run_stacktrace, run_stacktrace.CASES),
+    run_ghost_library_cells.PROFILE: ("ghost", run_ghost_library_cells, run_ghost_library_cells.CASES),
+    run_ghost_checker_initialization.PROFILE: (
+        "ghost", run_ghost_checker_initialization, run_ghost_checker_initialization.CASES),
+    run_icarus_control.PROFILE: ("icarus", run_icarus_control, run_icarus_control.CASE_METHODS),
+    run_icarus_vendor_startup.PROFILE: ("icarus", run_icarus_vendor_startup, run_icarus_vendor_startup.CASES),
+    run_icarus_library_phases.PROFILE: (
+        "icarus", run_icarus_library_phases, run_icarus_library_phases.CASES),
+    run_icarus_identifier_length.PROFILE: (
+        "icarus", run_icarus_identifier_length, run_icarus_identifier_length.CASES),
+    run_icarus_iterator_release.PROFILE: (
+        "icarus", run_icarus_iterator_release, run_icarus_iterator_release.CASES),
+    run_icarus_live_handle_release.PROFILE: (
+        "icarus", run_icarus_live_handle_release, run_icarus_live_handle_release.CASES),
+    run_scheduler_reference.PROFILE: ("icarus", run_scheduler_reference, run_scheduler_reference.CASES),
+    run_icarus_queue_allocation.PROFILE: (
+        "icarus", run_icarus_queue_allocation, run_icarus_queue_allocation.CASES),
+    run_verilator_constraint_calls.PROFILE: (
+        "verilator", run_verilator_constraint_calls, run_verilator_constraint_calls.CASES),
+    run_verilator_libmap.PROFILE: ("verilator", run_verilator_libmap, run_verilator_libmap.CASE_MAPS),
+    run_verilator_directive_extension.PROFILE: (
+        "verilator", run_verilator_directive_extension, run_verilator_directive_extension.CASES),
+    run_verilator_width_diagnostics.PROFILE: (
+        "verilator", run_verilator_width_diagnostics, run_verilator_width_diagnostics.CASES),
+    run_preprocessor_effects.PROFILE: (
+        "verilator", run_preprocessor_effects, run_preprocessor_effects.CASES),
+    # Compile-only qualification. Slang is outside SIMULATORS, so this profile
+    # supplies reviewed design evidence and cannot count as simulation evidence.
+    run_protect_pragma_syntax.PROFILE: ("slang", run_protect_pragma_syntax,
+                                      run_protect_pragma_syntax.CASE_KEYWORDS),
+    run_slang_annex_library_map.PROFILE: ("slang", run_slang_annex_library_map,
+                                        run_slang_annex_library_map.CASES),
+    run_annex_declaration_checks.GHOST_PROFILE: (
+        "ghost", run_annex_declaration_checks, run_annex_declaration_checks.GHOST_CASES),
+    run_annex_declaration_checks.SLANG_PROFILE: (
+        "slang", run_annex_declaration_checks, run_annex_declaration_checks.SLANG_CASES),
+    run_soft_distribution.PROFILE: ("ghost", run_soft_distribution, run_soft_distribution.CASES),
+    run_slang_source_checks.PROFILE: ("slang", run_slang_source_checks, run_slang_source_checks.CASES),
+    # Standalone encryptor qualification also stays outside SIMULATORS.
+    run_protect_encryption.PROFILE: ("hdl-encrypt", run_protect_encryption, run_protect_encryption.CASES),
+    run_protect_author_digests.PROFILE: ("hdl-encrypt", run_protect_author_digests, run_protect_author_digests.CASES),
+    run_protect_block_boundaries.PROFILE: ("hdl-encrypt", run_protect_block_boundaries, run_protect_block_boundaries.CASES),
+    run_protect_cipher_methods.PROFILE: ("hdl-encrypt", run_protect_cipher_methods, run_protect_cipher_methods.CASES),
+    run_protect_digests.PROFILE: ("hdl-encrypt", run_protect_digests, run_protect_digests.CASES),
+    run_protect_encodings.PROFILE: ("hdl-encrypt", run_protect_encodings, run_protect_encodings.CASES),
+    run_protect_licenses.PROFILE: ("hdl-encrypt", run_protect_licenses, run_protect_licenses.CASES),
+    run_protect_multiple_recipients.PROFILE: (
+        "hdl-encrypt", run_protect_multiple_recipients, run_protect_multiple_recipients.CASES),
+    run_protect_nested_decryption.PROFILE: (
+        "hdl-encrypt", run_protect_nested_decryption, run_protect_nested_decryption.CASES),
+    run_protect_openpgp_methods.PROFILE: (
+        "hdl-encrypt", run_protect_openpgp_methods, run_protect_openpgp_methods.CASES),
+    run_protect_public_keys.PROFILE: ("hdl-encrypt", run_protect_public_keys, run_protect_public_keys.CASES),
+    run_verilator_dpi_context.PROFILE: ("verilator-codegen", run_verilator_dpi_context,
+                                      run_verilator_dpi_context.CASES),
+    run_vpi_compatibility_headers.PROFILE: ("vpi-header-compiler", run_vpi_compatibility_headers,
+                                            run_vpi_compatibility_headers.CASES),
+    run_vpi_compatibility_scope.PROFILE: ("ghost", run_vpi_compatibility_scope, run_vpi_compatibility_scope.CASES),
+    run_vpi_reserved_constant_ranges.PROFILE: (
+        "verilator", run_vpi_reserved_constant_ranges, run_vpi_reserved_constant_ranges.CASES),
+    **{profile: ("ghost", run_vpi_legacy_applicability, run_vpi_legacy_applicability.CASES)
+       for profile in run_vpi_legacy_applicability.PROFILES.values()},
+    run_vpi_vlog_option_files.PROFILE: (
+        "ghost", run_vpi_vlog_option_files, run_vpi_vlog_option_files.CASES),
+}
 # Simulators no longer run whose snapshots stay in the behavior history.
 RETIRED_SIMULATORS = ("nvc",)
 
@@ -133,12 +327,24 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
             fields = suite_results.header(test)
             require(r["clause"] in fields.get("lrm", "").split()[1:],
                     f"test must cite mapped clause {r['clause']}: {c['test']}")
+            profile = c.get("evidence_profile")
+            checker = None
             rejected_design = bool(fields.get("should_fail_because"))
+            if profile is not None:
+                require(isinstance(profile, str) and profile in EVIDENCE_PROFILES,
+                        f"unsupported evidence profile: {rid}")
+                _, checker, cases = EVIDENCE_PROFILES[profile]
+                require(suite_results.test_id(test) in cases
+                        and (simulation_output_witness(fields)
+                             or profile == run_verilator_libmap.PROFILE and rejected_design),
+                        f"unsupported evidence profile: {rid}")
             runtime_error = r["kind"] == "error" and runtime_diagnostic_witness(fields)
+            profile_error = (r["kind"] == "error"
+                             and rid in getattr(checker, "DIAGNOSTIC_REQUIREMENTS", ()))
             companion = r["kind"] == "error" and groups and simulation_output_witness(fields)
-            require(rejected_design == (r["kind"] == "error") or runtime_error or companion,
+            require(rejected_design == (r["kind"] == "error") or runtime_error or profile_error or companion,
                     f"negative/positive case mismatch: {rid}")
-            if rejected_design or runtime_error:
+            if rejected_design or runtime_error or profile_error:
                 error_witnesses.add(c["test"])
             require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", c.get("reviewed_on", ""))
                     and c.get("reviewer") and c.get("observation"),
@@ -149,6 +355,10 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                     f"stale reviewed mapping: {rid} -> {c['test']}; review changed inputs")
             inputs = set(suite_results.input_files(test))
             anchors = c.get("evidence", [])
+            if checker is not None:
+                require(any(a["file"] == checker.CHECKER for a in anchors),
+                        f"mapping must identify the evidence checker: {rid}")
+                inputs.add(local_file(checker.CHECKER))
             require(anchors and any(a["file"] == c["test"] for a in anchors),
                     f"mapping must identify a stimulus in the test: {rid}")
             expected = fields.get("expected_stdout", "")
@@ -163,7 +373,11 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                                         a["contains"] == ":expected_stderr_regex: "
                                         + fields.get("expected_stderr_regex", "")
                                         for a in anchors)
-                if runtime_error:
+                if profile_error:
+                    checked_oracle = output_anchor and not diagnostic_only and any(
+                        a["file"] == checker.CHECKER and checker.DIAGNOSTIC_ANCHOR in a["contains"] for a in anchors
+                    )
+                elif runtime_error:
                     checked_oracle = not diagnostic_only and output_anchor and diagnostic_anchor
                 else:
                     checked_oracle = diagnostic_anchor if diagnostic_only else output_anchor
@@ -261,9 +475,24 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
     snapshots, ignored = [], []
     digests = {}
     test_ids = {}
+    checker_digests = {}
     for path in sorted(result_paths):
         data = json.loads(path.read_text(encoding="utf-8"))
         simulator = data.get("simulator")
+        configuration = data.get("configuration") or {}
+        profile = configuration.get("evidence_profile")
+        if profile is not None:
+            registered = EVIDENCE_PROFILES.get(profile) if isinstance(profile, str) else None
+            if registered is None or simulator != registered[0]:
+                ignored.append(f"{path.name}: unknown or stale evidence profile")
+                continue
+            _, checker, cases = registered
+            if profile not in checker_digests:
+                checker_digests[profile] = checker.checker_digest()
+            if (configuration.get("checker_sha256") != checker_digests[profile]
+                    or not set(data.get("tests", {})) <= cases.keys()):
+                ignored.append(f"{path.name}: unknown or stale evidence profile")
+                continue
         if (simulator not in SIMULATORS or not data.get("version")
                 or not data.get("generated_at") or data.get("runner_changed")
                 or data.get("runner_sha256") != suite_results.runner_digest(simulator)):
@@ -279,6 +508,9 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                 continue
             by_test = {}
             for c in r["checks"]:
+                if c.get("evidence_profile") != profile:
+                    by_test[c["test"]] = "not_run"
+                    continue
                 test = ROOT / c["test"]
                 if c["test"] not in test_ids:
                     test_ids[c["test"]] = suite_results.test_id(test)

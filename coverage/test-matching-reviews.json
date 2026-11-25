@@ -9857,7 +9857,7 @@
     },
     {
       "test": "tests/ch22/test_include_nested.sv",
-      "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
+      "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -9905,7 +9905,7 @@
     },
     {
       "test": "tests/ch22/test_include_guard_two_files.sv",
-      "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
+      "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a",
       "reviewed_on": "2026-10-28",
       "reviewer": "Codex (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -44976,7 +44976,7 @@
     },
     {
       "test": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv",
-      "inputs_sha256": "f2b43d32a160fd552c71cd121358672af6242887094e58e4f5aa8cf92ec209f1",
+      "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a",
       "reviewed_on": "2026-10-28",
       "reviewer": "DeepSeek V4.1 Flash (AI); not an independent human review",
       "scope": "Listed requirement decisions only; this is not completion of every observation or requirement in the test.",
@@ -57565,53 +57565,6 @@
       ]
     },
     {
-      "test": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
-      "inputs_sha256": "7a6ac51caebaf49a485e043d55698d4ec702450a336b155efaf8ceb61dce5c4e",
-      "reviewed_on": "2026-11-24",
-      "reviewer": "Codex (AI)",
-      "scope": "Review of the listed requirement observations.",
-      "decisions": [
-        {
-          "requirement_ids": [
-            "SV2023-19.9-EXTRACT-SET-DATABASE-NAME"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "保存用の実行で名前を二度設定する。別のレポートテストが、最後に指定したファイルが書かれ、先に指定したファイルが作成されないことを確認する。",
-          "reviewed_on": "2026-11-24",
-          "reviewer": "Codex (AI)",
-          "evidence": [
-            {
-              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
-              "contains": "$set_coverage_db_name(\"unused_coverage.json\");"
-            },
-            {
-              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
-              "contains": "$set_coverage_db_name(\"chosen_coverage.json\");"
-            }
-          ]
-        },
-        {
-          "requirement_ids": [
-            "SV2023-19.9-EXTRACT-LOAD-DATABASE"
-          ],
-          "disposition": "partial_observation",
-          "explanation": "追加のサンプリングをせずに前の実行のファイルを読み込み、別のレポートテストが両型の累積値を検査する。現在の Ghost では保存段階で対象ファイルが生成されない。",
-          "reviewed_on": "2026-11-24",
-          "reviewer": "Codex (AI)",
-          "evidence": [
-            {
-              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
-              "contains": "$load_coverage_db(\"chosen_coverage.json\");"
-            },
-            {
-              "file": "tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv",
-              "contains": "four_values::get_coverage(), two_values::get_coverage()"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "test": "tests/ch37/test_vpi_value_change_callback_refuses_automatic_variable.sv",
       "inputs_sha256": "4becf7a9250eafbb69b32c0117b10d88a318cb1f49714da8e41738e314f77b01",
       "reviewed_on": "2026-11-24",
@@ -60589,6 +60542,105 @@
             {
               "file": "tests/ch21/test_file_binary_seek_counts_all_bytes_before_eof.sv",
               "contains": "seek_status = $fseek(fd, -2, 2);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.sv",
+      "inputs_sha256": "fbc77dad94a89fed7ffd12ae8ef6665e75a9b422363bf012e545859442d5a56b",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-38.9-EXTRACT-GET-DATA-CALLBACK-SCOPE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "再開開始と終了のコールバックで指定したチェックポイントのファイル名を照合する。データの読出しは同じ検査グループの別テストで確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.sv",
+              "contains": "$restart(\"callback-location.chk\")"
+            },
+            {
+              "file": "tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.c",
+              "contains": "strcmp(basename, \"callback-location.chk\") == 0"
+            }
+          ]
+        },
+        {
+          "requirement_ids": [
+            "SV2023-38.31-EXTRACT-PUT-DATA-PHASE"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "保存開始と終了のコールバックで指定したチェックポイントのファイル名を照合する。データの書込みは同じ検査グループの別テストで確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.sv",
+              "contains": "$save(\"callback-location.chk\")"
+            },
+            {
+              "file": "tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.c",
+              "contains": "strcmp(basename, \"callback-location.chk\") == 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch13/test_non_ansi_task_argument_list_preserves_each_declarator.sv",
+      "inputs_sha256": "160c05f6c3c0abf44dd64a5734183072f9eb33bb7978a8d47ead019640552c70",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "scope": "Review of the listed requirement observations.",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-A.2.3-EXTRACT-DIM-LIST-72"
+          ],
+          "disposition": "partial_observation",
+          "explanation": "同じ入力行の各宣言子が独立した名前と次元を保持することを、位置指定と名前指定の呼び出しで検査する。初期化子の構文と意味検査は Slang の構文木を照合する補助検査で確認する。",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "evidence": [
+            {
+              "file": "tests/ch13/test_non_ansi_task_argument_list_preserves_each_declarator.sv",
+              "contains": "input int first_value, pair[2], matrix[2][2], last_value;"
+            },
+            {
+              "file": "tests/ch13/test_non_ansi_task_argument_list_preserves_each_declarator.sv",
+              "contains": "score(7, pair, matrix, 5, total);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "test": "tests/ch22/test_22_extra_include_syntax.sv",
+      "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a",
+      "scope": "Include syntax witnessed by this fixture.",
+      "reviewed_on": "2026-11-25",
+      "reviewer": "Codex (AI)",
+      "decisions": [
+        {
+          "requirement_ids": [
+            "SV2023-22.4-EXTRACT-INCLUDE-SYNTAX"
+          ],
+          "disposition": "partial_observation",
+          "reviewed_on": "2026-11-25",
+          "reviewer": "Codex (AI)",
+          "explanation": "三つの include がすべて二重引用符形式なので、このテストは引用符形式とその記述場所を検証する。山括弧形式は両方の構文を使う別のテストで照合する。",
+          "evidence": [
+            {
+              "file": "tests/ch22/test_22_extra_include_syntax.sv",
+              "contains": "`include \"test_22_extra_include_syntax_angle.svh\""
             }
           ]
         }

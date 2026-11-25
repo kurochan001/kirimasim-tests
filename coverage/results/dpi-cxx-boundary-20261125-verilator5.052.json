@@ -1,0 +1,25 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch35/test_dpi_cxx_function_and_task_boundaries": {
+   "status": "pass",
+   "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200"
+  }
+ },
+ "generated_at": "2026-11-25T08:22:41.646169+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-dpi-cxx-boundary",
+  "checker_sha256": "b60d20962c4f2b210a940cdcc0d8cfe4ee2557269c8fa973f937a8cc76a4f0b7",
+  "binary_sha256": {
+   "verilator": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+   "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "verilator_backend": "411e8de3447a144f2cb73dbb49b5e7799fc7f89e101907f86989d3881f477a7b"
+  },
+  "cxx_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "seed": 1
+ }
+}

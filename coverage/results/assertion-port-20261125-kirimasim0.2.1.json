@@ -1,0 +1,30 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch15/test_mailbox_negative_bound_observation": {
+   "status": "unsupported",
+   "reason": "type 'std::mailbox#(int)' (not implemented yet)",
+   "inputs_sha256": "cc1f92d5a47cefda65129e0978d692e35ee47191cb039df25677fee3e78dcfa1"
+  },
+  "ch16/test_assertion_clock_multiple_transitions_observation": {
+   "status": "unsupported",
+   "reason": "concurrent assertion (not implemented yet)",
+   "inputs_sha256": "92ff8b96f5b150dcbd6593ebdad1f756f25d405cee9a2eda45e988e31bb0e87d"
+  },
+  "ch23/test_port_type_time_zero_events": {
+   "status": "pass",
+   "inputs_sha256": "997ea6cc79a9f1e9341d39c8a3a14edcaaae5e54e98f5fa34cc2997836e240eb"
+  },
+  "ch24/test_design_and_program_assertion_clocks": {
+   "status": "unsupported",
+   "reason": "concurrent assertion (not implemented yet)",
+   "inputs_sha256": "6b4c53e911bb0fa2d0ccdcc20881448cf6b87c377fc4d97c50513081c83a4a18"
+  }
+ },
+ "generated_at": "2026-11-25T05:41:20.256904+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

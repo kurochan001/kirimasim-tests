@@ -1,0 +1,30 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch12/test_unique_overlap_optional_evaluation": {
+   "status": "pass",
+   "inputs_sha256": "9a85c6ce09c9f33403df17328afb7d3c2a318ac3e495047b052662f8c5650e1d"
+  },
+  "ch15/test_null_event_wait_observation": {
+   "status": "pass",
+   "inputs_sha256": "7df76b88f7bd6a90226503b265f4e3fc8fa961dc57e632b31a8b7b022a5b1485"
+  },
+  "ch9/test_event_method_unrelated_member_observation": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch9/test_event_method_unrelated_member_observation.sv:48:21: Unsupported: Impure function calls in sensitivity lists",
+   "inputs_sha256": "0f2d68f2e008d41902ffac618730cce4f944dfb912be23533aefc0159e9e2271"
+  },
+  "ch9/test_function_disable_caller_observation": {
+   "status": "pass",
+   "inputs_sha256": "e8fac21ddd45970d6ff098537e716980b4c348597fe68c32492e6c182a572c91"
+  }
+ },
+ "generated_at": "2026-11-25T05:13:20.283727+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

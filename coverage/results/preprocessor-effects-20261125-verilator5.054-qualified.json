@@ -1,0 +1,26 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch22/test_preprocessor_line_emission_modes_preserve_manual_origin": {
+   "status": "pass",
+   "inputs_sha256": "291f1e775b259a5914a95fa2cc0ab43e842254ef870f2722142e6edb958c82b9"
+  },
+  "ch22/test_undef_never_defined_macro_preserves_other_definitions": {
+   "status": "pass",
+   "inputs_sha256": "12cef4cba42ad0e20e864d92b2d26f9ab50ecf376d1d4bf72a179e683eae636b"
+  }
+ },
+ "generated_at": "2026-11-25T04:34:24.040211+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-preprocessor-effects",
+  "checker_sha256": "67c2f28dccd233bef5ca61ed7a6a240e81e119bafdbda5359bd4497c444a194d",
+  "binaries_sha256": {
+   "launcher": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "compiler": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  }
+ }
+}

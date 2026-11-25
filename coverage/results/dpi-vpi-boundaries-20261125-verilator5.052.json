@@ -1,0 +1,25 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch35/test_dpi_and_vpi_handles_use_distinct_apis": {
+   "status": "pass",
+   "inputs_sha256": "76acd4888a2e5c9c2592575b8b82315b7a8e85347a8922859e589c82934dfb5a"
+  }
+ },
+ "generated_at": "2026-11-25T08:29:38.642229+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-dpi-vpi-handle-types",
+  "checker_sha256": "0932aa4615475dd5cb98e062432e819bc07e04fe1162483210715f3417e737ed",
+  "artifact_sha256": {
+   "simulator": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+   "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "svdpi.h": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6",
+   "vpi_user.h": "b9f3fc98128296a9067b0a8b27e50cc0a7270cfa2cef36d92e473e0417aa43c7"
+  },
+  "compiler_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+ }
+}

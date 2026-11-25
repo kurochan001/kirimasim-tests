@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "configuration": {
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch40/test_fsm_pragma_excludes_selects_in_state_concatenation": {
+      "inputs_sha256": "10a57b383f542090875bfab1f517dd523b4bf87080aaf2a1efc6cf73f274b0c3",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "completed": true,
+      "expected": [
+        "whole: concat=1 members=1",
+        "standalone: part_select=1 width=2",
+        "concatenations registered: bit_select=0 part_select=0",
+        "hdl whole=01 standalone=10"
+      ],
+      "observed": [
+        "whole: concat=1 members=1",
+        "standalone: part_select=1 width=2",
+        "concatenations registered: bit_select=0 part_select=0",
+        "hdl whole=01 standalone=10"
+      ]
+    }
+  }
+}

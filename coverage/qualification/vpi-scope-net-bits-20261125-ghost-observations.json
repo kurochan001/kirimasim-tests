@@ -1,0 +1,62 @@
+{
+  "name": "Ghost",
+  "version": "private build 6fa9a05abb0c",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch37/test_vpi_net_bit_loads_follow_plain_continuous_assignment": {
+      "inputs_sha256": "2cc33b0fa8bf3d2381988337fd5d0fbb40c32a5372b67452567c0f1aad161df0",
+      "observed": [
+        "hdl destination=1010",
+        "whole net reaches destination=1",
+        "source bit=0 destination offset=0 bit loads=0 matching=0",
+        "source bit=1 destination offset=1 bit loads=0 matching=0",
+        "source bit=2 destination offset=2 bit loads=0 matching=0",
+        "source bit=3 destination offset=3 bit loads=0 matching=0"
+      ]
+    },
+    "ch37/test_vpi_net_bit_loads_follow_reordered_continuous_assignment": {
+      "inputs_sha256": "6e0908dc41fc88024f6f6208288aad9872dba906ec7d6b0f4ef11673b17269c3",
+      "observed": [
+        "hdl destination=0101",
+        "whole net reaches destination=1",
+        "source bit=0 destination offset=3 bit loads=0 matching=0",
+        "source bit=1 destination offset=2 bit loads=0 matching=0",
+        "source bit=2 destination offset=1 bit loads=0 matching=0",
+        "source bit=3 destination offset=0 bit loads=0 matching=0"
+      ]
+    },
+    "ch37/test_vpi_class_specializations_are_scopes_with_definition_relations": {
+      "inputs_sha256": "49f669342ba4500c49a302d865824bd1a67761211038dfd419baed449dbbdc0d",
+      "observed": [
+        "narrow class scope=1 name=1 instance width=4 shared property=1",
+        "wide class scope=1 name=1 instance width=4 shared property=1",
+        "class definition internal scope=1 reverse definition=1"
+      ]
+    },
+    "ch37/test_vpi_nettype_relations": {
+      "inputs_sha256": "af33dbbfe3397b24f7dd7449d16021dbb278848e1eafdfc389b508c1bf2e8a2e",
+      "observed": [
+        "nt_plain: name nt_plain, instance top 1, typespec nib_t (vpiLogicTypespec), net typespec nib_t, with NULL",
+        "nt_res: name nt_res, instance top 1, typespec nib_t (vpiLogicTypespec), net typespec nib_t, with nt_resolve (vpiFunction)"
+      ]
+    },
+    "ch37/test_vpi_nettype_declarations_belong_to_declaring_instance": {
+      "inputs_sha256": "7319a6e9068aac423832bed2c81496ae6b988076e35cdff2fa703cb40b1336bb",
+      "observed": [
+        "declared=2 nibble=1 octet=1 nested=0"
+      ]
+    },
+    "ch37/test_vpi_class_internal_scopes": {
+      "inputs_sha256": "4bca8d1ae0a5624508e809dad1d5446dd5b660c8da8a2dc731d12ea05f94c70e",
+      "observed": [
+        "class definition cs_c: scope is top 1",
+        "class definition cs_c: internal scopes f (vpiFunction), t (vpiTask)",
+        "    f (vpiFunction): back to class 1",
+        "    t (vpiTask): back to class 1",
+        "    f (vpiFunction): back to class 1",
+        "    t (vpiTask): back to class 1"
+      ]
+    }
+  }
+}

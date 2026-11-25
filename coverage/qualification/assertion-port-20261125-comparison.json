@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "simulators": {
+    "verilator": {
+      "ch16/test_assertion_clock_multiple_transitions_observation": {
+        "inputs_sha256": "92ff8b96f5b150dcbd6593ebdad1f756f25d405cee9a2eda45e988e31bb0e87d",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "assertion passes=2 failures=0"
+            ]
+          },
+          "glitch": {
+            "exit": 0,
+            "stdout": [
+              "same slot edges emitted t=1",
+              "assertion passes=3 failures=0"
+            ]
+          }
+        }
+      },
+      "ch24/test_design_and_program_assertion_clocks": {
+        "inputs_sha256": "6b4c53e911bb0fa2d0ccdcc20881448cf6b87c377fc4d97c50513081c83a4a18",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "design clock t=1 sampled=0 live=1",
+              "program complete t=4"
+            ]
+          },
+          "program_clock": {
+            "exit": 0,
+            "stdout": [
+              "design clock t=1 sampled=0 live=1",
+              "program clock t=3 sampled=0 live=1",
+              "program complete t=4"
+            ]
+          }
+        }
+      },
+      "ch23/test_port_type_time_zero_events": {
+        "inputs_sha256": "997ea6cc79a9f1e9341d39c8a3a14edcaaae5e54e98f5fa34cc2997836e240eb",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "settled values=6,6",
+              "later signed=-3 unsigned=13 events=1,1"
+            ]
+          },
+          "startup": {
+            "exit": 0,
+            "stdout": [
+              "settled values=6,6",
+              "later signed=-3 unsigned=13 events=1,1",
+              "startup events=0,0"
+            ]
+          }
+        }
+      },
+      "ch15/test_mailbox_negative_bound_observation": {
+        "inputs_sha256": "cc1f92d5a47cefda65129e0978d692e35ee47191cb039df25677fee3e78dcfa1",
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "bounded mailbox values=17,29 remaining=0"
+            ],
+            "negative_bound_diagnostics": 0
+          },
+          "negative": {
+            "exit": 0,
+            "stdout": [
+              "bounded mailbox values=17,29 remaining=0",
+              "before constructing mailbox with negative bound",
+              "negative constructor returned null=0"
+            ],
+            "negative_bound_diagnostics": 0
+          }
+        }
+      }
+    },
+    "icarus": {
+      "ch23/test_port_type_time_zero_events": {
+        "inputs_sha256": "997ea6cc79a9f1e9341d39c8a3a14edcaaae5e54e98f5fa34cc2997836e240eb",
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "settled values=6,6",
+              "later signed=-3 unsigned=13 events=1,1"
+            ]
+          },
+          "startup": {
+            "exit": 0,
+            "stdout": [
+              "settled values=6,6",
+              "later signed=-3 unsigned=13 events=1,1",
+              "startup events=0,0"
+            ]
+          }
+        }
+      }
+    },
+    "kirimasim": {
+      "ch23/test_port_type_time_zero_events": {
+        "inputs_sha256": "997ea6cc79a9f1e9341d39c8a3a14edcaaae5e54e98f5fa34cc2997836e240eb",
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "settled values=6,6",
+              "later signed=-3 unsigned=13 events=1,1"
+            ]
+          },
+          "startup": {
+            "exit": 0,
+            "stdout": [
+              "settled values=6,6",
+              "later signed=-3 unsigned=13 events=1,1",
+              "startup events=1,1"
+            ]
+          }
+        }
+      }
+    },
+    "slang": {
+      "ch15/test_mailbox_negative_bound_observation": {
+        "inputs_sha256": "cc1f92d5a47cefda65129e0978d692e35ee47191cb039df25677fee3e78dcfa1",
+        "version": "slang version 12.0.0+0",
+        "compile_exit": 0,
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  }
+}

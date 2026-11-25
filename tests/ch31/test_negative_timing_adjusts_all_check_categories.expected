@@ -1,0 +1,8 @@
+native 17 first=28,22 setup=28 hold=0 setuphold=28 recovery=28 removal=0 recrem=28 width=38 period=53 nochange=0
+shifted 17 first=28,22 setup=28 hold=0 setuphold=28 recovery=28 removal=0 recrem=28 width=38 period=53 nochange=0
+native 24 first=28,29 setup=0 hold=29 setuphold=29 recovery=0 removal=29 recrem=29 width=38 period=53 nochange=29
+shifted 24 first=28,29 setup=0 hold=29 setuphold=29 recovery=0 removal=29 recrem=29 width=38 period=53 nochange=29
+native 31 first=28,36 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=36
+shifted 31 first=28,36 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=36
+native 34 first=28,39 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=0
+shifted 34 first=28,39 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=0

@@ -1,0 +1,275 @@
+{
+  "schema": 1,
+  "clause": "35.5.3",
+  "qualified": {
+    "v52": {
+      "tool": "verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "configuration": {
+        "evidence_profile": "verilator-vpi-dpi-bridge",
+        "checker_sha256": "9dac6609917229cfec36f927ee41af7962722704802da3aaed44188bc6a0cc00",
+        "binary_sha256": {
+          "launcher": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+          "backend": "411e8de3447a144f2cb73dbb49b5e7799fc7f89e101907f86989d3881f477a7b"
+        }
+      },
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "tests": {
+        "ch35/test_dpi_context_requires_separate_vpi_activation": {
+          "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83",
+          "trials": {
+            "enabled": {
+              "build_exit": 0,
+              "pass": true,
+              "run_exit": 0,
+              "stdout": [
+                "context=1 value=417 released=1"
+              ]
+            },
+            "context_only": {
+              "build_exit": 0,
+              "pass": true,
+              "run_exit": 0,
+              "stdout": [
+                "context=1 value=-3 released=0"
+              ]
+            },
+            "disabled": {
+              "build_exit": 2,
+              "pass": true,
+              "missing_vpi_symbols": [
+                "vpi_handle_by_name",
+                "vpi_get_value",
+                "vpi_release_handle"
+              ],
+              "diagnostics": [
+                "Undefined symbols for architecture arm64:",
+                "  \"_vpi_get_value\", referenced from:",
+                "  \"_vpi_handle_by_name\", referenced from:",
+                "  \"_vpi_release_handle\", referenced from:"
+              ]
+            }
+          },
+          "pass": true
+        },
+        "ch35/test_dpi_vpi_callback_selects_export_scope": {
+          "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0",
+          "build_exit": 0,
+          "trials": {
+            "selected": {
+              "returncode": 0,
+              "stdout": [
+                "callback initial scope=0",
+                "callback scopes=37,91",
+                "same instances=37,91"
+              ],
+              "scope_diagnostics": [],
+              "pass": true
+            },
+            "unset": {
+              "returncode": 1,
+              "stdout": [
+                "callback initial scope=0"
+              ],
+              "scope_diagnostics": [
+                "%Error: unknown:0: Testbench C called 'read_scope_token' but scope wasn't set, perhaps due to dpi import call without 'context', or missing svSetScope. See IEEE 1800-2023 35.5.3."
+              ],
+              "attempted": true,
+              "outcome": "diagnosed",
+              "pass": true
+            }
+          },
+          "pass": true
+        }
+      }
+    },
+    "v54": {
+      "tool": "verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "configuration": {
+        "evidence_profile": "verilator-vpi-dpi-bridge",
+        "checker_sha256": "9dac6609917229cfec36f927ee41af7962722704802da3aaed44188bc6a0cc00",
+        "binary_sha256": {
+          "launcher": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+          "backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+        }
+      },
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "tests": {
+        "ch35/test_dpi_context_requires_separate_vpi_activation": {
+          "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83",
+          "trials": {
+            "enabled": {
+              "build_exit": 0,
+              "pass": true,
+              "run_exit": 0,
+              "stdout": [
+                "context=1 value=417 released=1"
+              ]
+            },
+            "context_only": {
+              "build_exit": 0,
+              "pass": true,
+              "run_exit": 0,
+              "stdout": [
+                "context=1 value=-3 released=0"
+              ]
+            },
+            "disabled": {
+              "build_exit": 2,
+              "pass": true,
+              "missing_vpi_symbols": [
+                "vpi_handle_by_name",
+                "vpi_get_value",
+                "vpi_release_handle"
+              ],
+              "diagnostics": [
+                "Undefined symbols for architecture arm64:",
+                "  \"_vpi_get_value\", referenced from:",
+                "  \"_vpi_handle_by_name\", referenced from:",
+                "  \"_vpi_release_handle\", referenced from:"
+              ]
+            }
+          },
+          "pass": true
+        },
+        "ch35/test_dpi_vpi_callback_selects_export_scope": {
+          "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0",
+          "build_exit": 0,
+          "trials": {
+            "selected": {
+              "returncode": 0,
+              "stdout": [
+                "callback initial scope=0",
+                "callback scopes=37,91",
+                "same instances=37,91"
+              ],
+              "scope_diagnostics": [],
+              "pass": true
+            },
+            "unset": {
+              "returncode": 1,
+              "stdout": [
+                "callback initial scope=0"
+              ],
+              "scope_diagnostics": [
+                "%Error: unknown:0: Testbench C called 'read_scope_token' but scope wasn't set, perhaps due to dpi import call without 'context', or missing svSetScope (IEEE 1800-2023 35.5.3)"
+              ],
+              "attempted": true,
+              "outcome": "diagnosed",
+              "pass": true
+            }
+          },
+          "pass": true
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "v52": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch35/test_dpi_context_requires_separate_vpi_activation": {
+          "status": "pass",
+          "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83"
+        },
+        "ch35/test_dpi_vpi_callback_selects_export_scope": {
+          "status": "pass",
+          "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:42.754970+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "v54": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_context_requires_separate_vpi_activation": {
+          "status": "pass",
+          "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83"
+        },
+        "ch35/test_dpi_vpi_callback_selects_export_scope": {
+          "status": "pass",
+          "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0"
+        }
+      },
+      "generated_at": "2026-11-25T08:23:11.706795+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch35/test_dpi_context_requires_separate_vpi_activation": {
+          "status": "pass",
+          "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83"
+        },
+        "ch35/test_dpi_vpi_callback_selects_export_scope": {
+          "status": "pass",
+          "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:39.491800+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_context_requires_separate_vpi_activation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_context_requires_separate_vpi_activation.sv:17: syntax error",
+          "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83"
+        },
+        "ch35/test_dpi_vpi_callback_selects_export_scope": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_vpi_callback_selects_export_scope.sv:16: syntax error",
+          "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:39.021165+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_context_requires_separate_vpi_activation": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83"
+        },
+        "ch35/test_dpi_vpi_callback_selects_export_scope": {
+          "status": "pass",
+          "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:38.947374+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

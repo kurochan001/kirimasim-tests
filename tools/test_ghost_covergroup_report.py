@@ -9,6 +9,8 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parent.parent
+DATABASE_CASE = "test_coverage_db_name_and_type_data_across_two_runs"
+DATABASE_NAME = "chosen_coverage.json"
 
 
 @unittest.skipUnless(os.environ.get("GHOST_SIMULATOR"), "set GHOST_SIMULATOR to run Ghost")
@@ -56,16 +58,31 @@ class GhostCovergroupReport(unittest.TestCase):
         hits = self.bin_hits("test_default_transition_bin_ignores_a_pending_nonconsecutive_match")
         self.assertEqual(hits["transitions"], {"wait_path": (1, True), "unmatched_transition": (0, False)})
 
-    def test_select_database_filename_and_load_both_types(self):
-        case = "test_coverage_db_name_and_type_data_across_two_runs"
+    def coverage_values(self, output: str) -> str:
+        return "".join(line for line in output.splitlines(keepends=True) if line.startswith("four="))
+
+    def expected_database_values(self) -> str:
+        return (ROOT / "tests" / "ch19" / (DATABASE_CASE + ".expected")).read_text(encoding="utf-8")
+
+    def test_select_database_filename_at_end_of_run(self):
         with tempfile.TemporaryDirectory() as directory:
-            self.run_fixture(case, directory, "+save_named_database")
-            chosen = Path(directory) / "chosen_coverage.json"
+            output = self.run_fixture(DATABASE_CASE, directory, "+save_named_database")
+            self.assertIn("database absent before end=1", output.splitlines())
+            self.assertEqual(self.coverage_values(output), self.expected_database_values())
+            chosen = Path(directory) / DATABASE_NAME
+            self.assertFalse((Path(directory) / "unused_coverage.json").exists())
             self.assertTrue(chosen.is_file(), "coverage database was not written to the selected filename")
             self.assertGreater(chosen.stat().st_size, 0)
-            self.assertFalse((Path(directory) / "unused_coverage.json").exists())
 
-            output = self.run_fixture(case, directory, "+load_named_database")
-            expected = (ROOT / "tests" / "ch19" / (case + ".expected")).read_text(encoding="utf-8")
-            measures = [line for line in output.splitlines(keepends=True) if line.startswith("four=")]
-            self.assertEqual("".join(measures), expected)
+    def test_load_cumulative_values_of_both_covergroup_types(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = self.run_fixture(DATABASE_CASE, directory, "+save_named_database")
+            expected = self.expected_database_values()
+            self.assertEqual(self.coverage_values(output), expected)
+            database = Path(directory) / DATABASE_NAME
+            if not database.is_file() or not database.stat().st_size:
+                self.skipTest("no native database was saved for the load check")
+
+            loaded = self.run_fixture(DATABASE_CASE, directory, "+load_named_database")
+            self.assertIn("before load four=0.00 two=0.00", loaded.splitlines())
+            self.assertEqual(self.coverage_values(loaded), expected)

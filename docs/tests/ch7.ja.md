@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1136本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1139本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -96,6 +96,7 @@
 | [`test_packed_tagged_union_read_rejects_previous_member_after_tag_change`](../../tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv) |packed 共用体のタグ切替後に以前のメンバーを読むと実行時エラーになる| 7.3.2 11.9 |規格のみ||
 | [`test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member`](../../tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv) |packedタグ付き共用体のタグと選択した値だけを検査する| 7.3.2 |規格のみ| x/z |
 | [`test_tagged_union_dynamic_and_chandle_members`](../../tests/ch7/test_tagged_union_dynamic_and_chandle_members.sv) |unpacked タグ付けされたユニオンは、動的タイプのメンバー (文字列、キュー、動的および連想配列、クラスハンドル) と、チャンドルタイプのメンバーを持ち、それらの値を保持します。| 7.3.2 11.9 |規格のみ||
+| [`test_tagged_union_initial_tag_and_unused_bits`](../../tests/ch7/test_tagged_union_initial_tag_and_unused_bits.sv) |未初期化のタグ付き共用体の照合と、代入後にタグが選択するデータを確認する| 7.3.2 11.9 |規格のみ| x/z |
 | [`test_tagged_union_packed`](../../tests/ch7/test_tagged_union_packed.sv) |packed タグ付けのユニオンは、最も有意な端に最小の数のタグビットを持ち、各メンバーは右に並べられています。タグ付けの ユニオン表現は、タグとメンバーを一緒にセットし、現在のタグのメンバーはドット記法で読み書きできます。| 7.3.2 11.9 20.6.2 |規格のみ||
 | [`test_tagged_union_packed_tag_width_layout`](../../tests/ch7/test_tagged_union_packed_tag_width_layout.sv) |packed タグ付けされたユニオンの幅は、そのメンバー名をコードする最小のタグビットと、最も幅の広いメンバーの幅と同じです。タグは上のビットにあり、各メンバーは下のビットにあります。そして、ネストされたタグ付けユニオンの内部のレイアウトは同じです。| 7.3.2 11.9 20.6.2 |規格のみ||
 | [`test_unpacked_tagged_union_read_checks_current_nested_tag`](../../tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv) |内側のunpackedタグ付き共用体は現在のタグで選んだメンバーだけを読み出す| 7.3.2 11.9 |規格のみ||
@@ -300,6 +301,7 @@
 | [`test_assoc_foreach_struct_key`](../../tests/ch7/test_assoc_foreach_struct_key.sv) |構造キーを用いた連想配列 foreach をテスト| 7.8.5 12.7.3 | Verilator 5.052 ||
 | [`test_assoc_invalid_keys_with_unknown_dynamic_array_elements`](../../tests/ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements.sv) |連想キーに入れ子になった動的配列の要素に不定ビットがあるとき、既存要素を特定したり新しく要素を作ったりしないことを検査する。| 7.8.5 7.8.6 7.9.3 |規格のみ| x/z |
 | [`test_assoc_packed_struct_key_xz_cannot_alias_valid_entries`](../../tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv) |入れ子のフィールドに不定値がある連想配列のキーは要素の作成も上書きもできない| 7.8.5 7.8.6 |規格のみ| x/z |
+| [`test_associative_dynamic_array_key_equality`](../../tests/ch7/test_associative_dynamic_array_key_equality.sv) |等価な動的配列の値で同じ連想配列要素を取り出す| 7.8.5 |規格のみ||
 | [`test_associative_key_uses_queue_and_string_values_structurally`](../../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv) |ユーザー定義の連想配列キーが可変長キューと文字列の内容を比較する| 7.8.5 7.10 11.4.5 |規格のみ||
 | [`test_associative_queue_keys_are_copied_and_compared_by_contents`](../../tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv) |挿入後に元のキューを変更しても連想配列に保存した添字は独立している| 7.8.5 |規格のみ||
 | [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) |連想配列の添字型は、realメンバーを含められない| 7.8.5 |規格のみ|規格違反の設計|
@@ -447,6 +449,7 @@
 | [`test_illegal_array_method_with_braces`](../../tests/ch7/test_illegal_array_method_with_braces.sv) |配列操作のwith条件は 表現を括弧に入れます括弧はrandomize() で使われますが| 7.12 | Verilator 5.052 |規格違反の設計|
 | [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) |配列メソッドは with 節なしでは反復子の名前を付けられません。| 7.12 7.12.3 |規格のみ|規格違反の設計|
 | [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) |配列メソッドの反復引数には with 節が必要です| 7.12 | Verilator 5.052 |規格違反の設計|
+| [`test_locator_with_side_effect_observation`](../../tests/ch7/test_locator_with_side_effect_observation.sv) |副作用のある with 式に対し、純粋な検索を対照にする| 7.12 | Verilator 5.054 ||
 | [`test_member_access_deep`](../../tests/ch7/test_member_access_deep.sv) |8.5 クラスメンバーアクセス| 7.12 8.5 | Verilator 5.052 ||
 | [`test_array_find`](../../tests/ch7/test_array_find.sv) |7.12.1 の配列位置決めメソッド| 7.12.1 | Verilator 5.052 ||
 | [`test_array_find_2`](../../tests/ch7/test_array_find_2.sv) |テスト: 配列検索法| 7.12.1 | Verilator 5.052 ||

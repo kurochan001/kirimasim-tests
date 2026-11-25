@@ -1,0 +1,45 @@
+{
+ "reference": "slang",
+ "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+ "slang_version": "slang version 12.0.0+a88cbc1b3",
+ "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+ "generated_at": "2026-11-25T02:56:04.093619+00:00",
+ "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+ "options": [
+  "--std=1800-2023",
+  "-Wno-error=index-oob",
+  "-Wno-error=string-int-concat",
+  "-Wno-error=string-in-constraint",
+  "--threads",
+  "1",
+  "-q"
+ ],
+ "summary": {
+  "illegal": {
+   "tests": 0,
+   "rejected_at_line": 0,
+   "rejected_elsewhere": 0,
+   "accepted": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal": {
+   "tests": 2,
+   "clean": 2,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal_vpi": {
+   "tests": 0,
+   "clean": 0,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  }
+ },
+ "tests": {
+  "ch34/test_protect_decrypts_eight_layers_before_expanding_macros": {"kind": "legal", "status": "clean", "inputs_sha256": "44f6f035386b520a3200ff011986bc76e7b0c9c08f8c3ea139d47aee9f7f24c6"},
+  "ch34/test_protect_replaces_nested_macros_before_next_envelope": {"kind": "legal", "status": "clean", "inputs_sha256": "89ff683d17dd395449ad65318c69e74c38680602ae75af5b968dbc43ace461f1"}
+ }
+}

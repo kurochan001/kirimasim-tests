@@ -1,0 +1,41 @@
+{
+ "simulator": "verilator",
+ "name": "verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch23/test_net_ports_used_in_the_reverse_direction": {
+   "status": "fail",
+   "reason": "port directions did not reach a checked simulation output",
+   "inputs_sha256": "6965e6db3ed263eee7479db60e3f7c00be7b9063f41a0ffc912ff2e4ecc848eb"
+  },
+  "ch35/test_legacy_dpi_import_compiler_diagnostic": {
+   "status": "fail",
+   "reason": "required legacy DPI migration information was incomplete or absent",
+   "inputs_sha256": "d7bbd8ca05671d981df07bda4e1983ca941b272416539f74f078f8a31957b07d"
+  },
+  "ch9/test_always_comb_incomplete_assignment_diagnostic": {
+   "status": "pass",
+   "inputs_sha256": "42198a8a5d68e9dd0e5c877e8da569cdba3d7be1bfda7fe344700b2510bf8949"
+  },
+  "ch9/test_always_ff_level_event_diagnostic": {
+   "status": "unsupported",
+   "reason": "recommended warning was not observed",
+   "inputs_sha256": "354e9a876d46713492ab1c932fbabc62bdbe8470a159c9defa13fcd25a484843"
+  },
+  "ch9/test_always_latch_unconditional_assignment_diagnostic": {
+   "status": "pass",
+   "inputs_sha256": "85bbfc595c8fa9796fb6a4c74be5f55ba1d8caac8ec8139b82ad94fcfba9c160"
+  }
+ },
+ "generated_at": "2026-11-24T23:34:13.473575+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-language-diagnostics",
+  "checker_sha256": "51b52243cd17cdfc67af1176fcb4133061e55888a5255876c971c3dff584d02d",
+  "binary_sha256": {
+   "compiler": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  }
+ }
+}

@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは512本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは514本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -41,6 +41,7 @@
 | [`test_class_handle_default_null_and_case_equality`](../../tests/ch8/test_class_handle_default_null_and_case_equality.sv) |クラスハンドルとチャンドルは null で始まります。 and === と!== は同じオブジェクトに対して as == と!= を返します。同じ内容の異なるオブジェクトと null は同じ結果を返します。| 8.4 6.14 | Verilator 5.052 ||
 | [`test_class_null_comparison`](../../tests/ch8/test_class_null_comparison.sv) |クラスハンドル: デフォルトは null で、null と比較して代入によってコピーされます。| 8.4 8.12 | Icarus Verilog 13.0 ||
 | [`test_class_null_handle`](../../tests/ch8/test_class_null_handle.sv) |テスト: ヌルハンドル検出 (使用前にハンドルがヌルかどうかチェック)| 8.4 | Verilator 5.052 ||
+| [`test_class_null_instance_access_observation`](../../tests/ch8/test_class_null_instance_access_observation.sv) |nullハンドル経由の非静的フィールドと仮想メソッドへのアクセスを観測する| 8.4 8.9 8.20 | Verilator 5.052 ||
 | [`test_class_object`](../../tests/ch8/test_class_object.sv) |テストクラスオブジェクト| 8.4 8.7 | Icarus Verilog 13.0 ||
 | [`test_class_prop_assign`](../../tests/ch8/test_class_prop_assign.sv) |テスト：クラスのプロパティへの代入| 8.4 8.5 8.9 | Verilator 5.052 ||
 | [`test_class_register_block`](../../tests/ch8/test_class_register_block.sv) |レジスタのブロックをモデル化するクラス。読み込み、書き込み、リセット| 8.4 8.5 12.5 | Verilator 5.052 ||
@@ -91,6 +92,7 @@
 | [`test_class_local_and_protected_constructors`](../../tests/ch8/test_class_local_and_protected_constructors.sv) |コンストラクタをlocalとして宣言すると、そのクラスのstaticメソッドから呼び出せる。protectedとして宣言すると、派生クラスのコンストラクタからsuper.newで呼び出せる。| 8.7 8.18 | Verilator 5.052 ||
 | [`test_class_new`](../../tests/ch8/test_class_new.sv) |クラスコンストラクタテスト| 8.7 13.5.3 | Verilator 5.052 ||
 | [`test_class_new_args`](../../tests/ch8/test_class_new_args.sv) |テスト: 様々な引数タイプを持つクラス構造子| 8.7 13.5.3 | Verilator 5.052 ||
+| [`test_class_property_before_initializer_observation`](../../tests/ch8/test_class_property_before_initializer_observation.sv) |派生クラスのプロパティの初期化前に基底コンストラクタへ渡る引数を観測する| 8.7 | Icarus Verilog 13.0 ||
 | [`test_class_property_init_after_base_constructor`](../../tests/ch8/test_class_property_init_after_base_constructor.sv) |クラスのプロパティは、ベース構造子が返ってきて、 構造子の残りが実行される前に、 宣言された初期値またはデフォルト値を取得します。| 8.7 8.15 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_constructor_delay_control`](../../tests/ch8/test_illegal_constructor_delay_control.sv) |new は関数で、ブロックしてはならないので、クラスのコンストラクタは遅延制御を含められない| 8.7 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_constructor_event_control`](../../tests/ch8/test_illegal_constructor_event_control.sv) |new は関数で、ブロックしてはならないので、クラスのコンストラクタはイベント制御を含められない| 8.7 | Icarus Verilog 13.0 |規格違反の設計|

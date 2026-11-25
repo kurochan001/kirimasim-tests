@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_direct_modport_expression": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'controls: physical=1 reader=0 writer=0 distinct=0 assignm...', expected 'controls: physical=1 reader=1 writer=1 distinct=1 assignm...'",
+   "inputs_sha256": "5503b0166222200ccb117b25fba426d1788601e3809a53b765ebac9a2dd39b5f"
+  },
+  "ch37/test_vpi_inline_member_typespec_name": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'inline_field: member=0 struct=0 inner_int=0 name_ok=0', expected 'inline_field: member=1 struct=1 inner_int=1 name_ok=1'",
+   "inputs_sha256": "c7be25d2103d6088dc18bf71e4848af6703f1940ea7a54142ad8f56a5918b764"
+  }
+ },
+ "generated_at": "2026-11-25T03:22:25.622680+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

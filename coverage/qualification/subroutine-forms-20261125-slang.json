@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "slang version 12.0.0+0",
+  "binary_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+  "test": "tests/ch13/test_subroutine_task_and_function_forms.sv",
+  "inputs_sha256": "ef7f9d53b91c031670228c7b66a463e5d808d6d331c10a78e08d991f77df376f",
+  "checker": "tools/test_slang_subroutine_syntax.py",
+  "checker_sha256": "1fc1909124c86f94a501c34ed454ce2359c032e3befc28c3c2cf04a864508799",
+  "subroutines": {
+    "adjust": "Function",
+    "inner": "Task",
+    "outer": "Task",
+    "tick": "Task"
+  },
+  "resolved_call_counts": {
+    "adjust": 2,
+    "inner": 1,
+    "outer": 1,
+    "tick": 2
+  }
+}

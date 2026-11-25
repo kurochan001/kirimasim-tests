@@ -1,0 +1,22 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch35/test_dpi_foreign_precondition_observations": {
+   "status": "pass",
+   "inputs_sha256": "4d07053bda3c74891277252b5d0d66c3a7fc29eb5976eff85491fa4a45ed07eb"
+  }
+ },
+ "generated_at": "2026-11-25T11:11:01.782956+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "dpi-foreign-preconditions",
+  "checker_sha256": "045acd6357954a809e2537f0ac0b83ed35a4cb65421352025a3250fc117b31ba",
+  "artifact_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  }
+ }
+}

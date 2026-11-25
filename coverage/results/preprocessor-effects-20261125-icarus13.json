@@ -1,0 +1,84 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_begin_keywords_inside_module": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6fae72c0dfe6771f11c05ec6f5d7a31231c19bca997e744c3cbb1bd0bbb0ec38"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_begin_keywords_survives_resetall": {
+   "status": "pass",
+   "inputs_sha256": "c469524a9851943c74644a443705ffcb933292b306974e2b8551ceeb40852a6e"
+  },
+  "ch22/test_illegal_include_absolute_path_in_angle_brackets": {
+   "status": "pass",
+   "inputs_sha256": "3afaf1409d98797f1911648996f78077425ccc4093daaeb65dfcd94cfaa03d9f"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_keyword_reserved_again_after_end_keywords": {
+   "status": "pass",
+   "inputs_sha256": "dced6a84a2af1fa81a1b1e7771d9e332e00b5d3ebffd4cb38bd7a744dd8307a8"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_preprocessor_line_emission_modes_preserve_manual_origin": {
+   "status": "pass",
+   "inputs_sha256": "291f1e775b259a5914a95fa2cc0ab43e842254ef870f2722142e6edb958c82b9"
+  },
+  "ch22/test_resetall_leaves_text_macros_usable": {
+   "status": "pass",
+   "inputs_sha256": "8814193494f91ef042976855126ed5a5c3b9fca77fc3a0cf1ec7a49017f92f77"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_undef_never_defined_macro_preserves_other_definitions": {
+   "status": "pass",
+   "inputs_sha256": "12cef4cba42ad0e20e864d92b2d26f9ab50ecf376d1d4bf72a179e683eae636b"
+  }
+ },
+ "generated_at": "2026-11-25T04:40:54.993218+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

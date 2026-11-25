@@ -1,0 +1,5 @@
+hdl legacy=17 modern=29
+abi=vpi_get scalar=1 value=17
+modern partition queried
+class handle=1 class variable=1
+real root=1 legacy real=0 current array=1 selected view=1 item=1 value=2.75

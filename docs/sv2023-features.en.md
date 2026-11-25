@@ -14,7 +14,7 @@ For each feature added by 1800-2023, the number of tests that exercise it and wh
 | [class :final](#class-final) | 8.3, 8.13 | 11 | 7 | 4 | 10 | 1 | 0 | 10 | 6 | 11 | 2/2 | the 18 DVCon items |
 | [default item of dist](#dist-default) | 18.5.3 | 8 | 5 | 3 | 0 | 8 | 3 | 3 | 3 | 8 | 3/3 | the 18 DVCon items |
 | [Real coverpoints, real bins and type_option.real_interval](#real-coverpoint) | 19.5, 19.5.1, 19.5.1.1, 19.5.2, 19.5.3, 19.5.4, 19.6, 19.7.1, 19.10 | 21 | 12 | 9 | 0 | 21 | 9 | 0 | 9 | 21 | 26/26 | the three added items |
-| [$stacktrace](#stacktrace) | 20.17.2, 11.2.1 | 6 | 3 | 3 | 6 | 0 | 2 | 6 | 5 | 6 | 0/2 | the 18 DVCon items |
+| [$stacktrace](#stacktrace) | 20.17.2, 11.2.1 | 6 | 3 | 3 | 6 | 0 | 2 | 6 | 5 | 6 | 2/2 | the 18 DVCon items |
 | [$timeunit and $timeprecision system functions](#timeunit-timeprecision-functions) | 20.4, 20.4.1, 11.2.1 | 8 | 8 | 0 | 1 | 7 | 0 | 1 | 7 | 8 | 25/25 | the 18 DVCon items |
 | [Restricted type parameters (type enum/struct/union/class/interface class)](#type-parameter-restriction) | 6.20.3 | 10 | 5 | 5 | 8 | 2 | 4 | 8 | 9 | 10 | 2/2 | the three added items |
 | [default in constructor argument lists (function new(default...), super.new(default), extends Base(default))](#constructor-default-arguments) | 8.17, 8.3, 8.15 | 15 | 6 | 9 | 0 | 15 | 7 | 8 | 11 | 15 | 14/14 | the 18 DVCon items |
@@ -157,7 +157,7 @@ Saved results: I Icarus Verilog 13.0, V Verilator, K kirimasim, L Lyra, G Ghost.
 
 - Clauses: 20.17.2, 11.2.1
 - Illegal forms the standard defines: Syntax 20-18 gives $stacktrace no arguments, so a call with an argument is not valid. (20.17.2); $stacktrace is not among the system functions allowed in constant system function calls, so it cannot appear in a constant expression such as a parameter value. (11.2.1)
-- Requirements (mapped / rows): `SV2023-20.17.2-EXTRACT-STACKTRACE-CONTEXT` (-), `SV2023-20.17.2-EXTRACT-STACKTRACE-RESULT` (-)
+- Requirements (mapped / rows): `SV2023-20.17.2-EXTRACT-STACKTRACE-CONTEXT`, `SV2023-20.17.2-EXTRACT-STACKTRACE-RESULT`
 
 | Test | Kind | `:oracle:` | Saved results |
 | --- | --- | --- | --- |

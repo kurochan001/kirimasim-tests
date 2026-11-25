@@ -1,0 +1,5 @@
+abi=vpi_get
+real_view root=1 root_real=0 root_array=1 scalar_real=1 high_real=1 low_real=1
+other_views int_var=0 int_array=1 time_var=0 time_array=1
+vpi=2.25,1.75,-0.50
+hdl=2.25,1.75,-0.50,11,7

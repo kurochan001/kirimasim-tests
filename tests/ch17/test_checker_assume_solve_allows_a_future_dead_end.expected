@@ -1,0 +1,4 @@
+launch failures=0
+between failures=0
+next edge failures=1
+after drain failures=1

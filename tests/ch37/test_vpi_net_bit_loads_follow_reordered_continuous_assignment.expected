@@ -1,0 +1,6 @@
+hdl destination=0101
+whole net reaches destination=1
+source bit=0 destination offset=3 bit loads=1 matching=1
+source bit=1 destination offset=2 bit loads=1 matching=1
+source bit=2 destination offset=1 bit loads=1 matching=1
+source bit=3 destination offset=0 bit loads=1 matching=1

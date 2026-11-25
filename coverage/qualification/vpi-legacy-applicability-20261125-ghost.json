@@ -1,0 +1,187 @@
+{
+  "checker_sha256": "432e4c450504d4374e7d6068db5b96327d31d809f95f5ebf4703cc12c0a18f8c",
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "sha256": {
+    "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+    "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+    "vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c",
+    "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+  },
+  "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "inputs_sha256": {
+    "ch36/test_vpi_legacy_class_interface_views": "890c7e99a8cc1577322fa4c4a246133fb260223457edfd97c33c505f719f7f92",
+    "ch36/test_vpi_legacy_real_array_root_types": "80a1084fed8dd885d09d4588fc95e801fcffb30269ab9660eb7aa5f444adec26"
+  },
+  "modes": {
+    "1364v1995": {
+      "ch36/test_vpi_legacy_class_interface_views": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_iterate_1364v1995",
+          "scopes defn=1 typespec=1 plain=1 plain_classes=0",
+          "defn iter=0 count=0 virtual=0 ref=0 actual=0 name_mask=0",
+          "typespec iter=1 count=2 virtual=2 ref=0 actual=0 name_mask=3",
+          "interface connections=1,0"
+        ]
+      },
+      "ch36/test_vpi_legacy_real_array_root_types": {
+        "verdict": "fail",
+        "reason": "real array root reported as vpiRealVar in 1364-1995",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_get_1364v1995",
+          "real_view root=1 root_real=1 root_array=0 scalar_real=1 high_real=1 low_real=1",
+          "other_views int_var=1 int_array=0 time_var=1 time_array=0",
+          "vpi=2.25,1.75,-0.50",
+          "hdl=2.25,1.75,-0.50,11,7"
+        ]
+      }
+    },
+    "1364v2001": {
+      "ch36/test_vpi_legacy_class_interface_views": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_iterate_1364v2001",
+          "scopes defn=1 typespec=1 plain=1 plain_classes=0",
+          "defn iter=0 count=0 virtual=0 ref=0 actual=0 name_mask=0",
+          "typespec iter=1 count=2 virtual=2 ref=0 actual=0 name_mask=3",
+          "interface connections=1,0"
+        ]
+      },
+      "ch36/test_vpi_legacy_real_array_root_types": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_get_1364v2001",
+          "real_view root=1 root_real=1 root_array=0 scalar_real=1 high_real=1 low_real=1",
+          "other_views int_var=1 int_array=0 time_var=1 time_array=0",
+          "vpi=2.25,1.75,-0.50",
+          "hdl=2.25,1.75,-0.50,11,7"
+        ]
+      }
+    },
+    "1364v2005": {
+      "ch36/test_vpi_legacy_class_interface_views": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_iterate_1364v2005",
+          "scopes defn=1 typespec=1 plain=1 plain_classes=0",
+          "defn iter=0 count=0 virtual=0 ref=0 actual=0 name_mask=0",
+          "typespec iter=1 count=2 virtual=2 ref=0 actual=0 name_mask=3",
+          "interface connections=1,0"
+        ]
+      },
+      "ch36/test_vpi_legacy_real_array_root_types": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_get_1364v2005",
+          "real_view root=1 root_real=1 root_array=0 scalar_real=1 high_real=1 low_real=1",
+          "other_views int_var=1 int_array=0 time_var=1 time_array=0",
+          "vpi=2.25,1.75,-0.50",
+          "hdl=2.25,1.75,-0.50,11,7"
+        ]
+      }
+    },
+    "1800v2005": {
+      "ch36/test_vpi_legacy_class_interface_views": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_iterate_1800v2005",
+          "scopes defn=1 typespec=1 plain=1 plain_classes=0",
+          "defn iter=1 count=2 virtual=0 ref=2 actual=2 name_mask=3",
+          "typespec iter=1 count=2 virtual=0 ref=2 actual=2 name_mask=3",
+          "interface connections=1,0"
+        ]
+      },
+      "ch36/test_vpi_legacy_real_array_root_types": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_get_1800v2005",
+          "real_view root=1 root_real=0 root_array=1 scalar_real=1 high_real=1 low_real=1",
+          "other_views int_var=0 int_array=1 time_var=0 time_array=1",
+          "vpi=2.25,1.75,-0.50",
+          "hdl=2.25,1.75,-0.50,11,7"
+        ]
+      }
+    },
+    "1800v2009": {
+      "ch36/test_vpi_legacy_class_interface_views": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_iterate_1800v2009",
+          "scopes defn=1 typespec=1 plain=1 plain_classes=0",
+          "defn iter=1 count=2 virtual=0 ref=2 actual=2 name_mask=3",
+          "typespec iter=1 count=2 virtual=0 ref=2 actual=2 name_mask=3",
+          "interface connections=1,0"
+        ]
+      },
+      "ch36/test_vpi_legacy_real_array_root_types": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_get_1800v2009",
+          "real_view root=1 root_real=0 root_array=1 scalar_real=1 high_real=1 low_real=1",
+          "other_views int_var=0 int_array=1 time_var=0 time_array=1",
+          "vpi=2.25,1.75,-0.50",
+          "hdl=2.25,1.75,-0.50,11,7"
+        ]
+      }
+    },
+    "1800v2023": {
+      "ch36/test_vpi_legacy_class_interface_views": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_iterate_1800v2012",
+          "scopes defn=1 typespec=1 plain=1 plain_classes=0",
+          "defn iter=0 count=0 virtual=0 ref=0 actual=0 name_mask=0",
+          "typespec iter=1 count=2 virtual=2 ref=0 actual=0 name_mask=3",
+          "interface connections=1,0"
+        ]
+      },
+      "ch36/test_vpi_legacy_real_array_root_types": {
+        "verdict": "pass",
+        "reason": "",
+        "c_exit": 0,
+        "sim_exit": 0,
+        "observations": [
+          "abi=vpi_get_1800v2012",
+          "real_view root=1 root_real=0 root_array=1 scalar_real=1 high_real=1 low_real=1",
+          "other_views int_var=0 int_array=1 time_var=0 time_array=1",
+          "vpi=2.25,1.75,-0.50",
+          "hdl=2.25,1.75,-0.50,11,7"
+        ]
+      }
+    }
+  }
+}

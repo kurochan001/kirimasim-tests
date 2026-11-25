@@ -25,6 +25,7 @@
 | 資料 | 日本語 | English |
 | --- | --- | --- |
 | kirimasim-tests | [日本語](../README.ja.md) | [English](../README.md) |
+| OpenCode への引き継ぎ | [日本語](../HANDOFF.ja.md) | [English](../HANDOFF.md) |
 | 規格要求のカバレッジを管理する | [日本語](../coverage/README.md) | [English](../coverage/README.en.md) |
 | 機能間クロス検証の補助証跡 | [日本語](../coverage/interaction-qualification/README.md) | [English](../coverage/interaction-qualification/README.en.md) |
 | 章間クロス検証マトリクス | [日本語](chapter-cross-matrix.md) | [English](chapter-cross-matrix.en.md) |
@@ -53,6 +54,8 @@
 | 日次・週次シミュレーション速度ベンチマーク | [日本語](daily-benchmark.ja.md) | [English](daily-benchmark.md) |
 | 人による抽き取りレビュー | [日本語](review-sample.md) | [English](review-sample.en.md) |
 | メタモルフィック検査 | [日本語](metamorphic.md) | [English](metamorphic.en.md) |
+| インターフェース内の specify と VPI | [日本語](vpi-interface-specify-interpretation.md) | [English](vpi-interface-specify-interpretation.en.md) |
+| program のインターフェースポートと VPI | [日本語](vpi-program-interface-port-interpretation.md) | [English](vpi-program-interface-port-interpretation.en.md) |
 
 <a id="generated-reports-and-catalogs"></a>
 

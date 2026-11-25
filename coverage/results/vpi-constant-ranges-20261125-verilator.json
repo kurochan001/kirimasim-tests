@@ -1,0 +1,32 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch36/test_vpi_extension_reserved_constant_ranges": {
+   "status": "pass",
+   "inputs_sha256": "bc5100d958bf1d99ab0c87beed6d56f3c890860ecda0314b4ddeff8ed454e8cd"
+  }
+ },
+ "generated_at": "2026-11-25T10:16:11.889510+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "vpi-reserved-constant-ranges",
+  "checker_sha256": "0d7c7c6d5ab229580b0462a26a2c13c9e729e9d42d0753d84ab4de6e728f0bf6",
+  "binary_and_header_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "c": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "c++": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "verilator/vpi_user.h": "b9f3fc98128296a9067b0a8b27e50cc0a7270cfa2cef36d92e473e0417aa43c7",
+   "verilator/sv_vpi_user.h": "57e8fbbc5d94c0de1b293d3e1f9cd41fda4acbebd88a564d0e937baa25079306",
+   "comparison/vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+   "comparison/sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+   "comparison/vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c"
+  },
+  "compilers": {
+   "c": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+   "c++": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+  }
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch35/test_svdpi_h_prototype_guard": {
+   "status": "pass",
+   "inputs_sha256": "8741fa511c6bbbed29333c2f71fab5386c5b70f1610ea9e78b25fe556c6b7651"
+  }
+ },
+ "generated_at": "2026-11-25T07:46:52.927719+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "checker_sha256": "3212c4501b174b4e0b7f944cb1559397200f2069a890085f7601e5e65b15008e",
+  "artifact_sha256": {
+   "c": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "c++": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "svdpi_h": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6"
+  },
+  "evidence_profile": "verilator-dpi-prototype-guard"
+ }
+}

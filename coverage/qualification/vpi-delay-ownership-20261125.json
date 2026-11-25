@@ -1,0 +1,154 @@
+{
+  "ghost_binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "icarus_compiler_sha256": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+  "icarus_runtime_sha256": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+  "tests": {
+    "ch37/test_vpi_interconnect_delay_device_single_load": {
+      "inputs_sha256": "b4af4d9f04f1e076d26e368fc5bc8cf33b601a9598c298b08ad95369c6a762f2",
+      "ghost": {
+        "exit": 0,
+        "observations": [
+          "hdl time=8 source=0 sink=0",
+          "delay objects source=1 target=1 owner=1",
+          "delay graph device=0 module=0 input=0 output=0 distinct=0",
+          "delay term origins input=0 output=0",
+          "delay net relations source-load=0 target-driver=0 input-driver=0 output-load=0",
+          "delay subtypes device=-1 input=-1 output=-1",
+          "delay term values input=- output=-",
+          "hdl time=11 source=1 sink=0",
+          "delay term values input=- output=-",
+          "hdl time=16 source=1 sink=1",
+          "delay term values input=- output=-",
+          "hdl time=21 source=0 sink=1",
+          "delay term values input=- output=-",
+          "hdl time=26 source=0 sink=0",
+          "delay term values input=- output=-"
+        ],
+        "hdl_timing_matches": true,
+        "vpi_outcome": "delay_device_and_terminals_not_returned"
+      },
+      "icarus_phase": "run",
+      "icarus": {
+        "exit": 0,
+        "observations": [
+          "hdl time=8 source=0 sink=0",
+          "delay device or terminal declarations unavailable",
+          "hdl time=11 source=1 sink=0",
+          "delay device or terminal declarations unavailable",
+          "hdl time=16 source=1 sink=1",
+          "delay device or terminal declarations unavailable",
+          "hdl time=21 source=0 sink=1",
+          "delay device or terminal declarations unavailable",
+          "hdl time=26 source=0 sink=0",
+          "delay device or terminal declarations unavailable"
+        ],
+        "diagnostics": [],
+        "hdl_timing_matches": true,
+        "vpi_outcome": "delay_device_and_terminal_types_missing_in_header"
+      }
+    },
+    "ch37/test_vpi_interconnect_delay_device_one_fanout_branch": {
+      "inputs_sha256": "c5df39f9967d783de7e2dfecb626b3130fa06f950214d22f58ff9dcb38064e38",
+      "ghost": {
+        "exit": 0,
+        "observations": [
+          "hdl time=8 source=0 delayed=0 direct=0",
+          "delay objects source=1 target=1 owner=1",
+          "delay graph device=0 module=0 input=0 output=0 distinct=0",
+          "delay term origins input=0 output=0",
+          "delay net relations source-load=0 target-driver=0 input-driver=0 output-load=0",
+          "delay subtypes device=-1 input=-1 output=-1",
+          "delay control branch has-device=0",
+          "delay term values input=- output=-",
+          "hdl time=11 source=1 delayed=0 direct=1",
+          "delay term values input=- output=-",
+          "hdl time=15 source=1 delayed=1 direct=1",
+          "delay term values input=- output=-",
+          "hdl time=21 source=0 delayed=1 direct=0",
+          "delay term values input=- output=-",
+          "hdl time=26 source=0 delayed=1 direct=0",
+          "delay term values input=- output=-",
+          "hdl time=28 source=0 delayed=0 direct=0",
+          "delay term values input=- output=-"
+        ],
+        "hdl_timing_matches": true,
+        "vpi_outcome": "delay_device_and_terminals_not_returned"
+      },
+      "icarus_phase": "run",
+      "icarus": {
+        "exit": 0,
+        "observations": [
+          "hdl time=8 source=0 delayed=0 direct=0",
+          "delay device or terminal declarations unavailable",
+          "hdl time=11 source=1 delayed=0 direct=1",
+          "delay device or terminal declarations unavailable",
+          "hdl time=15 source=1 delayed=1 direct=1",
+          "delay device or terminal declarations unavailable",
+          "hdl time=21 source=0 delayed=1 direct=0",
+          "delay device or terminal declarations unavailable",
+          "hdl time=26 source=0 delayed=1 direct=0",
+          "delay device or terminal declarations unavailable",
+          "hdl time=28 source=0 delayed=0 direct=0",
+          "delay device or terminal declarations unavailable"
+        ],
+        "diagnostics": [],
+        "hdl_timing_matches": true,
+        "vpi_outcome": "delay_device_and_terminal_types_missing_in_header"
+      }
+    },
+    "ch37/test_vpi_interface_specify_paths_keep_interface_owner": {
+      "inputs_sha256": "8272f192511203a0192ba659b84a421597b4f2ee303bc97534a7fa8b9bc09143",
+      "ghost": {
+        "exit": 1,
+        "observations": [],
+        "vpi_outcome": "interface_specify_rejected"
+      },
+      "icarus_phase": "compile",
+      "icarus": {
+        "exit": 1,
+        "observations": [],
+        "diagnostics": [
+          "tests/ch37/test_vpi_interface_specify_paths_keep_interface_owner.sv:20: error: specify blocks are not allowed in interfaces."
+        ],
+        "vpi_outcome": "interface_specify_rejected"
+      }
+    },
+    "ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner": {
+      "inputs_sha256": "6fa4a7844c94b898b057a5f5c9e3b5df6f92e5491b75e8cee1196e4585dcfb9e",
+      "ghost": {
+        "exit": 1,
+        "observations": [],
+        "vpi_outcome": "interface_specify_rejected"
+      },
+      "icarus_phase": "compile",
+      "icarus": {
+        "exit": 1,
+        "observations": [],
+        "diagnostics": [
+          "tests/ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner.sv:19: error: specify blocks are not allowed in interfaces."
+        ],
+        "vpi_outcome": "interface_specify_rejected"
+      }
+    }
+  },
+  "standard": "IEEE 1800-2023",
+  "clauses": [
+    "37.45",
+    "37.46",
+    "32.4.4",
+    "37.6",
+    "37.39",
+    "A.1.6"
+  ],
+  "icarus_options": [
+    "-g2012",
+    "-gspecify",
+    "-ginterconnect"
+  ],
+  "suite_results": {
+    "ghost": "vpi-delay-ownership-20261125-ghost.json",
+    "icarus": "vpi-delay-ownership-20261125-icarus.json",
+    "verilator5.052": "vpi-delay-ownership-20261125-verilator5.052.json",
+    "verilator5.054": "vpi-delay-ownership-20261125-verilator5.054.json"
+  }
+}

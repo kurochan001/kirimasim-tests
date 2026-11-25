@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "mode": "ordinary source compilation",
+  "simulators": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch33/test_annex_library_map_path_lists": {
+          "status": "pass",
+          "inputs_sha256": "1e84f7edbb39f9082d6c6db74bff894880e295f00b84acd5ae10ce54f3a15e78"
+        },
+        "ch33/test_annex_library_map_source_boundary": {
+          "status": "pass",
+          "inputs_sha256": "991892336d5a211da1757a5fb530d0fd023975b951591c761af7829a3826e436"
+        }
+      },
+      "generated_at": "2026-11-25T06:21:42.334896+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch33/test_annex_library_map_path_lists": {
+          "status": "pass",
+          "inputs_sha256": "1e84f7edbb39f9082d6c6db74bff894880e295f00b84acd5ae10ce54f3a15e78"
+        },
+        "ch33/test_annex_library_map_source_boundary": {
+          "status": "pass",
+          "inputs_sha256": "991892336d5a211da1757a5fb530d0fd023975b951591c761af7829a3826e436"
+        }
+      },
+      "generated_at": "2026-11-25T06:21:42.374257+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch33/test_annex_library_map_path_lists": {
+          "status": "pass",
+          "inputs_sha256": "1e84f7edbb39f9082d6c6db74bff894880e295f00b84acd5ae10ce54f3a15e78"
+        },
+        "ch33/test_annex_library_map_source_boundary": {
+          "status": "pass",
+          "inputs_sha256": "991892336d5a211da1757a5fb530d0fd023975b951591c761af7829a3826e436"
+        }
+      },
+      "generated_at": "2026-11-25T06:21:48.398282+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch33/test_annex_library_map_path_lists": {
+          "status": "pass",
+          "inputs_sha256": "1e84f7edbb39f9082d6c6db74bff894880e295f00b84acd5ae10ce54f3a15e78"
+        },
+        "ch33/test_annex_library_map_source_boundary": {
+          "status": "pass",
+          "inputs_sha256": "991892336d5a211da1757a5fb530d0fd023975b951591c761af7829a3826e436"
+        }
+      },
+      "generated_at": "2026-11-25T06:21:42.332987+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

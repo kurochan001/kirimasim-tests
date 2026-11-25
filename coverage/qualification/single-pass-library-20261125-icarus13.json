@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "configuration": {
+    "evidence_profile": "icarus-single-pass-library-loading",
+    "checker_sha256": "a63231e4c80c0c49c5938197a565067f6d78ba254391891b4548e1466b5c951f",
+    "binary_sha256": {
+      "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+      "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+    }
+  },
+  "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+  "tests": {
+    "ch33/test_single_pass_library_loading": {
+      "inputs_sha256": "4f03284062290c00f97c9ac9182c2de596e6782a888681f8bdee90a575ccf4c7",
+      "status": "pass",
+      "trials": {
+        "explicit": {
+          "compile_exit": 0,
+          "dependencies": [
+            "lib/phase_needed.v",
+            "lib/phase_unused.v",
+            "test_single_pass_library_loading.sv"
+          ],
+          "compile_diagnostics": [],
+          "runtime_exit": 0,
+          "stdout": [
+            "bound library value=19"
+          ]
+        },
+        "omitted": {
+          "compile_exit": 2,
+          "dependencies": [
+            "lib/phase_unused.v",
+            "test_single_pass_library_loading.sv"
+          ],
+          "compile_diagnostics": [
+            "test_single_pass_library_loading.sv:18: error: Unknown module type: phase_needed",
+            "2 error(s) during elaboration.",
+            "*** These modules were missing:",
+            "        phase_needed referenced 1 times.",
+            "***"
+          ]
+        },
+        "resupplied": {
+          "compile_exit": 0,
+          "dependencies": [
+            "lib/phase_needed.v",
+            "lib/phase_unused.v",
+            "test_single_pass_library_loading.sv"
+          ],
+          "compile_diagnostics": [],
+          "runtime_exit": 0,
+          "stdout": [
+            "bound library value=19"
+          ]
+        },
+        "malformed": {
+          "compile_exit": 2,
+          "dependencies": [
+            "lib/phase_bad.v",
+            "lib/phase_needed.v",
+            "test_single_pass_library_loading.sv"
+          ],
+          "compile_diagnostics": [
+            "lib/phase_bad.v:3: syntax error",
+            "lib/phase_bad.v:3: error: Syntax error in continuous assignment"
+          ]
+        },
+        "lazy": {
+          "compile_exit": 0,
+          "dependencies": [
+            "lib/phase_needed.v",
+            "test_single_pass_library_loading.sv"
+          ],
+          "compile_diagnostics": [],
+          "runtime_exit": 0,
+          "stdout": [
+            "bound library value=19"
+          ]
+        }
+      },
+      "persistence": {
+        "explicit_executable_present": true,
+        "generated_files": [
+          "explicit.deps",
+          "explicit.vvp",
+          "lazy.deps",
+          "lazy.vvp",
+          "malformed.deps",
+          "omitted.deps",
+          "resupplied.deps",
+          "resupplied.vvp"
+        ]
+      },
+      "expected": [
+        "bound library value=19"
+      ]
+    },
+    "ch33/test_single_pass_library_nested_lookup": {
+      "inputs_sha256": "36323e99e02294bfd2435588d1fc3bf5c2576599ad26b9deac5794731a9a7649",
+      "status": "pass",
+      "trials": {
+        "explicit": {
+          "compile_exit": 0,
+          "dependencies": [
+            "lib/phase_child.v",
+            "lib/phase_parent.v",
+            "lib/phase_unused.v",
+            "test_single_pass_library_nested_lookup.sv"
+          ],
+          "compile_diagnostics": [],
+          "runtime_exit": 0,
+          "stdout": [
+            "nested input=3 output=10",
+            "nested input=12 output=28"
+          ]
+        },
+        "omitted": {
+          "compile_exit": 2,
+          "dependencies": [
+            "lib/phase_parent.v",
+            "lib/phase_unused.v",
+            "test_single_pass_library_nested_lookup.sv"
+          ],
+          "compile_diagnostics": [
+            "lib/phase_parent.v:5: error: Unknown module type: phase_child",
+            "2 error(s) during elaboration.",
+            "*** These modules were missing:",
+            "        phase_child referenced 1 times.",
+            "***"
+          ]
+        },
+        "resupplied": {
+          "compile_exit": 0,
+          "dependencies": [
+            "lib/phase_child.v",
+            "lib/phase_parent.v",
+            "lib/phase_unused.v",
+            "test_single_pass_library_nested_lookup.sv"
+          ],
+          "compile_diagnostics": [],
+          "runtime_exit": 0,
+          "stdout": [
+            "nested input=3 output=10",
+            "nested input=12 output=28"
+          ]
+        },
+        "malformed": {
+          "compile_exit": 2,
+          "dependencies": [
+            "lib/phase_bad.v",
+            "lib/phase_child.v",
+            "lib/phase_parent.v",
+            "test_single_pass_library_nested_lookup.sv"
+          ],
+          "compile_diagnostics": [
+            "lib/phase_bad.v:3: syntax error",
+            "lib/phase_bad.v:3: error: Syntax error in continuous assignment"
+          ]
+        },
+        "lazy": {
+          "compile_exit": 0,
+          "dependencies": [
+            "lib/phase_child.v",
+            "lib/phase_parent.v",
+            "test_single_pass_library_nested_lookup.sv"
+          ],
+          "compile_diagnostics": [],
+          "runtime_exit": 0,
+          "stdout": [
+            "nested input=3 output=10",
+            "nested input=12 output=28"
+          ]
+        }
+      },
+      "persistence": {
+        "explicit_executable_present": true,
+        "generated_files": [
+          "explicit.deps",
+          "explicit.vvp",
+          "lazy.deps",
+          "lazy.vvp",
+          "malformed.deps",
+          "omitted.deps",
+          "resupplied.deps",
+          "resupplied.vvp"
+        ]
+      },
+      "expected": [
+        "nested input=3 output=10",
+        "nested input=12 output=28"
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+own assumption checked t=5
+child 1 checked t=10
+child 2 checked t=15
+inactive child kept choice=1
+captured assumption checked t=20
+captured actual kept choice=1

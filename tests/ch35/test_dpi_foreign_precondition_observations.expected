@@ -1,0 +1,4 @@
+C input low=12345680
+SV input=212345680
+SV pure=21/21 counter=0
+SV ordinary=11

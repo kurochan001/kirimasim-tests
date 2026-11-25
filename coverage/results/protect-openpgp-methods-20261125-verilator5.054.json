@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch34/test_protect_elgamal_recovers_the_declared_payload": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch34/test_protect_elgamal_recovers_the_declared_payload.sv:16:17: Unsupported: only BASE64 is recognized for `pragma protected encoding",
+   "inputs_sha256": "1935a56fb1f5b4267624d2553b061019b14044cc5b85c115ba4a1288f31f8d74"
+  },
+  "ch34/test_protect_pgp_rsa_recovers_the_declared_payload": {
+   "status": "known",
+   "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_pgp_rsa_recovers_the_declared_payload.sv:17:17: Unknown '`pragma protect' error",
+   "inputs_sha256": "2639aca5858cd9e30ae66e5724eba171a710522129a437e0f7fae3ce2aa7daa5"
+  }
+ },
+ "generated_at": "2026-11-25T03:05:08.649464+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

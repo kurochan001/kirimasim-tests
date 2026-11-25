@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .テストは487本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは493本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -38,6 +38,7 @@
 | [`test_always_comb_case_chain`](../../tests/ch9/test_always_comb_case_chain.sv) |always_comb always_combプロセスの連鎖| 9.2.2.2 12.5 | Icarus Verilog 13.0 ||
 | [`test_always_comb_chain`](../../tests/ch9/test_always_comb_chain.sv) |入力変更後にalways_combブロックの連鎖が定着する| 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_always_comb_edge_cases`](../../tests/ch9/test_always_comb_edge_cases.sv) |Always_combエッジケース| 9.2.2.2 | Icarus Verilog 13.0 ||
+| [`test_always_comb_incomplete_assignment_diagnostic`](../../tests/ch9/test_always_comb_incomplete_assignment_diagnostic.sv) |不完全な always_comb 代入は値を保持し、ラッチ推論の警告の対象になる| 9.2.2.2 |規格のみ|出口コード|
 | [`test_always_comb_independent_element_writers`](../../tests/ch9/test_always_comb_independent_element_writers.sv) |unpacked配列の1要素とベクトルの一部分をalways_combで書き込み、他の要素と部分を連続代入または別のalways_combで書き込むことができる。それぞれの最長の静的プレフィックスが重ならないためである。| 9.2.2.2 11.5.3 | Icarus Verilog 13.0 ||
 | [`test_always_comb_latch`](../../tests/ch9/test_always_comb_latch.sv) |Always_comb /latch/ff テスト| 9.2.2.2 9.2.2.3 9.2.2.4 | Icarus Verilog 13.0 | x/z |
 | [`test_always_comb_latch_ff`](../../tests/ch9/test_always_comb_latch_ff.sv) |always_comb , always_latchとalways_ffプロセス| 9.2.2.2 9.2.2.3 9.2.2.4 | Icarus Verilog 13.0 ||
@@ -81,6 +82,7 @@
 | [`test_always_latch_comb_in_interface`](../../tests/ch9/test_always_latch_comb_in_interface.sv) |always_latchとalways_combプロセスはモジュール内で実行されます。| 9.2.2.3 9.2.2.2 25.3 | Icarus Verilog 13.0 ||
 | [`test_always_latch_comb_rules_apply`](../../tests/ch9/test_always_latch_comb_rules_apply.sv) |always_comb の規則は always_latch にも当てはまる。時刻ゼロで一度実行されるので、イネーブルがすでに 1 なら入力が変わらなくても出力が設定される。呼び出す関数の中だけで読む変数にも反応する。また、それが書き込む要素と、連続代入が書き込む別の要素は、それぞれ自分の代入元に従う| 9.2.2.3 | Icarus Verilog 13.0 ||
 | [`test_always_latch_edge_cases`](../../tests/ch9/test_always_latch_edge_cases.sv) |Always_latchエッジケース| 9.2.2.3 | Icarus Verilog 13.0 | x/z |
+| [`test_always_latch_unconditional_assignment_diagnostic`](../../tests/ch9/test_always_latch_unconditional_assignment_diagnostic.sv) |無条件の always_latch 代入は入力の変化に追従し、ラッチがない旨の警告の対象になる| 9.2.2.3 |規格のみ|出口コード|
 | [`test_illegal_always_latch_delay`](../../tests/ch9/test_illegal_always_latch_delay.sv) |always_latch プロセスには遅延は含まれません| 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_always_latch_event_control`](../../tests/ch9/test_illegal_always_latch_event_control.sv) |always_comb の制限は always_latch にも当てはまるので、 always_latch 手続きはイベント制御を含むことができない| 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_always_latch_fork_join`](../../tests/ch9/test_illegal_always_latch_fork_join.sv) |always_comb の制限は always_latch にも当てはまるので、 always_latch 手続きは fork-join 文を含むことができない| 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 |規格違反の設計|
@@ -90,6 +92,7 @@
 | [`test_always_ff_corner`](../../tests/ch9/test_always_ff_corner.sv) |always_ff 非同期と同期リセット、エンバート、カウンタ、シフトレジスタ| 9.2.2.4 4.7 | Icarus Verilog 13.0 | x/z |
 | [`test_always_ff_edge_cases`](../../tests/ch9/test_always_ff_edge_cases.sv) |Always_ffエッジケース| 9.2.2.4 | Icarus Verilog 13.0 ||
 | [`test_always_ff_independent_element_writers`](../../tests/ch9/test_always_ff_independent_element_writers.sv) |書き込みの最長静的接頭辞が重ならないので、 unpacked 配列の一つの要素を always_ff 手続きが書き込み、別の要素を連続代入が書き込んでもよく、各要素はそれぞれの書き込み元に従う| 9.2.2.4 | Icarus Verilog 13.0 ||
+| [`test_always_ff_level_event_diagnostic`](../../tests/ch9/test_always_ff_level_event_diagnostic.sv) |レベル感度の always_ff 代入は入力の変化に追従し、順序回路（sequential logic）に関する警告の対象になる| 9.2.2.4 |規格のみ|出口コード|
 | [`test_always_ff_simple`](../../tests/ch9/test_always_ff_simple.sv) |常に FF 単純テスト| 9.2.2.4 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_always_ff_delay`](../../tests/ch9/test_illegal_always_ff_delay.sv) |always_ff プロセスは遅延制御を含められません| 9.2.2.4 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_always_ff_no_event_control`](../../tests/ch9/test_illegal_always_ff_no_event_control.sv) |always_ffプロセスはイベント制御を含む必要がある。1つもないのは違法です| 9.2.2.4 | Icarus Verilog 13.0 |規格違反の設計|
@@ -181,6 +184,7 @@
 | [`test_event_control_posedge`](../../tests/ch9/test_event_control_posedge.sv) |初期ブロックで @(posedge clk) を待つ| 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_event_ctrl`](../../tests/ch9/test_event_ctrl.sv) |イベント制御| 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_event_method_dependency`](../../tests/ch9/test_event_method_dependency.sv) |関数や内蔵メソッドが使うオブジェクトメンバー、集合要素、動的サイズの変更は、それを読み取るイベントコントロールを起動させます。| 9.4.2 | Verilator 5.052 ||
+| [`test_event_method_unrelated_member_observation`](../../tests/ch9/test_event_method_unrelated_member_observation.sv) |参照するメンバーと無関係なメンバーが変化した際のイベントメソッドの評価を記録する| 9.4.2 |規格のみ||
 | [`test_event_nested_struct_member`](../../tests/ch9/test_event_nested_struct_member.sv) |ネストされた packed 構造のメンバーに対するイベント制御は、そのメンバーの変更にのみ起動します。| 9.4.2 7.2.1 6.8 | Icarus Verilog 13.0 ||
 | [`test_illegal_event_control_on_unpacked_array`](../../tests/ch9/test_illegal_event_control_on_unpacked_array.sv) |整数列 unpacked 上のイベント制御は不法である。イベント表現は特異値を返さなければならない。| 9.4.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_event_non_singular_method`](../../tests/ch9/test_illegal_event_non_singular_method.sv) |返すタイプが特異でない 非仮想オブジェクトメソッドは イベント制御に使えません| 9.4.2 |規格のみ|規格違反の設計|
@@ -231,7 +235,9 @@
 | [`test_disable_stmt_3`](../../tests/ch9/test_disable_stmt_3.sv) |命名ブロック、ネストブロック、ループを含むブロックを無効にします| 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_stmt_edge_cases`](../../tests/ch9/test_disable_stmt_edge_cases.sv) |テスト: 文の端の大文字を無効にする| 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_task_from_another_process`](../../tests/ch9/test_disable_task_from_another_process.sv) |タスクの名前で disable を実行すると、タスクの実行中の活性化はすべて終了し、各コールはその呼び出し後に再開されます。| 9.6.2 | Icarus Verilog 13.0 ||
+| [`test_disable_task_unspecified_effects`](../../tests/ch9/test_disable_task_unspecified_effects.sv) |タスクを停止した際の出力引数と保留中の代入効果を観測する| 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_wait`](../../tests/ch9/test_disable_wait.sv) |プロセス制御| 9.6.2 9.4.3 | Icarus Verilog 13.0 ||
+| [`test_function_disable_caller_observation`](../../tests/ch9/test_function_disable_caller_observation.sv) |関数が自身のブロックを停止し、別ビルドで呼び出し元を停止する場合を観測する| 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_disable_function`](../../tests/ch9/test_illegal_disable_function.sv) |関数は無効化できませんが 関数内の名前付きブロックや タスク自体が無効化されます| 9.6.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_named_block_disable`](../../tests/ch9/test_named_block_disable.sv) |名前付きブロックの無効化をテスト| 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_stmt_disable`](../../tests/ch9/test_stmt_disable.sv) |disable 命令のテスト| 9.6.2 | Icarus Verilog 13.0 ||

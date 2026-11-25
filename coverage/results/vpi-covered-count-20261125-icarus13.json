@@ -1,0 +1,26 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch40/test_vpi_covered_count_assertion_successes": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "7b3b74b82f4f568476d687bb42458257a960cf83a4b8562954f6d04e0e7cf186"
+  },
+  "ch40/test_vpi_covered_count_fsm_state_sum": {
+   "status": "known",
+   "reason": "VPI build failed: 4 errors generated.",
+   "inputs_sha256": "cc7dff479f2de0ba3368941a157677d189f7345ee3c57b4884278e6f0fa57962"
+  },
+  "ch40/test_vpi_covered_count_optional_entity_sums": {
+   "status": "known",
+   "reason": "VPI build failed: 3 errors generated.",
+   "inputs_sha256": "751705ce3913a0d9dd71a3c8bc91cb5fc7da1d5f932b29d2090482ada7de35c9"
+  }
+ },
+ "generated_at": "2026-11-25T04:17:06.279863+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

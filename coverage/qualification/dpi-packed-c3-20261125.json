@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-C.3-EXTRACT-PACKED-DATA-SEMANTICS"
+  ],
+  "requalified_requirements": [
+    "SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT",
+    "SV2023-H.14-EXTRACT-HANDLES",
+    "SV2023-H.2-EXTRACT-DEPRECATED"
+  ],
+  "requalified_profiles": {
+    "feature": "dpi-sv31a-optional-runtime",
+    "header": "dpi-sv31a-optional-header"
+  },
+  "contract_review": {
+    "previous_behavior": "Use IEEE packed-data access semantics of H.14 for svLogicPackedArrRef and svBitPackedArrRef; Accellera 3.1a semantics are deprecated.",
+    "current_behavior": "Accellera SystemVerilog 3.1a packed-data access through svLogicPackedArrRef and svBitPackedArrRef is deprecated. Annex H.14 describes both versions of the packed-data interface."
+  },
+  "qualified": {
+    "version": "private build 6fa9a05abb0c",
+    "configuration": {
+      "checker_sha256": "239eb1d7c37d1292e47663232c16b130ac183db9236ec2362f3cdc80fc63dfca",
+      "artifact_sha256": {
+        "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+        "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "verilator_header": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6",
+        "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5",
+        "ghost_header": "3eed92cf81ac778b5a70536e9531ae8c4bf70ed636a448c7a9a0ea4b0a0c8506"
+      },
+      "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+      "verilator_version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch35/test_dpi_c_without_deprecated_packed_declarations": {
+        "inputs_sha256": "a5c88660a30dc6a207678431e4e68ffaf1fbdde168c60c274f04cdcd7d190f57",
+        "header_variants": {
+          "full": {
+            "compile": {
+              "c": {
+                "modern_exit": 0,
+                "legacy_exit": 0,
+                "missing_legacy_declaration": false
+              },
+              "cxx": {
+                "modern_exit": 0,
+                "legacy_exit": 0,
+                "missing_legacy_declaration": false
+              }
+            },
+            "runtime": {
+              "checks": {
+                "build_shared": "pass",
+                "ghost": "pass",
+                "verilator_build": "pass",
+                "verilator": "pass",
+                "same_binary": "pass"
+              },
+              "library_sha256": {
+                "portable_0.dylib": "26a860d62c1bba7425249c121cbe7b554e172ed3cc2ec69f166997ec06417344"
+              }
+            }
+          },
+          "reduced": {
+            "compile": {
+              "c": {
+                "modern_exit": 0,
+                "legacy_exit": 1,
+                "missing_legacy_declaration": true
+              },
+              "cxx": {
+                "modern_exit": 0,
+                "legacy_exit": 1,
+                "missing_legacy_declaration": true
+              }
+            },
+            "runtime": {
+              "checks": {
+                "build_shared": "pass",
+                "ghost": "pass",
+                "verilator_build": "pass",
+                "verilator": "pass",
+                "same_binary": "pass"
+              },
+              "library_sha256": {
+                "portable_0.dylib": "f327c4e964526bed87513bacc8a2e3eb4351e5aee8cae8fe3741b1fa5489cbb0"
+              }
+            }
+          }
+        },
+        "legacy": {
+          "inputs_sha256": "0f959295eda151a8de06e7406a85d8f8c10b3fb47a879b0c9574022bb392e3fd",
+          "ghost": "pass",
+          "fault_controls": {
+            "modern_high_bit": {
+              "matches_isolated_fault": true,
+              "reason": ""
+            },
+            "modern_unknown_state": {
+              "matches_isolated_fault": true,
+              "reason": ""
+            },
+            "legacy_high_bit": {
+              "matches_isolated_fault": true,
+              "reason": ""
+            },
+            "legacy_unknown_state": {
+              "matches_isolated_fault": true,
+              "reason": ""
+            }
+          },
+          "ghost_reason": "",
+          "verilator_dialect_exit": 1,
+          "verilator_rejects_legacy_dialect": true,
+          "verilator_link_exit": 2,
+          "verilator_missing_legacy_symbol": true
+        },
+        "checks": {
+          "feature": true,
+          "header": true,
+          "fault_controls": true
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch35/test_dpi_c_without_deprecated_packed_declarations": {
+          "status": "pass",
+          "inputs_sha256": "a5c88660a30dc6a207678431e4e68ffaf1fbdde168c60c274f04cdcd7d190f57"
+        },
+        "ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi": {
+          "status": "pass",
+          "inputs_sha256": "0f959295eda151a8de06e7406a85d8f8c10b3fb47a879b0c9574022bb392e3fd"
+        }
+      },
+      "generated_at": "2026-11-25T10:21:51.615707+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_c_without_deprecated_packed_declarations": {
+          "status": "pass",
+          "inputs_sha256": "a5c88660a30dc6a207678431e4e68ffaf1fbdde168c60c274f04cdcd7d190f57"
+        },
+        "ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi": {
+          "status": "known",
+          "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv:17:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+          "inputs_sha256": "0f959295eda151a8de06e7406a85d8f8c10b3fb47a879b0c9574022bb392e3fd"
+        }
+      },
+      "generated_at": "2026-11-25T10:21:56.220726+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_c_without_deprecated_packed_declarations": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_c_without_deprecated_packed_declarations.sv:15: syntax error",
+          "inputs_sha256": "a5c88660a30dc6a207678431e4e68ffaf1fbdde168c60c274f04cdcd7d190f57"
+        },
+        "ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv:15: syntax error",
+          "inputs_sha256": "0f959295eda151a8de06e7406a85d8f8c10b3fb47a879b0c9574022bb392e3fd"
+        }
+      },
+      "generated_at": "2026-11-25T10:21:51.359604+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_c_without_deprecated_packed_declarations": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "a5c88660a30dc6a207678431e4e68ffaf1fbdde168c60c274f04cdcd7d190f57"
+        },
+        "ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "0f959295eda151a8de06e7406a85d8f8c10b3fb47a879b0c9574022bb392e3fd"
+        }
+      },
+      "generated_at": "2026-11-25T10:21:51.327337+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

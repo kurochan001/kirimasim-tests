@@ -1,0 +1,27 @@
+{
+ "profile": "protect-licenses",
+ "encryptor": {
+  "version": "0.1.0",
+  "files": {
+   "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+   "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+   "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+   "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+   "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+  },
+  "cryptography": "50.0.2"
+ },
+ "checker_sha256": "5af6397b819b26c40b24e2376f2dda937cb8d2a8786c2f2b0a25e008287911d5",
+ "reference_decrypt_policy": "loaded from the fixture before opening ciphertext",
+ "native_input": "canonical framing with native key and data bytes",
+ "binary_sha256": {
+  "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+  "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+ },
+ "openssl": "OpenSSL 4.0.3 29 Sep 2026 (Library: OpenSSL 4.0.3 29 Sep 2026)",
+ "tests": {
+  "ch34/test_protect_license_checks_before_processing_and_execution": {"inputs_sha256": "0be9e08489bb761574154fe4e410b80edb8b09a6ad37522ac6d3587aafa15ed9", "variants": {"allowed": {"encrypted_metadata_preserved": {"decrypt": true, "runtime": true}, "reference": {"events": ["entry decrypt allow 37", "decrypt payload", "compile source", "entry runtime allow 0", "execute model", "release runtime", "release decrypt", "leave consumer"], "executed": true, "exit": 0, "diagnostic_has_return_value": false, "pass": true}, "native": {"ghost": {"exit": 255, "executed": false, "license_events": [], "protected_input_unresolved": true, "protection_not_supported_reported": true, "syntax_error": false, "fixture_decryption_key_configured": false}, "icarus": {"exit": 2, "executed": false, "license_events": [], "protected_input_unresolved": false, "protection_not_supported_reported": false, "syntax_error": true, "fixture_decryption_key_configured": false}}}, "decrypt_denied": {"encrypted_metadata_preserved": {"decrypt": true, "runtime": true}, "reference": {"events": ["entry decrypt deny 19", "release decrypt", "leave consumer"], "executed": false, "exit": 5, "diagnostic_has_return_value": true, "pass": true}}, "runtime_denied": {"encrypted_metadata_preserved": {"decrypt": true, "runtime": true}, "reference": {"events": ["entry decrypt allow 37", "decrypt payload", "compile source", "entry runtime deny 19", "release runtime", "release decrypt", "leave consumer"], "executed": false, "exit": 5, "diagnostic_has_return_value": true, "pass": true}}}},
+  "ch34/test_protect_license_matches_without_release": {"inputs_sha256": "b359e2ece1660ea8f7807a36848f93de624bd0865bae2f80b3f2e37bff511c97", "variants": {"allowed": {"encrypted_metadata_preserved": {"decrypt": true, "runtime": true}, "reference": {"events": ["entry decrypt allow 37", "decrypt payload", "compile source", "entry runtime allow 0", "execute model", "leave consumer"], "executed": true, "exit": 0, "diagnostic_has_return_value": false, "pass": true}, "native": {"ghost": {"exit": 255, "executed": false, "license_events": [], "protected_input_unresolved": true, "protection_not_supported_reported": true, "syntax_error": false, "fixture_decryption_key_configured": false}, "icarus": {"exit": 2, "executed": false, "license_events": [], "protected_input_unresolved": false, "protection_not_supported_reported": false, "syntax_error": true, "fixture_decryption_key_configured": false}}}, "decrypt_denied": {"encrypted_metadata_preserved": {"decrypt": true, "runtime": true}, "reference": {"events": ["entry decrypt allow 37", "leave consumer"], "executed": false, "exit": 5, "diagnostic_has_return_value": true, "pass": true}}, "runtime_denied": {"encrypted_metadata_preserved": {"decrypt": true, "runtime": true}, "reference": {"events": ["entry decrypt allow 37", "decrypt payload", "compile source", "entry runtime allow 0", "leave consumer"], "executed": false, "exit": 5, "diagnostic_has_return_value": true, "pass": true}}}}
+ }
+}

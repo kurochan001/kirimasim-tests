@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch6/test_user_net_same_region_resolution": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_user_net_same_region_resolution.sv:22:3: Unsupported: nettype with",
+   "inputs_sha256": "c9c5688252aaeac4c472d97b236ab0ffeb24b0217d66d192f4984e46b89a5bc5"
+  },
+  "ch6/test_user_net_timezero_order": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch6/test_user_net_timezero_order.sv:22:3: Unsupported: nettype with",
+   "inputs_sha256": "41b5e2db8a7a66ac19d799fe4ff685619d035bf86a306de6528f61861c3f947e"
+  }
+ },
+ "generated_at": "2026-11-25T00:34:23.176221+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

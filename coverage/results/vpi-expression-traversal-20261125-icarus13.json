@@ -1,0 +1,21 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch37/test_vpi_clocked_sequence_body": {
+   "status": "known",
+   "reason": "VPI build failed: 1 warning and 12 errors generated.",
+   "inputs_sha256": "de3fe198eda0211890b848df4621b0b106d79319219eb3be9e9a1d89530380f8"
+  },
+  "ch37/test_vpi_ref_port_simple_expression_use": {
+   "status": "known",
+   "reason": "VPI build failed: 7 errors generated.",
+   "inputs_sha256": "92c3e25ff7d6f05e34e5bc05b23641c7a568016b6393ec4c0a41f8a019254477"
+  }
+ },
+ "generated_at": "2026-11-25T03:28:35.445845+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

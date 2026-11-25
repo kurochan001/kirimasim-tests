@@ -1,0 +1,59 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch35/test_dpi_annex_j_calls_user_built_shared_objects": {
+   "status": "pass",
+   "inputs_sha256": "6360d25aac4dc87ceae2f6bd11b48648aad385402f2dbfbfe52e73a347634245"
+  },
+  "ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries": {
+   "status": "fail",
+   "reason": "direct_default_root=library_load_failed, direct_selected_root=library_load_failed, root_switch_order=library_load_failed, bootstrap_files=unknown_option, bootstrap_before_direct=unknown_option",
+   "inputs_sha256": "0b327e97158dea1d50bc912aa69987e236dda47dd8ca7e1d45b24169d8b1acc1"
+  },
+  "ch35/test_dpi_annex_j_keeps_multiple_prebuilt_objects_available": {
+   "status": "pass",
+   "inputs_sha256": "3968c22cde40c7e3f600db892035d6a98e753564c054acb17bf30e0d633904ba"
+  },
+  "ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases": {
+   "status": "fail",
+   "reason": "direct_default_root=library_load_failed, direct_selected_root=library_load_failed, root_switch_order=library_load_failed, bootstrap_files=unknown_option, bootstrap_before_direct=unknown_option",
+   "inputs_sha256": "6f95efecb9eb098d28bc622139954f9204986d83981eeb38bf363c8a26fac326"
+  }
+ },
+ "generated_at": "2026-11-24T22:09:34.162629+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-dpi-object-loading",
+  "checker_sha256": "1b6ad2312fc08a6996b7de141652fb2b5237eb3a00f8992c129ad81d3212bbd9",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "platform": "darwin",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "scenarios": {
+   "ch35/test_dpi_annex_j_calls_user_built_shared_objects": {
+    "explicit_suffix_control": "pass"
+   },
+   "ch35/test_dpi_annex_j_keeps_multiple_prebuilt_objects_available": {
+    "explicit_suffix_control": "pass"
+   },
+   "ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries": {
+    "explicit_suffix_control": "pass",
+    "direct_default_root": "library_load_failed",
+    "direct_selected_root": "library_load_failed",
+    "root_switch_order": "library_load_failed",
+    "bootstrap_files": "unknown_option",
+    "bootstrap_before_direct": "unknown_option"
+   },
+   "ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases": {
+    "explicit_suffix_control": "pass",
+    "direct_default_root": "library_load_failed",
+    "direct_selected_root": "library_load_failed",
+    "root_switch_order": "library_load_failed",
+    "bootstrap_files": "unknown_option",
+    "bootstrap_before_direct": "unknown_option"
+   }
+  }
+ }
+}

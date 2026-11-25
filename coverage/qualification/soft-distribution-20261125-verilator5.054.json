@@ -1,0 +1,194 @@
+{
+  "tool": "verilator",
+  "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "configuration": {
+    "checker_sha256": "f0a4d36f254d1256a8fa79df2a9d63278de059ac5a1b9c3e19db490f4ca9be66",
+    "binary_sha256": {
+      "executable": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "compiler": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    },
+    "seeds": [
+      1,
+      73
+    ]
+  },
+  "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+  "tests": {
+    "ch18/test_disable_soft_preserves_distribution_weights": {
+      "inputs_sha256": "457b772664ede77eade9bd76650c9533040800c7e189bb3349786e1cf59cd7dc",
+      "pass": false,
+      "modes": {
+        "equal": {
+          "pass": false,
+          "trials": {
+            "1": {
+              "pass": false,
+              "counts": {
+                "retained": [
+                  235,
+                  277
+                ],
+                "discarded": [
+                  258,
+                  254
+                ],
+                "baseline": [
+                  249,
+                  263
+                ]
+              },
+              "unexpected": 0,
+              "weight_for_8": 1,
+              "expected_fives": [
+                192,
+                320
+              ],
+              "transcript_matches_counts": true,
+              "verdicts": {
+                "retained_equality": false,
+                "discarded_weights": true,
+                "baseline_weights": true
+              },
+              "output": [
+                "retained equality=0",
+                "discarded weights=1",
+                "baseline weights=1",
+                "unexpected=0",
+                "weight for 8=1",
+                "retained: 235 277",
+                "discarded: 258 254",
+                "baseline: 249 263"
+              ],
+              "returncode": 0
+            },
+            "73": {
+              "pass": false,
+              "counts": {
+                "retained": [
+                  242,
+                  270
+                ],
+                "discarded": [
+                  255,
+                  257
+                ],
+                "baseline": [
+                  260,
+                  252
+                ]
+              },
+              "unexpected": 0,
+              "weight_for_8": 1,
+              "expected_fives": [
+                192,
+                320
+              ],
+              "transcript_matches_counts": true,
+              "verdicts": {
+                "retained_equality": false,
+                "discarded_weights": true,
+                "baseline_weights": true
+              },
+              "output": [
+                "retained equality=0",
+                "discarded weights=1",
+                "baseline weights=1",
+                "unexpected=0",
+                "weight for 8=1",
+                "retained: 242 270",
+                "discarded: 255 257",
+                "baseline: 260 252"
+              ],
+              "returncode": 0
+            }
+          }
+        },
+        "unequal": {
+          "pass": false,
+          "trials": {
+            "1": {
+              "pass": false,
+              "counts": {
+                "retained": [
+                  65,
+                  447
+                ],
+                "discarded": [
+                  60,
+                  452
+                ],
+                "baseline": [
+                  71,
+                  441
+                ]
+              },
+              "unexpected": 0,
+              "weight_for_8": 7,
+              "expected_fives": [
+                25,
+                108
+              ],
+              "transcript_matches_counts": true,
+              "verdicts": {
+                "retained_equality": false,
+                "discarded_weights": true,
+                "baseline_weights": true
+              },
+              "output": [
+                "retained equality=0",
+                "discarded weights=1",
+                "baseline weights=1",
+                "unexpected=0",
+                "weight for 8=7",
+                "retained: 65 447",
+                "discarded: 60 452",
+                "baseline: 71 441"
+              ],
+              "returncode": 0
+            },
+            "73": {
+              "pass": false,
+              "counts": {
+                "retained": [
+                  60,
+                  452
+                ],
+                "discarded": [
+                  60,
+                  452
+                ],
+                "baseline": [
+                  80,
+                  432
+                ]
+              },
+              "unexpected": 0,
+              "weight_for_8": 7,
+              "expected_fives": [
+                25,
+                108
+              ],
+              "transcript_matches_counts": true,
+              "verdicts": {
+                "retained_equality": false,
+                "discarded_weights": true,
+                "baseline_weights": true
+              },
+              "output": [
+                "retained equality=0",
+                "discarded weights=1",
+                "baseline weights=1",
+                "unexpected=0",
+                "weight for 8=7",
+                "retained: 60 452",
+                "discarded: 60 452",
+                "baseline: 80 432"
+              ],
+              "returncode": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "test": "ch23/test_defparam_migration_and_duplicate_observation",
+  "inputs_sha256": "773f9f421a91738fab99f89707f35c52c34be38410051f8e41ce4e3180609da5",
+  "arguments": [
+    "--lint-only",
+    "--timing",
+    "-Wno-fatal"
+  ],
+  "versions": {
+    "5.052": {
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "launcher_sha256": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+      "trials": {
+        "migration": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [],
+          "errors": []
+        },
+        "same_source": {
+          "returncode": 1,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "OBSERVE_SAME_SOURCE"
+          ],
+          "errors": [
+            "%Error: test_defparam_migration_and_duplicate_observation.sv:42:27: Duplicate parameter connection: 'WIDTH'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "same_source_reversed": {
+          "returncode": 1,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "OBSERVE_SAME_SOURCE",
+            "REVERSE_SAME_SOURCE"
+          ],
+          "errors": [
+            "%Error: test_defparam_migration_and_duplicate_observation.sv:39:27: Duplicate parameter connection: 'WIDTH'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "inner_only": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES",
+            "OMIT_OUTER_OVERRIDE"
+          ],
+          "errors": []
+        },
+        "outer_only": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES",
+            "OMIT_INNER_OVERRIDE"
+          ],
+          "errors": []
+        },
+        "cross_source": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES"
+          ],
+          "errors": []
+        },
+        "cross_source_reversed": {
+          "returncode": 0,
+          "source_order": [
+            "test_defparam_migration_and_duplicate_observation.sv",
+            "defparam_migration/leaves.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES"
+          ],
+          "errors": []
+        }
+      }
+    },
+    "5.054": {
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "launcher_sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "trials": {
+        "migration": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [],
+          "errors": []
+        },
+        "same_source": {
+          "returncode": 1,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "OBSERVE_SAME_SOURCE"
+          ],
+          "errors": [
+            "%Error: test_defparam_migration_and_duplicate_observation.sv:42:27: Duplicate parameter connection: 'WIDTH'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "same_source_reversed": {
+          "returncode": 1,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "OBSERVE_SAME_SOURCE",
+            "REVERSE_SAME_SOURCE"
+          ],
+          "errors": [
+            "%Error: test_defparam_migration_and_duplicate_observation.sv:39:27: Duplicate parameter connection: 'WIDTH'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "inner_only": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES",
+            "OMIT_OUTER_OVERRIDE"
+          ],
+          "errors": []
+        },
+        "outer_only": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES",
+            "OMIT_INNER_OVERRIDE"
+          ],
+          "errors": []
+        },
+        "cross_source": {
+          "returncode": 0,
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES"
+          ],
+          "errors": []
+        },
+        "cross_source_reversed": {
+          "returncode": 0,
+          "source_order": [
+            "test_defparam_migration_and_duplicate_observation.sv",
+            "defparam_migration/leaves.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES"
+          ],
+          "errors": []
+        }
+      }
+    }
+  }
+}

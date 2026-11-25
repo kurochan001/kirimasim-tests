@@ -1,0 +1,54 @@
+{
+  "tool": "ghost",
+  "version": "private build 6fa9a05abb0c",
+  "evidence_profile": "ghost-language-diagnostics",
+  "checker_sha256": "51b52243cd17cdfc67af1176fcb4133061e55888a5255876c971c3dff584d02d",
+  "binary_sha256": {
+    "compiler": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4"
+  },
+  "cases": {
+    "ch9/test_always_comb_incomplete_assignment_diagnostic": {
+      "inputs_sha256": "42198a8a5d68e9dd0e5c877e8da569cdba3d7be1bfda7fe344700b2510bf8949",
+      "status": "unsupported",
+      "source_exit": 0,
+      "control_exit": 0,
+      "source_warning": false,
+      "control_warning": false
+    },
+    "ch9/test_always_latch_unconditional_assignment_diagnostic": {
+      "inputs_sha256": "85bbfc595c8fa9796fb6a4c74be5f55ba1d8caac8ec8139b82ad94fcfba9c160",
+      "status": "unsupported",
+      "source_exit": 0,
+      "control_exit": 0,
+      "source_warning": false,
+      "control_warning": false
+    },
+    "ch9/test_always_ff_level_event_diagnostic": {
+      "inputs_sha256": "354e9a876d46713492ab1c932fbabc62bdbe8470a159c9defa13fcd25a484843",
+      "status": "unsupported",
+      "source_exit": 0,
+      "control_exit": 0,
+      "source_warning": false,
+      "control_warning": false
+    },
+    "ch23/test_net_ports_used_in_the_reverse_direction": {
+      "inputs_sha256": "6965e6db3ed263eee7479db60e3f7c00be7b9063f41a0ffc912ff2e4ecc848eb",
+      "status": "fail",
+      "compile_or_run_exit": 0,
+      "input_warning": false,
+      "output_warning": false,
+      "input_outward": "z",
+      "output_inward": "z"
+    },
+    "ch35/test_legacy_dpi_import_compiler_diagnostic": {
+      "inputs_sha256": "d7bbd8ca05671d981df07bda4e1983ca941b272416539f74f078f8a31957b07d",
+      "status": "fail",
+      "legacy_exit": 0,
+      "current_exit": 0,
+      "replacement_mentioned": false,
+      "deprecation_mentioned": false,
+      "c_changes_mentioned": false,
+      "current_declaration_migration_diagnostic": false
+    }
+  }
+}

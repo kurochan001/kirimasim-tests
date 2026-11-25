@@ -1,0 +1,14 @@
+first read 5, second read 8
+assignment state=8
+first read 6, second read 5
+decrement state=5
+first read 106, second read 112
+operand state=12
+first read 61, second read 62
+nested call count=2
+first read 41, second read 52
+index state=2
+first read 17, second read 28
+queue size=1 front=39
+first read 65, second read 66
+file position=2

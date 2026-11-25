@@ -1,0 +1,4 @@
+library validLib units.sv;
+// The preceding library declaration is valid.
+module invalid_in_library_map;
+endmodule

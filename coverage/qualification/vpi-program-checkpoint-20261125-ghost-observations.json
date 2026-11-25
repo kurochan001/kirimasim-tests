@@ -1,0 +1,70 @@
+{
+  "name": "Ghost",
+  "version": "private build 6fa9a05abb0c",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch37/test_vpi_program_scalar_interface_port_relation": {
+      "inputs_sha256": "bf01a357a66d7a6369aa846c6c004b09756681eae5b513d93a27643b75e6880b",
+      "observed": [
+        "scalar interface data=1",
+        "associated interface objects=0 with program owner=0",
+        "physical interface has module owner=1"
+      ]
+    },
+    "ch37/test_vpi_program_array_interface_port_relation": {
+      "inputs_sha256": "8389a12770acad82cce67e789bb871f007ccae9ff33574db54bb3a70a36b81e5",
+      "observed": [
+        "array interface data=01",
+        "associated interface objects=0 with program owner=0",
+        "physical interface has module owner=1"
+      ]
+    },
+    "ch38/test_vpi_put_data_counts_at_start_of_save": {
+      "inputs_sha256": "1db600843df56647a7616c4a06d69c54b3521b9582003ba223c3d39cda09bda6",
+      "observed": [
+        "start save written=1 zero=0 negative=0",
+        "end restart read=1 payload=1 guard=1"
+      ]
+    },
+    "ch38/test_vpi_put_data_counts_at_end_of_save": {
+      "inputs_sha256": "86c99fa8964b833e4bafa5437ba1b771723fcc62bbd0eb0888a31171c0f6f24e",
+      "observed": [
+        "end save written=4 zero=0 negative=0",
+        "start restart read=4 payload=1 guard=1"
+      ]
+    },
+    "ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback": {
+      "inputs_sha256": "fbc77dad94a89fed7ffd12ae8ef6665e75a9b422363bf012e545859442d5a56b",
+      "observed": [
+        "start save path=0",
+        "end save path=0",
+        "start restart path=0",
+        "end restart path=0"
+      ]
+    }
+  },
+  "program_compiler_control": {
+    "slang": "slang version 12.0.0+0",
+    "tests": {
+      "ch37/test_vpi_program_scalar_interface_port_relation": {
+        "inputs_sha256": "bf01a357a66d7a6369aa846c6c004b09756681eae5b513d93a27643b75e6880b",
+        "accepted": true
+      },
+      "ch37/test_vpi_program_array_interface_port_relation": {
+        "inputs_sha256": "8389a12770acad82cce67e789bb871f007ccae9ff33574db54bb3a70a36b81e5",
+        "accepted": true
+      }
+    },
+    "nested_interface_rejected": {
+      "ghost": true,
+      "slang": true
+    },
+    "nested_interface_test": {
+      "test": "ch3/test_illegal_program_contains_interface_instance",
+      "inputs_sha256": "7d461c920dd2ac1a6ff892eb9458788074a525f2829826eb2fb7d14a2850fa57",
+      "ghost": "rejected_at_expected_line",
+      "slang": "rejected_at_expected_line"
+    }
+  }
+}

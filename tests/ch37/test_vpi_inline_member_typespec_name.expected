@@ -1,0 +1,3 @@
+inline_field: member=1 struct=1 inner_int=1 name_ok=1
+named_field: member=1 struct=1 inner_int=1 name_ok=1
+HDL fields=19,41

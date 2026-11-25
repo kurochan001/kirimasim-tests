@@ -1,0 +1,4 @@
+capture emitted=0
+type=string nonempty=1
+returned=inspect_result
+displayed=inspect_result

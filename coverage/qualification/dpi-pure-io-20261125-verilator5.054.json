@@ -1,0 +1,291 @@
+{
+  "tool": "verilator",
+  "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "configuration": {
+    "evidence_profile": "verilator-dpi-pure-io",
+    "checker_sha256": "552690b9d0cbb74685fbcfaeb1cbe0e09831b7f16f87d1d882f38531cc84790d",
+    "binary_sha256": {
+      "simulator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    },
+    "debugger_version": "lldb-2103.0.34.407"
+  },
+  "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+  "tests": {
+    "ch35/test_dpi_pure_file_access_observation": {
+      "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c",
+      "pass": true,
+      "trials": {
+        "ordinary": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "file probes entered",
+            "direct=18,18 indirect=53,53"
+          ],
+          "native_events": {
+            "dpi_file_direct": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ],
+            "dpi_file_indirect": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ]
+          }
+        },
+        "direct": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "file probes entered",
+            "direct declared pure",
+            "direct=18,18 indirect=53,53"
+          ],
+          "native_events": {
+            "dpi_file_direct": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ],
+            "dpi_file_indirect": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ]
+          }
+        },
+        "indirect": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "file probes entered",
+            "indirect declared pure",
+            "direct=18,18 indirect=53,53"
+          ],
+          "native_events": {
+            "dpi_file_direct": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ],
+            "dpi_file_indirect": [
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose",
+              "entry",
+              "tmpfile",
+              "fputc",
+              "fseek",
+              "fgetc",
+              "fclose"
+            ]
+          }
+        }
+      }
+    },
+    "ch35/test_dpi_pure_external_state_observation": {
+      "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f",
+      "pass": true,
+      "trials": {
+        "ordinary": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "external probes entered",
+            "env=18,18 shared=36,36"
+          ],
+          "native_events": {
+            "dpi_env_pid": [
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv",
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv"
+            ],
+            "dpi_shared_socket": [
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap",
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap"
+            ]
+          }
+        },
+        "direct": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "external probes entered",
+            "direct declared pure",
+            "env=18,18 shared=36,36"
+          ],
+          "native_events": {
+            "dpi_env_pid": [
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv",
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv"
+            ],
+            "dpi_shared_socket": [
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap",
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap"
+            ]
+          }
+        },
+        "indirect": {
+          "pass": true,
+          "target_exits": [
+            0
+          ],
+          "debugger_exit": 0,
+          "stdout": [
+            "external probes entered",
+            "indirect declared pure",
+            "env=18,18 shared=36,36"
+          ],
+          "native_events": {
+            "dpi_env_pid": [
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv",
+              "entry",
+              "getenv",
+              "getpid",
+              "setenv",
+              "getenv",
+              "unsetenv"
+            ],
+            "dpi_shared_socket": [
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap",
+              "entry",
+              "mmap",
+              "socketpair",
+              "send",
+              "recv",
+              "close",
+              "close",
+              "munmap"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

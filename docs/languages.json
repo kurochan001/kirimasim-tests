@@ -9,8 +9,19 @@
       "source_language": "en",
       "generated": false,
       "sha256": {
-        "en": "449b04eb4588374b5e7c5033c2819605ed3a44ecb8680c97cdb1375143c4c6d9",
-        "ja": "28f7fc27041aef7181e8e9269de84af2ab79112f5d3d7660aa448c21006130da"
+        "en": "6e9969a7cb01b2282d91c3e6249f03a65fd5c3f0fc04ac68914c4ead58ae332f",
+        "ja": "4a43bff4a9f83432036522b88d33506ab01ffe65c36e53bdba6d6727fce55fb1"
+      }
+    },
+    {
+      "en": "HANDOFF.md",
+      "ja": "HANDOFF.ja.md",
+      "source": "HANDOFF.ja.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "93daf3acb00b0e7f81e79c36b11b4851aad0091a8fd675553f242581f09f6b29",
+        "ja": "8af496934876153dba9cab507ac363ec4e994b58b1eb837fc9c882e4546c304a"
       }
     },
     {
@@ -20,8 +31,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "0b31cb425c032441288d08ed509514d0004ffd867d2a771701022267d8a9eaf5",
-        "ja": "069864031908eb4a5a9d08cbfc23f91ab175a9b608ca402ffabcfd7a834cbbf5"
+        "en": "6d901dd279478212da6fde53554ee258d9d9ddc3a1e63b29bbb6c209e46f410d",
+        "ja": "51e035e00e3bc1921dcd2280971262f804d425a914b9103c9f123d2ea35d4506"
       }
     },
     {
@@ -615,8 +626,8 @@
       "source_language": "ja",
       "generated": false,
       "sha256": {
-        "en": "4cdab666c3ae230758bbe6349134d164ea85c390632154eb4d81c78d59ef933c",
-        "ja": "5bdef1f5b21c4f1895d5c6e72ee2f435c0f397775af5a9a4cab5f3be37b9ff40"
+        "en": "1c9ed22db5a0e1743b355cd16bc8fbd15d00d78b8b354cca8dcb140eee80a2df",
+        "ja": "35df336220b2816b628f58e879f4beac6127238bfe5ce8684a6f7da1aec04f48"
       }
     },
     {
@@ -1412,6 +1423,28 @@
       "sha256": {
         "en": "26428ebca1372e66ccd781b64926c8fd2af81e26b662d83b375993e349ed62bd",
         "ja": "bc3454914a6ffb650a3388ad57176efb9cb891512b237a9fdb00875d9b2b39e7"
+      }
+    },
+    {
+      "en": "docs/vpi-interface-specify-interpretation.en.md",
+      "ja": "docs/vpi-interface-specify-interpretation.md",
+      "source": "docs/vpi-interface-specify-interpretation.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "762fed13ee984f3f16d1c08fff7ccd2b234825b185ddd1b29402c1bb45179b97",
+        "ja": "83a8620a2801eb57278c2919f317583e0f73ffbebe5e9ebad581d510e187626a"
+      }
+    },
+    {
+      "ja": "docs/vpi-program-interface-port-interpretation.md",
+      "en": "docs/vpi-program-interface-port-interpretation.en.md",
+      "source": "docs/vpi-program-interface-port-interpretation.md",
+      "source_language": "ja",
+      "generated": false,
+      "sha256": {
+        "en": "f4270b8280b568e4879c164e47ceb998dda481e5e75e40f7c97cd391c588c801",
+        "ja": "1a8e47bcd095f1083cc7a7375eb2f10d7c092a1d0691df9c4bd460ec34a290cc"
       }
     }
   ]

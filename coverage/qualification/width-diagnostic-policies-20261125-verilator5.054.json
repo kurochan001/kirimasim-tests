@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "configuration": {
+    "evidence_profile": "verilator-width-diagnostic-policies",
+    "checker_sha256": "ec7b9c3a1f75803ec5e1df06a4349c57fc937e92318f3ac2f6ee139b45f7ddcf",
+    "binaries_sha256": {
+      "launcher": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "compiler": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    }
+  },
+  "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+  "tests": {
+    "ch10/test_truncation_diagnostic_and_explicit_cast": {
+      "inputs_sha256": "1a56943b77dc43182df432329d89e19e761831cd9865454d971d76f3f51846b2",
+      "status": "pass",
+      "reason": "",
+      "assignment_line": 18,
+      "expected": [
+        "implicit=3 explicit=3"
+      ],
+      "trials": {
+        "silent": {
+          "option": "-Wno-WIDTHTRUNC",
+          "compile_exit": 0,
+          "truncations": [],
+          "unrelated_errors": 0,
+          "runtime_exit": 0,
+          "observed": [
+            "implicit=3 explicit=3"
+          ]
+        },
+        "warn": {
+          "option": "-Wno-fatal",
+          "compile_exit": 0,
+          "truncations": [
+            {
+              "severity": "warning",
+              "file": "test_truncation_diagnostic_and_explicit_cast.sv",
+              "line": 18
+            }
+          ],
+          "unrelated_errors": 0,
+          "runtime_exit": 0,
+          "observed": [
+            "implicit=3 explicit=3"
+          ]
+        },
+        "error": {
+          "option": "-Werror-WIDTHTRUNC",
+          "compile_exit": 1,
+          "truncations": [
+            {
+              "severity": "error",
+              "file": "test_truncation_diagnostic_and_explicit_cast.sv",
+              "line": 18
+            }
+          ],
+          "unrelated_errors": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch13/test_defparam_constant_function_observation": {
+   "status": "pass",
+   "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372"
+  },
+  "ch18/test_randsequence_ungenerated_result_observation": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch18/test_randsequence_ungenerated_result_observation.sv:21:7: Unsupported: randsequence production function variable",
+   "inputs_sha256": "80abe1781abb299b5f7a2b40e257e5c764f2684ccd2efa08f026a55a95cf98e7"
+  },
+  "ch7/test_locator_with_side_effect_observation": {
+   "status": "pass",
+   "inputs_sha256": "0d446df44b2359f6251004585e869168841ed1ef9a67504c79d8ead54c34de6a"
+  }
+ },
+ "generated_at": "2026-11-25T05:48:58.021017+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

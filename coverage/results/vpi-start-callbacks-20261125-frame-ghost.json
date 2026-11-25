@@ -1,0 +1,28 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+   "status": "fail",
+   "reason": "the frame start callback observations differed",
+   "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6"
+  }
+ },
+ "generated_at": "2026-11-25T08:50:57.999628+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "checker_sha256": "3a3612e04b56a363419b0d9264a037785a09e3294a7c7c75314cfd37ec653626",
+  "artifact_sha256": {
+   "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+   "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+   "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe"
+  },
+  "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+  "debugger_version": "lldb-2103.0.34.407",
+  "evidence_profile": "ghost-vpi-frame-start"
+ }
+}

@@ -1,0 +1,15 @@
+arm 0 frame=1 thread=1 automatic=23 vector=1 bit=1 callbacks=1/1
+arm 1 frame=1 thread=1 automatic=24 vector=1 bit=1 callbacks=1/1
+distinct frame=1 thread=1
+sample 1 module-state=53
+worker 0 stamp=23 bits=10000110
+frame 0 end at 3 identity=1 stamp=23
+sample 2 module-state=53
+branch 0 completed
+thread 0 end at 5 identity=1
+worker 1 stamp=24 bits=10000110
+frame 1 end at 6 identity=1 stamp=24
+sample 3 module-state=53
+branch 1 completed
+thread 1 end at 8 identity=1
+sample 4 module-state=53

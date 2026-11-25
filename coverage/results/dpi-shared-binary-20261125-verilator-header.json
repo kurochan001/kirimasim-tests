@@ -1,0 +1,98 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch35/test_dpi_library_keys_isolate_two_instances_in_reverse_order": {
+   "status": "pass",
+   "inputs_sha256": "a81dc5ad82c73353c850c7a27329fd73b8f353457f3bebc42fd93c37d93bfc0b"
+  },
+  "ch35/test_dpi_portable_logic_chunks_and_scalar_ports": {
+   "status": "pass",
+   "inputs_sha256": "ddc9f4ea98d8142101f0b1a2fcb21efec647cdd6396c7081359e743f0d82dc87"
+  },
+  "ch35/test_dpi_portable_multiword_bit_and_scalar": {
+   "status": "pass",
+   "inputs_sha256": "0502845a43054bf0aadfd3ea2264e2db8b8f98f18ff4dade4891e2ad2363b3d5"
+  },
+  "ch35/test_dpi_unrelated_libraries_private_and_numeric_keys": {
+   "status": "pass",
+   "inputs_sha256": "771ca3d5fc4b420070423bbb7f4f2aea67b81e200d03a98be8becd7f16f69439"
+  }
+ },
+ "generated_at": "2026-11-24T22:27:23.554629+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "dpi-shared-binary",
+  "checker_sha256": "7467593ee82bd62514d936ce6fd56771464a5cca10c59e53eccee6b0bd94d40a",
+  "sha256": {
+   "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+   "verilator_launcher": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "svdpi_header": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6",
+   "compiler_c": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "compiler_cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  },
+  "verilator": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "compiler_cxx": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+  "platform": "darwin",
+  "cases": {
+   "ch35/test_dpi_portable_multiword_bit_and_scalar": {
+    "interface": "packed bit and scalar inout",
+    "checks": {
+     "build_shared": "pass",
+     "ghost": "pass",
+     "verilator_build": "pass",
+     "verilator": "pass",
+     "same_binary": "pass"
+    },
+    "library_sha256": {
+     "portable_0.dylib": "fe4977392272b5c3fa61ba087ca62a0d2bcffd6202ac7da7df2e97cf15ed74a2"
+    }
+   },
+   "ch35/test_dpi_portable_logic_chunks_and_scalar_ports": {
+    "interface": "canonical logic and signed byte output",
+    "checks": {
+     "build_shared": "pass",
+     "ghost": "pass",
+     "verilator_build": "pass",
+     "verilator": "pass",
+     "same_binary": "pass"
+    },
+    "library_sha256": {
+     "portable_0.dylib": "ad345195e0a135f5ad0a45ecc85ff5202edd367c4c57b26056c3909a6b05109d"
+    }
+   },
+   "ch35/test_dpi_unrelated_libraries_private_and_numeric_keys": {
+    "interface": "independent C and C++ context imports",
+    "checks": {
+     "build_shared": "pass",
+     "ghost": "pass",
+     "verilator_build": "pass",
+     "verilator": "pass",
+     "same_binary": "pass"
+    },
+    "library_sha256": {
+     "portable_0.dylib": "c4705e3ffd787e389541aa2a8ae72a3b0c883ce40f9c1a836f6a0d036ce394a7",
+     "portable_1.dylib": "ca6263740fd810a9cb9b73b9e47bd11856b3beecaabbd3074adbf64007a1488a"
+    }
+   },
+   "ch35/test_dpi_library_keys_isolate_two_instances_in_reverse_order": {
+    "interface": "same keys in separate scopes",
+    "checks": {
+     "build_shared": "pass",
+     "ghost": "pass",
+     "verilator_build": "pass",
+     "verilator": "pass",
+     "same_binary": "pass"
+    },
+    "library_sha256": {
+     "portable_0.dylib": "b4930817a0d938eb239c7cb9bdbcc2637e4f779bfbb79ffbc98fb886e7439d80",
+     "portable_1.dylib": "9f121a40c4302dd07fb10fe73b2d8b3a895b258387970087d1de97a141ee7819"
+    }
+   }
+  }
+ }
+}

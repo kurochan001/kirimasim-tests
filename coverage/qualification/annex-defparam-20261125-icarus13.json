@@ -1,0 +1,122 @@
+{
+  "tool": "icarus",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "configuration": {
+    "checker_sha256": "6cfe0bb4f1d28166d67f253b2a99606074c0e4993fcc46601129f2bd795e9eac",
+    "binary_sha256": {
+      "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+      "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+    },
+    "evidence_profile": "icarus-defparam-source-order"
+  },
+  "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+  "tests": {
+    "ch23/test_defparam_migration_and_duplicate_observation": {
+      "inputs_sha256": "773f9f421a91738fab99f89707f35c52c34be38410051f8e41ce4e3180609da5",
+      "pass": true,
+      "trials": {
+        "migration": {
+          "returncode": 0,
+          "stdout": [
+            "legacy=59 named=59 ordered=59"
+          ],
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [],
+          "pass": true
+        },
+        "same_source": {
+          "returncode": 0,
+          "stdout": [
+            "legacy=59 named=59 ordered=59",
+            "same-file=59"
+          ],
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "OBSERVE_SAME_SOURCE"
+          ],
+          "pass": true
+        },
+        "same_source_reversed": {
+          "returncode": 0,
+          "stdout": [
+            "legacy=59 named=59 ordered=59",
+            "same-file=57"
+          ],
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "OBSERVE_SAME_SOURCE",
+            "REVERSE_SAME_SOURCE"
+          ],
+          "pass": true
+        },
+        "inner_only": {
+          "returncode": 0,
+          "stdout": [
+            "cross-source=57 width=7"
+          ],
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES",
+            "OMIT_OUTER_OVERRIDE"
+          ],
+          "pass": true
+        },
+        "outer_only": {
+          "returncode": 0,
+          "stdout": [
+            "cross-source=59 width=9"
+          ],
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES",
+            "OMIT_INNER_OVERRIDE"
+          ],
+          "pass": true
+        },
+        "cross_source": {
+          "returncode": 0,
+          "stdout": [
+            "cross-source=59 width=9"
+          ],
+          "source_order": [
+            "defparam_migration/leaves.sv",
+            "test_defparam_migration_and_duplicate_observation.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES"
+          ],
+          "pass": true
+        },
+        "cross_source_reversed": {
+          "returncode": 0,
+          "stdout": [
+            "cross-source=59 width=9"
+          ],
+          "source_order": [
+            "test_defparam_migration_and_duplicate_observation.sv",
+            "defparam_migration/leaves.sv"
+          ],
+          "defines": [
+            "CROSS_SOURCE_OVERRIDES"
+          ],
+          "pass": true
+        }
+      }
+    }
+  }
+}

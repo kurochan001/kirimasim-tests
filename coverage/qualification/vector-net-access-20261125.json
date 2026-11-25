@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-25",
+  "lrm": [
+    "6.9.2",
+    "37.16"
+  ],
+  "snapshots": {
+    "ghost": "results/vector-net-access-20261125-ghost.json",
+    "icarus": "results/vector-net-access-20261125-icarus13.json",
+    "verilator": "results/vector-net-access-20261125-verilator5.054.json",
+    "verilator5.052": "results/vector-net-access-20261125-verilator5.052.json",
+    "slang": "slang/vector-net-access-20261125-slang.json"
+  },
+  "hdl": {
+    "ghost": {
+      "bit_select": "fail",
+      "part_select": "fail",
+      "drive_strength": "pass"
+    },
+    "icarus": {
+      "bit_select": "pass",
+      "part_select": "pass",
+      "drive_strength": "pass"
+    },
+    "verilator": {
+      "bit_select": "pass",
+      "part_select": "pass",
+      "drive_strength": "pass"
+    },
+    "verilator5.052": {
+      "bit_select": "pass",
+      "part_select": "pass",
+      "drive_strength": "pass"
+    },
+    "slang": {
+      "bit_select": "rejected",
+      "part_select": "rejected",
+      "drive_strength": "clean"
+    }
+  },
+  "ghost_ordinary_net_controls": {
+    "edit": "remove only the vectored qualifier",
+    "bit_select": "matches the ordinary companion",
+    "part_select": "matches the ordinary companion"
+  },
+  "vpi": {
+    "ghost": {
+      "scalared": {
+        "vpiExpanded": 0,
+        "expected_if_scalared_advisory_implemented": 1,
+        "matching_bits": 3,
+        "matching_flags": 3
+      },
+      "vectored": {
+        "vpiExpanded": 0,
+        "permitted": [
+          0,
+          1
+        ],
+        "matching_bits": 3,
+        "matching_flags": 3
+      }
+    },
+    "icarus": {
+      "scalared": {
+        "vpiExpanded": -1,
+        "matching_bits": 3
+      },
+      "vectored": {
+        "vpiExpanded": -1,
+        "matching_bits": 3
+      },
+      "property_diagnostic": "unknown property 25"
+    }
+  },
+  "interpretation": [
+    "The selection-permitting and selection-restricting cases exercise alternative permitted outcomes.",
+    "The scalared expansion expectation is conditional on implementation of the scalared advisory.",
+    "The vectored expansion test accepts either Boolean flag and checks every referenced bit against the HDL value.",
+    "A tool that rejects either selection at the targeted line exercises an allowed restriction under 6.9.2."
+  ],
+  "ghost_select_diagnostics": {
+    "bit_select": {
+      "exit": 1,
+      "code": "SelectOfVectoredNet",
+      "lines": [
+        21,
+        23
+      ]
+    },
+    "part_select": {
+      "exit": 1,
+      "code": "SelectOfVectoredNet",
+      "lines": [
+        21,
+        23
+      ]
+    }
+  }
+}

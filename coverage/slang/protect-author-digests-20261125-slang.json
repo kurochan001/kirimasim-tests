@@ -1,0 +1,45 @@
+{
+ "reference": "slang",
+ "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+ "slang_version": "slang version 12.0.0+a88cbc1b3",
+ "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+ "generated_at": "2026-11-25T02:21:24.941112+00:00",
+ "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+ "options": [
+  "--std=1800-2023",
+  "-Wno-error=index-oob",
+  "-Wno-error=string-int-concat",
+  "-Wno-error=string-in-constraint",
+  "--threads",
+  "1",
+  "-q"
+ ],
+ "summary": {
+  "illegal": {
+   "tests": 0,
+   "rejected_at_line": 0,
+   "rejected_elsewhere": 0,
+   "accepted": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal": {
+   "tests": 2,
+   "clean": 2,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal_vpi": {
+   "tests": 0,
+   "clean": 0,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  }
+ },
+ "tests": {
+  "ch34/test_protect_author_digest_inherits_data_key": {"kind": "legal", "status": "clean", "inputs_sha256": "730a00456f9c87be3199536e33ef9cdfd41dab53f55964c115810a98a009fab0"},
+  "ch34/test_protect_author_digest_wraps_explicit_key": {"kind": "legal", "status": "clean", "inputs_sha256": "9c2c98d107bcb1816e110744bab68fd74825a349cb3cda7cf7bdcda4c13ea655"}
+ }
+}

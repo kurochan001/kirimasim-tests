@@ -1,0 +1,25 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch35/test_dpi_context_and_noncontext_access_in_two_instances": {
+   "status": "pass",
+   "inputs_sha256": "8627cb3c348c69c6602a1fd378ac566d7bb77de77820a89a8f2577c6da6c0c8c"
+  },
+  "ch35/test_dpi_portable_logic_chunks_and_scalar_ports": {
+   "status": "pass",
+   "inputs_sha256": "ddc9f4ea98d8142101f0b1a2fcb21efec647cdd6396c7081359e743f0d82dc87"
+  },
+  "ch35/test_dpi_portable_multiword_bit_and_scalar": {
+   "status": "pass",
+   "inputs_sha256": "0502845a43054bf0aadfd3ea2264e2db8b8f98f18ff4dade4891e2ad2363b3d5"
+  }
+ },
+ "generated_at": "2026-11-24T22:17:07.510232+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

@@ -1,0 +1,8 @@
+empty iterator is null=1
+terminal reference=1 registered=1 registration-info=1 linked=1 linked-info=1
+expression reference=1 registered=1 registration-info=1 linked=1 linked-info=1
+statement reference=1 registered=1 registration-info=1 linked=1 linked-info=1
+time queue reference=1 registered=1 registration-info=1 linked=1 linked-info=1
+unrelated end=1 error=1 terminal=0 expression=0 statement=0 queue=0 unknown=0
+stimulus parity=1 inverted=1
+fired statement=1 timer=1 time=6

@@ -4,7 +4,7 @@
 
 [English](ch5.md) / [日本語](ch5.ja.md)
 
-[すべての章](README.ja.md) .テストは526本で、そのうち415本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは533本で、そのうち415本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -26,6 +26,7 @@
 | [`test_identifier_forms`](../../tests/ch5/test_identifier_forms.sv) |下線と大文字と小文字を混ぜた識別子を使い、ブロック名を生成します| 5.6 27.4 | Icarus Verilog 13.0 ||
 | [`test_identifier_if_suffix`](../../tests/ch5/test_identifier_if_suffix.sv) |"if" "(" で終わる識別子は if キーワードではありません。| 5.6 5.6.2 | Icarus Verilog 13.0 ||
 | [`test_identifier_leading_underscore`](../../tests/ch5/test_identifier_leading_underscore.sv) |_133_ や _1e5 のような下線で始まり、数字を含む識別子| 5.6 5.7.1 | Icarus Verilog 13.0 ||
+| [`test_identifier_length_boundary`](../../tests/ch5/test_identifier_length_boundary.sv) |最後の文字だけが異なる名前で別々の変数を参照する| 5.6 | Icarus Verilog 13.0 ||
 | [`test_identifier_simple_escaped_and_system_name_forms`](../../tests/ch5/test_identifier_simple_escaped_and_system_name_forms.sv) |文字または下線で始まり、数字、下線、ドル記号を持つ単純な一文字識別子は大小分けされます。エスケープされた識別子は、 それらを終わらせる空白 (空白、タブ、新しい行) まで印刷可能な文字を保持し、単純な識別子と同じ文字で同じオブジェクトを名付けます。システムの関数名は文字と数字と下線とドル記号を含みます| 5.6 5.6.1 5.6.3 A.9.3 | Icarus Verilog 13.0 ||
 | [`test_illegal_identifier_starts_with_digit`](../../tests/ch5/test_illegal_identifier_starts_with_digit.sv) |数字で始まる単純な識別子は拒否されます| 5.6 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_keyword_as_identifier`](../../tests/ch5/test_illegal_keyword_as_identifier.sv) |変数の名前として使用された予約キーワードは拒否されました| 5.6 5.6.2 | Icarus Verilog 13.0 |規格違反の設計|
@@ -39,11 +40,13 @@
 | [`test_system_call_argument_forms`](../../tests/ch5/test_system_call_argument_forms.sv) |システムタスクとシステム関数は、その構文の 3 つの引数の形で呼ばれる: 省略可能な引数の並び（空の引数を含んでよい）;データ型（単独、または式を続けたもの）;そして、位置を省略した式の後にクロッキングイベントを続けたもの| 5.6.3 21.2.1 20.6.2 20.7 16.9.3 |規格のみ||
 | [`test_system_function_names_cell_reset_and_attributes`](../../tests/ch5/test_system_function_names_cell_reset_and_attributes.sv) |標記関数は，セルタグと数値インスタンス属性を検査する。| 5.6.3 22.10 37.83 38.37.1 |規格のみ| VPI |
 | [`test_system_name_dollar_prefix_not_escaped`](../../tests/ch5/test_system_name_dollar_prefix_not_escaped.sv) |ユーザ名は、ユーザが指定した名前である。ユーザ名はユーザの名前と同じである。ユーザー名は、ユーザーが指定した名称である。ユー ザ名は、ユ ーザが指定する名前である。| 5.6.3 5.6.1 | Verilator 5.052 ||
+| [`test_tool_system_function_raw_simulation_time`](../../tests/ch5/test_tool_system_function_raw_simulation_time.sv) |Icarusのsimtimeは時間単位が異なるスコープでも同じtick数を返し、timeは各スコープの単位で値を返す| 5.6.3 20.3.1 | Icarus Verilog 13.0 ||
 | [`test_directive_crosses_files_in_one_compilation_unit`](../../tests/ch5/test_directive_crosses_files_in_one_compilation_unit.sv) |先に読むソースファイルのマクロ定義は、同じコンパイル単位の別ファイルから参照できる| 5.6.4 3.12.1 | Icarus Verilog 13.0 |複数のファイル|
 | [`test_directive_effect_from_read_point`](../../tests/ch5/test_directive_effect_from_read_point.sv) |コンパイラ指令は、読み込まれたときに効果を発揮し、他の指令が変更するまで、コンパイラユニットの残りの部分に対して、モジュール境界を超えて保持されます。| 5.6.4 22.5.1 22.5.2 | Icarus Verilog 13.0 ||
 | [`test_directive_redefinition_read_order`](../../tests/ch5/test_directive_redefinition_read_order.sv) |マクロの再定義は、後での使用に影響しますが、既に読まれた宣言には影響しません| 5.6.4 22.5.1 | Icarus Verilog 13.0 ||
 | [`test_directives_from_nested_include_persist_until_superseded`](../../tests/ch5/test_directives_from_nested_include_persist_until_superseded.sv) |入れ子のインクルードから来たマクロと暗黙ネット型の指定を後続の設計要素へ適用し、別の指定で置き換える。| 5.6.4 22.2 22.4 22.5.1 22.8 | Icarus Verilog 13.0 |複数のファイル、x/z|
 | [`test_illegal_implicit_net_after_include_default_nettype_none`](../../tests/ch5/test_illegal_implicit_net_after_include_default_nettype_none.sv) |インクルード内の暗黙ネット禁止が、呼び出し元のファイルに戻った後も有効であることを検査する。| 5.6.4 22.2 22.8 | Icarus Verilog 13.0 |違法な設計 複数のファイル|
+| [`test_tool_directive_controls_only_named_file`](../../tests/ch5/test_tool_directive_controls_only_named_file.sv) |Verilatorの設定指示子は指定したファイルの幅切り詰め診断を抑制する| 5.6.4 |規格のみ|複数のファイル|
 | [`test_constants_edge_cases`](../../tests/ch5/test_constants_edge_cases.sv) |テスト: 定数エッジの場合| 5.7 | Icarus Verilog 13.0 ||
 | [`test_ieee1800_2023_literal_edge`](../../tests/ch5/test_ieee1800_2023_literal_edge.sv) |文字の端の大文字| 5.7 5.7.1 5.7.2 5.9 6.11 6.16 10.7 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_based_value_embedded_space`](../../tests/ch5/test_illegal_based_value_embedded_space.sv) |基底リテラルの値の数字の内部のスペースは拒否されます| 5.7 5.7.1 | Icarus Verilog 13.0 |規格違反の設計|
@@ -94,6 +97,7 @@
 | [`test_illegal_quoted_string_newline`](../../tests/ch5/test_illegal_quoted_string_newline.sv) |引用文字列にはエスクアプトされていない新しい行を含めることはできません| 5.9 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_lexical_strings`](../../tests/ch5/test_lexical_strings.sv) |章 5.9 : 文字列リテラル| 5.9 5.9.1 6.16 | Verilator 5.052 ||
 | [`test_quoted_string_items_and_every_escape_form`](../../tests/ch5/test_quoted_string_items_and_every_escape_form.sv) |引用文字列は、バックスラッシュや直接のダブル引用以外の印刷可能な文字を含み、 Table 5-1 の文字の前のバックスラッシュ、他の文字の前、新しい行の前、1から3の八進数の数字の前、1から2の十六進数の数字を含む x の前のすべての形式のエスクープ文字列を含みます。| 5.9 5.9.1 A.8.8 | Icarus Verilog 13.0 ||
+| [`test_raw_control_byte_string_literal`](../../tests/ch5/test_raw_control_byte_string_literal.sv) |リテラルの垂直タブをサポートする実装はエスケープ表記と同じ文字列バイト列を保持する| 5.9 5.9.1 |規格のみ||
 | [`test_string_literal_cast_justification`](../../tests/ch5/test_string_literal_cast_justification.sv) |文字列リテラルを packed 型の配列に変換すると、右に並べられ、 unpacked 型の配 列に変換する場合は、左に並べられます。| 5.9 6.24.1 |規格のみ||
 | [`test_string_literal_no_length_limit`](../../tests/ch5/test_string_literal_no_length_limit.sv) |引用文字列リテラルは、1024-文字の最小識別子限界 5.6 より長い 2048 文字の一つで、その正確な長さと文字数で受け入れられます。| 5.9 | Icarus Verilog 13.0 ||
 | [`test_string_literal_packed_bytes_and_compare`](../../tests/ch5/test_string_literal_packed_bytes_and_compare.sv) |packed バイトの配列に保存された文字列リテラルはフラットベクトルのエンコーディングを持ち、文字列オペランドと共に使用されたリテラルは文字列に変換され、文字ごとに比較されます。| 5.9 6.16 | Icarus Verilog 13.0 ||
@@ -104,6 +108,7 @@
 | [`test_illegal_string_octal_escape_z_digit`](../../tests/ch5/test_illegal_string_octal_escape_z_digit.sv) |文字列リテラルの八進数エスクアールシーケンスは、2 番目の数字が z のときは拒否されます。| 5.9.1 |規格のみ|規格違反の設計|
 | [`test_string_backslash_newline_continuation`](../../tests/ch5/test_string_backslash_newline_continuation.sv) |改行の前のバックスラッシュは文字列リテラルを継続し、改行の前の2つのバックスラッシュは1文字のバックスラッシュになります。また、三重引用符の文字列でも、\"と\nのエスケープを引き続き解釈します。| 5.9.1 5.9 | Verilator 5.052 ||
 | [`test_string_escape_character_codes`](../../tests/ch5/test_string_escape_character_codes.sv) |表 5-1 の各エスクープシーケンスは固定コードを持つ1文字を返します。八進数と十六進数のエスクープはそれぞれ3桁と2桁の数字しか取れません。他の文字のエスクープはその文字のみを保持します。| 5.9.1 5.9 | Icarus Verilog 13.0 ||
+| [`test_string_octal_escape_outside_byte_range`](../../tests/ch5/test_string_octal_escape_outside_byte_range.sv) |8進エスケープの377はbyteの範囲内で、上限を超える場合はツールが拒否してよい| 5.9.1 |規格のみ||
 | [`test_illegal_struct_literal_flattened_array_elements`](../../tests/ch5/test_illegal_struct_literal_flattened_array_elements.sv) |各要素の括弧なしの全メンバー値をリストする構造の配列のリテラルは拒否されます。| 5.10 10.9.1 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_struct_literal_flattened_nested_member`](../../tests/ch5/test_illegal_struct_literal_flattened_nested_member.sv) |括弧を含まないネスト構造のメンバーをリストする構造リテラルは拒否されます。| 5.10 10.9.2 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_nested_literal_replication_members`](../../tests/ch5/test_nested_literal_replication_members.sv) |内蔵構造と配列リテラルは次元境界と名前付きメンバーを保持します| 5.10 5.11 | Verilator 5.052 ||
@@ -114,12 +119,14 @@
 | [`test_attribute_instance_specifications`](../../tests/ch5/test_attribute_instance_specifications.sv) |属性インスタンスは，モジュール，ネット，変数，モジュールインスタンス，ポート接続，演算子，関数コールの前に，1つ以上のコンマで区切られた属性スペックを持つ。特性は属性名または値として定数表現を持つ名前であり、属性は値を変更しません| 5.12 A.9.1 | Icarus Verilog 13.0 ||
 | [`test_attribute_latch_generate`](../../tests/ch5/test_attribute_latch_generate.sv) |変数 always_latch の属性と生成ループの変数| 5.12 9.2.2.3 27.4 | Icarus Verilog 13.0 ||
 | [`test_attribute_prefix_positions`](../../tests/ch5/test_attribute_prefix_positions.sv) |属性のインスタンスはモジュール、宣言、モジュール項目、ステートメント、生成項目、ポート接続、ANSIポート宣言のプレフィックスとして受け入れられ、任意の属性名は値を変更しません。| 5.12 | Verilator 5.052 ||
+| [`test_duplicate_attribute_advisory_sites`](../../tests/ch5/test_duplicate_attribute_advisory_sites.sv) |重複属性の任意警告は、両方の属性表記で同じ宣言内の名前の重複を対象にする| 5.12 |規格のみ||
 | [`test_illegal_attribute_instance_nested`](../../tests/ch5/test_illegal_attribute_instance_nested.sv) |属性のインスタンスが他の属性のインスタンスの中に書かれた場合は拒否されます。| 5.12 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_illegal_attribute_value_contains_attribute`](../../tests/ch5/test_illegal_attribute_value_contains_attribute.sv) |属性のインスタンスを含む値表現を拒否する属性| 5.12 | Verilator 5.052 |規格違反の設計|
 | [`test_vpi_attribute_default_bit_and_last_value`](../../tests/ch5/test_vpi_attribute_default_bit_and_last_value.sv) |値を付けずに書いた属性は値 1 の bit であり、値を付けて書いた属性はその値の型を取る。1 つの要素が同じ属性名を、1 つの attribute instance の中でも 2 つにまたがっても複数回持つときは最後の値を保ち、最後のものが値を持たないときもそうである| 5.12 37.83 |規格のみ| VPI |
 | [`test_builtin_method_forms_after_mutation`](../../tests/ch5/test_builtin_method_forms_after_mutation.sv) |括弧付きと引数なしの内蔵メソッドの形式は同じ更新オブジェクトを観察します。| 5.13 | Verilator 5.052 ||
 | [`test_builtin_method_optional_parens`](../../tests/ch5/test_builtin_method_optional_parens.sv) |引数なしで呼び出された内蔵メソッド、またはデフォルトの引数のみで呼び出されたメソッドは空の括弧を省略できます。| 5.13 7.5.2 7.9.1 6.16.1 6.19.5.3 7.10.2.3 | Verilator 5.052 ||
 | [`test_builtin_methods_unaffected_by_pli_systf`](../../tests/ch5/test_builtin_methods_unaffected_by_pli_systf.sv) |$size と $len を登録する VPI アプリケーションは、システム関数 $size を置き換えて $len を追加するが、動的配列とキューの組み込みメソッド size と文字列の len は自分の結果を保つ| 5.13 36.3.2 |規格のみ| VPI |
+| [`test_global_system_calls_and_object_methods`](../../tests/ch5/test_global_system_calls_and_object_methods.sv) |キューのメソッドは対象を更新し、timeとfinishは独立したプロセスにまたがって作用する| 5.13 20.2 20.3.1 7.10.2.4 |規格のみ||
 | [`test_illegal_method_implicit_variable_without_parentheses`](../../tests/ch5/test_illegal_method_implicit_variable_without_parentheses.sv) |結果が暗黙変数として選択された括弧のない内蔵メソッドコールは拒否されます。| 5.13 13.4.1 6.16 |規格のみ|規格違反の設計|
 
 <a id="generated-by-generatorsinteraction_agglitpy"></a>

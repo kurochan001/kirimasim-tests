@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "configuration": {
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch37/test_vpi_clocked_sequence_body": {
+      "inputs_sha256": "de3fe198eda0211890b848df4621b0b106d79319219eb3be9e9a1d89530380f8",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "expected": [
+        "multiclock=1 segments=2",
+        "clock_a: edge=1 body=1",
+        "clock_b: edge=1 body=1"
+      ],
+      "observed": [
+        "multiclock=1 segments=2",
+        "clock_a: edge=1 body=1",
+        "clock_b: edge=1 body=1"
+      ]
+    },
+    "ch37/test_vpi_ref_port_simple_expression_use": {
+      "inputs_sha256": "92c3e25ff7d6f05e34e5bc05b23641c7a568016b6393ec4c0a41f8a019254477",
+      "plugin_build_exit": 0,
+      "simulation_exit": 0,
+      "expected": [
+        "controls: distinct_actuals=1 distinct_assignments=1",
+        "left: ref=1 actual=1 own_use=1 other_use=0",
+        "right: ref=1 actual=1 own_use=1 other_use=0",
+        "aliases=10",
+        "aliases=01"
+      ],
+      "observed": [
+        "controls: distinct_actuals=1 distinct_assignments=1",
+        "left: ref=1 actual=1 own_use=0 other_use=0",
+        "right: ref=1 actual=1 own_use=0 other_use=0",
+        "aliases=10",
+        "aliases=01"
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch20/test_stacktrace_resumed_task_context": {
+   "status": "fail",
+   "reason": "observed stacktrace differs",
+   "inputs_sha256": "3a656bb41c1d19b6d1c6ceb88973d24aa0c6e622027231acc953e4013ce0b03f"
+  },
+  "ch20/test_stacktrace_task_and_function_results": {
+   "status": "pass",
+   "inputs_sha256": "e03e91f959a2463bc9f37388f8187da1259a110f1e0a5a86afd0920c8c4a2cbc"
+  }
+ },
+ "generated_at": "2026-11-25T03:35:08.068911+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-stacktrace",
+  "checker_sha256": "f5de05906c22f9dfd7283ba79db58b0b4d2cd8a3cb4a8520b2f22d981e634a43",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4"
+ }
+}

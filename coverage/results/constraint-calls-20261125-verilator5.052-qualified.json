@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch18/test_active_constraint_functions_execute": {
+   "status": "pass",
+   "inputs_sha256": "e3c1fc513617ba85609bd67575cdc78bb999dde0bf6bd2481e8e69bc8afc92a1"
+  }
+ },
+ "generated_at": "2026-11-25T06:47:34.612911+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-active-constraint-calls",
+  "checker_sha256": "77c2f2c01465a85a82ef62b34674131cf8b069d6b6bdd07e353153cdea69d7ce",
+  "binary_sha256": {
+   "verilator": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+   "coverage": "11d69c7bc1a99027a70fd544a22cb6e5e45caea026a85b5581b6530367fcddd5",
+   "compiler": "411e8de3447a144f2cb73dbb49b5e7799fc7f89e101907f86989d3881f477a7b"
+  }
+ }
+}

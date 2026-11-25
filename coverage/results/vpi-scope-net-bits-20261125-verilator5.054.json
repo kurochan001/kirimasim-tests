@@ -1,0 +1,48 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_class_internal_scopes": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_class_internal_scopes.sv:41:8: Unsupported or unknown PLI call: '$vt_classscope'",
+   "inputs_sha256": "4bca8d1ae0a5624508e809dad1d5446dd5b660c8da8a2dc731d12ea05f94c70e"
+  },
+  "ch37/test_vpi_class_specialization_types": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_class_specialization_types.sv:68:14: Unsupported or unknown PLI call: '$vt_spec'",
+   "inputs_sha256": "9f38d4a7e5883160006f91fbbcd124239fabf4c64ebdad81e25fc33f85a3a9a0"
+  },
+  "ch37/test_vpi_class_specializations_are_scopes_with_definition_relations": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_class_specializations_are_scopes_with_definition_relations.sv:33:8: Unsupported or unknown PLI call: '$vt_class_scope_relations'",
+   "inputs_sha256": "49f669342ba4500c49a302d865824bd1a67761211038dfd419baed449dbbdc0d"
+  },
+  "ch37/test_vpi_net_bit_loads_follow_plain_continuous_assignment": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_net_bit_loads_follow_plain_continuous_assignment.sv:23:5: Unsupported or unknown PLI call: '$vt_cont_assignment_bit_loads'",
+   "inputs_sha256": "2cc33b0fa8bf3d2381988337fd5d0fbb40c32a5372b67452567c0f1aad161df0"
+  },
+  "ch37/test_vpi_net_bit_loads_follow_reordered_continuous_assignment": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_net_bit_loads_follow_reordered_continuous_assignment.sv:23:5: Unsupported or unknown PLI call: '$vt_cont_assignment_bit_loads'",
+   "inputs_sha256": "6e0908dc41fc88024f6f6208288aad9872dba906ec7d6b0f4ef11673b17269c3"
+  },
+  "ch37/test_vpi_nettype_declarations_belong_to_declaring_instance": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_nettype_declarations_belong_to_declaring_instance.sv:15:3: Unsupported: nettype",
+   "inputs_sha256": "7319a6e9068aac423832bed2c81496ae6b988076e35cdff2fa703cb40b1336bb"
+  },
+  "ch37/test_vpi_nettype_relations": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_nettype_relations.sv:37:3: Unsupported: nettype",
+   "inputs_sha256": "af33dbbfe3397b24f7dd7449d16021dbb278848e1eafdfc389b508c1bf2e8a2e"
+  }
+ },
+ "generated_at": "2026-11-24T22:55:46.073330+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

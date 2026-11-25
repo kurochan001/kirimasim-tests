@@ -1,0 +1,39 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch13/test_illegal_default_argument_in_non_ansi_declaration": {
+   "status": "pass",
+   "inputs_sha256": "dcca85ed0eada95aec171af85dcd8298704a404ac2649e52063255f01108d180"
+  },
+  "ch13/test_non_ansi_task_argument_list_preserves_each_declarator": {
+   "status": "pass",
+   "inputs_sha256": "160c05f6c3c0abf44dd64a5734183072f9eb33bb7978a8d47ead019640552c70"
+  },
+  "ch35/test_dpi_packed_aliases_keep_version_by_linkage_and_scope": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "7d57ca9f8c2ec20c8b91a729939ca297f97249c482dcc830449d4ab76e1439e0"
+  },
+  "ch35/test_illegal_dpi_version_mismatch_across_package_and_module": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "e4479bd220269ce27d5d8101afc08dfb7530b0765af168156483a755edf5448d"
+  },
+  "ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "e4a560d8f3c12881b6176543070c342cdc99396360476c9fefa9c3ac893f0baf"
+  },
+  "ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module": {
+   "status": "unsupported",
+   "reason": "kirimasim cannot load C code yet",
+   "inputs_sha256": "64f4345205da472875bc59aced7180454aed8aedfc9622d83aaacd44c78ef1c6"
+  }
+ },
+ "generated_at": "2026-11-24T19:54:28.995502+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

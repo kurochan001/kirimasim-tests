@@ -1,0 +1,15 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch34/test_protect_data_method_cipher_selection": {
+   "status": "pass",
+   "inputs_sha256": "42187cb5e05da54204000f0f8506fe69322b7787aeb9a8aca87ebbbc71d1ecce"
+  }
+ },
+ "generated_at": "2026-11-25T01:07:54.658848+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

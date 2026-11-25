@@ -1,0 +1,103 @@
+{
+  "name": "Ghost",
+  "version": "private build 6fa9a05abb0c",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "checker_sha256": "746858f9fb7d4bc9046468986bba6d1753175af830b8199196dbc98b6be5cd19",
+  "tests": {
+    "ch34/test_pragma_reset_lists_protect_and_diagnostic_state": {
+      "inputs_sha256": "0ed0571411a8c6b6b9e87a4e49597dd4bf573dc7a43d48acb6e6ce08a0633abc",
+      "checks": {
+        "selected_states": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "no_first_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "diagnostic_only": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "no_list_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "no_warning_override": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        }
+      }
+    },
+    "ch34/test_pragma_resetall_restores_protect_and_diagnostic_state": {
+      "inputs_sha256": "ed03ba3d40b99ba4233f6af6d5290b0bf6be6dacffcb966c6a4e730674b8c047",
+      "checks": {
+        "all_states": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "no_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "protect_only": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        }
+      }
+    },
+    "ch34/test_protect_reset_stops_encoding_state_at_file_boundary": {
+      "inputs_sha256": "bef7e2443f67a0657e3015bcee756b6eeedb4531d86ee604e673f80360e2d6dd",
+      "checks": {
+        "protect_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "named_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "state_leaks_without_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        }
+      }
+    },
+    "ch34/test_protect_reset_restores_default_before_reconfiguration": {
+      "inputs_sha256": "29357d53719a2658e01f28a0d4ca592e2e6cc03c514cc86557937c72948e6320",
+      "checks": {
+        "reconfigure_after_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "reconfigure_after_named_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "old_encoding_without_reset": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        },
+        "invalid_new_encoding": {
+          "exit": 0,
+          "invalid_base64_reported": false,
+          "empty_member_warning_reported": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "clause": "J.4",
+  "qualified": {
+    "tool": "ghost",
+    "version": "private build 6fa9a05abb0c",
+    "configuration": {
+      "evidence_profile": "ghost-dpi-versioned-dependencies",
+      "checker_sha256": "4528a30a581c613f790dc1757a46fc33b568cb5c9e022e3a0ddc8f2e1c2a41ab",
+      "binary_sha256": {
+        "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+      },
+      "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+      "compiler_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch35/test_dpi_annex_j_isolates_versioned_dependencies": {
+        "inputs_sha256": "4e45f3bc819febfd6ce4568663480cdf962d95d08425a2f725865e92f1a3c41a",
+        "pass": true,
+        "trials": {
+          "forward": {
+            "returncode": 0,
+            "stdout": [
+              "dependency 1 initialized",
+              "client 1 initialized",
+              "dependency 2 initialized",
+              "client 2 initialized",
+              "resolved versions=1117,2231"
+            ],
+            "optional_initializers": 0,
+            "pass": true
+          },
+          "reverse": {
+            "returncode": 0,
+            "stdout": [
+              "dependency 2 initialized",
+              "client 2 initialized",
+              "dependency 1 initialized",
+              "client 1 initialized",
+              "resolved versions=1117,2231"
+            ],
+            "optional_initializers": 0,
+            "pass": true
+          },
+          "with_optional": {
+            "returncode": 0,
+            "stdout": [
+              "dependency 1 initialized",
+              "client 1 initialized",
+              "dependency 2 initialized",
+              "client 2 initialized",
+              "optional object initialized",
+              "resolved versions=1117,2231"
+            ],
+            "optional_initializers": 1,
+            "pass": true
+          },
+          "incompatible": {
+            "returncode": 1,
+            "stdout": [
+              "dependency 1 initialized",
+              "client 1 initialized"
+            ],
+            "diagnostics": [
+              "Symbol not found: _annex_j_dependency_two"
+            ],
+            "same_replacement_bytes": true,
+            "pass": true
+          }
+        },
+        "changed_shared_objects": {
+          "with_optional": [
+            "libclient2.dylib"
+          ],
+          "incompatible": [
+            "libdependency2.dylib"
+          ]
+        },
+        "shared_objects_sha256": {
+          "normal": {
+            "libclient1.dylib": "55d08fc490c607691ebc62fadc72244b772706af0c3b17c25f46e2d36c5a072e",
+            "libclient2.dylib": "a9d7388f7a697c238d26a6c54b95caf30dea3f8e3f18d5731155b7853966056c",
+            "libdependency1.dylib": "653dfa374747ab013c0e176234fc6f4a752bfc1b92f02914563c721119c95520",
+            "libdependency2.dylib": "7780bd6907458bc1bdf2f1ac55e06ad226c14b3980104fbcc825e5b5b4bd1d06"
+          },
+          "with_optional": {
+            "libclient1.dylib": "55d08fc490c607691ebc62fadc72244b772706af0c3b17c25f46e2d36c5a072e",
+            "libclient2.dylib": "e82f967b59cbb82f9f75a34a98e3587a6c0505cafe9b993928960162673b0bf3",
+            "libdependency1.dylib": "653dfa374747ab013c0e176234fc6f4a752bfc1b92f02914563c721119c95520",
+            "libdependency2.dylib": "7780bd6907458bc1bdf2f1ac55e06ad226c14b3980104fbcc825e5b5b4bd1d06"
+          },
+          "incompatible": {
+            "libclient1.dylib": "55d08fc490c607691ebc62fadc72244b772706af0c3b17c25f46e2d36c5a072e",
+            "libclient2.dylib": "a9d7388f7a697c238d26a6c54b95caf30dea3f8e3f18d5731155b7853966056c",
+            "libdependency1.dylib": "653dfa374747ab013c0e176234fc6f4a752bfc1b92f02914563c721119c95520",
+            "libdependency2.dylib": "653dfa374747ab013c0e176234fc6f4a752bfc1b92f02914563c721119c95520"
+          }
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch35/test_dpi_annex_j_isolates_versioned_dependencies": {
+          "status": "pass",
+          "inputs_sha256": "4e45f3bc819febfd6ce4568663480cdf962d95d08425a2f725865e92f1a3c41a"
+        }
+      },
+      "generated_at": "2026-11-25T08:36:52.007191+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "v52": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch35/test_dpi_annex_j_isolates_versioned_dependencies": {
+          "status": "pass",
+          "inputs_sha256": "4e45f3bc819febfd6ce4568663480cdf962d95d08425a2f725865e92f1a3c41a"
+        }
+      },
+      "generated_at": "2026-11-25T08:36:52.029065+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "v54": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_annex_j_isolates_versioned_dependencies": {
+          "status": "pass",
+          "inputs_sha256": "4e45f3bc819febfd6ce4568663480cdf962d95d08425a2f725865e92f1a3c41a"
+        }
+      },
+      "generated_at": "2026-11-25T08:36:56.177871+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_annex_j_isolates_versioned_dependencies": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_annex_j_isolates_versioned_dependencies.sv:16: syntax error",
+          "inputs_sha256": "4e45f3bc819febfd6ce4568663480cdf962d95d08425a2f725865e92f1a3c41a"
+        }
+      },
+      "generated_at": "2026-11-25T08:36:51.740661+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_annex_j_isolates_versioned_dependencies": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "4e45f3bc819febfd6ce4568663480cdf962d95d08425a2f725865e92f1a3c41a"
+        }
+      },
+      "generated_at": "2026-11-25T08:36:51.713810+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

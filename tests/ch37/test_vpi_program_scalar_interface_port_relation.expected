@@ -1,0 +1,3 @@
+scalar interface data=1
+associated interface objects=1 with program owner=1
+physical interface has module owner=1

@@ -1,0 +1,3 @@
+narrow class scope=1 name=1 instance width=4 shared property=1
+wide class scope=1 name=1 instance width=7 shared property=1
+class definition internal scope=1 reverse definition=1

@@ -14,7 +14,7 @@
 | [class :final](#class-final) | 8.3, 8.13 | 11 | 7 | 4 | 10 | 1 | 0 | 10 | 6 | 11 | 2/2 | DVConの18項目 |
 | [dist の default 項目](#dist-default) | 18.5.3 | 8 | 5 | 3 | 0 | 8 | 3 | 3 | 3 | 8 | 3/3 | DVConの18項目 |
 | [real 型の coverpoint・real の bins と type_option.real_interval](#real-coverpoint) | 19.5, 19.5.1, 19.5.1.1, 19.5.2, 19.5.3, 19.5.4, 19.6, 19.7.1, 19.10 | 21 | 12 | 9 | 0 | 21 | 9 | 0 | 9 | 21 | 26/26 | 追加の3項目 |
-| [$stacktrace](#stacktrace) | 20.17.2, 11.2.1 | 6 | 3 | 3 | 6 | 0 | 2 | 6 | 5 | 6 | 0/2 | DVConの18項目 |
+| [$stacktrace](#stacktrace) | 20.17.2, 11.2.1 | 6 | 3 | 3 | 6 | 0 | 2 | 6 | 5 | 6 | 2/2 | DVConの18項目 |
 | [システム関数 $timeunit と $timeprecision](#timeunit-timeprecision-functions) | 20.4, 20.4.1, 11.2.1 | 8 | 8 | 0 | 1 | 7 | 0 | 1 | 7 | 8 | 25/25 | DVConの18項目 |
 | [制限付き型パラメータ（type enum / struct / union / class / interface class）](#type-parameter-restriction) | 6.20.3 | 10 | 5 | 5 | 8 | 2 | 4 | 8 | 9 | 10 | 2/2 | 追加の3項目 |
 | [コンストラクタの default 引数（function new(default…)、super.new(default)、extends Base(default)）](#constructor-default-arguments) | 8.17, 8.3, 8.15 | 15 | 6 | 9 | 0 | 15 | 7 | 8 | 11 | 15 | 14/14 | DVConの18項目 |
@@ -157,7 +157,7 @@
 
 - 条項: 20.17.2, 11.2.1
 - 規格が定める不正な形: 構文 20-18 では $stacktrace は引数を取らないので、引数付きの呼び出しは不正である。 (20.17.2); $stacktrace は定数システム関数呼び出しに使えるシステム関数に含まれず、パラメータ値のような定数式には書けない。 (11.2.1)
-- 要求（対応済み／行数）: `SV2023-20.17.2-EXTRACT-STACKTRACE-CONTEXT` (-), `SV2023-20.17.2-EXTRACT-STACKTRACE-RESULT` (-)
+- 要求（対応済み／行数）: `SV2023-20.17.2-EXTRACT-STACKTRACE-CONTEXT`, `SV2023-20.17.2-EXTRACT-STACKTRACE-RESULT`
 
 | テスト | 種類 | `:oracle:` | 保存済みの結果 |
 | --- | --- | --- | --- |

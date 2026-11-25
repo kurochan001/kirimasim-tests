@@ -1,0 +1,4 @@
+fine local=20 raw=20000
+coarse local=2 raw=20000
+fine local=50 raw=50000
+coarse local=5 raw=50000

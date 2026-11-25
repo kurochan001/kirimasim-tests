@@ -1,0 +1,29 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch35/test_dpi_annex_j_calls_user_built_shared_objects": {
+   "status": "pass",
+   "inputs_sha256": "6360d25aac4dc87ceae2f6bd11b48648aad385402f2dbfbfe52e73a347634245"
+  },
+  "ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries": {
+   "status": "pass",
+   "inputs_sha256": "0b327e97158dea1d50bc912aa69987e236dda47dd8ca7e1d45b24169d8b1acc1"
+  },
+  "ch35/test_dpi_annex_j_keeps_multiple_prebuilt_objects_available": {
+   "status": "pass",
+   "inputs_sha256": "3968c22cde40c7e3f600db892035d6a98e753564c054acb17bf30e0d633904ba"
+  },
+  "ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases": {
+   "status": "pass",
+   "inputs_sha256": "6f95efecb9eb098d28bc622139954f9204986d83981eeb38bf363c8a26fac326"
+  }
+ },
+ "generated_at": "2026-11-24T22:09:35.120306+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

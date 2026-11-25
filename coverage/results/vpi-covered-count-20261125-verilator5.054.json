@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch40/test_vpi_covered_count_assertion_successes": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'all: assertion=0 attempts=-1 successes=-1 covered_count=-1', expected 'all: assertion=1 attempts=3 successes=3 covered_count=3'",
+   "inputs_sha256": "7b3b74b82f4f568476d687bb42458257a960cf83a4b8562954f6d04e0e7cf186"
+  },
+  "ch40/test_vpi_covered_count_fsm_state_sum": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'fsm: first_sum=0 final_sum=0 added=0', expected 'fsm: first_sum=1 final_sum=1 added=4'",
+   "inputs_sha256": "cc7dff479f2de0ba3368941a157677d189f7345ee3c57b4884278e6f0fa57962"
+  },
+  "ch40/test_vpi_covered_count_optional_entity_sums": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch40/test_vpi_covered_count_optional_entity_sums.sv:31:25: Unsupported: IEEE 1800-2005 reserved word not implemented: '$coverage_control'",
+   "inputs_sha256": "751705ce3913a0d9dd71a3c8bc91cb5fc7da1d5f932b29d2090482ada7de35c9"
+  }
+ },
+ "generated_at": "2026-11-25T04:17:20.690311+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

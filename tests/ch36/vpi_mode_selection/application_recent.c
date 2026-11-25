@@ -1,0 +1,6 @@
+#ifndef COMPATIBILITY_FROM_FLAGS
+#define VPI_COMPATIBILITY_VERSION_1800v2023 1
+#define COMPATIBILITY_FROM_FLAGS 1
+#endif
+
+#include "application.c"

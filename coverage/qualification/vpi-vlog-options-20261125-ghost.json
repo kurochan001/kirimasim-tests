@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "configuration": {
+    "evidence_profile": "ghost-vpi-vlog-option-files",
+    "checker_sha256": "3ed3e0f546eec1ede6a34ff9def9927fdead57a86a7151b73a20b42431b47452",
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "sha256": {
+    "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+    "header": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+    "profile": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch38/test_vpi_vlog_info_nested_option_files": {
+      "inputs_sha256": "383b662bb2c3932a6196a8b929a8f869b3dd35ade7bc72b4e122d17a0c4aec7c",
+      "status": "fail",
+      "reason": "argv after -f is the filename string",
+      "plugin_build_exit": 0,
+      "control": {
+        "exit": 0,
+        "completed": true,
+        "expected": [
+          "vlog: ok=1 outside=1 file_option=0",
+          "applied=0,0,31"
+        ],
+        "observed": [
+          "vlog: ok=1 outside=1 file_option=0",
+          "applied=0,0,31"
+        ],
+        "matches": true
+      },
+      "nested": {
+        "exit": 0,
+        "completed": true,
+        "expected": [
+          "vlog: ok=1 outside=1 file_option=1",
+          "options: outer=1 inner=1",
+          "applied=17,29,31"
+        ],
+        "observed": [
+          "vlog: ok=1 outside=1 file_option=1",
+          "options: flat outer filename",
+          "applied=17,29,31"
+        ],
+        "matches": false
+      }
+    }
+  }
+}

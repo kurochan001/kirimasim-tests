@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-I.3-EXTRACT-ACK",
+    "SV2023-35.9-EXTRACT-FUNCTION-DISABLE-ACK",
+    "SV2023-35.9-EXTRACT-DISABLE-PROTOCOL-FATAL"
+  ],
+  "qualified": {
+    "version": "private build 6fa9a05abb0c",
+    "configuration": {
+      "evidence_profile": "ghost-dpi-function-ack",
+      "checker_sha256": "8ae1db3bc84df2413e3d79e8b7cb3a9c7f4bd300af0025ebdc6912327ddc479f",
+      "artifact_sha256": {
+        "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "svdpi.h": "3eed92cf81ac778b5a70536e9531ae8c4bf70ed636a448c7a9a0ea4b0a0c8506",
+        "dpi_disable_state.h": "31180aba877b6914fd50fb3992d778bc750bd23c92787389fbd1601d3fe96da8"
+      },
+      "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch35/test_dpi_import_function_acknowledges_disable": {
+        "inputs_sha256": "50bff2d4af070814e4c828374a4af12ebb7067cbaf252a9acc65e8efdbd08547",
+        "status": "fail",
+        "native": {
+          "exit": 0,
+          "stdout": [
+            "import request=0 entry-disabled=0",
+            "export returned disabled=0",
+            "control returned=37",
+            "import request=1 entry-disabled=0",
+            "export returned disabled=0",
+            "disabled caller continued",
+            "peer continued"
+          ],
+          "tracking": [],
+          "qualified": false,
+          "fatal_diagnostic": false,
+          "pass": false
+        },
+        "tracked": {
+          "exit": 0,
+          "stdout": [
+            "import request=0 entry-disabled=0",
+            "export returned disabled=0",
+            "control returned=37",
+            "import request=1 entry-disabled=0",
+            "export returned disabled=1",
+            "disabled function acknowledged",
+            "disabled caller continued",
+            "peer continued"
+          ],
+          "tracking": [
+            "DPI_ACK_TRACKING supplied worker"
+          ],
+          "qualified": true,
+          "fatal_diagnostic": false,
+          "pass": false
+        }
+      },
+      "ch35/test_dpi_import_function_rejects_omitted_acknowledgement": {
+        "inputs_sha256": "cb61bee4db6670cd6b21d1e1dfcfb9a138a9bd54f75b17b41c292ec796d6ddf0",
+        "status": "fail",
+        "native": {
+          "exit": 0,
+          "stdout": [
+            "import request=0 entry-disabled=0",
+            "export returned disabled=0",
+            "control returned=37",
+            "import request=1 entry-disabled=0",
+            "export returned disabled=0",
+            "disabled caller continued",
+            "peer continued"
+          ],
+          "tracking": [],
+          "qualified": false,
+          "fatal_diagnostic": false,
+          "pass": false
+        },
+        "tracked": {
+          "exit": 0,
+          "stdout": [
+            "import request=0 entry-disabled=0",
+            "export returned disabled=0",
+            "control returned=37",
+            "import request=1 entry-disabled=0",
+            "export returned disabled=1",
+            "disabled function returning without acknowledgement",
+            "disabled caller continued",
+            "peer continued"
+          ],
+          "tracking": [
+            "DPI_ACK_TRACKING supplied worker"
+          ],
+          "qualified": true,
+          "fatal_diagnostic": false,
+          "pass": false
+        }
+      },
+      "ch35/test_dpi_import_task_rejects_wrong_status_after_disable": {
+        "inputs_sha256": "1ea6e1335b6f5667ea45da4eeb4bda7c64f3f3c1f65937b8e73ea93ba0adae5a",
+        "status": "fail",
+        "exit": 0,
+        "stdout": [
+          "0: entering the imported task",
+          "export status=1 disabled=1",
+          "25: later unrelated process"
+        ],
+        "tracking": [],
+        "qualified": true,
+        "fatal_diagnostic": false,
+        "pass": false
+      },
+      "ch35/test_dpi_import_task_rejects_disable_status_after_normal_return": {
+        "inputs_sha256": "2175711cbc7ef50b477c45a2468a098695870e804d1ea687368b26bd6721a343",
+        "status": "fail",
+        "exit": 0,
+        "stdout": [
+          "0: entering the imported task",
+          "2: exported task reached its end",
+          "export status=0 disabled=0",
+          "2: worker continued",
+          "20: later unrelated process"
+        ],
+        "tracking": [],
+        "qualified": true,
+        "fatal_diagnostic": false,
+        "pass": false
+      },
+      "ch35/test_dpi_disabled_import_task_cannot_call_another_export": {
+        "inputs_sha256": "7159a85aa02ac08ba7ec5115f11eb88a38332a8ba69524db59ae9b888ac66057",
+        "status": "fail",
+        "exit": 0,
+        "stdout": [
+          "0: entering the imported task",
+          "export status=1 disabled=1",
+          "attempting a second export in the disabled state",
+          "5: forbidden export ran",
+          "25: later unrelated process"
+        ],
+        "tracking": [],
+        "qualified": true,
+        "fatal_diagnostic": false,
+        "pass": false
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch35/test_dpi_import_function_acknowledges_disable": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "50bff2d4af070814e4c828374a4af12ebb7067cbaf252a9acc65e8efdbd08547"
+        },
+        "ch35/test_dpi_import_function_rejects_omitted_acknowledgement": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "cb61bee4db6670cd6b21d1e1dfcfb9a138a9bd54f75b17b41c292ec796d6ddf0"
+        }
+      },
+      "generated_at": "2026-11-25T09:45:46.778540+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_import_function_acknowledges_disable": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/dpi_function_disable_ack/drive.svh:1: syntax error",
+          "inputs_sha256": "50bff2d4af070814e4c828374a4af12ebb7067cbaf252a9acc65e8efdbd08547"
+        },
+        "ch35/test_dpi_import_function_rejects_omitted_acknowledgement": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/dpi_function_disable_ack/drive.svh:1: syntax error",
+          "inputs_sha256": "cb61bee4db6670cd6b21d1e1dfcfb9a138a9bd54f75b17b41c292ec796d6ddf0"
+        }
+      },
+      "generated_at": "2026-11-25T09:45:46.294918+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_import_function_acknowledges_disable": {
+          "status": "known",
+          "reason": "build failed: %Error-FUNCTIMECTL: tests/ch35/dpi_function_disable_ack/drive.svh:6:7: Functions cannot invoke tasks (IEEE 1800-2023 13.4)",
+          "inputs_sha256": "50bff2d4af070814e4c828374a4af12ebb7067cbaf252a9acc65e8efdbd08547"
+        },
+        "ch35/test_dpi_import_function_rejects_omitted_acknowledgement": {
+          "status": "known",
+          "reason": "build failed: %Error-FUNCTIMECTL: tests/ch35/dpi_function_disable_ack/drive.svh:6:7: Functions cannot invoke tasks (IEEE 1800-2023 13.4)",
+          "inputs_sha256": "cb61bee4db6670cd6b21d1e1dfcfb9a138a9bd54f75b17b41c292ec796d6ddf0"
+        }
+      },
+      "generated_at": "2026-11-25T09:45:46.352040+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_import_function_acknowledges_disable": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "50bff2d4af070814e4c828374a4af12ebb7067cbaf252a9acc65e8efdbd08547"
+        },
+        "ch35/test_dpi_import_function_rejects_omitted_acknowledgement": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "cb61bee4db6670cd6b21d1e1dfcfb9a138a9bd54f75b17b41c292ec796d6ddf0"
+        }
+      },
+      "generated_at": "2026-11-25T09:45:46.277762+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "slang": {
+    "version": "slang version 12.0.0+0",
+    "sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+    "tests": {
+      "ch35/test_dpi_import_function_acknowledges_disable": {
+        "exit": 0,
+        "inputs_sha256": "50bff2d4af070814e4c828374a4af12ebb7067cbaf252a9acc65e8efdbd08547"
+      },
+      "ch35/test_dpi_import_function_rejects_omitted_acknowledgement": {
+        "exit": 0,
+        "inputs_sha256": "cb61bee4db6670cd6b21d1e1dfcfb9a138a9bd54f75b17b41c292ec796d6ddf0"
+      }
+    }
+  }
+}

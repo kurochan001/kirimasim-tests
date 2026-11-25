@@ -1,0 +1,48 @@
+{
+ "reference": "slang",
+ "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+ "slang_version": "slang version 12.0.0+a88cbc1b3",
+ "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+ "generated_at": "2026-11-25T03:55:22.172029+00:00",
+ "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+ "options": [
+  "--std=1800-2023",
+  "-Wno-error=index-oob",
+  "-Wno-error=string-int-concat",
+  "-Wno-error=string-in-constraint",
+  "--threads",
+  "1",
+  "-q"
+ ],
+ "summary": {
+  "illegal": {
+   "tests": 0,
+   "rejected_at_line": 0,
+   "rejected_elsewhere": 0,
+   "accepted": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal": {
+   "tests": 0,
+   "clean": 0,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal_vpi": {
+   "tests": 5,
+   "clean": 2,
+   "rejected": 3,
+   "timeout": 0,
+   "crashed": 0
+  }
+ },
+ "tests": {
+  "ch38/test_vpi_action_error_callback_information": {"kind": "legal", "vpi": true, "status": "clean", "inputs_sha256": "5204f8797b8bd0cfd83f11d64884b3300b6568f809f7ca72b2eb1ac1b465837a"},
+  "ch38/test_vpi_control_scope_change_reports_selected_instance": {"kind": "legal", "vpi": true, "status": "rejected", "first_error": "tests/ch38/test_vpi_control_scope_change_reports_selected_instance.sv:23:8: error: unknown system name '$request_scope_change' [-Wunknown-sys-name]", "inputs_sha256": "c26ad85225404ad07de5b115f8fce9e1b5b2ad03d35c66f7b19358b0c52bafb0"},
+  "ch38/test_vpi_timing_violation_callback_points_to_affected_check": {"kind": "legal", "vpi": true, "status": "rejected", "first_error": "tests/ch38/test_vpi_timing_violation_callback_points_to_affected_check.sv:30:8: error: unknown system name '$watch_timing_violations' [-Wunknown-sys-name]", "inputs_sha256": "714baa6f342866a174bbbf53ea0699d51b7f3467f589f3cbd24d09674cd4ff2c"},
+  "ch38/test_vpi_unresolved_task_callback_supplies_called_name": {"kind": "legal", "vpi": true, "status": "rejected", "first_error": "tests/ch38/test_vpi_unresolved_task_callback_supplies_called_name.sv:16:5: error: unknown system name '$public_regression_unregistered_probe' [-Wunknown-sys-name]", "inputs_sha256": "d9b3a631cd9a1d7600090b0593321e98abd68a41b86468a54d79859959930bae"},
+  "ch38/test_vpi_vlog_info_nested_option_files": {"kind": "legal", "vpi": true, "status": "clean", "inputs_sha256": "383b662bb2c3932a6196a8b929a8f869b3dd35ade7bc72b4e122d17a0c4aec7c"}
+ }
+}

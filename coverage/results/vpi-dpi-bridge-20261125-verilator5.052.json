@@ -1,0 +1,26 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch35/test_dpi_context_requires_separate_vpi_activation": {
+   "status": "pass",
+   "inputs_sha256": "bb890f2d7c8be3b06c493e33fa5f5a2745dc03276d5f370025a7dbb103acdf83"
+  },
+  "ch35/test_dpi_vpi_callback_selects_export_scope": {
+   "status": "pass",
+   "inputs_sha256": "8a0cebca041636b122d94e738fbe282b1ba13591681e8c03c7a63ca96dd3f5b0"
+  }
+ },
+ "generated_at": "2026-11-25T08:22:40.347846+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-vpi-dpi-bridge",
+  "checker_sha256": "9dac6609917229cfec36f927ee41af7962722704802da3aaed44188bc6a0cc00",
+  "binary_sha256": {
+   "launcher": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+   "backend": "411e8de3447a144f2cb73dbb49b5e7799fc7f89e101907f86989d3881f477a7b"
+  }
+ }
+}

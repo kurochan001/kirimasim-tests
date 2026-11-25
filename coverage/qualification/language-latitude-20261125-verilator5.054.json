@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "tests": {
+    "ch9/test_function_disable_caller_observation": {
+      "inputs_sha256": "e8fac21ddd45970d6ff098537e716980b4c348597fe68c32492e6c182a572c91",
+      "trials": {
+        "task": {
+          "compile_exit": 1,
+          "compiler_diagnostics": [
+            "%Error-FUNCTIMECTL: test_function_disable_caller_observation.sv:22:5: Functions cannot invoke tasks (IEEE 1800-2023 13.4)"
+          ]
+        },
+        "block": {
+          "compile_exit": 1,
+          "compiler_diagnostics": [
+            "%Error-FUNCTIMECTL: test_function_disable_caller_observation.sv:25:5: Functions cannot invoke tasks (IEEE 1800-2023 13.4)"
+          ]
+        }
+      }
+    },
+    "ch12/test_unique_overlap_optional_evaluation": {
+      "inputs_sha256": "9a85c6ce09c9f33403df17328afb7d3c2a318ac3e495047b052662f8c5650e1d",
+      "trials": {
+        "if": {
+          "compile_exit": 0,
+          "compiler_diagnostics": [],
+          "runtime_exit": 1,
+          "diagnostics": [
+            "[0] %Error: test_unique_overlap_optional_evaluation.sv:30: Assertion failed in test_unique_overlap_optional_evaluation: 'unique if' statement violated"
+          ]
+        },
+        "case": {
+          "compile_exit": 0,
+          "compiler_diagnostics": [],
+          "runtime_exit": 1,
+          "diagnostics": [
+            "[0] %Error: test_unique_overlap_optional_evaluation.sv:41: Assertion failed in test_unique_overlap_optional_evaluation: unique case, but multiple matches found for '32'h00000005'"
+          ]
+        }
+      },
+      "assert_enabled_control": {
+        "exit": 0,
+        "stdout": [
+          "if selected=10 visited=111",
+          "case selected=10 visited=111"
+        ]
+      }
+    },
+    "ch15/test_null_event_wait_observation": {
+      "inputs_sha256": "7df76b88f7bd6a90226503b265f4e3fc8fa961dc57e632b31a8b7b022a5b1485",
+      "trials": {
+        "event": {
+          "compile_exit": 1,
+          "compiler_diagnostics": [
+            "%Error-UNSUPPORTED: test_null_event_wait_observation.sv:17:19: Assignment to event in statically scheduled context."
+          ]
+        }
+      }
+    }
+  }
+}

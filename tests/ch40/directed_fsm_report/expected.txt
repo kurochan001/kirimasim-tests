@@ -1,0 +1,6 @@
+forward_path.state S0->S1 1
+forward_path.state S1->S2 2
+forward_path.state S2->S1 1
+reverse_path.state S0->S2 1
+reverse_path.state S1->S2 1
+reverse_path.state S2->S1 2

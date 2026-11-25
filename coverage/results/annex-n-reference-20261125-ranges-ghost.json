@@ -1,0 +1,24 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch20/test_annex_n_reference_helpers": {
+   "status": "pass",
+   "inputs_sha256": "ec29dfd8d9ff053381f5d2eaf5fc26b537f1012a71fa66faf5d8018b8463e310"
+  }
+ },
+ "generated_at": "2026-11-25T09:21:44.310177+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "checker_sha256": "0d1fde35f20bd4cfc7bca77dfda4ff8b8ff184ee2145f7d83bff29e61d2f58a2",
+  "artifact_sha256": {
+   "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4"
+  },
+  "reference_sha256": "637cc19f1ebc2c00624aad40126d524fed8b6a4505158fbeadbf8e38173f936b",
+  "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+  "evidence_profile": "ghost-annex-n-uniform-ranges"
+ }
+}

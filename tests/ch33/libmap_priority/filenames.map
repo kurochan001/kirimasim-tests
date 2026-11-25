@@ -1,0 +1,2 @@
+library maskLib inputs/*.sv;
+library explicitFile inputs/pick.sv;

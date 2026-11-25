@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "requirement": "SV2023-37.80-EXTRACT-CALLBACK-ARROW-TEXT",
+  "test": "ch37/test_vpi_callback_relationship_arrows",
+  "inputs_sha256": "456b5fe6ba5b8d4134104712896d69a79fa501e415f8c5289a40d94ffd264ebe",
+  "ghost_expected_stdout": [
+    "empty iterator is null=1",
+    "terminal reference=1 registered=1 registration-info=1 linked=1 linked-info=1",
+    "expression reference=1 registered=1 registration-info=1 linked=1 linked-info=1",
+    "statement reference=1 registered=1 registration-info=1 linked=1 linked-info=1",
+    "time queue reference=1 registered=1 registration-info=1 linked=1 linked-info=1",
+    "unrelated end=1 error=1 terminal=0 expression=0 statement=0 queue=0 unknown=0",
+    "stimulus parity=1 inverted=1",
+    "fired statement=1 timer=1 time=6"
+  ],
+  "ghost_actual_stdout": [
+    "empty iterator is null=1",
+    "terminal reference=1 registered=1 registration-info=1 linked=0 linked-info=0",
+    "expression reference=1 registered=1 registration-info=1 linked=0 linked-info=0",
+    "statement reference=1 registered=1 registration-info=1 linked=0 linked-info=0",
+    "time queue reference=1 registered=1 registration-info=1 linked=0 linked-info=0",
+    "unrelated end=1 error=1 terminal=1 expression=1 statement=1 queue=1 unknown=0",
+    "stimulus parity=1 inverted=1",
+    "fired statement=1 timer=1 time=6"
+  ],
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch37/test_vpi_callback_relationship_arrows": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "456b5fe6ba5b8d4134104712896d69a79fa501e415f8c5289a40d94ffd264ebe"
+        }
+      },
+      "generated_at": "2026-11-25T08:59:05.984735+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus13": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch37/test_vpi_callback_relationship_arrows": {
+          "status": "known",
+          "reason": "VPI build failed: 14 errors generated.",
+          "inputs_sha256": "456b5fe6ba5b8d4134104712896d69a79fa501e415f8c5289a40d94ffd264ebe"
+        }
+      },
+      "generated_at": "2026-11-25T08:59:42.230481+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch37/test_vpi_callback_relationship_arrows": {
+          "status": "known",
+          "reason": "VPI build failed: 15 errors generated.",
+          "inputs_sha256": "456b5fe6ba5b8d4134104712896d69a79fa501e415f8c5289a40d94ffd264ebe"
+        }
+      },
+      "generated_at": "2026-11-25T08:59:05.672798+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator52": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch37/test_vpi_callback_relationship_arrows": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_callback_relationship_arrows.sv:30:8: Unsupported or unknown PLI call: '$inspect_callback_arrows'",
+          "inputs_sha256": "456b5fe6ba5b8d4134104712896d69a79fa501e415f8c5289a40d94ffd264ebe"
+        }
+      },
+      "generated_at": "2026-11-25T08:59:24.184654+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_callback_relationship_arrows": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_callback_relationship_arrows.sv:30:8: Unsupported or unknown PLI call: '$inspect_callback_arrows'",
+          "inputs_sha256": "456b5fe6ba5b8d4134104712896d69a79fa501e415f8c5289a40d94ffd264ebe"
+        }
+      },
+      "generated_at": "2026-11-25T08:59:05.841850+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_callback_relationship_arrows": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "456b5fe6ba5b8d4134104712896d69a79fa501e415f8c5289a40d94ffd264ebe"
+        }
+      },
+      "generated_at": "2026-11-25T08:59:54.319518+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

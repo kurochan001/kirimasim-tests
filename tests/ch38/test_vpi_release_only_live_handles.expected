@@ -1,0 +1,3 @@
+early child=1 release=1 drained children=2 release calls=1 skipped=2
+hdl bus=13
+retained net=1 same object=1 value=13

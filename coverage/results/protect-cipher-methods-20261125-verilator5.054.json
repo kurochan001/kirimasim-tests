@@ -1,0 +1,18 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch34/test_protect_data_method_cipher_selection": {
+   "status": "known",
+   "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_data_method_cipher_selection.sv:20:17: Unknown '`pragma protect' error",
+   "inputs_sha256": "42187cb5e05da54204000f0f8506fe69322b7787aeb9a8aca87ebbbc71d1ecce"
+  }
+ },
+ "generated_at": "2026-11-25T01:07:54.683724+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

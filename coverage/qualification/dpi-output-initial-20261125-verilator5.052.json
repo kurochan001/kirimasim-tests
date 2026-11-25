@@ -1,0 +1,103 @@
+{
+  "tool": "verilator",
+  "version": "Verilator 5.052 2026-09-05 rev v5.052",
+  "configuration": {
+    "checker_sha256": "186017cc46456ccc12b548761b0d57b6dbf0eb0852d2cadc0e54fc4241c7c58d",
+    "binary_sha256": {
+      "simulator": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+      "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "backend": "411e8de3447a144f2cb73dbb49b5e7799fc7f89e101907f86989d3881f477a7b"
+    },
+    "debugger_version": "lldb-2103.0.34.407",
+    "evidence_profile": "verilator-dpi-output-initial"
+  },
+  "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+  "tests": {
+    "ch35/test_dpi_output_independent_of_initial_storage": {
+      "inputs_sha256": "71fa8887028036128d6ae6e2182ebe48de090614560a1a7373c5607c79b2e428",
+      "replacements": {
+        "11": [
+          -810,
+          201.25
+        ],
+        "19": [
+          407,
+          -42.75
+        ]
+      },
+      "pass": true,
+      "trials": {
+        "native": {
+          "pass": true,
+          "debugger_exit": 0,
+          "target_exits": [
+            0
+          ],
+          "stdout": [
+            "first value=35 real=6.5",
+            "second value=59 real=10.5"
+          ],
+          "formal_buffers": [
+            {
+              "seed": 11,
+              "initial": [
+                "other",
+                "other"
+              ],
+              "replacement_verified": [
+                false,
+                false
+              ]
+            },
+            {
+              "seed": 19,
+              "initial": [
+                "previous_output",
+                "previous_output"
+              ],
+              "replacement_verified": [
+                false,
+                false
+              ]
+            }
+          ]
+        },
+        "changed": {
+          "pass": true,
+          "debugger_exit": 0,
+          "target_exits": [
+            0
+          ],
+          "stdout": [
+            "first value=35 real=6.5",
+            "second value=59 real=10.5"
+          ],
+          "formal_buffers": [
+            {
+              "seed": 11,
+              "initial": [
+                "other",
+                "other"
+              ],
+              "replacement_verified": [
+                true,
+                true
+              ]
+            },
+            {
+              "seed": 19,
+              "initial": [
+                "previous_output",
+                "previous_output"
+              ],
+              "replacement_verified": [
+                true,
+                true
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

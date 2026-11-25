@@ -1,0 +1,67 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_preprocessor_line_emission_modes_preserve_manual_origin": {
+   "status": "pass",
+   "inputs_sha256": "291f1e775b259a5914a95fa2cc0ab43e842254ef870f2722142e6edb958c82b9"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch22/test_resetall_restores_defaults_keeps_macros.sv:37:1: Unsupported: `default_nettype of other than none or wire: '`default_nettype tri0'",
+   "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"
+  },
+  "ch22/test_undef_never_defined_macro_preserves_other_definitions": {
+   "status": "pass",
+   "inputs_sha256": "12cef4cba42ad0e20e864d92b2d26f9ab50ecf376d1d4bf72a179e683eae636b"
+  }
+ },
+ "generated_at": "2026-11-25T04:34:31.905991+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

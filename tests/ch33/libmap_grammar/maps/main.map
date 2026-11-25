@@ -1,0 +1,12 @@
+;
+// The configuration precedes the libraries that it references.
+config grammar_config;
+  design work.grammar_top;
+  default liblist alphaLib betaLib;
+endconfig
+
+include vendor/beta.map;
+;
+/* Both lists contain two entries. */
+library alphaLib alpha/first.sv, alpha/second.sv
+  -incdir alpha_include/primary, alpha_include/extra;

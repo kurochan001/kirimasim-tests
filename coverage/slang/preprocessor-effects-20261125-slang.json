@@ -1,0 +1,56 @@
+{
+ "reference": "slang",
+ "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+ "slang_version": "slang version 12.0.0+a88cbc1b3",
+ "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+ "generated_at": "2026-11-25T04:34:14.834589+00:00",
+ "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+ "options": [
+  "--std=1800-2023",
+  "-Wno-error=index-oob",
+  "-Wno-error=string-int-concat",
+  "-Wno-error=string-in-constraint",
+  "--threads",
+  "1",
+  "-q"
+ ],
+ "summary": {
+  "illegal": {
+   "tests": 3,
+   "rejected_at_line": 2,
+   "rejected_elsewhere": 0,
+   "accepted": 1,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal": {
+   "tests": 9,
+   "clean": 9,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal_vpi": {
+   "tests": 1,
+   "clean": 0,
+   "rejected": 1,
+   "timeout": 0,
+   "crashed": 0
+  }
+ },
+ "tests": {
+  "ch22/test_22_extra_include_syntax": {"kind": "legal", "status": "clean", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {"kind": "legal", "status": "clean", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_directive_scope_across_include_until_superseded": {"kind": "legal", "status": "clean", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {"kind": "illegal", "status": "rejected_at_line", "first_error": "tests/ch22/test_illegal_begin_keywords_spans_include_boundary.sv:31:3: error: use of undeclared identifier 'logic'", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_illegal_include_absolute_path_not_searched": {"kind": "illegal", "status": "rejected_at_line", "first_error": "tests/ch22/test_illegal_include_absolute_path_not_searched.sv:30:12: error: '/kirimasim_no_such_dir/include_absolute_only_helper.svh': No such file or directory", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_illegal_include_line_trailing_code": {"kind": "illegal", "status": "accepted", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_include_file_declarations": {"kind": "legal", "status": "clean", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_include_guard_twice": {"kind": "legal", "status": "clean", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_include_guard_two_files": {"kind": "legal", "status": "clean", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_include_nested": {"kind": "legal", "status": "clean", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_preprocessor_line_emission_modes_preserve_manual_origin": {"kind": "legal", "status": "clean", "inputs_sha256": "291f1e775b259a5914a95fa2cc0ab43e842254ef870f2722142e6edb958c82b9"},
+  "ch22/test_resetall_restores_defaults_keeps_macros": {"kind": "legal", "vpi": true, "status": "rejected", "first_error": "tests/ch22/test_resetall_restores_defaults_keeps_macros.sv:85:5: error: unknown system name '$vt_cells' [-Wunknown-sys-name]", "inputs_sha256": "872b646a1936fc075c82b14896d6c98891aedd7510b0929c7a82729d639c7d7a"},
+  "ch22/test_undef_never_defined_macro_preserves_other_definitions": {"kind": "legal", "status": "clean", "inputs_sha256": "12cef4cba42ad0e20e864d92b2d26f9ab50ecf376d1d4bf72a179e683eae636b"}
+ }
+}

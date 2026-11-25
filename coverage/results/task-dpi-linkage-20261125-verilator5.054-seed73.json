@@ -1,0 +1,42 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch13/test_illegal_default_argument_in_non_ansi_declaration": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "dcca85ed0eada95aec171af85dcd8298704a404ac2649e52063255f01108d180"
+  },
+  "ch13/test_non_ansi_task_argument_list_preserves_each_declarator": {
+   "status": "pass",
+   "inputs_sha256": "160c05f6c3c0abf44dd64a5734183072f9eb33bb7978a8d47ead019640552c70"
+  },
+  "ch35/test_dpi_packed_aliases_keep_version_by_linkage_and_scope": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_packed_aliases_keep_version_by_linkage_and_scope.sv:16:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+   "inputs_sha256": "7d57ca9f8c2ec20c8b91a729939ca297f97249c482dcc830449d4ab76e1439e0"
+  },
+  "ch35/test_illegal_dpi_version_mismatch_across_package_and_module": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_dpi_version_mismatch_across_package_and_module\\\\.sv:(?:16|20):(?:\\\\d+:)?[^\\\\n]*(?i:(?=[^\\\\n]*scalar_legacy_scope)(?=[^\\\\n]*(?:different|mismatch|inconsisten|conflict))(?=[^\\\\n]*(?:DPI|version|specifier|linkage))[^\\\\n]+)'; the first is: %Error-UNSUPPORTED: tests/ch35/test_illegal_dpi_version_mismatch_across_package_and_module.sv:16:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+   "inputs_sha256": "e4479bd220269ce27d5d8101afc08dfb7530b0765af168156483a755edf5448d"
+  },
+  "ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier": {
+   "status": "known",
+   "reason": "no error matches 'test_illegal_dpi_versions_share_one_c_linkage_identifier\\\\.sv:17:(?:\\\\d+:)?[^\\\\n]*(?i:(?=[^\\\\n]*shared_foreign)(?=[^\\\\n]*(?:different|mismatch|inconsisten|conflict))(?=[^\\\\n]*(?:DPI|version|specifier|linkage))[^\\\\n]+)'; the first is: %Error-UNSUPPORTED: tests/ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier.sv:17:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+   "inputs_sha256": "e4a560d8f3c12881b6176543070c342cdc99396360476c9fefa9c3ac893f0baf"
+  },
+  "ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv:44:14: Unsupported or unknown PLI call: '$probe_path_owners'",
+   "inputs_sha256": "64f4345205da472875bc59aced7180454aed8aedfc9622d83aaacd44c78ef1c6"
+  }
+ },
+ "generated_at": "2026-11-24T19:54:30.524941+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 73
+ }
+}

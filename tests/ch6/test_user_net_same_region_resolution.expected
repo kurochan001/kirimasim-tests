@@ -1,0 +1,5 @@
+before: 105
+same region: 118
+separate regions: 130
+same-region history permitted=1
+separate-regions control=1

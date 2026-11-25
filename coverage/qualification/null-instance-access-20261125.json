@@ -1,0 +1,290 @@
+{
+  "schema": 1,
+  "clause": "8.4",
+  "optional_access_trials": {
+    "verilator5.052": {
+      "tool": "verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "configuration": {
+        "checker_sha256": "c7ee1a6c20379a1892a5511c25594ee9ea6fd5625a613f9509b26ba34c6882a4",
+        "binary_sha256": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+        "evidence_profile": "verilator-null-instance-access"
+      },
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477",
+          "status": "pass",
+          "trials": {
+            "control": {
+              "returncode": 0,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47",
+                "finished"
+              ],
+              "diagnostics": [],
+              "outcome": "control_matched"
+            },
+            "field": {
+              "returncode": 1,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47"
+              ],
+              "diagnostics": [
+                "%Error: test_class_null_instance_access_observation.sv:42: Null pointer dereferenced"
+              ],
+              "outcome": "diagnosed"
+            },
+            "virtual": {
+              "returncode": 1,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47",
+                "before null virtual"
+              ],
+              "diagnostics": [
+                "%Error: test_class_null_instance_access_observation.sv:46: Null pointer dereferenced"
+              ],
+              "outcome": "diagnosed"
+            }
+          }
+        }
+      }
+    },
+    "verilator5.054": {
+      "tool": "verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "configuration": {
+        "checker_sha256": "c7ee1a6c20379a1892a5511c25594ee9ea6fd5625a613f9509b26ba34c6882a4",
+        "binary_sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+        "evidence_profile": "verilator-null-instance-access"
+      },
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477",
+          "status": "pass",
+          "trials": {
+            "control": {
+              "returncode": 0,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47",
+                "finished"
+              ],
+              "diagnostics": [],
+              "outcome": "control_matched"
+            },
+            "field": {
+              "returncode": 1,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47"
+              ],
+              "diagnostics": [
+                "%Error: test_class_null_instance_access_observation.sv:42: Null pointer dereferenced"
+              ],
+              "outcome": "diagnosed"
+            },
+            "virtual": {
+              "returncode": 1,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47",
+                "before null virtual"
+              ],
+              "diagnostics": [
+                "%Error: test_class_null_instance_access_observation.sv:46: Null pointer dereferenced"
+              ],
+              "outcome": "diagnosed"
+            }
+          }
+        }
+      }
+    },
+    "ghost": {
+      "tool": "ghost",
+      "version": "private build 6fa9a05abb0c",
+      "configuration": {
+        "checker_sha256": "c7ee1a6c20379a1892a5511c25594ee9ea6fd5625a613f9509b26ba34c6882a4",
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      },
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477",
+          "status": "pass",
+          "trials": {
+            "control": {
+              "returncode": 0,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47",
+                "finished"
+              ],
+              "diagnostics": [],
+              "outcome": "control_matched"
+            },
+            "field": {
+              "returncode": 0,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47",
+                "before null field",
+                "null field result=21",
+                "finished"
+              ],
+              "diagnostics": [],
+              "outcome": "returned_indeterminate"
+            },
+            "virtual": {
+              "returncode": 1,
+              "stdout": [
+                "live field=21 virtual=28",
+                "null handle=1 static=47",
+                "before null virtual"
+              ],
+              "diagnostics": [
+                "[ERROR] RUNTIME_NULL_OBJECT: null object method call: _local_505343462320_handle.evaluate()",
+                " at test_class_null_instance_access_observation.sv:46:43"
+              ],
+              "outcome": "diagnosed"
+            }
+          }
+        }
+      }
+    },
+    "kirimasim": {
+      "tool": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "artifact_sha256": "1561c6c8b36355230f380e2d22a8cf3caf71deb580e6d9ccee67271a97ebe064",
+      "checker_sha256": "c7ee1a6c20379a1892a5511c25594ee9ea6fd5625a613f9509b26ba34c6882a4",
+      "test": "ch8/test_class_null_instance_access_observation",
+      "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477",
+      "trials": {
+        "control": {
+          "returncode": 0,
+          "stdout": [
+            "live field=21 virtual=28",
+            "null handle=1 static=47",
+            "finished"
+          ],
+          "diagnostics": [],
+          "outcome": "control_matched"
+        },
+        "field": {
+          "returncode": 2,
+          "stdout": [
+            "live field=21 virtual=28",
+            "null handle=1 static=47",
+            "before null field"
+          ],
+          "diagnostics": [
+            "test_class_null_instance_access_observation.sv:42: error: null class handle access [test_class_null_instance_access_observation @ 0ns]"
+          ],
+          "outcome": "diagnosed"
+        },
+        "virtual": {
+          "returncode": 2,
+          "stdout": [
+            "live field=21 virtual=28",
+            "null handle=1 static=47",
+            "before null virtual"
+          ],
+          "diagnostics": [
+            "test_class_null_instance_access_observation.sv:46: error: null class handle access [test_class_null_instance_access_observation @ 0ns]"
+          ],
+          "outcome": "diagnosed"
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "verilator5.052": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "status": "pass",
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477"
+        }
+      },
+      "generated_at": "2026-11-25T07:57:34.451355+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "verilator5.054": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "status": "pass",
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477"
+        }
+      },
+      "generated_at": "2026-11-25T07:57:40.031401+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "status": "pass",
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477"
+        }
+      },
+      "generated_at": "2026-11-25T07:57:34.013873+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'live field=21 virtual=21', expected 'live field=21 virtual=28'",
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477"
+        }
+      },
+      "generated_at": "2026-11-25T07:57:33.891939+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch8/test_class_null_instance_access_observation": {
+          "status": "pass",
+          "inputs_sha256": "99eb54cc3facb60678e922bf5b4992eb0216b6a6830e3044e65075ebd3b3f477"
+        }
+      },
+      "generated_at": "2026-11-25T07:57:33.957058+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

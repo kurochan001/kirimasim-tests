@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[All chapters](README.md). 487 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 493 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -38,6 +38,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_always_comb_case_chain`](../../tests/ch9/test_always_comb_case_chain.sv) | always_comb with a case statement, and a chain of always_comb procedures | 9.2.2.2 12.5 | Icarus Verilog 13.0 ||
 | [`test_always_comb_chain`](../../tests/ch9/test_always_comb_chain.sv) | A chain of always_comb blocks settles after its input changes | 9.2.2.2 | Icarus Verilog 13.0 ||
 | [`test_always_comb_edge_cases`](../../tests/ch9/test_always_comb_edge_cases.sv) | Always_comb edge cases | 9.2.2.2 | Icarus Verilog 13.0 ||
+| [`test_always_comb_incomplete_assignment_diagnostic`](../../tests/ch9/test_always_comb_incomplete_assignment_diagnostic.sv) | An incomplete always_comb assignment retains its value and can trigger a latch inference warning | 9.2.2.2 | standard only | exit code |
 | [`test_always_comb_independent_element_writers`](../../tests/ch9/test_always_comb_independent_element_writers.sv) | one element of an unpacked array and one part of a vector may be written by an always_comb while other elements and parts are written by a continuous assignment or by another always_comb, since their longest static prefixes do not overlap | 9.2.2.2 11.5.3 | Icarus Verilog 13.0 ||
 | [`test_always_comb_latch`](../../tests/ch9/test_always_comb_latch.sv) | Always_comb/latch/ff Tests | 9.2.2.2 9.2.2.3 9.2.2.4 | Icarus Verilog 13.0 | x/z |
 | [`test_always_comb_latch_ff`](../../tests/ch9/test_always_comb_latch_ff.sv) | always_comb, always_latch and always_ff procedures | 9.2.2.2 9.2.2.3 9.2.2.4 | Icarus Verilog 13.0 ||
@@ -81,6 +82,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_always_latch_comb_in_interface`](../../tests/ch9/test_always_latch_comb_in_interface.sv) | always_latch and always_comb procedures in an interface run as they do in a module | 9.2.2.3 9.2.2.2 25.3 | Icarus Verilog 13.0 ||
 | [`test_always_latch_comb_rules_apply`](../../tests/ch9/test_always_latch_comb_rules_apply.sv) | The always_comb rules apply to always_latch: it runs once at time zero, so an enable that is already 1 sets the output without any input change; it is sensitive to a variable read only inside a function it calls; and an element it writes and another element written by a continuous assignment each follow their own source | 9.2.2.3 | Icarus Verilog 13.0 ||
 | [`test_always_latch_edge_cases`](../../tests/ch9/test_always_latch_edge_cases.sv) | Always_latch edge cases | 9.2.2.3 | Icarus Verilog 13.0 | x/z |
+| [`test_always_latch_unconditional_assignment_diagnostic`](../../tests/ch9/test_always_latch_unconditional_assignment_diagnostic.sv) | An unconditional always_latch assignment follows its source and can trigger a missing latch warning | 9.2.2.3 | standard only | exit code |
 | [`test_illegal_always_latch_delay`](../../tests/ch9/test_illegal_always_latch_delay.sv) | An always_latch procedure cannot contain a delay | 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_always_latch_event_control`](../../tests/ch9/test_illegal_always_latch_event_control.sv) | The always_comb restrictions apply to always_latch, so an always_latch procedure cannot contain an event control | 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_always_latch_fork_join`](../../tests/ch9/test_illegal_always_latch_fork_join.sv) | The always_comb restrictions apply to always_latch, so an always_latch procedure cannot contain a fork-join statement | 9.2.2.3 9.2.2.2.2 | Icarus Verilog 13.0 | illegal design |
@@ -90,6 +92,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_always_ff_corner`](../../tests/ch9/test_always_ff_corner.sv) | always_ff with asynchronous and synchronous reset, enable, a counter and a shift register | 9.2.2.4 4.7 | Icarus Verilog 13.0 | x/z |
 | [`test_always_ff_edge_cases`](../../tests/ch9/test_always_ff_edge_cases.sv) | Always_ff edge cases | 9.2.2.4 | Icarus Verilog 13.0 ||
 | [`test_always_ff_independent_element_writers`](../../tests/ch9/test_always_ff_independent_element_writers.sv) | One element of an unpacked array may be written by an always_ff procedure while another element is written by a continuous assignment, since the longest static prefixes of the writes do not overlap, and each element follows its own writer | 9.2.2.4 | Icarus Verilog 13.0 ||
+| [`test_always_ff_level_event_diagnostic`](../../tests/ch9/test_always_ff_level_event_diagnostic.sv) | A level sensitive always_ff assignment follows its source and can trigger a sequential logic warning | 9.2.2.4 | standard only | exit code |
 | [`test_always_ff_simple`](../../tests/ch9/test_always_ff_simple.sv) | Always FF Simple Tests | 9.2.2.4 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_always_ff_delay`](../../tests/ch9/test_illegal_always_ff_delay.sv) | An always_ff procedure cannot contain a delay control | 9.2.2.4 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_always_ff_no_event_control`](../../tests/ch9/test_illegal_always_ff_no_event_control.sv) | An always_ff procedure must contain an event control; one without any is illegal | 9.2.2.4 | Icarus Verilog 13.0 | illegal design |
@@ -181,6 +184,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_event_control_posedge`](../../tests/ch9/test_event_control_posedge.sv) | Waiting for @(posedge clk) in an initial block | 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_event_ctrl`](../../tests/ch9/test_event_ctrl.sv) | Event control | 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_event_method_dependency`](../../tests/ch9/test_event_method_dependency.sv) | a change to an object member, an aggregate element or a dynamic size used by a function or built-in method wakes the event control that reads it | 9.4.2 | Verilator 5.052 ||
+| [`test_event_method_unrelated_member_observation`](../../tests/ch9/test_event_method_unrelated_member_observation.sv) | Record event method reevaluation when referenced and unrelated members change | 9.4.2 | standard only ||
 | [`test_event_nested_struct_member`](../../tests/ch9/test_event_nested_struct_member.sv) | Event controls on members of nested packed structures wake only on a change of that member | 9.4.2 7.2.1 6.8 | Icarus Verilog 13.0 ||
 | [`test_illegal_event_control_on_unpacked_array`](../../tests/ch9/test_illegal_event_control_on_unpacked_array.sv) | An event control on a whole unpacked array is illegal, since an event expression has to give a singular value | 9.4.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_event_non_singular_method`](../../tests/ch9/test_illegal_event_non_singular_method.sv) | a nonvirtual object method whose return type is not singular cannot be used in an event control | 9.4.2 | standard only | illegal design |
@@ -231,7 +235,9 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_disable_stmt_3`](../../tests/ch9/test_disable_stmt_3.sv) | disable of named blocks, nested blocks and blocks containing loops | 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_stmt_edge_cases`](../../tests/ch9/test_disable_stmt_edge_cases.sv) | Test: Disable statement edge cases | 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_task_from_another_process`](../../tests/ch9/test_disable_task_from_another_process.sv) | disable with a task's name ends every running activation of the task, and each caller resumes after its call | 9.6.2 | Icarus Verilog 13.0 ||
+| [`test_disable_task_unspecified_effects`](../../tests/ch9/test_disable_task_unspecified_effects.sv) | Observe output arguments and pending assignments when a task is disabled | 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_disable_wait`](../../tests/ch9/test_disable_wait.sv) | Process Control | 9.6.2 9.4.3 | Icarus Verilog 13.0 ||
+| [`test_function_disable_caller_observation`](../../tests/ch9/test_function_disable_caller_observation.sv) | A function can disable its own block and observe a caller disable in separate builds | 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_illegal_disable_function`](../../tests/ch9/test_illegal_disable_function.sv) | a function cannot be disabled, while a named block inside a function and a task disabling itself can | 9.6.2 | Icarus Verilog 13.0 | illegal design |
 | [`test_named_block_disable`](../../tests/ch9/test_named_block_disable.sv) | Test for named block disable | 9.6.2 | Icarus Verilog 13.0 ||
 | [`test_stmt_disable`](../../tests/ch9/test_stmt_disable.sv) | Test for disable statement | 9.6.2 | Icarus Verilog 13.0 ||

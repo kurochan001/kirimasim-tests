@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "simulators": {
+    "verilator": {
+      "ch7/test_associative_dynamic_array_key_equality": {
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          }
+        }
+      },
+      "ch7/test_locator_with_side_effect_observation": {
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "inputs_sha256": "0d446df44b2359f6251004585e869168841ed1ef9a67504c79d8ead54c34de6a",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "pure locator values=5,8 count=2"
+            ]
+          },
+          "impure": {
+            "compile_exit": 0,
+            "compiler_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "pure locator values=5,8 count=2",
+              "impure locator calls=4 count=2"
+            ]
+          }
+        }
+      },
+      "ch13/test_defparam_constant_function_observation": {
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "explicit override=11,12"
+            ]
+          },
+          "defparam": {
+            "compile_exit": 0,
+            "compiler_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "explicit override=11,12",
+              "defparam results=15,16"
+            ]
+          }
+        }
+      }
+    },
+    "icarus": {
+      "ch13/test_defparam_constant_function_observation": {
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "explicit override=11,12"
+            ]
+          },
+          "defparam": {
+            "compile_exit": 0,
+            "compiler_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "explicit override=11,12",
+              "defparam results=15,16"
+            ]
+          }
+        }
+      }
+    },
+    "kirimasim": {
+      "ch13/test_defparam_constant_function_observation": {
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "explicit override=11,12"
+            ]
+          },
+          "defparam": {
+            "exit": 0,
+            "stdout": [
+              "explicit override=11,12",
+              "defparam results=15,16"
+            ]
+          }
+        }
+      }
+    },
+    "slang": {
+      "ch7/test_associative_dynamic_array_key_equality": {
+        "version": "slang version 12.0.0+0",
+        "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          }
+        }
+      },
+      "ch7/test_locator_with_side_effect_observation": {
+        "version": "slang version 12.0.0+0",
+        "inputs_sha256": "0d446df44b2359f6251004585e869168841ed1ef9a67504c79d8ead54c34de6a",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          },
+          "impure": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          }
+        }
+      },
+      "ch13/test_defparam_constant_function_observation": {
+        "version": "slang version 12.0.0+0",
+        "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          },
+          "defparam": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          }
+        }
+      },
+      "ch18/test_randsequence_ungenerated_result_observation": {
+        "version": "slang version 12.0.0+0",
+        "inputs_sha256": "80abe1781abb299b5f7a2b40e257e5c764f2684ccd2efa08f026a55a95cf98e7",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          },
+          "ungenerated": {
+            "compile_exit": 0,
+            "compiler_diagnostics": []
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+before t=12 wire=0 comb=0
+completion cover=15/1 wait=15/1
+reset t=16 direct=0 wire=1 comb=1
+input change t=23 direct=0 wire=0 comb=0

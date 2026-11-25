@@ -1,0 +1,36 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch21/test_evcd_inherits_vcd_scope_and_physical_time": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SORRY: tests/ch21/test_evcd_inherits_vcd_scope_and_physic...', expected 'time pair fixture finished'",
+   "inputs_sha256": "13610177bd93047b3af792c34956400a5f9b3076fd880096703c79cd421e5678"
+  },
+  "ch21/test_evcd_keyword_sections_extend_vcd": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SORRY: tests/ch21/test_evcd_keyword_sections_extend_vcd.s...', expected 'paired keyword fixture finished'",
+   "inputs_sha256": "8ee482ea9dac610062c6da87f954ead6d7eb8c490df212852bb6df3613d5a3bb"
+  },
+  "ch21/test_evcd_manual_comment_before_closing_record": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SORRY: tests/ch21/test_evcd_manual_comment_before_closing...', expected 'closing comment fixture finished'",
+   "inputs_sha256": "d46771e7df7797b3a03a6e9f3e47b545dda2f97a25b6650677bfa005786c5a9c"
+  },
+  "ch21/test_evcd_version_records_dumpports_filename_forms": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'SORRY: tests/ch21/test_evcd_version_records_dumpports_fil...', expected 'three header files recorded'",
+   "inputs_sha256": "bb86f85b597077b5127a7a123e0e723cc54ea425c3aaa612900bd26b3b81a154"
+  },
+  "ch21/test_vcd_comment_insertion_preserves_dumpall": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'WARNING: Dump file limit (800 bytes) exceeded.', expected 'VCD keyword fixture finished'",
+   "inputs_sha256": "a588015eb44d38451e68ff1c776fddaccec948246871f53371f0454b4da6cc20"
+  }
+ },
+ "generated_at": "2026-11-25T00:13:22.958372+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

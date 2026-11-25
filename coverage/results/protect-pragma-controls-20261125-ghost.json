@@ -1,0 +1,62 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch34/test_protect_author_and_agent_string_syntax": {
+   "status": "pass",
+   "inputs_sha256": "75ef7299c2b6ece3d2d24dcc8bb3d8492e44433d278a60167be666b3c4db084b"
+  },
+  "ch34/test_protect_author_and_agent_strings_inside_envelope": {
+   "status": "pass",
+   "inputs_sha256": "4d7b24d00bd5c20a76d224c6fac8afb9454d09cb56909c5cff7589cc300e5fd4"
+  },
+  "ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads": {
+   "status": "pass",
+   "inputs_sha256": "c6bf244313352535d8d0e36f7fece10c2107e1a5bdf923b59d191a963c344974"
+  },
+  "ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks": {
+   "status": "pass",
+   "inputs_sha256": "e935a0a7dff764bd2d2bd56d05bb9e3987137feea59cf1748b8633c52fd5f5fc"
+  },
+  "ch34/test_protect_combined_envelope_delimiters_syntax": {
+   "status": "pass",
+   "inputs_sha256": "ca264d6fb38d41ddcb61278a2f05bc5a627703e20d3b40fe99780baef8931c25"
+  },
+  "ch34/test_protect_encoding_bytes_and_both_numbers_syntax": {
+   "status": "pass",
+   "inputs_sha256": "2ff3f1b07e86608a290578f4ff5390455e2a26cfae2fa472abfdfbea90a1291f"
+  },
+  "ch34/test_protect_encoding_required_and_line_length_syntax": {
+   "status": "pass",
+   "inputs_sha256": "abc765bbdddd2d86143b8a79b161bbf80fe58d31c61180c0e66c590b84365c49"
+  },
+  "ch34/test_protect_key_and_method_string_syntax": {
+   "status": "pass",
+   "inputs_sha256": "cf96363596d63735b67fcd5280cda84253afcca3c822ed80870baf705514fd54"
+  },
+  "ch34/test_protect_key_and_method_strings_inside_envelope": {
+   "status": "pass",
+   "inputs_sha256": "84f050d4ef4df57bc200781c5cc6fa9baa839a2dfface06682f27d54b5e4e316"
+  },
+  "ch34/test_protect_license_and_viewport_minimal_syntax": {
+   "status": "pass",
+   "inputs_sha256": "116ca683bccaf17e1a0bf13d279ce76e5c7cc259d3230bd9c88f713f7489a2f4"
+  },
+  "ch34/test_protect_license_optional_fields_and_viewport_string_syntax": {
+   "status": "pass",
+   "inputs_sha256": "9481e8bd605106185fa005663536da14d2c78d199db4b26e09927ea95774dee8"
+  },
+  "ch34/test_protect_standalone_envelope_delimiters_syntax": {
+   "status": "pass",
+   "inputs_sha256": "360443ceecc9055d3030812a609c3560035ef37192e609459fec8a1cd0a218f9"
+  }
+ },
+ "generated_at": "2026-11-24T21:06:05.328461+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "profile_sha256": "8be4091cb63e2ddb0f1bc272c4dd5e56f39bf67954e66bc0036e61813d25edae"
+ }
+}

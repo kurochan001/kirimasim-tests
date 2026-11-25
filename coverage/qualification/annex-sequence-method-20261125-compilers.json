@@ -1,0 +1,201 @@
+{
+  "test": "ch16/test_sequence_triggered_replaces_ended",
+  "inputs_sha256": "671316ca026108efec236566d90093df95ced3ba5bc58ed6514fb39bdd3d4fd7",
+  "mode": "compile-only",
+  "runs": {
+    "slang": {
+      "version": "slang version 12.0.0+0",
+      "binary_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "trials": {
+        "current": {
+          "selector": "triggered",
+          "preprocessed_expression": "@(posedge clk) request_complete.triggered ##0 gate;",
+          "arguments": [
+            "--std=1800-2023",
+            "--top",
+            "test_sequence_triggered_replaces_ended"
+          ],
+          "returncode": 0,
+          "diagnostics": []
+        },
+        "legacy": {
+          "selector": "ended",
+          "preprocessed_expression": "@(posedge clk) request_complete.ended ##0 gate;",
+          "arguments": [
+            "--std=1800-2023",
+            "--top",
+            "test_sequence_triggered_replaces_ended",
+            "-DPROBE_LEGACY_METHOD"
+          ],
+          "returncode": 0,
+          "diagnostics": []
+        },
+        "unknown": {
+          "selector": "no_such_sequence_method",
+          "preprocessed_expression": "@(posedge clk) request_complete.no_such_sequence_method ##0 gate;",
+          "arguments": [
+            "--std=1800-2023",
+            "--top",
+            "test_sequence_triggered_replaces_ended",
+            "-DPROBE_UNKNOWN_METHOD"
+          ],
+          "returncode": 0,
+          "diagnostics": []
+        }
+      }
+    },
+    "slang-a88": {
+      "version": "slang version 12.0.0+a88cbc1b3",
+      "binary_sha256": "5fcf043a7b6a40f2d4747d0a726ddf0c428ff3a19c6ebf3e49d85e870c9a74fd",
+      "trials": {
+        "current": {
+          "selector": "triggered",
+          "preprocessed_expression": "@(posedge clk) request_complete.triggered ##0 gate;",
+          "arguments": [
+            "--std=1800-2023",
+            "--top",
+            "test_sequence_triggered_replaces_ended"
+          ],
+          "returncode": 0,
+          "diagnostics": []
+        },
+        "legacy": {
+          "selector": "ended",
+          "preprocessed_expression": "@(posedge clk) request_complete.ended ##0 gate;",
+          "arguments": [
+            "--std=1800-2023",
+            "--top",
+            "test_sequence_triggered_replaces_ended",
+            "-DPROBE_LEGACY_METHOD"
+          ],
+          "returncode": 0,
+          "diagnostics": []
+        },
+        "unknown": {
+          "selector": "no_such_sequence_method",
+          "preprocessed_expression": "@(posedge clk) request_complete.no_such_sequence_method ##0 gate;",
+          "arguments": [
+            "--std=1800-2023",
+            "--top",
+            "test_sequence_triggered_replaces_ended",
+            "-DPROBE_UNKNOWN_METHOD"
+          ],
+          "returncode": 0,
+          "diagnostics": []
+        }
+      }
+    },
+    "verilator5.052": {
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "binary_sha256": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+      "trials": {
+        "current": {
+          "selector": "triggered",
+          "preprocessed_expression": "@(posedge clk) request_complete.triggered ##0 gate;",
+          "arguments": [
+            "--lint-only",
+            "--timing",
+            "-Wno-fatal",
+            "--top-module",
+            "test_sequence_triggered_replaces_ended"
+          ],
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: test_sequence_triggered_replaces_ended.sv:30:37: Can't find definition of variable/method: 'triggered'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "legacy": {
+          "selector": "ended",
+          "preprocessed_expression": "@(posedge clk) request_complete.ended ##0 gate;",
+          "arguments": [
+            "--lint-only",
+            "--timing",
+            "-Wno-fatal",
+            "--top-module",
+            "test_sequence_triggered_replaces_ended",
+            "+define+PROBE_LEGACY_METHOD"
+          ],
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: test_sequence_triggered_replaces_ended.sv:26:37: Can't find definition of variable/method: 'ended'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "unknown": {
+          "selector": "no_such_sequence_method",
+          "preprocessed_expression": "@(posedge clk) request_complete.no_such_sequence_method ##0 gate;",
+          "arguments": [
+            "--lint-only",
+            "--timing",
+            "-Wno-fatal",
+            "--top-module",
+            "test_sequence_triggered_replaces_ended",
+            "+define+PROBE_UNKNOWN_METHOD"
+          ],
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: test_sequence_triggered_replaces_ended.sv:28:37: Can't find definition of variable/method: 'no_such_sequence_method'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      }
+    },
+    "verilator5.054": {
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "binary_sha256": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "trials": {
+        "current": {
+          "selector": "triggered",
+          "preprocessed_expression": "@(posedge clk) request_complete.triggered ##0 gate;",
+          "arguments": [
+            "--lint-only",
+            "--timing",
+            "-Wno-fatal",
+            "--top-module",
+            "test_sequence_triggered_replaces_ended"
+          ],
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: test_sequence_triggered_replaces_ended.sv:30:37: Can't find definition of variable/method: 'triggered'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "legacy": {
+          "selector": "ended",
+          "preprocessed_expression": "@(posedge clk) request_complete.ended ##0 gate;",
+          "arguments": [
+            "--lint-only",
+            "--timing",
+            "-Wno-fatal",
+            "--top-module",
+            "test_sequence_triggered_replaces_ended",
+            "+define+PROBE_LEGACY_METHOD"
+          ],
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: test_sequence_triggered_replaces_ended.sv:26:37: Can't find definition of variable/method: 'ended'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        },
+        "unknown": {
+          "selector": "no_such_sequence_method",
+          "preprocessed_expression": "@(posedge clk) request_complete.no_such_sequence_method ##0 gate;",
+          "arguments": [
+            "--lint-only",
+            "--timing",
+            "-Wno-fatal",
+            "--top-module",
+            "test_sequence_triggered_replaces_ended",
+            "+define+PROBE_UNKNOWN_METHOD"
+          ],
+          "returncode": 1,
+          "diagnostics": [
+            "%Error: test_sequence_triggered_replaces_ended.sv:28:37: Can't find definition of variable/method: 'no_such_sequence_method'",
+            "%Error: Exiting due to 1 error(s)"
+          ]
+        }
+      }
+    }
+  }
+}

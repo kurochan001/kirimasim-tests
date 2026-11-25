@@ -1,0 +1,6 @@
+import request=0 entry-disabled=0
+export returned disabled=0
+control returned=37
+import request=1 entry-disabled=0
+export returned disabled=1
+disabled function returning without acknowledgement

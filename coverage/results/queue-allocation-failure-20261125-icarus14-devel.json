@@ -1,0 +1,26 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+ "tests": {
+  "ch20/test_stochastic_queue_creation_out_of_memory": {
+   "status": "fail",
+   "reason": "allocation failure did not return status 7 and leave the queue absent",
+   "inputs_sha256": "c286f129714da56b476b8e284ef65cabdad68ef14affcf49b74b121976bde46c"
+  }
+ },
+ "generated_at": "2026-11-25T08:04:18.876788+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "icarus-queue-allocation-failure",
+  "checker_sha256": "56bf5b1bb07bee87484a3c98b12216234758304e8d68967c32aabf918589512c",
+  "binary_sha256": {
+   "iverilog": "06ba47e2009a5f2a195fde3f002b77da3bf68c55c10902d235f09690992e5d5e",
+   "vvp": "3dacee08534bb9aa314966c21170885e84bd21dd5332ed83e456cca427bacbc8",
+   "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+  },
+  "system_vpi_sha256": "b43b8858b6e8703bdc9a5540479fef828ffa8692b8d76f886d6a69028e07dd40",
+  "debugger_version": "lldb-2103.0.34.407"
+ }
+}

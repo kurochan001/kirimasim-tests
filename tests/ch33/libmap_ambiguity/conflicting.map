@@ -1,0 +1,2 @@
+library firstLib src/*.sv;
+library secondLib src/choice?.sv;

@@ -1,0 +1,31 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch34/test_pragma_reset_lists_protect_and_diagnostic_state": {
+   "status": "known",
+   "reason": "compile failed: tests/ch34/test_pragma_reset_lists_protect_and_diagnostic_state.sv:23: syntax error",
+   "inputs_sha256": "0ed0571411a8c6b6b9e87a4e49597dd4bf573dc7a43d48acb6e6ce08a0633abc"
+  },
+  "ch34/test_pragma_resetall_restores_protect_and_diagnostic_state": {
+   "status": "known",
+   "reason": "compile failed: tests/ch34/test_pragma_resetall_restores_protect_and_diagnostic_state.sv:22: syntax error",
+   "inputs_sha256": "ed03ba3d40b99ba4233f6af6d5290b0bf6be6dacffcb966c6a4e730674b8c047"
+  },
+  "ch34/test_protect_reset_restores_default_before_reconfiguration": {
+   "status": "known",
+   "reason": "compile failed: tests/ch34/test_protect_reset_restores_default_before_reconfiguration.sv:17: syntax error",
+   "inputs_sha256": "29357d53719a2658e01f28a0d4ca592e2e6cc03c514cc86557937c72948e6320"
+  },
+  "ch34/test_protect_reset_stops_encoding_state_at_file_boundary": {
+   "status": "known",
+   "reason": "compile failed: tests/ch34/pragma_reset_inputs/encoding_group.sv:3: syntax error",
+   "inputs_sha256": "bef7e2443f67a0657e3015bcee756b6eeedb4531d86ee604e673f80360e2d6dd"
+  }
+ },
+ "generated_at": "2026-11-24T23:48:24.171246+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

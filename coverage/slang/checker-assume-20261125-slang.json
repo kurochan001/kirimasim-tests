@@ -1,0 +1,50 @@
+{
+ "reference": "slang",
+ "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+ "slang_version": "slang version 12.0.0+a88cbc1b3",
+ "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+ "generated_at": "2026-11-25T02:09:24.168149+00:00",
+ "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+ "options": [
+  "--std=1800-2023",
+  "-Wno-error=index-oob",
+  "-Wno-error=string-int-concat",
+  "-Wno-error=string-in-constraint",
+  "--threads",
+  "1",
+  "-q"
+ ],
+ "summary": {
+  "illegal": {
+   "tests": 0,
+   "rejected_at_line": 0,
+   "rejected_elsewhere": 0,
+   "accepted": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal": {
+   "tests": 7,
+   "clean": 7,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal_vpi": {
+   "tests": 0,
+   "clean": 0,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  }
+ },
+ "tests": {
+  "ch17/test_checker_assume_clock_preserves_assigned_free_elements": {"kind": "legal", "status": "clean", "inputs_sha256": "c0db99d24800b613d3415dfb6dd9cbc456a7550f0bd58f8d79891f106df41e57"},
+  "ch17/test_checker_assume_set_excludes_captured_formal_and_inactive_child": {"kind": "legal", "status": "clean", "inputs_sha256": "88b3567a144ba274a972a60675059b0e6f605003832332a23957e5de67cd3095"},
+  "ch17/test_checker_assume_set_survives_procedural_capture": {"kind": "legal", "status": "clean", "inputs_sha256": "523c431148a331f094a362a1837446aef67f30007945c276ea3e012fca9aabdf"},
+  "ch17/test_checker_assume_solve_allows_a_future_dead_end": {"kind": "legal", "status": "clean", "inputs_sha256": "cb85f7a4685e7906e300d1e3e9b495656eaeea4235bf6ca253ac5b20b57c7912"},
+  "ch17/test_checker_assume_violation": {"kind": "legal", "status": "clean", "inputs_sha256": "cce843a3ea7463b2619600f191c5f2a9b7d3fb83e6739285aa7d455a2d24b46b"},
+  "ch17/test_checker_empty_assume_set_step": {"kind": "legal", "status": "clean", "inputs_sha256": "d8639a5724680fb8448f2c881db3047f2bad4f45191b5f363fcd5baf8c4ebde8"},
+  "ch17/test_checker_free_initial_values_before_any_clock": {"kind": "legal", "status": "clean", "inputs_sha256": "2145e1cb561a88c2620be36c1bf74d706337f160b5967d1fbfe783d2e569a89d"}
+ }
+}

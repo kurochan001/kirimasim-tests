@@ -1,0 +1,38 @@
+{
+  "tool": "icarus",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "evidence_profile": "icarus-language-defaults",
+  "checker_sha256": "79953ea29e50e0564daa831e36a67a8f81d8bfc9f40b0be9aa9057b300e46419",
+  "binary_sha256": {
+    "executable": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "runtime": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+  },
+  "case": "ch22/test_selected_default_keyword_set_controls_bit",
+  "inputs_sha256": "48fe97c8e851512bf33cb6d9e77bfab50ce3da8a1b43db7bac268ccf42d44e05",
+  "checks": {
+    "identifier_2005": {
+      "pass": true,
+      "compiler_exit": 0,
+      "diagnosed_at_declaration": false,
+      "simulation_matched": true
+    },
+    "identifier_2012": {
+      "pass": true,
+      "compiler_exit": 2,
+      "diagnosed_at_declaration": true,
+      "simulation_matched": false
+    },
+    "type_2005": {
+      "pass": true,
+      "compiler_exit": 2,
+      "diagnosed_at_declaration": true,
+      "simulation_matched": false
+    },
+    "type_2012": {
+      "pass": true,
+      "compiler_exit": 0,
+      "diagnosed_at_declaration": false,
+      "simulation_matched": true
+    }
+  }
+}

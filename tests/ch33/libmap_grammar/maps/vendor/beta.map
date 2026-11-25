@@ -1,0 +1,3 @@
+/* This library uses its own value for cell_value.svh. */
+library betaLib source/third.sv -incdir include_files;
+;

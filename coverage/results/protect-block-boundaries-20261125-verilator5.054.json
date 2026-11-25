@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch34/test_protect_reencrypt_nested_envelope": {
+   "status": "known",
+   "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_reencrypt_nested_envelope.sv:18:17: Unknown '`pragma protect' error",
+   "inputs_sha256": "2f3799ce81e7256793cd84a3229a6327af41a87214c9196a2994fc715d01760d"
+  },
+  "ch34/test_protect_reject_plaintext_payload_blocks": {
+   "status": "known",
+   "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_reject_plaintext_payload_blocks.sv:19:17: Unknown '`pragma protect' error",
+   "inputs_sha256": "491cb55ddafe8b7f91efb75421c049b4126d55bcf7065971d2808a67ec410a32"
+  }
+ },
+ "generated_at": "2026-11-25T01:36:05.082686+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

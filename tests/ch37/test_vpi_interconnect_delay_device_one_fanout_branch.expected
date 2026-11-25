@@ -1,0 +1,18 @@
+hdl time=8 source=0 delayed=0 direct=0
+delay objects source=1 target=1 owner=1
+delay graph device=1 module=1 input=1 output=1 distinct=1
+delay term origins input=1 output=1
+delay net relations source-load=1 target-driver=1 input-driver=1 output-load=1
+delay subtypes device=2 input=2 output=2
+delay control branch has-device=0
+delay term values input=0 output=0
+hdl time=11 source=1 delayed=0 direct=1
+delay term values input=1 output=0
+hdl time=15 source=1 delayed=1 direct=1
+delay term values input=1 output=1
+hdl time=21 source=0 delayed=1 direct=0
+delay term values input=0 output=1
+hdl time=26 source=0 delayed=1 direct=0
+delay term values input=0 output=1
+hdl time=28 source=0 delayed=0 direct=0
+delay term values input=0 output=0

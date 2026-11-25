@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "test": "tests/ch10/test_assignment_pattern_side_effect_observation.sv",
+  "inputs_sha256": "b96e337299a8aeb17c647cb36c339fc9fa29000c3d50bf9ec5d3ffaafae2052a",
+  "simulators": {
+    "kirimasim": {
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "trials": {
+        "array_type": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array type calls=3 values=555"
+          ]
+        },
+        "array_default": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array default calls=3 values=666"
+          ]
+        },
+        "array_replication": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array replication calls=3 values=777"
+          ]
+        },
+        "struct_type": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct type calls=3 values=555"
+          ]
+        },
+        "struct_default": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct default calls=3 values=666"
+          ]
+        },
+        "struct_replication": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct replication calls=3 values=777"
+          ]
+        }
+      }
+    },
+    "verilator": {
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "trials": {
+        "array_type": {
+          "compile_exit": 1,
+          "diagnostics": [
+            "%Error-UNSUPPORTED: test_assignment_pattern_side_effect_observation.sv:32:23: Unsupported: Data-type key in array assignment pattern",
+            "%Error: test_assignment_pattern_side_effect_observation.sv:32:21: Assignment pattern missed initializing elements: 1",
+            "%Error: test_assignment_pattern_side_effect_observation.sv:32:21: Assignment pattern missed initializing elements: 2"
+          ]
+        },
+        "array_default": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array default calls=3 values=666"
+          ]
+        },
+        "array_replication": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array replication calls=3 values=777"
+          ]
+        },
+        "struct_type": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct type calls=3 values=555"
+          ]
+        },
+        "struct_default": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct default calls=3 values=666"
+          ]
+        },
+        "struct_replication": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct replication calls=3 values=777"
+          ]
+        }
+      }
+    }
+  }
+}

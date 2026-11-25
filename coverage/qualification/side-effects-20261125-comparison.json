@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "scope": "Defined-case expectations are asserted. Domain-case values and diagnostic choices are observations.",
+  "simulators": {
+    "ghost": {
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch11/test_conflicting_expression_side_effect_order": {
+          "inputs_sha256": "70f891ad381dd3dc2caa7b3be2fb4c0ae5b96da197693b1e52fc96acf73ba687",
+          "exit": 0,
+          "stdout": [
+            "separate prior=7 now=8 sum=15",
+            "conflicts left=15 next=8 right=26 next=14"
+          ]
+        },
+        "ch9/test_disable_task_unspecified_effects": {
+          "inputs_sha256": "cd09450ef8e03137eef9c35f036c990bac20e6d6faf32c9e045af05e809611c6",
+          "exit": 0,
+          "stdout": [
+            "entry t=1 pending=0 driven=1 forced=1",
+            "disabling task at t=2",
+            "return time=2",
+            "complete t=6 output=30 inout=41 nba=1 assigned=1 forced=1"
+          ]
+        },
+        "ch21/test_sscanf_invalid_conversion_observation": {
+          "inputs_sha256": "2b3daa34632d40d089fed29b7dea72535b3336f799f2fcf328e96a3eab03c340",
+          "exit": 0,
+          "stdout": [
+            "defined count=2 first=42 second=15",
+            "before invalid conversion",
+            "observed count=1 first=42 second=-22"
+          ],
+          "diagnostics": [
+            "Warning: $fscanf/$sscanf: Unknown format specifier %k"
+          ]
+        }
+      }
+    },
+    "icarus": {
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch11/test_conflicting_expression_side_effect_order": {
+          "inputs_sha256": "70f891ad381dd3dc2caa7b3be2fb4c0ae5b96da197693b1e52fc96acf73ba687",
+          "exit": 0,
+          "stdout": [
+            "separate prior=7 now=8 sum=15",
+            "conflicts left=15 next=8 right=26 next=14"
+          ],
+          "stderr": []
+        },
+        "ch9/test_disable_task_unspecified_effects": {
+          "inputs_sha256": "cd09450ef8e03137eef9c35f036c990bac20e6d6faf32c9e045af05e809611c6",
+          "exit": 0,
+          "stdout": [
+            "entry t=1 pending=0 driven=1 forced=1",
+            "disabling task at t=2",
+            "return time=2",
+            "complete t=6 output=30 inout=41 nba=1 assigned=1 forced=1"
+          ],
+          "stderr": []
+        },
+        "ch21/test_sscanf_invalid_conversion_observation": {
+          "inputs_sha256": "2b3daa34632d40d089fed29b7dea72535b3336f799f2fcf328e96a3eab03c340",
+          "format_line": 23,
+          "compile": {
+            "exit": 0,
+            "stdout": [],
+            "stderr": []
+          },
+          "run": {
+            "exit": 1,
+            "stdout": [
+              "defined count=2 first=42 second=15",
+              "before invalid conversion",
+              "ERROR: test_sscanf_invalid_conversion_observation.sv:23: $sscanf() was given an invalid format code: %k"
+            ],
+            "stderr": []
+          }
+        }
+      }
+    },
+    "verilator": {
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch11/test_conflicting_expression_side_effect_order": {
+          "inputs_sha256": "70f891ad381dd3dc2caa7b3be2fb4c0ae5b96da197693b1e52fc96acf73ba687",
+          "exit": 0,
+          "stdout": [
+            "separate prior=7 now=8 sum=15",
+            "conflicts left=15 next=8 right=27 next=14"
+          ]
+        },
+        "ch9/test_disable_task_unspecified_effects": {
+          "inputs_sha256": "cd09450ef8e03137eef9c35f036c990bac20e6d6faf32c9e045af05e809611c6",
+          "exit": 0,
+          "stdout": [
+            "entry t=1 pending=0 driven=1 forced=1",
+            "disabling task at t=2",
+            "return time=2",
+            "complete t=6 output=30 inout=41 nba=1 assigned=1 forced=1"
+          ],
+          "compile_diagnostics": [
+            "%Warning-IEEEMAYDEPRECATE: test_disable_task_unspecified_effects.sv:25:5: Feature may be deprecated in future IEEE standard",
+            "%Warning-IEEEMAYDEPRECATE: test_disable_task_unspecified_effects.sv:32:5: Feature may be deprecated in future IEEE standard"
+          ]
+        },
+        "ch21/test_sscanf_invalid_conversion_observation": {
+          "inputs_sha256": "2b3daa34632d40d089fed29b7dea72535b3336f799f2fcf328e96a3eab03c340",
+          "compile_exit": 1,
+          "diagnostics": [
+            "%Error: test_sscanf_invalid_conversion_observation.sv:23:13: Unknown $display-like format code: '%k'"
+          ]
+        }
+      }
+    },
+    "kirimasim": {
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch11/test_conflicting_expression_side_effect_order": {
+          "inputs_sha256": "70f891ad381dd3dc2caa7b3be2fb4c0ae5b96da197693b1e52fc96acf73ba687",
+          "exit": 0,
+          "stdout": [
+            "separate prior=7 now=8 sum=15",
+            "conflicts left=15 next=8 right=26 next=14"
+          ]
+        },
+        "ch9/test_disable_task_unspecified_effects": {
+          "inputs_sha256": "cd09450ef8e03137eef9c35f036c990bac20e6d6faf32c9e045af05e809611c6",
+          "exit": 0,
+          "stdout": [
+            "entry t=1 pending=0 driven=1 forced=1",
+            "disabling task at t=2",
+            "return time=2",
+            "complete t=6 output=7 inout=9 nba=1 assigned=1 forced=1"
+          ]
+        },
+        "ch21/test_sscanf_invalid_conversion_observation": {
+          "inputs_sha256": "2b3daa34632d40d089fed29b7dea72535b3336f799f2fcf328e96a3eab03c340",
+          "pre_simulation_exit": 2,
+          "diagnostics": [
+            "test_sscanf_invalid_conversion_observation.sv:23:13: error: unsupported: format specifier %k in $sscanf (not implemented yet)"
+          ]
+        }
+      }
+    }
+  }
+}

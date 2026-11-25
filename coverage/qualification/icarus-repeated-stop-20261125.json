@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-25",
+  "tool": "Icarus Verilog",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "fixture": "tools/test_icarus_simulation_control.py",
+  "fixture_sha256": "0e99c5bbdc467ede0f0784c44847cd836685adb6779175643cb9c0e8aaca803d",
+  "requirement": "SV2023-20.2-EXTRACT-STOP",
+  "binaries": {
+    "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+  },
+  "test_method": "test_two_stops_each_require_a_continue_command",
+  "stop_times": [
+    7,
+    11
+  ],
+  "after_continue": {
+    "resume_times": [
+      7,
+      11
+    ],
+    "finish_time": 14
+  },
+  "after_finish_at_second_stop": {
+    "first_resume_time": 7,
+    "second_resume_observed": false
+  },
+  "passed": true
+}

@@ -1,0 +1,21 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch33/test_single_pass_library_loading": {
+   "status": "pass",
+   "inputs_sha256": "4f03284062290c00f97c9ac9182c2de596e6782a888681f8bdee90a575ccf4c7"
+  },
+  "ch33/test_single_pass_library_nested_lookup": {
+   "status": "pass",
+   "inputs_sha256": "36323e99e02294bfd2435588d1fc3bf5c2576599ad26b9deac5794731a9a7649"
+  }
+ },
+ "generated_at": "2026-11-25T06:12:02.911598+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

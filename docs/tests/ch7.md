@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[All chapters](README.md). 1136 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 1139 tests, 604 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -96,6 +96,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_packed_tagged_union_read_rejects_previous_member_after_tag_change`](../../tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv) | Reading the previous packed union member after a tag change reports a runtime error | 7.3.2 11.9 | standard only ||
 | [`test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member`](../../tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv) | A packed tagged union preserves its tag and selected payload without testing unspecified bits | 7.3.2 | standard only | x/z |
 | [`test_tagged_union_dynamic_and_chandle_members`](../../tests/ch7/test_tagged_union_dynamic_and_chandle_members.sv) | an unpacked tagged union can have members of dynamic types (string, queue, dynamic and associative arrays, class handle) and of type chandle, which hold their values | 7.3.2 11.9 | standard only ||
+| [`test_tagged_union_initial_tag_and_unused_bits`](../../tests/ch7/test_tagged_union_initial_tag_and_unused_bits.sv) | An uninitialized tagged union matches no member and later tags select their payloads | 7.3.2 11.9 | standard only | x/z |
 | [`test_tagged_union_packed`](../../tests/ch7/test_tagged_union_packed.sv) | a packed tagged union has the minimum number of tag bits for its members at the most significant end and each member right-justified, tagged union expressions set the tag and the member together, and the member of the current tag can be read and written with dot notation | 7.3.2 11.9 20.6.2 | standard only ||
 | [`test_tagged_union_packed_tag_width_layout`](../../tests/ch7/test_tagged_union_packed_tag_width_layout.sv) | a packed tagged union is as wide as the fewest tag bits that code its member names plus its widest member, with the tag in the top bits, each member in the low bits, and the same layout inside a nested tagged union | 7.3.2 11.9 20.6.2 | standard only ||
 | [`test_unpacked_tagged_union_read_checks_current_nested_tag`](../../tests/ch7/test_unpacked_tagged_union_read_checks_current_nested_tag.sv) | An unpacked tagged union read checks the active member of an inner union | 7.3.2 11.9 | standard only ||
@@ -300,6 +301,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_assoc_foreach_struct_key`](../../tests/ch7/test_assoc_foreach_struct_key.sv) | Test associative array foreach with struct keys | 7.8.5 12.7.3 | Verilator 5.052 ||
 | [`test_assoc_invalid_keys_with_unknown_dynamic_array_elements`](../../tests/ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements.sv) | Unknown bits inside a dynamic array nested in an associative key cannot identify or create an entry | 7.8.5 7.8.6 7.9.3 | standard only | x/z |
 | [`test_assoc_packed_struct_key_xz_cannot_alias_valid_entries`](../../tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv) | An associative key with unknown bits in either nested field cannot create or overwrite an entry | 7.8.5 7.8.6 | standard only | x/z |
+| [`test_associative_dynamic_array_key_equality`](../../tests/ch7/test_associative_dynamic_array_key_equality.sv) | Equivalent dynamic array values retrieve the same associative entry | 7.8.5 | standard only ||
 | [`test_associative_key_uses_queue_and_string_values_structurally`](../../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv) | A user-defined associative key compares variable-length queue and string contents | 7.8.5 7.10 11.4.5 | standard only ||
 | [`test_associative_queue_keys_are_copied_and_compared_by_contents`](../../tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv) | Changing the source queue leaves the stored associative key and its lookup intact | 7.8.5 | standard only ||
 | [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) | An associative index type cannot contain a real member | 7.8.5 | standard only | illegal design |
@@ -447,6 +449,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_array_method_with_braces`](../../tests/ch7/test_illegal_array_method_with_braces.sv) | the with clause of an array manipulation method encloses its expression in parentheses; braces, as used by randomize() with, are illegal there | 7.12 | Verilator 5.052 | illegal design |
 | [`test_illegal_iterator_argument_without_with`](../../tests/ch7/test_illegal_iterator_argument_without_with.sv) | An array method cannot name its iterator without a with clause | 7.12 7.12.3 | standard only | illegal design |
 | [`test_illegal_sort_iterator_without_with`](../../tests/ch7/test_illegal_sort_iterator_without_with.sv) | an array method iterator argument requires a with clause | 7.12 | Verilator 5.052 | illegal design |
+| [`test_locator_with_side_effect_observation`](../../tests/ch7/test_locator_with_side_effect_observation.sv) | A pure locator provides a control for a with expression with side effects | 7.12 | Verilator 5.054 ||
 | [`test_member_access_deep`](../../tests/ch7/test_member_access_deep.sv) | array methods, §8.5 class member access | 7.12 8.5 | Verilator 5.052 ||
 | [`test_array_find`](../../tests/ch7/test_array_find.sv) | Array Locator Methods (§7.12.1) | 7.12.1 | Verilator 5.052 ||
 | [`test_array_find_2`](../../tests/ch7/test_array_find_2.sv) | Test: Array find method | 7.12.1 | Verilator 5.052 ||

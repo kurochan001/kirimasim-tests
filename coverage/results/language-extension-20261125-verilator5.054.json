@@ -1,0 +1,31 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch5/test_global_system_calls_and_object_methods": {
+   "status": "pass",
+   "inputs_sha256": "6230400fd47e9544484cf91531c2d19cfbca46733d6d20a0bb7ef05f79698f4a"
+  },
+  "ch5/test_identifier_1024_characters": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'path length=67 last=J', expected 'path length=1056 last=z'",
+   "inputs_sha256": "712ed4057e3768d48228346978b47c5a66af1cb3d60d031f0625767b9083c0ce"
+  },
+  "ch5/test_tool_directive_controls_only_named_file": {
+   "status": "pass",
+   "inputs_sha256": "17c9144902fa00251466c873ebfa9aa23df25bec39df0253fc8c4bcf4f1e0dc4"
+  },
+  "ch5/test_tool_system_function_raw_simulation_time": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch5/test_tool_system_function_raw_simulation_time.sv:18:49: Unsupported or unknown PLI call: '$simtime'",
+   "inputs_sha256": "e6c51c116bb10d9f03a88fdf82165770677e724d8170cdd89e575453d68de96d"
+  }
+ },
+ "generated_at": "2026-11-25T04:26:58.006320+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

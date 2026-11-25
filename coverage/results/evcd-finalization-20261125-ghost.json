@@ -1,0 +1,27 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 4879f101c2b6",
+ "tests": {
+  "ch21/test_evcd_close_records_final_time_when_queue_drains": {
+   "status": "pass",
+   "inputs_sha256": "ff6b427d106f60ae33851d625ec3d3972364bd6b3494947ef00cdcdf3e4dccb8"
+  },
+  "ch21/test_evcd_close_waits_for_finish_even_when_dumping_is_paused": {
+   "status": "pass",
+   "inputs_sha256": "ba4a4534c7800f9f9c665b5702d44fb4b0e56322669549c82548c592665c5c85"
+  },
+  "ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression": {
+   "status": "pass",
+   "inputs_sha256": "7f6b1144d797678ace89b28481f0a62beb2f43e97f3d517674fcd878cde55d30"
+  }
+ },
+ "generated_at": "2026-11-24T20:01:16.835332+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-evcd-close",
+  "checker_sha256": "c87517363759f193bc838e34ffbdec97ad2c0d46703bea75c28563913aa4ca60",
+  "binary_sha256": "4879f101c2b639e9f3092be34a3d302ec3ad91b53ae8e0c0ad5194b377726cea"
+ }
+}

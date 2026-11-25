@@ -13,6 +13,19 @@ from unittest import mock
 
 import behavior_coverage as coverage
 import doc_localization
+import run_dpi_binary_compatibility
+import run_ghost_coverage_database
+import run_ghost_dpi_load
+import run_ghost_evcd
+import run_ghost_library_cells
+import run_icarus_control
+import run_language_diagnostics
+import run_protect_encryption
+import run_protect_pragma_syntax
+import run_slang_source_checks
+import run_verilator_dpi_context
+import run_verilator_libmap
+import run_vpi_compatibility_headers
 import suite_results
 
 
@@ -63,6 +76,132 @@ class BehaviorCoverageTests(unittest.TestCase):
         self.assertEqual(ignored, [])
         self.assertIn(self.reg["requirements"][0]["id"], execution["executed"])
 
+    def test_evcd_file_evidence_requires_matching_profile_and_fresh_checker(self):
+        row = copy.deepcopy(next(r for r in self.registry["requirements"]
+                                 if r["id"] == "SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE"))
+        self.reg["requirements"] = [row]
+        _, rows = self.validated()
+        regular = {**rows[0], "id": "regular", "checks": [
+            {k: v for k, v in check.items() if k != "evidence_profile"} for check in row["checks"]
+        ]}
+        rows.append(regular)
+        result = self.result(simulator="ghost")
+        for check in row["checks"]:
+            test = coverage.ROOT / check["test"]
+            result["tests"][suite_results.test_id(test)] = {
+                "status": "pass", "inputs_sha256": suite_results.input_digest(test),
+            }
+
+        runs, ignored = self.execute(result, rows)
+        self.assertEqual(ignored, [])
+        self.assertEqual(runs["executed"], ["regular"])
+        result["configuration"] = {"evidence_profile": run_ghost_evcd.PROFILE,
+                                   "checker_sha256": run_ghost_evcd.checker_digest()}
+        runs, ignored = self.execute(result, rows)
+        self.assertEqual(ignored, [])
+        self.assertEqual(runs["executed"], [row["id"]])
+
+        for change in ("checker", "unexpected fixture"):
+            with self.subTest(change=change):
+                invalid = copy.deepcopy(result)
+                if change == "checker":
+                    invalid["configuration"]["checker_sha256"] = "stale"
+                else:
+                    invalid["tests"]["ch21/not_a_waveform_fixture"] = {"status": "pass"}
+                runs, ignored = self.execute(invalid, rows)
+                self.assertEqual(runs["executed"], [])
+                self.assertIn("unknown or stale evidence profile", ignored[0])
+
+    def test_evcd_mapping_requires_an_anchor_in_the_file_checker(self):
+        row = copy.deepcopy(next(r for r in self.registry["requirements"]
+                                 if r["id"] == "SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE"))
+        self.reg["requirements"] = [row]
+        check = row["checks"][0]
+        check["evidence"] = [a for a in check["evidence"] if a["file"] != run_ghost_evcd.CHECKER]
+        self.assert_invalid("mapping must identify the evidence checker")
+
+    def test_coverage_database_results_apply_only_to_the_selected_operation(self):
+        requirements = {
+            "set-name": "SV2023-19.9-EXTRACT-SET-DATABASE-NAME",
+            "load": "SV2023-19.9-EXTRACT-LOAD-DATABASE",
+        }
+        self.reg["requirements"] = [copy.deepcopy(row) for row in self.registry["requirements"]
+                                    if row["id"] in requirements.values()]
+        result = self.result(simulator="ghost")
+        runs, ignored = self.execute(result)
+        self.assertEqual(ignored, [])
+        self.assertEqual(runs["executed"], [])
+
+        checker = run_ghost_coverage_database
+        for scenario, requirement in requirements.items():
+            with self.subTest(scenario=scenario):
+                result["configuration"] = {"evidence_profile": checker.SCENARIOS[scenario][0],
+                                           "checker_sha256": checker.checker_digest()}
+                runs, ignored = self.execute(result)
+                self.assertEqual(ignored, [])
+                self.assertEqual(runs["executed"], [requirement])
+
+    def test_advisory_coverage_needs_a_qualified_diagnostic_result(self):
+        rid = "SV2023-9.2.2.2-EXTRACT-COMBINATIONAL-CHECK"
+        row = next(r for r in self.registry["requirements"] if r["id"] == rid)
+        self.reg["requirements"] = [copy.deepcopy(row)]
+        result = self.result(simulator="verilator")
+        result["version"] = "Verilator 5.054"
+        runs, ignored = self.execute(result)
+        self.assertEqual(ignored, [])
+        self.assertEqual(runs["executed"], [])
+
+        checker = run_language_diagnostics
+        result["configuration"] = {"evidence_profile": checker.PROFILES["verilator"],
+                                   "checker_sha256": checker.checker_digest()}
+        runs, ignored = self.execute(result)
+        self.assertEqual(ignored, [])
+        self.assertEqual(runs["executed_reproducible"], [rid])
+
+    def test_profile_excludes_ordinary_and_wrong_simulator_results(self):
+        cases = (
+            ("SV2023-3.10-EXTRACT-LIBRARY-CELL-CATEGORIES", "ghost", run_ghost_library_cells),
+            ("SV2023-H.4-EXTRACT-PORTABLE", "ghost", run_dpi_binary_compatibility),
+            ("SV2023-H.9.3-EXTRACT-UNIQUE-KEY", "ghost", run_dpi_binary_compatibility),
+            ("SV2023-J.4-EXTRACT-STAGES", "ghost", run_ghost_dpi_load),
+            ("SV2023-20.2-EXTRACT-STOP", "icarus", run_icarus_control),
+            ("SV2023-33.3.1.1-EXTRACT-PATH-SPEC-PRIORITY", "verilator", run_verilator_libmap),
+            ("SV2023-33.3.1.1-EXTRACT-PATH-LIBRARY-AMBIGUITY", "verilator", run_verilator_libmap),
+        )
+        for requirement, simulator, checker in cases:
+            with self.subTest(requirement=requirement, profile=checker.PROFILE):
+                row = copy.deepcopy(next(r for r in self.registry["requirements"] if r["id"] == requirement))
+                self.reg["requirements"] = [row]
+                result = self.result(simulator=simulator)
+                runs, ignored = self.execute(result)
+                self.assertEqual(ignored, [])
+                self.assertEqual(runs["executed"], [])
+
+                result["configuration"] = {"evidence_profile": checker.PROFILE,
+                                           "checker_sha256": checker.checker_digest()}
+                runs, ignored = self.execute(result)
+                self.assertEqual(ignored, [])
+                if row["kind"] == "error":
+                    self.assertEqual(runs["executed_reproducible"], [])
+                    self.assertEqual(runs["snapshots"][0]["outcomes"][requirement], "unreviewed_oracle")
+                else:
+                    self.assertEqual(runs["executed"], [requirement])
+                    self.assertEqual(runs["executed_reproducible"],
+                                     [requirement] if simulator != "ghost" else [])
+
+                failing = copy.deepcopy(result)
+                next(iter(failing["tests"].values()))["status"] = "fail"
+                runs, ignored = self.execute(failing)
+                self.assertEqual(ignored, [])
+                self.assertEqual(runs["executed"], [])
+
+                wrong_simulator = "icarus" if simulator == "ghost" else "ghost"
+                result["simulator"] = wrong_simulator
+                result["runner_sha256"] = suite_results.runner_digest(wrong_simulator)
+                runs, ignored = self.execute(result)
+                self.assertEqual(runs["executed"], [])
+                self.assertIn("unknown or stale evidence profile", ignored[0])
+
     def test_diagnostic_only_mapping_requires_the_exact_regex_anchor(self):
         row = next(r for r in self.registry["requirements"]
                    if r["id"] == "SV2023-20.10.1-EXTRACT-ELABORATION-ERROR")
@@ -71,6 +210,41 @@ class BehaviorCoverageTests(unittest.TestCase):
         check = self.reg["requirements"][0]["checks"][0]
         check["evidence"] = [anchor for anchor in check["evidence"]
                              if not anchor["contains"].startswith(":expected_stderr_regex:")]
+        self.assert_invalid("mapping must identify the checked output/diagnostic")
+
+    def test_standalone_qualifications_do_not_count_as_simulation(self):
+        for requirement, simulator, checker in (
+            ("SV2023-34.5.9.1-EXTRACT-KEYWORD-SYNTAX", "slang", run_protect_pragma_syntax),
+            ("SV2023-34.2-EXTRACT-PROTECT-SEQUENCE", "slang", run_slang_source_checks),
+            ("SV2023-34.3.1-EXTRACT-SESSION-KEY-OPTION", "hdl-encrypt", run_protect_encryption),
+            ("SV2023-H.6.5-EXTRACT-INSTRUMENT", "verilator-codegen", run_verilator_dpi_context),
+            ("SV2023-36.12.2.1-EXTRACT-ONE-CONSISTENT-MODE", "vpi-header-compiler", run_vpi_compatibility_headers),
+        ):
+            with self.subTest(requirement=requirement):
+                row = copy.deepcopy(next(r for r in self.registry["requirements"] if r["id"] == requirement))
+                self.reg["requirements"] = [row]
+                result = self.result(simulator="verilator")
+                execution, ignored = self.execute(result)
+                self.assertEqual((execution["executed"], ignored), ([], []))
+
+                result["configuration"] = {"evidence_profile": checker.PROFILE,
+                                           "checker_sha256": checker.checker_digest()}
+                result["simulator"] = simulator
+                execution, ignored = self.execute(result)
+                self.assertEqual(execution["executed"], [])
+                self.assertIn("legacy, unknown, or stale runner provenance", ignored[0])
+
+    def test_header_error_mapping_requires_its_compiler_diagnostic(self):
+        rid = "SV2023-36.12.2.1-EXTRACT-ONE-CONSISTENT-MODE"
+        row = next(r for r in self.registry["requirements"] if r["id"] == rid)
+        self.reg["requirements"] = [copy.deepcopy(row)]
+        check = self.reg["requirements"][0]["checks"][0]
+        self.validated()
+        profile = check.pop("evidence_profile")
+        self.assert_invalid("negative/positive case mismatch")
+        check["evidence_profile"] = profile
+        check["evidence"] = [a for a in check["evidence"]
+                             if run_vpi_compatibility_headers.DIAGNOSTIC_ANCHOR not in a["contains"]]
         self.assert_invalid("mapping must identify the checked output/diagnostic")
 
     def test_runtime_error_mapping_requires_output_and_exact_diagnostic_anchors(self):

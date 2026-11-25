@@ -1,0 +1,1 @@
+library selectedLib tree/cell?name*.sv, tree/child/deeper/cell?name*.sv;

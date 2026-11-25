@@ -1,0 +1,25 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch38/test_vpi_release_only_live_handles": {
+   "status": "pass",
+   "inputs_sha256": "8c95e3b9a4df8bb6ba62e574b00e2c209b0a7be9ec8a6751fe12b6e2c960c206"
+  }
+ },
+ "generated_at": "2026-11-25T11:26:18.899826+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "icarus-live-handle-release",
+  "checker_sha256": "78778726e073227f7134ca882dc21c89497775317a23d45b55c1fe6c2bb9b493",
+  "artifact_sha256": {
+   "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+   "iverilog-vpi": "c6ca340808b12378a9fe07b2c759fda5dbaf081f969d7a6ce2ecbfbb28b201eb",
+   "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+   "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+  },
+  "lldb_version": "lldb-2103.0.34.407"
+ }
+}

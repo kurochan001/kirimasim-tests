@@ -1,0 +1,46 @@
+{
+ "reference": "slang",
+ "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+ "slang_version": "slang version 12.0.0+a88cbc1b3",
+ "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+ "generated_at": "2026-11-25T00:29:08.376079+00:00",
+ "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+ "options": [
+  "--std=1800-2023",
+  "-Wno-error=index-oob",
+  "-Wno-error=string-int-concat",
+  "-Wno-error=string-in-constraint",
+  "--threads",
+  "1",
+  "-q"
+ ],
+ "summary": {
+  "illegal": {
+   "tests": 0,
+   "rejected_at_line": 0,
+   "rejected_elsewhere": 0,
+   "accepted": 0,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal": {
+   "tests": 3,
+   "clean": 1,
+   "rejected": 2,
+   "timeout": 0,
+   "crashed": 0
+  },
+  "legal_vpi": {
+   "tests": 0,
+   "clean": 0,
+   "rejected": 0,
+   "timeout": 0,
+   "crashed": 0
+  }
+ },
+ "tests": {
+  "ch6/test_vectored_bit_select_when_permitted": {"kind": "legal", "status": "rejected", "first_error": "tests/ch6/test_vectored_bit_select_when_permitted.sv:21:40: error: bit-selects and part-selects of vectored nets are disallowed", "inputs_sha256": "d2ce6b74a4544a9b4d7a5973d1500aa1758cb07ecc2c6c49df3e381a9bda7594"},
+  "ch6/test_vectored_part_select_when_permitted": {"kind": "legal", "status": "rejected", "first_error": "tests/ch6/test_vectored_part_select_when_permitted.sv:21:41: error: bit-selects and part-selects of vectored nets are disallowed", "inputs_sha256": "f5600358add3767ac02da1d00bf0c7a65bfd4164a7dd855fd744557ba7920a9d"},
+  "ch6/test_vectored_strength_when_permitted": {"kind": "legal", "status": "clean", "inputs_sha256": "a3954c326b5ff0c86dd1fe4c728e53c614090051b351f0e3f04923741b442265"}
+ }
+}

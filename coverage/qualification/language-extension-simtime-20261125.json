@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "test": "ch5/test_tool_system_function_raw_simulation_time",
+  "inputs_sha256": "e6c51c116bb10d9f03a88fdf82165770677e724d8170cdd89e575453d68de96d",
+  "expected_icarus": [
+    "fine local=20 raw=20000",
+    "coarse local=2 raw=20000",
+    "fine local=50 raw=50000",
+    "coarse local=5 raw=50000"
+  ],
+  "icarus": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "compiler_sha256": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "vvp_sha256": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+    "build_exit": 0,
+    "simulation_exit": 0,
+    "observed": [
+      "fine local=20 raw=20000",
+      "coarse local=2 raw=20000",
+      "fine local=50 raw=50000",
+      "coarse local=5 raw=50000"
+    ]
+  },
+  "ghost": {
+    "simulator_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665",
+    "simulation_exit": 0,
+    "extension_diagnostic": true,
+    "observed": [
+      "fine local=20 raw=0",
+      "coarse local=2 raw=0",
+      "fine local=50 raw=0",
+      "coarse local=5 raw=0"
+    ]
+  }
+}

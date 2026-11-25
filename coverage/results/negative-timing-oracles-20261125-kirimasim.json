@@ -1,0 +1,31 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch31/test_negative_setuphold_explicit_and_implicit_latches": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "544d8632c792511f4ad841fd21c099d64cb9e58f395ccad23cac5d310dc86366"
+  },
+  "ch31/test_negative_timing_adjusts_all_check_categories": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "3ff6c7a38ae97de1025b77a22ce0ebe7909ee760829bb5be508ce181398c886c"
+  },
+  "ch31/test_negative_timing_copies_align_setup_and_hold": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "8537430469e3188115d9b873918844ea3cd8b4061f7052e4650dbf8f6d7989a8"
+  },
+  "ch31/test_skew_checks_use_undelayed_timing_inputs": {
+   "status": "unsupported",
+   "reason": "specify pulse control or timing check (not implemented yet)",
+   "inputs_sha256": "6c11f2d54ae2727909e692dd72dd752deac6bcc59a123ead8122ee69fef6fedc"
+  }
+ },
+ "generated_at": "2026-11-25T00:47:54.574412+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "simulators": {
+    "verilator": {
+      "ch8/test_class_property_before_initializer_observation": {
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "inputs_sha256": "43f33f493f15b6866d2c1ba8f115f4758b7f53767ba5d85d7570a2de1ca08a88",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "before constructor",
+              "base argument=7 final property=29"
+            ]
+          },
+          "early": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "before constructor",
+              "base argument=29 final property=29"
+            ]
+          }
+        }
+      },
+      "ch6/test_variable_drive_strength_warning_observation": {
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "inputs_sha256": "89d90c9b5aa02427dccbdc109dfb7919fbc4020454c5f7c32564a03db4329994",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "zero value=0 variable path=0 net path=1",
+              "one value=1 variable path=1 net path=1"
+            ]
+          },
+          "explicit": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "zero value=0 variable path=0 net path=1",
+              "one value=1 variable path=1 net path=1"
+            ]
+          }
+        }
+      },
+      "ch12/test_unique_and_unique0_condition_contract": {
+        "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+        "inputs_sha256": "70a3954d66465a5e60414382a4d7e2b9f2a82b84c34b5067e89e198e9e560843",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "selector=0 unique=11 unique0=44",
+              "selector=1 unique=22 unique0=55",
+              "selector=2 unique=33 unique0=0"
+            ]
+          },
+          "unique": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 1,
+            "stdout": [],
+            "uniqueness_diagnostics": [
+              "[0] %Error: test_unique_and_unique0_condition_contract.sv:19: Assertion failed in test_unique_and_unique0_condition_contract.inspect: 'unique if' statement violated"
+            ]
+          },
+          "unique0": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 1,
+            "stdout": [],
+            "uniqueness_diagnostics": [
+              "[0] %Error: test_unique_and_unique0_condition_contract.sv:25: Assertion failed in test_unique_and_unique0_condition_contract.inspect: 'unique if' statement violated"
+            ]
+          }
+        }
+      }
+    },
+    "kirimasim": {
+      "ch8/test_class_property_before_initializer_observation": {
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "inputs_sha256": "43f33f493f15b6866d2c1ba8f115f4758b7f53767ba5d85d7570a2de1ca08a88",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "before constructor",
+              "base argument=7 final property=29"
+            ]
+          },
+          "early": {
+            "exit": 0,
+            "stdout": [
+              "before constructor",
+              "base argument=0 final property=29"
+            ]
+          }
+        }
+      },
+      "ch6/test_variable_drive_strength_warning_observation": {
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "inputs_sha256": "89d90c9b5aa02427dccbdc109dfb7919fbc4020454c5f7c32564a03db4329994",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "zero value=0 variable path=0 net path=1",
+              "one value=1 variable path=1 net path=1"
+            ]
+          },
+          "explicit": {
+            "exit": 0,
+            "stdout": [
+              "zero value=0 variable path=0 net path=1",
+              "one value=1 variable path=1 net path=1"
+            ]
+          }
+        }
+      },
+      "ch12/test_unique_and_unique0_condition_contract": {
+        "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+        "inputs_sha256": "70a3954d66465a5e60414382a4d7e2b9f2a82b84c34b5067e89e198e9e560843",
+        "trials": {
+          "control": {
+            "exit": 0,
+            "stdout": [
+              "selector=0 unique=11 unique0=44",
+              "selector=1 unique=22 unique0=55",
+              "selector=2 unique=33 unique0=0"
+            ]
+          },
+          "unique": {
+            "exit": 0,
+            "stdout": [
+              "selector=0 unique=11 unique0=44",
+              "selector=1 unique=22 unique0=55",
+              "selector=2 unique=33 unique0=0"
+            ],
+            "uniqueness_diagnostics": []
+          },
+          "unique0": {
+            "exit": 0,
+            "stdout": [
+              "selector=0 unique=11 unique0=44",
+              "selector=1 unique=22 unique0=55",
+              "selector=2 unique=33 unique0=0"
+            ],
+            "uniqueness_diagnostics": []
+          }
+        }
+      }
+    },
+    "icarus": {
+      "ch8/test_class_property_before_initializer_observation": {
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "inputs_sha256": "43f33f493f15b6866d2c1ba8f115f4758b7f53767ba5d85d7570a2de1ca08a88",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "before constructor",
+              "base argument=7 final property=29"
+            ]
+          },
+          "early": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "before constructor",
+              "base argument=0 final property=29"
+            ]
+          }
+        }
+      },
+      "ch6/test_variable_drive_strength_warning_observation": {
+        "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "inputs_sha256": "89d90c9b5aa02427dccbdc109dfb7919fbc4020454c5f7c32564a03db4329994",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": [],
+            "exit": 0,
+            "stdout": [
+              "zero value=0 variable path=0 net path=1",
+              "one value=1 variable path=1 net path=1"
+            ]
+          },
+          "explicit": {
+            "compile_exit": 1,
+            "compile_diagnostics": [
+              "test_variable_drive_strength_warning_observation.sv:21: error: Variable 'value' cannot be driven by a primitive or continuous assignment with non-default strength."
+            ]
+          }
+        }
+      }
+    },
+    "slang": {
+      "ch8/test_class_property_before_initializer_observation": {
+        "version": "slang version 12.0.0+0",
+        "inputs_sha256": "43f33f493f15b6866d2c1ba8f115f4758b7f53767ba5d85d7570a2de1ca08a88",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": []
+          },
+          "early": {
+            "compile_exit": 0,
+            "compile_diagnostics": []
+          }
+        }
+      },
+      "ch6/test_variable_drive_strength_warning_observation": {
+        "version": "slang version 12.0.0+0",
+        "inputs_sha256": "89d90c9b5aa02427dccbdc109dfb7919fbc4020454c5f7c32564a03db4329994",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": []
+          },
+          "explicit": {
+            "compile_exit": 0,
+            "compile_diagnostics": []
+          }
+        }
+      },
+      "ch3/test_combined_compile_elaboration_results": {
+        "version": "slang version 12.0.0+0",
+        "inputs_sha256": "2fe6fece64eb55a0f4c0e0ca1e2a687b6f704255695c1da80c94825d5ca221eb",
+        "trials": {
+          "control": {
+            "compile_exit": 0,
+            "compile_diagnostics": []
+          },
+          "parse": {
+            "compile_exit": 0,
+            "compile_diagnostics": []
+          },
+          "unbound_parse": {
+            "compile_exit": 0,
+            "compile_diagnostics": []
+          },
+          "unbound_combined": {
+            "compile_exit": 1,
+            "compile_diagnostics": [
+              "test_combined_compile_elaboration_results.sv:31:7: error: unknown module 'phase_missing'"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

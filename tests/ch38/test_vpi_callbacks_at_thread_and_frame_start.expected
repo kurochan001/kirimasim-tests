@@ -1,0 +1,4 @@
+before fork
+task body argument=37 local=58
+task body argument=51 local=72
+after join

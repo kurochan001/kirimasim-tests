@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .テストは483本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは485本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -14,6 +14,7 @@
 | [`test_nba_cross_module_timing`](../../tests/ch4/test_nba_cross_module_timing.sv) |親モジュールと子モジュールの間の正確な NBA タイミングを追跡| 4.3 | Icarus Verilog 13.0 ||
 | [`test_nba_port_propagation`](../../tests/ch4/test_nba_port_propagation.sv) |NBA 書き込みはポート接続を通して伝播する| 4.3 10.4.2 4.9.6 10.3 | Icarus Verilog 13.0 ||
 | [`test_pli_callbacks_are_evaluation_events`](../../tests/ch4/test_pli_callbacks_are_evaluation_events.sv) |登録した PLI コールバックは、予定された時間スロットの評価イベントである: それぞれはそのスロットのイベントの中の自分の制御点で動き、それより前のイベントが残した値を見て、書いた値は同じスロットで設計を起こす更新イベントになる| 4.3 4.10 38.36.2 | Icarus Verilog 13.0 | VPI |
+| [`test_reference_scheduler_trace_set`](../../tests/ch4/test_reference_scheduler_trace_set.sv) |時刻を指定した競合とNBAによる処理の再開を、イベントスケジューラが許容するトレースと照合する| 4.3 4.5 | Icarus Verilog 13.0 ||
 | [`test_sched_region_iteration`](../../tests/ch4/test_sched_region_iteration.sv) |タイムスロットはアクティブ、インアクティブ、NBA を繰り返し、反復作業が終わった後に 遅延状態に到達します。遅延状態の次のスロットは| 4.3 4.4 4.4.1 4.4.2 4.4.3.10 | Icarus Verilog 13.0 ||
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) |変数またはネットの値の変更だけが更新イベントであり、更新イベントはそれに感度のあるすべてのプロセスを起動させます。| 4.3 4.5 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) |1 つのタイムスロットの領域は、シミュレーション領域の間に PLI 領域を挟んで、定められた順に来る：Preponed、Pre-Active、Active、Inactive、Pre-NBA、 NBA 、Observed、Reactive、Re-Inactive、Re-NBA、再び active 領域集合、Pre-Postponed、Postponed| 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 |規格のみ| VPI |
@@ -80,6 +81,7 @@
 | [`test_sched_zero_delay_chain_defers_nba`](../../tests/ch4/test_sched_zero_delay_chain_defers_nba.sv) |0 から続行し続けるプロセスは、ブロックしないタイムステップの更新前に実行されます。| 4.5 4.4.2.3 4.4.2.4 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_array_element_noop_nba_keeps_override_order`](../../tests/ch4/test_array_element_noop_nba_keeps_override_order.sv) |ブロックしない配列要素への代入は、現在の値を代入たときにも順序を保つ。| 4.6 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_begin_end_order_across_suspensions`](../../tests/ch4/test_begin_end_order_across_suspensions.sv) |ブロックが遅延、イベント制御、#0、待ちステートメント、その他のプロセスによって一時停止された場合も、始まりから終わりまでのブロックのステートメントはソースの順序で実行されます。| 4.6 9.3.1 | Icarus Verilog 13.0 ||
+| [`test_active_sample_and_reactive_settling`](../../tests/ch4/test_active_sample_and_reactive_settling.sv) |Active で許容される複数段階と、Reactive の安定値を照合する| 4.7 24.4 |規格のみ||
 | [`test_port_complex_expr_extended`](../../tests/ch4/test_port_complex_expr_extended.sv) |ポート接続表現| 4.7 23.3.2 23.3.3 4.9.6 | Icarus Verilog 13.0 ||
 | [`test_range_select_lhs`](../../tests/ch4/test_range_select_lhs.sv) |可変境界を持つ部分選択割当| 4.9 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_port_connection_evaluated_at_time_zero`](../../tests/ch4/test_port_connection_evaluated_at_time_zero.sv) |inputポートの暗黙の継続代入は時刻0で評価します。そのため、定数式または宣言時初期値を保持する変数に接続したポートは、値変化がなくてもその値になります。| 4.9.1 4.9.6 23.3.3 | Icarus Verilog 13.0 ||

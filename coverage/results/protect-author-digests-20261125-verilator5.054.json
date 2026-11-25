@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch34/test_protect_author_digest_inherits_data_key": {
+   "status": "known",
+   "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_author_digest_inherits_data_key.sv:16:17: Unknown '`pragma protect' error",
+   "inputs_sha256": "730a00456f9c87be3199536e33ef9cdfd41dab53f55964c115810a98a009fab0"
+  },
+  "ch34/test_protect_author_digest_wraps_explicit_key": {
+   "status": "known",
+   "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_author_digest_wraps_explicit_key.sv:16:17: Unknown '`pragma protect' error",
+   "inputs_sha256": "9c2c98d107bcb1816e110744bab68fd74825a349cb3cda7cf7bdcda4c13ea655"
+  }
+ },
+ "generated_at": "2026-11-25T02:21:25.029148+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

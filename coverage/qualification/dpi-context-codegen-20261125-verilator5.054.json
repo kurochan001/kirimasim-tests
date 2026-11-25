@@ -1,0 +1,21 @@
+{
+  "profile": "verilator-dpi-context-codegen",
+  "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "binary_sha256": {
+    "launcher": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+    "compiler": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  },
+  "checker_sha256": "3d437444e37eb061bbe82dcff6c409a9ab8460f8b9a19fb967b22c60028d55c8",
+  "tests": {
+    "ch35/test_dpi_context_and_noncontext_access_in_two_instances": {
+      "inputs_sha256": "8627cb3c348c69c6602a1fd378ac566d7bb77de77820a89a8f2577c6da6c0c8c",
+      "generated": true,
+      "checks": {
+        "context_initialized_before_call": true,
+        "ordinary_keeps_original_arguments": true,
+        "context_passes_instance_scopes": true,
+        "ordinary_has_no_scope_argument": true
+      }
+    }
+  }
+}

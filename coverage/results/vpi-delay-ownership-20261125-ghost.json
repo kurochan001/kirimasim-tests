@@ -1,0 +1,34 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch37/test_vpi_interconnect_delay_device_one_fanout_branch": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "c5df39f9967d783de7e2dfecb626b3130fa06f950214d22f58ff9dcb38064e38"
+  },
+  "ch37/test_vpi_interconnect_delay_device_single_load": {
+   "status": "fail",
+   "reason": "output differs",
+   "inputs_sha256": "b4af4d9f04f1e076d26e368fc5bc8cf33b601a9598c298b08ad95369c6a762f2"
+  },
+  "ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner": {
+   "status": "fail",
+   "reason": "output differs (exit 1)",
+   "inputs_sha256": "6fa4a7844c94b898b057a5f5c9e3b5df6f92e5491b75e8cee1196e4585dcfb9e"
+  },
+  "ch37/test_vpi_interface_specify_paths_keep_interface_owner": {
+   "status": "fail",
+   "reason": "output differs (exit 1)",
+   "inputs_sha256": "8272f192511203a0192ba659b84a421597b4f2ee303bc97534a7fa8b9bc09143"
+  }
+ },
+ "generated_at": "2026-11-24T21:31:31.386612+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "profile_sha256": "8be4091cb63e2ddb0f1bc272c4dd5e56f39bf67954e66bc0036e61813d25edae"
+ }
+}

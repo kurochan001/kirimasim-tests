@@ -1,0 +1,30 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch15/test_mailbox_negative_bound_observation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch15/test_mailbox_negative_bound_observation.sv:14: syntax error",
+   "inputs_sha256": "cc1f92d5a47cefda65129e0978d692e35ee47191cb039df25677fee3e78dcfa1"
+  },
+  "ch16/test_assertion_clock_multiple_transitions_observation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch16/test_assertion_clock_multiple_transitions_observation.sv:18: sorry: concurrent_assertion_item not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "92ff8b96f5b150dcbd6593ebdad1f756f25d405cee9a2eda45e988e31bb0e87d"
+  },
+  "ch23/test_port_type_time_zero_events": {
+   "status": "pass",
+   "inputs_sha256": "997ea6cc79a9f1e9341d39c8a3a14edcaaae5e54e98f5fa34cc2997836e240eb"
+  },
+  "ch24/test_design_and_program_assertion_clocks": {
+   "status": "known",
+   "reason": "compile failed: tests/ch24/test_design_and_program_assertion_clocks.sv:18: sorry: concurrent_assertion_item not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+   "inputs_sha256": "6b4c53e911bb0fa2d0ccdcc20881448cf6b87c377fc4d97c50513081c83a4a18"
+  }
+ },
+ "generated_at": "2026-11-25T05:41:20.264804+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

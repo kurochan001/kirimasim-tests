@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-25",
+  "lrm": [
+    "31.9.1",
+    "31.9.3",
+    "31.9.4"
+  ],
+  "snapshots": {
+    "ghost": "results/negative-timing-oracles-20261125-ghost.json",
+    "icarus": "results/negative-timing-oracles-20261125-icarus13.json",
+    "verilator": "results/negative-timing-oracles-20261125-verilator5.054.json",
+    "kirimasim": "results/negative-timing-oracles-20261125-kirimasim.json",
+    "slang": "slang/negative-timing-oracles-20261125-slang.json"
+  },
+  "precondition": "The expected native results apply when negative timing checks are enabled under 31.9.4.",
+  "time_unit": "1 ns",
+  "ghost": {
+    "expected_output_matches": 0,
+    "externally_shifted_control_waveforms_matched": 4,
+    "notifiers_per_shifted_control": 9,
+    "negative_delay_observed": false,
+    "details": {
+      "negative_setuphold_explicit_and_implicit_latches": {
+        "actual": [
+          "stable: delayed edge=30 latched=0 raw=0 notices=1,1",
+          "violation: delayed edge=90 notices=2,2 at=105,105"
+        ],
+        "expected": [
+          "stable: delayed edge=40 latched=1 raw=0 notices=0,0",
+          "violation: delayed edge=100 notices=1,1 at=105,105"
+        ]
+      },
+      "skew_checks_use_undelayed_timing_inputs": {
+        "actual": [
+          "negative setup copies=20,24 skew=24 timeskew=24 fullskew=24",
+          "zero setup copies=20,24 skew=24 timeskew=24 fullskew=24"
+        ],
+        "expected": [
+          "negative setup copies=28,24 skew=24 timeskew=24 fullskew=24",
+          "zero setup copies=20,24 skew=24 timeskew=24 fullskew=24"
+        ]
+      },
+      "negative_timing_adjusts_all_check_categories": {
+        "actual": [
+          "native 17 first=20,17 setup=20 hold=0 setuphold=20 recovery=20 removal=0 recrem=20 width=30 period=45 nochange=0",
+          "shifted 17 first=28,22 setup=28 hold=0 setuphold=28 recovery=28 removal=0 recrem=28 width=38 period=53 nochange=0",
+          "native 24 first=20,24 setup=0 hold=24 setuphold=24 recovery=0 removal=24 recrem=24 width=30 period=45 nochange=24",
+          "shifted 24 first=28,29 setup=0 hold=29 setuphold=29 recovery=0 removal=29 recrem=29 width=38 period=53 nochange=29",
+          "native 31 first=20,31 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=30 period=45 nochange=31",
+          "shifted 31 first=28,36 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=36",
+          "native 34 first=20,34 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=30 period=45 nochange=0",
+          "shifted 34 first=28,39 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=0"
+        ],
+        "expected": [
+          "native 17 first=28,22 setup=28 hold=0 setuphold=28 recovery=28 removal=0 recrem=28 width=38 period=53 nochange=0",
+          "shifted 17 first=28,22 setup=28 hold=0 setuphold=28 recovery=28 removal=0 recrem=28 width=38 period=53 nochange=0",
+          "native 24 first=28,29 setup=0 hold=29 setuphold=29 recovery=0 removal=29 recrem=29 width=38 period=53 nochange=29",
+          "shifted 24 first=28,29 setup=0 hold=29 setuphold=29 recovery=0 removal=29 recrem=29 width=38 period=53 nochange=29",
+          "native 31 first=28,36 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=36",
+          "shifted 31 first=28,36 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=36",
+          "native 34 first=28,39 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=0",
+          "shifted 34 first=28,39 setup=0 hold=0 setuphold=0 recovery=0 removal=0 recrem=0 width=38 period=53 nochange=0"
+        ]
+      },
+      "negative_timing_copies_align_setup_and_hold": {
+        "actual": [
+          "hold before ref=40 data=26 setuphold=0",
+          "hold inside ref=40 data=32 setuphold=40",
+          "hold after ref=40 data=38 setuphold=40",
+          "setup before ref=40 data=42 setuphold=42",
+          "setup inside ref=40 data=48 setuphold=48",
+          "setup after ref=40 data=54 setuphold=0"
+        ],
+        "expected": [
+          "hold before ref=40 data=31 setuphold=0",
+          "hold inside ref=40 data=37 setuphold=40",
+          "hold after ref=40 data=43 setuphold=0",
+          "setup before ref=45 data=42 setuphold=0",
+          "setup inside ref=45 data=48 setuphold=48",
+          "setup after ref=45 data=54 setuphold=0"
+        ]
+      }
+    }
+  },
+  "interpretation": [
+    "Keep the full results as mismatches because the native delayed-copy premise did not hold.",
+    "The positive control checks the reference waveforms and nine notifier times with explicit delays and adjusted limits.",
+    "Matching skew notifier times alone does not establish behavior with internally delayed signals."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-25",
+  "tool": "Slang",
+  "fixture": "tools/test_slang_subroutine_syntax.py",
+  "fixture_sha256": "c5ecee90fa865f9361a23d9c42d01dab587b27bbeea257ca8efa1bd92df42eee",
+  "requirements": [
+    "SV2023-A.2.3-EXTRACT-DIM-LIST-72",
+    "SV2023-13.5.3-EXTRACT-ANSI-DEFAULT-ONLY"
+  ],
+  "inputs_sha256": {
+    "tests/ch13/test_non_ansi_task_argument_list_preserves_each_declarator.sv": "160c05f6c3c0abf44dd64a5734183072f9eb33bb7978a8d47ead019640552c70",
+    "tests/ch13/test_illegal_default_argument_in_non_ansi_declaration.sv": "dcca85ed0eada95aec171af85dcd8298704a404ac2649e52063255f01108d180"
+  },
+  "observations": {
+    "parsed_declarators": [
+      [
+        "first_value",
+        0
+      ],
+      [
+        "pair",
+        1
+      ],
+      [
+        "matrix",
+        2
+      ],
+      [
+        "last_value",
+        0
+      ]
+    ],
+    "parsed_non_ansi_initializer": {
+      "port": "b",
+      "expression": "3"
+    },
+    "elaboration_rejects_initializer_at_source_line": 29
+  },
+  "runs": [
+    {
+      "version": "slang version 12.0.0+0",
+      "binary_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "passed": true
+    },
+    {
+      "version": "slang version 12.0.0+a88cbc1b3",
+      "binary_sha256": "5fcf043a7b6a40f2d4747d0a726ddf0c428ff3a19c6ebf3e49d85e870c9a74fd",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+first read 41, second read 41
+staged index cursor=1
+first read 8, second read 8
+staged task calls=1
+first read 21, second read 21
+first read 4, second read 4
+staged function calls=2

@@ -1,0 +1,80 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch33/test_illegal_library_map_contains_a_module_declaration": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a5934500ed2f6b71aa08b321bd937f5b4dab66d394753ab28303d7f7ec2d94e5"
+  },
+  "ch33/test_illegal_library_map_same_priority_file_match": {
+   "status": "fail",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "a907c11b667b590acec4e518e9d148b5a29333b210445ed61865da740e495211"
+  },
+  "ch33/test_library_map_dot_and_parent_are_relative_to_the_map": {
+   "status": "pass",
+   "inputs_sha256": "76282d714f3641edda1b7af03461a94455fb6e290b284715c6e631a5246461a5"
+  },
+  "ch33/test_library_map_grammar_binds_config_and_local_include_lists": {
+   "status": "unsupported",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch33/libmap_grammar/maps/main.map:8:1: Unsupported: config include",
+   "inputs_sha256": "8c400380bbcf0a8a0232eff339e53f88a5a677da6a612216e741510ae3db75e0"
+  },
+  "ch33/test_library_map_hierarchical_wildcard_matches_zero_and_nested_directories": {
+   "status": "fail",
+   "reason": "output differs: line 1 is 'shallow=61 deep=99', expected 'shallow=7 deep=29'",
+   "inputs_sha256": "d94f69bcac019c48c2cbddb5bb9533493e0c0df6f2c63e266b0a92bd963c6dc1"
+  },
+  "ch33/test_library_map_include_preserves_its_own_relative_paths": {
+   "status": "unsupported",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch33/libmap_relative/maps/main.map:1:1: Unsupported: config include",
+   "inputs_sha256": "37e1e8a6b7a553622188968c1bf2df5b5442bdcf4e4139dc28a112bfe5697d56"
+  },
+  "ch33/test_library_map_order_selects_first_matching_cell": {
+   "status": "pass",
+   "inputs_sha256": "6bd581c8c16511c9721a51e73188a6314f00c605f1bafb7fea2b89784dc9a5d0"
+  },
+  "ch33/test_library_map_question_matches_exactly_one_character": {
+   "status": "pass",
+   "inputs_sha256": "54d63438389e7a401a9c806e89a1a5a0aab342ec0192f451ebb13247ec82b325"
+  },
+  "ch33/test_library_map_relative_directory_path_aliases": {
+   "status": "fail",
+   "reason": "output differs: line 2 is 'nested slash=53 slash-star=82', expected 'nested slash=53 slash-star=53'",
+   "inputs_sha256": "9c2b01ab43f5bc35f7c2be0ed88cb2372ab414c04565a2740f85ccbeea6ab201"
+  },
+  "ch33/test_library_map_reversed_order_changes_selected_cell": {
+   "status": "fail",
+   "reason": "output differs: line 1 is 'selected=17 supplemental=61', expected 'selected=29 supplemental=61'",
+   "inputs_sha256": "f6dfc341f224160becfa336f558a06c6c4ddc0973edb9f72cc9a20d80d414fc5"
+  },
+  "ch33/test_library_map_star_stays_within_a_path_component": {
+   "status": "fail",
+   "reason": "output differs: line 1 is 'empty=8 longer=66', expected 'empty=8 longer=24'",
+   "inputs_sha256": "8a2ae9063fd07f889233c0a0240b48b03a91476e5586e86eb47683ed75c00e69"
+  },
+  "ch33/test_library_maps_prefer_explicit_then_wildcard_then_directory": {
+   "status": "pass",
+   "inputs_sha256": "301962b29469336ee147bc3d8c7d5c653fc1372b0ec2a4fff476d4eca2b5bc2c"
+  },
+  "ch33/test_nested_library_map_includes_restore_the_containing_directory": {
+   "status": "unsupported",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch33/libmap_nested/maps/root.map:1:1: Unsupported: config include",
+   "inputs_sha256": "108b2fb4b82dd2ff403e89b9b118f2ae9ccb40234b3dc73546576de75a8a8a9b"
+  }
+ },
+ "generated_at": "2026-11-24T20:50:45.119056+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-library-map",
+  "seed": 1,
+  "checker_sha256": "7914394d5df9b846e5335ad2fcd9ba2844cd808155c12a522d02557d8f7067ba",
+  "binary_sha256": {
+   "launcher": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "compiler": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  }
+ }
+}

@@ -1,0 +1,22 @@
+{
+  "tool": "icarus",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "evidence_profile": "icarus-waveform-sections",
+  "checker_sha256": "0fe98b0f3f96f73f2e400d3a6103477fb1122b3a4b995194aa3c90258f3c907c",
+  "binary_sha256": {
+    "executable": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "runtime": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+  },
+  "cases": {
+    "ch21/test_vcd_comment_insertion_preserves_dumpall": {
+      "inputs_sha256": "a588015eb44d38451e68ff1c776fddaccec948246871f53371f0454b4da6cc20",
+      "scale_fs": 10000,
+      "dumpall_times_fs": [
+        2000000
+      ],
+      "dumper_limit_comment": true,
+      "comments_preserve_records": true,
+      "pass": true
+    }
+  }
+}

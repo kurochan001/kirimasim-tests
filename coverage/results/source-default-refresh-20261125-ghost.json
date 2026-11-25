@@ -1,0 +1,96 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch22/test_22_extra_include_syntax": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_angle_include_search_uses_only_standard_files": {
+   "status": "fail",
+   "reason": "output differs (exit 1)",
+   "inputs_sha256": "fc3e38bcc4a79431dcdb3e5732833b04b83fdac332160efa89d4d0af085c6220"
+  },
+  "ch22/test_directive_macro_expansion_not_in_comments_or_strings": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_directive_scope_across_include_until_superseded": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_illegal_begin_keywords_inside_module": {
+   "status": "pass",
+   "inputs_sha256": "6fae72c0dfe6771f11c05ec6f5d7a31231c19bca997e744c3cbb1bd0bbb0ec38"
+  },
+  "ch22/test_illegal_begin_keywords_spans_include_boundary": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_illegal_begin_keywords_survives_resetall": {
+   "status": "pass",
+   "inputs_sha256": "c469524a9851943c74644a443705ffcb933292b306974e2b8551ceeb40852a6e"
+  },
+  "ch22/test_illegal_include_absolute_path_in_angle_brackets": {
+   "status": "pass",
+   "inputs_sha256": "3afaf1409d98797f1911648996f78077425ccc4093daaeb65dfcd94cfaa03d9f"
+  },
+  "ch22/test_illegal_include_absolute_path_not_searched": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_illegal_include_line_trailing_code": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_illegal_keyword_reserved_again_after_end_keywords": {
+   "status": "pass",
+   "inputs_sha256": "dced6a84a2af1fa81a1b1e7771d9e332e00b5d3ebffd4cb38bd7a744dd8307a8"
+  },
+  "ch22/test_include_file_declarations": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_include_guard_twice": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_include_guard_two_files": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_include_nested": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_resetall_leaves_text_macros_usable": {
+   "status": "pass",
+   "inputs_sha256": "8814193494f91ef042976855126ed5a5c3b9fca77fc3a0cf1ec7a49017f92f77"
+  },
+  "ch22/test_resetall_restores_defaults_keeps_macros": {
+   "status": "pass",
+   "inputs_sha256": "5c2ee2d8485050534f07a8c6e4ea6c4a4dd76adf7bf3053e84bf449c288abaff"
+  },
+  "ch22/test_selected_default_keyword_set_controls_bit": {
+   "status": "fail",
+   "reason": "output differs (exit 1)",
+   "inputs_sha256": "48fe97c8e851512bf33cb6d9e77bfab50ce3da8a1b43db7bac268ccf42d44e05"
+  },
+  "ch3/test_include_text_joins_compilation_unit": {
+   "status": "pass",
+   "inputs_sha256": "23f9da2a35c8730a3aed915bd27f83052d48f5f41c5aba98ac0a68276cef741b"
+  },
+  "ch3/test_selected_defaults_set_time_unit_and_precision": {
+   "status": "pass",
+   "inputs_sha256": "aaa327d46dc991ee339386d182db53e38db57d2c0e791cd586153744a926d3ae"
+  }
+ },
+ "generated_at": "2026-11-25T00:01:59.872880+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+ }
+}

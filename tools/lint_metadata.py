@@ -21,9 +21,8 @@ without ".sv". The rules:
     stderr-regex        :expected_stderr_regex: is not a regular expression
                         that Python compiles
     stderr-location     the :expected_stderr_regex: of an illegal design names
-                        no place of the error: a file name ending in .sv,
-                        .svh, .v or .vh, a colon and a line number (or a
-                        group of line numbers)
+                        neither a file and line nor the declared source file
+                        named by a whole-file library-map error
     value               a field has a value outside its allowed set (:type:,
                         :oracle:, :spec_check:, :fourstate:,
                         :nondeterministic:, :expected_exit:, :generator:,
@@ -103,7 +102,7 @@ EMPTY_FIELD = re.compile(r"^:(\w+):[ \t]*$", re.MULTILINE)
 FIELD = re.compile(r"^:(\w+):", re.MULTILINE)
 # A place in an :expected_stderr_regex: such as test_x\.sv:12: or
 # test_x\.sv:(12|13): (README, ":should_fail_because:").
-LOCATION = re.compile(r"\.(?:svh?|vh?)\)?\??:\(?(?:\?:)?\[?\d")
+LOCATION = re.compile(r"\.(?:svh?|vh?|map)\)?\??:\(?(?:\?:)?\[?\d")
 
 
 def split(test: Path) -> tuple[str, list[str]]:
@@ -131,10 +130,9 @@ def modules_of(paths: list[Path]) -> set[str]:
     names = set()
     for p in paths:
         if p.is_file():
-            names |= set(re.findall(r"^\s*(?:module|program|interface|config)\s+(?:automatic\s+|static\s+)?"
-                                    r"(\w+)", code_of(p.read_text(encoding="utf-8",
-                                                                  errors="replace").splitlines()),
-                                    re.MULTILINE))
+            kind = "config" if p.suffix == ".map" else "(?:module|program|interface|config)"
+            code = code_of(p.read_text(encoding="utf-8", errors="replace").splitlines())
+            names.update(re.findall(rf"^\s*{kind}\s+(?:automatic\s+|static\s+)?(\w+)", code, re.MULTILINE))
     return names
 
 
@@ -218,6 +216,8 @@ def check(test: Path) -> list[tuple[str, str]]:
             bad("fourstate", f"x or z literal {m.group(0)!r}")
 
     illegal = "should_fail_because" in fields
+    declared_files = [test.parent / name for name in fields.get("files", "").split()]
+    library_maps = [path for path in declared_files if path.suffix == ".map"]
     expected_names = [f for f in EXPECTED_FIELDS if f in fields]
     for f in fields:
         if f.startswith(EXPECTED + "_") and f not in EXPECTED_FIELDS:
@@ -229,8 +229,12 @@ def check(test: Path) -> list[tuple[str, str]]:
         if "expected_stderr_regex" not in fields:
             bad("should-fail", ":should_fail_because: without :expected_stderr_regex:")
         elif not LOCATION.search(fields["expected_stderr_regex"]):
-            bad("stderr-location", f":expected_stderr_regex: {fields['expected_stderr_regex']} "
-                "names no file and line")
+            diagnostic = fields["expected_stderr_regex"]
+            if not (library_maps and diagnostic.startswith("^error: '")
+                    and any(path.suffix in (".sv", ".v") and re.escape(path.name) + "': " in diagnostic
+                            for path in declared_files)):
+                bad("stderr-location", f":expected_stderr_regex: {diagnostic} "
+                    "names no file and line or declared source for a library-map diagnostic")
         if expected_names:
             bad("should-fail", ":should_fail_because: with " + ", ".join(
                 f":{n}:" for n in expected_names))
@@ -264,7 +268,7 @@ def check(test: Path) -> list[tuple[str, str]]:
         if f in fields and not (test.parent / fields[f].removeprefix("@")).is_file():
             bad("file", f":{f}: {fields[f]} does not exist")
     top = fields.get("top_module")
-    if top and top not in modules_of([test] + suite_results.files(test)[0]):
+    if top and top not in modules_of([test, *suite_results.files(test)[0], *library_maps]):
         bad("top-module", f":top_module: {top} is not declared")
 
     for n, line in enumerate(lines, header.count("\n") + 1):

@@ -1,0 +1,3 @@
+multiclock=1 segments=2
+clock_a: edge=1 body=1
+clock_b: edge=1 body=1

@@ -1,0 +1,9 @@
+keys B put=0
+keys snapshot private=-1,2071 numeric=5533,5533
+keys snapshot private=-1,-1 numeric=-1,-1
+keys A put=0
+keys snapshot private=1017,2071 numeric=4422,4422
+keys A put=0
+keys B put=0
+keys snapshot private=3017,4071 numeric=7533,7533
+keys snapshot private=1017,2071 numeric=4422,4422

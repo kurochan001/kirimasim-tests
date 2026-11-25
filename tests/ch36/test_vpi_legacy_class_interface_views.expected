@@ -1,0 +1,5 @@
+abi=vpi_iterate
+scopes defn=1 typespec=1 plain=1 plain_classes=0
+defn iter=0 count=0 virtual=0 ref=0 actual=0 name_mask=0
+typespec iter=1 count=2 virtual=2 ref=0 actual=0 name_mask=3
+interface connections=1,0

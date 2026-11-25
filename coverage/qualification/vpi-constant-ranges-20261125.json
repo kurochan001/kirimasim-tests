@@ -1,0 +1,430 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-M.2-EXTRACT-RESERVED",
+    "SV2023-M.2-EXTRACT-DEPRECATED"
+  ],
+  "qualified": {
+    "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "configuration": {
+      "evidence_profile": "vpi-reserved-constant-ranges",
+      "checker_sha256": "0d7c7c6d5ab229580b0462a26a2c13c9e729e9d42d0753d84ab4de6e728f0bf6",
+      "binary_and_header_sha256": {
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+        "c": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "c++": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "verilator/vpi_user.h": "b9f3fc98128296a9067b0a8b27e50cc0a7270cfa2cef36d92e473e0417aa43c7",
+        "verilator/sv_vpi_user.h": "57e8fbbc5d94c0de1b293d3e1f9cd41fda4acbebd88a564d0e937baa25079306",
+        "comparison/vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+        "comparison/sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+        "comparison/vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c"
+      },
+      "compilers": {
+        "c": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+        "c++": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+      }
+    },
+    "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+    "tests": {
+      "ch36/test_vpi_extension_reserved_constant_ranges": {
+        "inputs_sha256": "bc5100d958bf1d99ab0c87beed6d56f3c890860ecda0314b4ddeff8ed454e8cd",
+        "headers": {
+          "verilator": {
+            "c": {
+              "pass": true,
+              "baseline": {
+                "preprocess_exit": 0,
+                "public_object_macros": 852,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {}
+              },
+              "boundary_controls": {
+                "preprocess_exit": 0,
+                "public_object_macros": 856,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {
+                  "cbLastFuture": 899,
+                  "vpiFirstFuture": 800
+                }
+              }
+            },
+            "c++": {
+              "pass": true,
+              "baseline": {
+                "preprocess_exit": 0,
+                "public_object_macros": 852,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {}
+              },
+              "boundary_controls": {
+                "preprocess_exit": 0,
+                "public_object_macros": 856,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {
+                  "cbLastFuture": 899,
+                  "vpiFirstFuture": 800
+                }
+              }
+            }
+          },
+          "comparison": {
+            "c": {
+              "pass": true,
+              "baseline": {
+                "preprocess_exit": 0,
+                "public_object_macros": 862,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {}
+              },
+              "boundary_controls": {
+                "preprocess_exit": 0,
+                "public_object_macros": 866,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {
+                  "cbLastFuture": 899,
+                  "vpiFirstFuture": 800
+                }
+              }
+            },
+            "c++": {
+              "pass": true,
+              "baseline": {
+                "preprocess_exit": 0,
+                "public_object_macros": 862,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {}
+              },
+              "boundary_controls": {
+                "preprocess_exit": 0,
+                "public_object_macros": 866,
+                "compile_exit": 0,
+                "run_exit": 0,
+                "coverage": {
+                  "vpiAssertAttemptCovered": 770,
+                  "vpiAssertCoverage": 760,
+                  "vpiAssertDisableCovered": 774,
+                  "vpiAssertFailureCovered": 772,
+                  "vpiAssertKillCovered": 777,
+                  "vpiAssertSuccessCovered": 771,
+                  "vpiAssertVacuousSuccessCovered": 773,
+                  "vpiCoverMax": 766,
+                  "vpiCoverageCheck": 753,
+                  "vpiCoverageMerge": 754,
+                  "vpiCoverageReset": 752,
+                  "vpiCoverageSave": 755,
+                  "vpiCoverageStart": 750,
+                  "vpiCoverageStop": 751,
+                  "vpiCovered": 765,
+                  "vpiCoveredCount": 767,
+                  "vpiCoveredMax": 766,
+                  "vpiFsm": 758,
+                  "vpiFsmHandle": 759,
+                  "vpiFsmStateCoverage": 761,
+                  "vpiFsmStateExpression": 776,
+                  "vpiFsmStates": 775,
+                  "vpiStatementCoverage": 762,
+                  "vpiToggleCoverage": 763
+                },
+                "future_use": {
+                  "cbLastFuture": 899,
+                  "vpiFirstFuture": 800
+                }
+              }
+            }
+          }
+        },
+        "runtime_matches": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch36/test_vpi_deprecated_constants_and_live_frame": {
+          "status": "pass",
+          "inputs_sha256": "67189f599cc2ffbcab671d530e931608cd645dbea44d129d52cb40ac94b4446a"
+        },
+        "ch36/test_vpi_extension_reserved_constant_ranges": {
+          "status": "pass",
+          "inputs_sha256": "bc5100d958bf1d99ab0c87beed6d56f3c890860ecda0314b4ddeff8ed454e8cd"
+        }
+      },
+      "generated_at": "2026-11-25T10:16:03.816379+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch36/test_vpi_deprecated_constants_and_live_frame": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch36/test_vpi_deprecated_constants_and_live_frame.sv:34:8: Unsupported or unknown PLI call: '$vt_live_child_frame'",
+          "inputs_sha256": "67189f599cc2ffbcab671d530e931608cd645dbea44d129d52cb40ac94b4446a"
+        },
+        "ch36/test_vpi_extension_reserved_constant_ranges": {
+          "status": "pass",
+          "inputs_sha256": "bc5100d958bf1d99ab0c87beed6d56f3c890860ecda0314b4ddeff8ed454e8cd"
+        }
+      },
+      "generated_at": "2026-11-25T10:16:11.007521+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch36/test_vpi_deprecated_constants_and_live_frame": {
+          "status": "known",
+          "reason": "VPI build failed: 12 errors generated.",
+          "inputs_sha256": "67189f599cc2ffbcab671d530e931608cd645dbea44d129d52cb40ac94b4446a"
+        },
+        "ch36/test_vpi_extension_reserved_constant_ranges": {
+          "status": "known",
+          "reason": "VPI build failed: 7 errors generated.",
+          "inputs_sha256": "bc5100d958bf1d99ab0c87beed6d56f3c890860ecda0314b4ddeff8ed454e8cd"
+        }
+      },
+      "generated_at": "2026-11-25T10:16:03.601807+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch36/test_vpi_deprecated_constants_and_live_frame": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "67189f599cc2ffbcab671d530e931608cd645dbea44d129d52cb40ac94b4446a"
+        },
+        "ch36/test_vpi_extension_reserved_constant_ranges": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "bc5100d958bf1d99ab0c87beed6d56f3c890860ecda0314b4ddeff8ed454e8cd"
+        }
+      },
+      "generated_at": "2026-11-25T10:16:03.538756+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "compilable_coverage_assignment_mutation": {
+    "mutation": "vpiCoverageStart 750 -> 749 in a temporary header copy",
+    "languages": {
+      "c": {
+        "checker_rejected": true,
+        "compile_exit": 0
+      },
+      "c++": {
+        "checker_rejected": true,
+        "compile_exit": 0
+      }
+    }
+  }
+}

@@ -1,15 +1,13 @@
-"""Run one precompiled DPI-C library with Ghost and Verilator."""
+"""Run the same precompiled DPI libraries with Ghost and Verilator."""
 
-import hashlib
 import os
 from pathlib import Path
 import shutil
-import subprocess
 import sys
-import tempfile
 import unittest
 
-from run_verilator import ROOT, execute
+from run_dpi_binary_compatibility import CASES, run_case
+from suite_results import ROOT
 
 
 @unittest.skipUnless(os.environ.get("GHOST_SIMULATOR") and os.environ.get("GHOST_INCLUDE"),
@@ -25,6 +23,11 @@ class DpiBinaryCompatibility(unittest.TestCase):
     def test_multiword_bit_and_logic_ports_share_a_binary(self):
         self.check_shared_library("test_dpi_svdpi_scalar_and_chunk_types")
 
+    def test_registered_fixtures_share_their_binaries_across_simulators(self):
+        for case in CASES:
+            with self.subTest(case=case):
+                self.check_shared_library(Path(case).name)
+
     def check_shared_library(self, fixture_name):
         fixture = ROOT / "tests/ch35" / f"{fixture_name}.sv"
         ghost = str(Path(os.environ["GHOST_SIMULATOR"]).resolve())
@@ -33,44 +36,7 @@ class DpiBinaryCompatibility(unittest.TestCase):
         if verilator is None:
             self.skipTest("Verilator executable unavailable")
         verilator = str(Path(verilator).resolve())
-        expected = fixture.with_suffix(".expected").read_text(encoding="utf-8")
-        with tempfile.TemporaryDirectory() as temporary:
-            directory = Path(temporary)
-            lib = directory / ("portable.dylib" if sys.platform == "darwin" else "portable.so")
-            build = subprocess.run(
-                [
-                    os.environ.get("CC", "cc"), "-shared", "-fPIC",
-                    f"-I{include}", "-o", str(lib), str(fixture.with_suffix(".c")),
-                ],
-                cwd=directory, capture_output=True, text=True, timeout=60,
-            )
-            self.assertEqual(build.returncode, 0, build.stderr)
-            binary_hash = hashlib.sha256(lib.read_bytes()).digest()
-            ghost_run = subprocess.run(
-                [ghost, "--quiet", "--lrm-strict", "--lib", str(lib), str(fixture)],
-                cwd=directory, capture_output=True, text=True, timeout=90,
-            )
-            self.assertEqual(ghost_run.returncode, 0, ghost_run.stderr or ghost_run.stdout)
-            self.assertTrue(ghost_run.stdout.startswith(expected), ghost_run.stdout)
-            self.assertEqual(hashlib.sha256(lib.read_bytes()).digest(), binary_hash)
-
-            # Pass the prebuilt library to the linker. C source is compiled only once.
-            result = execute(
-                [
-                    verilator, "--binary", "--timing", "-Wno-fatal",
-                    "--top-module", fixture.stem, "--prefix", "Vportable",
-                    "--Mdir", "obj", "-LDFLAGS", "../" + lib.name, str(fixture),
-                ],
-                timeout=180, cwd=temporary,
-            )
-            self.assertEqual(result.returncode, 0, result.stderr or result.stdout)
-            # The linker records the relative library name when its install name
-            # is unspecified. Resolve it from the model's build directory.
-            verilator_run = subprocess.run(
-                [str(directory / "obj/Vportable")], cwd=directory / "obj",
-                capture_output=True, text=True, timeout=90,
-            )
-            self.assertEqual(verilator_run.returncode, 0,
-                             verilator_run.stderr or verilator_run.stdout)
-            self.assertTrue(verilator_run.stdout.startswith(expected), verilator_run.stdout)
-            self.assertEqual(hashlib.sha256(lib.read_bytes()).digest(), binary_hash)
+        result = run_case(fixture, ghost, verilator, os.environ.get("CC", "cc"), include,
+                          os.environ.get("CXX", "c++"))
+        self.assertEqual([f"{part}={status}" for part, status in result["checks"].items()
+                          if status != "pass"], [])

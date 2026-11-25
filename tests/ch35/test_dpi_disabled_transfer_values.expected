@@ -1,0 +1,6 @@
+C task cancel=0 export=0 disabled=0 out=101 io=62
+task control=101/62
+C function cancel=0 disabled=0 out=102 io=73 value=103
+function wrapper completed
+outer task cancel=0 export=0 disabled=0
+function control=102/73/103

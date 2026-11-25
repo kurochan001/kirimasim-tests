@@ -1,0 +1,21 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch36/test_vpi_legacy_class_interface_views": {
+   "status": "known",
+   "reason": "VPI build failed: 6 errors generated.",
+   "inputs_sha256": "890c7e99a8cc1577322fa4c4a246133fb260223457edfd97c33c505f719f7f92"
+  },
+  "ch36/test_vpi_legacy_real_array_root_types": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'real_view root=1 root_real=0 root_array=0 scalar_real=1 h...', expected 'real_view root=1 root_real=0 root_array=1 scalar_real=1 h...'",
+   "inputs_sha256": "80a1084fed8dd885d09d4588fc95e801fcffb30269ab9660eb7aa5f444adec26"
+  }
+ },
+ "generated_at": "2026-11-25T03:13:35.544322+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,22 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch40/test_fsm_coverage_distinguishes_directed_transitions": {
+   "status": "pass",
+   "inputs_sha256": "009504fc3b4c88289a32a4c4c85b1f82572e00fac71975b9a26a69e6d164be74"
+  },
+  "ch40/test_fsm_pragma_excludes_selects_in_state_concatenation": {
+   "status": "known",
+   "reason": "output differs: line 1 is 'whole: concat=0 members=0', expected 'whole: concat=1 members=1'",
+   "inputs_sha256": "10a57b383f542090875bfab1f517dd523b4bf87080aaf2a1efc6cf73f274b0c3"
+  }
+ },
+ "generated_at": "2026-11-25T04:05:46.533166+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

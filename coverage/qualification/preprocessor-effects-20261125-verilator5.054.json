@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "configuration": {
+    "evidence_profile": "verilator-preprocessor-effects",
+    "checker_sha256": "67c2f28dccd233bef5ca61ed7a6a240e81e119bafdbda5359bd4497c444a194d",
+    "binaries_sha256": {
+      "launcher": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "compiler": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    }
+  },
+  "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+  "tests": {
+    "ch22/test_preprocessor_line_emission_modes_preserve_manual_origin": {
+      "inputs_sha256": "291f1e775b259a5914a95fa2cc0ab43e842254ef870f2722142e6edb958c82b9",
+      "status": "pass",
+      "emitted": {
+        "preprocessor_exit": 0,
+        "line_records": [
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 1,
+            "level": 1
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 13,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 16,
+            "level": 0
+          },
+          {
+            "file": "payload.svh",
+            "line": 1,
+            "level": 1
+          },
+          {
+            "file": "payload.svh",
+            "line": 3,
+            "level": 0
+          },
+          {
+            "file": "payload.svh",
+            "line": 3,
+            "level": 0
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 16,
+            "level": 2
+          },
+          {
+            "file": "test_preprocessor_line_emission_modes_preserve_manual_origin.sv",
+            "line": 17,
+            "level": 0
+          },
+          {
+            "file": "reviewed_origin.sv",
+            "line": 700,
+            "level": 0
+          },
+          {
+            "file": "reviewed_origin.sv",
+            "line": 705,
+            "level": 0
+          }
+        ],
+        "compile_exit": 0,
+        "undef_warnings": [],
+        "simulation_exit": 0,
+        "expected": [
+          "logical=reviewed_origin.sv:700 imported=37",
+          "logical=reviewed_origin.sv:701"
+        ],
+        "observed": [
+          "logical=reviewed_origin.sv:700 imported=37",
+          "logical=reviewed_origin.sv:701"
+        ],
+        "simulation_matches": true
+      },
+      "omitted": {
+        "preprocessor_exit": 0,
+        "line_records": [],
+        "compile_exit": 0,
+        "undef_warnings": [],
+        "simulation_exit": 0,
+        "expected": [
+          "logical=reviewed_origin.sv:700 imported=37",
+          "logical=reviewed_origin.sv:701"
+        ],
+        "observed": [
+          "logical=reviewed_origin.sv:700 imported=37",
+          "logical=reviewed_origin.sv:701"
+        ],
+        "simulation_matches": true
+      }
+    },
+    "ch22/test_undef_never_defined_macro_preserves_other_definitions": {
+      "inputs_sha256": "12cef4cba42ad0e20e864d92b2d26f9ab50ecf376d1d4bf72a179e683eae636b",
+      "status": "pass",
+      "site": 19,
+      "control": {
+        "compile_exit": 0,
+        "undef_warnings": [],
+        "simulation_exit": 0,
+        "expected": [
+          "before=11 surviving=37",
+          "unknown macro absent",
+          "known macro removed"
+        ],
+        "observed": [
+          "before=11 surviving=37",
+          "unknown macro absent",
+          "known macro removed"
+        ],
+        "simulation_matches": true
+      },
+      "unknown": {
+        "compile_exit": 0,
+        "undef_warnings": [],
+        "simulation_exit": 0,
+        "expected": [
+          "before=11 surviving=37",
+          "unknown macro absent",
+          "known macro removed"
+        ],
+        "observed": [
+          "before=11 surviving=37",
+          "unknown macro absent",
+          "known macro removed"
+        ],
+        "simulation_matches": true
+      }
+    }
+  }
+}

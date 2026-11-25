@@ -1,0 +1,855 @@
+{
+  "schema": 1,
+  "version": "private build 6fa9a05abb0c",
+  "configuration": {
+    "evidence_profile": "ghost-language-latitude",
+    "checker_sha256": "e1d4f0bf2d70a9aed52c2fe250da393849b061603c2912dfad336f415901d914",
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "runtime_profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch9/test_function_disable_caller_observation": {
+      "status": "pass",
+      "inputs_sha256": "e8fac21ddd45970d6ff098537e716980b4c348597fe68c32492e6c182a572c91",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "caller task begins",
+          "caller task received=23",
+          "caller block ended"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "task": {
+          "exit": 0,
+          "stdout": [
+            "caller task begins",
+            "before disabling caller task",
+            "caller task received=23",
+            "caller block ended"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "block": {
+          "exit": 0,
+          "stdout": [
+            "caller block begins",
+            "before disabling caller block",
+            "caller block received=23",
+            "caller block ended"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch9/test_event_method_unrelated_member_observation": {
+      "status": "pass",
+      "inputs_sha256": "0f2d68f2e008d41902ffac618730cce4f944dfb912be23533aefc0159e9e2271",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "after unrelated write=0",
+          "after referenced write=1",
+          "after second unrelated write=1",
+          "after second referenced write=2"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "write": {
+          "exit": 0,
+          "stdout": [
+            "after unrelated write=0",
+            "after referenced write=1",
+            "after second unrelated write=1",
+            "after second referenced write=2"
+          ],
+          "overlap": [],
+          "evaluations": [
+            {
+              "time": 1,
+              "value": 0
+            },
+            {
+              "time": 1,
+              "value": 0
+            },
+            {
+              "time": 2,
+              "value": 0
+            },
+            {
+              "time": 2,
+              "value": 0
+            },
+            {
+              "time": 3,
+              "value": 0
+            },
+            {
+              "time": 3,
+              "value": 0
+            },
+            {
+              "time": 4,
+              "value": 1
+            },
+            {
+              "time": 4,
+              "value": 1
+            },
+            {
+              "time": 4,
+              "value": 1
+            },
+            {
+              "time": 5,
+              "value": 1
+            },
+            {
+              "time": 5,
+              "value": 1
+            },
+            {
+              "time": 6,
+              "value": 1
+            },
+            {
+              "time": 6,
+              "value": 1
+            },
+            {
+              "time": 7,
+              "value": 1
+            },
+            {
+              "time": 7,
+              "value": 1
+            },
+            {
+              "time": 8,
+              "value": 2
+            },
+            {
+              "time": 8,
+              "value": 2
+            },
+            {
+              "time": 8,
+              "value": 2
+            }
+          ]
+        },
+        "omit": {
+          "exit": 0,
+          "stdout": [
+            "after unrelated write=0",
+            "after referenced write=1",
+            "after second unrelated write=1",
+            "after second referenced write=2"
+          ],
+          "overlap": [],
+          "evaluations": [
+            {
+              "time": 1,
+              "value": 0
+            },
+            {
+              "time": 1,
+              "value": 0
+            },
+            {
+              "time": 2,
+              "value": 0
+            },
+            {
+              "time": 2,
+              "value": 0
+            },
+            {
+              "time": 3,
+              "value": 0
+            },
+            {
+              "time": 3,
+              "value": 0
+            },
+            {
+              "time": 4,
+              "value": 1
+            },
+            {
+              "time": 4,
+              "value": 1
+            },
+            {
+              "time": 4,
+              "value": 1
+            },
+            {
+              "time": 5,
+              "value": 1
+            },
+            {
+              "time": 5,
+              "value": 1
+            },
+            {
+              "time": 6,
+              "value": 1
+            },
+            {
+              "time": 6,
+              "value": 1
+            },
+            {
+              "time": 7,
+              "value": 1
+            },
+            {
+              "time": 7,
+              "value": 1
+            },
+            {
+              "time": 8,
+              "value": 2
+            },
+            {
+              "time": 8,
+              "value": 2
+            },
+            {
+              "time": 8,
+              "value": 2
+            }
+          ]
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch12/test_unique_overlap_optional_evaluation": {
+      "status": "pass",
+      "inputs_sha256": "9a85c6ce09c9f33403df17328afb7d3c2a318ac3e495047b052662f8c5650e1d",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "if selected=10 visited=111",
+          "case selected=10 visited=111"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "if": {
+          "exit": 0,
+          "stdout": [
+            "if selected=10 visited=111",
+            "case selected=10 visited=111"
+          ],
+          "overlap": [
+            "if"
+          ],
+          "evaluations": []
+        },
+        "case": {
+          "exit": 0,
+          "stdout": [
+            "if selected=10 visited=111",
+            "case selected=10 visited=111"
+          ],
+          "overlap": [
+            "case"
+          ],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {
+        "if": 30,
+        "case": 41
+      }
+    },
+    "ch15/test_null_event_wait_observation": {
+      "status": "pass",
+      "inputs_sha256": "7df76b88f7bd6a90226503b265f4e3fc8fa961dc57e632b31a8b7b022a5b1485",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "live wait reached=1",
+          "independent process t=6"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "event": {
+          "exit": 0,
+          "stdout": [
+            "live wait reached=1",
+            "before null event control",
+            "independent process t=6"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "triggered": {
+          "exit": 0,
+          "stdout": [
+            "live wait reached=1",
+            "before null triggered wait",
+            "independent process t=6"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch10/test_assignment_pattern_side_effect_observation": {
+      "status": "pass",
+      "inputs_sha256": "b96e337299a8aeb17c647cb36c339fc9fa29000c3d50bf9ec5d3ffaafae2052a",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "control array=333 struct=444"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "array_type": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array type calls=3 values=555"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "array_default": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array default calls=3 values=666"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "array_replication": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "array replication calls=3 values=777"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "struct_type": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct type calls=3 values=555"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "struct_default": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct default calls=3 values=666"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "struct_replication": {
+          "exit": 0,
+          "stdout": [
+            "control array=333 struct=444",
+            "struct replication calls=3 values=777"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch7/test_tagged_union_initial_tag_and_unused_bits": {
+      "status": "pass",
+      "inputs_sha256": "f3296383f5dd9b73fc22dbb67553311688053ea8f03dd769ac531e975e2e1c74",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "initial tag matches a member=0",
+          "short tags agree=1 payloads=110,011",
+          "empty tags agree=1 differ from short=1"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "representation": {
+          "exit": 0,
+          "stdout": [
+            "initial tag matches a member=0",
+            "short tags agree=1 payloads=110,011",
+            "empty tags agree=1 differ from short=1",
+            "initial=xxxxxxxxxxxxxx short gaps=000000000,000000000 empty payloads=000000000000,000000000000"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch18/test_rng_state_format_and_replay": {
+      "status": "pass",
+      "inputs_sha256": "56b303fe82eaba547e1344595073c777ad71948ab97e3643d9d0a5b0c79ea540",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "object replay=1 process replay=1"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "format": {
+          "exit": 0,
+          "stdout": [
+            "object replay=1 process replay=1",
+            "object size=6694 prefix=31,37",
+            "process size=6694 prefix=37,31"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "unrecognized": {
+          "exit": 0,
+          "stdout": [
+            "object replay=1 process replay=1",
+            "before setting manually constructed state",
+            "set_randstate returned"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch24/test_exit_outside_program_optional_warning": {
+      "status": "pass",
+      "inputs_sha256": "334cba26c27ddd37ef4f6dfee3d644dbb5783a89174107022388bbee25a66584",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "module continues at t=2",
+          "program exits at t=3"
+        ],
+        "overlap": [],
+        "evaluations": [],
+        "outside_exit_warnings": 0
+      },
+      "trials": {
+        "outside": {
+          "exit": 0,
+          "stdout": [
+            "module calls exit at t=1",
+            "module continues at t=2",
+            "program exits at t=3"
+          ],
+          "overlap": [],
+          "evaluations": [],
+          "outside_exit_warnings": 0
+        }
+      },
+      "diagnostic_lines": {
+        "outside_exit": 27
+      }
+    },
+    "ch4/test_active_sample_and_reactive_settling": {
+      "status": "pass",
+      "inputs_sha256": "30a8bcd8f3950d7395f40da0b5fbbbfe25474e6c8c2b547b7d0948d5bd913679",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "reactive t=1 stage=2",
+          "allowed active sample=1 settled stage=2"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "writer_first": {
+          "exit": 0,
+          "stdout": [
+            "active t=1 stage=2",
+            "reactive t=1 stage=2",
+            "allowed active sample=1 settled stage=2"
+          ],
+          "overlap": [],
+          "evaluations": []
+        },
+        "reader_first": {
+          "exit": 0,
+          "stdout": [
+            "active t=1 stage=0",
+            "reactive t=1 stage=2",
+            "allowed active sample=1 settled stage=2"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch16/test_assertion_clock_multiple_transitions_observation": {
+      "status": "pass",
+      "inputs_sha256": "92ff8b96f5b150dcbd6593ebdad1f756f25d405cee9a2eda45e988e31bb0e87d",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "assertion passes=2 failures=0"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "glitch": {
+          "exit": 0,
+          "stdout": [
+            "same slot edges emitted t=1",
+            "assertion passes=2 failures=0"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch24/test_design_and_program_assertion_clocks": {
+      "status": "pass",
+      "inputs_sha256": "6b4c53e911bb0fa2d0ccdcc20881448cf6b87c377fc4d97c50513081c83a4a18",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "design clock t=1 sampled=0 live=1",
+          "program complete t=4"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "program_clock": {
+          "exit": 0,
+          "stdout": [
+            "design clock t=1 sampled=0 live=1",
+            "program clock t=3 sampled=0 live=1",
+            "program complete t=4"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch23/test_port_type_time_zero_events": {
+      "status": "pass",
+      "inputs_sha256": "997ea6cc79a9f1e9341d39c8a3a14edcaaae5e54e98f5fa34cc2997836e240eb",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "settled values=6,6",
+          "later signed=-3 unsigned=13 events=1,1"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "startup": {
+          "exit": 0,
+          "stdout": [
+            "settled values=6,6",
+            "later signed=-3 unsigned=13 events=1,1",
+            "startup events=1,1"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch15/test_mailbox_negative_bound_observation": {
+      "status": "pass",
+      "inputs_sha256": "cc1f92d5a47cefda65129e0978d692e35ee47191cb039df25677fee3e78dcfa1",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "bounded mailbox values=17,29 remaining=0"
+        ],
+        "overlap": [],
+        "evaluations": [],
+        "negative_bound_diagnostics": 0
+      },
+      "trials": {
+        "negative": {
+          "exit": 0,
+          "stdout": [
+            "bounded mailbox values=17,29 remaining=0",
+            "before constructing mailbox with negative bound",
+            "negative constructor returned null=0"
+          ],
+          "overlap": [],
+          "evaluations": [],
+          "negative_bound_diagnostics": 0
+        }
+      },
+      "diagnostic_lines": {
+        "negative_mailbox": 25
+      }
+    },
+    "ch7/test_locator_with_side_effect_observation": {
+      "status": "pass",
+      "inputs_sha256": "0d446df44b2359f6251004585e869168841ed1ef9a67504c79d8ead54c34de6a",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "pure locator values=5,8 count=2"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "impure": {
+          "exit": 0,
+          "stdout": [
+            "pure locator values=5,8 count=2",
+            "impure locator calls=4 count=2"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch13/test_defparam_constant_function_observation": {
+      "status": "pass",
+      "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "explicit override=11,12"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "defparam": {
+          "exit": 0,
+          "stdout": [
+            "explicit override=11,12",
+            "defparam results=15,16"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch18/test_randsequence_ungenerated_result_observation": {
+      "status": "pass",
+      "inputs_sha256": "80abe1781abb299b5f7a2b40e257e5c764f2684ccd2efa08f026a55a95cf98e7",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "after generation=27"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "ungenerated": {
+          "exit": 0,
+          "stdout": [
+            "before generation=x",
+            "after generation=27"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch8/test_class_property_before_initializer_observation": {
+      "status": "pass",
+      "inputs_sha256": "43f33f493f15b6866d2c1ba8f115f4758b7f53767ba5d85d7570a2de1ca08a88",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "before constructor",
+          "base argument=7 final property=29"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "early": {
+          "exit": 0,
+          "stdout": [
+            "before constructor",
+            "base argument=0 final property=29"
+          ],
+          "overlap": [],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {}
+    },
+    "ch6/test_variable_drive_strength_warning_observation": {
+      "status": "pass",
+      "inputs_sha256": "89d90c9b5aa02427dccbdc109dfb7919fbc4020454c5f7c32564a03db4329994",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "zero value=0 variable path=0 net path=1",
+          "one value=1 variable path=1 net path=1"
+        ],
+        "overlap": [],
+        "evaluations": [],
+        "strength_diagnostics": 0
+      },
+      "trials": {
+        "explicit": {
+          "exit": 0,
+          "stdout": [
+            "zero value=0 variable path=0 net path=1",
+            "one value=1 variable path=1 net path=1"
+          ],
+          "overlap": [],
+          "evaluations": [],
+          "strength_diagnostics": 0
+        }
+      },
+      "diagnostic_lines": {
+        "variable_driver": 21
+      }
+    },
+    "ch12/test_unique_and_unique0_condition_contract": {
+      "status": "pass",
+      "inputs_sha256": "70a3954d66465a5e60414382a4d7e2b9f2a82b84c34b5067e89e198e9e560843",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "selector=0 unique=11 unique0=44",
+          "selector=1 unique=22 unique0=55",
+          "selector=2 unique=33 unique0=0"
+        ],
+        "overlap": [],
+        "evaluations": []
+      },
+      "trials": {
+        "unique": {
+          "exit": 0,
+          "stdout": [
+            "selector=0 unique=11 unique0=44",
+            "selector=1 unique=22 unique0=55",
+            "selector=2 unique=33 unique0=0"
+          ],
+          "overlap": [
+            "unique"
+          ],
+          "evaluations": []
+        },
+        "unique0": {
+          "exit": 0,
+          "stdout": [
+            "selector=0 unique=11 unique0=44",
+            "selector=1 unique=22 unique0=55",
+            "selector=2 unique=33 unique0=0"
+          ],
+          "overlap": [
+            "unique0"
+          ],
+          "evaluations": []
+        }
+      },
+      "diagnostic_lines": {
+        "unique": 19,
+        "unique0": 25
+      }
+    },
+    "ch3/test_combined_compile_elaboration_results": {
+      "status": "pass",
+      "inputs_sha256": "2fe6fece64eb55a0f4c0e0ca1e2a687b6f704255695c1da80c94825d5ca221eb",
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "resolved port=19 width=8"
+        ],
+        "overlap": [],
+        "evaluations": [],
+        "unbound_errors": 0
+      },
+      "trials": {
+        "parse": {
+          "exit": 0,
+          "stdout": [],
+          "overlap": [],
+          "evaluations": [],
+          "unbound_errors": 0
+        },
+        "compile": {
+          "exit": 0,
+          "stdout": [],
+          "overlap": [],
+          "evaluations": [],
+          "unbound_errors": 0
+        },
+        "elaborate": {
+          "exit": 0,
+          "stdout": [],
+          "overlap": [],
+          "evaluations": [],
+          "unbound_errors": 0
+        },
+        "unbound_parse": {
+          "exit": 255,
+          "stdout": [],
+          "overlap": [],
+          "evaluations": [],
+          "unbound_errors": 1
+        },
+        "unbound_compile": {
+          "exit": 255,
+          "stdout": [],
+          "overlap": [],
+          "evaluations": [],
+          "unbound_errors": 1
+        },
+        "unbound_elaborate": {
+          "exit": 255,
+          "stdout": [],
+          "overlap": [],
+          "evaluations": [],
+          "unbound_errors": 1
+        },
+        "unbound_combined": {
+          "exit": 255,
+          "stdout": [],
+          "overlap": [],
+          "evaluations": [],
+          "unbound_errors": 1
+        }
+      },
+      "diagnostic_lines": {
+        "unbound_component": 31
+      }
+    }
+  }
+}

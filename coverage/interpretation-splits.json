@@ -2081,6 +2081,128 @@
       },
       "status": "unresolved",
       "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_interface_specify_paths_keep_interface_owner",
+      "kind": "contested",
+      "clauses": [
+        "37.6",
+        "37.39",
+        "A.1.6"
+      ],
+      "readings": {
+        "ja": {
+          "a": "37.39の本文はインターフェース内のspecifyを認め、互換用のモジュール関係はNULLを返します。",
+          "b": "Annex A.1.6の構文に従うとインターフェース内のspecifyは構文エラーになります。"
+        },
+        "en": {
+          "a": "Clause 37.39 permits specify inside interfaces and defines a null legacy module relation.",
+          "b": "Under the productions of Annex A.1.6, specify inside an interface is a syntax error."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/vpi-interface-specify-interpretation.md",
+        "anchor": "interface-specify-path-ownership"
+      },
+      "proposal": {
+        "ja": "37.39本文とAnnex Aの関係が明確になるまで、関連する3要件は対応済みに数えません。",
+        "en": "Keep the three related requirements unmapped pending clarification of clause 37.39 and Annex A."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner",
+      "kind": "contested",
+      "clauses": [
+        "37.6",
+        "37.39",
+        "A.1.6"
+      ],
+      "readings": {
+        "ja": {
+          "a": "37.39の本文はインターフェース内のspecifyを認め、互換用のモジュール関係はNULLを返します。",
+          "b": "Annex A.1.6の構文に従うとインターフェース内のspecifyは構文エラーになります。"
+        },
+        "en": {
+          "a": "Clause 37.39 permits specify inside interfaces and defines a null legacy module relation.",
+          "b": "Under the productions of Annex A.1.6, specify inside an interface is a syntax error."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/vpi-interface-specify-interpretation.md",
+        "anchor": "interface-specify-path-ownership"
+      },
+      "proposal": {
+        "ja": "37.39本文とAnnex Aの関係が明確になるまで、関連する3要件は対応済みに数えません。",
+        "en": "Keep the three related requirements unmapped pending clarification of clause 37.39 and Annex A."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_program_scalar_interface_port_relation",
+      "kind": "contested",
+      "clauses": [
+        "24.3",
+        "37.9",
+        "37.10",
+        "A.1.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "37.9の関係図はポート接続を含み、program から得たオブジェクトの逆参照は program を返します。",
+          "b": "37.10の所有関係は実際の宣言元に従い、ポート接続だけで program 側の別オブジェクトを作ることは規定されていません。"
+        },
+        "en": {
+          "a": "The 37.9 diagram includes connected ports, and the reverse relation from the resulting objects returns the program.",
+          "b": "Ownership in 37.10 follows the declaring instance, and a port connection does not specify a separate program-side object."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/vpi-program-interface-port-interpretation.md",
+        "anchor": "program-interface-port-ownership"
+      },
+      "proposal": {
+        "ja": "ポート接続と関係図の対応が明確になるまで四要件を未対応とします。",
+        "en": "Keep the four requirements unmapped pending clarification of the diagram’s application to connected ports."
+      },
+      "status": "unresolved",
+      "resolution": null
+    },
+    {
+      "test": "ch37/test_vpi_program_array_interface_port_relation",
+      "kind": "contested",
+      "clauses": [
+        "24.3",
+        "37.9",
+        "37.10",
+        "A.1.7"
+      ],
+      "readings": {
+        "ja": {
+          "a": "37.9の関係図はポート接続を含み、program から得たオブジェクトの逆参照は program を返します。",
+          "b": "37.10の所有関係は実際の宣言元に従い、ポート接続だけで program 側の別オブジェクトを作ることは規定されていません。"
+        },
+        "en": {
+          "a": "The 37.9 diagram includes connected ports, and the reverse relation from the resulting objects returns the program.",
+          "b": "Ownership in 37.10 follows the declaring instance, and a port connection does not specify a separate program-side object."
+        }
+      },
+      "expectation_follows": "a",
+      "source": {
+        "document": "docs/vpi-program-interface-port-interpretation.md",
+        "anchor": "program-interface-port-ownership"
+      },
+      "proposal": {
+        "ja": "ポート接続と関係図の対応が明確になるまで四要件を未対応とします。",
+        "en": "Keep the four requirements unmapped pending clarification of the diagram’s application to connected ports."
+      },
+      "status": "unresolved",
+      "resolution": null
     }
   ]
 }

@@ -1,0 +1,474 @@
+{
+  "profile": "vpi-compatibility-headers",
+  "checker_sha256": "07dd3e1ed2dda6fa743326f61a26349387ff1332b0a0d36d00b9abf44ee69e27",
+  "sha256": {
+    "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+    "vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c",
+    "c": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+    "c++": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+  },
+  "compilers": {
+    "c": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+    "c++": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+  },
+  "tests": {
+    "ch36/test_vpi_public_header_shares_one_legacy_mode_with_callbacks": {
+      "inputs_sha256": "beb76d1ba1f8521746169c31e4cc0563267989bf628d7a4f5267ffa724ddee5f",
+      "languages": {
+        "c": {
+          "application": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1364v2001",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          },
+          "callback": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1364v2001",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          }
+        },
+        "c++": {
+          "application": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1364v2001",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          },
+          "callback": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1364v2001",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          }
+        }
+      }
+    },
+    "ch36/test_vpi_public_header_shares_one_recent_mode_with_callbacks": {
+      "inputs_sha256": "e4b573ccdd1970aa2d22604fc4a8fe4d803dbc978711eae25e241010aedc8eaa",
+      "languages": {
+        "c": {
+          "application": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1800v2012",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          },
+          "callback": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1800v2012",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          }
+        },
+        "c++": {
+          "application": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1800v2012",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          },
+          "callback": {
+            "single_modes": {
+              "1364v1995": "selected_1364v1995",
+              "1364v2001": "selected_1364v2001",
+              "1364v2005": "selected_1364v2005",
+              "1800v2005": "selected_1800v2005",
+              "1800v2009": "selected_1800v2009",
+              "1800v2012": "selected_1800v2012",
+              "1800v2017": "selected_1800v2012",
+              "1800v2023": "selected_1800v2012"
+            },
+            "pairs": {
+              "1364v1995+1364v2001": "diagnosed",
+              "1364v1995+1364v2005": "diagnosed",
+              "1364v1995+1800v2005": "diagnosed",
+              "1364v1995+1800v2009": "diagnosed",
+              "1364v1995+1800v2012": "diagnosed",
+              "1364v1995+1800v2017": "diagnosed",
+              "1364v1995+1800v2023": "diagnosed",
+              "1364v2001+1364v2005": "diagnosed",
+              "1364v2001+1800v2005": "diagnosed",
+              "1364v2001+1800v2009": "diagnosed",
+              "1364v2001+1800v2012": "diagnosed",
+              "1364v2001+1800v2017": "diagnosed",
+              "1364v2001+1800v2023": "diagnosed",
+              "1364v2005+1800v2005": "diagnosed",
+              "1364v2005+1800v2009": "diagnosed",
+              "1364v2005+1800v2012": "diagnosed",
+              "1364v2005+1800v2017": "diagnosed",
+              "1364v2005+1800v2023": "diagnosed",
+              "1800v2005+1800v2009": "diagnosed",
+              "1800v2005+1800v2012": "diagnosed",
+              "1800v2005+1800v2017": "diagnosed",
+              "1800v2005+1800v2023": "diagnosed",
+              "1800v2009+1800v2012": "diagnosed",
+              "1800v2009+1800v2017": "diagnosed",
+              "1800v2009+1800v2023": "diagnosed",
+              "1800v2012+1800v2017": "selected_1800v2012",
+              "1800v2012+1800v2023": "selected_1800v2012",
+              "1800v2017+1800v2023": "selected_1800v2012"
+            },
+            "guard_attempts": {
+              "reentry": "selected_1800v2012",
+              "predefined": "accepted_without_selection"
+            },
+            "checks": {
+              "single_modes_match": true,
+              "all_original_pairs_rejected": false,
+              "one_effective_branch": true,
+              "public_header_sets_guard": true,
+              "guarded_reentry_rejected": false,
+              "predefined_guard_rejected": false,
+              "valid_source_compiles": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

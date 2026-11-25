@@ -1,0 +1,5 @@
+before open=0
+opened=1 open flag=0
+held=1
+before close=1
+closed=0 close flag=0

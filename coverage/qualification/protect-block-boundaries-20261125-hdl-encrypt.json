@@ -1,0 +1,20 @@
+{
+ "profile": "protect-block-boundaries",
+ "checker_sha256": "bb72c9357f9a3d2c4dd4282e56835665e86423d86e0635746d220681a9ba7608",
+ "encryptor": {
+  "version": "0.1.0",
+  "files": {
+   "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+   "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+   "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+   "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+   "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+  },
+  "cryptography": "50.0.2"
+ },
+ "openssl": "OpenSSL 4.0.3 29 Sep 2026 (Library: OpenSSL 4.0.3 29 Sep 2026)",
+ "tests": {
+  "ch34/test_protect_reencrypt_nested_envelope": {"inputs_sha256": "2f3799ce81e7256793cd84a3229a6327af41a87214c9196a2994fc715d01760d", "invalid_nested": {"exit": 0, "rejected_at_directive": false}, "previously_encrypted": {"outer_begin_protected": false, "outside_source_preserved": false, "complete_input_range_recovered": false, "input_method_matches": false, "expected_exchange_identity": false, "base64_descriptors": false, "post_inner_module_in_clear": true}, "reference_controls": {"structured_key_and_body": true, "changed_key_iv_rejected": true, "changed_data_iv_detected": true, "comment_padding_permitted": true, "extra_hdl_rejected": true}},
+  "ch34/test_protect_reject_plaintext_payload_blocks": {"inputs_sha256": "491cb55ddafe8b7f91efb75421c049b4126d55bcf7065971d2808a67ec410a32", "invalid": {"file_key_block": {"exit": 0, "rejected_at_directive": false, "recovered": true, "trigger_preserved_in_recovered_source": false}, "file_data_block": {"exit": 0, "rejected_at_directive": false, "recovered": true, "trigger_preserved_in_recovered_source": false}, "plaintext_envelope_key_block": {"exit": 0, "rejected_at_directive": false, "recovered": true, "trigger_preserved_in_recovered_source": true}, "plaintext_envelope_data_block": {"exit": 0, "rejected_at_directive": false, "recovered": true, "trigger_preserved_in_recovered_source": true}}, "ordinary_control": {"outer_begin_protected": false, "outside_source_preserved": true, "complete_input_range_recovered": true, "input_method_matches": true, "expected_exchange_identity": true, "base64_descriptors": false, "post_inner_module_in_clear": false}}
+ }
+}

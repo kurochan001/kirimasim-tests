@@ -1,0 +1,466 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-4.3-EXTRACT-REFERENCE-EQUIVALENCE"
+  ],
+  "qualified": {
+    "icarus": {
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "configuration": {
+        "evidence_profile": "icarus-scheduler-reference",
+        "checker_sha256": "91a03d8622d42ea42880662f2f03ffcf28490579c946ac66ac08cd80bf8dfb50",
+        "artifact_sha256": {
+          "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+          "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+        }
+      },
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b",
+          "status": "pass",
+          "runs": {
+            "control": {
+              "build_exit": 0,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "race": {
+              "build_exit": 0,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "reversed": {
+              "build_exit": 0,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              "matches_model": true
+            }
+          },
+          "allowed": {
+            "control": [
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "race": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "reversed": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "ghost": {
+      "version": "private build 6fa9a05abb0c",
+      "configuration": {
+        "evidence_profile": "ghost-scheduler-reference",
+        "checker_sha256": "91a03d8622d42ea42880662f2f03ffcf28490579c946ac66ac08cd80bf8dfb50",
+        "artifact_sha256": {
+          "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4"
+        },
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      },
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b",
+          "status": "pass",
+          "runs": {
+            "control": {
+              "build_exit": null,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "race": {
+              "build_exit": null,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "reversed": {
+              "build_exit": null,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              "matches_model": true
+            }
+          },
+          "allowed": {
+            "control": [
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "race": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "reversed": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "kirimasim": {
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "configuration": {
+        "evidence_profile": "kirimasim-scheduler-reference",
+        "checker_sha256": "91a03d8622d42ea42880662f2f03ffcf28490579c946ac66ac08cd80bf8dfb50",
+        "artifact_sha256": {
+          "kirimasim": "1561c6c8b36355230f380e2d22a8cf3caf71deb580e6d9ccee67271a97ebe064"
+        }
+      },
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b",
+          "status": "pass",
+          "runs": {
+            "control": {
+              "build_exit": null,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "race": {
+              "build_exit": null,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "reversed": {
+              "build_exit": null,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              "matches_model": true
+            }
+          },
+          "allowed": {
+            "control": [
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "race": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "reversed": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "verilator": {
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "configuration": {
+        "evidence_profile": "verilator-scheduler-reference",
+        "checker_sha256": "91a03d8622d42ea42880662f2f03ffcf28490579c946ac66ac08cd80bf8dfb50",
+        "artifact_sha256": {
+          "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9"
+        }
+      },
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b",
+          "status": "pass",
+          "runs": {
+            "control": {
+              "build_exit": 0,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "race": {
+              "build_exit": 0,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ],
+              "matches_model": true
+            },
+            "reversed": {
+              "build_exit": 0,
+              "exit": 0,
+              "stdout": [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              "matches_model": true
+            }
+          },
+          "allowed": {
+            "control": [
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "race": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ],
+            "reversed": [
+              [
+                "inactive t=1 winner=3 stage=0",
+                "wake t=1 stage=3 winner=9 settled=0",
+                "postponed t=1 stage=3 winner=9 settled=13",
+                "next t=2 stage=3 winner=9 settled=13"
+              ],
+              [
+                "inactive t=1 winner=7 stage=0",
+                "wake t=1 stage=7 winner=9 settled=0",
+                "postponed t=1 stage=7 winner=9 settled=17",
+                "next t=2 stage=7 winner=9 settled=17"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "status": "pass",
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b"
+        }
+      },
+      "generated_at": "2026-11-25T11:39:57.315250+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "status": "pass",
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b"
+        }
+      },
+      "generated_at": "2026-11-25T11:39:57.325865+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "status": "pass",
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b"
+        }
+      },
+      "generated_at": "2026-11-25T11:39:57.313114+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch4/test_reference_scheduler_trace_set": {
+          "status": "pass",
+          "inputs_sha256": "0e918d4d42e5fb004cd63b8ed2ec2f5c78ac84fd53e22603632c154292ae4f6b"
+        }
+      },
+      "generated_at": "2026-11-25T11:40:02.920411+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  },
+  "compile_only": {
+    "version": "slang version 12.0.0+0",
+    "fixture_sha256": "74a79942fdf8e79f54287a7dd2a82cee72ac96bbd46668745e1aae1df1d81c33",
+    "artifact_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+    "results": {
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "Top level design units:",
+          "    test_reference_scheduler_trace_set",
+          "",
+          "",
+          "Build succeeded: 0 errors, 0 warnings"
+        ],
+        "stderr": []
+      },
+      "reversed": {
+        "exit": 0,
+        "stdout": [
+          "Top level design units:",
+          "    test_reference_scheduler_trace_set",
+          "",
+          "",
+          "Build succeeded: 0 errors, 0 warnings"
+        ],
+        "stderr": []
+      }
+    }
+  }
+}

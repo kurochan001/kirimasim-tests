@@ -1,0 +1,10 @@
+initial scalar=25 packed=a6 element=71 const=39 ordinary=c2
+structs packed=a4 unpacked field=91
+assumption t=5
+first solve scalar=25 packed=a6 element=71 const=39 ordinary=c2
+structs packed=a4 unpacked field=91
+write scalar=28 packed=a7 element=6f const=39 ordinary=c3
+structs packed=ab unpacked field=92
+assumption t=15
+second solve scalar=28 packed=a7 element=6f const=39 ordinary=c3
+structs packed=ab unpacked field=92

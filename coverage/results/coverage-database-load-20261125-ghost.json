@@ -1,0 +1,20 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch19/test_coverage_db_name_and_type_data_across_two_runs": {
+   "status": "unsupported",
+   "reason": "no native database was saved for the load check",
+   "inputs_sha256": "a829c95f04745db71dc266fd1b3c90e84a58452caba11ffcb394b6908032d648"
+  }
+ },
+ "generated_at": "2026-11-24T23:24:49.070989+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-coverage-db-load",
+  "checker_sha256": "29b63b47a01e70ad56f2c636347c75aac0fa4e4546f9fa9a265b4400a7f3ee9d",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4"
+ }
+}

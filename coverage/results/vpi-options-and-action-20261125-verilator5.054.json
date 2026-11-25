@@ -1,0 +1,37 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch38/test_vpi_action_error_callback_information": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'error actions=0', expected 'error actions=2'",
+   "inputs_sha256": "5204f8797b8bd0cfd83f11d64884b3300b6568f809f7ca72b2eb1ac1b465837a"
+  },
+  "ch38/test_vpi_control_scope_change_reports_selected_instance": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_control_scope_change_reports_selected_instance.sv:23:8: Unsupported or unknown PLI call: '$request_scope_change'",
+   "inputs_sha256": "c26ad85225404ad07de5b115f8fce9e1b5b2ad03d35c66f7b19358b0c52bafb0"
+  },
+  "ch38/test_vpi_timing_violation_callback_points_to_affected_check": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_timing_violation_callback_points_to_affected_check.sv:30:8: Unsupported or unknown PLI call: '$watch_timing_violations'",
+   "inputs_sha256": "714baa6f342866a174bbbf53ea0699d51b7f3467f589f3cbd24d09674cd4ff2c"
+  },
+  "ch38/test_vpi_unresolved_task_callback_supplies_called_name": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_unresolved_task_callback_supplies_called_name.sv:16:5: Unsupported or unknown PLI call: '$public_regression_unregistered_probe'",
+   "inputs_sha256": "d9b3a631cd9a1d7600090b0593321e98abd68a41b86468a54d79859959930bae"
+  },
+  "ch38/test_vpi_vlog_info_nested_option_files": {
+   "status": "pass",
+   "inputs_sha256": "383b662bb2c3932a6196a8b929a8f869b3dd35ade7bc72b4e122d17a0c4aec7c"
+  }
+ },
+ "generated_at": "2026-11-25T03:55:35.227439+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

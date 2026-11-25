@@ -4,7 +4,7 @@
 
 [English](ch3.md) / [日本語](ch3.ja.md)
 
-[すべての章](README.ja.md) .テストは163本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは166本で、そのうち48本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -37,10 +37,12 @@
 | [`test_package_shared_space_imported_by_blocks_and_package`](../../tests/ch3/test_package_shared_space_imported_by_blocks_and_package.sv) |2つのモジュールがパッケージをインポートし、その変数を共有し、もう1つのパッケージが最初のパッケージをインポートし、その宣言に基づいてタイプと関数を構築し、宣言はどこでも同じ名前で使用されます。| 3.9 26.2 26.3 | Icarus Verilog 13.0 ||
 | [`test_same_names_in_module_interface_program_checker_scopes`](../../tests/ch3/test_same_names_in_module_interface_program_checker_scopes.sv) |2つのモジュール，インタフェース，プログラム，チェッカ，トップモジュールはそれぞれ変数カウントを宣言し，モジュール，インターフェース，プログラミングはそれぞれ関数getを宣言する。それぞれの宣言はブロックに限定され 独自の値を持ちます| 3.9 23.6 | Verilator 5.052 ||
 | [`test_config_binds_instances_through_library`](../../tests/ch3/test_config_binds_instances_through_library.sv) |configuration は設計のモジュールインスタンスをライブラリのセルに結び付ける: その cell 節は 1 つのモジュールのインスタンスをライブラリ work の別のセルに結び付け、instance 節は 2 つ目のモジュールのインスタンスの 1 つを 4 つ目のセルに結び付け、どの節にも選ばれず default だけが選ぶ 2 つ目のモジュールのもう 1 つのインスタンスは自分のセルのままである| 3.10 33.4.1.2 33.4.1.3 33.4.1.4 33.4.1.5 33.4.1.6 | Verilator 5.054 |トップモジュール|
+| [`test_library_contains_all_seven_cell_categories`](../../tests/ch3/test_library_contains_all_seven_cell_categories.sv) |一つの名前付きライブラリからモジュール、インターフェース、プログラム、チェッカー、プリミティブ、パッケージと構成を使う| 3.10 33.2 |規格のみ|終了コード、複数のファイル|
 | [`test_illegal_udp_contains_gate_instance`](../../tests/ch3/test_illegal_udp_contains_gate_instance.sv) |ゲートのインスタンスを含むユーザ定義のプリミティブは拒否されます。| 3.11 29.3 | Icarus Verilog 13.0 |規格違反の設計|
 | [`test_interface_instantiates_interface_program_and_checker`](../../tests/ch3/test_interface_instantiates_interface_program_and_checker.sv) |また，インタフェースはインタフェース，プログラム，2つのチェッカをインスタンス化する。それぞれのインスタンスはインタフェースのインスタンスよりも下の階層レベルであり、 外部インスタンスの2つのインスタンスは それぞれのパスと値を持つ 別々の子を持っています。| 3.11 25.3 17.3 | Verilator 5.052 ||
 | [`test_program_and_checker_instantiate_checkers`](../../tests/ch3/test_program_and_checker_instantiate_checkers.sv) |プログラムは2つのチェッカーをインスタンス化し，そのうちの1つが他のチェッカーを2回インスタンス化する。4つの葉チェッカーのインスタンスは それぞれ自分の入力をチェックし 失敗を報告します| 3.11 3.6 17.3 |規格のみ||
 | [`test_uninstantiated_modules_and_program_are_tops`](../../tests/ch3/test_uninstantiated_modules_and_program_are_tops.sv) |2つのモジュールと何もインスタンス化しないプログラムはそれぞれトップレベルブロックとなり，それぞれの名前で一度インスタンス化される。プログラムの最初の手順は テストベンチの入力点として実行されます| 3.11 3.4 23.3.1 24.3 | Icarus Verilog 13.0 ||
+| [`test_combined_compile_elaboration_results`](../../tests/ch3/test_combined_compile_elaboration_results.sv) |一度の起動でパラメータ付きインスタンスの結合と未解決モジュールの診断を確認する| 3.12 | Icarus Verilog 13.0 ||
 | [`test_elaborated_net_joins_drivers_across_hierarchy`](../../tests/ch3/test_elaborated_net_joins_drivers_across_hierarchy.sv) |また，各モジュールのドライバが一緒に解決し，各ポート名が解決した値を読み取るように，トップレベルネットとそれに接続された入出力ポートを二つの階層レベルで一つのネットに結合する。wire AND ポートに接続されたワンドネットは インスタンス内のドライバの| 3.12 23.3.3.7 6.6.1 | Icarus Verilog 13.0 | x/z |
 | [`test_elaborated_parameters_generate_and_names_at_time_zero`](../../tests/ch3/test_elaborated_parameters_generate_and_names_at_time_zero.sv) |シミュレーション開始前のエラボレーションで、上書き・派生パラメータの値が確定し、パラメータに従う個数へgenerateループを展開し、階層名を対応するインスタンスへ解決します。initial手続きは、それらを時刻0で読み出します。| 3.12 23.10.4.1 27.4 23.6 | Icarus Verilog 13.0 ||
 | [`test_illegal_package_import_precedes_package`](../../tests/ch3/test_illegal_package_import_precedes_package.sv) |パッケージのコンパイルはその項目の参照より前でなければならないので、モジュールより後にしか書かれていないパッケージの関数をインポートするモジュールはエラーになる| 3.12 26.3 | Icarus Verilog 13.0 |規格違反の設計|
@@ -111,6 +113,7 @@
 | [`test_illegal_time_unit_specified_only_in_some_elements`](../../tests/ch3/test_illegal_time_unit_specified_only_in_some_elements.sv) |\`timescale のないモジュールが時間単位と精度を指定し，他のモジュールが指定しない設計は拒否される。| 3.14.2.3 3.14.2.2 |規格のみ|規格違反の設計|
 | [`test_instantiated_module_time_unit`](../../tests/ch3/test_instantiated_module_time_unit.sv) |これは、モジュールが \`timescale を宣言するときに効果を持つが、インスタンス化するときには効果を持たないため、その遅延はそのユニットである。| 3.14.2.3 3.14.2.1 20.3.3 | Icarus Verilog 13.0 ||
 | [`test_nested_module_inherits_time_unit_and_precision`](../../tests/ch3/test_nested_module_inherits_time_unit_and_precision.sv) |時間単位と時間精度がないモジュールまたはインタフェースの内部で宣言されたモジュールまた はインタフェースは、それらの前の \`timescale ではなく、それらを包含する定義から両方を取得します。| 3.14.2.3 3.14.2.2 3.14.2.1 3.14.1 23.4 |規格のみ||
+| [`test_selected_defaults_set_time_unit_and_precision`](../../tests/ch3/test_selected_defaults_set_time_unit_and_precision.sv) |ソースに時間宣言を置かず二つの既定設定で時間単位と精度を調べる| 3.14.2.3 |規格のみ|出口コード|
 | [`test_timescale_before_unit_timeunit_precedence`](../../tests/ch3/test_timescale_before_unit_timeunit_precedence.sv) |時間単位と時間精度がないモジュールは，それ以前の最後の\`timescaleから，もしくはコンパイルユニットの時間単位と時間正確度から，それ以後の\`timescaleからは決して取らない。a\`timescaleはコンパイルユニットのスコープ自体の時間単位を変えません| 3.14.2.3 3.14.2.2 3.14.2.1 3.14.1 | Icarus Verilog 13.0 ||
 | [`test_timeunit_compilation_unit`](../../tests/ch3/test_timeunit_compilation_unit.sv) |\`timescale がなければ、コンパイルユニットスコープで宣言された時間単位と時間精度は、自分のものを宣言しないモジュールに適用され、遅延はその精度に丸められる。| 3.14.2.3 3.14.2.2 3.14.1 3.12.1 | Icarus Verilog 13.0 ||
 | [`test_timeunit_interface_clock`](../../tests/ch3/test_timeunit_interface_clock.sv) |インターフェースの常にブロックによって生成されたクロックは、それを観測するモジュールではなく、インターフェースの時間単位を持つ。| 3.14.2.3 3.14.2.2 20.3.3 | Icarus Verilog 13.0 ||

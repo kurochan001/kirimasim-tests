@@ -1,0 +1,7 @@
+context before=17 after=20
+ordinary result=51 count=21 state=20
+context before=33 after=37
+ordinary result=99 count=22 state=37
+context before=27 after=35
+ordinary result=81 count=26 state=35
+instance state left=35 right=37

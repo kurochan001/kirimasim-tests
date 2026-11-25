@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "requirement": "SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE",
+  "qualified": {
+    "tool": "ghost",
+    "version": "private build 6fa9a05abb0c",
+    "configuration": {
+      "evidence_profile": "ghost-vpi-runtime-release",
+      "checker_sha256": "64738e2e80f5f74d6aec0040a38d78347543fa6138d857a0064650a36bced9c1",
+      "artifact_sha256": {
+        "simulator": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+        "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe"
+      },
+      "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+      "debugger_version": "lldb-2103.0.34.407"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "handle_order": [
+      "frame",
+      "thread",
+      "stamp",
+      "vector",
+      "bit",
+      "frame_callback",
+      "thread_callback"
+    ],
+    "expected_samples": [
+      {
+        "phase": 1,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "1111111",
+            "manager": "11",
+            "thread_live": true
+          },
+          {
+            "index": 1,
+            "table": "1111111",
+            "manager": "11",
+            "thread_live": true
+          }
+        ]
+      },
+      {
+        "phase": 2,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "0100001",
+            "manager": "01",
+            "thread_live": true
+          },
+          {
+            "index": 1,
+            "table": "1111111",
+            "manager": "11",
+            "thread_live": true
+          }
+        ]
+      },
+      {
+        "phase": 3,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "0000000",
+            "manager": "00",
+            "thread_live": false
+          },
+          {
+            "index": 1,
+            "table": "0100001",
+            "manager": "01",
+            "thread_live": true
+          }
+        ]
+      },
+      {
+        "phase": 4,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "0000000",
+            "manager": "00",
+            "thread_live": false
+          },
+          {
+            "index": 1,
+            "table": "0000000",
+            "manager": "00",
+            "thread_live": false
+          }
+        ]
+      }
+    ],
+    "tests": {
+      "ch37/test_vpi_frame_and_thread_handle_release": {
+        "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8",
+        "status": "fail",
+        "debugger_exit": 0,
+        "target_exits": [
+          0
+        ],
+        "manager_captures": 1,
+        "ordinary_output": [
+          "arm 0 frame=1 thread=1 automatic=23 vector=1 bit=1 callbacks=1/1",
+          "arm 1 frame=1 thread=1 automatic=24 vector=1 bit=1 callbacks=1/1",
+          "distinct frame=1 thread=1",
+          "sample 1 module-state=53",
+          "worker 0 stamp=23 bits=10000110",
+          "frame 0 end at 3 identity=1 stamp=23",
+          "sample 2 module-state=53",
+          "branch 0 completed",
+          "thread 0 end at 5 identity=1",
+          "worker 1 stamp=24 bits=10000110",
+          "frame 1 end at 6 identity=1 stamp=24",
+          "sample 3 module-state=53",
+          "branch 1 completed",
+          "thread 1 end at 8 identity=1",
+          "sample 4 module-state=53"
+        ],
+        "samples": [
+          {
+            "phase": 1,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "11",
+                "thread_live": true
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "11",
+                "thread_live": true
+              }
+            ]
+          },
+          {
+            "phase": 2,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "01",
+                "thread_live": true
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "11",
+                "thread_live": true
+              }
+            ]
+          },
+          {
+            "phase": 3,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "00",
+                "thread_live": false
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "01",
+                "thread_live": true
+              }
+            ]
+          },
+          {
+            "phase": 4,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "00",
+                "thread_live": false
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "00",
+                "thread_live": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch37/test_vpi_frame_and_thread_handle_release": {
+          "status": "pass",
+          "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8"
+        }
+      },
+      "generated_at": "2026-11-25T09:10:04.322134+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch37/test_vpi_frame_and_thread_handle_release": {
+          "status": "known",
+          "reason": "VPI build failed: 12 errors generated.",
+          "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8"
+        }
+      },
+      "generated_at": "2026-11-25T09:10:04.069419+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "v52": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch37/test_vpi_frame_and_thread_handle_release": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_frame_and_thread_handle_release.sv:22:5: Unsupported or unknown PLI call: '$record_runtime_handles'",
+          "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8"
+        }
+      },
+      "generated_at": "2026-11-25T09:10:04.095086+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "v54": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_frame_and_thread_handle_release": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_frame_and_thread_handle_release.sv:22:5: Unsupported or unknown PLI call: '$record_runtime_handles'",
+          "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8"
+        }
+      },
+      "generated_at": "2026-11-25T09:10:04.095076+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_frame_and_thread_handle_release": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8"
+        }
+      },
+      "generated_at": "2026-11-25T09:10:04.018448+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

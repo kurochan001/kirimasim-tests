@@ -1,0 +1,21 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch35/test_dpi_library_keys_isolate_two_instances_in_reverse_order": {
+   "status": "pass",
+   "inputs_sha256": "a81dc5ad82c73353c850c7a27329fd73b8f353457f3bebc42fd93c37d93bfc0b"
+  },
+  "ch35/test_dpi_unrelated_libraries_private_and_numeric_keys": {
+   "status": "pass",
+   "inputs_sha256": "771ca3d5fc4b420070423bbb7f4f2aea67b81e200d03a98be8becd7f16f69439"
+  }
+ },
+ "generated_at": "2026-11-24T22:27:14.834575+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

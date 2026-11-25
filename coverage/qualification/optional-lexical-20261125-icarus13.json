@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "tool": "icarus",
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "sha256": {
+    "compiler": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+    "runtime": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+  },
+  "checker_sha256": "4998fc1bee3ff0c4ae3ee07e55ab697a770d221965b6094eee513ad0d4fc5ffe",
+  "tests": {
+    "ch5/test_string_octal_escape_outside_byte_range": {
+      "inputs_sha256": "ff78ce1d9f4ace3e34e4d3fb6752ca1ac9c3de8c103e4bad5b81330e07f26023",
+      "status": "pass",
+      "control": {
+        "build_exit": 0,
+        "exit": 0,
+        "errors": [],
+        "values": [
+          "in_range=4cff52",
+          "variant=4cfe52"
+        ]
+      },
+      "trial": {
+        "build_exit": 0,
+        "exit": 0,
+        "errors": [],
+        "values": [
+          "in_range=4cff52",
+          "variant=4c0052"
+        ]
+      }
+    },
+    "ch5/test_raw_control_byte_string_literal": {
+      "inputs_sha256": "e3ff9316a5486c19c831af582866fa29a55532846d9115f9fe8d458c3a6f6f7c",
+      "status": "pass",
+      "control": {
+        "build_exit": 0,
+        "exit": 0,
+        "errors": [],
+        "values": [
+          "raw=4c0b52 escaped=4c0b52"
+        ]
+      },
+      "trial": {
+        "build_exit": 0,
+        "exit": 0,
+        "errors": [],
+        "values": [
+          "raw=4c0b52 escaped=4c0b52"
+        ]
+      }
+    }
+  }
+}

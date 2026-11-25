@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "scope": "Defined controls are compared exactly. Domain payloads are observations only.",
+  "simulators": {
+    "ghost": {
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch11/test_real_power_unspecified_domain_values": {
+          "inputs_sha256": "e032782ed8dd5b3d8b51e980abf57d51f0454b0c7f1ecb53f407e40e06f9e761",
+          "trials": {
+            "control": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0"
+              ]
+            },
+            "+observe_zero_negative": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0",
+                "zero_to_negative=7ff0000000000000"
+              ]
+            },
+            "+observe_negative_fractional": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0",
+                "negative_to_fractional=7ff8000000000000"
+              ]
+            }
+          }
+        },
+        "ch12/test_foreach_dynamic_resize_undefined": {
+          "inputs_sha256": "24c3a256d080e2ff994d49d2682af60b6700a540fd3d641fffacdb326d943f0c",
+          "trials": {
+            "control": {
+              "exit": 0,
+              "stdout": [
+                "stable=012"
+              ]
+            },
+            "+observe_growth": {
+              "exit": 0,
+              "stdout": [
+                "stable=012",
+                "growth= 0 1"
+              ]
+            },
+            "+observe_shrink": {
+              "exit": 0,
+              "stdout": [
+                "stable=012",
+                "shrink= 0 1 2 3"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "verilator": {
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch11/test_real_power_unspecified_domain_values": {
+          "inputs_sha256": "e032782ed8dd5b3d8b51e980abf57d51f0454b0c7f1ecb53f407e40e06f9e761",
+          "trials": {
+            "control": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0"
+              ]
+            },
+            "+observe_zero_negative": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0",
+                "zero_to_negative=7ff0000000000000"
+              ]
+            },
+            "+observe_negative_fractional": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0",
+                "negative_to_fractional=7ff8000000000000"
+              ]
+            }
+          }
+        },
+        "ch12/test_foreach_dynamic_resize_undefined": {
+          "inputs_sha256": "24c3a256d080e2ff994d49d2682af60b6700a540fd3d641fffacdb326d943f0c",
+          "trials": {
+            "control": {
+              "exit": 0,
+              "stdout": [
+                "stable=012"
+              ]
+            },
+            "+observe_growth": {
+              "exit": 0,
+              "stdout": [
+                "stable=012",
+                "growth= 0 1 2 3"
+              ]
+            },
+            "+observe_shrink": {
+              "exit": 0,
+              "stdout": [
+                "stable=012",
+                "shrink= 0 0"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "icarus": {
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch11/test_real_power_unspecified_domain_values": {
+          "inputs_sha256": "e032782ed8dd5b3d8b51e980abf57d51f0454b0c7f1ecb53f407e40e06f9e761",
+          "trials": {
+            "control": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0"
+              ],
+              "stderr": []
+            },
+            "+observe_zero_negative": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0",
+                "zero_to_negative=7ff0000000000000"
+              ],
+              "stderr": []
+            },
+            "+observe_negative_fractional": {
+              "exit": 0,
+              "stdout": [
+                "defined=0.0,81.0,3.0",
+                "negative_to_fractional=7ff8000000000000"
+              ],
+              "stderr": []
+            }
+          }
+        },
+        "ch12/test_foreach_dynamic_resize_undefined": {
+          "inputs_sha256": "24c3a256d080e2ff994d49d2682af60b6700a540fd3d641fffacdb326d943f0c",
+          "trials": {
+            "control": {
+              "exit": 0,
+              "stdout": [
+                "stable=012"
+              ],
+              "stderr": []
+            },
+            "+observe_growth": {
+              "exit": 0,
+              "stdout": [
+                "stable=012",
+                "growth= 0 1 2 3"
+              ],
+              "stderr": []
+            },
+            "+observe_shrink": {
+              "exit": 0,
+              "stdout": [
+                "stable=012",
+                "shrink= 0"
+              ],
+              "stderr": []
+            }
+          }
+        }
+      }
+    }
+  }
+}

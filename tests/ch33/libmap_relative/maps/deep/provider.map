@@ -1,0 +1,2 @@
+library localLib ./cells/location.sv;
+library parentLib ../up/location.sv;

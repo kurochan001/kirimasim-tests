@@ -1,0 +1,30 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch13/test_defparam_constant_function_observation": {
+   "status": "pass",
+   "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372"
+  },
+  "ch18/test_randsequence_ungenerated_result_observation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch18/test_randsequence_ungenerated_result_observation.sv:15: syntax error",
+   "inputs_sha256": "80abe1781abb299b5f7a2b40e257e5c764f2684ccd2efa08f026a55a95cf98e7"
+  },
+  "ch7/test_associative_dynamic_array_key_equality": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_associative_dynamic_array_key_equality.sv:15: error: Type names are not valid expressions here.",
+   "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e"
+  },
+  "ch7/test_locator_with_side_effect_observation": {
+   "status": "known",
+   "reason": "compile failed: tests/ch7/test_locator_with_side_effect_observation.sv:24: syntax error",
+   "inputs_sha256": "0d446df44b2359f6251004585e869168841ed1ef9a67504c79d8ead54c34de6a"
+  }
+ },
+ "generated_at": "2026-11-25T05:48:52.540961+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

@@ -1,0 +1,7 @@
+immediate time=2 visits=3
+peer time=3
+delayed time=4 visits=1
+peer time=5
+delayed time=6 visits=2
+delayed time=8 visits=3
+end time=8

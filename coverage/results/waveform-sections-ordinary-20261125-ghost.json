@@ -1,0 +1,34 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch21/test_evcd_inherits_vcd_scope_and_physical_time": {
+   "status": "pass",
+   "inputs_sha256": "13610177bd93047b3af792c34956400a5f9b3076fd880096703c79cd421e5678"
+  },
+  "ch21/test_evcd_keyword_sections_extend_vcd": {
+   "status": "pass",
+   "inputs_sha256": "8ee482ea9dac610062c6da87f954ead6d7eb8c490df212852bb6df3613d5a3bb"
+  },
+  "ch21/test_evcd_manual_comment_before_closing_record": {
+   "status": "pass",
+   "inputs_sha256": "d46771e7df7797b3a03a6e9f3e47b545dda2f97a25b6650677bfa005786c5a9c"
+  },
+  "ch21/test_evcd_version_records_dumpports_filename_forms": {
+   "status": "pass",
+   "inputs_sha256": "bb86f85b597077b5127a7a123e0e723cc54ea425c3aaa612900bd26b3b81a154"
+  },
+  "ch21/test_vcd_comment_insertion_preserves_dumpall": {
+   "status": "pass",
+   "inputs_sha256": "a588015eb44d38451e68ff1c776fddaccec948246871f53371f0454b4da6cc20"
+  }
+ },
+ "generated_at": "2026-11-25T00:13:22.921478+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+ }
+}

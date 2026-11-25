@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-35.5.3-EXTRACT-CHAIN-UNWIND",
+    "SV2023-H.9.2-EXTRACT-UNWIND"
+  ],
+  "scope": "The C application exits at the landing point. Its exit code describes this test run.",
+  "qualified": {
+    "version": "private build 6fa9a05abb0c",
+    "configuration": {
+      "evidence_profile": "dpi-chain-escape",
+      "checker_sha256": "b14bcc1fad3e509a793b61d9b38383d6c37bb7f466b670ad239f4c03fa483ec0",
+      "artifact_sha256": {
+        "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+        "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5",
+        "profile": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+        "svdpi": "3eed92cf81ac778b5a70536e9531ae8c4bf70ed636a448c7a9a0ea4b0a0c8506"
+      },
+      "cc_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+      "verilator_version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch35/test_dpi_context_chain_escape_observation": {
+        "inputs_sha256": "fcce4abc2aa6ec9af1ff4d97d9ae467b81470efba653f81138d4e2cb5d1d0445",
+        "ghost": {
+          "compile_exit": 0,
+          "trials": {
+            "normal": {
+              "exit": 0,
+              "stdout": [
+                "entered distinct scopes=1",
+                "nested C scope=1",
+                "nested scope selected=1",
+                "export returned normally",
+                "C normal value=41 scope restored=1",
+                "SV observed result=42"
+              ],
+              "matches_observation": true
+            },
+            "escape": {
+              "exit": 77,
+              "stdout": [
+                "entered distinct scopes=1",
+                "nested C scope=1",
+                "nested scope selected=1",
+                "C landing reached"
+              ],
+              "matches_observation": true
+            }
+          }
+        },
+        "verilator": {
+          "compile_exit": 0,
+          "trials": {
+            "normal": {
+              "exit": 0,
+              "stdout": [
+                "entered distinct scopes=1",
+                "nested C scope=1",
+                "nested scope selected=1",
+                "export returned normally",
+                "C normal value=41 scope restored=0",
+                "SV observed result=42"
+              ],
+              "matches_observation": false
+            },
+            "escape": {
+              "exit": 77,
+              "stdout": [
+                "entered distinct scopes=1",
+                "nested C scope=1",
+                "nested scope selected=1",
+                "C landing reached"
+              ],
+              "matches_observation": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch35/test_dpi_context_chain_escape_observation": {
+          "status": "pass",
+          "inputs_sha256": "fcce4abc2aa6ec9af1ff4d97d9ae467b81470efba653f81138d4e2cb5d1d0445"
+        }
+      },
+      "generated_at": "2026-11-25T10:57:01.436547+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_context_chain_escape_observation": {
+          "status": "known",
+          "reason": "output differs: line 5 is 'C normal value=41 scope restored=0', expected 'C normal value=41 scope restored=1'",
+          "inputs_sha256": "fcce4abc2aa6ec9af1ff4d97d9ae467b81470efba653f81138d4e2cb5d1d0445"
+        }
+      },
+      "generated_at": "2026-11-25T10:57:07.110166+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_context_chain_escape_observation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_context_chain_escape_observation.sv:17: syntax error",
+          "inputs_sha256": "fcce4abc2aa6ec9af1ff4d97d9ae467b81470efba653f81138d4e2cb5d1d0445"
+        }
+      },
+      "generated_at": "2026-11-25T10:57:00.949827+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_context_chain_escape_observation": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "fcce4abc2aa6ec9af1ff4d97d9ae467b81470efba653f81138d4e2cb5d1d0445"
+        }
+      },
+      "generated_at": "2026-11-25T10:57:00.925299+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "slang": {
+    "reference": "slang",
+    "slang_commit": "a88cbc1b3582f1ef1eb0a289d9be81dbafefd941",
+    "slang_version": "slang version 12.0.0+0",
+    "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97",
+    "generated_at": "2026-11-25T10:57:00.946187+00:00",
+    "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+    "options": [
+      "--std=1800-2023",
+      "-Wno-error=index-oob",
+      "-Wno-error=string-int-concat",
+      "-Wno-error=string-in-constraint",
+      "--threads",
+      "1",
+      "-q"
+    ],
+    "summary": {
+      "illegal": {
+        "tests": 0,
+        "rejected_at_line": 0,
+        "rejected_elsewhere": 0,
+        "accepted": 0,
+        "timeout": 0,
+        "crashed": 0
+      },
+      "legal": {
+        "tests": 1,
+        "clean": 1,
+        "rejected": 0,
+        "timeout": 0,
+        "crashed": 0
+      },
+      "legal_vpi": {
+        "tests": 0,
+        "clean": 0,
+        "rejected": 0,
+        "timeout": 0,
+        "crashed": 0
+      }
+    },
+    "tests": {
+      "ch35/test_dpi_context_chain_escape_observation": {
+        "kind": "legal",
+        "status": "clean",
+        "inputs_sha256": "fcce4abc2aa6ec9af1ff4d97d9ae467b81470efba653f81138d4e2cb5d1d0445"
+      }
+    }
+  }
+}

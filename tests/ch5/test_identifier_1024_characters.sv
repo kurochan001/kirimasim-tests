@@ -8,7 +8,7 @@
 :spec_check: ai
 :fourstate: no
 :nondeterministic: no
-:files: identifier_1024_characters.svh
+:files: identifier_1024/identifier_1024_characters.svh
 :expected_stdout: @test_identifier_1024_characters.expected
 */
 // IEEE 1800-2023 §5.6: an implementation may limit the length of

@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "clause": "35.5.1.6",
+  "native_and_simulation": {
+    "v52": {
+      "tool": "verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "configuration": {
+        "evidence_profile": "verilator-dpi-cxx-boundary",
+        "checker_sha256": "b60d20962c4f2b210a940cdcc0d8cfe4ee2557269c8fa973f937a8cc76a4f0b7",
+        "binary_sha256": {
+          "verilator": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+          "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+          "verilator_backend": "411e8de3447a144f2cb73dbb49b5e7799fc7f89e101907f86989d3881f477a7b"
+        },
+        "cxx_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+        "seed": 1
+      },
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "tests": {
+        "ch35/test_dpi_cxx_function_and_task_boundaries": {
+          "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200",
+          "pass": true,
+          "native": {
+            "control": {
+              "compile_exits": [
+                0,
+                0
+              ],
+              "pass": true,
+              "link_exit": 0,
+              "run_exit": 0,
+              "stdout": [
+                "function returned value=-19 caught=1",
+                "task returned status=0 value=-29 caught=1"
+              ]
+            },
+            "cpp_linkage": {
+              "compile_exits": [
+                0,
+                0
+              ],
+              "pass": true,
+              "link_exit": 1,
+              "missing_c_symbols": [
+                "cxx_boundary_function",
+                "cxx_boundary_task"
+              ],
+              "diagnostics": [
+                "Undefined symbols for architecture arm64:",
+                "  \"_cxx_boundary_function\", referenced from:",
+                "  \"_cxx_boundary_task\", referenced from:"
+              ]
+            },
+            "escape": {
+              "compile_exits": [
+                0,
+                0
+              ],
+              "pass": true,
+              "link_exit": 0,
+              "run_exit": 0,
+              "stdout": [
+                "function exception reached native caller",
+                "task exception reached native caller"
+              ]
+            }
+          },
+          "simulation": {
+            "pass": true,
+            "reason": ""
+          }
+        }
+      }
+    },
+    "v54": {
+      "tool": "verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "configuration": {
+        "evidence_profile": "verilator-dpi-cxx-boundary",
+        "checker_sha256": "b60d20962c4f2b210a940cdcc0d8cfe4ee2557269c8fa973f937a8cc76a4f0b7",
+        "binary_sha256": {
+          "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+          "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+          "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+        },
+        "cxx_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+        "seed": 1
+      },
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "tests": {
+        "ch35/test_dpi_cxx_function_and_task_boundaries": {
+          "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200",
+          "pass": true,
+          "native": {
+            "control": {
+              "compile_exits": [
+                0,
+                0
+              ],
+              "pass": true,
+              "link_exit": 0,
+              "run_exit": 0,
+              "stdout": [
+                "function returned value=-19 caught=1",
+                "task returned status=0 value=-29 caught=1"
+              ]
+            },
+            "cpp_linkage": {
+              "compile_exits": [
+                0,
+                0
+              ],
+              "pass": true,
+              "link_exit": 1,
+              "missing_c_symbols": [
+                "cxx_boundary_function",
+                "cxx_boundary_task"
+              ],
+              "diagnostics": [
+                "Undefined symbols for architecture arm64:",
+                "  \"_cxx_boundary_function\", referenced from:",
+                "  \"_cxx_boundary_task\", referenced from:"
+              ]
+            },
+            "escape": {
+              "compile_exits": [
+                0,
+                0
+              ],
+              "pass": true,
+              "link_exit": 0,
+              "run_exit": 0,
+              "stdout": [
+                "function exception reached native caller",
+                "task exception reached native caller"
+              ]
+            }
+          },
+          "simulation": {
+            "pass": true,
+            "reason": ""
+          }
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "v52": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch35/test_dpi_cxx_function_and_task_boundaries": {
+          "status": "pass",
+          "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:42.754970+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "v54": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_cxx_function_and_task_boundaries": {
+          "status": "pass",
+          "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200"
+        }
+      },
+      "generated_at": "2026-11-25T08:23:11.706795+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch35/test_dpi_cxx_function_and_task_boundaries": {
+          "status": "pass",
+          "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:39.491800+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_cxx_function_and_task_boundaries": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_cxx_function_and_task_boundaries.sv:16: syntax error",
+          "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:39.021165+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_cxx_function_and_task_boundaries": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "5fd63ad821330f2f6f58834a99fe7f1528b586b3d9f644d80e8e3f1fd8f52200"
+        }
+      },
+      "generated_at": "2026-11-25T08:22:38.947374+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

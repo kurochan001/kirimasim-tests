@@ -1,0 +1,2 @@
++define+VT_FROM_INNER=29
+test_vpi_vlog_info_nested_option_files.sv

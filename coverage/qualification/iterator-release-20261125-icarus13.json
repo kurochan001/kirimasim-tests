@@ -1,0 +1,49 @@
+{
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "configuration": {
+    "evidence_profile": "icarus-iterator-release",
+    "checker_sha256": "55f7b5e01a8d0b3be252b3f1596839e13eb95173a175d44d28cda7bc7705ca46",
+    "binary_sha256": {
+      "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+      "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+      "iverilog-vpi": "c6ca340808b12378a9fe07b2c759fda5dbaf081f969d7a6ce2ecbfbb28b201eb",
+      "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+    },
+    "debugger_version": "lldb-2103.0.34.407"
+  },
+  "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+  "tests": {
+    "ch38/test_vpi_iterator_released_on_terminal_scan": {
+      "inputs_sha256": "4b9c311a861cb6e169f1787823630f3195781d88fc75a5aa5ddb3f3d2e7f2388",
+      "pass": true,
+      "debugger_exit": 0,
+      "target_exits": [
+        0
+      ],
+      "events": [
+        "early_open early",
+        "drained_open drained",
+        "explicit_release early",
+        "cleanup early other",
+        "explicit_done",
+        "terminal_scan drained",
+        "cleanup drained scan",
+        "terminal_done"
+      ],
+      "expected_events": [
+        "early_open early",
+        "drained_open drained",
+        "explicit_release early",
+        "cleanup early other",
+        "explicit_done",
+        "terminal_scan drained",
+        "cleanup drained scan",
+        "terminal_done"
+      ],
+      "stdout": [
+        "early release=1 child readable=1",
+        "drained modules=7 terminal null=1"
+      ]
+    }
+  }
+}

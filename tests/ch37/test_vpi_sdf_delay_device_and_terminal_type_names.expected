@@ -1,0 +1,7 @@
+delay subtype API macro names=1
+delay subtype start callback=1
+delay device object=1 integer=1 name=1
+delay input object=1 integer=1 name=1
+delay output object=1 integer=1 name=1
+interconnect source=1 sink=0
+interconnect source=1 sink=1

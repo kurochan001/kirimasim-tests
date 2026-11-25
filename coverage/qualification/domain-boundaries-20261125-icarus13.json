@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "configuration": {
+    "evidence_profile": "icarus-domain-boundaries",
+    "checker_sha256": "9aae48b5b752c08c5b130854b983955011093eef8263a558c79ec30a0f311cd2",
+    "binary_sha256": {
+      "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+      "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392"
+    }
+  },
+  "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+  "tests": {
+    "ch11/test_real_power_unspecified_domain_values": {
+      "inputs_sha256": "e032782ed8dd5b3d8b51e980abf57d51f0454b0c7f1ecb53f407e40e06f9e761",
+      "status": "pass",
+      "compile": {
+        "exit": 0,
+        "stdout": [],
+        "stderr": []
+      },
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "defined=0.0,81.0,3.0"
+        ],
+        "stderr": []
+      },
+      "probes": {
+        "+observe_zero_negative": {
+          "exit": 0,
+          "stdout": [
+            "defined=0.0,81.0,3.0",
+            "zero_to_negative=7ff0000000000000"
+          ],
+          "stderr": []
+        },
+        "+observe_negative_fractional": {
+          "exit": 0,
+          "stdout": [
+            "defined=0.0,81.0,3.0",
+            "negative_to_fractional=7ff8000000000000"
+          ],
+          "stderr": []
+        }
+      }
+    },
+    "ch12/test_foreach_dynamic_resize_undefined": {
+      "inputs_sha256": "24c3a256d080e2ff994d49d2682af60b6700a540fd3d641fffacdb326d943f0c",
+      "status": "pass",
+      "compile": {
+        "exit": 0,
+        "stdout": [],
+        "stderr": []
+      },
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "stable=012"
+        ],
+        "stderr": []
+      },
+      "probes": {
+        "+observe_growth": {
+          "exit": 0,
+          "stdout": [
+            "stable=012",
+            "growth= 0 1 2 3"
+          ],
+          "stderr": []
+        },
+        "+observe_shrink": {
+          "exit": 0,
+          "stdout": [
+            "stable=012",
+            "shrink= 0"
+          ],
+          "stderr": []
+        }
+      }
+    },
+    "ch11/test_conflicting_expression_side_effect_order": {
+      "inputs_sha256": "70f891ad381dd3dc2caa7b3be2fb4c0ae5b96da197693b1e52fc96acf73ba687",
+      "status": "pass",
+      "compile": {
+        "exit": 0,
+        "stdout": [],
+        "stderr": []
+      },
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "separate prior=7 now=8 sum=15"
+        ],
+        "stderr": []
+      },
+      "probes": {
+        "+observe_conflict": {
+          "exit": 0,
+          "stdout": [
+            "separate prior=7 now=8 sum=15",
+            "conflicts left=15 next=8 right=26 next=14"
+          ],
+          "stderr": []
+        }
+      }
+    },
+    "ch9/test_disable_task_unspecified_effects": {
+      "inputs_sha256": "cd09450ef8e03137eef9c35f036c990bac20e6d6faf32c9e045af05e809611c6",
+      "status": "pass",
+      "compile": {
+        "exit": 0,
+        "stdout": [],
+        "stderr": []
+      },
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "entry t=1 pending=0 driven=1 forced=1",
+          "return time=2",
+          "complete t=6 output=30 inout=41 nba=1 assigned=0 forced=0"
+        ],
+        "stderr": []
+      },
+      "probes": {
+        "+observe_disabled": {
+          "exit": 0,
+          "stdout": [
+            "entry t=1 pending=0 driven=1 forced=1",
+            "disabling task at t=2",
+            "return time=2",
+            "complete t=6 output=30 inout=41 nba=1 assigned=1 forced=1"
+          ],
+          "stderr": []
+        }
+      }
+    },
+    "ch21/test_sscanf_invalid_conversion_observation": {
+      "inputs_sha256": "2b3daa34632d40d089fed29b7dea72535b3336f799f2fcf328e96a3eab03c340",
+      "status": "pass",
+      "compile": {
+        "exit": 0,
+        "stdout": [],
+        "stderr": []
+      },
+      "control": {
+        "exit": 0,
+        "stdout": [
+          "defined count=2 first=42 second=15"
+        ],
+        "stderr": []
+      },
+      "probes": {},
+      "invalid_scan": {
+        "format_line": 23,
+        "compile": {
+          "exit": 0,
+          "stdout": [],
+          "stderr": []
+        },
+        "run": {
+          "exit": 1,
+          "stdout": [
+            "defined count=2 first=42 second=15",
+            "before invalid conversion",
+            "ERROR: test_sscanf_invalid_conversion_observation.sv:23: $sscanf() was given an invalid format code: %k"
+          ],
+          "stderr": []
+        }
+      }
+    }
+  }
+}

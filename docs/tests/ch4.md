@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[All chapters](README.md). 483 tests, 386 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 485 tests, 386 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -14,6 +14,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_nba_cross_module_timing`](../../tests/ch4/test_nba_cross_module_timing.sv) | Track exact NBA timing between parent and child modules | 4.3 | Icarus Verilog 13.0 ||
 | [`test_nba_port_propagation`](../../tests/ch4/test_nba_port_propagation.sv) | NBA write should propagate through port connections | 4.3 10.4.2 4.9.6 10.3 | Icarus Verilog 13.0 ||
 | [`test_pli_callbacks_are_evaluation_events`](../../tests/ch4/test_pli_callbacks_are_evaluation_events.sv) | Registered PLI callbacks are evaluation events of the time slot they are scheduled in: each runs at its own control point among the events of that slot, sees the values the earlier events left, and a value it writes is an update event that wakes the design in the same slot | 4.3 4.10 38.36.2 | Icarus Verilog 13.0 | VPI |
+| [`test_reference_scheduler_trace_set`](../../tests/ch4/test_reference_scheduler_trace_set.sv) | Compare a timed race and its NBA wakeup with the traces permitted by the event scheduler | 4.3 4.5 | Icarus Verilog 13.0 ||
 | [`test_sched_region_iteration`](../../tests/ch4/test_sched_region_iteration.sv) | a time slot runs Active, then Inactive, then NBA, and reaches Postponed only after the iterative work settles, with the next slot after Postponed | 4.3 4.4 4.4.1 4.4.2 4.4.3.10 | Icarus Verilog 13.0 ||
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) | Only a change of the value of a variable or net is an update event, and an update event wakes every process sensitive to it, as its event control filters it | 4.3 4.5 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) | The regions of one time slot come in their defined order, with the PLI regions between the simulation regions: Preponed, Pre-Active, Active, Inactive, Pre-NBA, NBA, Observed, Reactive, Re-Inactive, Re-NBA, the active region set again, Pre-Postponed and Postponed | 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 | standard only | VPI |
@@ -80,6 +81,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_sched_zero_delay_chain_defers_nba`](../../tests/ch4/test_sched_zero_delay_chain_defers_nba.sv) | A process that keeps resuming from #0 runs before the nonblocking update of its time step, however many times it does so | 4.5 4.4.2.3 4.4.2.4 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_array_element_noop_nba_keeps_override_order`](../../tests/ch4/test_array_element_noop_nba_keeps_override_order.sv) | Nonblocking assignments to one array element keep their order, also when one assigns the current value | 4.6 10.4.2 | Icarus Verilog 13.0 ||
 | [`test_begin_end_order_across_suspensions`](../../tests/ch4/test_begin_end_order_across_suspensions.sv) | The statements of a begin-end block run in the order of the source, also when the block is suspended by delays, event controls, #0 and wait statements and other processes run in between | 4.6 9.3.1 | Icarus Verilog 13.0 ||
+| [`test_active_sample_and_reactive_settling`](../../tests/ch4/test_active_sample_and_reactive_settling.sv) | An active sample permits multiple stages while the reactive sample sees the final stage | 4.7 24.4 | standard only ||
 | [`test_port_complex_expr_extended`](../../tests/ch4/test_port_complex_expr_extended.sv) | Port connection expressions | 4.7 23.3.2 23.3.3 4.9.6 | Icarus Verilog 13.0 ||
 | [`test_range_select_lhs`](../../tests/ch4/test_range_select_lhs.sv) | Part-select assignment with variable bounds | 4.9 11.5.1 | Icarus Verilog 13.0 ||
 | [`test_port_connection_evaluated_at_time_zero`](../../tests/ch4/test_port_connection_evaluated_at_time_zero.sv) | The implicit continuous assignments of input ports are evaluated at time zero, so a port connected to a constant expression or to a variable that keeps its declared initial value has that value without any change | 4.9.1 4.9.6 23.3.3 | Icarus Verilog 13.0 ||

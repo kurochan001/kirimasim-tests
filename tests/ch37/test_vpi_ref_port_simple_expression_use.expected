@@ -1,0 +1,5 @@
+controls: distinct_actuals=1 distinct_assignments=1
+left: ref=1 actual=1 own_use=1 other_use=0
+right: ref=1 actual=1 own_use=1 other_use=0
+aliases=10
+aliases=01

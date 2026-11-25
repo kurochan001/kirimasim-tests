@@ -1,0 +1,4 @@
+function result=7 time=0
+inner completed time=5 result=7
+outer completed time=5 result=7
+caller resumed time=5 result=7 ticks=2

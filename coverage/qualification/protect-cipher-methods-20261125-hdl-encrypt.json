@@ -1,0 +1,20 @@
+{
+ "profile": "protect-cipher-methods",
+ "encryptor": {
+  "version": "0.1.0",
+  "files": {
+   "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+   "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+   "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+   "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+   "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+  },
+  "cryptography": "50.0.2"
+ },
+ "openssl": "OpenSSL 4.0.3 29 Sep 2026 (Library: OpenSSL 4.0.3 29 Sep 2026)",
+ "nettle": "4.0",
+ "checker_sha256": "36b5293911fd1998af60bcfcf30d32d118d4ed7ece209988f67a56af800bf379",
+ "tests": {
+  "ch34/test_protect_data_method_cipher_selection": {"inputs_sha256": "42187cb5e05da54204000f0f8506fe69322b7787aeb9a8aca87ebbbc71d1ecce", "checks": {"des-cbc": {"required": true, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "3des-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "aes128-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "aes192-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "aes256-cbc": {"required": false, "reference_control": true, "outcome": "pass", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "blowfish-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "twofish128-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "twofish192-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "twofish256-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "serpent128-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "serpent192-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "serpent256-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}, "cast128-cbc": {"required": false, "reference_control": true, "outcome": "substituted_method", "emitted": ["aes256-cbc", "aes256-cbc"], "recovered_bodies": 2, "distinct_recovered_ivs": 2}}, "recovered_cbc_payloads": 26, "distinct_recovered_ivs": 26}
+ }
+}

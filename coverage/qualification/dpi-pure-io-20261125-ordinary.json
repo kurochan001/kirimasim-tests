@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "mode": "ordinary simulation",
+  "runs": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch35/test_dpi_pure_external_state_observation": {
+          "status": "pass",
+          "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f"
+        },
+        "ch35/test_dpi_pure_file_access_observation": {
+          "status": "pass",
+          "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c"
+        }
+      },
+      "generated_at": "2026-11-25T07:18:37.555082+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_pure_external_state_observation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_pure_external_state_observation.sv:20: syntax error",
+          "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f"
+        },
+        "ch35/test_dpi_pure_file_access_observation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_pure_file_access_observation.sv:20: syntax error",
+          "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c"
+        }
+      },
+      "generated_at": "2026-11-25T07:18:37.046479+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_pure_external_state_observation": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f"
+        },
+        "ch35/test_dpi_pure_file_access_observation": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c"
+        }
+      },
+      "generated_at": "2026-11-25T07:18:37.000735+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator5.052": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.052 2026-09-05 rev v5.052",
+      "tests": {
+        "ch35/test_dpi_pure_external_state_observation": {
+          "status": "pass",
+          "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f"
+        },
+        "ch35/test_dpi_pure_file_access_observation": {
+          "status": "pass",
+          "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c"
+        }
+      },
+      "generated_at": "2026-11-25T07:18:38.242118+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "verilator5.054": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_pure_external_state_observation": {
+          "status": "pass",
+          "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f"
+        },
+        "ch35/test_dpi_pure_file_access_observation": {
+          "status": "pass",
+          "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c"
+        }
+      },
+      "generated_at": "2026-11-25T07:18:42.741343+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  }
+}

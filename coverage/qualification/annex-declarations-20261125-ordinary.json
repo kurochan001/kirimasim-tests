@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "mode": "ordinary suite execution",
+  "simulators": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch13/test_annex_tf_identifier_list": {
+          "status": "pass",
+          "inputs_sha256": "c74e6e26b3d9189e68512d0771b12910cc08a7815d7c63a6d3acb981bfb0189b"
+        },
+        "ch19/test_annex_set_expression_construction": {
+          "status": "pass",
+          "inputs_sha256": "2b555bd1a153efa16be61207353d5fbf6a3c85960818d239cc7f3c904916903a"
+        }
+      },
+      "generated_at": "2026-11-25T06:31:43.968267+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch13/test_annex_tf_identifier_list": {
+          "status": "known",
+          "reason": "compile failed: tests/ch13/test_annex_tf_identifier_list.sv:21: sorry: Subroutine ports with unpacked dimensions are not yet supported.",
+          "inputs_sha256": "c74e6e26b3d9189e68512d0771b12910cc08a7815d7c63a6d3acb981bfb0189b"
+        },
+        "ch19/test_annex_set_expression_construction": {
+          "status": "known",
+          "reason": "compile failed: tests/ch19/test_annex_set_expression_construction.sv:20: syntax error",
+          "inputs_sha256": "2b555bd1a153efa16be61207353d5fbf6a3c85960818d239cc7f3c904916903a"
+        }
+      },
+      "generated_at": "2026-11-25T06:31:43.926895+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch13/test_annex_tf_identifier_list": {
+          "status": "pass",
+          "inputs_sha256": "c74e6e26b3d9189e68512d0771b12910cc08a7815d7c63a6d3acb981bfb0189b"
+        },
+        "ch19/test_annex_set_expression_construction": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch19/test_annex_set_expression_construction.sv:22:32: syntax error, unexpected ';', expecting with-then-(",
+          "inputs_sha256": "2b555bd1a153efa16be61207353d5fbf6a3c85960818d239cc7f3c904916903a"
+        }
+      },
+      "generated_at": "2026-11-25T06:31:48.041123+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch13/test_annex_tf_identifier_list": {
+          "status": "pass",
+          "inputs_sha256": "c74e6e26b3d9189e68512d0771b12910cc08a7815d7c63a6d3acb981bfb0189b"
+        },
+        "ch19/test_annex_set_expression_construction": {
+          "status": "unsupported",
+          "reason": "type 'cg' (not implemented yet)",
+          "inputs_sha256": "2b555bd1a153efa16be61207353d5fbf6a3c85960818d239cc7f3c904916903a"
+        }
+      },
+      "generated_at": "2026-11-25T06:31:43.942969+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

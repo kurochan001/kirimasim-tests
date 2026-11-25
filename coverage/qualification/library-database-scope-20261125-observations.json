@@ -1,0 +1,73 @@
+{
+  "name": "Ghost",
+  "version": "private build 6fa9a05abb0c",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+  "tests": {
+    "ch3/test_library_contains_all_seven_cell_categories": {
+      "inputs_sha256": "aa5e8ccb873a70992284d8f8877f8cdee4bbe6016981fd6d0578f20b6b920cbb",
+      "mappedProvider.provider_cfg": [
+        "checker marker=1",
+        "module=19 interface=23 program=29 primitive=1 package=31"
+      ],
+      "work.provider_cfg": [
+        "selected work instead"
+      ],
+      "slang_version": "slang version 12.0.0+a88cbc1b3",
+      "slang_binary_sha256": "5fcf043a7b6a40f2d4747d0a726ddf0c428ff3a19c6ebf3e49d85e870c9a74fd",
+      "slang_selected_bindings": {
+        "mappedProvider": {
+          "top": "test_library_contains_all_seven_cell_categories",
+          "mod_unit": "tests/ch3/library_cell_categories/provider.sv",
+          "intf": "tests/ch3/library_cell_categories/provider.sv",
+          "prog_unit": "tests/ch3/library_cell_categories/provider.sv",
+          "check_unit": "tests/ch3/library_cell_categories/provider.sv",
+          "udp_unit": "provider_udp",
+          "package_value": 31
+        },
+        "work": {
+          "top": "library_cells_decoy"
+        }
+      }
+    },
+    "ch19/test_coverage_db_name_and_type_data_across_two_runs": {
+      "inputs_sha256": "a829c95f04745db71dc266fd1b3c90e84a58452caba11ffcb394b6908032d648",
+      "native_save": {
+        "observed": [
+          "database absent before end=1",
+          "four=25.00 two=50.00"
+        ],
+        "files_after_run": []
+      },
+      "native_load": {
+        "status": "not_run",
+        "reason": "native save did not create a database"
+      },
+      "command_line_export_control": {
+        "file": "chosen_coverage.json",
+        "counted_types": [
+          "four_values",
+          "two_values"
+        ],
+        "returncode": 0
+      },
+      "load_command_line_export_control": {
+        "observed": [
+          "before load four=0.00 two=0.00",
+          "four=0.00 two=0.00"
+        ],
+        "returncode": 0,
+        "opening_diagnostic": "Failed to open coverage database: \"chosen_coverage.json\"",
+        "standard_database_format_validated": false
+      }
+    },
+    "ch38/test_vpi_control_scope_change_reports_selected_instance": {
+      "inputs_sha256": "c26ad85225404ad07de5b115f8fce9e1b5b2ad03d35c66f7b19358b0c52bafb0",
+      "observed": [
+        "first accepted=1 callback count=0 reason=0 new scope=0",
+        "second accepted=1 callback count=0 reason=0 new scope=0"
+      ],
+      "timing_intent": "the fixture checks the callback on a later simulation step"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+hdl visits=0,3,2,0
+fsm: first_sum=1 final_sum=1 added=4
+states added=0,2,2,0 unused_count=0

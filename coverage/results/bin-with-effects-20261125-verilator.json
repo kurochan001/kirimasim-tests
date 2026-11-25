@@ -1,0 +1,30 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch19/test_cg_cross_with_side_effect_observation": {
+   "status": "pass",
+   "inputs_sha256": "5f92cdb0650156c2ef765eda8f78d9a3703de1f648c7a8a1fca93d18f8b8fd4f"
+  },
+  "ch19/test_cg_point_with_side_effect_observation": {
+   "status": "pass",
+   "inputs_sha256": "4bf939e881338c56fe1d3c22445f28d0e087f286ed2e8afcce488007a65442bc"
+  }
+ },
+ "generated_at": "2026-11-25T10:33:07.747234+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "coverage-bin-effects",
+  "checker_sha256": "fdd3d0c02e0d0a04f63dcfe5042ca5dc9057ebc4ba59cfcc24d3164e1474ce52",
+  "binary_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  },
+  "seeds": [
+   1,
+   73
+  ]
+ }
+}

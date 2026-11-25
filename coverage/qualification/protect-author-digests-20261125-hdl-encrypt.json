@@ -1,0 +1,23 @@
+{
+ "profile": "protect-author-digests",
+ "checker_sha256": "9d80c487b1fbe010bef5cfcac59268bd6c0795d23c5c8c584d1e5cd9c1d2dfd5",
+ "encryptor": {
+  "version": "0.1.0",
+  "files": {
+   "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+   "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+   "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+   "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+   "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+  },
+  "cryptography": "50.0.2"
+ },
+ "openssl": "OpenSSL 4.0.3 29 Sep 2026 (Library: OpenSSL 4.0.3 29 Sep 2026)",
+ "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "signature_mode": "detached author signature checked by the reference packager",
+ "native_prepared_mode": "already formed decryption envelope passed to ordinary CLI",
+ "tests": {
+  "ch34/test_protect_author_digest_inherits_data_key": {"inputs_sha256": "730a00456f9c87be3199536e33ef9cdfd41dab53f55964c115810a98a009fab0", "reference_controls": {"author_signature_verified": true, "unsigned_input_rejected": true, "changed_author_bytes_rejected": true, "wrong_recipient_rejected": true, "methods_and_keys_unwrapped": true, "digest_key_explicit_or_inherited": true, "both_wrapped_key_encodings": true, "key_buffer_encoding": true, "wrapped_digest_matches_author": true, "key_public_key_matches_recipient": true, "key_material_only_in_wrapped_buffer": true, "author_data_preserved": true, "author_digest_preserved": true, "body_and_digest_recovered": true, "altered_digest_detected": true, "wrong_digest_key_detected": true, "recovered_hdl_matches": true}, "native_ordinary": {"outcome": "ordinary_body_recovered", "ordinary_data_method_preserved": true, "emitted_digest_blocks": 0}, "native_prepared": {"outcome": "prepared_input_malformed_delimiter", "output_ranges": 0, "prepared_contents_reencrypted": true}},
+  "ch34/test_protect_author_digest_wraps_explicit_key": {"inputs_sha256": "9c2c98d107bcb1816e110744bab68fd74825a349cb3cda7cf7bdcda4c13ea655", "reference_controls": {"author_signature_verified": true, "unsigned_input_rejected": true, "changed_author_bytes_rejected": true, "wrong_recipient_rejected": true, "methods_and_keys_unwrapped": true, "digest_key_explicit_or_inherited": true, "both_wrapped_key_encodings": true, "key_buffer_encoding": true, "wrapped_digest_matches_author": true, "key_public_key_matches_recipient": true, "key_material_only_in_wrapped_buffer": true, "author_data_preserved": true, "author_digest_preserved": true, "body_and_digest_recovered": true, "altered_digest_detected": true, "wrong_digest_key_detected": true, "recovered_hdl_matches": true}, "native_ordinary": {"outcome": "ordinary_body_recovered", "ordinary_data_method_preserved": true, "emitted_digest_blocks": 0}, "native_prepared": {"outcome": "prepared_input_malformed_delimiter", "output_ranges": 0, "prepared_contents_reencrypted": true}}
+ }
+}

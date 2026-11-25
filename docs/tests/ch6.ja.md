@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは916本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは924本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -49,6 +49,7 @@
 | [`test_net_logic`](../../tests/ch6/test_net_logic.sv) |論理型の挙動| 6.5 10.3 | Icarus Verilog 13.0 | x/z |
 | [`test_port_variable_net_implied_continuous`](../../tests/ch6/test_port_variable_net_implied_continuous.sv) |ポートの片側が変数、もう片側がネットの場合、暗黙の継続代入で接続されます。この代入はstrongの強度でネットを駆動し、すべての値変化に追従します。変数への書込みは、1つの継続代入または1つのoutputポートから行えます。| 6.5 23.3.3 21.2.1.4 | Icarus Verilog 13.0 ||
 | [`test_ref_port_variable_shared_writers`](../../tests/ch6/test_ref_port_variable_shared_writers.sv) |2つのインスタンスのrefポートへ渡した変数は、両ポートで共有する1つの変数である。そのため、どちらかのインスタンスまたは親からの手続き的な書込みは、すべてのポートを通じて直ちに見える。| 6.5 23.3.3 | Verilator 5.052 ||
+| [`test_variable_drive_strength_warning_observation`](../../tests/ch6/test_variable_drive_strength_warning_observation.sv) |連続代入された変数を経由するとネットの駆動強度が失われる| 6.5 | Icarus Verilog 13.0 ||
 | [`test_variable_independent_element_writers`](../../tests/ch6/test_variable_independent_element_writers.sv) |unpacked unpacked 配列の異なる要素，ベクトルの異なるビットはそれぞれ別々の要素であり，それぞれ独自の連続代入または手続き書き込みが可能である。| 6.5 11.5.3 10.3.2 |規格のみ||
 | [`test_variable_initializer_not_continuous`](../../tests/ch6/test_variable_initializer_not_continuous.sv) |変数宣言内の代入は変数を初期化するだけなので、その後の手続き的な書込みは保持され、初期化式のオペランドが後で変化しても変数には伝わらない。一方、net宣言内の代入はnetの駆動を継続する。| 6.5 6.8 10.3.1 | Icarus Verilog 13.0 ||
 | [`test_variable_writer_override_order`](../../tests/ch6/test_variable_writer_override_order.sv) |変数に対して，フォースは手続き的割当を上書きし，手続き的書き込みは上書きされる。release、deassignの順に制御を戻す。連続代入を持つ変数にもforceを適用でき、複数の手続き的な書込み元がある場合は、最後の書込みで値が決まる。| 6.5 10.6.1 10.6.2 | Icarus Verilog 13.0 ||
@@ -104,6 +105,7 @@
 | [`test_nettype_resolution`](../../tests/ch6/test_nettype_resolution.sv) |ユーザ定義ネットタイプのネットは、出力ポートを含む全ドライバから、その解像度関数が計算した値を、ドライバが変更される度に再び取る。2番目のネットタイプ名は解像度を共有し フォースとリリースは解像度を上書きして復元します| 6.6.7 10.3 10.6.2 23.3.3 |規格のみ||
 | [`test_nettype_resolver_automatic_local_reinitializes`](../../tests/ch6/test_nettype_resolver_automatic_local_reinitializes.sv) |automatic な nettype 解決関数は、評価のたびにローカルの累算変数を初期化し直すため、ドライバーの値を減らすと、評価回数に依存せず解決値が減少する| 6.6.7 6.21 13.4.2 |規格のみ||
 | [`test_nettype_unpacked_union_struct_array_data`](../../tests/ch6/test_nettype_unpacked_union_struct_array_data.sv) |ユーザ定義 nettype は、データ型として real と logic のメンバーを持つ unpacked 共用体、 shortreal と bit のメンバーを持つ unpacked 構造体の固定長配列を持つ unpacked 構造体、そのような共用体の固定長配列を持つことができ、その解決関数はこれらの型のドライバ値を全体として合成する| 6.6.7 |規格のみ||
+| [`test_user_net_same_region_resolution`](../../tests/ch6/test_user_net_same_region_resolution.sv) |同じスケジューリング領域と別々の領域で駆動値を変更し、ユーザー定義ネットの解決値の履歴を調べる| 6.6.7 38.36.1 |規格のみ| VPI |
 | [`test_user_nettype_resolution_forms`](../../tests/ch6/test_user_nettype_resolution_forms.sv) |4状態，2状態，実数，shortrealおよびunpackedデータ型のユーザ定義ネットタイプ，パッケージスコープを通じて直接名付けた解析器またはパラメータ化クラスの静的メソッドとして，パッケージスコープを通じて名前を変更し，遅延を伴って宣言し，配列として，解析器なしで，ネットを全体として解析する。| 6.6.7 6.6 6.7 6.7.2 6.7.3 13.8 |規格のみ| x/z |
 | [`test_x_value_bitwise`](../../tests/ch6/test_x_value_bitwise.sv) |4 -state logic 真理値テーブル| 6.6.7 11.4.8 | Icarus Verilog 13.0 | x/z |
 | [`test_a2_1_3_interconnect_declaration_identifiers`](../../tests/ch6/test_a2_1_3_interconnect_declaration_identifiers.sv) |暗黙のデータ型、ゼロ遅延、および2つの識別子を持ち、2番目の識別子にunpacked次元を指定したinterconnect宣言は、2つのinterconnect netを宣言する。各netは、ポートを介してドライバからリーフへ値を伝える。| 6.6.8 23.3.3.7 A.2.1.3 |規格のみ||
@@ -144,6 +146,7 @@
 | [`test_nettype_alias_resolution_and_empty_drivers`](../../tests/ch6/test_nettype_alias_resolution_and_empty_drivers.sv) |ネットタイプエイリアスの連鎖はポートドライバとドライブなし解決ネットを合わせ、空のドライバセットを評価します。| 6.7.2 6.7.3 6.22.6 |規格のみ||
 | [`test_nettype_initial_value_before_procedures`](../../tests/ch6/test_nettype_initial_value_before_procedures.sv) |ユーザ定義 nettype のネットは、initial と always の手続きの最初の文が時刻 0 に読む時点で、構造体メンバーの初期化子による初期値をすでに持ち、保証された時刻 0 の解決関数呼び出しはその初期化の後に来るので、その結果が残る| 6.7.3 |規格のみ||
 | [`test_nettype_initial_value_resolution`](../../tests/ch6/test_nettype_initial_value_resolution.sv) |ユーザ定義のネットタイプのネットは、データタイプのデフォルト値で始まり、構造メンバー初期化子を含み、logic はzではなくxであり、解決されたネットタイプはドライバなしでも時間ゼロで解決します。| 6.7.3 6.7.2 6.6.7 |規格のみ| x/z |
+| [`test_user_net_timezero_order`](../../tests/ch6/test_user_net_timezero_order.sv) |時刻0に駆動値が変わる場合のユーザー定義ネットの解決値の履歴を調べる| 6.7.3 6.6.7 38.36.1 |規格のみ| VPI |
 | [`test_class_static_init_order`](../../tests/ch6/test_class_static_init_order.sv) |クラスのstaticプロパティとpackage変数の宣言時初期化は、すべてのinitial手続きより前に有効になります。そのため、時刻0の更新は初期値に基づいて行われ、後から初期化で上書きされません。| 6.8 8.9 26.2 | Verilator 5.052 ||
 | [`test_enum_default_and_invalid_index`](../../tests/ch6/test_enum_default_and_invalid_index.sv) |変数 enum はそのベースタイプのデフォルトで始まり、 enum のインデックスが無効な場合も同様です。| 6.8 6.19 7.4.5 8.7 |規格のみ| x/z |
 | [`test_illegal_automatic_module_variable`](../../tests/ch6/test_illegal_automatic_module_variable.sv) |プロセスの文脈以外のデータ宣言は 自動キーワードを使えません| 6.8 | Verilator 5.052 |規格違反の設計|
@@ -172,8 +175,13 @@
 | [`test_overflow_results_no_diagnostic`](../../tests/ch6/test_overflow_results_no_diagnostic.sv) |これは、integer 操作がオーバーフローすると、 まだ規定された有限幅の結果を生成し、オーバーフローメッセージが必要でないことを意味します。| 6.9.1 | Icarus Verilog 13.0 ||
 | [`test_vector_65536_bits`](../../tests/ch6/test_vector_65536_bits.sv) |実装が設定できる最小の最大長さである 65536 ビットのベクトルを宣言し，両端で読み込み，書き込みできる。| 6.9.1 20.9 | Icarus Verilog 13.0 ||
 | [`test_vector_ranges_bit_order_and_arithmetic`](../../tests/ch6/test_vector_ranges_bit_order_and_arithmetic.sv) |範囲のないオブジェクトは 1 - bit スカラーである。範囲は降順・昇順・負の添字・単一添字を取れます。左端の添字が常に最上位の bit です。ベクトルは 2 ** n を法として折り返し、signedとして宣言するかsignedポートへ接続しない限り符号なしです。| 6.9.1 6.9 7.4.1 23.2.2.1 | Icarus Verilog 13.0 ||
+| [`test_scalared_net_vpi_expansion`](../../tests/ch6/test_scalared_net_vpi_expansion.sv) |scalared の logic ネットを VPI で読み、展開フラグと各 bit の値を調べる| 6.9.2 37.16 |規格のみ| VPI |
 | [`test_scalared_vectored_net_selects`](../../tests/ch6/test_scalared_vectored_net_selects.sv) |また，ベクトルネット宣言において，スケーラードとベクトル化されたアドバイスキーワードを受け入れる。スカラーネットは bit-selectやpart-selectを通して 読み込まれ 駆動されることができます ベクトルネットは全体として動作します| 6.9.2 6.7 10.3 6.6.5 | Icarus Verilog 13.0 ||
 | [`test_vector_net_scalared`](../../tests/ch6/test_vector_net_scalared.sv) |bit-selectとpart-selectを許可するスカラー化されたベクトルネットは、連続的な代入は単一のビットを駆動できるが、他の代入はネットタイプの値を保持する。| 6.9.2 6.6.5 10.3.2 | Icarus Verilog 13.0 | x/z |
+| [`test_vectored_bit_select_when_permitted`](../../tests/ch6/test_vectored_bit_select_when_permitted.sv) |処理系が許す場合に vectored ネットから選択した bit を照合する| 6.9.2 | Icarus Verilog 13.0 ||
+| [`test_vectored_net_vpi_expansion`](../../tests/ch6/test_vectored_net_vpi_expansion.sv) |vectored の logic ネットについて、許される二つの展開状態に対応した VPI の bit 値とフラグを調べる| 6.9.2 37.16 |規格のみ| VPI |
+| [`test_vectored_part_select_when_permitted`](../../tests/ch6/test_vectored_part_select_when_permitted.sv) |処理系が許す場合に vectored ネットから選択した部分を照合する| 6.9.2 | Icarus Verilog 13.0 ||
+| [`test_vectored_strength_when_permitted`](../../tests/ch6/test_vectored_strength_when_permitted.sv) |処理系が許す場合に vectored ネットで競合する駆動の強度を照合する| 6.9.2 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_procedural_checker_implicit_net`](../../tests/ch6/test_illegal_procedural_checker_implicit_net.sv) |プロセスチェッカーのインスタンスの 宣言されていない実際は 暗黙のネットではありません| 6.10 17.3 |規格のみ|規格違反の設計|
 | [`test_implicit_net_declarations`](../../tests/ch6/test_implicit_net_declarations.sv) |連続代入の左側にある未定義の名前は、ポート接続または原始端末リストで暗黙スカラーネットとなります。| 6.10 22.8 | Icarus Verilog 13.0 ||
 | [`test_implicit_net_scope_and_lookup`](../../tests/ch6/test_implicit_net_scope_and_lookup.sv) |連続代入の左側にある未宣言名は、ポート接続または原始端末で、参照の範囲内でデフォルトのネットタイプのスカラーネットとなり、ルークが宣言を見つけない場合のみ、スカラーネットとなります。| 6.10 22.8 23.9 27.5 | Icarus Verilog 13.0 ||

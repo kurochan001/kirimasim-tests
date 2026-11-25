@@ -1,0 +1,2 @@
+stable: delayed edge=40 latched=1 raw=0 notices=0,0
+violation: delayed edge=100 notices=1,1 at=105,105

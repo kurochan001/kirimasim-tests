@@ -1,0 +1,25 @@
+{
+ "profile": "protect-openpgp-methods",
+ "checker_sha256": "c239a889446498b5de8155f6d1c566d1291d814ce87adce8de349150d6a5579c",
+ "encryptor": {
+  "version": "0.1.0",
+  "files": {
+   "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+   "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+   "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+   "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+   "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+  },
+  "cryptography": "50.0.2"
+ },
+ "gpg": [
+  "gpg (GnuPG) 2.5.21",
+  "libgcrypt 1.12.2"
+ ],
+ "openssl": "OpenSSL 4.0.3 29 Sep 2026 (Library: OpenSSL 4.0.3 29 Sep 2026)",
+ "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch34/test_protect_elgamal_recovers_the_declared_payload": {"inputs_sha256": "1935a56fb1f5b4267624d2553b061019b14044cc5b85c115ba4a1288f31f8d74", "reference": {"checks": {"selected_public_key_algorithm": true, "opened_body_matches_bytes": true, "wrong_packet_label_rejected": true, "wrong_private_key_rejected": true, "public_key_packet_targets_selected_recipient": true, "active_payload_encoding": true, "inside_author_fields_exported_separately": true, "outside_author_fields_copied_unchanged": true, "ordinary_author_like_comment_remains_in_body": true, "metadata_absent_from_encrypted_body": true, "agent_info_in_envelope_outside_ciphertext": true, "optional_agent_info_can_be_omitted": true, "recovered_hdl_matches": true, "elgamal_known_answer": true}, "packet_version": 3, "public_key_algorithm": 16, "encoding": "uuencode"}, "native": {"before_begin": {"outcome": "substituted_data_method", "emitted_data_method": "aes256-cbc", "cli_recipient_recovers_body": true, "requested_directive_in_recovered_body": false, "author_metadata_in_recovered_body": true, "agent_info_emitted": false}, "inside_begin": {"outcome": "substituted_data_method", "emitted_data_method": "aes256-cbc", "cli_recipient_recovers_body": true, "requested_directive_in_recovered_body": true, "author_metadata_in_recovered_body": true, "agent_info_emitted": false}}},
+  "ch34/test_protect_pgp_rsa_recovers_the_declared_payload": {"inputs_sha256": "2639aca5858cd9e30ae66e5724eba171a710522129a437e0f7fae3ce2aa7daa5", "reference": {"checks": {"selected_public_key_algorithm": true, "opened_body_matches_bytes": true, "wrong_packet_label_rejected": true, "wrong_private_key_rejected": true, "public_key_packet_targets_selected_recipient": true, "active_payload_encoding": true, "inside_author_fields_exported_separately": true, "outside_author_fields_copied_unchanged": true, "ordinary_author_like_comment_remains_in_body": true, "metadata_absent_from_encrypted_body": true, "agent_info_in_envelope_outside_ciphertext": true, "optional_agent_info_can_be_omitted": true, "recovered_hdl_matches": true}, "packet_version": 3, "public_key_algorithm": 1, "encoding": "base64"}, "native": {"before_begin": {"outcome": "substituted_data_method", "emitted_data_method": "aes256-cbc", "cli_recipient_recovers_body": true, "requested_directive_in_recovered_body": false, "author_metadata_in_recovered_body": true, "agent_info_emitted": false}, "inside_begin": {"outcome": "substituted_data_method", "emitted_data_method": "aes256-cbc", "cli_recipient_recovers_body": true, "requested_directive_in_recovered_body": true, "author_metadata_in_recovered_body": true, "agent_info_emitted": false}}}
+ }
+}

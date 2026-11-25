@@ -1,0 +1,28 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.052 2026-09-05 rev v5.052",
+ "tests": {
+  "ch35/test_dpi_pure_external_state_observation": {
+   "status": "pass",
+   "inputs_sha256": "96c33e60011365434eea403b2a6d50baa7b9e64985ce60dcce2825fa69b7072f"
+  },
+  "ch35/test_dpi_pure_file_access_observation": {
+   "status": "pass",
+   "inputs_sha256": "f93b40bb458237d52ec1b3b21b45af97c96cac9df9840c175a34100c9c3dd39c"
+  }
+ },
+ "generated_at": "2026-11-25T07:20:11.221914+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-dpi-pure-io",
+  "checker_sha256": "552690b9d0cbb74685fbcfaeb1cbe0e09831b7f16f87d1d882f38531cc84790d",
+  "binary_sha256": {
+   "simulator": "098b09b11ba7d3e904ae13d924a9e8dac8ced5c9d7c9beff3b9d36119a417581",
+   "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "backend": "411e8de3447a144f2cb73dbb49b5e7799fc7f89e101907f86989d3881f477a7b"
+  },
+  "debugger_version": "lldb-2103.0.34.407"
+ }
+}

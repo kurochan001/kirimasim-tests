@@ -1,0 +1,3 @@
+library slashLib slash/;
+library starLib star/*;
+library fallbackLib ../fallback.sv;

@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-25",
+  "checks": "protect-table-20261125-hdl-encrypt.json",
+  "recipient": "Fixture East / assembly",
+  "headers": [
+    {
+      "requested_body_method": "aes256-cbc",
+      "emitted_body_method": "aes256-cbc",
+      "requested_encoding": "base64",
+      "explicit_encoding": {
+        "key_block": false,
+        "data_block": false
+      },
+      "begin_protected": false,
+      "metadata_in_recovered_body": {
+        "author": true,
+        "author_info": true,
+        "comment": true
+      },
+      "metadata_in_envelope_header": {
+        "author": false,
+        "author_info": false,
+        "comment": false
+      }
+    },
+    {
+      "requested_body_method": "aes128-cbc",
+      "emitted_body_method": "aes256-cbc",
+      "requested_encoding": "uuencode",
+      "explicit_encoding": {
+        "key_block": false,
+        "data_block": false
+      },
+      "begin_protected": false,
+      "metadata_in_recovered_body": {
+        "author": true,
+        "author_info": true,
+        "comment": true
+      },
+      "metadata_in_envelope_header": {
+        "author": false,
+        "author_info": false,
+        "comment": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "tests": {
+    "ch37/test_vpi_get_value_classifies_assignment_and_builtin_side_effects": {
+      "inputs_sha256": "d89206a93c6653712543e51be1982fd5239d0b8fad57366cc584206f73c75a62",
+      "expected_output_matches": false,
+      "output_differences": [
+        {
+          "expected": "first read 17, second read 28",
+          "observed": "first read 17, second read 17"
+        },
+        {
+          "expected": "queue size=1 front=39",
+          "observed": "queue size=2 front=28"
+        }
+      ]
+    },
+    "ch37/test_vpi_size_query_preserves_side_effecting_string_call": {
+      "inputs_sha256": "f669272192a4976974489abe90e25fa2b9a9c304e71fe9e78327eae748745eef",
+      "expected_output_matches": false,
+      "output_differences": [
+        {
+          "expected": "property decision=1 untouched=1 value=1 once=1",
+          "observed": "property decision=0 untouched=1 value=1 once=1"
+        },
+        {
+          "expected": "property decision=1 untouched=1 value=1 once=1",
+          "observed": "property decision=0 untouched=1 value=1 once=1"
+        }
+      ]
+    },
+    "ch37/test_vpi_index_relation_preserves_side_effecting_call": {
+      "inputs_sha256": "1fc5a7303f11e8fb061b366e2aa454605bf33edcb68f7a05a2d9aabe6bf5a8c9",
+      "expected_output_matches": true,
+      "output_differences": []
+    },
+    "ch38/test_vpi_removed_value_callback_disappears_from_iteration": {
+      "inputs_sha256": "bb8b6bb7b73e0576ab988ad8e1d490ffb571c098dc9693fde1c16bc66d7c3f2a",
+      "expected_output_matches": false,
+      "output_differences": [
+        {
+          "expected": "after added=1",
+          "observed": "after added=2"
+        }
+      ]
+    },
+    "ch38/test_vpi_removed_timer_callback_disappears_from_iteration": {
+      "inputs_sha256": "2730abbe3798fb36b2e0a8e4bb834f4f4b495de6c0a0725614fb5ff161848d1d",
+      "expected_output_matches": false,
+      "output_differences": [
+        {
+          "expected": "after added=1",
+          "observed": "after added=2"
+        }
+      ]
+    },
+    "ch37/test_vpi_reads_keep_staged_indices_and_arguments_stable": {
+      "inputs_sha256": "92594120d3c536fc0dab492c9431e3f5826fc1891fea0086e201df2086c0bdb4",
+      "expected_output_matches": true,
+      "output_differences": []
+    }
+  },
+  "suite_results": {
+    "ghost": "vpi-side-effects-callbacks-20261125-ghost.json",
+    "icarus": "vpi-side-effects-callbacks-20261125-icarus.json",
+    "verilator5.052": "vpi-side-effects-callbacks-20261125-verilator5.052.json",
+    "verilator5.054": "vpi-side-effects-callbacks-20261125-verilator5.054.json"
+  }
+}

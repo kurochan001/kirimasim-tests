@@ -1,0 +1,3 @@
+vlog: ok=1 outside=1 file_option=1
+options: outer=1 inner=1
+applied=17,29,31

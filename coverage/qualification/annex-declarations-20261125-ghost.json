@@ -1,0 +1,15 @@
+{
+ "tool": "ghost",
+ "version": "private build 6fa9a05abb0c",
+ "configuration": {
+  "evidence_profile": "ghost-annex-set-expression",
+  "checker_sha256": "a16f13dcf1e6d00eddf3dfc52326938211f0acd96930c054ad59a11fe2bebc94",
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+ },
+ "passed_checks": 5,
+ "total_checks": 5,
+ "tests": {
+  "ch19/test_annex_set_expression_construction": {"inputs_sha256": "2b555bd1a153efa16be61207353d5fbf6a3c85960818d239cc7f3c904916903a", "checks": {"control": {"returncode": 0, "diagnostics": [], "stdout": ["sample=42 first=0/2 second=0/2 live=1,1", "sample=2 first=1/2 second=0/2 live=2,2", "sample=7 first=1/2 second=1/2 live=2,2", "sample=5 first=2/2 second=1/2 live=2,2", "sample=9 first=2/2 second=2/2 live=2,2"], "expected_stdout": ["sample=42 first=0/2 second=0/2 live=1,1", "sample=2 first=1/2 second=0/2 live=2,2", "sample=7 first=1/2 second=1/2 live=2,2", "sample=5 first=2/2 second=1/2 live=2,2", "sample=9 first=2/2 second=2/2 live=2,2"], "pass": true}, "associative_array": {"returncode": 1, "diagnostics": ["test_annex_set_expression_construction.sv:22:25: error [E999]: CoverageSetType [slang: invalid set covergroup expression type 'byte$[int]' -- expected non-associative array of coverpoint type 'logic signed[31:0]']"], "pass": true, "expected_line": 22, "expected_diagnostics": ["invalid set covergroup expression type", "byte$[int]", "expected non-associative array"]}, "incompatible_elements": {"returncode": 1, "diagnostics": ["test_annex_set_expression_construction.sv:22:25: error [E999]: CoverageSetType [slang: invalid set covergroup expression type 'incompatible_t' (aka 'string$[2]') -- expected non-associative array of coverpoint type 'logic signed[31:0]']"], "pass": true, "expected_line": 22, "expected_diagnostics": ["invalid set covergroup expression type", "string$[2]"]}, "coverpoint_name": {"returncode": 1, "diagnostics": ["test_annex_set_expression_construction.sv:22:25: error [E102]: undefined identifier 'point' [slang: use of undeclared identifier 'point']"], "pass": true, "expected_line": 22, "expected_diagnostics": ["'point'", "undeclared identifier"]}, "bin_name": {"returncode": 1, "diagnostics": ["test_annex_set_expression_construction.sv:22:25: error [E102]: undefined identifier 'local_bin' [slang: use of undeclared identifier 'local_bin']"], "pass": true, "expected_line": 22, "expected_diagnostics": ["undeclared identifier 'local_bin'"]}}}
+ }
+}

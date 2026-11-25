@@ -1,0 +1,38 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch37/test_vpi_program_array_interface_port_relation": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_program_array_interface_port_relation.sv:22:5: Unsupported or unknown PLI call: '$vt_program_interface_ports'",
+   "inputs_sha256": "8389a12770acad82cce67e789bb871f007ccae9ff33574db54bb3a70a36b81e5"
+  },
+  "ch37/test_vpi_program_scalar_interface_port_relation": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch37/test_vpi_program_scalar_interface_port_relation.sv:22:5: Unsupported or unknown PLI call: '$vt_program_interface_ports'",
+   "inputs_sha256": "bf01a357a66d7a6369aa846c6c004b09756681eae5b513d93a27643b75e6880b"
+  },
+  "ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.sv:21:8: Unsupported or unknown PLI call: '$save'",
+   "inputs_sha256": "fbc77dad94a89fed7ffd12ae8ef6665e75a9b422363bf012e545859442d5a56b"
+  },
+  "ch38/test_vpi_put_data_counts_at_end_of_save": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_data_counts_at_end_of_save.sv:21:8: Unsupported or unknown PLI call: '$vt_select_checkpoint_writer'",
+   "inputs_sha256": "86c99fa8964b833e4bafa5437ba1b771723fcc62bbd0eb0888a31171c0f6f24e"
+  },
+  "ch38/test_vpi_put_data_counts_at_start_of_save": {
+   "status": "known",
+   "reason": "build failed: %Error: tests/ch38/test_vpi_put_data_counts_at_start_of_save.sv:21:8: Unsupported or unknown PLI call: '$vt_select_checkpoint_writer'",
+   "inputs_sha256": "1db600843df56647a7616c4a06d69c54b3521b9582003ba223c3d39cda09bda6"
+  }
+ },
+ "generated_at": "2026-11-24T23:05:27.274635+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

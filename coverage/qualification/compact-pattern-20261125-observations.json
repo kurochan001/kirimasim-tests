@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "test": "tests/ch21/test_compact_pattern_formats_aggregate.sv",
+  "inputs_sha256": "324e9f9ce50e98750101212afa685df228a8ccda2b06af891d3de2ef73fab25c",
+  "runtime_arg": "+observe_patterns",
+  "scope": "Aggregate representations and lengths are observations from this input and these tool versions.",
+  "simulators": {
+    "ghost": {
+      "version": "private build 6fa9a05abb0c",
+      "runtime_exit": 0,
+      "normal_output": [
+        "singular=\"stencil\"",
+        "aggregate results=1"
+      ],
+      "short_formats": {
+        "full": "'{first: \"caliper\", second: \"stencil\"}",
+        "compact": "'{first: \"caliper\", second: \"stencil\"}"
+      },
+      "long_formats": {
+        "full": {
+          "length": 1224,
+          "first_string_count": 600,
+          "second_string_count": 600,
+          "output_sha256": "62c684a02ede0b6dac09b361fb57f4ac5ab33881eaec092916e49028cb7eb000"
+        },
+        "compact": {
+          "length": 1224,
+          "first_string_count": 600,
+          "second_string_count": 600,
+          "output_sha256": "62c684a02ede0b6dac09b361fb57f4ac5ab33881eaec092916e49028cb7eb000"
+        }
+      }
+    },
+    "verilator": {
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "runtime_exit": 0,
+      "normal_output": [
+        "singular=\"stencil\"",
+        "aggregate results=1"
+      ],
+      "short_formats": {
+        "full": "'{first:\"caliper\", second:\"stencil\"}",
+        "compact": "'{first:\"caliper\", second:\"stencil\"}"
+      },
+      "long_formats": {
+        "full": {
+          "length": 1222,
+          "first_string_count": 600,
+          "second_string_count": 600,
+          "output_sha256": "642ef755ff1362ee413a58cc67a27ecbe8c309892e478c103778bb5b76ec6b9a"
+        },
+        "compact": {
+          "length": 1222,
+          "first_string_count": 600,
+          "second_string_count": 600,
+          "output_sha256": "642ef755ff1362ee413a58cc67a27ecbe8c309892e478c103778bb5b76ec6b9a"
+        }
+      }
+    },
+    "kirimasim": {
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "runtime_exit": 0,
+      "normal_output": [
+        "singular=\"stencil\"",
+        "aggregate results=1"
+      ],
+      "short_formats": {
+        "full": "'{first:\"caliper\", second:\"stencil\"}",
+        "compact": "'{\"caliper\", \"stencil\"}"
+      },
+      "long_formats": {
+        "full": {
+          "length": 1222,
+          "first_string_count": 600,
+          "second_string_count": 600,
+          "output_sha256": "642ef755ff1362ee413a58cc67a27ecbe8c309892e478c103778bb5b76ec6b9a"
+        },
+        "compact": {
+          "length": 1209,
+          "first_string_count": 600,
+          "second_string_count": 600,
+          "output_sha256": "2da0dcb2c2867a3f31671a9d2d24c90e5cd49877065f7062d9541c5be0699877"
+        }
+      }
+    },
+    "icarus": {
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "compile_exit": 3,
+      "compiler_diagnostics": [
+        "test_compact_pattern_formats_aggregate.sv:14: sorry: Unpacked structs not supported.",
+        "test_compact_pattern_formats_aggregate.sv:19: syntax error",
+        "test_compact_pattern_formats_aggregate.sv:1: error: Syntax error in variable list."
+      ]
+    }
+  }
+}

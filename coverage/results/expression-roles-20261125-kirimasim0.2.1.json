@@ -1,0 +1,30 @@
+{
+ "simulator": "kirimasim",
+ "name": "kirimasim",
+ "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+ "tests": {
+  "ch13/test_defparam_constant_function_observation": {
+   "status": "pass",
+   "inputs_sha256": "1b093620f31500c189cb036cbd62a12f493992ea3867d9fe9ebefe00c6db5372"
+  },
+  "ch18/test_randsequence_ungenerated_result_observation": {
+   "status": "unsupported",
+   "reason": "randsequence production arguments or return values (not implemented yet)",
+   "inputs_sha256": "80abe1781abb299b5f7a2b40e257e5c764f2684ccd2efa08f026a55a95cf98e7"
+  },
+  "ch7/test_associative_dynamic_array_key_equality": {
+   "status": "unsupported",
+   "reason": "variable of type 'int$[test_associative_dynamic_array_key_equality.dynamic_key]' (not implemented yet)",
+   "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e"
+  },
+  "ch7/test_locator_with_side_effect_observation": {
+   "status": "unsupported",
+   "reason": "dynamic container method 'find' (not implemented yet)",
+   "inputs_sha256": "0d446df44b2359f6251004585e869168841ed1ef9a67504c79d8ead54c34de6a"
+  }
+ },
+ "generated_at": "2026-11-25T05:48:52.533675+00:00",
+ "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+ "runner_changed": false,
+ "configuration": {}
+}

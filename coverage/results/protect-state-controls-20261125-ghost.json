@@ -1,0 +1,46 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch34/test_protect_base64_data_decrypt_key_uses_only_the_next_line": {
+   "status": "pass",
+   "inputs_sha256": "c6f6322dbe85e8dfffda6fd29a78f2233dd42314b20803002d1a48ec0425effe"
+  },
+  "ch34/test_protect_base64_descriptor_selects_algorithm_and_byte_count": {
+   "status": "pass",
+   "inputs_sha256": "9d7596e75cc2159044df6b5efe348ddbc78bc07988c655ea13b21abbefa5d752"
+  },
+  "ch34/test_protect_open_envelope_matches_its_end_after_source": {
+   "status": "pass",
+   "inputs_sha256": "2aad9023e089f5405f19de12a360e9802f04500b2fe59149df55d5b4206cbf42"
+  },
+  "ch34/test_protect_sequence_combined_changes_encoding_left_to_right": {
+   "status": "pass",
+   "inputs_sha256": "436df323b99230c290deefdc82ee4f4bc4436daf0bb14a9270aa1565fbf7581e"
+  },
+  "ch34/test_protect_sequence_split_changes_active_encoding": {
+   "status": "pass",
+   "inputs_sha256": "747436f4471832a24066c164e0499eabe83df613d44bf7c26839b17d4f81d4a4"
+  },
+  "ch34/test_protect_two_envelopes_close_independently": {
+   "status": "pass",
+   "inputs_sha256": "e56ec469dfe0066cf56249fffb1ddb72ce3680cb16bd8c754f0ea9e44304e856"
+  },
+  "ch34/test_protect_uuencode_data_decrypt_key_uses_only_the_next_line": {
+   "status": "pass",
+   "inputs_sha256": "3e4223b62b817b50ee933a97e9e21cbe0df1394d5ed1533cf7f77052d123b6d6"
+  },
+  "ch34/test_protect_uuencode_descriptor_selects_algorithm_and_byte_count": {
+   "status": "pass",
+   "inputs_sha256": "914867463ffcba66e7e1f35916841dab1e67ed577bd989e706d3b95636516b05"
+  }
+ },
+ "generated_at": "2026-11-24T21:16:09.432126+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+  "profile_sha256": "8be4091cb63e2ddb0f1bc272c4dd5e56f39bf67954e66bc0036e61813d25edae"
+ }
+}

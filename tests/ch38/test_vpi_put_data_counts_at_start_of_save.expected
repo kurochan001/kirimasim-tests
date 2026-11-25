@@ -1,0 +1,2 @@
+start save written=1 zero=0 negative=0
+end restart read=1 payload=1 guard=1

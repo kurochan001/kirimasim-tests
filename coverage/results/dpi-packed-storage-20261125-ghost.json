@@ -1,0 +1,30 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 6fa9a05abb0c",
+ "tests": {
+  "ch35/test_dpi_packed_storage_conversion": {
+   "status": "pass",
+   "inputs_sha256": "0c23cb1b822bf64fefb19af821fd3fc4a0be15a5af300635fde5858647d909a5"
+  }
+ },
+ "generated_at": "2026-11-25T10:50:35.345007+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "dpi-packed-storage",
+  "checker_sha256": "0196745a21a30c4c6657e86becaeaf599dbd52f4c318dec295b7b93db9c83d28",
+  "artifact_sha256": {
+   "ghost": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5",
+   "verilated_h": "6a7461171978c893f50edaae440aaaca1f135aab979cf4b0a0cc342c46620da2",
+   "profile": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba",
+   "svdpi": "3eed92cf81ac778b5a70536e9531ae8c4bf70ed636a448c7a9a0ea4b0a0c8506"
+  },
+  "verilator_version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+  "lldb_version": "lldb-2103.0.34.407"
+ }
+}

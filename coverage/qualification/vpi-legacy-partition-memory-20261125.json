@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "clause": "36.12.3",
+  "test": "tests/ch36/test_vpi_legacy_partition_memory.sv",
+  "inputs_sha256": "8bddee8ff7270d1223fd6a12a0d039ce1b22d8874d63f3412f482be010b9b346",
+  "expected_stdout": [
+    "hdl samples=29,61",
+    "legacy memory=1 words=1,1 samples=29,61"
+  ],
+  "controls": {
+    "iverilog_lexical_mode": {
+      "arguments": [
+        "-g1995",
+        "-tnull",
+        "-s",
+        "test_vpi_legacy_partition_memory"
+      ],
+      "exit": 0
+    },
+    "ghost_bindings": [
+      "#define vpi_get vpi_get_1364v1995",
+      "#define vpi_handle_by_index vpi_handle_by_index_1364v1995"
+    ]
+  },
+  "ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch36/test_vpi_legacy_partition_memory": {
+          "status": "pass",
+          "inputs_sha256": "8bddee8ff7270d1223fd6a12a0d039ce1b22d8874d63f3412f482be010b9b346"
+        }
+      },
+      "generated_at": "2026-11-25T12:09:57.687594+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch36/test_vpi_legacy_partition_memory": {
+          "status": "pass",
+          "inputs_sha256": "8bddee8ff7270d1223fd6a12a0d039ce1b22d8874d63f3412f482be010b9b346"
+        }
+      },
+      "generated_at": "2026-11-25T12:09:57.644147+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8faed46d720898528e34f44babb2795c9afb0e6b6b1b42f78796de2409a155ba"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch36/test_vpi_legacy_partition_memory": {
+          "status": "known",
+          "reason": "output differs: line 2 is 'legacy memory=0 words=0,0 samples=29,61', expected 'legacy memory=1 words=1,1 samples=29,61'",
+          "inputs_sha256": "8bddee8ff7270d1223fd6a12a0d039ce1b22d8874d63f3412f482be010b9b346"
+        }
+      },
+      "generated_at": "2026-11-25T12:10:57.359797+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch36/test_vpi_legacy_partition_memory": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "8bddee8ff7270d1223fd6a12a0d039ce1b22d8874d63f3412f482be010b9b346"
+        }
+      },
+      "generated_at": "2026-11-25T12:10:45.712110+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

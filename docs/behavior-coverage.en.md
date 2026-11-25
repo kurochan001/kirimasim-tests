@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 95.56%, execution without Ghost 51.82%, execution with Ghost and kirimasim 89.54%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 98.98%, execution without Ghost 52.34%, execution with Ghost and kirimasim 90.76%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 95.56%. Requirement execution-confirmation rate: 51.82% without Ghost, 89.54% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 98.98%. Requirement execution-confirmation rate: 52.34% without Ghost, 90.76% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 11784/12332 ( 95.56% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11042/12332 ( 89.54% ).
-- Registered but not tested: 548.
+- The requirement coverage (test design) for registered behaviors is 12206/12332 ( 98.98% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11192/12332 ( 90.76% ).
+- Registered but not tested: 126.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -32,6 +32,16 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 
 `check_groups` distributes a single request across multiple tests, and is successful only if all tests in the group are successful in the same runtime and run. The unspecified response is an independent alternative proof.
 
+- `annex-declarations-20261125-ghost-qualified.json`: `private build 6fa9a05abb0c` / `2026-11-25T06:32:08.983389+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `annex-defparam-20261125-icarus13-qualified.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T07:27:08.843492+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `annex-j-object-loading-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:09:34.162629+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `annex-j-single-object-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:09:30.632185+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `annex-j-single-object-controls-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T22:09:35.120306+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `annex-legacy-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T07:27:08.774239+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `annex-n-reference-20261125-ranges-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:21:44.310177+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `annex-n-reference-20261125-signatures-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:21:44.309517+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `annex-sequence-method-20261125-ghost-qualified.json`: `private build 6fa9a05abb0c` / `2026-11-25T07:34:16.388000+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `annex-triggered-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T07:37:32.224393+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `arithmetic-context-20261119e-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T00:40:23.690825+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:25.094367+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arithmetic-context-20261119e-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:40:26.453598+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -59,13 +69,17 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `arrayrefs-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T11:48:10.984505+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayrefs-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T11:47:57.157440+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `arrayrefs-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T11:48:07.884883+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `artifact-gaps-20261124-ghost-strict.json`: `private build 3fe4000d6ab7` / `2026-11-24T13:37:26.708866+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
-- `artifact-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T13:37:26.495694+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `artifact-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T13:37:26.133789+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `artifact-gaps-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:37:31.853974+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
-- `artifact-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:37:31.828742+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
-- `artifact-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.606085+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `artifact-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.585155+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `artifact-gaps-20261124-ghost-strict.json`: `private build 3fe4000d6ab7` / `2026-11-24T13:37:26.708866+00:00` / 6/12332 execution checked; 4 entries refer to older inputs.
+- `artifact-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T13:37:26.495694+00:00` / 0/12332 execution checked; 4 entries refer to older inputs.
+- `artifact-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T13:37:26.133789+00:00` / 0/12332 execution checked; 4 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:37:31.853974+00:00` / 3/12332 execution checked; 4 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:37:31.828742+00:00` / 3/12332 execution checked; 4 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.606085+00:00` / 2/12332 execution checked; 4 entries refer to older inputs.
+- `artifact-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:37:33.585155+00:00` / 2/12332 execution checked; 4 entries refer to older inputs.
+- `assertion-port-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:41:20.290722+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `assertion-port-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:41:20.264804+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `assertion-port-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T05:41:20.256904+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `assertion-port-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T05:41:31.252138+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `assignment-file-20261125-ghost-strict.json`: `private build 2bd9b77abba9` / `2026-11-24T19:06:32.203818+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `assignment-file-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T19:06:31.980186+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `assignment-file-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T19:06:31.941138+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
@@ -73,18 +87,25 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `assignment-file-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:06:32.714058+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `assignment-file-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.714472+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `assignment-file-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.685722+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `bin-with-effects-20261125-verilator.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T10:33:07.747234+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T16:18:16.466764+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-kirimasim-441dddbd0fcd.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T16:18:17.457959+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T16:21:24.078961+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T16:23:50.600845+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `c2tests-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T23:56:33.360931+00:00` / 9/12332 execution checked; 14 entries refer to older inputs.
-- `c2tests-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T23:59:09.029234+00:00` / 13/12332 execution checked; 14 entries refer to older inputs.
-- `c2tests-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:57:51.528183+00:00` / 23/12332 execution checked; 14 entries refer to older inputs.
-- `c2tests-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:59:08.170486+00:00` / 23/12332 execution checked; 14 entries refer to older inputs.
+- `c2tests-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T23:56:33.360931+00:00` / 9/12332 execution checked; 13 entries refer to older inputs.
+- `c2tests-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T23:59:09.029234+00:00` / 13/12332 execution checked; 13 entries refer to older inputs.
+- `c2tests-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:57:51.528183+00:00` / 23/12332 execution checked; 13 entries refer to older inputs.
+- `c2tests-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T23:59:08.170486+00:00` / 23/12332 execution checked; 13 entries refer to older inputs.
 - `ch19-tables-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T00:39:28.918241+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `ch19-tables-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T00:40:59.725559+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `ch19-tables-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:18.641708+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `ch19-tables-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T00:40:59.498597+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `checker-assume-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T02:09:24.346480+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
+- `checker-assume-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T02:09:24.227827+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `checker-assume-20261125-kirimasim022.json`: `kirimasim 0.2.2 (commit a50ec73c37d8), built with AppleClang 21.0.0.21000401` / `2026-11-25T02:09:24.315031+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `checker-assume-20261125-seed73-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T02:09:24.351774+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
+- `checker-assume-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T02:09:24.446713+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `checker-initialization-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T02:09:24.314855+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `checkpoint-20261125-ghost-strict.json`: `private build e484e16d0a5c` / `2026-11-24T18:42:38.685398+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
 - `checkpoint-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T18:42:38.613262+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `checkpoint-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T18:42:37.706724+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
@@ -92,6 +113,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `checkpoint-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:42:38.634835+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `checkpoint-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.598706+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `checkpoint-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.635198+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `class-stream-cycle-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T11:35:19.289928+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-ghost-strict.json`: `private build 698058bc29ba` / `2026-11-23T12:19:55.008109+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:19:54.956799+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:19:54.924264+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -108,13 +130,18 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `constcall-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T07:46:53.963163+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constcall-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T07:46:45.505234+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constcall-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T07:46:53.247659+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `default-times-20261125-ghost-strict.json`: `private build 2bd9b77abba9` / `2026-11-24T18:56:52.686738+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
-- `default-times-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T18:56:52.759756+00:00` / 10/12332 execution checked; 0 entries refer to older inputs.
-- `default-times-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T18:56:52.446481+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
-- `default-times-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:56:57.664843+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
-- `default-times-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:56:57.632136+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
-- `default-times-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:56:56.538304+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
-- `default-times-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:56:56.585599+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `constraint-calls-20261125-verilator5.052-qualified.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T06:47:34.612911+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `constraint-calls-20261125-verilator5.054-qualified.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T06:47:47.720459+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `coverage-database-and-scope-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:24:49.301118+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `coverage-database-load-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:24:49.070989+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `coverage-database-set-name-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:24:48.967216+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `default-times-20261125-ghost-strict.json`: `private build 2bd9b77abba9` / `2026-11-24T18:56:52.686738+00:00` / 2/12332 execution checked; 12 entries refer to older inputs.
+- `default-times-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T18:56:52.759756+00:00` / 2/12332 execution checked; 12 entries refer to older inputs.
+- `default-times-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T18:56:52.446481+00:00` / 2/12332 execution checked; 12 entries refer to older inputs.
+- `default-times-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:56:57.664843+00:00` / 1/12332 execution checked; 12 entries refer to older inputs.
+- `default-times-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:56:57.632136+00:00` / 1/12332 execution checked; 12 entries refer to older inputs.
+- `default-times-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:56:56.538304+00:00` / 1/12332 execution checked; 12 entries refer to older inputs.
+- `default-times-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:56:56.585599+00:00` / 1/12332 execution checked; 12 entries refer to older inputs.
 - `division-boundaries-20261119c-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T23:42:55.291969+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:56.026640+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:56.768990+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -122,10 +149,49 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `division-boundaries-20261119c-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T23:42:58.242286+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `division-boundaries-20261119c-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:45:30.445544+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `division-boundaries-20261119c-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-18T23:47:58.657268+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `domain-boundaries-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T04:45:58.942936+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `domain-boundaries-20261125-icarus13-qualified.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:08:24.011263+00:00` / 5/12332 execution checked; 0 entries refer to older inputs.
+- `domain-boundaries-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T04:45:58.946070+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `domain-boundaries-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:46:08.441643+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-chain-escape-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:57:05.485476+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-cxx-boundary-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T08:22:41.646169+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-cxx-boundary-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T08:22:56.808145+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-disabled-values-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T11:04:10.289631+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-foreign-preconditions-20261125-verilator.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T11:11:01.782956+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-function-ack-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:48:18.475781+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-native-layout-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:41:05.803296+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-output-initial-20261125-verilator5.052-qualified.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T07:02:58.088858+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-output-initial-20261125-verilator5.054-qualified.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T07:02:59.997857+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-packed-c3-20261125-feature-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:22:01.707610+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-packed-c3-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:21:51.615707+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-packed-c3-20261125-header-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:22:01.708247+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-packed-storage-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:50:35.345007+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-portability-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:17:02.989551+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-portability-controls-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T22:17:07.510232+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-prototype-guard-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T07:46:52.927685+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-prototype-guard-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T07:46:52.927719+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-pure-calls-20261125-ghost-qualified.json`: `private build 6fa9a05abb0c` / `2026-11-25T07:11:01.578940+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-pure-calls-20261125-verilator5.052-qualified.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T07:11:02.614275+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-pure-calls-20261125-verilator5.054-qualified.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T07:11:11.721730+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-pure-io-20261125-verilator5.052-qualified.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T07:20:11.221914+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-pure-io-20261125-verilator5.054-qualified.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T07:20:08.595512+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-shared-binary-20261125-ghost-header.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:27:23.838147+00:00` / 5/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-shared-binary-20261125-verilator-header.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:27:23.554629+00:00` / 5/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-user-keys-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:27:09.048588+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-user-keys-controls-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T22:27:14.834575+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-versioned-dependencies-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:37:18.785728+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-vpi-boundaries-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:29:37.837927+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-vpi-boundaries-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T08:29:38.642229+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `dpi-vpi-boundaries-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T08:29:43.566068+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:57:54.833200+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:01.693697+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run3.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:08.612448+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `early-fixed-a622-recheck-20261119ab-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T07:58:15.548142+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `evcd-finalization-20261125-ghost.json`: `private build 4879f101c2b6` / `2026-11-24T20:01:16.835332+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `expression-roles-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:48:52.563455+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `expression-roles-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:48:52.540961+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `expression-roles-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T05:48:52.533675+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `expression-roles-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T05:48:58.021017+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `extended-gaps-20261124-ghost-strict.json`: `private build 111ed40aaaf2` / `2026-11-24T13:11:49.636733+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
 - `extended-gaps-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T13:11:49.338399+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
 - `extended-gaps-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T13:11:48.923956+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
@@ -153,11 +219,15 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `fourstate-boundaries-20261119d-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T00:24:27.618699+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:26:22.013552+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `fourstate-boundaries-20261119d-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T00:28:09.101257+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `fsm-transitions-20261125-ghost-qualified.json`: `private build 6fa9a05abb0c` / `2026-11-25T04:10:41.503838+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `fsm-transitions-and-selects-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T04:05:33.941425+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `fsm-transitions-and-selects-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T04:05:33.735254+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `fsm-transitions-and-selects-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:05:46.533166+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `full-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T16:51:00.391888+00:00` / 3092/12332 execution checked; 373 entries refer to older inputs.
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2998/12332 execution checked; 373 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3888/12332 execution checked; 373 entries refer to older inputs.
-- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3599/12332 execution checked; 29 entries refer to older inputs.
-- `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9678/12332 execution checked; 18 entries refer to older inputs.
+- `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3599/12332 execution checked; 28 entries refer to older inputs.
+- `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9683/12332 execution checked; 17 entries refer to older inputs.
 - `handle-equality-20261124-ghost-strict.json`: `private build d1a33b327c73` / `2026-11-23T21:21:56.235297+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:21:56.180203+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:21:56.191228+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -170,6 +240,14 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `header-scope-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T17:37:41.838917+00:00` / 8/12332 execution checked; 0 entries refer to older inputs.
 - `header-scope-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T17:37:41.838931+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
 - `header-scope-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T17:37:41.839010+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
+- `identifier-1024-isolated-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:05:27.706413+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `identifier-1024-isolated-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T10:05:27.695853+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `identifier-1024-isolated-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T10:05:27.676762+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `identifier-1024-isolated-20261125-verilator.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T10:05:31.747686+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `identifier-1024-requalification-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:46:15.440347+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `identifier-1024-requalification-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:46:15.433647+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `identifier-1024-requalification-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:46:19.548716+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `identifier-length-boundary-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T10:03:24.808079+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-ghost-strict.json`: `private build 27d21bee0884` / `2026-11-23T12:53:34.138189+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:53:34.126372+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `instance-array-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:53:34.067910+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -179,10 +257,27 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `intcompat-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T10:26:46.168015+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:46.053076+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `interactive-control-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T20:16:39.312745+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `iterator-release-20261125-icarus13-qualified.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T06:57:25.169113+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T02:46:05.877247+00:00` / 150/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T02:46:56.224616+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T02:46:27.050750+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T02:46:49.835333+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `language-boundaries-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:58:36.153355+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `language-boundaries-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:58:36.145560+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `language-boundaries-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T05:58:36.126922+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `language-boundaries-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T05:58:49.526127+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `language-defaults-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:57:06.415296+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-defaults-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T23:57:06.446378+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `language-defaults-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:57:12.684498+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `language-diagnostics-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:34:06.858547+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-diagnostics-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T23:34:06.934402+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `language-diagnostics-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:34:13.473575+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `language-diagnostics-ordinary-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:34:06.934891+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-extension-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T04:26:43.442764+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-extension-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T04:26:43.463057+00:00` / 2/12332 execution checked; 1 entries refer to older inputs.
+- `language-extension-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:26:58.006320+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-extension-directive-20261125-verilator5.054-qualified.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:25:45.864661+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-a-20261124-ghost-strict.json`: `private build d1a33b327c73` / `2026-11-23T21:38:50.463379+00:00` / 5/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-a-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:38:50.431390+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-a-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:38:50.467436+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
@@ -580,11 +675,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `language-gaps-db-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T08:27:08.218091+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-db-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T08:27:10.934123+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-db-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T08:27:10.964513+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-dc-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T08:36:48.692113+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-dc-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T08:36:48.693198+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-dc-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T08:36:48.670595+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-dc-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T08:36:49.152477+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `language-gaps-dc-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T08:36:49.152458+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-gaps-dc-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T08:36:48.692113+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-dc-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T08:36:48.693198+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-dc-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T08:36:48.670595+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-dc-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T08:36:49.152477+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `language-gaps-dc-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T08:36:49.152458+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
 - `language-gaps-dd-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T08:29:45.487754+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-dd-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T08:29:45.452645+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-dd-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T08:29:45.455590+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -745,6 +840,19 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `language-gaps-z-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T23:18:02.143495+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-z-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T23:18:03.310544+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `language-gaps-z-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T23:18:03.415951+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-latitude-20261125-ghost-qualified.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:58:37.687285+00:00` / 24/12332 execution checked; 0 entries refer to older inputs.
+- `language-latitude-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:13:10.805796+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-latitude-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:13:10.807964+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-latitude-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T05:13:10.781609+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `language-latitude-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T05:13:20.283727+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `library-cell-categories-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:20:25.546259+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `library-database-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T23:24:49.046221+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `library-database-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:24:54.647367+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `library-include-refresh-20261125-verilator5.052.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:24:53.444356+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
+- `library-map-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T20:48:24.668760+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
+- `library-map-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T20:48:24.673480+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
+- `library-map-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T20:50:45.119056+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
+- `library-map-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T20:50:45.535338+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T02:39:43.830642+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:45.516267+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:47.250370+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -752,7 +860,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:50.878398+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T02:43:12.104689+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T02:46:26.386745+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `namespace-vpi-20261124-ghost-strict.json`: `private build e7d663777d2f` / `2026-11-24T14:27:12.816285+00:00` / 3/12332 execution checked; 1 entries refer to older inputs.
+- `namespace-vpi-20261124-ghost-strict.json`: `private build e7d663777d2f` / `2026-11-24T14:27:12.816285+00:00` / 4/12332 execution checked; 1 entries refer to older inputs.
 - `namespace-vpi-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T14:27:12.731338+00:00` / 2/12332 execution checked; 1 entries refer to older inputs.
 - `namespace-vpi-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T14:27:12.168260+00:00` / 1/12332 execution checked; 1 entries refer to older inputs.
 - `namespace-vpi-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T14:27:13.374369+00:00` / 0/12332 execution checked; 1 entries refer to older inputs.
@@ -773,14 +881,23 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `negative-power-controls-20261119l-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T03:05:53.539075+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `negative-power-controls-20261119l-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T03:06:28.618019+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `negative-power-controls-20261119l-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T03:07:00.773137+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `negative-timing-oracles-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T00:47:54.685484+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `negative-timing-oracles-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T00:47:54.639595+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `negative-timing-oracles-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T00:47:54.574412+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `negative-timing-oracles-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T00:48:00.391779+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `null-instance-access-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T07:57:34.104691+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `null-instance-access-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T07:57:36.024992+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `optional-lexical-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:42:34.626530+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `optional-lexical-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:42:53.252911+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `optional-lexical-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:43:04.819492+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T22:25:00.780016+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T22:25:00.894678+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:01.564353+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-2-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T22:25:02.208022+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 4/12332 execution checked; 15 entries refer to older inputs.
-- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 0/12332 execution checked; 15 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 0/12332 execution checked; 15 entries refer to older inputs.
-- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 0/12332 execution checked; 15 entries refer to older inputs.
+- `oracle-tokens-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T19:14:33.552454+00:00` / 4/12332 execution checked; 14 entries refer to older inputs.
+- `oracle-tokens-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T19:14:36.020025+00:00` / 0/12332 execution checked; 14 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:04.286693+00:00` / 0/12332 execution checked; 14 entries refer to older inputs.
+- `oracle-tokens-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T19:15:22.924843+00:00` / 0/12332 execution checked; 14 entries refer to older inputs.
 - `oracle-tokens-3-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-11T23:13:00.161260+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T23:13:04.014714+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `oracle-tokens-3-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T23:13:01.978891+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -808,8 +925,12 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `packed-read-controls-20261119w-kirimasim-a6222f0656d4-run4.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T06:27:03.938723+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `packed-read-controls-20261119w-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T06:30:24.144918+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `packed-read-controls-20261119w-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T06:33:32.423404+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `pinned-recheck-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573898+00:00` / 3606/12332 execution checked; 7 entries refer to older inputs.
-- `pinned-recheck-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573866+00:00` / 3606/12332 execution checked; 7 entries refer to older inputs.
+- `pattern-subroutine-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:24:39.238781+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `pattern-subroutine-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:24:39.212531+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `pattern-subroutine-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T05:24:39.206193+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `pattern-subroutine-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T05:24:44.663674+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `pinned-recheck-20261124-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573898+00:00` / 3606/12332 execution checked; 6 entries refer to older inputs.
+- `pinned-recheck-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T01:21:55.573866+00:00` / 3606/12332 execution checked; 6 entries refer to older inputs.
 - `power-boundaries-20261119f-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T01:05:47.851676+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:48.765507+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:49.677617+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -817,11 +938,18 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `power-boundaries-20261119f-kirimasim-441dddbd0fcd-run4.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-19T01:05:51.483978+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T01:09:59.513731+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `power-boundaries-20261119f-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T01:13:51.962818+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
-- `preprocessor-refresh-20261124-ghost-strict.json`: `private build 2865c5a259b8` / `2026-11-23T21:56:44.298114+00:00` / 66/12332 execution checked; 12 entries refer to older inputs.
-- `preprocessor-refresh-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:56:45.008600+00:00` / 67/12332 execution checked; 12 entries refer to older inputs.
-- `preprocessor-refresh-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:56:44.166634+00:00` / 65/12332 execution checked; 12 entries refer to older inputs.
-- `preprocessor-refresh-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.833556+00:00` / 57/12332 execution checked; 12 entries refer to older inputs.
-- `preprocessor-refresh-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.867445+00:00` / 57/12332 execution checked; 12 entries refer to older inputs.
+- `pragma-reset-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:48:24.247093+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `pragma-reset-controls-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T23:48:24.171246+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `pragma-reset-controls-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:48:24.319606+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `preprocessor-effects-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T04:34:15.349577+00:00` / 4/12332 execution checked; 0 entries refer to older inputs.
+- `preprocessor-effects-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T04:40:54.993218+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `preprocessor-effects-20261125-verilator5.054-qualified.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:34:24.040211+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `preprocessor-effects-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:34:31.905991+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `preprocessor-refresh-20261124-ghost-strict.json`: `private build 2865c5a259b8` / `2026-11-23T21:56:44.298114+00:00` / 66/12332 execution checked; 11 entries refer to older inputs.
+- `preprocessor-refresh-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:56:45.008600+00:00` / 67/12332 execution checked; 11 entries refer to older inputs.
+- `preprocessor-refresh-20261124-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T21:56:44.166634+00:00` / 65/12332 execution checked; 11 entries refer to older inputs.
+- `preprocessor-refresh-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.833556+00:00` / 57/12332 execution checked; 11 entries refer to older inputs.
+- `preprocessor-refresh-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T21:57:27.867445+00:00` / 57/12332 execution checked; 11 entries refer to older inputs.
 - `primitives-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T03:51:52.714029+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `primitives-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T03:52:07.416509+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `primitives-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T03:51:59.846146+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -831,6 +959,44 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `product-constraints-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit f60e41d0ba78), built with AppleClang 21.0.0.21000334` / `2026-11-23T09:02:12.068000+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `product-constraints-20261123-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T09:01:35.013573+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `product-constraints-20261123-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-23T09:01:35.012041+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `protect-author-digests-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T02:21:24.998317+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-author-digests-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T02:21:24.997392+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-author-digests-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T02:21:25.029148+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-block-boundaries-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T01:36:05.052190+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-block-boundaries-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T01:36:05.052695+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-block-boundaries-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T01:36:05.082686+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-cipher-methods-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T01:07:54.664215+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-cipher-methods-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T01:07:54.658848+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-cipher-methods-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T01:07:54.683724+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-digests-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T01:24:24.708753+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-digests-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T01:24:24.712141+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-digests-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T01:24:24.740287+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-encodings-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T01:55:48.063109+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-encodings-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T01:55:48.066185+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-encodings-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T01:55:48.095432+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-encryption-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T21:56:52.634917+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-licenses-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T01:45:33.803532+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-licenses-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T01:45:33.802114+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-licenses-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T01:45:33.836496+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-multiple-recipients-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T02:47:18.277595+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-multiple-recipients-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T02:47:18.276423+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-multiple-recipients-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T02:47:18.307309+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-nested-decryption-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T02:56:04.156868+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-nested-decryption-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T02:56:04.159591+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-nested-decryption-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T02:56:04.186203+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-openpgp-methods-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:05:08.613809+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-openpgp-methods-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:05:08.624161+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-openpgp-methods-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:05:08.649464+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-pragma-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T21:06:05.328461+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-public-keys-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T02:39:10.536257+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-public-keys-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T02:39:10.557610+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-public-keys-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T02:39:10.598871+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-state-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T21:16:09.432126+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-table-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T00:56:59.839894+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-table-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T00:56:59.827724+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `protect-table-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T00:56:59.857577+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `queue-allocation-failure-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T08:04:18.892188+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `queue-allocation-failure-20261125-icarus14-devel.json`: `Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)` / `2026-11-25T08:04:18.876788+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:14:23.703451+00:00` / 4/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:15:42.861980+00:00` / 14/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:15:04.150898+00:00` / 11/12332 execution checked; 1 entries refer to older inputs.
@@ -843,10 +1009,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap3-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T08:10:25.089652+00:00` / 5/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap3-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:09:50.844161+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap3-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T08:10:24.715784+00:00` / 9/12332 execution checked; 0 entries refer to older inputs.
-- `reqgap5-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T14:45:27.599657+00:00` / 26/12332 execution checked; 14 entries refer to older inputs.
-- `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 execution checked; 14 entries refer to older inputs.
-- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
-- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 execution checked; 14 entries refer to older inputs.
+- `reqgap5-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T14:45:27.599657+00:00` / 26/12332 execution checked; 13 entries refer to older inputs.
+- `reqgap5-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T14:47:44.027905+00:00` / 18/12332 execution checked; 13 entries refer to older inputs.
+- `reqgap5-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:46:35.374894+00:00` / 12/12332 execution checked; 13 entries refer to older inputs.
+- `reqgap5-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T14:47:43.190246+00:00` / 12/12332 execution checked; 13 entries refer to older inputs.
 - `reqgap6-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T15:46:16.026728+00:00` / 10/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap6-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T15:46:16.196256+00:00` / 11/12332 execution checked; 1 entries refer to older inputs.
 - `reqgap6-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T15:46:17.221209+00:00` / 5/12332 execution checked; 1 entries refer to older inputs.
@@ -863,10 +1029,36 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `reqgap8-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T00:44:12.606501+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap8-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T00:44:19.746413+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `reqgap8-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T00:44:19.746335+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `resolver-history-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T00:34:23.597422+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `resolver-history-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T00:34:23.229917+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `resolver-history-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T00:34:23.057591+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `resolver-history-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T00:34:23.176221+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `rng-scheduling-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:31:01.279621+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `rng-scheduling-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:31:01.267105+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `rng-scheduling-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T05:31:01.249014+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `rng-scheduling-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T05:31:13.249894+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T01:03:42.109814+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T01:03:42.439195+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:46.712402+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `runtime-errors-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T01:03:50.809958+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `scheduler-reference-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T11:41:33.723775+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `side-effects-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T05:08:23.917781+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `side-effects-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T05:08:23.924240+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `side-effects-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T05:08:23.889241+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `side-effects-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T05:08:31.956301+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `single-pass-library-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T06:11:57.576884+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `single-pass-library-20261125-icarus13-qualified.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T06:11:48.399564+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `single-pass-library-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T06:11:57.573587+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `single-pass-library-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T06:11:57.543664+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `single-pass-library-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T06:12:02.911598+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `soft-distribution-20261125-ghost-qualified.json`: `private build 6fa9a05abb0c` / `2026-11-25T06:40:31.860746+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `source-default-refresh-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T00:01:59.872880+00:00` / 0/12332 execution checked; 12 entries refer to older inputs.
+- `source-default-refresh-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T00:02:00.027726+00:00` / 0/12332 execution checked; 12 entries refer to older inputs.
+- `source-default-refresh-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T00:01:59.585048+00:00` / 0/12332 execution checked; 12 entries refer to older inputs.
+- `source-default-refresh-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T00:02:00.659909+00:00` / 0/12332 execution checked; 12 entries refer to older inputs.
+- `source-default-refresh-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T00:02:21.159499+00:00` / 0/12332 execution checked; 12 entries refer to older inputs.
+- `stacktrace-coverage-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:35:08.068911+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `stacktrace-coverage-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:34:10.975555+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `stream-boundaries-20261119a-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T22:45:24.324223+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `stream-boundaries-20261119a-kirimasim-441dddbd0fcd-run1.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T22:45:25.317816+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `stream-boundaries-20261119a-kirimasim-441dddbd0fcd-run2.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T22:45:26.285358+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -878,6 +1070,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `strength-events-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T01:33:42.310174+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `strength-events-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:41.184186+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `strength-events-20261115-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T01:33:42.187059+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `sv-policy-boundaries-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T04:56:47.861496+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `sv-policy-boundaries-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T04:56:47.821428+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `sv-policy-boundaries-20261125-kirimasim0.2.1.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-25T04:56:47.816145+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `sv-policy-boundaries-20261125-verilator5.054-qualified.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:55:41.705198+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `sv-policy-boundaries-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:56:55.797490+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `sv2023-thin-20261121-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-20T21:24:39.791096+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `sv2023-thin-20261121-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-20T21:24:40.094672+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `sv2023-thin-20261121-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-20T21:25:04.136848+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -890,6 +1087,13 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `target-gaps-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:27:14.426871+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `target-gaps-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T12:27:14.427849+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `target-gaps-udp-targets-20261124-ghost-strict.json`: `private build 84e9883c2828` / `2026-11-24T12:29:23.672247+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `task-dpi-linkage-20261125-ghost-strict.json`: `private build 77dad69755fc` / `2026-11-24T19:54:30.261407+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `task-dpi-linkage-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T19:54:29.254129+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `task-dpi-linkage-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T19:54:28.995502+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `task-dpi-linkage-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:54:30.582144+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `task-dpi-linkage-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:54:30.545932+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `task-dpi-linkage-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:54:30.535383+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `task-dpi-linkage-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:54:30.524941+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-12T21:43:20.959244+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-12T21:43:29.567975+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `test-fix-20261113-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-12T21:43:25.251767+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -919,18 +1123,88 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `uvm-sv-repro-20261124-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T13:47:20.434715+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-sv-repro-20261124-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:47:20.198816+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-sv-repro-20261124-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T13:47:20.202629+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
+- `vector-net-access-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T00:29:09.004836+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vector-net-access-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T00:29:09.154423+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vector-net-access-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T00:29:08.927256+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vector-net-access-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T00:29:15.160641+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T02:58:01.691798+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-action-feature-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:28:07.256761+00:00` / 13/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-callback-relationships-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:59:05.984735+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-checkpoint-counts-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:06:02.986071+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-checkpoint-phases-20261125-ghost-strict.json`: `private build 6aec6c3b0747` / `2026-11-24T19:40:15.156240+00:00` / 3/12332 execution checked; 2 entries refer to older inputs.
+- `vpi-checkpoint-phases-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T19:40:14.129882+00:00` / 0/12332 execution checked; 2 entries refer to older inputs.
+- `vpi-checkpoint-phases-20261125-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-24T19:40:13.717098+00:00` / 0/12332 execution checked; 2 entries refer to older inputs.
+- `vpi-checkpoint-phases-20261125-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:40:14.356346+00:00` / 0/12332 execution checked; 2 entries refer to older inputs.
+- `vpi-checkpoint-phases-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:40:14.314830+00:00` / 0/12332 execution checked; 2 entries refer to older inputs.
+- `vpi-checkpoint-phases-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:40:14.227134+00:00` / 0/12332 execution checked; 2 entries refer to older inputs.
+- `vpi-checkpoint-phases-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:40:14.290595+00:00` / 0/12332 execution checked; 2 entries refer to older inputs.
+- `vpi-compatibility-scope-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T11:18:00.594397+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-constant-ranges-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T10:16:03.816379+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-constant-ranges-20261125-verilator.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T10:16:11.889510+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-covered-count-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T04:17:06.939138+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-covered-count-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T04:17:06.279863+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-covered-count-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T04:17:20.690311+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-delay-ownership-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T21:31:31.386612+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-delay-ownership-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T21:31:31.397763+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-delay-ownership-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T21:31:31.167664+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-delay-ownership-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T21:31:31.159957+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-dpi-bridge-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T08:22:40.347846+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-dpi-bridge-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T08:22:51.824943+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-expression-traversal-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:28:35.886580+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-expression-traversal-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:28:35.445845+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-expression-traversal-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:28:42.890949+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-interactive-scope-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:43:36.942567+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T20:48:30.198207+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T20:48:30.248426+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.380302+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.513143+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-1364v1995-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.306851+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-1364v2001-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.307756+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-1364v2005-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.308269+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-1800v2005-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.308738+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-1800v2009-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.309188+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-1800v2023-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.309634+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-ghost-default.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:35.726335+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:13:35.544322+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-legacy-applicability-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:13:49.846352+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-live-handle-release-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T11:26:18.899826+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-mode-selection-controls-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:33:24.301097+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-options-and-action-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:55:23.398976+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-options-and-action-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:55:23.316261+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-options-and-action-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:55:35.227439+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-program-checkpoint-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T23:05:27.239273+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-program-checkpoint-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:05:27.274635+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-program-ports-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:04:05.788500+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-runtime-release-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:10:05.029914+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-scope-net-bits-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:55:46.489186+00:00` / 24/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-scope-net-bits-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T22:55:46.245101+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-scope-net-bits-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T22:55:46.073330+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-side-effects-callbacks-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T21:45:17.433674+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-side-effects-callbacks-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T21:45:17.245313+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-side-effects-callbacks-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T21:45:16.654028+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-side-effects-callbacks-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T21:45:16.648345+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-start-callbacks-20261125-frame-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:50:57.999628+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-start-callbacks-20261125-thread-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:50:57.998977+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-subtypes-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:44:11.471932+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-subtypes-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T22:44:11.512512+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-subtypes-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T22:44:18.946510+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-typespec-expressions-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:22:11.762073+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-typespec-expressions-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:22:11.314750+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-typespec-expressions-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:22:25.622680+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-vendor-startup-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T09:37:44.237918+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-vlog-options-20261125-ghost-qualified.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:55:22.425038+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpidpi-20261114-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-14T13:04:58.367365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpidpi-20261114-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-14T13:06:19.523413+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpidpi-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T13:05:38.888744+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `vpidpi-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T13:06:19.394846+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `waveform-sections-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T00:13:22.821797+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `waveform-sections-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T00:13:22.765614+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `waveform-sections-ordinary-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T00:13:22.921478+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `waveform-sections-ordinary-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T00:13:22.958372+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `waveform-sections-ordinary-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T00:13:34.547726+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `wide-array-shapes-20261119ab-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T08:03:33.006792+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `wide-array-shapes-20261119ab-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T08:03:33.573506+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `wide-array-shapes-20261119ab-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T08:03:34.143657+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1113,6 +1387,8 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - Not used: depthfix5-20261027-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: depthfix5-20261027-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: depthfix5-20261027-verilator-seed73.json : legacy, unknown, or stale runner provenance.
+- Ignored dpi-optional-packed-20261125-feature-ghost.json because its evidence profile is unknown or stale.
+- Ignored dpi-optional-packed-20261125-header-ghost.json because its evidence profile is unknown or stale.
 - Not used: expression-gaps-20261023-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: expression-gaps-20261023-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: expression-gaps-20261023-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -1252,59 +1528,59 @@ The number of items is the investigation status of the article by heading. This 
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
 - 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
-- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 142.
-- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 93.
-- 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 148.
-- 6 Data types: No interpretation reservation 92/92, registration 720, test support 715.
-- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 343.
-- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 243.
-- 9 Processes: No interpretation reservation 34/34, registration 192, test support 185.
-- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 153.
-- 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 455.
-- 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 110.
-- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 121.
+- 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 146.
+- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 95.
+- 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 155.
+- 6 Data types: No interpretation reservation 92/92, registration 720, test support 720.
+- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 345.
+- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 245.
+- 9 Processes: No interpretation reservation 34/34, registration 192, test support 191.
+- 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 156.
+- 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 459.
+- 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 115.
+- 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 124.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 87.
-- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 86.
-- 16 Assertions: No interpretation reservation 82/82, registration 557, test support 556.
-- 17 Checkers: No interpretation reservations 13/13, registration 81, test support 70.
-- 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 317 mapped to tests.
-- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 271.
-- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 314.
-- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 375.
-- 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 357 mapped to tests.
-- 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 258.
-- 24 Programs: No interpretation restrictions 10/10, registration 29, test support 26.
+- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 87.
+- 16 Assertions: No interpretation reservation 82/82, registration 557, test support 557.
+- 17 Checkers: No interpretation reservations 13/13, registration 81, test support 77.
+- 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 323 mapped to tests.
+- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 275.
+- 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 320.
+- 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 383.
+- 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 363 mapped to tests.
+- 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 260.
+- 24 Programs: No interpretation restrictions 10/10, registration 29, test support 29.
 - 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 62.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 44.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 32.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 384.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 52.
 - 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 151.
-- 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 171.
+- 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 176.
 - 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 131.
-- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 41.
-- 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 5.
-- 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 126.
-- 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 148.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1693.
-- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 319.
+- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 61.
+- 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 191.
+- 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 143.
+- 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 161.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1723.
+- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 333.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
-- 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 124.
+- 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 127.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
-- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 804.
+- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 810.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
-- C Deprecation: No interpretation reserve 16/16, registration 20, test support 14.
+- C Deprecation: No interpretation reserve 16/16, registration 20, test support 19.
 - D Optional system tasks and system functions: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
 - G Std package: no interpretation reserve 8/8, registration 32, test support 32.
-- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 209.
-- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 144.
-- J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 1.
+- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 221.
+- I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 147.
+- J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 16.
 - K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 543.
-- L vpi_compatibility.h: no interpretations on hold 3/3; registered 88; test mappings 86.
-- M sv_vpi_user.h: no interpretations on hold 3/3; registered 412; test mappings 410.
-- N Algorithm for probabilistic distribution functions: no interpretation reservation 3/3, registered 39, test-compatible 37.
+- L vpi_compatibility.h: no interpretations on hold 3/3; registered 88; test mappings 88.
+- M sv_vpi_user.h: no interpretations on hold 3/3; registered 412; test mappings 412.
+- N Algorithm for probabilistic distribution functions: no interpretation reservation 3/3, registered 39, test-compatible 39.
 - O Encryption/decryption flow: reference (not included in the denominator of the standard requirements), registration 0, test compatible 0.
 - P Glossary: Reference (not included in the denominator of the standard requirements), registration 0, test compliant 0.
 - Q Bibliography: Reference (not included in the denominator of the standard requirements), register 0, test compatible 0.
@@ -2148,7 +2424,7 @@ Normative role: `definition`。
 
 ### SV2023-3.10-EXTRACT-LIBRARY-CELL-CATEGORIES
 
-`3.10` / `normal` / No mapped test
+`3.10` / `normal` / Execution confirmed
 
 A library may collect modules, interfaces, programs, checkers, primitives, packages and configurations.
 
@@ -2156,10 +2432,11 @@ Acceptance criterion: A library may collect modules, interfaces, programs, check
 
 Normative role: `definition`。
 
+- [test_library_contains_all_seven_cell_categories.sv](../tests/ch3/test_library_contains_all_seven_cell_categories.sv): Select a configuration in a named library and check values from the module, interface, program, checker, primitive, and package in that library. Select the same configuration name in work as a control and require the other design output.
 
 ### SV2023-3.10-EXTRACT-LIBRARY-MAP-LOCATION
 
-`3.10` / `normal` / No mapped test
+`3.10` / `normal` / Execution confirmed
 
 Library-map files associate library cells with source-code locations.
 
@@ -2167,6 +2444,7 @@ Acceptance criterion: The implementation uses its provided library-map selection
 
 Normative role: `definition`。
 
+- [test_library_maps_prefer_explicit_then_wildcard_then_directory.sv](../tests/ch33/test_library_maps_prefer_explicit_then_wildcard_then_directory.sv): Assign source files to libraries through maps and verify the distinct value from each cell selected by the configuration.
 
 ### SV2023-3.11-EXTRACT-CHECKER-CHILDREN
 
@@ -2278,7 +2556,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.12-EXTRACT-COMBINED-PHASES
 
-`3.12` / `normal` / No mapped test
+`3.12` / `normal` / Execution confirmed
 
 An implementation may combine compilation and elaboration phases while preserving their prescribed results.
 
@@ -2286,6 +2564,7 @@ Acceptance criterion: An implementation may combine compilation and elaboration 
 
 Normative role: `permission`。
 
+- [test_combined_compile_elaboration_results.sv](../tests/ch3/test_combined_compile_elaboration_results.sv): Check package, parameter and instance resolution in a single invocation. Enable the unresolved instance in a separate build and observe the pre-simulation diagnostic under each phase option.
 
 ### SV2023-3.12-EXTRACT-HIERARCHICAL-NAMES
 
@@ -3001,7 +3280,7 @@ Normative role: `mandatory`。
 
 ### SV2023-3.14.2.3-EXTRACT-IMPLEMENTATION-TIME-DEFAULT
 
-`3.14.2.3` / `normal` / No mapped test
+`3.14.2.3` / `normal` / Execution confirmed
 
 Default time unit and default precision are implementation-specific.
 
@@ -3009,6 +3288,7 @@ Acceptance criterion: Treat the documented/selected defaults as parameters; do n
 
 Normative role: `implementation_defined`。
 
+- [test_selected_defaults_set_time_unit_and_precision.sv](../tests/ch3/test_selected_defaults_set_time_unit_and_precision.sv): Leave the source time unit and precision unspecified, select two tool defaults, and compare the unit delay, conversion of a physical time, and the rounding of a fractional delay.
 
 ### SV2023-3.14.2.3-EXTRACT-MIXED-TIME-SPECIFICATION
 
@@ -3136,7 +3416,7 @@ Normative role: `definition`。
 
 ### SV2023-4.3-EXTRACT-REFERENCE-EQUIVALENCE
 
-`4.3` / `normal` / No mapped test
+`4.3` / `normal` / Execution confirmed
 
 A simulator must produce user-visible effects consistent with the standard discrete-event reference algorithm.
 
@@ -3144,6 +3424,7 @@ Acceptance criterion: Alternative internal algorithms are allowed only when thei
 
 Normative role: `mandatory`。
 
+- [test_reference_scheduler_trace_set.sv](../tests/ch4/test_reference_scheduler_trace_set.sv) : Enumerate the competing write orders at one time and compare the observed trace with the allowed set from the Inactive read through the NBA wakeup, Postponed, and the next time slot.
 
 ### SV2023-4.3-EXTRACT-REGION-ORDERING
 
@@ -3902,7 +4183,7 @@ Normative role: `permission`。
 
 ### SV2023-4.7-EXTRACT-PROCEDURAL-INTERLEAVING
 
-`4.7` / `normal` / No mapped test
+`4.7` / `normal` / Execution confirmed
 
 A simulator may suspend a partially evaluated procedural event and interleave another process even without an explicit time-control statement.
 
@@ -3910,6 +4191,7 @@ Acceptance criterion: Do not assume a whole no-delay procedural block is one ind
 
 Normative role: `permission`。
 
+- [test_active_sample_and_reactive_settling.sv](../tests/ch4/test_active_sample_and_reactive_settling.sv): Read from a different process in the same time slot as two assignments without a delay between them. Record the sampled stage with both declaration orders and check the allowed range and settled value.
 
 ### SV2023-4.9.1-EXTRACT-CONTINUOUS-SENSITIVITY
 
@@ -4634,7 +4916,7 @@ Normative role: `definition`。
 
 ### SV2023-5.6-EXTRACT-IDENTIFIER-LIMIT-ERROR
 
-`5.6` / `error` / No mapped test
+`5.6` / `error` / Execution confirmed
 
 An identifier exceeding an implementation's actual length limit produces an error.
 
@@ -4642,6 +4924,7 @@ Acceptance criterion: Determine the implementation limit rather than assuming ev
 
 Normative role: `mandatory`。
 
+- [test_identifier_length_boundary.sv](../tests/ch5/test_identifier_length_boundary.sv): Vary the identifier length to locate the boundary. Verify the separate values for the names that differ only at their final character, and check the lexer diagnostic on the next length. Also run a longer line assembled from short tokens.
 
 ### SV2023-5.6-EXTRACT-IDENTIFIER-MINIMUM-LIMIT
 
@@ -4837,7 +5120,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.6.3-EXTRACT-TOOL-SYSTEM-EXTENSION
 
-`5.6.3` / `normal` / No mapped test
+`5.6.3` / `normal` / Execution confirmed
 
 An implementation may provide additional tool-specific system tasks/functions; those extra routine semantics are not standardized here.
 
@@ -4845,6 +5128,7 @@ Acceptance criterion: An implementation may provide additional tool-specific sys
 
 Normative role: `permission`。
 
+- [test_tool_system_function_raw_simulation_time.sv](../tests/ch5/test_tool_system_function_raw_simulation_time.sv): Exercise the Icarus extension in scopes with different time units and verify identical raw ticks at each common instant while the standard time values scale.
 
 ### SV2023-5.6.4-DIRECTIVE-READ-ORDER
 
@@ -4882,7 +5166,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.6.4-EXTRACT-TOOL-DIRECTIVE-EXTENSION
 
-`5.6.4` / `normal` / No mapped test
+`5.6.4` / `normal` / Execution confirmed
 
 An implementation may supply extra tool-specific directives beyond the standard set.
 
@@ -4890,6 +5174,7 @@ Acceptance criterion: Do not assign universal standard semantics to such extensi
 
 Normative role: `permission`。
 
+- [test_tool_directive_controls_only_named_file.sv](../tests/ch5/test_tool_directive_controls_only_named_file.sv): Verify that the Verilator extension suppresses the width diagnostic and preserves HDL output for the configured filename, with the same assignment producing that diagnostic without the configuration or under a different filename.
 
 ### SV2023-5.7-EXTRACT-BASE-DIGIT-DOMAINS
 
@@ -5483,7 +5768,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.9-EXTRACT-RAW-NONPRINTABLE-LATITUDE
 
-`5.9` / `normal` / No mapped test
+`5.9` / `normal` / Execution confirmed
 
 Support for raw, unescaped nonprintable ASCII in a string literal is implementation-dependent.
 
@@ -5491,6 +5776,7 @@ Acceptance criterion: Do not require universal acceptance of raw nonprintables o
 
 Normative role: `implementation_defined`。
 
+- [test_raw_control_byte_string_literal.sv](../tests/ch5/test_raw_control_byte_string_literal.sv): Require execution of the escaped control, then check that acceptance of the original produces matching bytes or that rejection identifies the line containing the raw byte.
 
 ### SV2023-5.9-EXTRACT-STRING-CAST-ASSIGNMENT-EQUIVALENCE
 
@@ -5806,7 +6092,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-RANGE-LATITUDE
 
-`5.9.1` / `normal` / No mapped test
+`5.9.1` / `normal` / Execution confirmed
 
 An implementation may report an error for an octal string escape whose character value exceeds octal 377.
 
@@ -5814,6 +6100,7 @@ Acceptance criterion: Do not require every implementation to accept that out-of-
 
 Normative role: `permission`。
 
+- [test_string_octal_escape_outside_byte_range.sv](../tests/ch5/test_string_octal_escape_outside_byte_range.sv): Run the in-range control and accept either a range diagnostic at the substituted overflow escape or successful execution that preserves the in-range value.
 
 ### SV2023-5.9.1-EXTRACT-OCTAL-ESCAPE-WIDTH
 
@@ -6094,7 +6381,7 @@ Normative role: `definition`。
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-DUPLICATE-WARNING
 
-`5.12` / `normal` / No mapped test
+`5.12` / `normal` / Test mapped; execution unconfirmed
 
 A tool may warn about duplicate attribute specifications.
 
@@ -6102,6 +6389,7 @@ Acceptance criterion: Do not require a warning where the standard only permits o
 
 Normative role: `permission`。
 
+- [test_duplicate_attribute_advisory_sites.sv](../tests/ch5/test_duplicate_attribute_advisory_sites.sv): Enable the Slang advisory and require warnings only at repeated attribute names within the same declaration, then verify that suppressing the advisory accepts the same source without diagnostics.
 
 ### SV2023-5.12-EXTRACT-ATTRIBUTE-EXPRESSION-TYPE
 
@@ -6201,7 +6489,7 @@ Normative role: `mandatory`。
 
 ### SV2023-5.13-EXTRACT-GLOBAL-SIDE-EFFECT-SYSTEM-CALL
 
-`5.13` / `normal` / No mapped test
+`5.13` / `normal` / Execution confirmed
 
 A language operation with only a global side effect or no associated data object uses a system-task/function interface rather than an object-bound built-in method.
 
@@ -6209,6 +6497,7 @@ Acceptance criterion: A language operation with only a global side effect or no 
 
 Normative role: `definition`。
 
+- [test_global_system_calls_and_object_methods.sv](../tests/ch5/test_global_system_calls_and_object_methods.sv): Verify that the queue method updates its receiver, that time is queried without a receiver, and that the system task ends the independent process as well.
 
 ### SV2023-5.13-EXTRACT-IMPLICIT-VARIABLE-PARENS
 
@@ -6855,7 +7144,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.5-EXTRACT-VARIABLE-STRENGTH-WARNING
 
-`6.5` / `normal` / No mapped test
+`6.5` / `normal` / Execution confirmed
 
 A compiler may warn when a variable's continuous driver could supply strengths other than strong 0/1/x or high impedance.
 
@@ -6863,6 +7152,7 @@ Acceptance criterion: A compiler may warn when a variable's continuous driver co
 
 Normative role: `permission`。
 
+- [test_variable_drive_strength_warning_observation.sv](../tests/ch6/test_variable_drive_strength_warning_observation.sv): Check the loss of drive strength through the variable using a net with competing weak zero and pull-up drivers as the control. Add the strength directly to the variable assignment in a separate build and record any diagnostic.
 
 ### SV2023-6.6-EXTRACT-BUILTIN-NET-TYPES
 
@@ -8381,7 +8671,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-NONDETERMINISTIC-COUNT
 
-`6.6.7` / `normal` / No mapped test
+`6.6.7` / `normal` / Execution confirmed
 
 Multiple driver updates in one scheduling region may cause multiple resolver evaluations.
 
@@ -8389,6 +8679,7 @@ Acceptance criterion: Do not require a universal exact call count from a burst o
 
 Normative role: `permission`。
 
+- [test_user_net_same_region_resolution.sv](../tests/ch6/test_user_net_same_region_resolution.sv): Update two drivers in one region and accept a final sum with or without a one-driver intermediate result, using two changes in separate regions to verify that the observer can see both results.
 
 ### SV2023-6.6.7-EXTRACT-RESOLVER-PARAMETERIZED-METHOD
 
@@ -8855,7 +9146,7 @@ Normative role: `definition`。
 
 ### SV2023-6.7.3-EXTRACT-TIMEZERO-RESOLVER-NONDETERMINISM
 
-`6.7.3` / `normal` / No mapped test
+`6.7.3` / `normal` / Execution confirmed
 
 The guaranteed time-zero resolver evaluation may precede or follow time-zero driver changes.
 
@@ -8863,6 +9154,7 @@ Acceptance criterion: Do not assume one fixed driver state during that guarantee
 
 Normative role: `permission`。
 
+- [test_user_net_timezero_order.sv](../tests/ch6/test_user_net_timezero_order.sv): Change two drivers at time 0 and accept the settled result with or without the prechange and intermediate sums, checking resolution of the undriven control by the end of time 0.
 
 ### SV2023-6.7.3-EXTRACT-USER-NET-INITIALIZATION-ORDER
 
@@ -9408,7 +9700,7 @@ Normative role: `definition`。
 
 ### SV2023-6.9.2-EXTRACT-SCALARED-PLI-EXPANSION
 
-`6.9.2` / `normal` / No mapped test
+`6.9.2` / `normal` / Test mapped; execution unconfirmed
 
 When scalared advisory behavior is implemented, the PLI considers the net expanded.
 
@@ -9416,6 +9708,7 @@ Acceptance criterion: When scalared advisory behavior is implemented, the PLI co
 
 Normative role: `mandatory`。
 
+- [test_scalared_net_vpi_expansion.sv](../tests/ch6/test_scalared_net_vpi_expansion.sv): For an implementation of the scalared advisory, require a true vpiExpanded on an ascending range and check its bit values and expansion flags against the net.
 
 ### SV2023-6.9.2-EXTRACT-SCALARED-SELECTS
 
@@ -9431,7 +9724,7 @@ Normative role: `mandatory`。
 
 ### SV2023-6.9.2-EXTRACT-VECTORED-RESTRICTION-LATITUDE
 
-`6.9.2` / `normal` / No mapped test
+`6.9.2` / `normal` / Execution confirmed
 
 When vectored advisory behavior is implemented, a tool may restrict bit/part selects and strength specifications or present an unexpanded PLI net.
 
@@ -9439,6 +9732,10 @@ Acceptance criterion: When vectored advisory behavior is implemented, a tool may
 
 Normative role: `permission`。
 
+- [test_vectored_net_vpi_expansion.sv](../tests/ch6/test_vectored_net_vpi_expansion.sv): Allow either expansion mode for vectored and check every indexed bit value and expansion flag against the descending-range net in both cases.
+- [test_vectored_bit_select_when_permitted.sv](../tests/ch6/test_vectored_bit_select_when_permitted.sv): On tools that permit selection, drive both middle-bit values and compare the selected result with an ordinary net of the same range.
+- [test_vectored_part_select_when_permitted.sv](../tests/ch6/test_vectored_part_select_when_permitted.sv): On tools that permit part selects, compare an ascending two-bit part select with an ordinary net for two distinct input values.
+- [test_vectored_strength_when_permitted.sv](../tests/ch6/test_vectored_strength_when_permitted.sv): On tools that permit drive strength specifications, check that stronger drivers win over weaker conflicting drivers and that an ordinary net resolves to the same values.
 
 ### SV2023-6.10-EXTRACT-IMPLICIT-CONTINUOUS-LHS
 
@@ -15781,7 +16078,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.3.2-EXTRACT-TAGGED-UNDEFINED-GAP
 
-`7.3.2` / `normal` / No mapped test
+`7.3.2` / `normal` / Execution confirmed
 
 Packed bits between tag and selected member are undefined; selecting a void member leaves only the tag significant.
 
@@ -15789,6 +16086,7 @@ Acceptance criterion: Packed bits between tag and selected member are undefined;
 
 Normative role: `mandatory`。
 
+- [test_tagged_union_initial_tag_and_unused_bits.sv](../tests/ch7/test_tagged_union_initial_tag_and_unused_bits.sv): Change from long members with opposite bit patterns to a short member and a void member. Compare the tags and selected values, and record the bits in the gaps and void payloads.
 
 ### SV2023-7.3.2-EXTRACT-TAGGED-WRITE-TOGETHER
 
@@ -18856,7 +19154,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.12-EXTRACT-SIDE-EFFECT-LATITUDE
 
-`7.12` / `normal` / No mapped test
+`7.12` / `normal` / Execution confirmed
 
 A with expression containing side effects has potentially unpredictable results; tests cannot require one traversal-dependent effect order.
 
@@ -18864,6 +19162,7 @@ Acceptance criterion: A with expression containing side effects has potentially 
 
 Normative role: `permission`。
 
+- [test_locator_with_side_effect_observation.sv](../tests/ch7/test_locator_with_side_effect_observation.sv): Sort and compare the result of the side-effect-free lookup. Evaluate the with expression with side effects in a separate trial and record its call count and number of selected elements.
 
 ### SV2023-7.12-EXTRACT-WITH-PARENTHESES
 
@@ -19872,7 +20171,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.4-EXTRACT-NULL-INSTANCE-ACCESS
 
-`8.4` / `error` / No mapped test
+`8.4` / `error` / Execution confirmed
 
 Accessing a nonstatic member or virtual method through null is illegal with an indeterminate result; an implementation may issue an error.
 
@@ -19880,6 +20179,7 @@ Acceptance criterion: Accessing a nonstatic member or virtual method through nul
 
 Normative role: `mandatory`。
 
+- [test_class_null_instance_access_observation.sv](../tests/ch8/test_class_null_instance_access_observation.sv): Check the field and virtual dispatch with a live handle and the static field after assigning null. Attempt the nonstatic field and virtual method separately through null and record either a source-local diagnostic or an indeterminate return.
 
 ### SV2023-8.4-EXTRACT-OBJECT-CLASS-REFERENCE
 
@@ -20145,7 +20445,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.7-EXTRACT-PREINITIALIZATION-UNDEFINED
 
-`8.7` / `normal` / No mapped test
+`8.7` / `normal` / Execution confirmed
 
 A class property value before its required initialization is undefined.
 
@@ -20153,6 +20453,7 @@ Acceptance criterion: A class property value before its required initialization 
 
 Normative role: `mandatory`。
 
+- [test_class_property_before_initializer_observation.sv](../tests/ch8/test_class_property_before_initializer_observation.sv): Check the derived property after initialization. In a separate build change only the base constructor argument to the property read before initialization and record that value.
 
 ### SV2023-8.7-EXTRACT-PROPERTY-INITIALIZATION
 
@@ -22880,7 +23181,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.2.2.2-EXTRACT-COMBINATIONAL-CHECK
 
-`9.2.2.2` / `normal` / No mapped test
+`9.2.2.2` / `normal` / Execution confirmed
 
 Tools should check and warn when always_comb describes noncombinational behavior; this is a recommended diagnostic rather than a mandatory shall error.
 
@@ -22888,6 +23189,7 @@ Acceptance criterion: Tools should check and warn when always_comb describes non
 
 Normative role: `recommendation`。
 
+- [test_always_comb_incomplete_assignment_diagnostic.sv](../tests/ch9/test_always_comb_incomplete_assignment_diagnostic.sv): Check the retained value and the latch inference warning on the incomplete always_comb assignment, then check that the warning is absent when the condition is removed.
 
 ### SV2023-9.2.2.2-EXTRACT-INDEPENDENT-ELEMENT-WRITERS
 
@@ -23125,7 +23427,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.2.2.3-EXTRACT-LATCH-CHECK
 
-`9.2.2.3` / `normal` / No mapped test
+`9.2.2.3` / `normal` / Execution confirmed
 
 Tools should warn when always_latch does not describe latched behavior, a recommendation rather than a mandatory compilation rejection.
 
@@ -23133,6 +23435,7 @@ Acceptance criterion: Tools should warn when always_latch does not describe latc
 
 Normative role: `recommendation`。
 
+- [test_always_latch_unconditional_assignment_diagnostic.sv](../tests/ch9/test_always_latch_unconditional_assignment_diagnostic.sv): Check that an unconditional always_latch follows input changes and warns at the statement, with no matching warning after a hold condition is introduced.
 
 ### SV2023-9.2.2.3-EXTRACT-LATCH-COMB-RESTRICTIONS
 
@@ -23202,7 +23505,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.2.2.4-EXTRACT-SEQUENTIAL-CHECK
 
-`9.2.2.4` / `normal` / No mapped test
+`9.2.2.4` / `normal` / Execution confirmed
 
 Tools should warn when always_ff does not describe sequential logic; this is a recommended diagnostic.
 
@@ -23210,6 +23513,7 @@ Acceptance criterion: Tools should warn when always_ff does not describe sequent
 
 Normative role: `recommendation`。
 
+- [test_always_ff_level_event_diagnostic.sv](../tests/ch9/test_always_ff_level_event_diagnostic.sv): Check the level-sensitive always_ff output and the sequential logic warning on the statement, with no matching warning on the edge-triggered control.
 
 ### SV2023-9.2.3-EXTRACT-FINAL-AT-MOST-ONCE
 
@@ -24074,7 +24378,7 @@ Normative role: `definition`。
 
 ### SV2023-9.4.2-EXTRACT-EXTRA-REEVALUATION-LATITUDE
 
-`9.4.2` / `normal` / No mapped test
+`9.4.2` / `normal` / Execution confirmed
 
 A tool may also reevaluate the event expression on changes to members/sizes not referenced by that method/function.
 
@@ -24082,6 +24386,7 @@ Acceptance criterion: A tool may also reevaluate the event expression on changes
 
 Normative role: `permission`。
 
+- [test_event_method_unrelated_member_observation.sv](../tests/ch9/test_event_method_unrelated_member_observation.sv): Check that changes to the referenced member wake the waiter. Keep the timing identical with and without writes to the unrelated member and record method evaluations.
 
 ### SV2023-9.4.2-EXTRACT-HANDLE-CHANGE-EVENT
 
@@ -24650,7 +24955,7 @@ Normative role: `mandatory`。
 
 ### SV2023-9.6.2-EXTRACT-DISABLED-OUTPUT-UNSPECIFIED
 
-`9.6.2` / `normal` / No mapped test
+`9.6.2` / `normal` / Execution confirmed
 
 After task disable, output/inout argument results, pending nonblocking assignments and procedural continuous assignments have unspecified outcomes; tests cannot require one cancellation/copyout policy.
 
@@ -24658,10 +24963,11 @@ Acceptance criterion: After task disable, output/inout argument results, pending
 
 Normative role: `mandatory`。
 
+- [test_disable_task_unspecified_effects.sv](../tests/ch9/test_disable_task_unspecified_effects.sv): Check argument values, the NBA, and procedural continuous assignment and force after normal completion. When the task is disabled, verify that it reaches the disable and resumes its caller, and record the values and drive state as observations.
 
 ### SV2023-9.6.2-EXTRACT-FUNCTION-DISABLE-CALLER-UNDEFINED
 
-`9.6.2` / `normal` / No mapped test
+`9.6.2` / `normal` / Execution confirmed
 
 A function disabling a caller block/task has undefined behavior, unsuitable for a deterministic oracle.
 
@@ -24669,6 +24975,7 @@ Acceptance criterion: A function disabling a caller block/task has undefined beh
 
 Normative role: `mandatory`。
 
+- [test_function_disable_caller_observation.sv](../tests/ch9/test_function_disable_caller_observation.sv): Check the control that exits the function-local block and returns 23. Use separate builds for the caller task and named block, and verify that each reaches its undefined operation.
 
 ### SV2023-9.6.2-EXTRACT-INACTIVE-DISABLE-NOOP
 
@@ -26167,7 +26474,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.7-EXTRACT-SIZE-DIAGNOSTIC-OPTIONAL
 
-`10.7` / `normal` / No mapped test
+`10.7` / `normal` / Execution confirmed
 
 A size mismatch/truncation warning or error is optional; a conforming test cannot require it absent another mandatory rule.
 
@@ -26175,6 +26482,7 @@ Acceptance criterion: A size mismatch/truncation warning or error is optional; a
 
 Normative role: `permission`。
 
+- [test_truncation_diagnostic_and_explicit_cast.sv](../tests/ch10/test_truncation_diagnostic_and_explicit_cast.sv): The implicit narrowing and the explicit size cast produce the same low bits. Observe a warning and an error only at the implicit assignment, and compare execution results under the silent and warning policies.
 
 ### SV2023-10.7-EXTRACT-TRUNCATE-HIGH
 
@@ -26573,7 +26881,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.9.1-EXTRACT-PATTERN-SIDE-EFFECT-COUNT
 
-`10.9.1` / `normal` / No mapped test
+`10.9.1` / `normal` / Execution confirmed
 
 Evaluation counts for side-effecting expressions used by a type key, default key or replication are undefined.
 
@@ -26581,6 +26889,7 @@ Acceptance criterion: Evaluation counts for side-effecting expressions used by a
 
 Normative role: `mandatory`。
 
+- [test_assignment_pattern_side_effect_observation.sv](../tests/ch10/test_assignment_pattern_side_effect_observation.sv): Exercise the array type key, default key and replication separately. Check the element values returned by the side-effecting function and record the observed evaluation counts.
 
 ### SV2023-10.9.1-EXTRACT-REPLICATION-ONE-DIMENSION
 
@@ -26753,7 +27062,7 @@ Normative role: `mandatory`。
 
 ### SV2023-10.9.2-EXTRACT-STRUCT-SIDE-EFFECT-COUNT
 
-`10.9.2` / `normal` / No mapped test
+`10.9.2` / `normal` / Execution confirmed
 
 Side-effecting type-key/default/replication expression evaluation count is undefined.
 
@@ -26761,6 +27070,7 @@ Acceptance criterion: Side-effecting type-key/default/replication expression eva
 
 Normative role: `mandatory`。
 
+- [test_assignment_pattern_side_effect_observation.sv](../tests/ch10/test_assignment_pattern_side_effect_observation.sv): Exercise the structure type key, default key and replication separately. Compare the member values and record how many times the side-effecting expression was evaluated in each trial.
 
 ### SV2023-10.9.2-EXTRACT-TOPLEVEL-MEMBER-KEY
 
@@ -28213,7 +28523,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.2-EXTRACT-SIDE-EFFECT-ORDER-UNDEFINED
 
-`11.4.2` / `normal` / No mapped test
+`11.4.2` / `normal` / Execution confirmed
 
 Assignment side effects relative to other operations in one expression have undefined order; tools may warn about conflicting reads/writes.
 
@@ -28221,6 +28531,7 @@ Acceptance criterion: Assignment side effects relative to other operations in on
 
 Normative role: `mandatory`。
 
+- [test_conflicting_expression_side_effect_order.sv](../tests/ch11/test_conflicting_expression_side_effect_order.sv): Compare the fixed result of the separated operations. Try a postfix increment and concurrent read on either side of the same expression and record each sum and final value.
 
 ### SV2023-11.4.3-EXTRACT-ADD
 
@@ -28578,7 +28889,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.3-EXTRACT-REAL-POWER-UNSPECIFIED
 
-`11.4.3` / `normal` / No mapped test
+`11.4.3` / `normal` / Execution confirmed
 
 With real power semantics, zero to a negative exponent and a negative base to a nonintegral exponent have unspecified results.
 
@@ -28586,6 +28897,7 @@ Acceptance criterion: With real power semantics, zero to a negative exponent and
 
 Normative role: `mandatory`。
 
+- [test_real_power_unspecified_domain_values.sv](../tests/ch11/test_real_power_unspecified_domain_values.sv): Run zero to a negative exponent and a negative base to a fractional exponent in separate trials and record the bit patterns. Compare the 3 defined neighboring values and require each trial to reach its observation line.
 
 ### SV2023-11.4.3-EXTRACT-SUB
 
@@ -31525,7 +31837,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.4.14.1-EXTRACT-OBJECT-CYCLE-UNDEFINED
 
-`11.4.14.1` / `normal` / No mapped test
+`11.4.14.1` / `normal` / Execution confirmed
 
 Streaming an object graph with cycles has undefined results and may issue an error.
 
@@ -31533,6 +31845,7 @@ Acceptance criterion: Streaming an object graph with cycles has undefined result
 
 Normative role: `mandatory`。
 
+- [test_class_stream_cycle_observation.sv](../tests/ch11/test_class_stream_cycle_observation.sv) : Check that the acyclic class streams as 35 and record what happens when a separate process evaluates the same expression after confirming the self-reference.
 
 ### SV2023-11.4.14.1-EXTRACT-OBJECT-STREAM-ORDER
 
@@ -32811,7 +33124,7 @@ Normative role: `mandatory`。
 
 ### SV2023-11.9-EXTRACT-TAGGED-DEFAULT-UNDEFINED
 
-`11.9` / `normal` / No mapped test
+`11.9` / `normal` / Execution confirmed
 
 An uninitialized tagged union value is undefined, including its tag bits.
 
@@ -32819,6 +33132,7 @@ Acceptance criterion: An uninitialized tagged union value is undefined, includin
 
 Normative role: `mandatory`。
 
+- [test_tagged_union_initial_tag_and_unused_bits.sv](../tests/ch7/test_tagged_union_initial_tag_and_unused_bits.sv): Verify that no valid member matches before assignment. Record the uninitialized representation in a separate trial and check the defined tag and selected data after assignment.
 
 ### SV2023-11.9-EXTRACT-TAGGED-DOT-READ-WRITE
 
@@ -33326,7 +33640,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.4.2-EXTRACT-AFTER-VIOLATION-LATITUDE
 
-`12.4.2` / `normal` / No mapped test
+`12.4.2` / `normal` / Execution confirmed
 
 After detecting overlap, evaluation may stop; one evaluation order suffices and side effects can make results nondeterministic.
 
@@ -33334,6 +33648,7 @@ Acceptance criterion: After detecting overlap, evaluation may stop; one evaluati
 
 Normative role: `permission`。
 
+- [test_unique_overlap_optional_evaluation.sv](../tests/ch12/test_unique_overlap_optional_evaluation.sv): Check that all conditions are evaluated in the nonoverlapping control. Verify the location of the diagnostic and the first branch in the overlapping trial, allowing the third condition to be skipped.
 
 ### SV2023-12.4.2-EXTRACT-IF-QUALIFIERS
 
@@ -33410,7 +33725,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.4.2-EXTRACT-UNIQUENESS-CONTRACT
 
-`12.4.2` / `normal` / No mapped test
+`12.4.2` / `normal` / Execution confirmed
 
 unique/unique0 specify mutually exclusive conditions, permitting parallel condition evaluation.
 
@@ -33418,6 +33733,7 @@ Acceptance criterion: unique/unique0 specify mutually exclusive conditions, perm
 
 Normative role: `definition`。
 
+- [test_unique_and_unique0_condition_contract.sv](../tests/ch12/test_unique_and_unique0_condition_contract.sv): Check both qualifiers on mutually exclusive conditions. Introduce each uniqueness violation separately and check the diagnostic location and the first branch result.
 
 ### SV2023-12.4.2-EXTRACT-WHOLE-CHAIN-QUALIFIER
 
@@ -33749,7 +34065,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.5.3-EXTRACT-CASE-OVERLAP-STOP
 
-`12.5.3` / `normal` / No mapped test
+`12.5.3` / `normal` / Execution confirmed
 
 After overlap is found, further evaluation is optional, one ordering suffices and item-expression side effects may be nondeterministic.
 
@@ -33757,6 +34073,7 @@ Acceptance criterion: After overlap is found, further evaluation is optional, on
 
 Normative role: `permission`。
 
+- [test_unique_overlap_optional_evaluation.sv](../tests/ch12/test_unique_overlap_optional_evaluation.sv): Check that all item expressions are evaluated when exactly one item matches. Verify the diagnostic and the first matching item when multiple items match, allowing the third item to be skipped.
 
 ### SV2023-12.5.3-EXTRACT-QUALIFIED-CASE-FORMS
 
@@ -34416,7 +34733,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.7.3-EXTRACT-FOREACH-RESIZE-UNDEFINED
 
-`12.7.3` / `normal` / No mapped test
+`12.7.3` / `normal` / Execution confirmed
 
 Changing dynamic array dimensions during foreach iteration yields undefined results and may generate invalid indices.
 
@@ -34424,6 +34741,7 @@ Acceptance criterion: Changing dynamic array dimensions during foreach iteration
 
 Normative role: `mandatory`。
 
+- [test_foreach_dynamic_resize_undefined.sv](../tests/ch12/test_foreach_dynamic_resize_undefined.sv): Check indices 0, 1 and 2 for the unchanged array. Run growth and shrinkage in separate trials and capture the visited indices without using them to access array elements. The observed sequences are unconstrained by the standard.
 
 ### SV2023-12.7.3-EXTRACT-NO-FOREACH-IMPLICIT-CALL
 
@@ -34468,7 +34786,7 @@ Normative role: `mandatory`。
 
 ### SV2023-12.7.6-EXTRACT-FOREVER-AVOID-DEADLOCK
 
-`12.7.6` / `normal` / No mapped test
+`12.7.6` / `normal` / Execution confirmed
 
 A forever loop should suspend/advance time or provide an exit mechanism to avoid a zero-delay infinite loop; this is usage guidance, not implicit scheduler time advancement.
 
@@ -34476,6 +34794,7 @@ Acceptance criterion: A forever loop should suspend/advance time or provide an e
 
 Normative role: `recommendation`。
 
+- [test_forever_timing_controls_and_disable.sv](../tests/ch12/test_forever_timing_controls_and_disable.sv): Exercise the recommended safeguards for zero-delay loops. A named-block disable ends 3 iterations at time 2, and the delayed loop interleaves its iterations at times 4, 6 and 8 with another process at times 3 and 5.
 
 ### SV2023-12.7.6-EXTRACT-FOREVER-REPEATS
 
@@ -34640,7 +34959,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.2-EXTRACT-SUBROUTINE-CATEGORY
 
-`13.2` / `normal` / No mapped test
+`13.2` / `normal` / Execution confirmed
 
 Tasks and functions are collectively subroutines.
 
@@ -34648,6 +34967,7 @@ Acceptance criterion: Tasks and functions are collectively subroutines.
 
 Normative role: `definition`。
 
+- [test_subroutine_task_and_function_forms.sv](../tests/ch13/test_subroutine_task_and_function_forms.sv): Execute a function call in an expression and a task call as a statement. Check their common Subroutine classification, specific kinds and resolved calls in the Slang AST.
 
 ### SV2023-13.3-EXTRACT-ARRAY-FORMAL
 
@@ -34788,7 +35108,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.3-EXTRACT-TASK-ENABLE-NAME
 
-`13.3` / `normal` / No mapped test
+`13.3` / `normal` / Execution confirmed
 
 A task call is also termed a task enable.
 
@@ -34796,6 +35116,7 @@ Acceptance criterion: A task call is also termed a task enable.
 
 Normative role: `definition`。
 
+- [test_subroutine_task_and_function_forms.sv](../tests/ch13/test_subroutine_task_and_function_forms.sv): Enable a task with named arguments and verify that the caller resumes after the nested task completes. Execute the portless task enable both with and without parentheses.
 
 ### SV2023-13.3-EXTRACT-TASK-EXIT
 
@@ -35493,7 +35814,7 @@ Normative role: `mandatory`。
 
 ### SV2023-13.4.3-EXTRACT-DEFPARAM-UNDEFINED
 
-`13.4.3` / `normal` / No mapped test
+`13.4.3` / `normal` / Execution confirmed
 
 A constant call depending directly/indirectly on a defparam-affected value has undefined results, possibly an error or indeterminate return.
 
@@ -35501,6 +35822,7 @@ Acceptance criterion: A constant call depending directly/indirectly on a defpara
 
 Normative role: `mandatory`。
 
+- [test_defparam_constant_function_observation.sv](../tests/ch13/test_defparam_constant_function_observation.sv): Check the constant function results under the explicit parameter override. In a separate defparam build, observe the results for both the direct and indirect parameter dependencies.
 
 ### SV2023-13.4.3-EXTRACT-IGNORE-SYSTEM-TASKS
 
@@ -38284,7 +38606,7 @@ Normative role: `mandatory`。
 
 ### SV2023-15.5.5.2-EXTRACT-NULL-WAIT-UNDEFINED
 
-`15.5.5.2` / `normal` / No mapped test
+`15.5.5.2` / `normal` / Execution confirmed
 
 Waiting on null has undefined outcome and may issue a runtime warning; tests cannot require it to block or return in a fixed way.
 
@@ -38292,6 +38614,7 @@ Acceptance criterion: Waiting on null has undefined outcome and may issue a runt
 
 Normative role: `mandatory`。
 
+- [test_null_event_wait_observation.sv](../tests/ch15/test_null_event_wait_observation.sv): Check that a live event wakes the waiter. Run the null event control and the null triggered wait independently and record whether each waiter resumes.
 
 ### SV2023-15.5.5.3-EXTRACT-EVENT-BOOLEAN
 
@@ -38915,7 +39238,7 @@ Normative role: `recommendation`。
 
 ### SV2023-16.5-EXTRACT-MULTIPLE-TRANSITIONS
 
-`16.5` / `normal` / No mapped test
+`16.5` / `normal` / Execution confirmed
 
 Behavior is undefined if a concurrent assertion clocking event transitions more than once in one time step.
 
@@ -38923,6 +39246,7 @@ Acceptance criterion: Behavior is undefined if a concurrent assertion clocking e
 
 Normative role: `definition`。
 
+- [test_assertion_clock_multiple_transitions_observation.sv](../tests/ch16/test_assertion_clock_multiple_transitions_observation.sv): Check assertion evaluation on two rising edges at separate times. Add a falling and another rising edge in one time slot in an isolated trial and record the resulting undefined evaluation.
 
 ### SV2023-16.5-EXTRACT-SAMPLED-OBSERVED
 
@@ -45836,7 +46160,7 @@ Normative role: `permission`。
 
 ### SV2023-17.7.2-EXTRACT-ACTIVE-INACTIVE
 
-`17.7.2` / `normal` / No mapped test
+`17.7.2` / `normal` / Execution confirmed
 
 Each singular non-const free-variable element is inactive if assigned on a checker assignment left side and active otherwise; other variables/formals are inactive and there is no rand_mode-like control.
 
@@ -45844,10 +46168,11 @@ Acceptance criterion: Each singular non-const free-variable element is inactive 
 
 Normative role: `mandatory`。
 
+- [test_checker_assume_clock_preserves_assigned_free_elements.sv](../tests/ch17/test_checker_assume_clock_preserves_assigned_free_elements.sv): Drive write and assume clocks separately and check that assigned free and ordinary variables change only on the stated writes while the constant retains its value.
 
 ### SV2023-17.7.2-EXTRACT-ACTIVITY-GRANULARITY
 
-`17.7.2` / `normal` / No mapped test
+`17.7.2` / `normal` / Execution confirmed
 
 Packed arrays/structures are active or inactive monolithically, while unpacked aggregate singular elements may have separate activity.
 
@@ -45855,6 +46180,7 @@ Acceptance criterion: Packed arrays/structures are active or inactive monolithic
 
 Normative role: `mandatory`。
 
+- [test_checker_assume_clock_preserves_assigned_free_elements.sv](../tests/ch17/test_checker_assume_clock_preserves_assigned_free_elements.sv): Check entire packed vectors and structures after partial writes and observe the assigned unpacked elements while including their separate unassigned neighbors in the assumption.
 
 ### SV2023-17.7.2-EXTRACT-ASSUME-CHECK
 
@@ -45882,7 +46208,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.7.2-EXTRACT-ASSUME-SET-MEMBERSHIP
 
-`17.7.2` / `normal` / No mapped test
+`17.7.2` / `normal` / Execution confirmed
 
 The checker assume set includes its and child assumptions referencing its active free variables, excluding assumptions referencing a formal whose actual contains a const cast or automatic value.
 
@@ -45890,6 +46216,8 @@ Acceptance criterion: The checker assume set includes its and child assumptions 
 
 Normative role: `mandatory`。
 
+- [test_checker_assume_set_excludes_captured_formal_and_inactive_child.sv](../tests/ch17/test_checker_assume_set_excludes_captured_formal_and_inactive_child.sv): Observe parent and child assumption evaluations and check that inactive and const-cast actuals do not clock the parent free variable.
+- [test_checker_assume_set_survives_procedural_capture.sv](../tests/ch17/test_checker_assume_set_survives_procedural_capture.sv): Reenter the procedural instance with a different automatic actual and check that the assumption is evaluated while the free variable stays unchanged.
 
 ### SV2023-17.7.2-EXTRACT-EMPTY-SET-CLOCK
 
@@ -45917,7 +46245,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.7.2-EXTRACT-ONE-ASSUME-SET
 
-`17.7.2` / `normal` / No mapped test
+`17.7.2` / `normal` / Execution confirmed
 
 Each checker instance has exactly one possibly empty assume set existing at every step regardless of static/procedural instantiation.
 
@@ -45925,10 +46253,12 @@ Acceptance criterion: Each checker instance has exactly one possibly empty assum
 
 Normative role: `mandatory`。
 
+- [test_checker_assume_set_survives_procedural_capture.sv](../tests/ch17/test_checker_assume_set_survives_procedural_capture.sv): Clock static and procedural instances of one checker separately and check free-variable and per-cycle state continuity across skipped procedural entry.
+- [test_checker_empty_assume_set_step.sv](../tests/ch17/test_checker_empty_assume_set_step.sv): Count free-variable changes for an instance with no assumptions and check for duplicate updates in a time step.
 
 ### SV2023-17.7.2-EXTRACT-RANDOM-INITIALIZATION
 
-`17.7.2` / `normal` / No mapped test
+`17.7.2` / `normal` / Test mapped; execution unconfirmed
 
 All free checker variables, const/non-const and active/inactive, receive unconstrained random initial values unless explicitly initialized.
 
@@ -45936,6 +46266,7 @@ Acceptance criterion: All free checker variables, const/non-const and active/ina
 
 Normative role: `mandatory`。
 
+- [test_checker_free_initial_values_before_any_clock.sv](../tests/ch17/test_checker_free_initial_values_before_any_clock.sv): Hold the assumption and assignment clocks stopped, check the explicit initializer and compare initial active, inactive and const free values with an ordinary random control across seeds.
 
 ### SV2023-17.7.2-EXTRACT-SOLUTION-STABILITY
 
@@ -45974,7 +46305,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.7.2-EXTRACT-SOLVE-FAILURE-FREEDOM
 
-`17.7.2` / `normal` / No mapped test
+`17.7.2` / `normal` / Execution confirmed
 
 If solving fails, any active values may be selected; there is no requirement to find an existing solution or avoid inevitable future dead ends.
 
@@ -45982,6 +46313,8 @@ Acceptance criterion: If solving fails, any active values may be selected; there
 
 Normative role: `permission`。
 
+- [test_checker_assume_solve_allows_a_future_dead_end.sv](../tests/ch17/test_checker_assume_solve_allows_a_future_dead_end.sv): Use complementary antecedents so either free choice has no launch failure but exactly one property must fail on the next clock, then check that the future dead end does not fail at launch.
+- [test_checker_assume_violation.sv](../tests/ch17/test_checker_assume_violation.sv): Use unsatisfiable assumptions on separate clocks and count their failures without prescribing a fallback free-variable value.
 
 ### SV2023-17.7.2-EXTRACT-UNMENTIONED-ACTIVE
 
@@ -46083,7 +46416,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.9-EXTRACT-TRIGGERED-COMB-CAUTION
 
-`17.9` / `normal` / No mapped test
+`17.9` / `normal` / Execution confirmed
 
 Sequence.triggered should not be used as the right side of a continuous or always_comb assignment because resetting its status does not produce an event.
 
@@ -46091,6 +46424,8 @@ Acceptance criterion: Sequence.triggered should not be used as the right side of
 
 Normative role: `recommendation`。
 
+- [test_triggered_reset_does_not_update_checker_mirrors.sv](../tests/ch17/test_triggered_reset_does_not_update_checker_mirrors.sv): Propagate the completion value to the continuous and combinational assignments in the checker. Observe completion and the wait independently, and check that advancing time clears the status while both assignment outputs remain held until another input changes.
+- [test_clocked_checker_window_from_sequence_endpoints.sv](../tests/ch17/test_clocked_checker_window_from_sequence_endpoints.sv): Read the endpoint status from a clocked process and keep the window in an independent variable. Use separate opening and closing sequences and check that each result persists after its endpoint flag clears.
 
 ### SV2023-18.3-EXTRACT-BIDIRECTIONAL
 
@@ -47652,7 +47987,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.11-EXTRACT-UNSPECIFIED-FUNCTION-CALLS
 
-`18.5.11` / `normal` / No mapped test
+`18.5.11` / `normal` / Execution confirmed
 
 Functions in active constraints are called at least once but an unspecified number of times and in unspecified order.
 
@@ -47660,6 +47995,7 @@ Acceptance criterion: Functions in active constraints are called at least once b
 
 Normative role: `definition`。
 
+- [test_active_constraint_functions_execute.sv](../tests/ch18/test_active_constraint_functions_execute.sv): Call two side-effect-free functions from active constraints and check that the solution uses their results and that each body executes at least once. Repeat the minimum check after reversing the source order, and validate the line counters with disabled constraints and two direct calls.
 
 ### SV2023-18.5.12-EXTRACT-FOUR-GUARD-VALUES
 
@@ -48435,7 +48771,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.5.13.2-EXTRACT-SOFT-WEIGHT-CAUTION
 
-`18.5.13.2` / `normal` / No mapped test
+`18.5.13.2` / `normal` / Test mapped; execution unconfirmed
 
 To obtain soft dist weights independently of lower-priority soft constraints, those lower-priority constraints should first be discarded.
 
@@ -48443,6 +48779,7 @@ Acceptance criterion: To obtain soft dist weights independently of lower-priorit
 
 Normative role: `recommendation`。
 
+- [test_disable_soft_preserves_distribution_weights.sv](../tests/ch18/test_disable_soft_preserves_distribution_weights.sv): Compare the counts for the specified values with the earlier equality retained, disabled or absent. Run both equal and unequal weights at two seeds and recompute the verdict from the allowed values and observed counts.
 
 ### SV2023-18.6.1-EXTRACT-RANDOMIZE-RETURN
 
@@ -49312,7 +49649,7 @@ Normative role: `definition`。
 
 ### SV2023-18.13.4-EXTRACT-STATE-IMPLEMENTATION
 
-`18.13.4` / `normal` / No mapped test
+`18.13.4` / `normal` / Execution confirmed
 
 RNG-state strings have implementation-dependent length and format; no portable representation is specified.
 
@@ -49320,6 +49657,7 @@ Acceptance criterion: RNG-state strings have implementation-dependent length and
 
 Normative role: `implementation_defined`。
 
+- [test_rng_state_format_and_replay.sv](../tests/ch18/test_rng_state_format_and_replay.sv): Save the object and process RNG states separately and compare their streams after restoration. Record the lengths and leading bytes of the state strings for each implementation.
 
 ### SV2023-18.13.5-EXTRACT-SET-STATE
 
@@ -49336,7 +49674,7 @@ Normative role: `definition`。
 
 ### SV2023-18.13.5-EXTRACT-STATE-FORMAT
 
-`18.13.5` / `normal` / No mapped test
+`18.13.5` / `normal` / Execution confirmed
 
 State length/content/format is implementation dependent; passing a string not obtained from get_randstate or obtained from another implementation has undefined behavior.
 
@@ -49344,6 +49682,7 @@ Acceptance criterion: State length/content/format is implementation dependent; p
 
 Normative role: `implementation_defined`。
 
+- [test_rng_state_format_and_replay.sv](../tests/ch18/test_rng_state_format_and_replay.sv): Restore the saved states using their returned strings and compare the replayed streams. Run the manually constructed string in a separate trial and record reaching the undefined call.
 
 ### SV2023-18.14-EXTRACT-RANDOM-STABILITY
 
@@ -49492,7 +49831,7 @@ Normative role: `permission`。
 
 ### SV2023-18.14.3-EXTRACT-SELF-SEED-RECOMMENDATION
 
-`18.14.3` / `normal` / No mapped test
+`18.14.3` / `normal` / Execution confirmed
 
 After object creation there is no guarantee of external reseeding before another thread accesses it; self-seeding in new is recommended.
 
@@ -49500,6 +49839,7 @@ Acceptance criterion: After object creation there is no guarantee of external re
 
 Normative role: `recommendation`。
 
+- [test_constructor_seed_before_first_access.sv](../tests/ch18/test_constructor_seed_before_first_access.sv): Seed the object in its constructor before publication. Compare the first sequence drawn from a different process with a sequence independently created from the same seed.
 
 ### SV2023-18.15-EXTRACT-CONSTRUCTOR-SEED-BEFORE-RANDOMIZE
 
@@ -49998,7 +50338,7 @@ Normative role: `mandatory`。
 
 ### SV2023-18.17.7-EXTRACT-UNGENERATED-RESULT
 
-`18.17.7` / `normal` / No mapped test
+`18.17.7` / `normal` / Execution confirmed
 
 Only already-generated productions to the left of the reading code block have retrievable return values; reading an ungenerated production result yields an undefined value.
 
@@ -50006,6 +50346,7 @@ Acceptance criterion: Only already-generated productions to the left of the read
 
 Normative role: `mandatory`。
 
+- [test_randsequence_ungenerated_result_observation.sv](../tests/ch18/test_randsequence_ungenerated_result_observation.sv): Check the return value after the randsequence production. In a separate build read the variable before the same production and record the early value.
 
 ### SV2023-19.2-EXTRACT-COVERAGE-METRIC
 
@@ -50811,7 +51152,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.5.1.1-EXTRACT-WITH-SIDE-EFFECTS
 
-`19.5.1.1` / `normal` / No mapped test
+`19.5.1.1` / `normal` / Execution confirmed
 
 Side effects in a bin with expression make results unpredictable.
 
@@ -50819,6 +51160,7 @@ Acceptance criterion: Side effects in a bin with expression make results unpredi
 
 Normative role: `definition`。
 
+- [test_cg_point_with_side_effect_observation.sv](../tests/ch19/test_cg_point_with_side_effect_observation.sv): Check the expected coverage of a coverpoint with a pure filter. Record the evaluation count and coverage when the bin filter of a second coverpoint updates a counter.
 
 ### SV2023-19.5.1.2-EXTRACT-SET-ARRAY
 
@@ -51562,7 +51904,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.6.1.2-EXTRACT-CROSS-WITH-SIDE-EFFECTS
 
-`19.6.1.2` / `normal` / No mapped test
+`19.6.1.2` / `normal` / Execution confirmed
 
 Side effects in cross with expressions make results unpredictable.
 
@@ -51570,6 +51912,7 @@ Acceptance criterion: Side effects in cross with expressions make results unpred
 
 Normative role: `definition`。
 
+- [test_cg_cross_with_side_effect_observation.sv](../tests/ch19/test_cg_cross_with_side_effect_observation.sv): Check the expected coverage of a cross with a pure filter. Keep its constituent coverpoints fixed and record the observations when the cross filter updates a counter.
 
 ### SV2023-19.6.1.2-EXTRACT-MATCHES-POLICY
 
@@ -52902,7 +53245,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.9-EXTRACT-LOAD-DATABASE
 
-`19.9` / `normal` / No mapped test
+`19.9` / `normal` / Test mapped; execution unconfirmed
 
 $load_coverage_db(filename) loads cumulative coverage data for all group types from that file.
 
@@ -52910,6 +53253,7 @@ Acceptance criterion: $load_coverage_db(filename) loads cumulative coverage data
 
 Normative role: `mandatory`。
 
+- [test_coverage_db_name_and_type_data_across_two_runs.sv](../tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv): Read the database saved by the preceding run and check that two different type totals change from 0 to their distinct expected values without additional samples.
 
 ### SV2023-19.9-EXTRACT-OVERALL-COVERAGE
 
@@ -52925,7 +53269,7 @@ Normative role: `mandatory`。
 
 ### SV2023-19.9-EXTRACT-SET-DATABASE-NAME
 
-`19.9` / `normal` / No mapped test
+`19.9` / `normal` / Test mapped; execution unconfirmed
 
 $set_coverage_db_name(filename) sets the database file receiving end-of-run coverage information.
 
@@ -52933,6 +53277,7 @@ Acceptance criterion: $set_coverage_db_name(filename) sets the database file rec
 
 Normative role: `mandatory`。
 
+- [test_coverage_db_name_and_type_data_across_two_runs.sv](../tests/ch19/test_coverage_db_name_and_type_data_across_two_runs.sv): Set two destinations in succession and sample both covergroups. Check that the final destination does not exist during simulation and that only the final destination contains data after the run.
 
 ### SV2023-19.10-EXTRACT-CROSS-OPTION-STRUCT
 
@@ -53345,7 +53690,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.2-EXTRACT-CONTROL-DEFAULT
 
-`20.2` / `normal` / No mapped test
+`20.2` / `normal` / Execution confirmed
 
 The optional $stop/$finish diagnostic argument is 0, 1 or 2 and defaults to 1.
 
@@ -53353,6 +53698,7 @@ Acceptance criterion: The optional $stop/$finish diagnostic argument is 0, 1 or 
 
 Normative role: `mandatory`。
 
+- [test_control_diagnostic_argument_defaults_to_one.sv](../tests/ch20/test_control_diagnostic_argument_defaults_to_one.sv): Compare the default diagnostic with explicit level 1 for both stop and finish, and exercise every valid level through a runtime expression.
 
 ### SV2023-20.2-EXTRACT-CONTROL-SYNTAX
 
@@ -53429,7 +53775,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.2-EXTRACT-STOP
 
-`20.2` / `normal` / No mapped test
+`20.2` / `normal` / Execution confirmed
 
 $stop suspends simulation.
 
@@ -53437,6 +53783,7 @@ Acceptance criterion: $stop suspends simulation.
 
 Normative role: `mandatory`。
 
+- [test_stop_suspends_each_call_and_resumes_same_tick.sv](../tests/ch20/test_stop_suspends_each_call_and_resumes_same_tick.sv): Query the time at both stops, compare it with the time just after each continue, and verify that ending the second stop from the debugger prevents subsequent statements.
 
 ### SV2023-20.3-EXTRACT-TIME-FUNCTIONS
 
@@ -56255,7 +56602,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.14.1-EXTRACT-RANDOM-SEED-INITIALIZE
 
-`20.14.1` / `normal` / No mapped test
+`20.14.1` / `normal` / Execution confirmed
 
 The seed variable should be initialized before calling $random.
 
@@ -56263,6 +56610,7 @@ Acceptance criterion: The seed variable should be initialized before calling $ra
 
 Normative role: `recommendation`。
 
+- [test_random_initialized_seed_replays_stream.sv](../tests/ch20/test_random_initialized_seed_replays_stream.sv): Assign each seed before the call as recommended, compare interleaved streams and a replay from equal seeds, and check for a difference from the other seed.
 
 ### SV2023-20.14.1-EXTRACT-RANDOM-SEED-VARIABLE
 
@@ -56756,7 +57104,7 @@ Normative role: `definition`。
 
 ### SV2023-20.15.6-EXTRACT-STATUS-7
 
-`20.15.6` / `normal` / No mapped test
+`20.15.6` / `normal` / Test mapped; execution unconfirmed
 
 Queue status 7 denotes insufficient memory; creation fails.
 
@@ -56764,6 +57112,7 @@ Acceptance criterion: Queue status 7 denotes insufficient memory; creation fails
 
 Normative role: `definition`。
 
+- [test_stochastic_queue_creation_out_of_memory.sv](../tests/ch20/test_stochastic_queue_creation_out_of_memory.sv): Create both queues and remove the existing job in the control. Fail either the table expansion or element allocation during target creation and check for status 7, an unregistered ID after failure, creation with the same ID on retry and preservation of the existing queue.
 
 ### SV2023-20.16-EXTRACT-PLA-ASYNC-AND-ARRAY
 
@@ -57194,7 +57543,7 @@ Normative role: `mandatory`。
 
 ### SV2023-20.17.2-EXTRACT-STACKTRACE-CONTEXT
 
-`20.17.2` / `normal` / No mapped test
+`20.17.2` / `normal` / Test mapped; execution unconfirmed
 
 $stacktrace retrieves frames from the calling context to its top-level process and permits task/function use.
 
@@ -57202,10 +57551,11 @@ Acceptance criterion: $stacktrace retrieves frames from the calling context to i
 
 Normative role: `definition`。
 
+- [test_stacktrace_resumed_task_context.sv](../tests/ch20/test_stacktrace_resumed_task_context.sv): Compare the ordered frames reported by the task form before suspension and the function form after resumption, then verify that the function and task frames disappear on return to the top-level process.
 
 ### SV2023-20.17.2-EXTRACT-STACKTRACE-RESULT
 
-`20.17.2` / `normal` / No mapped test
+`20.17.2` / `normal` / Execution confirmed
 
 As a task stacktrace prints call information; as a function it returns a string; the content is implementation dependent.
 
@@ -57213,6 +57563,7 @@ Acceptance criterion: As a task stacktrace prints call information; as a functio
 
 Normative role: `implementation_defined`。
 
+- [test_stacktrace_task_and_function_results.sv](../tests/ch20/test_stacktrace_task_and_function_results.sv): Check that function evaluation produces no direct output and returns a nonempty string, then decode Ghost’s output to verify the active frame in the returned string and in the separately displayed task trace.
 
 ### SV2023-21.2.1-EXTRACT-ARGUMENT-ORDER
 
@@ -58110,7 +58461,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.2.1.6-EXTRACT-COMPACT-PATTERN
 
-`21.2.1.6` / `normal` / No mapped test
+`21.2.1.6` / `normal` / Execution confirmed
 
 %0p permits shorter implementation-specific aggregate output and the same permitted output limits.
 
@@ -58118,6 +58469,7 @@ Acceptance criterion: %0p permits shorter implementation-specific aggregate outp
 
 Normative role: `implementation_defined`。
 
+- [test_compact_pattern_formats_aggregate.sv](../tests/ch21/test_compact_pattern_formats_aggregate.sv): Check the quotes on the singular string and both elements of the short struct. Allow the tool to choose its representation, and observe the lengths and content of the long struct in both formats.
 
 ### SV2023-21.2.1.6-EXTRACT-PATTERN-ARRAY
 
@@ -58761,7 +59113,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.3.4.3-EXTRACT-INVALID-SCAN-CONVERSION
 
-`21.3.4.3` / `normal` / No mapped test
+`21.3.4.3` / `normal` / Execution confirmed
 
 An invalid percent conversion code has implementation-dependent results.
 
@@ -58769,6 +59121,7 @@ Acceptance criterion: An invalid percent conversion code has implementation-depe
 
 Normative role: `implementation_defined`。
 
+- [test_sscanf_invalid_conversion_observation.sv](../tests/ch21/test_sscanf_invalid_conversion_observation.sv): Check the input with valid conversion codes and invalidate only the 2nd code in a separate build. Check the source location when a diagnostic is issued and observe the return value and output arguments when execution continues.
 
 ### SV2023-21.3.4.3-EXTRACT-SCAN-ARG-COUNT
 
@@ -60555,7 +60908,7 @@ Normative role: `permission`。
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-6
 
-`21.7.2.3` / `normal` / No mapped test
+`21.7.2.3` / `normal` / Execution confirmed
 
 VCD declaration keywords include comment and timescale; dumpall is a simulation keyword.
 
@@ -60563,6 +60916,7 @@ Acceptance criterion: VCD declaration keywords include comment and timescale; du
 
 Normative role: `definition`。
 
+- [test_vcd_comment_insertion_preserves_dumpall.sv](../tests/ch21/test_vcd_comment_insertion_preserves_dumpall.sv): Check timescale in the declarations and nonempty dumpall at the requested simulation time, and insert comments in both sections to check their permitted placement.
 
 ### SV2023-21.7.2.3-EXTRACT-KEYWORD-CLASSES-7
 
@@ -60674,7 +61028,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.2.3-EXTRACT-VCD-KEYWORD-INSERTION
 
-`21.7.2.3` / `normal` / No mapped test
+`21.7.2.3` / `normal` / Execution confirmed
 
 Keyword-delimited general-information sections may be inserted by the dumper or manually.
 
@@ -60682,6 +61036,7 @@ Acceptance criterion: Keyword-delimited general-information sections may be inse
 
 Normative role: `permission`。
 
+- [test_vcd_comment_insertion_preserves_dumpall.sv](../tests/ch21/test_vcd_comment_insertion_preserves_dumpall.sv): Identify the dumper-generated limit comment, insert two user comments, and reread the file to check that the original declarations, times, values, and controls are preserved.
 
 ### SV2023-21.7.2.3-EXTRACT-VERSION-COMMAND
 
@@ -60697,7 +61052,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.3-EXTRACT-EXTENDED-INHERITANCE
 
-`21.7.3` / `normal` / No mapped test
+`21.7.3` / `normal` / Test mapped; execution unconfirmed
 
 Four-state VCD rules and syntax apply to extended VCD unless this subclause explicitly changes them.
 
@@ -60705,6 +61060,8 @@ Acceptance criterion: Four-state VCD rules and syntax apply to extended VCD unle
 
 Normative role: `mandatory`。
 
+- [test_evcd_keyword_sections_extend_vcd.sv](../tests/ch21/test_evcd_keyword_sections_extend_vcd.sv): Dump the same module in both formats and compare their declaration boundaries and the times of the four corresponding dump commands.
+- [test_evcd_inherits_vcd_scope_and_physical_time.sv](../tests/ch21/test_evcd_inherits_vcd_scope_and_physical_time.sv): Check the same hierarchy and signal declarations in both files, then convert their timestamp counts with their own time scales and require the same physical change times.
 
 ### SV2023-21.7.3.1-EXTRACT-DUMPPORTS-SYNTAX
 
@@ -60957,7 +61314,7 @@ Normative role: `mandatory`。
 
 ### SV2023-21.7.3.6-EXTRACT-PORT-KEYWORDS
 
-`21.7.3.6` / `normal` / No mapped test
+`21.7.3.6` / `normal` / Execution confirmed
 
 Extended VCD general information uses keyword-delimited sections, insertable manually or by the dumper, with one additional command beyond four-state VCD.
 
@@ -60965,10 +61322,12 @@ Acceptance criterion: Extended VCD general information uses keyword-delimited se
 
 Normative role: `definition`。
 
+- [test_evcd_keyword_sections_extend_vcd.sv](../tests/ch21/test_evcd_keyword_sections_extend_vcd.sv): Compare the two keyword sets, require the closing command as the sole addition after matching corresponding dump controls, and read both dumper and user comments as delimited sections.
+- [test_evcd_manual_comment_before_closing_record.sv](../tests/ch21/test_evcd_manual_comment_before_closing_record.sv): Use a trace whose last change precedes its closing time and insert a comment just before closure, then require the dumper header comment and preserve the recorded changes and closing time.
 
 ### SV2023-21.7.3.6.1-EXTRACT-VCDCLOSE
 
-`21.7.3.6.1` / `normal` / No mapped test
+`21.7.3.6.1` / `normal` / Execution confirmed
 
 The extended VCD vcdclose keyword records final simulation time on file closure, regardless of whether signals changed, followed by $end.
 
@@ -60976,6 +61335,9 @@ Acceptance criterion: The extended VCD vcdclose keyword records final simulation
 
 Normative role: `mandatory`。
 
+- [test_evcd_dumps_whole_port_when_connected_to_slice_and_expression.sv](../tests/ch21/test_evcd_dumps_whole_port_when_connected_to_slice_and_expression.sv): Read the trace whose last port change occurs at time 4 and check that its closing record is at time 17.
+- [test_evcd_close_waits_for_finish_even_when_dumping_is_paused.sv](../tests/ch21/test_evcd_close_waits_for_finish_even_when_dumping_is_paused.sv): Read the active and paused traces and check that their closing records match even though their last port changes occur at different times.
+- [test_evcd_close_records_final_time_when_queue_drains.sv](../tests/ch21/test_evcd_close_records_final_time_when_queue_drains.sv): Read the trace after a run that drains its event queue and check its closing record against the time of the final event.
 
 ### SV2023-21.7.3.7-EXTRACT-OPTIONAL-PORT-ARGS
 
@@ -61077,7 +61439,7 @@ Normative role: `definition`。
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-HEADER-GRAMMAR
 
-`21.7.4.1` / `normal` / No mapped test
+`21.7.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Extended date syntax contains day/month/date/time/year; version contains its identifier and dumpports calls with scope and literal/variable/expression filename.
 
@@ -61085,6 +61447,7 @@ Acceptance criterion: Extended date syntax contains day/month/date/time/year; ve
 
 Normative role: `definition`。
 
+- [test_evcd_version_records_dumpports_filename_forms.sv](../tests/ch21/test_evcd_version_records_dumpports_filename_forms.sv): For literal, variable, and concatenated filenames, inspect the leading headers for a five-field date, writer identifier, scope, and the unevaluated filename argument.
 
 ### SV2023-21.7.4.1-EXTRACT-EXTENDED-NO-PARTS
 
@@ -61933,7 +62296,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-ANGLE-SEARCH
 
-`22.4` / `normal` / No mapped test
+`22.4` / `normal` / Test mapped; execution unconfirmed
 
 Angle-bracket includes search only an implementation-dependent standard-files location, relative paths being relative to that location.
 
@@ -61941,6 +62304,7 @@ Acceptance criterion: Angle-bracket includes search only an implementation-depen
 
 Normative role: `implementation_defined`。
 
+- [test_angle_include_search_uses_only_standard_files.sv](../tests/ch22/test_angle_include_search_uses_only_standard_files.sv): Give one relative name three distinct values and require angle brackets to choose only the standard file, with a missing-file diagnostic when its directory or file is removed despite the other copies.
 
 ### SV2023-22.4-EXTRACT-INCLUDE-LINE
 
@@ -62000,7 +62364,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.4-EXTRACT-INCLUDE-SYNTAX
 
-`22.4` / `normal` / Execution confirmed
+`22.4` / `normal` / Test mapped; execution unconfirmed
 
 include accepts a quoted or angle-bracket filename and may occur anywhere in source subject to its line restriction.
 
@@ -62008,7 +62372,7 @@ Acceptance criterion: include accepts a quoted or angle-bracket filename and may
 
 Normative role: `mandatory`。
 
-- [test_22_extra_include_syntax.sv](../tests/ch22/test_22_extra_include_syntax.sv): 22.4 - EXTRACT-INCLUDE-SYNTAX are observed in simulation. The design uses \`include "file" on a line of its own before the module and between the items of the module, and \`include \<file\> before the module. The included files supply the macro QUOTED_WIDTH , the macro ANGLE_NAME and the localparam BODY_VALUE , and the pri Distinguishing observation: The condition of the requirement is stimulated in the new test and compared with the expected value derived from the standard.
+- [test_angle_include_search_uses_only_standard_files.sv](../tests/ch22/test_angle_include_search_uses_only_standard_files.sv): Put a quoted include before the module and an angle include between its items, and check that both expansions supply their respective resolved constants.
 
 ### SV2023-22.5-EXTRACT-MACRO-NO-RESET
 
@@ -62460,7 +62824,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.5.2-EXTRACT-UNDEFINE-WARNING
 
-`22.5.2` / `normal` / No mapped test
+`22.5.2` / `normal` / Execution confirmed
 
 Undefining a macro not previously defined may issue a warning.
 
@@ -62468,6 +62832,7 @@ Acceptance criterion: Undefining a macro not previously defined may issue a warn
 
 Normative role: `permission`。
 
+- [test_undef_never_defined_macro_preserves_other_definitions.sv](../tests/ch22/test_undef_never_defined_macro_preserves_other_definitions.sv): Check removal of the known macro and preservation of an unrelated definition, allowing successful compilation with silence or a warning at the never-defined macro directive.
 
 ### SV2023-22.5.3-EXTRACT-UNDEFINE-ALL
 
@@ -62846,7 +63211,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.11-EXTRACT-NONSTANDARD-PRAGMA
 
-`22.11` / `normal` / No mapped test
+`22.11` / `normal` / Test mapped; execution unconfirmed
 
 Nonstandard pragmas have implementation-specific effects on source interpretation.
 
@@ -62854,6 +63219,7 @@ Acceptance criterion: Nonstandard pragmas have implementation-specific effects o
 
 Normative role: `implementation_defined`。
 
+- [test_pragma_reset_lists_protect_and_diagnostic_state.sv](../tests/ch34/test_pragma_reset_lists_protect_and_diagnostic_state.sv): Use a tool-specific diagnostic pragma and compare an empty module item before it, under its suppression, and in a control with the pragma removed.
 
 ### SV2023-22.11-EXTRACT-PRAGMA-GRAMMAR
 
@@ -62881,7 +63247,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.11.1-EXTRACT-PRAGMA-RESET
 
-`22.11.1` / `normal` / No mapped test
+`22.11.1` / `normal` / Test mapped; execution unconfirmed
 
 The reset pragma restores affected pragma names listed as keywords to their tool state before any source was processed; resetall resets every recognized pragma name.
 
@@ -62889,6 +63255,8 @@ Acceptance criterion: The reset pragma restores affected pragma names listed as 
 
 Normative role: `mandatory`。
 
+- [test_pragma_reset_lists_protect_and_diagnostic_state.sv](../tests/ch34/test_pragma_reset_lists_protect_and_diagnostic_state.sv): Change the encoding and diagnostic defaults and compare the payload and warning lines after resetting one named pragma or the pair of named pragmas.
+- [test_pragma_resetall_restores_protect_and_diagnostic_state.sv](../tests/ch34/test_pragma_resetall_restores_protect_and_diagnostic_state.sv): Change the encoding and diagnostic defaults and check that resetall restores both, with controls that omit the reset or restore only encoding.
 
 ### SV2023-22.12-EXTRACT-LINE-ARGUMENTS
 
@@ -62916,7 +63284,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.12-EXTRACT-LINE-PRODUCTION-OPTIONAL
 
-`22.12` / `normal` / No mapped test
+`22.12` / `normal` / Execution confirmed
 
 Tools need not emit line directives; manually supplied directives are permitted.
 
@@ -62924,6 +63292,7 @@ Acceptance criterion: Tools need not emit line directives; manually supplied dir
 
 Normative role: `permission`。
 
+- [test_preprocessor_line_emission_modes_preserve_manual_origin.sv](../tests/ch22/test_preprocessor_line_emission_modes_preserve_manual_origin.sv): Check generated include-entry and return records alongside the authored line mapping, then recompile both preprocessing outputs and compare their logical filenames and line numbers at runtime.
 
 ### SV2023-22.12-EXTRACT-LINE-TRACKING
 
@@ -62999,7 +63368,7 @@ Normative role: `mandatory`。
 
 ### SV2023-22.14-EXTRACT-KEYWORD-DEFAULT
 
-`22.14` / `normal` / No mapped test
+`22.14` / `normal` / Execution confirmed
 
 Without begin_keywords, the implementation-dependent default keyword set applies; implementations may supply other mechanisms for selecting defaults.
 
@@ -63007,6 +63376,7 @@ Acceptance criterion: Without begin_keywords, the implementation-dependent defau
 
 Normative role: `implementation_defined`。
 
+- [test_selected_default_keyword_set_controls_bit.sv](../tests/ch22/test_selected_default_keyword_set_controls_bit.sv): Select the tool language mode without a keyword-set directive in source, then distinguish bit as an identifier from bit as a type keyword using execution output and declaration-line diagnostics.
 
 ### SV2023-22.14-EXTRACT-KEYWORD-PAIR
 
@@ -68297,7 +68667,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.1-EXTRACT-PORT-COERCION
 
-`23.3.3.1` / `normal` / No mapped test
+`23.3.3.1` / `normal` / Execution confirmed
 
 An input/output used in another direction may be coerced to inout; absent coercion the implementation shall issue a warning.
 
@@ -68305,6 +68675,7 @@ Acceptance criterion: An input/output used in another direction may be coerced t
 
 Normative role: `mandatory`。
 
+- [test_net_ports_used_in_the_reverse_direction.sv](../tests/ch23/test_net_ports_used_in_the_reverse_direction.sv): Drive the input from inside and the output from outside, and require each port to propagate backwards or issue a direction warning when it remains one-way.
 
 ### SV2023-23.3.3.2-EXTRACT-NO-VARIABLE-INOUT
 
@@ -68420,7 +68791,7 @@ Normative role: `mandatory`。
 
 ### SV2023-23.3.3.3-EXTRACT-PORT-TYPE-TIMEZERO
 
-`23.3.3.3` / `normal` / No mapped test
+`23.3.3.3` / `normal` / Execution confirmed
 
 A port/connection data type difference may cause an initial time-zero value-change event.
 
@@ -68428,6 +68799,7 @@ Acceptance criterion: A port/connection data type difference may cause an initia
 
 Normative role: `permission`。
 
+- [test_port_type_time_zero_events.sv](../tests/ch23/test_port_type_time_zero_events.sv): Connect the same unsigned net to signed and unsigned input ports and check their settled values and later changes. Record the time-zero event count at each port.
 
 ### SV2023-23.3.3.4-EXTRACT-INTERFACE-CONNECTED
 
@@ -70668,7 +71040,7 @@ Normative role: `mandatory`。
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-ASSERTION-CLOCK-RECOMMENDATION
 
-`24.3.1` / `normal` / No mapped test
+`24.3.1` / `normal` / Execution confirmed
 
 Clocking a concurrent assertion on a program object is not recommended.
 
@@ -70676,6 +71048,7 @@ Acceptance criterion: Clocking a concurrent assertion on a program object is not
 
 Normative role: `recommendation`。
 
+- [test_design_and_program_assertion_clocks.sv](../tests/ch24/test_design_and_program_assertion_clocks.sv): Check sampling of the earlier value using the design clock. Enable the program variable clock in a separate run and check assertion evaluation in its own time slot.
 
 ### SV2023-24.3.1-EXTRACT-PROGRAM-ASSERTION-SCHEDULING
 
@@ -70764,7 +71137,7 @@ Acceptance criterion: The output observer sees the completed module NBA state 1 
 
 ### SV2023-24.4-EXTRACT-DESIGN-NONDETERMINISM
 
-`24.4` / `normal` / No mapped test
+`24.4` / `normal` / Execution confirmed
 
 Active events may execute in arbitrary order and statements without timing controls are not guaranteed to form one atomic event.
 
@@ -70772,6 +71145,7 @@ Acceptance criterion: Active events may execute in arbitrary order and statement
 
 Normative role: `permission`。
 
+- [test_active_sample_and_reactive_settling.sv](../tests/ch4/test_active_sample_and_reactive_settling.sv): Observe the design read in Active and the Reactive value in the same time slot. For both declaration orders check the allowed Active range and the settled Reactive value.
 
 ### SV2023-24.4-EXTRACT-PROGRAM-CLOCKING-RACE-ORDER
 
@@ -70837,7 +71211,7 @@ Normative role: `mandatory`。
 
 ### SV2023-24.7-EXTRACT-PROGRAM-EXIT-WARNING
 
-`24.7` / `normal` / No mapped test
+`24.7` / `normal` / Execution confirmed
 
 An ignored non-program-origin exit call may issue a warning.
 
@@ -70845,6 +71219,7 @@ Acceptance criterion: An ignored non-program-origin exit call may issue a warnin
 
 Normative role: `permission`。
 
+- [test_exit_outside_program_optional_warning.sv](../tests/ch24/test_exit_outside_program_optional_warning.sv): Add a module-origin $exit to the control with a program-origin exit. Compare the subsequent module and program output, and record whether the ignored call produced a warning.
 
 ### SV2023-25.2-EXTRACT-INTERFACE-ABSTRACT-METHODS
 
@@ -81994,7 +82369,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.9.1-EXTRACT-ADJUSTED-CHECK-CATEGORIES
 
-`31.9.1` / `normal` / No mapped test
+`31.9.1` / `normal` / Test mapped; execution unconfirmed
 
 Setup/hold/setuphold/recovery/removal/recrem/width/period/nochange use delayed signals with adjusted limits so notifiers occur at the proper internal time.
 
@@ -82002,6 +82377,7 @@ Acceptance criterion: Setup/hold/setuphold/recovery/removal/recrem/width/period/
 
 Normative role: `mandatory`。
 
+- [test_negative_timing_adjusts_all_check_categories.sv](../tests/ch31/test_negative_timing_adjusts_all_check_categories.sv): Use two negative setup limits to delay separate signals and compare notification times for nine check types against manually shifted and adjusted controls for four stimulus patterns.
 
 ### SV2023-31.9.1-EXTRACT-ADJUSTED-LIMIT-CLAMP
 
@@ -82042,7 +82418,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.9.1-EXTRACT-NEGATIVE-DELAYED-COPIES
 
-`31.9.1` / `normal` / No mapped test
+`31.9.1` / `normal` / Test mapped; execution unconfirmed
 
 Negative checks use delayed data/reference copies and adjusted internal setup/hold limits to align the interval with the internal reference.
 
@@ -82050,6 +82426,7 @@ Acceptance criterion: Negative checks use delayed data/reference copies and adju
 
 Normative role: `mandatory`。
 
+- [test_negative_timing_copies_align_setup_and_hold.sv](../tests/ch31/test_negative_timing_copies_align_setup_and_hold.sv): Check the reference and data copy times for negative setup and negative hold, and require notification on the later delayed edge for an input inside each shifted window.
 
 ### SV2023-31.9.1-EXTRACT-NEGATIVE-EXCLUSIVE-WINDOW
 
@@ -82066,7 +82443,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.9.1-EXTRACT-NEGATIVE-IMPLICIT-COPIES
 
-`31.9.1` / `normal` / No mapped test
+`31.9.1` / `normal` / Test mapped; execution unconfirmed
 
 Explicit delayed signals may be used in functional models; negative limits without explicit declarations create inaccessible implicit delayed signals, preserving check evaluation without guaranteeing correct undelayed functional behavior.
 
@@ -82074,10 +82451,11 @@ Acceptance criterion: Explicit delayed signals may be used in functional models;
 
 Normative role: `mandatory`。
 
+- [test_negative_setuphold_explicit_and_implicit_latches.sv](../tests/ch31/test_negative_setuphold_explicit_and_implicit_latches.sv): Compare explicit and omitted delayed-copy arguments under the same negative setup limit, requiring the same violation time and different latched values for models clocked by the delayed and original signals.
 
 ### SV2023-31.9.1-EXTRACT-NEGATIVE-LATCHED-DATA
 
-`31.9.1` / `normal` / No mapped test
+`31.9.1` / `normal` / Test mapped; execution unconfirmed
 
 Functional latched data must equal the value stable within the violation window, excluding endpoints.
 
@@ -82085,6 +82463,7 @@ Acceptance criterion: Functional latched data must equal the value stable within
 
 Normative role: `mandatory`。
 
+- [test_negative_setuphold_explicit_and_implicit_latches.sv](../tests/ch31/test_negative_setuphold_explicit_and_implicit_latches.sv): Change data after the original clock edge and before the shifted violation window, then require the delayed clock to latch the value stable within the window.
 
 ### SV2023-31.9.1-EXTRACT-NEGATIVE-SHARED-COPY
 
@@ -82100,7 +82479,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.9.1-EXTRACT-SKEW-NOT-DELAYED
 
-`31.9.1` / `normal` / No mapped test
+`31.9.1` / `normal` / Test mapped; execution unconfirmed
 
 Skew/fullskew/timeskew shall not use internally delayed timing signals; their notifier/functional interaction must be handled in the model.
 
@@ -82108,6 +82487,7 @@ Acceptance criterion: Skew/fullskew/timeskew shall not use internally delayed ti
 
 Normative role: `mandatory`。
 
+- [test_skew_checks_use_undelayed_timing_inputs.sv](../tests/ch31/test_skew_checks_use_undelayed_timing_inputs.sv): Require the negative setup limit to reverse the delayed edge order while all three skew notifiers still fire on the same original edge as in the control.
 
 ### SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITION-ARGUMENTS
 
@@ -83839,7 +84219,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.3.1-EXTRACT-LIBRARY-MAP-GRAMMAR
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Map syntax permits library declarations, included map files, configuration declarations and empty statements; a library names comma-separated paths and optional incdir paths.
 
@@ -83847,10 +84227,11 @@ Acceptance criterion: Map syntax permits library declarations, included map file
 
 Normative role: `definition`。
 
+- [test_library_map_grammar_binds_config_and_local_include_lists.sv](../tests/ch33/test_library_map_grammar_binds_config_and_local_include_lists.sv): Select three cells from the map configuration and check values from a library with two sources and two include directories and from an included library declaration.
 
 ### SV2023-33.3.1-EXTRACT-MAP-BEFORE-SOURCE
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Library mapping is read before source files; map filename/mechanism is tool-specific, compliant tools shall support one or more map files and read multiple files in specified order.
 
@@ -83858,10 +84239,13 @@ Acceptance criterion: Library mapping is read before source files; map filename/
 
 Normative role: `mandatory`。
 
+- [test_library_map_grammar_binds_config_and_local_include_lists.sv](../tests/ch33/test_library_map_grammar_binds_config_and_local_include_lists.sv): Check that preprocessing can already use each library's map-specified include directories and gets different values from headers with the same name.
+- [test_library_map_order_selects_first_matching_cell.sv](../tests/ch33/test_library_map_order_selects_first_matching_cell.sv): Check the output for selection of the duplicate cell from the first library and the missing cell from the second.
+- [test_library_map_reversed_order_changes_selected_cell.sv](../tests/ch33/test_library_map_reversed_order_changes_selected_cell.sv): Reverse the map arguments while keeping the source order fixed and check that only the value from the duplicate cell changes.
 
 ### SV2023-33.3.1-EXTRACT-MAP-PATH-RELATIVE-DIRECTORY
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Test mapped; execution unconfirmed
 
 A trailing slash includes all directory files like slash-star; non-rooted paths are relative to the current map directory and leading dot-slash does not change a relative glob.
 
@@ -83869,10 +84253,11 @@ Acceptance criterion: A trailing slash includes all directory files like slash-s
 
 Normative role: `mandatory`。
 
+- [test_library_map_relative_directory_path_aliases.sv](../tests/ch33/test_library_map_relative_directory_path_aliases.sv): Check that the two directory spellings select both file extensions relative to the map, exclude subdirectories and that the two glob spellings select only files with the v extension.
 
 ### SV2023-33.3.1-EXTRACT-PATH-CURRENT
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Execution confirmed
 
 Library path token . denotes directory containing the current map.
 
@@ -83880,10 +84265,11 @@ Acceptance criterion: Library path token . denotes directory containing the curr
 
 Normative role: `definition`。
 
+- [test_library_map_dot_and_parent_are_relative_to_the_map.sv](../tests/ch33/test_library_map_dot_and_parent_are_relative_to_the_map.sv): Place the map outside the working directory and check the cell selected by a path relative to the map's own directory.
 
 ### SV2023-33.3.1-EXTRACT-PATH-HIERARCHY
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Library path token ... denotes any number of hierarchy directories.
 
@@ -83891,10 +84277,11 @@ Acceptance criterion: Library path token ... denotes any number of hierarchy dir
 
 Normative role: `definition`。
 
+- [test_library_map_hierarchical_wildcard_matches_zero_and_nested_directories.sv](../tests/ch33/test_library_map_hierarchical_wildcard_matches_zero_and_nested_directories.sv): Use one hierarchical pattern to select both an immediate file and a nested file, and check that both bind to the specified library.
 
 ### SV2023-33.3.1-EXTRACT-PATH-MANY
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Library path token * denotes any number of characters within a file/directory name.
 
@@ -83902,10 +84289,11 @@ Acceptance criterion: Library path token * denotes any number of characters with
 
 Normative role: `definition`。
 
+- [test_library_map_star_stays_within_a_path_component.sv](../tests/ch33/test_library_map_star_stays_within_a_path_component.sv): Select files with an empty suffix and with a longer suffix, and check that a same-named cell across a directory separator is excluded.
 
 ### SV2023-33.3.1-EXTRACT-PATH-ONE
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Execution confirmed
 
 Library path token ? denotes one character.
 
@@ -83913,10 +84301,11 @@ Acceptance criterion: Library path token ? denotes one character.
 
 Normative role: `definition`。
 
+- [test_library_map_question_matches_exactly_one_character.sv](../tests/ch33/test_library_map_question_matches_exactly_one_character.sv): Compare cell outputs to verify selection of names with one character and exclusion of names with zero or two characters.
 
 ### SV2023-33.3.1-EXTRACT-PATH-PARENT
 
-`33.3.1` / `normal` / No mapped test
+`33.3.1` / `normal` / Execution confirmed
 
 Library path token .. denotes parent directory.
 
@@ -83924,6 +84313,7 @@ Acceptance criterion: Library path token .. denotes parent directory.
 
 Normative role: `definition`。
 
+- [test_library_map_dot_and_parent_are_relative_to_the_map.sv](../tests/ch33/test_library_map_dot_and_parent_are_relative_to_the_map.sv): Map a separate library through the parent directory of the map and check the resulting cell output.
 
 ### SV2023-33.3.1.1-EXTRACT-DUPLICATE-CELL-LAST
 
@@ -83939,7 +84329,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.3.1.1-EXTRACT-MAP-CELLS-AVAILABLE
 
-`33.3.1.1` / `normal` / No mapped test
+`33.3.1.1` / `normal` / Execution confirmed
 
 Uniquely mapped source cells become available for binding; an optional tool override may explicitly choose a library.
 
@@ -83947,10 +84337,11 @@ Acceptance criterion: Uniquely mapped source cells become available for binding;
 
 Normative role: `definition`。
 
+- [test_library_maps_prefer_explicit_then_wildcard_then_directory.sv](../tests/ch33/test_library_maps_prefer_explicit_then_wildcard_then_directory.sv): Bind cells through their mapped library names and distinguish their outputs from the same-named cells in the default library.
 
 ### SV2023-33.3.1.1-EXTRACT-PATH-LIBRARY-AMBIGUITY
 
-`33.3.1.1` / `error` / No mapped test
+`33.3.1.1` / `error` / Test mapped; execution unconfirmed
 
 A source matching multiple library definitions after path priority is an error.
 
@@ -83958,10 +84349,11 @@ Acceptance criterion: A source matching multiple library definitions after path 
 
 Normative role: `mandatory`。
 
+- [test_illegal_library_map_same_priority_file_match.sv](../tests/ch33/test_illegal_library_map_same_priority_file_match.sv): Check the rejection naming the source file and both libraries for matching wildcard paths and the binding of the same cell in the control that uses an explicit filename.
 
 ### SV2023-33.3.1.1-EXTRACT-PATH-SPEC-PRIORITY
 
-`33.3.1.1` / `normal` / No mapped test
+`33.3.1.1` / `normal` / Execution confirmed
 
 Potential path matches prefer explicit terminal filename, then wildcard filename, then directory specification.
 
@@ -83969,10 +84361,11 @@ Acceptance criterion: Potential path matches prefer explicit terminal filename, 
 
 Normative role: `mandatory`。
 
+- [test_library_maps_prefer_explicit_then_wildcard_then_directory.sv](../tests/ch33/test_library_maps_prefer_explicit_then_wildcard_then_directory.sv): Verify that an explicit filename has priority over wildcard and directory matches, that a wildcard has priority over a directory, and that the remaining file uses the directory mapping.
 
 ### SV2023-33.3.2-EXTRACT-INCLUDED-MAP-RELATIVE
 
-`33.3.2` / `normal` / No mapped test
+`33.3.2` / `normal` / Test mapped; execution unconfirmed
 
 Include/library relative paths resolve from the file containing the path; a library provider shall supply a local map file with its source contents.
 
@@ -83980,10 +84373,12 @@ Acceptance criterion: Include/library relative paths resolve from the file conta
 
 Normative role: `mandatory`。
 
+- [test_library_map_include_preserves_its_own_relative_paths.sv](../tests/ch33/test_library_map_include_preserves_its_own_relative_paths.sv): Read a provider map through a relative include and check that both cell paths resolve relative to the provider map.
+- [test_nested_library_map_includes_restore_the_containing_directory.sv](../tests/ch33/test_nested_library_map_includes_restore_the_containing_directory.sv): Check each cell's output to verify resolution relative to its declaring map, including declarations after a nested include.
 
 ### SV2023-33.3.2-EXTRACT-MAP-INCLUDE
 
-`33.3.2` / `normal` / No mapped test
+`33.3.2` / `normal` / Test mapped; execution unconfirmed
 
 A map include inserts the complete named map file in place of its include statement.
 
@@ -83991,10 +84386,12 @@ Acceptance criterion: A map include inserts the complete named map file in place
 
 Normative role: `mandatory`。
 
+- [test_library_map_include_preserves_its_own_relative_paths.sv](../tests/ch33/test_library_map_include_preserves_its_own_relative_paths.sv): Check that including a map makes both of its library declarations available and that the cells yield their respective values.
+- [test_nested_library_map_includes_restore_the_containing_directory.sv](../tests/ch33/test_nested_library_map_includes_restore_the_containing_directory.sv): Use cells from both levels of included declarations and from the declaration following the include in the outer map.
 
 ### SV2023-33.3.2-EXTRACT-MAP-LIMITED-CONTENTS-TEXT
 
-`33.3.2` / `error` / No mapped test
+`33.3.2` / `error` / Test mapped; execution unconfirmed
 
 A lib.map file may contain library declarations, include statements, config declarations, and empty statements (;), in any order, plus SystemVerilog comments. The list in 33.3.2 (library specifications, include statements, comment syntax) summarizes the mapping information carried by a map file and is not an exhaustive syntax restriction; the A.1.1 grammar reproduced as Syntax 33-2 is authoritative.
 
@@ -84002,10 +84399,12 @@ Acceptance criterion: A map file containing library rtlLib *.v; followed by conf
 
 Normative role: `mandatory`。
 
+- [test_library_map_grammar_binds_config_and_local_include_lists.sv](../tests/ch33/test_library_map_grammar_binds_config_and_local_include_lists.sv): Mix line and block comments, empty statements, a configuration, an include and library declarations, then check the values of the three cells bound by the configuration.
+- [test_illegal_library_map_contains_a_module_declaration.sv](../tests/ch33/test_illegal_library_map_contains_a_module_declaration.sv): Check that a source module following a valid library declaration is rejected at the module line in the map.
 
 ### SV2023-33.3.3-EXTRACT-SOURCE-CELL-MAPPING
 
-`33.3.3` / `normal` / No mapped test
+`33.3.3` / `normal` / Execution confirmed
 
 Each parsed cell maps by its source filename against path specifications in every selected map file.
 
@@ -84013,6 +84412,7 @@ Acceptance criterion: Each parsed cell maps by its source filename against path 
 
 Normative role: `mandatory`。
 
+- [test_library_maps_prefer_explicit_then_wildcard_then_directory.sv](../tests/ch33/test_library_maps_prefer_explicit_then_wildcard_then_directory.sv): Pass two maps in the same run and verify that cells are assigned by the pathname rules contributed by both maps.
 
 ### SV2023-33.4-EXTRACT-CONFIG-BINDABLE-KINDS
 
@@ -84366,7 +84766,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.5.1-EXTRACT-SINGLE-PASS-PERSISTENCE
 
-`33.5.1` / `normal` / No mapped test
+`33.5.1` / `normal` / Execution confirmed
 
 Single-pass library objects need not persist across invocations; persistence is recommended for performance.
 
@@ -84374,10 +84774,12 @@ Acceptance criterion: Single-pass library objects need not persist across invoca
 
 Normative role: `recommendation`。
 
+- [test_single_pass_library_loading.sv](../tests/ch33/test_single_pass_library_loading.sv): Start another invocation without the needed library source while retaining the earlier executable and check the unresolved cell diagnostic. Supply the source again to reproduce the binding result and check the generated file list.
+- [test_single_pass_library_nested_lookup.sv](../tests/ch33/test_single_pass_library_nested_lookup.sv): Retain the first executable and omit the grandchild to check that its instance inside the child cannot be resolved. Supply the grandchild again to reproduce the output through the hierarchy.
 
 ### SV2023-33.5.1-EXTRACT-SINGLE-PASS-PRECOMPILE
 
-`33.5.1` / `normal` / No mapped test
+`33.5.1` / `normal` / Execution confirmed
 
 In the described precompiling single-pass model, all usable source files come from that invocation, all supplied cells map/compile before top-down binding, and unchanged existing cells may skip recompilation.
 
@@ -84385,10 +84787,12 @@ Acceptance criterion: In the described precompiling single-pass model, all usabl
 
 Normative role: `mandatory`。
 
+- [test_single_pass_library_loading.sv](../tests/ch33/test_single_pass_library_loading.sv): Check that the explicitly supplied used and unused library cells both appear in the dependency list. Check the diagnostic for an explicitly supplied malformed unused cell and the bound cell value in the valid run.
+- [test_single_pass_library_nested_lookup.sv](../tests/ch33/test_single_pass_library_nested_lookup.sv): Explicitly supply the child and grandchild and check the dependency list including the unused cell and the two outputs through the hierarchy.
 
 ### SV2023-33.5.2-EXTRACT-ELABORATION-TIME-COMPILATION
 
-`33.5.2` / `normal` / No mapped test
+`33.5.2` / `normal` / Execution confirmed
 
 A single-pass implementation may scan for tops and compile only cells needed during library-constrained top-down binding; persistence between invocations is not required.
 
@@ -84396,6 +84800,8 @@ Acceptance criterion: A single-pass implementation may scan for tops and compile
 
 Normative role: `permission`。
 
+- [test_single_pass_library_loading.sv](../tests/ch33/test_single_pass_library_loading.sv): Resolve the needed cell through directory search and check that the dependencies contain only the top and the needed cell. Check the simulation result while an unused malformed cell is present in the same directory.
+- [test_single_pass_library_nested_lookup.sv](../tests/ch33/test_single_pass_library_nested_lookup.sv): Resolve the child and grandchild through directory search and check that the top and both cells are the only dependencies. Check both outputs to verify that the signal propagates through both files.
 
 ### SV2023-33.5.3-EXTRACT-SEPARATE-COMPILE-MODEL
 
@@ -84422,7 +84828,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.6.1-EXTRACT-NO-CONFIG-LIBRARY-ORDER
 
-`33.6.1` / `normal` / No mapped test
+`33.6.1` / `normal` / Test mapped; execution unconfirmed
 
 Absent a configuration, default library search follows map-file library declaration order and selects the first matching cell.
 
@@ -84430,6 +84836,8 @@ Acceptance criterion: Absent a configuration, default library search follows map
 
 Normative role: `mandatory`。
 
+- [test_library_map_order_selects_first_matching_cell.sv](../tests/ch33/test_library_map_order_selects_first_matching_cell.sv): Check the output for selection of the duplicate cell from the first library and the missing cell from the second.
+- [test_library_map_reversed_order_changes_selected_cell.sv](../tests/ch33/test_library_map_reversed_order_changes_selected_cell.sv): Reverse the map arguments while keeping the source order fixed and check that only the value from the duplicate cell changes.
 
 ### SV2023-33.7-EXTRACT-DISPLAY-LIBRARY-BINDING
 
@@ -84494,7 +84902,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.8.1-EXTRACT-LIBRARY-SEARCH-OPTION
 
-`33.8.1` / `normal` / No mapped test
+`33.8.1` / `normal` / Test mapped; execution unconfirmed
 
 Compliant tools shall provide a library-name-only invocation search-order override when no config is used, using map-file library definitions; the -L spelling is recommended rather than mandatory.
 
@@ -84502,6 +84910,8 @@ Acceptance criterion: Compliant tools shall provide a library-name-only invocati
 
 Normative role: `mandatory`。
 
+- [test_library_search_option_overrides_map_default_order.sv](../tests/ch33/test_library_search_option_overrides_map_default_order.sv): Inspect the elaborated binding before and after passing only the second library name on the command line, with no configuration selected.
+- [test_library_search_option_follows_two_names_in_order.sv](../tests/ch33/test_library_search_option_follows_two_names_in_order.sv): Reverse only the two library names on the command line and verify that the duplicate cell switches libraries while the cell present in just one map still binds.
 
 ### SV2023-34.2-EXTRACT-DECRYPTION-ENVELOPE
 
@@ -84514,10 +84924,11 @@ Acceptance criterion: Begin_protected/end_protected delimit decryption envelopes
 Normative role: `mandatory`。
 
 - [test_34_extra_nested_envelopes.sv](../tests/ch34/test_34_extra_nested_envelopes.sv): The execution observes 34.2 - EXTRACT-DECRYPTION-ENVELOPE. Eight nested begin_protected / end_protected pairs are accepted by both tools and the design after them runs, which is the minimum nesting depth 34.2 requires. Distinguishing observation: The condition of the requirement is stimulated in the new test and compared with the expected value derived from the standard.
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Open 8 encrypted layers, close them from the inside out and check the output of the design restored from the deepest layer.
 
 ### SV2023-34.2-EXTRACT-ENCRYPTION-ENVELOPE
 
-`34.2` / `normal` / No mapped test
+`34.2` / `normal` / Test mapped; execution unconfirmed
 
 Begin/end delimit encryption envelopes, with end associated with the most recent begin, subject to the explicit nonnesting rule.
 
@@ -84525,10 +84936,12 @@ Acceptance criterion: Begin/end delimit encryption envelopes, with end associate
 
 Normative role: `definition`。
 
+- [test_protect_two_envelopes_close_independently.sv](../tests/ch34/test_protect_two_envelopes_close_independently.sv): Accept two successive opening and closing pairs, reject nesting at the second opening when the first close is removed, and diagnose an appended unmatched close.
+- [test_protect_open_envelope_matches_its_end_after_source.sv](../tests/ch34/test_protect_open_envelope_matches_its_end_after_source.sv): Pair an opening and a close across ordinary source, accept the subsequent envelope, and diagnose the first close after removing its opening.
 
 ### SV2023-34.2-EXTRACT-ENVELOPE-CONTENT-KEYWORDS
 
-`34.2` / `normal` / No mapped test
+`34.2` / `normal` / Test mapped; execution unconfirmed
 
 Pragma expressions before begin/begin_protected are envelope keywords; those inside matching delimiters are content keywords processed within the transformed region.
 
@@ -84536,10 +84949,12 @@ Acceptance criterion: Pragma expressions before begin/begin_protected are envelo
 
 Normative role: `definition`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Use the method, key name and encoding before the opening directive for outer encryption, and check that inner protect directives remain bytes of the outer body.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Use the method, key name and encoding before the opening directive for outer encryption, and check that inner protect directives remain bytes of the outer body.
 
 ### SV2023-34.2-EXTRACT-ENVELOPE-TRANSFORMATION
 
-`34.2` / `normal` / No mapped test
+`34.2` / `normal` / Test mapped; execution unconfirmed
 
 Protected text regions supply cryptographic/key/attribute/data information and are transformed before source-language analysis.
 
@@ -84547,10 +84962,12 @@ Acceptance criterion: Protected text regions supply cryptographic/key/attribute/
 
 Normative role: `definition`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Recover encrypted body text using the key metadata, then run the design containing macros with Icarus and distinguish the raw encrypted control.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Recover encrypted body text using the key metadata, then run the design containing macros with Icarus and distinguish the raw encrypted control.
 
 ### SV2023-34.2-EXTRACT-PROTECT-SEQUENCE
 
-`34.2` / `normal` / No mapped test
+`34.2` / `normal` / Test mapped; execution unconfirmed
 
 Protect pragma expressions process left to right; splitting or combining the same sequence across directives must not alter envelope interpretation.
 
@@ -84558,10 +84975,12 @@ Acceptance criterion: Protect pragma expressions process left to right; splittin
 
 Normative role: `mandatory`。
 
+- [test_protect_sequence_split_changes_active_encoding.sv](../tests/ch34/test_protect_sequence_split_changes_active_encoding.sv): Update the encoding on a separate line before reading the block, then reverse the expressions and check the payload diagnostic for the previous encoding.
+- [test_protect_sequence_combined_changes_encoding_left_to_right.sv](../tests/ch34/test_protect_sequence_combined_changes_encoding_left_to_right.sv): Check that the same expressions on one line use the same order as separate lines and that moving the block before the update produces a payload diagnostic for the previous encoding.
 
 ### SV2023-34.3-EXTRACT-ENVELOPE-MODES
 
-`34.3` / `normal` / No mapped test
+`34.3` / `normal` / Test mapped; execution unconfirmed
 
 Encryption transforms source encryption envelopes to decryption envelopes; decryption replaces them with cleartext before compilation.
 
@@ -84569,10 +84988,12 @@ Acceptance criterion: Encryption transforms source encryption envelopes to decry
 
 Normative role: `definition`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Replace the source encryption regions with protected envelopes, decrypt the body before compilation and check the surrounding source and runtime output.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Replace the source encryption regions with protected envelopes, decrypt the body before compilation and check the surrounding source and runtime output.
 
 ### SV2023-34.3-EXTRACT-ENVELOPE-PROCESSING-SCOPE
 
-`34.3` / `normal` / No mapped test
+`34.3` / `normal` / Test mapped; execution unconfirmed
 
 Source-processing tools decrypt every envelope when supplied the proper key; encryptors need interpret only protect pragmas and apply no other interpretation to ordinary source text.
 
@@ -84580,10 +85001,12 @@ Acceptance criterion: Source-processing tools decrypt every envelope when suppli
 
 Normative role: `mandatory`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Preserve surrounding source and original body bytes during encryption, and check that the registered keys are needed to replace all encrypted regions.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Preserve surrounding source and original body bytes during encryption, and check that the registered keys are needed to replace all encrypted regions.
 
 ### SV2023-34.3.1-EXTRACT-ENCRYPTION-REPLACEMENT
 
-`34.3.1` / `normal` / No mapped test
+`34.3.1` / `normal` / Test mapped; execution unconfirmed
 
 An encryptor replaces each encryption envelope with a decryption envelope encrypted according to its pragma expressions.
 
@@ -84591,10 +85014,12 @@ Acceptance criterion: An encryptor replaces each encryption envelope with a decr
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that each of two source ranges becomes an envelope using the requested cipher and that decryption restores the source.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that each of two source ranges becomes an envelope using the requested cipher and that decryption restores the source.
 
 ### SV2023-34.3.1-EXTRACT-EXCHANGE-KEY-DATA
 
-`34.3.1` / `normal` / No mapped test
+`34.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Specified envelope pragmas become output envelope/content pragmas and the body encrypted under the specified exchange key is emitted as data_block.
 
@@ -84602,10 +85027,11 @@ Acceptance criterion: Specified envelope pragmas become output envelope/content 
 
 Normative role: `mandatory`。
 
+- [test_protect_reject_plaintext_payload_blocks.sv](../tests/ch34/test_protect_reject_plaintext_payload_blocks.sv): Encrypt a plaintext control, check the emitted method and encoding metadata, and recover its data block with the key obtained using the supplied exchange key.
 
 ### SV2023-34.3.1-EXTRACT-OUTSIDE-ENCRYPTION-PRESERVED
 
-`34.3.1` / `normal` / No mapped test
+`34.3.1` / `normal` / Test mapped; execution unconfirmed
 
 Source outside encryption envelopes remains unchanged unless explicitly specified otherwise.
 
@@ -84613,10 +85039,12 @@ Acceptance criterion: Source outside encryption envelopes remains unchanged unle
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Compare ordinary source and author metadata before, after and between the encrypted ranges byte for byte.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Compare ordinary source and author metadata before, after and between the encrypted ranges byte for byte.
 
 ### SV2023-34.3.1-EXTRACT-SESSION-KEY-OPTION
 
-`34.3.1` / `normal` / No mapped test
+`34.3.1` / `normal` / Test mapped; execution unconfirmed
 
 An encryptor may generate an unspecified session key, encrypt it with the exchange key into key_block and encrypt the body with the session key into data_block.
 
@@ -84624,10 +85052,12 @@ Acceptance criterion: An encryptor may generate an unspecified session key, encr
 
 Normative role: `permission`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Decrypt the key block with the fixture exchange key and use the resulting session key to recover each module from its data block.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Decrypt the key block with the fixture exchange key and use the resulting session key to recover each module from its data block.
 
 ### SV2023-34.3.2-EXTRACT-DECRYPT-THEN-EXPAND
 
-`34.3.2` / `normal` / No mapped test
+`34.3.2` / `normal` / Test mapped; execution unconfirmed
 
 Decrypting compilation replaces each envelope with cleartext data_block according to pragmas, then expands macros and recursively decrypts nested envelopes in the replacement.
 
@@ -84635,10 +85065,12 @@ Acceptance criterion: Decrypting compilation replaces each envelope with clearte
 
 Normative role: `mandatory`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Decrypt 8 levels from the outside in and check that macros from outside, an enclosing layer and the deepest body participate during compilation after replacement.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Check that a macro recovered from the deepest body in the first region controls the condition and value in the separately decrypted next region.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-AUTHOR
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword author records IP author identity.
 
@@ -84646,10 +85078,11 @@ Acceptance criterion: Protect keyword author records IP author identity.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Give the two envelopes distinct author strings and check that each author name appears in its own header.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-AUTHOR-INFO
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword author_info records author metadata.
 
@@ -84657,10 +85090,11 @@ Acceptance criterion: Protect keyword author_info records author metadata.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Give author_info a distinct edition string in each envelope and verify the additional author information in each header.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-BEGIN
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword begin starts encryption.
 
@@ -84668,10 +85102,11 @@ Acceptance criterion: Protect keyword begin starts encryption.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Require the assignment just before the opening to stay in cleartext and the assignment just after it to appear in the recovered body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-BEGIN-PROTECTED
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword begin_protected starts a decryption envelope.
 
@@ -84679,10 +85114,11 @@ Acceptance criterion: Protect keyword begin_protected starts a decryption envelo
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Locate begin_protected at the start of each generated envelope and match each opening with its independently recovered body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-COMMENT
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword comment carries uninterpreted documentation.
 
@@ -84690,10 +85126,11 @@ Acceptance criterion: Protect keyword comment carries uninterpreted documentatio
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Use comment strings containing directive-like words and verify that each string is preserved literally in its envelope header.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-BLOCK
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword data_block introduces encrypted body bytes.
 
@@ -84701,10 +85138,11 @@ Acceptance criterion: Protect keyword data_block introduces encrypted body bytes
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Decode data_block, decrypt it with the recovered body key and compare the result with the two original source slices.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-DECRYPT-KEY
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword data_decrypt_key provides body session key.
 
@@ -84712,6 +85150,7 @@ Acceptance criterion: Protect keyword data_decrypt_key provides body session key
 
 Normative role: `definition`。
 
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Read the body decryption key from the line after data_decrypt_key in the recovered key block and use it to recover the inner source.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME
 
@@ -84737,7 +85176,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-METHOD
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword data_method selects body encryption.
 
@@ -84745,6 +85184,7 @@ Acceptance criterion: Protect keyword data_method selects body encryption.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Request aes256-cbc and aes128-cbc in separate envelopes and check that each emitted method agrees with the request and recovers its body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY
 
@@ -84759,7 +85199,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DECRYPT-LICENSE
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword decrypt_license controls decryption licensing.
 
@@ -84767,10 +85207,12 @@ Acceptance criterion: Protect keyword decrypt_license controls decryption licens
 
 Normative role: `definition`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Change the decrypt_license feature and check that the same library controls permission before decryption.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Change the decrypt_license match value and check that it governs permission for decryption with the same callback return.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-BLOCK
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword digest_block provides integrity digest.
 
@@ -84778,6 +85220,7 @@ Acceptance criterion: Protect keyword digest_block provides integrity digest.
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Decrypt each following digest_block and use the computed digests to identify which block failed its integrity check.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY
 
@@ -84792,7 +85235,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEY-METHOD
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword digest_key_method selects digest encryption.
 
@@ -84800,10 +85243,11 @@ Acceptance criterion: Protect keyword digest_key_method selects digest encryptio
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Compare omitted and explicit digest_key_method and recover the explicitly configured digest with its own cipher.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYNAME
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword digest_keyname names digest key.
 
@@ -84811,10 +85255,12 @@ Acceptance criterion: Protect keyword digest_keyname names digest key.
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Use digest_keyname with its owner to select the private key and check lookup failure for a different name.
+- [test_protect_digest_distinguishes_registered_keys.sv](../tests/ch34/test_protect_digest_distinguishes_registered_keys.sv): Keep the owner fixed and select another registered name, using failed digest authentication to check key selection.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEYOWNER
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword digest_keyowner names digest-key owner.
 
@@ -84822,10 +85268,12 @@ Acceptance criterion: Protect keyword digest_keyowner names digest-key owner.
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Use digest_keyowner with the key name and check that changing the owner directs lookup to a different namespace.
+- [test_protect_digest_distinguishes_registered_keys.sv](../tests/ch34/test_protect_digest_distinguishes_registered_keys.sv): Switch to a different registered owner and use authentication to show that the shared name identifies a different key.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-METHOD
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword digest_method selects digest computation.
 
@@ -84833,6 +85281,7 @@ Acceptance criterion: Protect keyword digest_method selects digest computation.
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Vary digest_method over four identifiers and compare the expected key and body digests using the selected computation.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY
 
@@ -84847,7 +85296,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-ENCODING
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword encoding selects binary-to-text representation.
 
@@ -84855,10 +85304,11 @@ Acceptance criterion: Protect keyword encoding selects binary-to-text representa
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Request base64 and uuencode in separate envelopes and use the declared encoding to recover the key and body bytes and verify their lengths.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword encrypt_agent records encryptor identity.
 
@@ -84866,10 +85316,11 @@ Acceptance criterion: Protect keyword encrypt_agent records encryptor identity.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Check that the encryptor generates its encrypt_agent identity in each header and that it is absent from the recovered body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-ENCRYPT-AGENT-INFO
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword encrypt_agent_info records encryptor metadata.
 
@@ -84877,10 +85328,12 @@ Acceptance criterion: Protect keyword encrypt_agent_info records encryptor metad
 
 Normative role: `definition`。
 
+- [test_protect_pgp_rsa_recovers_the_declared_payload.sv](../tests/ch34/test_protect_pgp_rsa_recovers_the_declared_payload.sv): Record the version string separately from the encryptor name and check that the metadata stays outside the decrypted body.
+- [test_protect_elgamal_recovers_the_declared_payload.sv](../tests/ch34/test_protect_elgamal_recovers_the_declared_payload.sv): Record the version string separately from the encryptor name and check that the metadata stays outside the decrypted body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-END
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword end ends encryption.
 
@@ -84888,10 +85341,11 @@ Acceptance criterion: Protect keyword end ends encryption.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Check that two assignments straddling the closing directive appear at the end of the recovered body and in the following cleartext, respectively.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-END-PROTECTED
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword end_protected ends a decryption envelope.
 
@@ -84899,10 +85353,11 @@ Acceptance criterion: Protect keyword end_protected ends a decryption envelope.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Use end_protected to close the envelope and check that the following assignment stays in the cleartext outside the recovered range.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-KEY-BLOCK
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword key_block introduces encrypted key bytes.
 
@@ -84910,10 +85365,11 @@ Acceptance criterion: Protect keyword key_block introduces encrypted key bytes.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Unwrap the body key in key_block with the recipient private key, recover the body and check that the other recipient keys cannot unwrap it.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYNAME
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword key_keyname names key-encryption key.
 
@@ -84921,10 +85377,11 @@ Acceptance criterion: Protect keyword key_keyname names key-encryption key.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Give one owner two differently named keys and check that key_keyname matches the request and identifies a key that recovers the body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-KEY-KEYOWNER
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword key_keyowner names key-encryption key owner.
 
@@ -84932,10 +85389,11 @@ Acceptance criterion: Protect keyword key_keyowner names key-encryption key owne
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Give different owners the same key name and use the header key_keyowner together with the name to select the corresponding private key.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-KEY-METHOD
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword key_method selects key encryption.
 
@@ -84943,6 +85401,7 @@ Acceptance criterion: Protect keyword key_method selects key encryption.
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Require key_method to identify RSA and recover the body using a key unwrapped with that method.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY
 
@@ -84968,7 +85427,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-RUNTIME-LICENSE
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword runtime_license controls simulation licensing.
 
@@ -84976,6 +85435,8 @@ Acceptance criterion: Protect keyword runtime_license controls simulation licens
 
 Normative role: `definition`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Change the runtime_license feature and check that the same library controls permission before execution.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Change the runtime_license match value and check that it governs permission for execution with the same callback return.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT
 
@@ -85001,7 +85462,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.4-EXTRACT-PROTECT-LEXICAL-REGION
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect directives delimit lexical envelopes and their expressions define processing effects.
 
@@ -85009,6 +85470,7 @@ Acceptance criterion: Protect directives delimit lexical envelopes and their exp
 
 Normative role: `definition`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Open an encryption range inside one module and close it inside the next, then check that exactly that cross-module source range is recovered from ciphertext.
 
 ### SV2023-34.4-EXTRACT-PROTECT-LEXICAL-SCOPE
 
@@ -85024,7 +85486,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.4-EXTRACT-PROTECT-SELF-CONTAINMENT
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Encryptors should emit all relevant envelope keywords and may append reset to avoid unwanted interactions across envelopes.
 
@@ -85032,10 +85494,11 @@ Acceptance criterion: Encryptors should emit all relevant envelope keywords and 
 
 Normative role: `recommendation`。
 
+- [test_protect_exchange_key_metadata_and_boundaries.sv](../tests/ch34/test_protect_exchange_key_metadata_and_boundaries.sv): Read each envelope independently and check its boundaries, identifiers, methods, encoding descriptors and recovered body.
 
 ### SV2023-34.5.1.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.1.1` / `normal` / No mapped test
+`34.5.1.1` / `normal` / Test mapped; execution unconfirmed
 
 Protect begin is a bare keyword.
 
@@ -85043,10 +85506,12 @@ Acceptance criterion: Protect begin is a bare keyword.
 
 Normative role: `definition`。
 
+- [test_protect_standalone_envelope_delimiters_syntax.sv](../tests/ch34/test_protect_standalone_envelope_delimiters_syntax.sv): Accept begin as a standalone directive without an argument, then diagnose a numeric argument added to it.
+- [test_protect_combined_envelope_delimiters_syntax.sv](../tests/ch34/test_protect_combined_envelope_delimiters_syntax.sv): Accept bare begin among other expressions on its pragma line, then diagnose a numeric argument added to that expression alone.
 
 ### SV2023-34.5.1.2-EXTRACT-ENCRYPT-ALL-CONTENT
 
-`34.5.1.2` / `normal` / No mapped test
+`34.5.1.2` / `normal` / Test mapped; execution unconfirmed
 
 Unless specified otherwise, all content including comments/protect pragmas between begin/end is encrypted into data_block.
 
@@ -85054,10 +85519,12 @@ Acceptance criterion: Unless specified otherwise, all content including comments
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Compare the decrypted body with source comments and whitespace intact, accounting for exported pragmas and allowed added comments.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Compare the decrypted body with source comments and whitespace intact, accounting for exported pragmas and allowed added comments.
 
 ### SV2023-34.5.1.2-EXTRACT-ENCRYPT-BEGIN
 
-`34.5.1.2` / `normal` / No mapped test
+`34.5.1.2` / `normal` / Test mapped; execution unconfirmed
 
 Begin marks where input encryption starts.
 
@@ -85065,10 +85532,12 @@ Acceptance criterion: Begin marks where input encryption starts.
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that encryption starts directly after the opening directive and that preceding source stays in cleartext.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that encryption starts directly after the opening directive and that preceding source stays in cleartext.
 
 ### SV2023-34.5.1.2-EXTRACT-ENCRYPT-BEGIN-OUTPUT
 
-`34.5.1.2` / `normal` / No mapped test
+`34.5.1.2` / `normal` / Test mapped; execution unconfirmed
 
 Begin becomes begin_protected; required output pragmas occur within the output envelope and data/key blocks stay within its delimiters.
 
@@ -85076,10 +85545,12 @@ Acceptance criterion: Begin becomes begin_protected; required output pragmas occ
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that each opening becomes begin_protected and that key and data blocks and their required descriptors appear inside that envelope.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that each opening becomes begin_protected and that key and data blocks and their required descriptors appear inside that envelope.
 
 ### SV2023-34.5.1.2-EXTRACT-ENCRYPT-PADDING-COMMENTS
 
-`34.5.1.2` / `normal` / No mapped test
+`34.5.1.2` / `normal` / Test mapped; execution unconfirmed
 
 An encryptor may add an unspecified amount of arbitrary comments at the beginning/end before encryption.
 
@@ -85087,6 +85558,7 @@ Acceptance criterion: An encryptor may add an unspecified amount of arbitrary co
 
 Normative role: `permission`。
 
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Accept decrypted bodies with added comments at both edges and detect a body that includes an added HDL declaration.
 
 ### SV2023-34.5.1.2-EXTRACT-ENVELOPE-SELF-CONTAINED
 
@@ -85101,7 +85573,7 @@ Normative role: `recommendation`。
 
 ### SV2023-34.5.1.2-EXTRACT-NO-ENCRYPTION-NESTING
 
-`34.5.1.2` / `error` / No mapped test
+`34.5.1.2` / `error` / Test mapped; execution unconfirmed
 
 Nested begin/end encryption blocks are errors; previously encrypted protected envelopes inside one are treated as plain bytes for reencryption.
 
@@ -85109,10 +85581,11 @@ Acceptance criterion: Nested begin/end encryption blocks are errors; previously 
 
 Normative role: `mandatory`。
 
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Check rejection of a nested plaintext encryption range and exact byte recovery when a previously protected envelope occupies the same position.
 
 ### SV2023-34.5.2.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.2.1` / `normal` / No mapped test
+`34.5.2.1` / `normal` / Test mapped; execution unconfirmed
 
 Protect end is a bare keyword.
 
@@ -85120,10 +85593,12 @@ Acceptance criterion: Protect end is a bare keyword.
 
 Normative role: `definition`。
 
+- [test_protect_standalone_envelope_delimiters_syntax.sv](../tests/ch34/test_protect_standalone_envelope_delimiters_syntax.sv): Accept end as a standalone directive without an argument, then diagnose a numeric argument added to it.
+- [test_protect_combined_envelope_delimiters_syntax.sv](../tests/ch34/test_protect_combined_envelope_delimiters_syntax.sv): Accept bare end among other expressions on its pragma line, then diagnose a numeric argument added to that expression alone.
 
 ### SV2023-34.5.2.2-EXTRACT-ENCRYPT-END
 
-`34.5.2.2` / `normal` / No mapped test
+`34.5.2.2` / `normal` / Test mapped; execution unconfirmed
 
 End closes the cleartext encryption region and becomes end_protected in its encrypted output.
 
@@ -85131,6 +85606,8 @@ Acceptance criterion: End closes the cleartext encryption region and becomes end
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that both closing directives become end_protected and that the source following each stays in cleartext.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that both closing directives become end_protected and that the source following each stays in cleartext.
 
 ### SV2023-34.5.3.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -85146,7 +85623,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.3.2-EXTRACT-DECRYPT-BEGIN
 
-`34.5.3.2` / `normal` / No mapped test
+`34.5.3.2` / `normal` / Test mapped; execution unconfirmed
 
 During decryption, begin_protected starts an encrypted region and the tool accumulates its pragmas to decrypt that block.
 
@@ -85154,10 +85631,12 @@ Acceptance criterion: During decryption, begin_protected starts an encrypted reg
 
 Normative role: `mandatory`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Read the key and cipher settings for each opened region and check that a wrong key for an inner region stops replacement.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Read the key and cipher settings for each opened region and check that a wrong key for an inner region stops replacement.
 
 ### SV2023-34.5.3.2-EXTRACT-REENCRYPT-PROTECTED
 
-`34.5.3.2` / `normal` / No mapped test
+`34.5.3.2` / `normal` / Test mapped; execution unconfirmed
 
 While encrypting a containing region, an existing begin_protected block and all its pragmas/content through its matching close are plain bytes encrypted with current keys/method; their pragmas do not alter current encryption state.
 
@@ -85165,6 +85644,8 @@ Acceptance criterion: While encrypting a containing region, an existing begin_pr
 
 Normative role: `mandatory`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Place the full existing inner envelope inside the outer body and check that its bytes can be recovered without applying its settings to the outer cipher.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Place the full existing inner envelope inside the outer body and check that its bytes can be recovered without applying its settings to the outer cipher.
 
 ### SV2023-34.5.4.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -85180,7 +85661,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.4.2-EXTRACT-DECRYPT-END
 
-`34.5.4.2` / `normal` / No mapped test
+`34.5.4.2` / `normal` / Test mapped; execution unconfirmed
 
 During decryption, end_protected terminates the pragma set defining the current encrypted block.
 
@@ -85188,10 +85669,12 @@ Acceptance criterion: During decryption, end_protected terminates the pragma set
 
 Normative role: `mandatory`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Record the inner close before the outer close and check that a missing terminator prevents obtaining a restored design.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Record the inner close before the outer close and check that a missing terminator prevents obtaining a restored design.
 
 ### SV2023-34.5.4.2-EXTRACT-PREEXISTING-PROTECTED-END
 
-`34.5.4.2` / `normal` / No mapped test
+`34.5.4.2` / `normal` / Test mapped; execution unconfirmed
 
 When processing encryption input, end_protected closes a previous protected block and later pragma values accumulate for the next envelope.
 
@@ -85199,10 +85682,11 @@ Acceptance criterion: When processing encryption input, end_protected closes a p
 
 Normative role: `mandatory`。
 
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Build the next envelope from settings after the existing close and check preservation of the prior bytes and use of the new method and encoding.
 
 ### SV2023-34.5.4.2-EXTRACT-REENCRYPT-PROTECTED-END
 
-`34.5.4.2` / `normal` / No mapped test
+`34.5.4.2` / `normal` / Test mapped; execution unconfirmed
 
 A preexisting end_protected matching an input protected block is encrypted into the containing current data_block.
 
@@ -85210,10 +85694,12 @@ Acceptance criterion: A preexisting end_protected matching an input protected bl
 
 Normative role: `mandatory`。
 
+- [test_protect_decrypts_eight_layers_before_expanding_macros.sv](../tests/ch34/test_protect_decrypts_eight_layers_before_expanding_macros.sv): Encrypt the existing terminator into the outer body and check that the following outer tail is recovered from the same encrypted region.
+- [test_protect_replaces_nested_macros_before_next_envelope.sv](../tests/ch34/test_protect_replaces_nested_macros_before_next_envelope.sv): Encrypt the existing terminator into the outer body and check that the following outer tail is recovered from the same encrypted region.
 
 ### SV2023-34.5.5.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.5.1` / `normal` / No mapped test
+`34.5.5.1` / `normal` / Test mapped; execution unconfirmed
 
 Protect author takes a string value.
 
@@ -85221,10 +85707,12 @@ Acceptance criterion: Protect author takes a string value.
 
 Normative role: `definition`。
 
+- [test_protect_author_and_agent_string_syntax.sv](../tests/ch34/test_protect_author_and_agent_string_syntax.sv): Accept a quoted string for standalone author and diagnose a missing or numeric value.
+- [test_protect_author_and_agent_strings_inside_envelope.sv](../tests/ch34/test_protect_author_and_agent_strings_inside_envelope.sv): Accept a quoted string for author inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.5.2-EXTRACT-AUTHOR-CLEARTEXT-OUTPUT
 
-`34.5.5.2` / `normal` / No mapped test
+`34.5.5.2` / `normal` / Test mapped; execution unconfirmed
 
 author present inside encryption input is emitted inside the protected envelope but outside encrypted data_block; otherwise it is copied unchanged to output.
 
@@ -85232,10 +85720,12 @@ Acceptance criterion: author present inside encryption input is emitted inside t
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that the inner author is exported in cleartext inside its own envelope and absent from the decrypted body, with outer author lines preserved.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that the inner author is exported in cleartext inside its own envelope and absent from the decrypted body, with outer author lines preserved.
 
 ### SV2023-34.5.5.2-EXTRACT-AUTHOR-METADATA
 
-`34.5.5.2` / `normal` / No mapped test
+`34.5.5.2` / `normal` / Test mapped; execution unconfirmed
 
 author records IP author identity as a distinct string field.
 
@@ -85243,10 +85733,12 @@ Acceptance criterion: author records IP author identity as a distinct string fie
 
 Normative role: `mandatory`。
 
+- [test_protect_pgp_rsa_recovers_the_declared_payload.sv](../tests/ch34/test_protect_pgp_rsa_recovers_the_declared_payload.sv): Read author independently of ordinary HDL comments and check that the inside name becomes envelope metadata while the outside name stays in place.
+- [test_protect_elgamal_recovers_the_declared_payload.sv](../tests/ch34/test_protect_elgamal_recovers_the_declared_payload.sv): Read author independently of ordinary HDL comments and check that the inside name becomes envelope metadata while the outside name stays in place.
 
 ### SV2023-34.5.6.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.6.1` / `normal` / No mapped test
+`34.5.6.1` / `normal` / Test mapped; execution unconfirmed
 
 Protect author_info takes a string value.
 
@@ -85254,10 +85746,12 @@ Acceptance criterion: Protect author_info takes a string value.
 
 Normative role: `definition`。
 
+- [test_protect_author_and_agent_string_syntax.sv](../tests/ch34/test_protect_author_and_agent_string_syntax.sv): Accept a quoted string for standalone author_info and diagnose a missing or numeric value.
+- [test_protect_author_and_agent_strings_inside_envelope.sv](../tests/ch34/test_protect_author_and_agent_strings_inside_envelope.sv): Accept a quoted string for author_info inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.6.2-EXTRACT-AUTHOR-CLEARTEXT-OUTPUT
 
-`34.5.6.2` / `normal` / No mapped test
+`34.5.6.2` / `normal` / Test mapped; execution unconfirmed
 
 author_info present inside encryption input is emitted inside the protected envelope but outside encrypted data_block; otherwise it is copied unchanged to output.
 
@@ -85265,10 +85759,12 @@ Acceptance criterion: author_info present inside encryption input is emitted ins
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that the inner author_info is exported in cleartext inside its own envelope and absent from the decrypted body, with outer author_info lines preserved.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that the inner author_info is exported in cleartext inside its own envelope and absent from the decrypted body, with outer author_info lines preserved.
 
 ### SV2023-34.5.6.2-EXTRACT-AUTHOR-METADATA
 
-`34.5.6.2` / `normal` / No mapped test
+`34.5.6.2` / `normal` / Test mapped; execution unconfirmed
 
 author_info records additional author-supplied information as a distinct string field.
 
@@ -85276,10 +85772,12 @@ Acceptance criterion: author_info records additional author-supplied information
 
 Normative role: `mandatory`。
 
+- [test_protect_pgp_rsa_recovers_the_declared_payload.sv](../tests/ch34/test_protect_pgp_rsa_recovers_the_declared_payload.sv): Distinguish the author_info note from the author name and ordinary HDL comments, and check its output placement for inside and outside input.
+- [test_protect_elgamal_recovers_the_declared_payload.sv](../tests/ch34/test_protect_elgamal_recovers_the_declared_payload.sv): Distinguish the author_info note from the author name and ordinary HDL comments, and check its output placement for inside and outside input.
 
 ### SV2023-34.5.7.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.7.1` / `normal` / No mapped test
+`34.5.7.1` / `normal` / Test mapped; execution unconfirmed
 
 Protect encrypt_agent takes a string value.
 
@@ -85287,10 +85785,12 @@ Acceptance criterion: Protect encrypt_agent takes a string value.
 
 Normative role: `definition`。
 
+- [test_protect_author_and_agent_string_syntax.sv](../tests/ch34/test_protect_author_and_agent_string_syntax.sv): Accept a quoted string for standalone encrypt_agent and diagnose a missing or numeric value.
+- [test_protect_author_and_agent_strings_inside_envelope.sv](../tests/ch34/test_protect_author_and_agent_strings_inside_envelope.sv): Accept a quoted string for encrypt_agent inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.7.2-EXTRACT-AGENT-OUTPUT
 
-`34.5.7.2` / `normal` / No mapped test
+`34.5.7.2` / `normal` / Test mapped; execution unconfirmed
 
 The encryptor shall generate encrypt_agent identifying itself within the protected envelope outside encrypted data_block.
 
@@ -85298,10 +85798,12 @@ Acceptance criterion: The encryptor shall generate encrypt_agent identifying its
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that the encryptor generates its encrypt_agent identity in cleartext inside each envelope and excludes it from the encrypted body.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that the encryptor generates its encrypt_agent identity in cleartext inside each envelope and excludes it from the encrypted body.
 
 ### SV2023-34.5.8.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.8.1` / `normal` / No mapped test
+`34.5.8.1` / `normal` / Test mapped; execution unconfirmed
 
 Protect encrypt_agent_info takes a string value.
 
@@ -85309,10 +85811,12 @@ Acceptance criterion: Protect encrypt_agent_info takes a string value.
 
 Normative role: `definition`。
 
+- [test_protect_author_and_agent_string_syntax.sv](../tests/ch34/test_protect_author_and_agent_string_syntax.sv): Accept a quoted string for standalone encrypt_agent_info and diagnose a missing or numeric value.
+- [test_protect_author_and_agent_strings_inside_envelope.sv](../tests/ch34/test_protect_author_and_agent_strings_inside_envelope.sv): Accept a quoted string for encrypt_agent_info inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.8.2-EXTRACT-AGENT-OUTPUT
 
-`34.5.8.2` / `normal` / No mapped test
+`34.5.8.2` / `normal` / Test mapped; execution unconfirmed
 
 Optional encrypt_agent_info supplies encryptor metadata within the protected envelope outside encrypted data_block.
 
@@ -85320,10 +85824,12 @@ Acceptance criterion: Optional encrypt_agent_info supplies encryptor metadata wi
 
 Normative role: `mandatory`。
 
+- [test_protect_pgp_rsa_recovers_the_declared_payload.sv](../tests/ch34/test_protect_pgp_rsa_recovers_the_declared_payload.sv): Use the measured GnuPG version as encrypt_agent_info and check that it stays in the clear envelope, then verify body recovery when the field is omitted.
+- [test_protect_elgamal_recovers_the_declared_payload.sv](../tests/ch34/test_protect_elgamal_recovers_the_declared_payload.sv): Use the measured GnuPG version as encrypt_agent_info and check that it stays in the clear envelope, then verify body recovery when the field is omitted.
 
 ### SV2023-34.5.9.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.9.1` / `normal` / No mapped test
+`34.5.9.1` / `normal` / Test mapped; execution unconfirmed
 
 Protect encoding takes an enctype string and optional numeric line_length and bytes fields.
 
@@ -85331,10 +85837,12 @@ Acceptance criterion: Protect encoding takes an enctype string and optional nume
 
 Normative role: `definition`。
 
+- [test_protect_encoding_required_and_line_length_syntax.sv](../tests/ch34/test_protect_encoding_required_and_line_length_syntax.sv): Accept the encoding string alone or with numeric line length and exercise the required quoted field and line length type.
+- [test_protect_encoding_bytes_and_both_numbers_syntax.sv](../tests/ch34/test_protect_encoding_bytes_and_both_numbers_syntax.sv): Accept the encoding string with bytes alone or both numeric options and exercise the required encoding field and option types.
 
 ### SV2023-34.5.9.2-EXTRACT-BASE64-REQUIRED
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Protect encoding base64 is required and uses RFC 2045 / uuencode -m representation.
 
@@ -85342,10 +85850,12 @@ Acceptance criterion: Protect encoding base64 is required and uses RFC 2045 / uu
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Request base64, validate the emitted key and data representation and line length, and verify the data by decryption.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Request base64, validate the emitted key and data representation and line length, and verify the data by decryption.
 
 ### SV2023-34.5.9.2-EXTRACT-DECODING-DESCRIPTOR
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Decryption uses the encoding directive to determine encoding algorithm and actual data size.
 
@@ -85353,10 +85863,12 @@ Acceptance criterion: Decryption uses the encoding directive to determine encodi
 
 Normative role: `mandatory`。
 
+- [test_protect_base64_descriptor_selects_algorithm_and_byte_count.sv](../tests/ch34/test_protect_base64_descriptor_selects_algorithm_and_byte_count.sv): Check that a padded Base64 payload is diagnosed for an invalid character when only the method changes and for the actual decoded size when only the count changes.
+- [test_protect_uuencode_descriptor_selects_algorithm_and_byte_count.sv](../tests/ch34/test_protect_uuencode_descriptor_selects_algorithm_and_byte_count.sv): Check that a uuencode payload is diagnosed for an invalid character when only the method changes and for the actual decoded size when only the count changes.
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-BYTES
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Bytes counts original data before encoding/linebreak insertion and is ignored on encryption input.
 
@@ -85364,6 +85876,8 @@ Acceptance criterion: Bytes counts original data before encoding/linebreak inser
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Supply a byte count that differs from the real data length and compare the generated count with the length immediately after reversing Base64.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Supply a byte count that differs from the real data length and compare the generated count with the length immediately after reversing Base64.
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS
 
@@ -85378,7 +85892,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-INPUT
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Encoding selects the representation of encrypted body/digest/key binary content; an explicit input encoding controls output representation.
 
@@ -85386,10 +85900,11 @@ Acceptance criterion: Encoding selects the representation of encrypted body/dige
 
 Normative role: `mandatory`。
 
+- [test_protect_encoding_selects_output_representation.sv](../tests/ch34/test_protect_encoding_selects_output_representation.sv): Request 4 encoding modes and check whether the output key and data decode using the requested mode and match the declared pre-encoding counts.
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-LINE-LENGTH
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Line_length bounds encoded data_block characters per line, permitting inserted output line breaks.
 
@@ -85397,10 +85912,12 @@ Acceptance criterion: Line_length bounds encoded data_block characters per line,
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check every encoded line of each data block against the corresponding limit from the input.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check every encoded line of each data block against the corresponding limit from the input.
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-OUTPUT
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Every output protected block explicitly emits encoding and generated original-byte count; a tool may choose encoding even without an input encoding directive.
 
@@ -85408,10 +85925,12 @@ Acceptance criterion: Every output protected block explicitly emits encoding and
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Verify the declared encoding and generated byte counts against the key and data blocks inside each output envelope.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Verify the declared encoding and generated byte counts against the key and data blocks inside each output envelope.
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-PER-FIELD
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 The active encoding applies to data_block, data_public_key, data_decrypt_key, digest_block, key_block and key_public_key; preceding encoding pragmas may select different encodings per field and encryptor emits bytes per encrypted block.
 
@@ -85419,10 +85938,11 @@ Acceptance criterion: The active encoding applies to data_block, data_public_key
 
 Normative role: `mandatory`。
 
+- [test_protect_encoding_uses_separate_field_descriptors.sv](../tests/ch34/test_protect_encoding_uses_separate_field_descriptors.sv): Give the 6 key, digest and data fields separate encoding modes and original counts in a reference envelope. Compare the recovered bytes and detect altered descriptors. Request different modes in 2 consecutive ranges from the native tool.
 
 ### SV2023-34.5.9.2-EXTRACT-QUOTED-PRINTABLE-OPTION
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Optional quoted-printable encoding uses RFC 2045.
 
@@ -85430,10 +85950,11 @@ Acceptance criterion: Optional quoted-printable encoding uses RFC 2045.
 
 Normative role: `permission`。
 
+- [test_protect_encoding_selects_output_representation.sv](../tests/ch34/test_protect_encoding_selects_output_representation.sv): Recognize an explicit rejection of optional quoted-printable and check output mode and length when accepted. The reference control round-trips all 256 byte values.
 
 ### SV2023-34.5.9.2-EXTRACT-RAW-ENCODING-OPTION
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Optional raw encoding is identity, performs no encoding and may contain nonprintable bytes.
 
@@ -85441,10 +85962,11 @@ Acceptance criterion: Optional raw encoding is identity, performs no encoding an
 
 Normative role: `permission`。
 
+- [test_protect_encoding_selects_output_representation.sv](../tests/ch34/test_protect_encoding_selects_output_representation.sv): Check the response to optional raw and use a reference control to verify that all byte values, including control characters and directive-like text, are read unchanged at the declared length.
 
 ### SV2023-34.5.9.2-EXTRACT-UUENCODE-REQUIRED
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Protect encoding uuencode is required and uses the IEEE 1003.1 historical uuencode algorithm.
 
@@ -85452,10 +85974,11 @@ Acceptance criterion: Protect encoding uuencode is required and uses the IEEE 10
 
 Normative role: `mandatory`。
 
+- [test_protect_encoding_selects_output_representation.sv](../tests/ch34/test_protect_encoding_selects_output_representation.sv): Request mandatory uuencode and check output mode and length. Decode a known historical uuencode vector in the reference control.
 
 ### SV2023-34.5.10.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.10.1` / `normal` / No mapped test
+`34.5.10.1` / `normal` / Test mapped; execution unconfirmed
 
 The data_keyowner pragma has the syntax data_keyowner = \<string\>; string-valued forms require a string argument.
 
@@ -85463,10 +85986,12 @@ Acceptance criterion: The data_keyowner pragma has the syntax data_keyowner = \<
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone data_keyowner and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for data_keyowner inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.10.2-EXTRACT-OWNER-DECRYPT
 
-`34.5.10.2` / `normal` / No mapped test
+`34.5.10.2` / `normal` / Test mapped; execution unconfirmed
 
 Combine data_keyowner with data_keyname or data_public_key to select the secret/private key for data_block decryption.
 
@@ -85474,10 +85999,12 @@ Acceptance criterion: Combine data_keyowner with data_keyname or data_public_key
 
 Normative role: `mandatory`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Combine the owner with a body key name or public key and check that only the matching private key can recover the body.
+- [test_protect_public_key_roles_remain_separate_between_envelopes.sv](../tests/ch34/test_protect_public_key_roles_remain_separate_between_envelopes.sv): Use distinct body and digest owners and check that the exchange key of the adjacent envelope cannot open either payload.
 
 ### SV2023-34.5.10.2-EXTRACT-OWNER-OUTPUT
 
-`34.5.10.2` / `normal` / No mapped test
+`34.5.10.2` / `normal` / Test mapped; execution unconfirmed
 
 Preserve data_keyowner in encryption output, except for the stated digital-signature case where key_method encrypts it into key_block.
 
@@ -85485,10 +86012,12 @@ Acceptance criterion: Preserve data_keyowner in encryption output, except for th
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Preserve the body key owner in ordinary output and recover the same owner from each recipient key block after signature verification.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Preserve the body key owner in ordinary output and recover the same owner from each recipient key block after signature verification.
 
 ### SV2023-34.5.10.2-EXTRACT-OWNER-SELECT
 
-`34.5.10.2` / `normal` / No mapped test
+`34.5.10.2` / `normal` / Test mapped; execution unconfirmed
 
 data_keyowner identifies the legal entity/tool supplying the data encryption/decryption keys, including third-party keys distinct from author/encrypt_agent, and selects the data_block encryption key.
 
@@ -85496,6 +86025,7 @@ Acceptance criterion: data_keyowner identifies the legal entity/tool supplying t
 
 Normative role: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Use a supplier distinct from the author and encryptor, and check that the same key name selects different RSA keys for different owners.
 
 ### SV2023-34.5.10.2-EXTRACT-OWNER-UNIQUE-KEYS
 
@@ -85510,7 +86040,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.11.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.11.1` / `normal` / No mapped test
+`34.5.11.1` / `normal` / Test mapped; execution unconfirmed
 
 The data_method pragma has the syntax data_method = \<string\>; string-valued forms require a string argument.
 
@@ -85518,10 +86048,12 @@ Acceptance criterion: The data_method pragma has the syntax data_method = \<stri
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone data_method and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for data_method inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-3DES-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns 3des-cbc to triple DES CBC (FIPS 46-3, ANSI X9.52-1998); implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85529,10 +86061,11 @@ Acceptance criterion: Table 34-3 assigns 3des-cbc to triple DES CBC (FIPS 46-3, 
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional 3des-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES128-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns aes128-cbc to AES 128-bit CBC (FIPS 197); implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85540,10 +86073,11 @@ Acceptance criterion: Table 34-3 assigns aes128-cbc to AES 128-bit CBC (FIPS 197
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional aes128-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES192-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns aes192-cbc to AES 192-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85551,10 +86085,11 @@ Acceptance criterion: Table 34-3 assigns aes192-cbc to AES 192-bit CBC; implemen
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional aes192-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-AES256-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns aes256-cbc to AES 256-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85562,10 +86097,12 @@ Acceptance criterion: Table 34-3 assigns aes256-cbc to AES 256-bit CBC; implemen
 
 Normative role: `definition`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check the emitted aes256-cbc identifier and recover the original module with independent AES-256-CBC decryption.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check the emitted aes256-cbc identifier and recover the original module with independent AES-256-CBC decryption.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-BLOWFISH-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns blowfish-cbc to Blowfish CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85573,10 +86110,11 @@ Acceptance criterion: Table 34-3 assigns blowfish-cbc to Blowfish CBC; implement
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional blowfish-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-CAST128-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns cast128-cbc to CAST-128 CBC (RFC 2144); implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85584,10 +86122,11 @@ Acceptance criterion: Table 34-3 assigns cast128-cbc to CAST-128 CBC (RFC 2144);
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional cast128-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-DES-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns des-cbc to DES in CBC mode (FIPS 46-3); implementation support is required.
 
@@ -85595,10 +86134,11 @@ Acceptance criterion: Table 34-3 assigns des-cbc to DES in CBC mode (FIPS 46-3);
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request required des-cbc, check the emitted identifier and exact source, and exercise an independent round trip for that method.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-ELGAMAL
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns elgamal to ElGamal; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85606,6 +86146,7 @@ Acceptance criterion: Table 34-3 assigns elgamal to ElGamal; implementation supp
 
 Normative role: `definition`。
 
+- [test_protect_elgamal_recovers_the_declared_payload.sv](../tests/ch34/test_protect_elgamal_recovers_the_declared_payload.sv): Check a fixed ElGamal arithmetic vector and verify that GnuPG recovers the original body from an ElGamal packet.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-EXTENSIONS
 
@@ -85620,7 +86161,7 @@ Normative role: `implementation_defined`。
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-PGP-RSA
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns pgp-rsa to OpenPGP RSA key (RFC 2440); implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85628,10 +86169,11 @@ Acceptance criterion: Table 34-3 assigns pgp-rsa to OpenPGP RSA key (RFC 2440); 
 
 Normative role: `definition`。
 
+- [test_protect_pgp_rsa_recovers_the_declared_payload.sv](../tests/ch34/test_protect_pgp_rsa_recovers_the_declared_payload.sv): Encrypt for the selected RSA key in GnuPG RFC 2440 mode, check the packet method and recovered body, and reject another label or key.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-RSA
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns rsa to RSA (RFC 2437); implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85639,10 +86181,11 @@ Acceptance criterion: Table 34-3 assigns rsa to RSA (RFC 2437); implementation s
 
 Normative role: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Encrypt and decrypt the body with RSA OAEP in the optional rsa control and compare the body method emitted by the ordinary CLI.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT128-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns serpent128-cbc to Serpent 128-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85650,10 +86193,11 @@ Acceptance criterion: Table 34-3 assigns serpent128-cbc to Serpent 128-bit CBC; 
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional serpent128-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT192-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns serpent192-cbc to Serpent 192-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85661,10 +86205,11 @@ Acceptance criterion: Table 34-3 assigns serpent192-cbc to Serpent 192-bit CBC; 
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional serpent192-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-SERPENT256-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns serpent256-cbc to Serpent 256-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85672,10 +86217,11 @@ Acceptance criterion: Table 34-3 assigns serpent256-cbc to Serpent 256-bit CBC; 
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional serpent256-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH128-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns twofish128-cbc to Twofish 128-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85683,10 +86229,11 @@ Acceptance criterion: Table 34-3 assigns twofish128-cbc to Twofish 128-bit CBC; 
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional twofish128-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH192-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns twofish192-cbc to Twofish 192-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85694,10 +86241,11 @@ Acceptance criterion: Table 34-3 assigns twofish192-cbc to Twofish 192-bit CBC; 
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional twofish192-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-TWOFISH256-CBC
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-3 assigns twofish256-cbc to Twofish 256-bit CBC; implementation support is optional, with this identifier required when that cipher is supported.
 
@@ -85705,10 +86253,11 @@ Acceptance criterion: Table 34-3 assigns twofish256-cbc to Twofish 256-bit CBC; 
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Request optional twofish256-cbc separately and check either an explicit unsupported diagnostic or the emitted identifier and recovered source after acceptance.
 
 ### SV2023-34.5.11.2-EXTRACT-DATA-ALGORITHM
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 data_method selects the encryption algorithm for subsequent begin-end blocks.
 
@@ -85716,10 +86265,11 @@ Acceptance criterion: data_method selects the encryption algorithm for subsequen
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Vary one method directive for both following envelopes and compare the emitted method and independently recovered body in each envelope.
 
 ### SV2023-34.5.11.2-EXTRACT-METHOD-DECRYPT
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 data_method specifies the algorithm used to decrypt data_block.
 
@@ -85727,10 +86277,11 @@ Acceptance criterion: data_method specifies the algorithm used to decrypt data_b
 
 Normative role: `definition`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Select a decoder and block width from the emitted data_method and compare recovered bytes with the original source slice.
 
 ### SV2023-34.5.11.2-EXTRACT-METHOD-OUTPUT
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 Preserve data_method in output, except in the stated digital-signature case where key_method encrypts it into key_block.
 
@@ -85738,10 +86289,12 @@ Acceptance criterion: Preserve data_method in output, except in the stated digit
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Check that ordinary encryption preserves the body method and that the signed control recovers the same method from the wrapped key block.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Check that ordinary encryption preserves the body method and that the signed control recovers the same method from the wrapped key block.
 
 ### SV2023-34.5.11.2-EXTRACT-RANDOM-IV
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 For a CBC algorithm requiring an IV, a fresh random IV for each cipher use is recommended.
 
@@ -85749,10 +86302,11 @@ Acceptance criterion: For a CBC algorithm requiring an IV, a fresh random IV for
 
 Normative role: `recommendation`。
 
+- [test_protect_data_method_cipher_selection.sv](../tests/ch34/test_protect_data_method_cipher_selection.sv): Encrypt equal bodies in distinct envelopes and compare the IV prefixes of successfully recovered payloads for reuse.
 
 ### SV2023-34.5.12.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.12.1` / `normal` / No mapped test
+`34.5.12.1` / `normal` / Test mapped; execution unconfirmed
 
 The data_keyname pragma has the syntax data_keyname = \<string\>; string-valued forms require a string argument.
 
@@ -85760,10 +86314,12 @@ Acceptance criterion: The data_keyname pragma has the syntax data_keyname = \<st
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone data_keyname and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for data_keyname inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.12.2-EXTRACT-NAME-COMBINE-TEXT
 
-`34.5.12.2` / `normal` / No mapped test
+`34.5.12.2` / `normal` / Test mapped; execution unconfirmed
 
 When data_keyname is provided in the encryption input, the encrypting tool combines it with data_keyowner to determine the data encryption key; the repeated data_keyname operand in the text denotes data_keyowner.
 
@@ -85771,10 +86327,11 @@ Acceptance criterion: Given data_keyowner O and data_keyname N in the encryption
 
 Normative role: `mandatory`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Resolve owner and key name before encryption and distinguish separate keys registered under the same name for different owners.
 
 ### SV2023-34.5.12.2-EXTRACT-NAME-DECRYPT
 
-`34.5.12.2` / `normal` / No mapped test
+`34.5.12.2` / `normal` / Test mapped; execution unconfirmed
 
 Combine data_keyname and data_keyowner to choose one key for decrypting the protected envelope data_block.
 
@@ -85782,10 +86339,12 @@ Acceptance criterion: Combine data_keyname and data_keyowner to choose one key f
 
 Normative role: `mandatory`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Recover a name-only body with the private key for its owner and check that another owner with the same name cannot open it.
+- [test_protect_public_key_roles_remain_separate_between_envelopes.sv](../tests/ch34/test_protect_public_key_roles_remain_separate_between_envelopes.sv): Use the same key name under a different owner in the next envelope and check that the original owner and name still lead to the first body.
 
 ### SV2023-34.5.12.2-EXTRACT-NAME-OUTPUT
 
-`34.5.12.2` / `normal` / No mapped test
+`34.5.12.2` / `normal` / Test mapped; execution unconfirmed
 
 Output data_keyname in cleartext unless a digital envelope is used; then encrypt it with key_method and key_keyname/key_public_key into key_block.
 
@@ -85793,10 +86352,12 @@ Acceptance criterion: Output data_keyname in cleartext unless a digital envelope
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Use the clear key name to recover the body in ordinary output and recover the name from each individually encrypted recipient block in the digital envelope.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Use the clear key name to recover the body in ordinary output and recover the name from each individually encrypted recipient block in the digital envelope.
 
 ### SV2023-34.5.12.2-EXTRACT-NAME-SELECT
 
-`34.5.12.2` / `error` / No mapped test
+`34.5.12.2` / `error` / Test mapped; execution unconfirmed
 
 data_keyname names the decryption key (or asymmetric key pair); a name unknown for the selected data_keyowner is an error.
 
@@ -85804,10 +86365,11 @@ Acceptance criterion: data_keyname names the decryption key (or asymmetric key p
 
 Normative role: `mandatory`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Use one name registered only to another owner and one completely unknown name, and match the diagnostic to the requested body key name and owner.
 
 ### SV2023-34.5.13.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.13.1` / `normal` / No mapped test
+`34.5.13.1` / `normal` / Test mapped; execution unconfirmed
 
 The data_public_key pragma has the syntax data_public_key; string-valued forms require a string argument.
 
@@ -85815,10 +86377,12 @@ Acceptance criterion: The data_public_key pragma has the syntax data_public_key;
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare data_public_key followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare data_public_key followed by longer encoded data on one line, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-DECRYPT
 
-`34.5.13.2` / `normal` / No mapped test
+`34.5.13.2` / `normal` / Test mapped; execution unconfirmed
 
 Use data_keyowner, data_method and data_public_key to determine the private key; computable key permits decryption subject to licensing.
 
@@ -85826,10 +86390,11 @@ Acceptance criterion: Use data_keyowner, data_method and data_public_key to dete
 
 Normative role: `permission`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Recover the body using the private key selected by the owner and public key, and check that license denial blocks reading the payload even with a known key.
 
 ### SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-LINE
 
-`34.5.13.2` / `normal` / No mapped test
+`34.5.13.2` / `normal` / Test mapped; execution unconfirmed
 
 data_public_key declares an encoded public key on the next line using the active encoding; if data_keyname also appears it must identify the same key.
 
@@ -85837,10 +86402,11 @@ Acceptance criterion: data_public_key declares an encoded public key on the next
 
 Normative role: `mandatory`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Read the body public key from the next line and check rejection of an intervening blank line or a name that identifies a different public key.
 
 ### SV2023-34.5.13.2-EXTRACT-PUBLIC-KEY-OUTPUT
 
-`34.5.13.2` / `normal` / No mapped test
+`34.5.13.2` / `normal` / Test mapped; execution unconfirmed
 
 Emit data_public_key and its encoded value in every protected block using it; with data_method it may fully specify encryption.
 
@@ -85848,10 +86414,12 @@ Acceptance criterion: Emit data_public_key and its encoded value in every protec
 
 Normative role: `mandatory`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Check that the body public key follows its output directive and that the declared method and key support body encryption and recovery.
+- [test_protect_public_key_roles_remain_separate_between_envelopes.sv](../tests/ch34/test_protect_public_key_roles_remain_separate_between_envelopes.sv): Give adjacent envelopes different encodings and check that the first body public key can be decoded with its original encoding.
 
 ### SV2023-34.5.14.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.14.1` / `normal` / No mapped test
+`34.5.14.1` / `normal` / Test mapped; execution unconfirmed
 
 The data_decrypt_key pragma has the syntax data_decrypt_key; string-valued forms require a string argument.
 
@@ -85859,10 +86427,12 @@ Acceptance criterion: The data_decrypt_key pragma has the syntax data_decrypt_ke
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare data_decrypt_key followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare data_decrypt_key followed by longer encoded data on one line, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-LINE
 
-`34.5.14.2` / `normal` / No mapped test
+`34.5.14.2` / `normal` / Test mapped; execution unconfirmed
 
 data_decrypt_key introduces the encoded data decryption key on the next line.
 
@@ -85870,10 +86440,12 @@ Acceptance criterion: data_decrypt_key introduces the encoded data decryption ke
 
 Normative role: `definition`。
 
+- [test_protect_base64_data_decrypt_key_uses_only_the_next_line.sv](../tests/ch34/test_protect_base64_data_decrypt_key_uses_only_the_next_line.sv): Read the padded Base64 key from the next line and check the zero-byte diagnostic at the directive when the key is moved one line later.
+- [test_protect_uuencode_data_decrypt_key_uses_only_the_next_line.sv](../tests/ch34/test_protect_uuencode_data_decrypt_key_uses_only_the_next_line.sv): Read the uuencode key from the next line and check the zero-byte diagnostic at the directive when the key is moved one line later.
 
 ### SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-OUTPUT
 
-`34.5.14.2` / `normal` / No mapped test
+`34.5.14.2` / `normal` / Test mapped; execution unconfirmed
 
 Emit data_decrypt_key within encrypted key_block content with the selected encoding.
 
@@ -85881,10 +86453,12 @@ Acceptance criterion: Emit data_decrypt_key within encrypted key_block content w
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Check that the signed control body key is confined to the wrapped block and recover it using the selected encoding after unwrapping.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Check that the signed control body key is confined to the wrapped block and recover it using the selected encoding after unwrapping.
 
 ### SV2023-34.5.14.2-EXTRACT-DECRYPT-KEY-UNWRAP
 
-`34.5.14.2` / `normal` / No mapped test
+`34.5.14.2` / `normal` / Test mapped; execution unconfirmed
 
 For the stated signature mechanism, decrypt key_block to obtain data_decrypt_key and data_method and then decrypt data_block.
 
@@ -85892,10 +86466,12 @@ Acceptance criterion: For the stated signature mechanism, decrypt key_block to o
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Use the body method and key from the unwrapped block to restore the HDL, then run it with Icarus and check its output.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Use the body method and key from the unwrapped block to restore the HDL, then run it with Icarus and check its output.
 
 ### SV2023-34.5.14.2-EXTRACT-SIGNATURE-KEY-USAGE
 
-`34.5.14.2` / `normal` / No mapped test
+`34.5.14.2` / `normal` / Test mapped; execution unconfirmed
 
 data_decrypt_key should only be used for the stated digital-signature mechanism.
 
@@ -85903,10 +86479,12 @@ Acceptance criterion: data_decrypt_key should only be used for the stated digita
 
 Normative role: `recommendation`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Compare wrapping the author body decryption key after signature verification with the control without a signature.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Compare wrapping the author body decryption key after signature verification with the control without a signature.
 
 ### SV2023-34.5.14.2-EXTRACT-WRAP-KEY-NOT-DATA
 
-`34.5.14.2` / `normal` / No mapped test
+`34.5.14.2` / `normal` / Test mapped; execution unconfirmed
 
 With a preencrypted author data_block, encrypt data_method and data_decrypt_key with key_method into key_block; do not reencrypt data_block.
 
@@ -85914,10 +86492,12 @@ Acceptance criterion: With a preencrypted author data_block, encrypt data_method
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Compare the author body ciphertext and encoded lines byte for byte while wrapping the body method and key with the recipient public key.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Compare the author body ciphertext and encoded lines byte for byte while wrapping the body method and key with the recipient public key.
 
 ### SV2023-34.5.15.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.15.1` / `normal` / No mapped test
+`34.5.15.1` / `normal` / Test mapped; execution unconfirmed
 
 The data_block pragma has the syntax data_block; string-valued forms require a string argument.
 
@@ -85925,10 +86505,12 @@ Acceptance criterion: The data_block pragma has the syntax data_block; string-va
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare data_block followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare data_block followed by wrapped encoded data, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.15.2-EXTRACT-CBC-IV-PREFIX
 
-`34.5.15.2` / `normal` / No mapped test
+`34.5.15.2` / `normal` / Test mapped; execution unconfirmed
 
 For a CBC data cipher requiring an IV, prepend the IV cipher block to encrypted data before text encoding.
 
@@ -85936,10 +86518,12 @@ Acceptance criterion: For a CBC data cipher requiring an IV, prepend the IV ciph
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Use the first 16 bytes after decoding Base64 as the IV and decrypt the remaining bytes, then compare with the original module.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Use the first 16 bytes after decoding Base64 as the IV and decrypt the remaining bytes, then compare with the original module.
 
 ### SV2023-34.5.15.2-EXTRACT-DATA-DECRYPT
 
-`34.5.15.2` / `normal` / No mapped test
+`34.5.15.2` / `normal` / Test mapped; execution unconfirmed
 
 Decode data_block before decryption; for CBC requiring an IV, remove the first decoded cipher block as IV and decrypt the remainder.
 
@@ -85947,6 +86531,7 @@ Acceptance criterion: Decode data_block before decryption; for CBC requiring an 
 
 Normative role: `mandatory`。
 
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Decode the inner data payload and decrypt using its prefixed IV, checking the original source and detecting a change to the IV.
 
 ### SV2023-34.5.15.2-EXTRACT-DATA-OUTPUT
 
@@ -85962,7 +86547,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.15.2-EXTRACT-INPUT-BLOCK-ERROR
 
-`34.5.15.2` / `error` / No mapped test
+`34.5.15.2` / `error` / Test mapped; execution unconfirmed
 
 A data_block in encryption input outside an already generated begin_protected/end_protected region is an error; inside such a region ignore it.
 
@@ -85970,10 +86555,12 @@ Acceptance criterion: A data_block in encryption input outside an already genera
 
 Normative role: `mandatory`。
 
+- [test_protect_reject_plaintext_payload_blocks.sv](../tests/ch34/test_protect_reject_plaintext_payload_blocks.sv): Insert data_block in an ordinary plaintext file and a plaintext encryption range separately and require an error at each inserted directive.
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Place data_block in a previously protected inner envelope and compare its original bytes in the recovered outer plaintext.
 
 ### SV2023-34.5.16.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.16.1` / `normal` / No mapped test
+`34.5.16.1` / `normal` / Test mapped; execution unconfirmed
 
 The digest_keyowner pragma has the syntax digest_keyowner = \<string\>; string-valued forms require a string argument.
 
@@ -85981,10 +86568,12 @@ Acceptance criterion: The digest_keyowner pragma has the syntax digest_keyowner 
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone digest_keyowner and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for digest_keyowner inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER
 
-`34.5.16.2` / `normal` / No mapped test
+`34.5.16.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_keyowner selects the digest key supplier, may be a third party independent of author/agent, and defaults to the current data_keyowner if absent.
 
@@ -85992,10 +86581,11 @@ Acceptance criterion: digest_keyowner selects the digest key supplier, may be a 
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): Choose a digest supplier distinct from the body supplier and author, and compare that with a control inheriting the body owner.
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-DECRYPT
 
-`34.5.16.2` / `normal` / No mapped test
+`34.5.16.2` / `normal` / Test mapped; execution unconfirmed
 
 Combine digest_keyowner with digest_keyname or digest_public_key to identify the digest_block secret/private decryption key.
 
@@ -86003,6 +86593,8 @@ Acceptance criterion: Combine digest_keyowner with digest_keyname or digest_publ
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Select a private digest key from digest_keyowner and the key name, and check that an unknown owner cannot select it even with the original name.
+- [test_protect_digest_distinguishes_registered_keys.sv](../tests/ch34/test_protect_digest_distinguishes_registered_keys.sv): Change the owner while keeping a name shared by two registered owners and check that authentication fails with the selected alternate key.
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-OUTPUT-TEXT
 
@@ -86028,7 +86620,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.17.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.17.1` / `normal` / No mapped test
+`34.5.17.1` / `normal` / Test mapped; execution unconfirmed
 
 The digest_key_method pragma has the syntax digest_key_method = \<string\>; string-valued forms require a string argument.
 
@@ -86036,10 +86628,12 @@ Acceptance criterion: The digest_key_method pragma has the syntax digest_key_met
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone digest_key_method and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for digest_key_method inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER
 
-`34.5.17.2` / `normal` / No mapped test
+`34.5.17.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_key_method selects subsequent digest_block encryption, uses data_method algorithm identifiers, and defaults to the current data_method when absent.
 
@@ -86047,10 +86641,11 @@ Acceptance criterion: digest_key_method selects subsequent digest_block encrypti
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Check the default body cipher and an explicit different cipher and key for encrypting the digests.
 
 ### SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-DECRYPT
 
-`34.5.17.2` / `normal` / No mapped test
+`34.5.17.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_key_method determines digest_block decryption.
 
@@ -86058,6 +86653,8 @@ Acceptance criterion: digest_key_method determines digest_block decryption.
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Use digest_key_method to select the decoder and check both digests with the distinct CBC key sizes.
+- [test_protect_digest_distinguishes_registered_keys.sv](../tests/ch34/test_protect_digest_distinguishes_registered_keys.sv): Authenticate two explicitly selected keys and check that a different registered key fails even with the same cipher.
 
 ### SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-OUTPUT
 
@@ -86072,7 +86669,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.18.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.18.1` / `normal` / No mapped test
+`34.5.18.1` / `normal` / Test mapped; execution unconfirmed
 
 The digest_keyname pragma has the syntax digest_keyname = \<string\>; string-valued forms require a string argument.
 
@@ -86080,6 +86677,8 @@ Acceptance criterion: The digest_keyname pragma has the syntax digest_keyname = 
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone digest_keyname and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for digest_keyname inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME
 
@@ -86094,7 +86693,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-DECRYPT
 
-`34.5.18.2` / `normal` / No mapped test
+`34.5.18.2` / `normal` / Test mapped; execution unconfirmed
 
 Select one digest_block decryption key by combining digest_keyname and digest_keyowner.
 
@@ -86102,6 +86701,8 @@ Acceptance criterion: Select one digest_block decryption key by combining digest
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Select the decoder key from the owner and digest_keyname, and check lookup failure when the name alone is changed.
+- [test_protect_digest_distinguishes_registered_keys.sv](../tests/ch34/test_protect_digest_distinguishes_registered_keys.sv): Change between two registered key names of the same owner and check that the other key fails authentication.
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-OUTPUT
 
@@ -86116,7 +86717,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.19.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.19.1` / `normal` / No mapped test
+`34.5.19.1` / `normal` / Test mapped; execution unconfirmed
 
 The digest_public_key pragma has the syntax digest_public_key; string-valued forms require a string argument.
 
@@ -86124,10 +86725,12 @@ Acceptance criterion: The digest_public_key pragma has the syntax digest_public_
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare digest_public_key followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare digest_public_key followed by longer encoded data on one line, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-DECRYPT
 
-`34.5.19.2` / `normal` / No mapped test
+`34.5.19.2` / `normal` / Test mapped; execution unconfirmed
 
 Determine the digest private key using digest_keyowner, digest_key_method and digest_public_key; decrypt if computable and licensed.
 
@@ -86135,10 +86738,11 @@ Acceptance criterion: Determine the digest private key using digest_keyowner, di
 
 Normative role: `permission`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): Open the digest using the private key for the indicated digest method and owner, compare it to the body hash and distinguish license denial.
 
 ### SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-INPUT
 
-`34.5.19.2` / `normal` / No mapped test
+`34.5.19.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_public_key introduces the next-line public key in the active encoding, must match digest_keyname if both occur, and defaults to current data_public_key when absent.
 
@@ -86146,10 +86750,11 @@ Acceptance criterion: digest_public_key introduces the next-line public key in t
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): Check the digest public key on the next line and the inherited body key when omitted, and detect an explicit name that disagrees with the inherited key.
 
 ### SV2023-34.5.19.2-EXTRACT-DIGEST-PUBLIC-OUTPUT
 
-`34.5.19.2` / `normal` / No mapped test
+`34.5.19.2` / `normal` / Test mapped; execution unconfirmed
 
 Emit digest_public_key plus encoded value in each protected block using it; together with digest_key_method it can fully specify the encryption.
 
@@ -86157,10 +86762,12 @@ Acceptance criterion: Emit digest_public_key plus encoded value in each protecte
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): Decode the explicit or inherited digest public key from the output and use it for digest encryption and comparison separate from the body.
+- [test_protect_public_key_roles_remain_separate_between_envelopes.sv](../tests/ch34/test_protect_public_key_roles_remain_separate_between_envelopes.sv): Place a digest public key distinct from the body key in the same output region and recover the digest using its own private key.
 
 ### SV2023-34.5.20.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.20.1` / `normal` / No mapped test
+`34.5.20.1` / `normal` / Test mapped; execution unconfirmed
 
 The digest_decrypt_key pragma has the syntax digest_decrypt_key; string-valued forms require a string argument.
 
@@ -86168,10 +86775,12 @@ Acceptance criterion: The digest_decrypt_key pragma has the syntax digest_decryp
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare digest_decrypt_key followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare digest_decrypt_key followed by longer encoded data on one line, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-INPUT
 
-`34.5.20.2` / `normal` / No mapped test
+`34.5.20.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_decrypt_key introduces next-line encoded digest decryption key and defaults to current data_decrypt_key when absent.
 
@@ -86179,10 +86788,12 @@ Acceptance criterion: digest_decrypt_key introduces next-line encoded digest dec
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Read the dedicated digest key from the line after its directive and check in the signed control that it differs from the data key.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Omit the digest key from the signed control and check that the current data key decrypts the digest.
 
 ### SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-OUTPUT
 
-`34.5.20.2` / `normal` / No mapped test
+`34.5.20.2` / `normal` / Test mapped; execution unconfirmed
 
 Emit digest_decrypt_key in encrypted key_block content with the active encoding.
 
@@ -86190,10 +86801,12 @@ Acceptance criterion: Emit digest_decrypt_key in encrypted key_block content wit
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Open the signed control key block and compare its digest key in the selected encoding with the key before wrapping.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Open the signed control key block and compare its digest key in the selected encoding with the key before wrapping.
 
 ### SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-UNWRAP
 
-`34.5.20.2` / `normal` / No mapped test
+`34.5.20.2` / `normal` / Test mapped; execution unconfirmed
 
 For the stated signature mechanism decrypt key_block for digest_decrypt_key and digest_key_method and use them to decrypt digest_block.
 
@@ -86201,10 +86814,12 @@ Acceptance criterion: For the stated signature mechanism decrypt key_block for d
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Decrypt the digest with the method and key recovered by the recipient, compare it to the body hash and check detection of a wrong key or alteration.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Decrypt the digest with the method and key recovered by the recipient, compare it to the body hash and check detection of a wrong key or alteration.
 
 ### SV2023-34.5.20.2-EXTRACT-DIGEST-DECRYPT-USAGE
 
-`34.5.20.2` / `normal` / No mapped test
+`34.5.20.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_decrypt_key should be used only for the stated digital-signature mechanism.
 
@@ -86212,10 +86827,11 @@ Acceptance criterion: digest_decrypt_key should be used only for the stated digi
 
 Normative role: `recommendation`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Compare processing the dedicated digest decryption key after author signature verification with a control without a signature.
 
 ### SV2023-34.5.20.2-EXTRACT-WRAP-DIGEST-KEY
 
-`34.5.20.2` / `normal` / No mapped test
+`34.5.20.2` / `normal` / Test mapped; execution unconfirmed
 
 Encrypt digest_key_method and digest_decrypt_key with key_method into key_block; an author-encrypted digest_block is not itself reencrypted.
 
@@ -86223,10 +86839,12 @@ Acceptance criterion: Encrypt digest_key_method and digest_decrypt_key with key_
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Check that the author-encrypted digest keeps its ciphertext and encoded lines while the method and key are wrapped for the recipient.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Check that the author-encrypted digest keeps its ciphertext and encoded lines while the method and key are wrapped for the recipient.
 
 ### SV2023-34.5.21.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.21.1` / `normal` / No mapped test
+`34.5.21.1` / `normal` / Test mapped; execution unconfirmed
 
 The digest_method pragma has the syntax digest_method = \<string\>; string-valued forms require a string argument.
 
@@ -86234,6 +86852,8 @@ Acceptance criterion: The digest_method pragma has the syntax digest_method = \<
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone digest_method and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for digest_method inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-EXTENSIONS
 
@@ -86248,7 +86868,7 @@ Normative role: `implementation_defined`。
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-MD2
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-4 assigns md2 to MD2 (RFC 1319); support is optional.
 
@@ -86256,10 +86876,11 @@ Acceptance criterion: Table 34-4 assigns md2 to MD2 (RFC 1319); support is optio
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Request optional md2, verify a known-input hash, and check the generated method and digests for both block types.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-MD5
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-4 assigns md5 to MD5 (RFC 1321); support is required.
 
@@ -86267,10 +86888,11 @@ Acceptance criterion: Table 34-4 assigns md5 to MD5 (RFC 1321); support is requi
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Request required md5, verify a known-input hash, and check the generated method and digests for both block types.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_method selects the digest algorithm for subsequent data_block and key_block output.
 
@@ -86278,10 +86900,11 @@ Acceptance criterion: digest_method selects the digest algorithm for subsequent 
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Vary the requested method and check that it computes the digests associated with both key and data blocks.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-DECRYPT
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 Use digest_method to generate the comparison digest from data_block.
 
@@ -86289,6 +86912,7 @@ Acceptance criterion: Use digest_method to generate the comparison digest from d
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Read digest_method from the output and use a control that changes only that identifier to exercise authentication failure for both payloads.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-OUTPUT
 
@@ -86303,7 +86927,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-RIPEMD-160
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-4 assigns ripemd-160 to RIPEMD-160 (ISO/IEC 10118-3:2004); support is optional.
 
@@ -86311,10 +86935,11 @@ Acceptance criterion: Table 34-4 assigns ripemd-160 to RIPEMD-160 (ISO/IEC 10118
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Request optional ripemd-160, verify a known-input hash, and check the generated method and digests for both block types.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-SHA1
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 Table 34-4 assigns sha1 to SHA-1 (FIPS 180-2); support is required.
 
@@ -86322,10 +86947,11 @@ Acceptance criterion: Table 34-4 assigns sha1 to SHA-1 (FIPS 180-2); support is 
 
 Normative role: `definition`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Request required sha1, verify a known-input hash, and check the generated method and digests for both block types.
 
 ### SV2023-34.5.22.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.22.1` / `normal` / No mapped test
+`34.5.22.1` / `normal` / Test mapped; execution unconfirmed
 
 The digest_block pragma has the syntax digest_block; string-valued forms require a string argument.
 
@@ -86333,10 +86959,12 @@ Acceptance criterion: The digest_block pragma has the syntax digest_block; strin
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare digest_block followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare digest_block followed by wrapped encoded data, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.22.2-EXTRACT-DIGEST-AUTHENTICATE
 
-`34.5.22.2` / `normal` / No mapped test
+`34.5.22.2` / `normal` / Test mapped; execution unconfirmed
 
 Decode/decrypt the data and digest, generate a digest from decrypted data and compare; mismatch indicates modification of digest or encrypted data. The corresponding digest_block must immediately follow the key_block/data_block.
 
@@ -86344,10 +86972,12 @@ Acceptance criterion: Decode/decrypt the data and digest, generate a digest from
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Authenticate the original key and data, then modify each data ciphertext, data digest and key digest separately to check the corresponding failures.
+- [test_protect_digest_distinguishes_registered_keys.sv](../tests/ch34/test_protect_digest_distinguishes_registered_keys.sv): Repeat the key and data digest modification controls with distinct registered names and owners.
 
 ### SV2023-34.5.22.2-EXTRACT-DIGEST-ENCODE-PLACE
 
-`34.5.22.2` / `normal` / No mapped test
+`34.5.22.2` / `normal` / Test mapped; execution unconfirmed
 
 Encode the digest using active encoding, place its encoded content on the line after digest_block, and generate one immediately after every generated key_block and data_block.
 
@@ -86355,10 +86985,11 @@ Acceptance criterion: Encode the digest using active encoding, place its encoded
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Use base64 and uuencode to check that each key or data block is followed by its digest, with encoded bytes beginning on the following line.
 
 ### SV2023-34.5.22.2-EXTRACT-DIGEST-GENERATE
 
-`34.5.22.2` / `normal` / No mapped test
+`34.5.22.2` / `normal` / Test mapped; execution unconfirmed
 
 Generate the message digest with digest_method and encrypt it using digest_key_method and the key specified by digest_keyname, digest_keyowner, digest_public_key and digest_decrypt_key (the paragraph's digest_key_keyowner denotes digest_keyowner); if digest_key_method is absent, use the current data_method encryption key.
 
@@ -86366,10 +86997,11 @@ Acceptance criterion: With digest_keyowner and the other digest key selectors se
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Compare generation and recovery of the requested digests with the default data session key and with a separately named digest key.
 
 ### SV2023-34.5.22.2-EXTRACT-DIGEST-IV-INPUT
 
-`34.5.22.2` / `normal` / No mapped test
+`34.5.22.2` / `normal` / Test mapped; execution unconfirmed
 
 For CBC digest decryption needing an IV, remove the first decoded cipher block as IV and decrypt the rest.
 
@@ -86377,10 +87009,11 @@ Acceptance criterion: For CBC digest decryption needing an IV, remove the first 
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Read the initial digest ciphertext block as the IV and check that changing it causes authentication failure.
 
 ### SV2023-34.5.22.2-EXTRACT-DIGEST-IV-OUTPUT
 
-`34.5.22.2` / `normal` / No mapped test
+`34.5.22.2` / `normal` / Test mapped; execution unconfirmed
 
 For the selected CBC digest cipher requiring an IV, prepend its IV cipher block before encoding.
 
@@ -86388,10 +87021,11 @@ Acceptance criterion: For the selected CBC digest cipher requiring an IV, prepen
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Prefix an independent CBC control with its IV and check that the decoded output can recover the corresponding digest in that format.
 
 ### SV2023-34.5.22.2-EXTRACT-DIGEST-REQUEST
 
-`34.5.22.2` / `normal` / No mapped test
+`34.5.22.2` / `normal` / Test mapped; execution unconfirmed
 
 An encryption-input digest_block outside preexisting protected delimiters requests digest generation in output.
 
@@ -86399,10 +87033,11 @@ Acceptance criterion: An encryption-input digest_block outside preexisting prote
 
 Normative role: `mandatory`。
 
+- [test_protect_digests_authenticate_key_and_data.sv](../tests/ch34/test_protect_digests_authenticate_key_and_data.sv): Request digest_block in two plaintext ranges and check for generated digests for each key and data block.
 
 ### SV2023-34.5.23.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.23.1` / `normal` / No mapped test
+`34.5.23.1` / `normal` / Test mapped; execution unconfirmed
 
 The key_keyowner pragma uses the grammar key_keyowner = \<string\>.
 
@@ -86410,10 +87045,12 @@ Acceptance criterion: The key_keyowner pragma uses the grammar key_keyowner = \<
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone key_keyowner and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for key_keyowner inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.23.2-EXTRACT-KEY-OWNER
 
-`34.5.23.2` / `normal` / No mapped test
+`34.5.23.2` / `normal` / Test mapped; execution unconfirmed
 
 key_keyowner identifies the entity/tool supplying key-information encryption/decryption keys and obeys data_keyowner value constraints.
 
@@ -86421,10 +87058,12 @@ Acceptance criterion: key_keyowner identifies the entity/tool supplying key-info
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Select exchange keys scoped to suppliers other than the author, and reject duplicate names or key material within a supplier.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Select exchange keys scoped to suppliers other than the author, and reject duplicate names or key material within a supplier.
 
 ### SV2023-34.5.23.2-EXTRACT-KEY-OWNER-DECRYPT
 
-`34.5.23.2` / `normal` / No mapped test
+`34.5.23.2` / `normal` / Test mapped; execution unconfirmed
 
 Combine key_keyowner with key_keyname or key_public_key to determine the secret/private key for key_block decryption.
 
@@ -86432,10 +87071,12 @@ Acceptance criterion: Combine key_keyowner with key_keyname or key_public_key to
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Distinguish recipients by owner when their exchange key names match, and use each selected key to recover the same body.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Include a recipient selected only by owner and public key, and check that the wrong owner cannot open its key block.
 
 ### SV2023-34.5.23.2-EXTRACT-KEY-OWNER-OUTPUT
 
-`34.5.23.2` / `normal` / No mapped test
+`34.5.23.2` / `normal` / Test mapped; execution unconfirmed
 
 Preserve key_keyowner unchanged in encryption output.
 
@@ -86443,10 +87084,12 @@ Acceptance criterion: Preserve key_keyowner unchanged in encryption output.
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Read the exchange key owner of each output recipient block and compare it to the matching input value.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Read the exchange key owner of each output recipient block and compare it to the matching input value.
 
 ### SV2023-34.5.24.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.24.1` / `normal` / No mapped test
+`34.5.24.1` / `normal` / Test mapped; execution unconfirmed
 
 The key_method pragma uses the grammar key_method = \<string\>.
 
@@ -86454,10 +87097,12 @@ Acceptance criterion: The key_method pragma uses the grammar key_method = \<stri
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone key_method and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for key_method inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.24.2-EXTRACT-KEY-ALGORITHM
 
-`34.5.24.2` / `normal` / No mapped test
+`34.5.24.2` / `normal` / Test mapped; execution unconfirmed
 
 key_method selects encryption of data_block encryption keys, using the same algorithm identifier set as data_method.
 
@@ -86465,10 +87110,12 @@ Acceptance criterion: key_method selects encryption of data_block encryption key
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Use RSA and AES CBC as exchange key methods and recover the same body key from their different key block ciphertexts.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Use RSA and AES CBC as exchange key methods and recover the same body key from their different key block ciphertexts.
 
 ### SV2023-34.5.24.2-EXTRACT-KEY-METHOD-DECRYPT
 
-`34.5.24.2` / `normal` / No mapped test
+`34.5.24.2` / `normal` / Test mapped; execution unconfirmed
 
 key_method selects key_block decryption.
 
@@ -86476,10 +87123,12 @@ Acceptance criterion: key_method selects key_block decryption.
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Open each key block using its specified method and reject a control that switches methods while retaining the ciphertext.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Open each key block using its specified method and reject a control that switches methods while retaining the ciphertext.
 
 ### SV2023-34.5.24.2-EXTRACT-KEY-METHOD-OUTPUT
 
-`34.5.24.2` / `normal` / No mapped test
+`34.5.24.2` / `normal` / Test mapped; execution unconfirmed
 
 Preserve key_method unchanged in output.
 
@@ -86487,10 +87136,12 @@ Acceptance criterion: Preserve key_method unchanged in output.
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Read back the method for each output key block and check that the input method for each recipient was preserved.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Read back the method for each output key block and check that the input method for each recipient was preserved.
 
 ### SV2023-34.5.25.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.25.1` / `normal` / No mapped test
+`34.5.25.1` / `normal` / Test mapped; execution unconfirmed
 
 The key_keyname pragma uses the grammar key_keyname = \<string\>.
 
@@ -86498,10 +87149,12 @@ Acceptance criterion: The key_keyname pragma uses the grammar key_keyname = \<st
 
 Normative role: `definition`。
 
+- [test_protect_key_and_method_string_syntax.sv](../tests/ch34/test_protect_key_and_method_string_syntax.sv): Accept a quoted string for standalone key_keyname and diagnose a missing or numeric value.
+- [test_protect_key_and_method_strings_inside_envelope.sv](../tests/ch34/test_protect_key_and_method_strings_inside_envelope.sv): Accept a quoted string for key_keyname inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.25.2-EXTRACT-KEY-NAME
 
-`34.5.25.2` / `error` / No mapped test
+`34.5.25.2` / `error` / Test mapped; execution unconfirmed
 
 key_keyname identifies the key/pair for key_block decryption; a name not known for key_keyowner is an error.
 
@@ -86509,10 +87162,11 @@ Acceptance criterion: key_keyname identifies the key/pair for key_block decrypti
 
 Normative role: `mandatory`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): Give the key block a name known only to another owner and a name unknown to all owners, and match the lookup failure to the requested owner and name.
 
 ### SV2023-34.5.25.2-EXTRACT-KEY-NAME-DECRYPT-TEXT
 
-`34.5.25.2` / `normal` / No mapped test
+`34.5.25.2` / `normal` / Test mapped; execution unconfirmed
 
 In decryption input, combine key_keyname with key_keyowner to select a single key used to decrypt the key_block; the paragraph's data_block target denotes the key_block.
 
@@ -86520,10 +87174,11 @@ Acceptance criterion: For a protected envelope carrying key_keyowner O and key_k
 
 Normative role: `mandatory`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): Select the key block private key by owner and name and recover the body with the key extracted from that block.
 
 ### SV2023-34.5.25.2-EXTRACT-KEY-NAME-OUTPUT
 
-`34.5.25.2` / `normal` / No mapped test
+`34.5.25.2` / `normal` / Test mapped; execution unconfirmed
 
 Combine key_keyname and key_keyowner to select encryption of data keys; output key_keyname itself as cleartext.
 
@@ -86531,10 +87186,12 @@ Acceptance criterion: Combine key_keyname and key_keyowner to select encryption 
 
 Normative role: `mandatory`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): Check that owner and name select the exchange key for wrapping the data key and that the exchange key name remains readable in clear output.
+- [test_protect_public_key_roles_remain_separate_between_envelopes.sv](../tests/ch34/test_protect_public_key_roles_remain_separate_between_envelopes.sv): Use the same name as the first body key for an exchange key in the next region and compare the output owner and name before recovering the body key.
 
 ### SV2023-34.5.26.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.26.1` / `normal` / No mapped test
+`34.5.26.1` / `normal` / Test mapped; execution unconfirmed
 
 The key_public_key pragma uses the grammar key_public_key.
 
@@ -86542,10 +87199,12 @@ Acceptance criterion: The key_public_key pragma uses the grammar key_public_key.
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare key_public_key followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare key_public_key followed by longer encoded data on one line, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-DECRYPT
 
-`34.5.26.2` / `normal` / No mapped test
+`34.5.26.2` / `normal` / Test mapped; execution unconfirmed
 
 Combine key_keyowner, key_method and key_public_key to determine the corresponding private key; if computable, the data keys may be decrypted.
 
@@ -86553,10 +87212,11 @@ Acceptance criterion: Combine key_keyowner, key_method and key_public_key to det
 
 Normative role: `permission`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): Select the private key by exchange owner, method and public key, recover the key block and check that the wrong owner cannot open it.
 
 ### SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-INPUT
 
-`34.5.26.2` / `normal` / No mapped test
+`34.5.26.2` / `normal` / Test mapped; execution unconfirmed
 
 key_public_key introduces next-line encoded public key for key data using active encoding; with key_keyname both must refer to the same key.
 
@@ -86564,10 +87224,11 @@ Acceptance criterion: key_public_key introduces next-line encoded public key for
 
 Normative role: `mandatory`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): Read the exchange public key from the next line and check rejection of a different named key or an intervening blank line.
 
 ### SV2023-34.5.26.2-EXTRACT-KEY-PUBLIC-OUTPUT
 
-`34.5.26.2` / `normal` / No mapped test
+`34.5.26.2` / `normal` / Test mapped; execution unconfirmed
 
 Output key_public_key and its encoded value in every protected block using it; with key_method it can fully specify data-key encryption.
 
@@ -86575,10 +87236,12 @@ Acceptance criterion: Output key_public_key and its encoded value in every prote
 
 Normative role: `mandatory`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): Check that the recipient public key accompanies the output key block and that the declared method leads to recovery of the body key.
+- [test_protect_public_key_roles_remain_separate_between_envelopes.sv](../tests/ch34/test_protect_public_key_roles_remain_separate_between_envelopes.sv): Decode the later exchange public key in its own encoding and check that the body and digest keys of the earlier region cannot open its key block.
 
 ### SV2023-34.5.27.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.27.1` / `normal` / No mapped test
+`34.5.27.1` / `normal` / Test mapped; execution unconfirmed
 
 The key_block pragma uses the grammar key_block.
 
@@ -86586,10 +87249,12 @@ Acceptance criterion: The key_block pragma uses the grammar key_block.
 
 Normative role: `definition`。
 
+- [test_protect_bare_keys_and_blocks_with_single_line_payloads.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_single_line_payloads.sv): Accept bare key_block followed by encoded data on one line, then diagnose a numeric argument added to the directive.
+- [test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv](../tests/ch34/test_protect_bare_keys_and_blocks_with_wrapped_blocks.sv): Accept bare key_block followed by wrapped encoded data, then diagnose a numeric argument added to the directive.
 
 ### SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-DECRYPT
 
-`34.5.27.2` / `normal` / No mapped test
+`34.5.27.2` / `normal` / Test mapped; execution unconfirmed
 
 Decode key_block then decrypt and parse its text for data_block keys; for CBC needing IV first remove the initial decoded cipher block as IV and decrypt the remainder.
 
@@ -86597,10 +87262,11 @@ Acceptance criterion: Decode key_block then decrypt and parse its text for data_
 
 Normative role: `mandatory`。
 
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Decode and decrypt the inner key block, read the body method and key from the resulting text, and recover the source.
 
 ### SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-INPUT-ERROR
 
-`34.5.27.2` / `error` / No mapped test
+`34.5.27.2` / `error` / Test mapped; execution unconfirmed
 
 A key_block in encryption input outside already generated protected delimiters is an error; ignore it inside preexisting protected delimiters.
 
@@ -86608,10 +87274,12 @@ Acceptance criterion: A key_block in encryption input outside already generated 
 
 Normative role: `mandatory`。
 
+- [test_protect_reject_plaintext_payload_blocks.sv](../tests/ch34/test_protect_reject_plaintext_payload_blocks.sv): Insert key_block in an ordinary plaintext file and a plaintext encryption range separately and require an error at each inserted directive.
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Place key_block in a previously protected inner envelope and compare its original bytes in the recovered outer plaintext.
 
 ### SV2023-34.5.27.2-EXTRACT-KEY-BLOCK-OUTPUT
 
-`34.5.27.2` / `normal` / No mapped test
+`34.5.27.2` / `normal` / Test mapped; execution unconfirmed
 
 key_block content begins on the next line. For the stated signature mechanism form a text buffer from data_method, data_public_key, data_keyname, data_decrypt_key and digest_block as applicable, encrypt using appropriate key_public_key, encode with active encoding and output as key_block.
 
@@ -86619,10 +87287,12 @@ Acceptance criterion: key_block content begins on the next line. For the stated 
 
 Normative role: `mandatory`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Encrypt a text buffer holding the body method, key and encrypted digest with the recipient public key and recover the declarations from the encoded next-line key block.
+- [test_protect_author_digest_inherits_data_key.sv](../tests/ch34/test_protect_author_digest_inherits_data_key.sv): Encrypt a text buffer holding the body method, key and encrypted digest with the recipient public key and recover the declarations from the encoded next-line key block.
 
 ### SV2023-34.5.27.2-EXTRACT-KEY-IV-PREFIX
 
-`34.5.27.2` / `normal` / No mapped test
+`34.5.27.2` / `normal` / Test mapped; execution unconfirmed
 
 For key_method CBC requiring an IV, prepend the IV cipher block to encrypted key data before encoding.
 
@@ -86630,10 +87300,11 @@ Acceptance criterion: For key_method CBC requiring an IV, prepend the IV cipher 
 
 Normative role: `mandatory`。
 
+- [test_protect_reencrypt_nested_envelope.sv](../tests/ch34/test_protect_reencrypt_nested_envelope.sv): Decrypt a control whose encrypted key has a prefixed IV and check that changing the first block prevents recovery of the body key.
 
 ### SV2023-34.5.27.2-EXTRACT-MULTIPLE-KEY-BLOCKS
 
-`34.5.27.2` / `error` / No mapped test
+`34.5.27.2` / `error` / Test mapped; execution unconfirmed
 
 Multiple key_blocks within one begin-end envelope must encode the same data decryption key data; changing data decryption pragma values between those blocks is an error. They provide alternative decryption keys.
 
@@ -86641,10 +87312,12 @@ Acceptance criterion: Multiple key_blocks within one begin-end envelope must enc
 
 Normative role: `mandatory`。
 
+- [test_protect_recipients_wrap_the_same_body_key.sv](../tests/ch34/test_protect_recipients_wrap_the_same_body_key.sv): Check that recipients with different methods and encodings recover the same body key, then change the body key, method, owner or name one at a time and check the diagnostic before wrapping.
+- [test_protect_recipients_reject_changed_body_key_metadata.sv](../tests/ch34/test_protect_recipients_reject_changed_body_key_metadata.sv): Check that recipients with different methods and encodings recover the same body key, then change the body key, method, owner or name one at a time and check the diagnostic before wrapping.
 
 ### SV2023-34.5.28.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.28.1` / `normal` / No mapped test
+`34.5.28.1` / `normal` / Test mapped; execution unconfirmed
 
 The decrypt_license pragma uses the displayed keyword and argument grammar: decrypt_license = ( library = \<string\> , entry = \<string\> , feature = \<string\> \[, exit = \<string\>\] \[, match = \<number\> \] ). Parenthesized library/entry/feature strings are required for licenses; exit and numeric match are optional where bracketed.
 
@@ -86652,10 +87325,12 @@ Acceptance criterion: The decrypt_license pragma uses the displayed keyword and 
 
 Normative role: `definition`。
 
+- [test_protect_license_and_viewport_minimal_syntax.sv](../tests/ch34/test_protect_license_and_viewport_minimal_syntax.sv): Accept decrypt_license with its three required strings and exercise the type and presence of each field.
+- [test_protect_license_optional_fields_and_viewport_string_syntax.sv](../tests/ch34/test_protect_license_optional_fields_and_viewport_string_syntax.sv): Accept decrypt_license with the optional exit name and match value and exercise field types and the required strings.
 
 ### SV2023-34.5.28.2-EXTRACT-LICENSE-DENIAL
 
-`34.5.28.2` / `error` / No mapped test
+`34.5.28.2` / `error` / Test mapped; execution unconfirmed
 
 If decrypt_license authorization fails, perform no decryption and issue an error including the entry return value.
 
@@ -86663,10 +87338,12 @@ Acceptance criterion: If decrypt_license authorization fails, perform no decrypt
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Change the feature to exercise denial and check that decryption does not start and the diagnostic contains the entry return value.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Change only the match value for the same feature and check denial before decryption, with the original return value in the diagnostic.
 
 ### SV2023-34.5.28.2-EXTRACT-LICENSE-ENTRY
 
-`34.5.28.2` / `normal` / No mapped test
+`34.5.28.2` / `normal` / Test mapped; execution unconfirmed
 
 After finding decrypt_license in an encrypted model, before processing decrypted text, load its specified library, call entry with feature string, and compare return value to match. Licensed return equals match; an unlicensed return differs.
 
@@ -86674,10 +87351,12 @@ Acceptance criterion: After finding decrypt_license in an encrypted model, befor
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Pass the feature to the named library entry and use the control trace to check that decryption starts after return-value matching.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Pass the feature to the named library entry and use the control trace to check that decryption starts after return-value matching.
 
 ### SV2023-34.5.28.2-EXTRACT-LICENSE-EXIT
 
-`34.5.28.2` / `normal` / No mapped test
+`34.5.28.2` / `normal` / Test mapped; execution unconfirmed
 
 If decrypt_license specifies exit, call it before the relevant application exits to release its license.
 
@@ -86685,10 +87364,12 @@ Acceptance criterion: If decrypt_license specifies exit, call it before the rele
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Check that the decrypt_license release callback precedes the reference process exit marker.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Check process exit in the control with the decrypt_license release callback omitted.
 
 ### SV2023-34.5.28.2-EXTRACT-LICENSE-OUTPUT
 
-`34.5.28.2` / `normal` / No mapped test
+`34.5.28.2` / `normal` / Test mapped; execution unconfirmed
 
 Output decrypt_license unchanged except for encryption and encoding with the surrounding begin-end cleartext.
 
@@ -86696,10 +87377,12 @@ Acceptance criterion: Output decrypt_license unchanged except for encryption and
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Compare the entire decrypt_license line with the text recovered from the encrypted body.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Compare the entire decrypt_license line with the text recovered from the encrypted body.
 
 ### SV2023-34.5.29.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.29.1` / `normal` / No mapped test
+`34.5.29.1` / `normal` / Test mapped; execution unconfirmed
 
 The runtime_license pragma uses the displayed keyword and argument grammar: runtime_license = ( library = \<string\> , entry = \<string\> , feature = \<string\> \[ , exit = \<string\> \] \[ , match = \<number\> \] ). Parenthesized library/entry/feature strings are required for licenses; exit and numeric match are optional where bracketed.
 
@@ -86707,10 +87390,12 @@ Acceptance criterion: The runtime_license pragma uses the displayed keyword and 
 
 Normative role: `definition`。
 
+- [test_protect_license_and_viewport_minimal_syntax.sv](../tests/ch34/test_protect_license_and_viewport_minimal_syntax.sv): Accept runtime_license with its three required strings and exercise the type and presence of each field.
+- [test_protect_license_optional_fields_and_viewport_string_syntax.sv](../tests/ch34/test_protect_license_optional_fields_and_viewport_string_syntax.sv): Accept runtime_license with the optional exit name and match value and exercise field types and the required strings.
 
 ### SV2023-34.5.29.2-EXTRACT-LICENSE-DENIAL
 
-`34.5.29.2` / `error` / No mapped test
+`34.5.29.2` / `error` / Test mapped; execution unconfirmed
 
 If runtime_license authorization fails, do not begin execution and issue an error including the entry return value.
 
@@ -86718,10 +87403,12 @@ Acceptance criterion: If runtime_license authorization fails, do not begin execu
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Change the feature to exercise denial and check that execution does not start and the diagnostic contains the entry return value.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Change only the match value for the same feature and check denial before execution, with the original return value in the diagnostic.
 
 ### SV2023-34.5.29.2-EXTRACT-LICENSE-ENTRY
 
-`34.5.29.2` / `normal` / No mapped test
+`34.5.29.2` / `normal` / Test mapped; execution unconfirmed
 
 After finding runtime_license in an encrypted model, before model execution, load its specified library, call entry with feature string, and compare return value to match. Licensed return equals match; an unlicensed return differs.
 
@@ -86729,10 +87416,12 @@ Acceptance criterion: After finding runtime_license in an encrypted model, befor
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Pass the feature to the named library entry and use the control trace to check that execution starts after return-value matching.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Pass the feature to the named library entry and use the control trace to check that execution starts after return-value matching.
 
 ### SV2023-34.5.29.2-EXTRACT-LICENSE-EXIT
 
-`34.5.29.2` / `normal` / No mapped test
+`34.5.29.2` / `normal` / Test mapped; execution unconfirmed
 
 If runtime_license specifies exit, call it before the relevant application exits to release its license.
 
@@ -86740,10 +87429,12 @@ Acceptance criterion: If runtime_license specifies exit, call it before the rele
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Check that the runtime_license release callback precedes the reference process exit marker.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Check process exit in the control with the runtime_license release callback omitted.
 
 ### SV2023-34.5.29.2-EXTRACT-LICENSE-OUTPUT
 
-`34.5.29.2` / `normal` / No mapped test
+`34.5.29.2` / `normal` / Test mapped; execution unconfirmed
 
 Output runtime_license unchanged except for encryption and encoding with the surrounding begin-end cleartext.
 
@@ -86751,10 +87442,12 @@ Acceptance criterion: Output runtime_license unchanged except for encryption and
 
 Normative role: `mandatory`。
 
+- [test_protect_license_checks_before_processing_and_execution.sv](../tests/ch34/test_protect_license_checks_before_processing_and_execution.sv): Compare the entire runtime_license line with the text recovered from the encrypted body.
+- [test_protect_license_matches_without_release.sv](../tests/ch34/test_protect_license_matches_without_release.sv): Compare the entire runtime_license line with the text recovered from the encrypted body.
 
 ### SV2023-34.5.30.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.30.1` / `normal` / No mapped test
+`34.5.30.1` / `normal` / Test mapped; execution unconfirmed
 
 The comment pragma uses the grammar comment = \<string\>.
 
@@ -86762,6 +87455,8 @@ Acceptance criterion: The comment pragma uses the grammar comment = \<string\>.
 
 Normative role: `definition`。
 
+- [test_protect_author_and_agent_string_syntax.sv](../tests/ch34/test_protect_author_and_agent_string_syntax.sv): Accept a quoted string for standalone comment and diagnose a missing or numeric value.
+- [test_protect_author_and_agent_strings_inside_envelope.sv](../tests/ch34/test_protect_author_and_agent_strings_inside_envelope.sv): Accept a quoted string for comment inside the envelope and diagnose an absent or numeric value.
 
 ### SV2023-34.5.30.2-EXTRACT-COMMENT-ANYWHERE
 
@@ -86776,7 +87471,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.30.2-EXTRACT-COMMENT-NOT-ENCRYPTED
 
-`34.5.30.2` / `normal` / No mapped test
+`34.5.30.2` / `normal` / Test mapped; execution unconfirmed
 
 The comment pragma and value should be excluded from encrypted text.
 
@@ -86784,10 +87479,12 @@ Acceptance criterion: The comment pragma and value should be excluded from encry
 
 Normative role: `recommendation`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check the decrypted body for the absence of the comment pragma and its distinctive value.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check the decrypted body for the absence of the comment pragma and its distinctive value.
 
 ### SV2023-34.5.30.2-EXTRACT-COMMENT-OUTPUT
 
-`34.5.30.2` / `normal` / No mapped test
+`34.5.30.2` / `normal` / Test mapped; execution unconfirmed
 
 Emit the entire comment including the initial pragma in cleartext immediately before the data_block for the begin-end containing it.
 
@@ -86795,10 +87492,12 @@ Acceptance criterion: Emit the entire comment including the initial pragma in cl
 
 Normative role: `mandatory`。
 
+- [test_protect_encrypts_only_delimited_source_ranges.sv](../tests/ch34/test_protect_encrypts_only_delimited_source_ranges.sv): Check that the complete comment pragma line appears in cleartext just before its corresponding data_block.
+- [test_protect_exports_author_fields_and_limits_encoded_lines.sv](../tests/ch34/test_protect_exports_author_fields_and_limits_encoded_lines.sv): Check that the complete comment pragma line appears in cleartext just before its corresponding data_block.
 
 ### SV2023-34.5.31.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.31.1` / `normal` / No mapped test
+`34.5.31.1` / `normal` / Test mapped; execution unconfirmed
 
 The reset pragma uses the grammar reset.
 
@@ -86806,10 +87505,12 @@ Acceptance criterion: The reset pragma uses the grammar reset.
 
 Normative role: `definition`。
 
+- [test_protect_standalone_envelope_delimiters_syntax.sv](../tests/ch34/test_protect_standalone_envelope_delimiters_syntax.sv): Accept reset as a standalone directive without an argument, then diagnose a numeric argument added to it.
+- [test_protect_combined_envelope_delimiters_syntax.sv](../tests/ch34/test_protect_combined_envelope_delimiters_syntax.sv): Accept bare reset among other expressions on its pragma line, then diagnose a numeric argument added to that expression alone.
 
 ### SV2023-34.5.31.2-EXTRACT-RESET-FILE-LIST
 
-`34.5.31.2` / `normal` / No mapped test
+`34.5.31.2` / `normal` / Test mapped; execution unconfirmed
 
 Because pragma state extends lexically to compilation-input end, authors sharing metadata at the start of file lists should reset it at the end to avoid unintended propagation.
 
@@ -86817,10 +87518,11 @@ Acceptance criterion: Because pragma state extends lexically to compilation-inpu
 
 Normative role: `recommendation`。
 
+- [test_protect_reset_stops_encoding_state_at_file_boundary.sv](../tests/ch34/test_protect_reset_stops_encoding_state_at_file_boundary.sv): End the first file of one compilation unit with a reset, then omit it and require that the inherited encoding rejects the payload on its line in the next file.
 
 ### SV2023-34.5.31.2-EXTRACT-RESET-PROTECT
 
-`34.5.31.2` / `normal` / No mapped test
+`34.5.31.2` / `normal` / Test mapped; execution unconfirmed
 
 protect reset is synonymous with a reset pragma listing protect; it restores every protect keyword to its default value.
 
@@ -86828,10 +87530,12 @@ Acceptance criterion: protect reset is synonymous with a reset pragma listing pr
 
 Normative role: `mandatory`。
 
+- [test_protect_reset_stops_encoding_state_at_file_boundary.sv](../tests/ch34/test_protect_reset_stops_encoding_state_at_file_boundary.sv): Compare the protect reset expression and the equivalent named reset after selecting an encoding, and check that both restore the pre-source encoding in the following file.
+- [test_protect_reset_restores_default_before_reconfiguration.sv](../tests/ch34/test_protect_reset_restores_default_before_reconfiguration.sv): Use Base64 in one file, check the default immediately after reset and uuencode after reconfiguration, and detect an omitted reset or a bad payload under the new encoding.
 
 ### SV2023-34.5.32.1-EXTRACT-KEYWORD-SYNTAX
 
-`34.5.32.1` / `normal` / No mapped test
+`34.5.32.1` / `normal` / Test mapped; execution unconfirmed
 
 The viewport pragma uses the grammar viewport = ( object = \<string\> , access = \<string\> ).
 
@@ -86839,6 +87543,8 @@ Acceptance criterion: The viewport pragma uses the grammar viewport = ( object =
 
 Normative role: `definition`。
 
+- [test_protect_license_and_viewport_minimal_syntax.sv](../tests/ch34/test_protect_license_and_viewport_minimal_syntax.sv): Accept two named viewport strings and diagnose each field when it is omitted or given a number.
+- [test_protect_license_optional_fields_and_viewport_string_syntax.sv](../tests/ch34/test_protect_license_optional_fields_and_viewport_string_syntax.sv): Accept a viewport string containing spaces and check diagnostics when changing the type or presence of one field at a time.
 
 ### SV2023-34.5.32.2-EXTRACT-VIEWPORT-ACCESS
 
@@ -87000,7 +87706,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.2.2.1-EXTRACT-REPRESENTATION
 
-`35.2.2.1` / `normal` / No mapped test
+`35.2.2.1` / `normal` / Execution confirmed
 
 DPI imposes no additional internal SV representation constraints; packed two/four-state array and structure layout is implementation/platform dependent.
 
@@ -87008,6 +87714,7 @@ Acceptance criterion: DPI imposes no additional internal SV representation const
 
 Normative role: `implementation_defined`。
 
+- [test_dpi_packed_storage_conversion.sv](../tests/ch35/test_dpi_packed_storage_conversion.sv): Pass packed structs and multidimensional arrays in both two-state and four-state forms. Check conversions from distinct internal representations to canonical words using execution traces and generated code.
 
 ### SV2023-35.2.2.1-EXTRACT-SEMANTIC-INDEPENDENCE
 
@@ -87157,7 +87864,7 @@ Normative role: `permission`。
 
 ### SV2023-35.4-EXTRACT-VERSION-CONSISTENCY
 
-`35.4` / `normal` / No mapped test
+`35.4` / `error` / Test mapped; execution unconfirmed
 
 The deprecated DPI version string selects the packed-array convention of H.14; every declaration of one c_identifier must use the same DPI version string.
 
@@ -87165,6 +87872,9 @@ Acceptance criterion: The deprecated DPI version string selects the packed-array
 
 Normative role: `mandatory`。
 
+- [test_dpi_packed_aliases_keep_version_by_linkage_and_scope.sv](../tests/ch35/test_dpi_packed_aliases_keep_version_by_linkage_and_scope.sv): Match each external name's version across package and module declarations and round-trip packed two-state and four-state values using both versions.
+- [test_illegal_dpi_version_mismatch_across_package_and_module.sv](../tests/ch35/test_illegal_dpi_version_mismatch_across_package_and_module.sv): Require a version mismatch diagnostic at a declaration when a package and module use different versions for the same external name.
+- [test_illegal_dpi_versions_share_one_c_linkage_identifier.sv](../tests/ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier.sv): Require a version mismatch diagnostic at a declaration when the same module declares one external name with two versions.
 
 ### SV2023-35.5-EXTRACT-IMPORT-USAGE
 
@@ -87180,7 +87890,7 @@ Normative role: `definition`。
 
 ### SV2023-35.5.1-EXTRACT-FOREIGN-PRECONDITIONS
 
-`35.5.1` / `normal` / No mapped test
+`35.5.1` / `normal` / Execution confirmed
 
 Foreign code must obey shared and pure/context-specific semantic restrictions; compilers need not verify them, and violating them yields unpredictable call effects.
 
@@ -87188,6 +87898,7 @@ Acceptance criterion: Foreign code must obey shared and pure/context-specific se
 
 Normative role: `definition`。
 
+- [test_dpi_foreign_precondition_observations.sv](../tests/ch35/test_dpi_foreign_precondition_observations.sv): Compile the same design on its own, then check returned values and the input in the normal control. Enable the C input write, pure-function state change, and noncontext call separately and record what each run reaches and returns.
 
 ### SV2023-35.5.1.1-EXTRACT-ZERO-TIME
 
@@ -87227,7 +87938,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.1.2-EXTRACT-OUTPUT-INITIAL
 
-`35.5.1.2` / `normal` / No mapped test
+`35.5.1.2` / `normal` / Execution confirmed
 
 Imported-function output formals have undetermined implementation-dependent initial values; foreign code must not depend on an initial value.
 
@@ -87235,6 +87946,7 @@ Acceptance criterion: Imported-function output formals have undetermined impleme
 
 Normative role: `implementation_defined`。
 
+- [test_dpi_output_independent_of_initial_storage.sv](../tests/ch35/test_dpi_output_independent_of_initial_storage.sv): Vary the caller values and formal storage contents, and check that the foreign function writes both outputs from its input and returns the same results. Verify the alternate contents at the C entry and check the expected results in both native and modified runs.
 
 ### SV2023-35.5.1.3-EXTRACT-ATTRIBUTES
 
@@ -87325,7 +88037,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.1.6-EXTRACT-CXX-BOUNDARY
 
-`35.5.1.6` / `error` / No mapped test
+`35.5.1.6` / `error` / Execution confirmed
 
 C++ DPI implementations must obey C linkage at the boundary; exceptions must not escape any imported subroutine, and crossing into SV has undefined behavior.
 
@@ -87333,10 +88045,11 @@ Acceptance criterion: C++ DPI implementations must obey C linkage at the boundar
 
 Normative role: `mandatory`。
 
+- [test_dpi_cxx_function_and_task_boundaries.sv](../tests/ch35/test_dpi_cxx_function_and_task_boundaries.sv): Verify that the C++ function and task with C linkage catch internal exceptions, return to SystemVerilog and support subsequent ordinary calls. Check that removing C linkage causes both symbols to fail linking and that removing the handlers lets both exceptions reach a native C++ caller.
 
 ### SV2023-35.5.2-EXTRACT-PURE-NO-EXTERNAL-IO
 
-`35.5.2` / `normal` / No mapped test
+`35.5.2` / `normal` / Execution confirmed
 
 A pure function must not directly or indirectly read/write environment, OS/program/process objects, shared memory, sockets or other external state.
 
@@ -87344,10 +88057,11 @@ Acceptance criterion: A pure function must not directly or indirectly read/write
 
 Normative role: `mandatory`。
 
+- [test_dpi_pure_external_state_observation.sv](../tests/ch35/test_dpi_pure_external_state_observation.sv): Trace environment writes and reads, a process query, a shared mapping and sends and receives on a local socket pair reached through a helper. Check the ordinary results and observe the external calls and results with each import declared pure in a separate trial.
 
 ### SV2023-35.5.2-EXTRACT-PURE-NO-FILES
 
-`35.5.2` / `normal` / No mapped test
+`35.5.2` / `normal` / Execution confirmed
 
 A pure function must not directly or indirectly perform file operations.
 
@@ -87355,10 +88069,11 @@ Acceptance criterion: A pure function must not directly or indirectly perform fi
 
 Normative role: `mandatory`。
 
+- [test_dpi_pure_file_access_observation.sv](../tests/ch35/test_dpi_pure_file_access_observation.sv): Call the function that opens a temporary file directly and its helper-mediated counterpart as ordinary imports and trace file creation, writing, seeking, reading and closing. Declare each import pure in a separate trial, verify that it reaches the same file operations and record the observed result.
 
 ### SV2023-35.5.2-EXTRACT-PURE-NO-PERSISTENT
 
-`35.5.2` / `normal` / No mapped test
+`35.5.2` / `normal` / Execution confirmed
 
 A pure function must not access persistent global/static data.
 
@@ -87366,10 +88081,11 @@ Acceptance criterion: A pure function must not access persistent global/static d
 
 Normative role: `mandatory`。
 
+- [test_dpi_pure_call_optimization.sv](../tests/ch35/test_dpi_pure_call_optimization.sv): Use ordinary imports for direct updates to a static local and indirect updates to a persistent file-scope variable and check their increasing outputs. Mark each import pure separately, verify its native entry and record what happens when the foreign-code precondition is violated.
 
 ### SV2023-35.5.2-EXTRACT-PURE-OPTIMIZATION
 
-`35.5.2` / `normal` / No mapped test
+`35.5.2` / `normal` / Execution confirmed
 
 A simulator may eliminate unneeded pure calls or reuse prior results for identical input values.
 
@@ -87377,6 +88093,7 @@ Acceptance criterion: A simulator may eliminate unneeded pure calls or reuse pri
 
 Normative role: `permission`。
 
+- [test_dpi_pure_call_optimization.sv](../tests/ch35/test_dpi_pure_call_optimization.sv): Check the output of the pure function at repeated and distinct inputs and record actual C entries by input. Compare builds that read and leave unread the net to observe unused evaluations and reevaluation of equal inputs.
 
 ### SV2023-35.5.2-EXTRACT-PURE-SIGNATURE
 
@@ -87442,7 +88159,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.3-EXTRACT-CHAIN-UNWIND
 
-`35.5.3` / `normal` / No mapped test
+`35.5.3` / `normal` / Execution confirmed
 
 Circumventing ordinary return/unwinding across an export call, such as by setjmp/longjmp, has undefined results.
 
@@ -87450,6 +88167,7 @@ Acceptance criterion: Circumventing ordinary return/unwinding across an export c
 
 Normative role: `definition`。
 
+- [test_dpi_context_chain_escape_observation.sv](../tests/ch35/test_dpi_context_chain_escape_observation.sv): Verify both the export and its caller return in the normal control. In a separate process, skip the normal return and observe arrival at a landing point in the outer C call.
 
 ### SV2023-35.5.3-EXTRACT-CONTEXT-INSTRUMENT
 
@@ -87538,7 +88256,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-ENABLE
 
-`35.5.3` / `normal` / No mapped test
+`35.5.3` / `normal` / Execution confirmed
 
 context does not enable other simulator interfaces automatically: their implementation-defined enabling mechanism must still be used, and users supply/manage required handles and environment.
 
@@ -87546,10 +88264,11 @@ Acceptance criterion: context does not enable other simulator interfaces automat
 
 Normative role: `mandatory`。
 
+- [test_dpi_context_requires_separate_vpi_activation.sv](../tests/ch35/test_dpi_context_requires_separate_vpi_activation.sv): Verify that the DPI control has an active scope. With VPI enabled, obtain the handle, read the value and release the handle. Check that all three VPI symbols are unresolved with VPI disabled.
 
 ### SV2023-35.5.3-EXTRACT-OTHER-INTERFACE-SCOPE
 
-`35.5.3` / `normal` / No mapped test
+`35.5.3` / `normal` / Execution confirmed
 
 Scope APIs/export calls from non-DPI foreign interfaces require scope setup and have simulator-defined behavior outside the DPI specification.
 
@@ -87557,6 +88276,7 @@ Acceptance criterion: Scope APIs/export calls from non-DPI foreign interfaces re
 
 Normative role: `implementation_defined`。
 
+- [test_dpi_vpi_callback_selects_export_scope.sv](../tests/ch35/test_dpi_vpi_callback_selects_export_scope.sv): Select two explicit scopes from the VPI callback and check that the same DPI export returns distinct values. Record the tool response when calling without selecting a scope.
 
 ### SV2023-35.5.3-EXTRACT-SAFE-CONTEXT-APIS
 
@@ -87596,7 +88316,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.5.4-EXTRACT-DEPRECATED-DIAGNOSTIC
 
-`35.5.4` / `error` / No mapped test
+`35.5.4` / `error` / Test mapped; execution unconfirmed
 
 Using DPI must generate a compile-time warning or error explaining its deprecation/replacement by DPI-C and that C application changes may be required.
 
@@ -87604,6 +88324,7 @@ Acceptance criterion: Using DPI must generate a compile-time warning or error ex
 
 Normative role: `mandatory`。
 
+- [test_legacy_dpi_import_compiler_diagnostic.sv](../tests/ch35/test_legacy_dpi_import_compiler_diagnostic.sv): Look on the legacy DPI packed-array import line for a warning or error identifying deprecation, DPI-C migration and the possible need for C code changes, and compile the current declaration as a control.
 
 ### SV2023-35.5.4-EXTRACT-DPI-VERSION-FORMAT
 
@@ -88102,7 +88823,7 @@ Normative role: `implementation_defined`。
 
 ### SV2023-35.5.6-EXTRACT-UNPACKED-STRUCT-LAYOUT
 
-`35.5.6` / `normal` / No mapped test
+`35.5.6` / `normal` / Execution confirmed
 
 Unpacked struct packing is implementation-dependent, normally C-compatible; SV does not fix packed struct/array memory representations.
 
@@ -88110,6 +88831,7 @@ Acceptance criterion: Unpacked struct packing is implementation-dependent, norma
 
 Normative role: `implementation_defined`。
 
+- [test_dpi_unpacked_struct_native_layout.sv](../tests/ch35/test_dpi_unpacked_struct_native_layout.sv): Use the same type declaration and verify the struct members in a native round trip. Check the packed struct and multidimensional array through canonical words. Observe member offsets and sizes that differ across compiler targets.
 
 ### SV2023-35.5.6.1-EXTRACT-OPEN-DEFINITION
 
@@ -88479,7 +89201,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.9-EXTRACT-DISABLE-PROTOCOL-FATAL
 
-`35.9` / `error` / No mapped test
+`35.9` / `error` / Test mapped; execution unconfirmed
 
 Simulators must verify imported task status, function acknowledgment and no subsequent export calls; violation causes a fatal simulation error.
 
@@ -88487,6 +89209,10 @@ Acceptance criterion: Simulators must verify imported task status, function ackn
 
 Normative role: `mandatory`。
 
+- [test_dpi_import_task_rejects_wrong_status_after_disable.sv](../tests/ch35/test_dpi_import_task_rejects_wrong_status_after_disable.sv): Require a fatal error when a disabled task reports normal completion.
+- [test_dpi_import_task_rejects_disable_status_after_normal_return.sv](../tests/ch35/test_dpi_import_task_rejects_disable_status_after_normal_return.sv): Require a fatal error when a task that completed normally reports disable.
+- [test_dpi_import_function_rejects_omitted_acknowledgement.sv](../tests/ch35/test_dpi_import_function_rejects_omitted_acknowledgement.sv): Require a fatal error when the imported function observes the disabled state and returns without acknowledgement.
+- [test_dpi_disabled_import_task_cannot_call_another_export.sv](../tests/ch35/test_dpi_disabled_import_task_cannot_call_another_export.sv): Require a fatal error when a disabled task attempts another export.
 
 ### SV2023-35.9-EXTRACT-DISABLED-ENTRY
 
@@ -88516,7 +89242,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.9-EXTRACT-DISABLED-VALUES
 
-`35.9` / `normal` / No mapped test
+`35.9` / `normal` / Execution confirmed
 
 An import returning due to disable has undefined output/inout values and undefined function result; the simulator need not propagate foreign-written values.
 
@@ -88524,6 +89250,7 @@ Acceptance criterion: An import returning due to disable has undefined output/in
 
 Normative role: `definition`。
 
+- [test_dpi_disabled_transfer_values.sv](../tests/ch35/test_dpi_disabled_transfer_values.sv): Check the transferred values for the ordinary task and function calls. Record the values written by the disabled task and function and the values read by a separate process. Supply the caller name for the function observation and verify the disabled state and acknowledgement.
 
 ### SV2023-35.9-EXTRACT-EXPORT-DISABLE-STATUS
 
@@ -88539,7 +89266,7 @@ Normative role: `mandatory`。
 
 ### SV2023-35.9-EXTRACT-FUNCTION-DISABLE-ACK
 
-`35.9` / `normal` / No mapped test
+`35.9` / `normal` / Test mapped; execution unconfirmed
 
 Before an imported function returns due to disable, it must call svAckDisabledState.
 
@@ -88547,6 +89274,7 @@ Acceptance criterion: Before an imported function returns due to disable, it mus
 
 Normative role: `mandatory`。
 
+- [test_dpi_import_function_acknowledges_disable.sv](../tests/ch35/test_dpi_import_function_acknowledges_disable.sv): The exported function disables its caller and the imported function observes and acknowledges the disabled state. Check whether statements in the disabled block execute and whether the peer process continues.
 
 ### SV2023-35.9-EXTRACT-IMPORT-DISABLE-STATUS
 
@@ -89361,7 +90089,7 @@ Normative role: `definition`。
 
 ### SV2023-36.11-EXTRACT-ROUTINE-52
 
-`36.11` / `normal` / No mapped test
+`36.11` / `normal` / Execution confirmed
 
 Tables 36-1 through 36-9 assign vpi_put_data to save application-allocated data; exact arguments, return values and restrictions follow Clause 38.
 
@@ -89369,10 +90097,11 @@ Acceptance criterion: Tables 36-1 through 36-9 assign vpi_put_data to save appli
 
 Normative role: `definition`。
 
+- [test_vpi_end_save_data_is_available_at_start_of_restart.sv](../tests/ch38/test_vpi_end_save_data_is_available_at_start_of_restart.sv): Pass the application's array to `vpi_put_data` in the end-of-save callback and verify the returned byte count and the recovered array.
 
 ### SV2023-36.11-EXTRACT-ROUTINE-53
 
-`36.11` / `normal` / No mapped test
+`36.11` / `normal` / Execution confirmed
 
 Tables 36-1 through 36-9 assign vpi_get_data to retrieve application-allocated saved data; exact arguments, return values and restrictions follow Clause 38.
 
@@ -89380,6 +90109,7 @@ Acceptance criterion: Tables 36-1 through 36-9 assign vpi_get_data to retrieve a
 
 Normative role: `definition`。
 
+- [test_vpi_end_save_data_is_available_at_start_of_restart.sv](../tests/ch38/test_vpi_end_save_data_is_available_at_start_of_restart.sv): Call `vpi_get_data` in the start-of-restart callback and check the actual byte count and all bytes including an embedded zero.
 
 ### SV2023-36.11-EXTRACT-ROUTINE-54
 
@@ -89685,7 +90415,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-13-1364-1995
 
-`36.12.1` / `normal` / No mapped test
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiInterfaceDecl iteration on vpiClassDefn is not applicable or absent, per Table 36-10.
 
@@ -89693,10 +90423,11 @@ Acceptance criterion: Under 1364-1995 compatibility, vpiInterfaceDecl iteration 
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_class_interface_views.sv](../tests/ch36/test_vpi_legacy_class_interface_views.sv): Check the 1364-1995 VPI entry point and compare the absent interface-declaration iteration on the known class definition with a positive 1800 control.
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-13-1364-2001
 
-`36.12.1` / `normal` / No mapped test
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiInterfaceDecl iteration on vpiClassDefn is not applicable or absent, per Table 36-10.
 
@@ -89704,10 +90435,11 @@ Acceptance criterion: Under 1364-2001 compatibility, vpiInterfaceDecl iteration 
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_class_interface_views.sv](../tests/ch36/test_vpi_legacy_class_interface_views.sv): Check the 1364-2001 VPI entry point and compare the absent interface-declaration iteration on the known class definition with a positive 1800 control.
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-13-1364-2005
 
-`36.12.1` / `normal` / No mapped test
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiInterfaceDecl iteration on vpiClassDefn is not applicable or absent, per Table 36-10.
 
@@ -89715,6 +90447,7 @@ Acceptance criterion: Under 1364-2005 compatibility, vpiInterfaceDecl iteration 
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_class_interface_views.sv](../tests/ch36/test_vpi_legacy_class_interface_views.sv): Check the 1364-2005 VPI entry point and compare the absent interface-declaration iteration on the known class definition with a positive 1800 control.
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-13-1800-2005
 
@@ -89754,7 +90487,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-14-1364-1995
 
-`36.12.1` / `normal` / No mapped test
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-1995 compatibility, vpiInterfaceDecl iteration returns vpiRefObj is not applicable or absent, per Table 36-10.
 
@@ -89762,10 +90495,11 @@ Acceptance criterion: Under 1364-1995 compatibility, vpiInterfaceDecl iteration 
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_class_interface_views.sv](../tests/ch36/test_vpi_legacy_class_interface_views.sv): Check the definition and typespec through the 1364-1995 VPI entry point and compare the absence of reference objects with the 1800 control that returns 2 references to actual members.
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-14-1364-2001
 
-`36.12.1` / `normal` / No mapped test
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2001 compatibility, vpiInterfaceDecl iteration returns vpiRefObj is not applicable or absent, per Table 36-10.
 
@@ -89773,10 +90507,11 @@ Acceptance criterion: Under 1364-2001 compatibility, vpiInterfaceDecl iteration 
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_class_interface_views.sv](../tests/ch36/test_vpi_legacy_class_interface_views.sv): Check the definition and typespec through the 1364-2001 VPI entry point and compare the absence of reference objects with the 1800 control that returns 2 references to actual members.
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-14-1364-2005
 
-`36.12.1` / `normal` / No mapped test
+`36.12.1` / `normal` / Execution confirmed
 
 Under 1364-2005 compatibility, vpiInterfaceDecl iteration returns vpiRefObj is not applicable or absent, per Table 36-10.
 
@@ -89784,6 +90519,7 @@ Acceptance criterion: Under 1364-2005 compatibility, vpiInterfaceDecl iteration 
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_class_interface_views.sv](../tests/ch36/test_vpi_legacy_class_interface_views.sv): Check the definition and typespec through the 1364-2005 VPI entry point and compare the absence of reference objects with the 1800 control that returns 2 references to actual members.
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-14-1800-2005
 
@@ -90041,7 +90777,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-9-1364-1995
 
-`36.12.1` / `normal` / No mapped test
+`36.12.1` / `normal` / Test mapped; execution unconfirmed
 
 Under 1364-1995 compatibility, vpiRealVar array object is not applicable or absent, per Table 36-10.
 
@@ -90049,6 +90785,7 @@ Acceptance criterion: Under 1364-1995 compatibility, vpiRealVar array object is 
 
 Normative role: `definition`。
 
+- [test_vpi_legacy_real_array_root_types.sv](../tests/ch36/test_vpi_legacy_real_array_root_types.sv): Check the 1364-1995 real array root separately from indexed elements and scalar real, and compare the 1364-2001 and 2005 controls whose root is vpiRealVar.
 
 ### SV2023-36.12.1-EXTRACT-COMPAT-9-1364-2001
 
@@ -90318,7 +91055,7 @@ Normative role: `definition`。
 
 ### SV2023-36.12.2.1-EXTRACT-ONE-CONSISTENT-MODE
 
-`36.12.2.1` / `error` / No mapped test
+`36.12.2.1` / `error` / Test mapped; execution unconfirmed
 
 At most one compatibility macro may be defined; use it consistently in all application sources accessing VPI, including callbacks. vpi_user.h compilation must error if multiple version macros are defined.
 
@@ -90326,6 +91063,8 @@ Acceptance criterion: At most one compatibility macro may be defined; use it con
 
 Normative role: `mandatory`。
 
+- [test_vpi_public_header_shares_one_legacy_mode_with_callbacks.sv](../tests/ch36/test_vpi_public_header_shares_one_legacy_mode_with_callbacks.sv): Compile the application and callback separately with the same selection, use all eight single selections as controls, and check header diagnostics for every pair of version macros.
+- [test_vpi_public_header_shares_one_recent_mode_with_callbacks.sv](../tests/ch36/test_vpi_public_header_shares_one_recent_mode_with_callbacks.sv): Compile the application and callback separately with the same selection, use all eight single selections as controls, and check header diagnostics for every pair of version macros.
 
 ### SV2023-36.12.2.1-EXTRACT-REBIND-VPI-COMPARE-OBJECTS
 
@@ -90508,7 +91247,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.3-EXTRACT-UNSUPPORTED-CONSTRUCTS
 
-`36.12.3` / `normal` / No mapped test
+`36.12.3` / `normal` / Execution confirmed
 
 Compatibility-mode behavior on unsupported design constructs is undefined; consistency checking extent is implementation discretion.
 
@@ -90516,10 +91255,11 @@ Acceptance criterion: Compatibility-mode behavior on unsupported design construc
 
 Normative role: `implementation_defined`。
 
+- [test_vpi_compatibility_scope_and_migration.sv](../tests/ch36/test_vpi_compatibility_scope_and_migration.sv): Apply the compatibility-mode application to the mixed design and observe its query of the modern partition. Use the class and real-array reads in the current mode as controls.
 
 ### SV2023-36.12.3-EXTRACT-UPGRADE-RECOMMENDED
 
-`36.12.3` / `normal` / No mapped test
+`36.12.3` / `normal` / Execution confirmed
 
 Use compatibility modes as a temporary measure and update applications to the latest VPI version; older modes may be phased out.
 
@@ -90527,10 +91267,11 @@ Acceptance criterion: Use compatibility modes as a temporary measure and update 
 
 Normative role: `recommendation`。
 
+- [test_vpi_compatibility_scope_and_migration.sv](../tests/ch36/test_vpi_compatibility_scope_and_migration.sv): Observe the old real-array root type used by the legacy application. Check the current array type with the migrated application using default bindings and retrieve the same element value.
 
 ### SV2023-36.12.3-EXTRACT-VERIFY-MODE-SCOPE
 
-`36.12.3` / `normal` / No mapped test
+`36.12.3` / `normal` / Execution confirmed
 
 Users/providers should verify the target design/partition has no constructs unsupported by the selected VPI compatibility mode.
 
@@ -90538,6 +91279,7 @@ Acceptance criterion: Users/providers should verify the target design/partition 
 
 Normative role: `recommendation`。
 
+- [test_vpi_compatibility_scope_and_migration.sv](../tests/ch36/test_vpi_compatibility_scope_and_migration.sv): Compile the old-compatible partition separately and check its integer value with the legacy application. Check that the old dialect rejects the modern class declaration and the current dialect accepts the full design.
 
 ### SV2023-37.2-EXTRACT-OPAQUE-HANDLE
 
@@ -90720,7 +91462,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE
 
-`37.2.2` / `normal` / No mapped test
+`37.2.2` / `normal` / Test mapped; execution unconfirmed
 
 Freeing frame/thread objects releases every handle to those objects/subelements and their callbacks.
 
@@ -90728,10 +91470,11 @@ Acceptance criterion: Freeing frame/thread objects releases every handle to thos
 
 Normative role: `mandatory`。
 
+- [test_vpi_frame_and_thread_handle_release.sv](../tests/ch37/test_vpi_frame_and_thread_handle_release.sv): End the frames and threads of two fork branches at different times. Inspect frame, thread, automatic variable, selected bit, and callback entries in the internal handle and delivery tables before and after teardown, with the live branch and module variable as controls.
 
 ### SV2023-37.2.2-EXTRACT-ITERATOR-RELEASE
 
-`37.2.2` / `normal` / No mapped test
+`37.2.2` / `normal` / Execution confirmed
 
 Scanning through an iterator final object releases the iterator handle as specified by vpi_scan.
 
@@ -90739,6 +91482,7 @@ Acceptance criterion: Scanning through an iterator final object releases the ite
 
 Normative role: `mandatory`。
 
+- [test_vpi_iterator_released_on_terminal_scan.sv](../tests/ch38/test_vpi_iterator_released_on_terminal_scan.sv): Track two live iterators separately. Release one before the end and check that the other reaches cleanup during the scan after it returns all instances.
 
 ### SV2023-37.2.2-EXTRACT-RELEASE-INDEPENDENCE
 
@@ -90812,7 +91556,7 @@ Normative role: `definition`。
 
 ### SV2023-37.3.1-EXTRACT-API-NAMING
 
-`37.3.1` / `normal` / No mapped test
+`37.3.1` / `normal` / Execution confirmed
 
 Routine names use vpi plus underscore word delimiters; macro types/properties use vpi and capitalized words; callback constants use cb.
 
@@ -90820,6 +91564,8 @@ Acceptance criterion: Routine names use vpi plus underscore word delimiters; mac
 
 Normative role: `definition`。
 
+- [test_vpi_operation_and_timing_subtype_names.sv](../tests/ch37/test_vpi_operation_and_timing_subtype_names.sv): Compile the vpi-prefixed property and object macros and the cb-prefixed start notification, then exercise the lookup routines whose words are separated by underscores.
+- [test_vpi_sdf_delay_device_and_terminal_type_names.sv](../tests/ch37/test_vpi_sdf_delay_device_and_terminal_type_names.sv): Check the vpi-prefixed delay type and load macros and the cb-prefixed start notification, and exercise name lookup and type-name access using their specified routine names.
 
 ### SV2023-37.3.1-EXTRACT-GET-PROPERTY-TYPES
 
@@ -90885,7 +91631,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3.2-EXTRACT-ADDITIONAL-TYPE
 
-`37.3.2` / `normal` / No mapped test
+`37.3.2` / `normal` / Test mapped; execution unconfirmed
 
 For applicable objects, vpiDelayType/vpiNetType/vpiOpType/vpiPrimType/vpiResolvedNetType/vpiTchkType return integer subtype constants via vpi_get and constant names via vpi_get_str.
 
@@ -90893,6 +91639,10 @@ Acceptance criterion: For applicable objects, vpiDelayType/vpiNetType/vpiOpType/
 
 Normative role: `mandatory`。
 
+- [test_vpi_additional_primitive_and_net_type_names.sv](../tests/ch37/test_vpi_additional_primitive_and_net_type_names.sv): Compare integer values and constant names for vpiPrimType on gate primitives and vpiNetType on nets.
+- [test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges.sv](../tests/ch37/test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges.sv): Compare integer values and names for vpiResolvedNetType on two interconnects resolved to different wired net types.
+- [test_vpi_operation_and_timing_subtype_names.sv](../tests/ch37/test_vpi_operation_and_timing_subtype_names.sv): Compare both integer values and names for vpiOpType on addition and bitwise AND and for vpiTchkType on two kinds of timing checks.
+- [test_vpi_sdf_delay_device_and_terminal_type_names.sv](../tests/ch37/test_vpi_sdf_delay_device_and_terminal_type_names.sv): Check that vpiDelayType provides the intermodule delay integer and name for the device and both terminals of an SDF-annotated interconnect.
 
 ### SV2023-37.3.2-EXTRACT-TYPE-INTEGER
 
@@ -90956,7 +91706,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3.5-EXTRACT-AVOID-EFFECT-INDICES
 
-`37.3.5` / `normal` / No mapped test
+`37.3.5` / `normal` / Execution confirmed
 
 Avoid side-effect expressions as indices or arguments to system tasks/functions or SV functions for flexible VPI use.
 
@@ -90964,6 +91714,7 @@ Acceptance criterion: Avoid side-effect expressions as indices or arguments to s
 
 Normative role: `recommendation`。
 
+- [test_vpi_reads_keep_staged_indices_and_arguments_stable.sv](../tests/ch37/test_vpi_reads_keep_staged_indices_and_arguments_stable.sv): Perform the side effects before indexing or preparing call arguments, then verify that repeated reads agree and preserve the recorded call counts.
 
 ### SV2023-37.3.5-EXTRACT-GET-EVALUATES-EFFECTS
 
@@ -90979,7 +91730,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3.5-EXTRACT-PROPERTY-EFFECT-ERROR
 
-`37.3.5` / `error` / No mapped test
+`37.3.5` / `error` / Test mapped; execution unconfirmed
 
 Requesting a property/relation is an error if the implementation cannot determine it without evaluating side effects; detection ability may vary among implementations.
 
@@ -90987,6 +91738,8 @@ Acceptance criterion: Requesting a property/relation is an error if the implemen
 
 Normative role: `mandatory`。
 
+- [test_vpi_size_query_preserves_side_effecting_string_call.sv](../tests/ch37/test_vpi_size_query_preserves_side_effecting_string_call.sv): Ask for two different result lengths, require either the exact length or an API error, and check that the explicit value read performs the first side effect.
+- [test_vpi_index_relation_preserves_side_effecting_call.sv](../tests/ch37/test_vpi_index_relation_preserves_side_effecting_call.sv): Ask for the index relation at two bit positions, require the expression handle or an API error, and verify that the function first runs during the value read.
 
 ### SV2023-37.3.5-EXTRACT-PUT-INDEX-EFFECT-ERROR
 
@@ -91003,7 +91756,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3.5-EXTRACT-SIDE-EFFECT-KINDS
 
-`37.3.5` / `normal` / No mapped test
+`37.3.5` / `normal` / Test mapped; execution unconfirmed
 
 Side-effect expressions include assignment operators, increment/decrement, state-changing function/method/system calls and any containing operand/argument/index expressions.
 
@@ -91011,6 +91764,7 @@ Acceptance criterion: Side-effect expressions include assignment operators, incr
 
 Normative role: `definition`。
 
+- [test_vpi_get_value_classifies_assignment_and_builtin_side_effects.sv](../tests/ch37/test_vpi_get_value_classifies_assignment_and_builtin_side_effects.sv): Read assignments, decrement, a nested operand, a nested argument, an index, a queue method and a system file read twice, and check both results and state changes.
 
 ### SV2023-37.3.6-EXTRACT-PROTECTED-ACCESS
 
@@ -93029,7 +93783,7 @@ Normative role: `definition`。
 
 ### SV2023-37.10-EXTRACT-DIAGRAM-055
 
-`37.10` / `normal` / No mapped test
+`37.10` / `normal` / Execution confirmed
 
 The 37.10 VPI model includes nettype declaration in the instance item group; group properties and relationships apply to this member.
 
@@ -93037,6 +93791,7 @@ Acceptance criterion: The 37.10 VPI model includes nettype declaration in the in
 
 Normative role: `definition`。
 
+- [test_vpi_nettype_relations.sv](../tests/ch37/test_vpi_nettype_relations.sv): Iterate two nettype declarations with and without a resolution function from the instance and check that vpiInstance returns their declaring module.
 
 ### SV2023-37.10-EXTRACT-DIAGRAM-056
 
@@ -93761,7 +94516,7 @@ Normative role: `definition`。
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-008
 
-`37.12` / `normal` / No mapped test
+`37.12` / `normal` / Execution confirmed
 
 The 37.12 VPI model includes class typespec in the scope group; group properties and relationships apply to this member.
 
@@ -93769,6 +94524,8 @@ Acceptance criterion: The 37.12 VPI model includes class typespec in the scope g
 
 Normative role: `definition`。
 
+- [test_vpi_class_specializations_are_scopes_with_definition_relations.sv](../tests/ch37/test_vpi_class_specializations_are_scopes_with_definition_relations.sv): Read scope names and traverse variable lists for instance and static properties of two class specialization typespecs, checking each instance property width.
+- [test_vpi_class_specialization_types.sv](../tests/ch37/test_vpi_class_specialization_types.sv): Check the scope name of a specialized class typespec and traverse its variable list for the array and its virtual-interface list for the elements.
 
 ### SV2023-37.12-EXTRACT-DIAGRAM-009
 
@@ -95801,7 +96558,7 @@ Normative role: `definition`。
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-043
 
-`37.16` / `normal` / No mapped test
+`37.16` / `normal` / Test mapped; execution unconfirmed
 
 37.16 defines a one-to-one relation from nets to nets, using tag vpiSimNet; traverse with vpi_handle and the stated special-case constraints.
 
@@ -95809,6 +96566,7 @@ Acceptance criterion: 37.16 defines a one-to-one relation from nets to nets, usi
 
 Normative role: `definition`。
 
+- [test_vpi_simulated_net_is_shared_across_interconnect_merges.sv](../tests/ch37/test_vpi_simulated_net_is_shared_across_interconnect_merges.sv): Use `vpi_handle(vpiSimNet, net)` on two groups of hierarchical nets and check that each group resolves to one distinct simulation net.
 
 ### SV2023-37.16-EXTRACT-DIAGRAM-044
 
@@ -99754,7 +100512,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.25-EXTRACT-INLINE-TYPE-NAME
 
-`37.25` / `normal` / No mapped test
+`37.25` / `normal` / Test mapped; execution unconfirmed
 
 An inline typedef field typespec may have an empty-string name.
 
@@ -99762,6 +100520,7 @@ Acceptance criterion: An inline typedef field typespec may have an empty-string 
 
 Normative role: `permission`。
 
+- [test_vpi_inline_member_typespec_name.sv](../tests/ch37/test_vpi_inline_member_typespec_name.sv): Reach the 2 fields’ struct typespecs and their inner int types, then check that the inline name is NULL or empty and that the typedef retains its declared name.
 
 ### SV2023-37.25-EXTRACT-MEMBER-DEFAULT
 
@@ -100882,7 +101641,7 @@ Normative role: `definition`。
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-002
 
-`37.29` / `normal` / No mapped test
+`37.29` / `normal` / Test mapped; execution unconfirmed
 
 The 37.29 VPI model includes modport in the interface expression group; group properties and relationships apply to this member.
 
@@ -100890,6 +101649,7 @@ Acceptance criterion: The 37.29 VPI model includes modport in the interface expr
 
 Normative role: `definition`。
 
+- [test_vpi_direct_modport_expression.sv](../tests/ch37/test_vpi_direct_modport_expression.sv): Inspect 2 virtual-interface assignments and check that the plain RHS identifies the interface instance while the qualified RHS identifies the reader modport found by name.
 
 ### SV2023-37.29-EXTRACT-DIAGRAM-003
 
@@ -101469,7 +102229,7 @@ Normative role: `definition`。
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-025
 
-`37.31` / `normal` / No mapped test
+`37.31` / `normal` / Execution confirmed
 
 37.31 defines a one-to-one relation from scope to class definition, using the untagged class definition access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -101477,6 +102237,8 @@ Acceptance criterion: 37.31 defines a one-to-one relation from scope to class de
 
 Normative role: `definition`。
 
+- [test_vpi_class_specializations_are_scopes_with_definition_relations.sv](../tests/ch37/test_vpi_class_specializations_are_scopes_with_definition_relations.sv): Find the scope of an explicitly declared method through its class definition and check that the reverse relation returns that same definition.
+- [test_vpi_class_internal_scopes.sv](../tests/ch37/test_vpi_class_internal_scopes.sv): Iterate the internal scopes of a function and a task from their class definition and check that both reverse relations return the original definition.
 
 ### SV2023-37.31-EXTRACT-DIAGRAM-026
 
@@ -103571,7 +104333,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.39-EXTRACT-PREFER-INSTANCE
 
-`37.39` / `normal` / No mapped test
+`37.39` / `normal` / Execution confirmed
 
 New VPI applications should use vpiInstance for specify-block ownership.
 
@@ -103579,6 +104341,7 @@ Acceptance criterion: New VPI applications should use vpiInstance for specify-bl
 
 Normative role: `recommendation`。
 
+- [test_vpi_modport_specify_paths_belong_to_enclosing_module.sv](../tests/ch37/test_vpi_modport_specify_paths_belong_to_enclosing_module.sv): Use the recommended owner lookup for paths with ordinary ports and modport terminals and compare the returned instance with the enclosing module.
 
 ### SV2023-37.40-EXTRACT-DIAGRAM-001
 
@@ -104880,7 +105643,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-001
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 37.45 defines a one-to-one relation from delay device to module, using the untagged module access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104888,10 +105651,12 @@ Acceptance criterion: 37.45 defines a one-to-one relation from delay device to m
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Follow the delay device to its module and compare the returned handle with the instance that received the annotation.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Follow the delay device to its module and compare the returned handle with the instance that received the annotation.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-002
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 37.45 defines a one-to-one relation from delay device to input delay terminal, using tag vpiInTerm; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104899,10 +105664,12 @@ Acceptance criterion: 37.45 defines a one-to-one relation from delay device to i
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Follow the input-terminal relation from the device and check the returned handle type.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Follow the input-terminal relation from the device and check the returned handle type.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-003
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 37.45 defines a one-to-one relation from delay device to output delay terminal, using tag vpiOutTerm; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104910,10 +105677,12 @@ Acceptance criterion: 37.45 defines a one-to-one relation from delay device to o
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Follow the output-terminal relation and check that the returned delay term is distinct from the input.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Follow the output-terminal relation and check that the returned delay term is distinct from the input.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-004
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 37.45 defines a one-to-one relation from delay terminal to delay device, using the untagged delay device access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104921,10 +105690,12 @@ Acceptance criterion: 37.45 defines a one-to-one relation from delay terminal to
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Follow each delay terminal back to the device and compare it with the handle used to obtain that terminal.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Follow each delay terminal back to the device and compare it with the handle used to obtain that terminal.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-005
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 37.45 defines a one-to-many relation from input delay terminal to net drivers, using tag vpiDriver; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -104932,10 +105703,12 @@ Acceptance criterion: 37.45 defines a one-to-many relation from input delay term
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Traverse drivers from the input delay terminal and check that the nonempty set consists of permitted driver objects.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Traverse drivers from the input delay terminal and check that the nonempty set consists of permitted driver objects.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-006
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 37.45 defines a one-to-many relation from output delay terminal to net loads, using tag vpiLoad; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -104943,10 +105716,12 @@ Acceptance criterion: 37.45 defines a one-to-many relation from output delay ter
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Traverse loads from the output delay terminal and check that the nonempty set consists of permitted load objects.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Traverse loads from the output delay terminal and check that the nonempty set consists of permitted load objects.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-007
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 delay device exposes vpiDelayType as integer, representing delay device kind; access it with the appropriate property routine under 37.3.1.
 
@@ -104954,10 +105729,12 @@ Acceptance criterion: delay device exposes vpiDelayType as integer, representing
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Read the delay device subtype as an integer and compare it with the intermodule path delay constant.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Read the delay device subtype as an integer and compare it with the intermodule path delay constant.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-008
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 delay terminal exposes vpiDelayType as integer, representing delay terminal kind; access it with the appropriate property routine under 37.3.1.
 
@@ -104965,10 +105742,12 @@ Acceptance criterion: delay terminal exposes vpiDelayType as integer, representi
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Read the integer subtype of both delay terminals and check the intermodule path delay constant.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Read the integer subtype of both delay terminals and check the intermodule path delay constant.
 
 ### SV2023-37.45-EXTRACT-DIAGRAM-009
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 Delay-terminal values are readable through vpi_get_value.
 
@@ -104976,10 +105755,12 @@ Acceptance criterion: Delay-terminal values are readable through vpi_get_value.
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Read scalar values from both delay terminals and compare them with the expected zero and one values.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Read scalar values from both delay terminals and compare them with the expected zero and one values.
 
 ### SV2023-37.45-EXTRACT-INPUT-BEFORE-DELAY
 
-`37.45` / `normal` / No mapped test
+`37.45` / `normal` / Test mapped; execution unconfirmed
 
 Input delay-terminal value changes precede the associated device delay; output terminal values change only after that delay.
 
@@ -104987,6 +105768,8 @@ Acceptance criterion: Input delay-terminal value changes precede the associated 
 
 Normative role: `mandatory`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Sample after both source transitions, before and after the annotated delay, to check that the input terminal changes first.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Sample after both source transitions, before and after the annotated delay, to check that the input terminal changes first.
 
 ### SV2023-37.46-EXTRACT-COMPLEX-PORT-LOAD
 
@@ -105050,7 +105833,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-005
 
-`37.46` / `normal` / No mapped test
+`37.46` / `normal` / Test mapped; execution unconfirmed
 
 The 37.46 VPI model includes delay terminal in the net drivers group; group properties and relationships apply to this member.
 
@@ -105058,6 +105841,8 @@ Acceptance criterion: The 37.46 VPI model includes delay terminal in the net dri
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Find the delay term in the downstream net drivers and compare it with the output retrieved from the delay device.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Find the delay term in the downstream net drivers and compare it with the output retrieved from the delay device.
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-006
 
@@ -105097,7 +105882,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-009
 
-`37.46` / `normal` / No mapped test
+`37.46` / `normal` / Test mapped; execution unconfirmed
 
 The 37.46 VPI model includes delay terminal in the net loads group; group properties and relationships apply to this member.
 
@@ -105105,6 +105890,8 @@ Acceptance criterion: The 37.46 VPI model includes delay terminal in the net loa
 
 Normative role: `definition`。
 
+- [test_vpi_interconnect_delay_device_single_load.sv](../tests/ch37/test_vpi_interconnect_delay_device_single_load.sv): Find the delay term in the upstream net loads and compare it with the input retrieved from the delay device.
+- [test_vpi_interconnect_delay_device_one_fanout_branch.sv](../tests/ch37/test_vpi_interconnect_delay_device_one_fanout_branch.sv): Find the delay term in the upstream net loads and compare it with the input retrieved from the delay device.
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-010
 
@@ -105144,7 +105931,7 @@ Normative role: `definition`。
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-013
 
-`37.46` / `normal` / No mapped test
+`37.46` / `normal` / Test mapped; execution unconfirmed
 
 The 37.46 VPI model includes continuous assignment bit in the net loads group; group properties and relationships apply to this member.
 
@@ -105152,6 +105939,8 @@ Acceptance criterion: The 37.46 VPI model includes continuous assignment bit in 
 
 Normative role: `definition`。
 
+- [test_vpi_net_bit_loads_follow_plain_continuous_assignment.sv](../tests/ch37/test_vpi_net_bit_loads_follow_plain_continuous_assignment.sv): Use the whole-net load as a control and check that each bit load is a continuous-assignment bit with the corresponding offset and destination.
+- [test_vpi_net_bit_loads_follow_reordered_continuous_assignment.sv](../tests/ch37/test_vpi_net_bit_loads_follow_reordered_continuous_assignment.sv): Reverse the order with a concatenation and check the continuous-assignment load and destination offset of each source bit.
 
 ### SV2023-37.46-EXTRACT-DIAGRAM-014
 
@@ -107388,7 +108177,7 @@ Normative role: `definition`。
 
 ### SV2023-37.56-EXTRACT-DIAGRAM-003
 
-`37.56` / `normal` / No mapped test
+`37.56` / `normal` / Execution confirmed
 
 37.56 defines a one-to-one relation from clocked sequence to sequence expression, using the untagged sequence expression access type derived under 37.3; traverse with vpi_handle and the stated special-case constraints.
 
@@ -107396,6 +108185,7 @@ Acceptance criterion: 37.56 defines a one-to-one relation from clocked sequence 
 
 Normative role: `definition`。
 
+- [test_vpi_clocked_sequence_body.sv](../tests/ch37/test_vpi_clocked_sequence_body.sv): Follow vpiExpr on each clocked sequence and verify the rising-edge conjunction and falling-edge disjunction by operation type and operands for their respective clocks.
 
 ### SV2023-37.57-EXTRACT-DIAGRAM-001
 
@@ -107508,7 +108298,7 @@ Normative role: `definition`。
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-003
 
-`37.58` / `normal` / No mapped test
+`37.58` / `normal` / Test mapped; execution unconfirmed
 
 The 37.58 VPI model includes reference object in the simple expression group; group properties and relationships apply to this member.
 
@@ -107516,6 +108306,7 @@ Acceptance criterion: The 37.58 VPI model includes reference object in the simpl
 
 Normative role: `definition`。
 
+- [test_vpi_ref_port_simple_expression_use.sv](../tests/ch37/test_vpi_ref_port_simple_expression_use.sv): Verify the kind and actual of each reference port low connection, then check that vpiUse includes the continuous assignment that reads that port and excludes the one that reads its neighbor.
 
 ### SV2023-37.58-EXTRACT-DIAGRAM-004
 
@@ -109869,7 +110660,7 @@ Normative role: `definition`。
 
 ### SV2023-37.80-EXTRACT-CALLBACK-ARROW-TEXT
 
-`37.80` / `normal` / No mapped test
+`37.80` / `normal` / Test mapped; execution unconfirmed
 
 Each primitive terminal, expression, time queue, or statement object reaches at most one callback object, with vpi_handle(vpiCallback, ref). Callbacks not related to those reference objects form the one-to-many set reached with vpi_iterate(vpiCallback, NULL) and traversed with vpi_scan. vpi_get_cb_info() supplies the callback information (cb info) of a callback object.
 
@@ -109877,6 +110668,7 @@ Acceptance criterion: For a reference object ref with a registered callback, vpi
 
 Normative role: `definition`。
 
+- [test_vpi_callback_relationship_arrows.sv](../tests/ch37/test_vpi_callback_relationship_arrows.sv): Look up a registered callback separately for a primitive terminal, an expression, a statement, and a time queue, and check its identity and registration data. Enumerate the two unrelated callbacks and check for leaks from the four related callbacks and a non-null iterator before registration.
 
 ### SV2023-37.80-EXTRACT-CALLBACK-INFO
 
@@ -111755,7 +112547,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.4-EXTRACT-CONTROL-SCOPE
 
-`38.4` / `normal` / No mapped test
+`38.4` / `normal` / Test mapped; execution unconfirmed
 
 vpiSetInteractiveScope takes one vpiHandle in the scope class and immediately changes interactive scope.
 
@@ -111763,6 +112555,7 @@ Acceptance criterion: vpiSetInteractiveScope takes one vpiHandle in the scope cl
 
 Normative role: `mandatory`。
 
+- [test_vpi_control_requires_an_interactive_scope_handle.sv](../tests/ch38/test_vpi_control_requires_an_interactive_scope_handle.sv): Check the types of the two module handles and verify that each scope change is logged before the control call returns. Attempt the operation with a variable handle and check acceptance and the interactive scope log.
 
 ### SV2023-38.4-EXTRACT-CONTROL-SIGNATURE
 
@@ -111908,7 +112701,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.9-EXTRACT-GET-DATA-CALLBACK-SCOPE
 
-`38.9` / `normal` / No mapped test
+`38.9` / `normal` / Test mapped; execution unconfirmed
 
 Call get_data only in cbStartOfRestart/cbEndOfRestart routines; those routines may query vpiSaveRestartLocation through vpi_get_str for the save path.
 
@@ -111916,6 +112709,9 @@ Acceptance criterion: Call get_data only in cbStartOfRestart/cbEndOfRestart rout
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_data_counts_at_start_of_save.sv](../tests/ch38/test_vpi_put_data_counts_at_start_of_save.sv): Pass the saved stream ID to the end-of-restart callback and recover the original data with the requested byte count.
+- [test_vpi_put_data_counts_at_end_of_save.sv](../tests/ch38/test_vpi_put_data_counts_at_end_of_save.sv): Pass the saved stream ID to the start-of-restart callback and recover the original data with the requested byte count.
+- [test_vpi_checkpoint_location_is_available_in_each_action_callback.sv](../tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.sv): Check that both restart callbacks can query the requested checkpoint filename.
 
 ### SV2023-38.9-EXTRACT-GET-DATA-FAILURE
 
@@ -111931,7 +112727,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.9-EXTRACT-GET-DATA-ID-TRANSPORT
 
-`38.9` / `normal` / No mapped test
+`38.9` / `normal` / Execution confirmed
 
 Passing the save/restart ID in restart-callback user_data when registering during save callbacks is recommended.
 
@@ -111939,6 +112735,7 @@ Acceptance criterion: Passing the save/restart ID in restart-callback user_data 
 
 Normative role: `recommendation`。
 
+- [test_vpi_end_save_data_is_available_at_start_of_restart.sv](../tests/ch38/test_vpi_end_save_data_is_available_at_start_of_restart.sv): Register a pointer to the end-of-save ID as the restart callback's `user_data` and verify that it uses the pointer to recover the ID and the saved bytes.
 
 ### SV2023-38.9-EXTRACT-GET-DATA-SEQUENTIAL
 
@@ -112981,7 +113778,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.17-EXTRACT-VLOG-OPTION-FILES
 
-`38.17` / `normal` / No mapped test
+`38.17` / `normal` / Test mapped; execution unconfirmed
 
 If the vendor supports a file-of-options argument, argv contains its option string followed by a pointer to a NULL-terminated pointer array of parsed file options, with file name at element 0; recursively apply the same representation for nested option files.
 
@@ -112989,6 +113786,7 @@ Acceptance criterion: If the vendor supports a file-of-options argument, argv co
 
 Normative role: `mandatory`。
 
+- [test_vpi_vlog_info_nested_option_files.sv](../tests/ch38/test_vpi_vlog_info_nested_option_files.sv): Check the plain invocation value, then run through the outer file and traverse both option arrays to validate names, order and terminators together with the values applied in HDL.
 
 ### SV2023-38.18-EXTRACT-HANDLE-PROTECTED
 
@@ -113408,7 +114206,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-COUNT
 
-`38.31` / `normal` / No mapped test
+`38.31` / `normal` / Execution confirmed
 
 numOfBytes must be greater than zero; store those bytes from application dataLoc and return zero if an error is detected.
 
@@ -113416,6 +114214,8 @@ Acceptance criterion: numOfBytes must be greater than zero; store those bytes fr
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_data_counts_at_start_of_save.sv](../tests/ch38/test_vpi_put_data_counts_at_start_of_save.sv): Compare the actual count written with a positive length, return values at zero and negative lengths, restored data, and the destination buffer boundary.
+- [test_vpi_put_data_counts_at_end_of_save.sv](../tests/ch38/test_vpi_put_data_counts_at_end_of_save.sv): Compare the actual count written with a positive length, return values at zero and negative lengths, restored data, and the destination buffer boundary.
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-ORDER
 
@@ -113431,7 +114231,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-PHASE
 
-`38.31` / `normal` / No mapped test
+`38.31` / `normal` / Test mapped; execution unconfirmed
 
 put_data may run only in cbStartOfSave/cbEndOfSave callbacks; those callbacks may query vpiSaveRestartLocation using get_str.
 
@@ -113439,6 +114239,9 @@ Acceptance criterion: put_data may run only in cbStartOfSave/cbEndOfSave callbac
 
 Normative role: `mandatory`。
 
+- [test_vpi_put_data_counts_at_start_of_save.sv](../tests/ch38/test_vpi_put_data_counts_at_start_of_save.sv): Write from the registered start-of-save callback and check the returned length and restored content.
+- [test_vpi_put_data_counts_at_end_of_save.sv](../tests/ch38/test_vpi_put_data_counts_at_end_of_save.sv): Write from the registered end-of-save callback and check the returned length and restored content.
+- [test_vpi_checkpoint_location_is_available_in_each_action_callback.sv](../tests/ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback.sv): Check that both save callbacks can query the requested checkpoint filename.
 
 ### SV2023-38.31-EXTRACT-PUT-DATA-SIGNATURE
 
@@ -114687,7 +115490,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBSTARTOFFRAME
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 cbStartOfFrame invokes the registered callback when a frame activates and its task/function begins, after automatic variables are created/initialized.
 
@@ -114695,10 +115498,11 @@ Acceptance criterion: cbStartOfFrame invokes the registered callback when a fram
 
 Normative role: `mandatory`。
 
+- [test_vpi_callbacks_at_thread_and_frame_start.sv](../tests/ch38/test_vpi_callbacks_at_thread_and_frame_start.sv): Pair the VPI frame start callback registered by the debugger before dispatch with the task body by frame and thread handles. Read the argument and automatic variable at both points and check their initial values and ordering before the body.
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBSTARTOFTHREAD
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Execution confirmed
 
 cbStartOfThread invokes the registered callback when a thread is created.
 
@@ -114706,6 +115510,7 @@ Acceptance criterion: cbStartOfThread invokes the registered callback when a thr
 
 Normative role: `mandatory`。
 
+- [test_vpi_callbacks_at_thread_and_frame_start.sv](../tests/ch38/test_vpi_callbacks_at_thread_and_frame_start.sv): Register a VPI callback with the debugger just before dispatch. Check that each callback fires once before body inspection for the same handle in the parent thread and the two branches.
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBSTMT
 
@@ -115330,7 +116135,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-FIELDS
 
-`38.36.3` / `normal` / No mapped test
+`38.36.3` / `normal` / Test mapped; execution unconfirmed
 
 Action/feature callbacks receive s_cb_data with reason; timing-check violation obj is the check, interactive-scope-change obj the new scope and unresolved-system-routine user_data its name. cbError may use chk_error for details.
 
@@ -115338,6 +116143,10 @@ Acceptance criterion: Action/feature callbacks receive s_cb_data with reason; ti
 
 Normative role: `mandatory`。
 
+- [test_vpi_timing_violation_callback_points_to_affected_check.sv](../tests/ch38/test_vpi_timing_violation_callback_points_to_affected_check.sv): Check the callback reason and verify that obj for setup and hold violations is the respective timing-check object obtained before the violation.
+- [test_vpi_control_scope_change_reports_selected_instance.sv](../tests/ch38/test_vpi_control_scope_change_reports_selected_instance.sv): Select two sibling scopes and verify that each callback has the scope-change reason and that obj identifies the selected scope.
+- [test_vpi_unresolved_task_callback_supplies_called_name.sv](../tests/ch38/test_vpi_unresolved_task_callback_supplies_called_name.sv): Invoke an unregistered system task and verify the callback reason and that user_data supplies the called task name in place of the registration data.
+- [test_vpi_action_error_callback_information.sv](../tests/ch38/test_vpi_action_error_callback_information.sv): Check the reason and times for the runtime errors around a warning, and query the severity, runtime state, and message first in each error callback.
 
 ### SV2023-38.36.3-EXTRACT-ACTION-CALLBACK-REGISTRATION
 
@@ -115438,7 +116247,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.3-EXTRACT-ACTIONS-VERSUS-FEATURES
 
-`38.36.3` / `normal` / No mapped test
+`38.36.3` / `normal` / Execution confirmed
 
 Action callbacks are required in all VPI-compliant tools; optional tool features need not exist everywhere.
 
@@ -115446,6 +116255,13 @@ Acceptance criterion: Action callbacks are required in all VPI-compliant tools; 
 
 Normative role: `mandatory`。
 
+- [test_vpi_simulation_action_callbacks.sv](../tests/ch36/test_vpi_simulation_action_callbacks.sv): Check delivery after compilation, at simulation start, and on explicit finish.
+- [test_vpi_end_of_simulation_no_events.sv](../tests/ch38/test_vpi_end_of_simulation_no_events.sv): Check delivery of the end callback when the event queue empties.
+- [test_vpi_error_callback_runtime_errors.sv](../tests/ch38/test_vpi_error_callback_runtime_errors.sv): Check delivery for two runtime errors and exclude the warning from the count.
+- [test_vpi_pli_error_callback_counts_failed_calls.sv](../tests/ch38/test_vpi_pli_error_callback_counts_failed_calls.sv): Check delivery for two failed registrations and confirm that normal queries succeed.
+- [test_vpi_signal_callback.sv](../tests/ch38/test_vpi_signal_callback.sv): Check the count and reason for the registered signal callback and confirm that simulation continues.
+- [test_vpi_tchk_violation_callback.sv](../tests/ch38/test_vpi_tchk_violation_callback.sv): Check notification for both setup and hold violations and identify their timing checks.
+- [test_vpi_feature_callbacks_bracket_state_restore.sv](../tests/ch38/test_vpi_feature_callbacks_bracket_state_restore.sv): Check the start and end callbacks for save and restart and verify that the variable and time are restored.
 
 ### SV2023-38.36.3-EXTRACT-RESET-CALLBACK-ORDER
 
@@ -115642,7 +116458,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.37.2-EXTRACT-VENDOR-STARTUP-FILE
 
-`38.37.2` / `normal` / No mapped test
+`38.37.2` / `normal` / Execution confirmed
 
 The tool vendor supplies a file containing vlog_startup_routines; add PLI register-function names there.
 
@@ -115650,6 +116466,7 @@ Acceptance criterion: The tool vendor supplies a file containing vlog_startup_ro
 
 Normative role: `mandatory`。
 
+- [test_vpi_vendor_startup_table.sv](../tests/ch38/test_vpi_vendor_startup_table.sv): Add two user registration functions to the vendor startup file and run the original and extended modules on the same simulator. Check the standard system task, both unresolved calls with the original module, and both successful calls with the extended module.
 
 ### SV2023-38.37.3-EXTRACT-MULTIPLE-REGISTRATIONS
 
@@ -115700,7 +116517,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.38-EXTRACT-VALID-HANDLE-ONLY
 
-`38.38` / `normal` / No mapped test
+`38.38` / `normal` / Execution confirmed
 
 Do not call release_handle on an invalid handle; resource allocation/sharing is implementation-dependent, and unused valid handles may be retained though release is advisable.
 
@@ -115708,6 +116525,7 @@ Acceptance criterion: Do not call release_handle on an invalid handle; resource 
 
 Normative role: `mandatory`。
 
+- [test_vpi_release_only_live_handles.sv](../tests/ch38/test_vpi_release_only_live_handles.sv): Release the abandoned iterator once and skip release for the slots already released or exhausted. Retain a separate valid net handle and check its identity and value at the end of simulation.
 
 ### SV2023-38.39-EXTRACT-REMOVE-CB-SIGNATURE
 
@@ -115723,7 +116541,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.39-EXTRACT-REMOVED-CB-HANDLE
 
-`38.39` / `normal` / No mapped test
+`38.39` / `normal` / Test mapped; execution unconfirmed
 
 After remove_cb is called on a callback handle, that handle is invalid.
 
@@ -115731,10 +116549,12 @@ Acceptance criterion: After remove_cb is called on a callback handle, that handl
 
 Normative role: `mandatory`。
 
+- [test_vpi_removed_value_callback_disappears_from_iteration.sv](../tests/ch38/test_vpi_removed_value_callback_disappears_from_iteration.sv): Remove one of two value callbacks, check the reduced count through a fresh iterator, and verify both signal transitions reach only the remaining callback.
+- [test_vpi_removed_timer_callback_disappears_from_iteration.sv](../tests/ch38/test_vpi_removed_timer_callback_disappears_from_iteration.sv): Remove one of two pending timer callbacks, check the reduced count through a fresh iterator, and verify that only the other timer fires.
 
 ### SV2023-38.40-EXTRACT-SCAN-NULL-INVALID
 
-`38.40` / `normal` / No mapped test
+`38.40` / `normal` / Execution confirmed
 
 When vpi_scan returns NULL the iterator is no longer valid and cannot be reused.
 
@@ -115742,6 +116562,7 @@ Acceptance criterion: When vpi_scan returns NULL the iterator is no longer valid
 
 Normative role: `mandatory`。
 
+- [test_vpi_iterator_released_on_terminal_scan.sv](../tests/ch38/test_vpi_iterator_released_on_terminal_scan.sv): Check that the scan after the last instance runs the cleanup routine for that same iterator before returning NULL. Use the debugger to check cleanup without another VPI call on the released handle.
 
 ### SV2023-38.40-EXTRACT-SCAN-SIGNATURE
 
@@ -116970,7 +117791,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-FSM-TRANSITION
 
-`40.2.1` / `normal` / No mapped test
+`40.2.1` / `normal` / Execution confirmed
 
 The coverage API must support FSM transition coverage at minimum.
 
@@ -116978,6 +117799,7 @@ Acceptance criterion: The coverage API must support FSM transition coverage at m
 
 Normative role: `mandatory`。
 
+- [test_fsm_coverage_distinguishes_directed_transitions.sv](../tests/ch40/test_fsm_coverage_distinguishes_directed_transitions.sv): Run 2 FSMs that visit the same set of states and verify the directed edges and repetition counts separately for each instance with coverage enabled.
 
 ### SV2023-40.2.1-EXTRACT-REQUIRED-STATEMENT
 
@@ -117846,7 +118668,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.4.3-EXTRACT-FSM-CONCAT-NO-SELECTS
 
-`40.4.3` / `error` / No mapped test
+`40.4.3` / `normal` / Execution confirmed
 
 The state concatenation includes whole listed signals only; bit/part-selects cannot be used.
 
@@ -117854,6 +118676,7 @@ Acceptance criterion: The state concatenation includes whole listed signals only
 
 Normative role: `mandatory`。
 
+- [test_fsm_pragma_excludes_selects_in_state_concatenation.sv](../tests/ch40/test_fsm_pragma_excludes_selects_in_state_concatenation.sv): Verify that the whole-signal concatenation and standalone part-select create FSMs and that the concatenations containing a bit-select or part-select produce no FSM.
 
 ### SV2023-40.4.3-EXTRACT-FSM-CONCATENATION
 
@@ -118253,7 +119076,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.5.2-EXTRACT-COVERED-COUNT
 
-`40.5.2` / `normal` / No mapped test
+`40.5.2` / `normal` / Test mapped; execution unconfirmed
 
 vpiCoveredCount applies to assertion/statement/signal/FSM/state handles and returns coverage-hit counts; for multiple coverable entities sum their individual counts.
 
@@ -118261,6 +119084,9 @@ Acceptance criterion: vpiCoveredCount applies to assertion/statement/signal/FSM/
 
 Normative role: `mandatory`。
 
+- [test_vpi_covered_count_fsm_state_sum.sv](../tests/ch40/test_vpi_covered_count_fsm_state_sum.sv): Read hit counts for the FSM and the individual states at 2 sample points, checking each per-state sum against the FSM total and the increments against the HDL path.
+- [test_vpi_covered_count_assertion_successes.sv](../tests/ch40/test_vpi_covered_count_assertion_successes.sv): Check the generic hit count on 2 assertions with different enabled edges against both the dedicated success property and the HDL pass actions.
+- [test_vpi_covered_count_optional_entity_sums.sv](../tests/ch40/test_vpi_covered_count_optional_entity_sums.sv): Obtain the statement and signal handles, verify the aggregate and member counts when the optional counters are provided, and accept undefined values when they are unavailable.
 
 ### SV2023-40.5.2-EXTRACT-COVERED-ENTITIES
 
@@ -118480,7 +119306,7 @@ Normative role: `mandatory`。
 
 ### SV2023-A-EXTRACT-GRAMMAR-START
 
-`A` / `normal` / No mapped test
+`A` / `normal` / Test mapped; execution unconfirmed
 
 SystemVerilog source derives from source_text and library maps from library_text; grammar alternatives use |, optional items use brackets and zero-or-more repetition braces; superscripts refer to A.10 clarifications.
 
@@ -118488,6 +119314,8 @@ Acceptance criterion: SystemVerilog source derives from source_text and library 
 
 Normative role: `definition`。
 
+- [test_annex_library_map_path_lists.sv](../tests/ch33/test_annex_library_map_path_lists.sv): Mix declaration alternatives in a library map and check the bound cells with omitted and present include directory lists, repeated paths and repeated declarations.
+- [test_annex_library_map_source_boundary.sv](../tests/ch33/test_annex_library_map_source_boundary.sv): Accept ordinary source and a library map in their respective input roles and check that exchanging the roles produces diagnostics in the corresponding file. Add automatic lifetime to a module variable and check its rejection under the referenced grammar clarification.
 
 ### SV2023-A-EXTRACT-GRAMMAR-TYPOGRAPHY
 
@@ -118503,7 +119331,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.1-EXTRACT-LIBRARY-DECLARATION
 
-`A.1.1` / `normal` / No mapped test
+`A.1.1` / `normal` / Test mapped; execution unconfirmed
 
 A library declaration starts library and an identifier, has one or more comma-separated file_path_spec entries, optional -incdir followed by one or more comma-separated paths, and a semicolon.
 
@@ -118511,10 +119339,11 @@ Acceptance criterion: A library declaration starts library and an identifier, ha
 
 Normative role: `definition`。
 
+- [test_annex_library_map_path_lists.sv](../tests/ch33/test_annex_library_map_path_lists.sv): Check a declaration with one path and no include directory list and a declaration with two source paths and two include directories. Change the identifier, required paths, commas and terminating semicolon and check the corresponding diagnostics.
 
 ### SV2023-A.1.1-EXTRACT-LIBRARY-INCLUDE
 
-`A.1.1` / `normal` / No mapped test
+`A.1.1` / `normal` / Test mapped; execution unconfirmed
 
 An include statement uses include followed by one file_path_spec and a semicolon.
 
@@ -118522,10 +119351,11 @@ Acceptance criterion: An include statement uses include followed by one file_pat
 
 Normative role: `definition`。
 
+- [test_annex_library_map_path_lists.sv](../tests/ch33/test_annex_library_map_path_lists.sv): Bind the cell from an include with a single path and check its source and constant value. Diagnose separate changes that omit the path, add a second path or omit the semicolon.
 
 ### SV2023-A.1.1-EXTRACT-LIBRARY-TEXT
 
-`A.1.1` / `normal` / No mapped test
+`A.1.1` / `normal` / Test mapped; execution unconfirmed
 
 library_text allows zero or more library descriptions; each description is a library declaration, include, configuration declaration or empty semicolon.
 
@@ -118533,6 +119363,8 @@ Acceptance criterion: library_text allows zero or more library descriptions; eac
 
 Normative role: `definition`。
 
+- [test_annex_library_map_path_lists.sv](../tests/ch33/test_annex_library_map_path_lists.sv): Combine empty statements, a map include, library declarations and a configuration declaration and verify that the configuration in the map elaborates all three instances.
+- [test_annex_library_map_source_boundary.sv](../tests/ch33/test_annex_library_map_source_boundary.sv): Supply an empty map, a map with just an empty statement and a map with just a library declaration and verify that the same ordinary source elaborates. When the module declaration is supplied as a map, check its source-local diagnostic.
 
 ### SV2023-A.1.2-EXTRACT-CHECKER-DECLARATION
 
@@ -121648,7 +122480,7 @@ Normative role: `definition`。
 
 ### SV2023-A.2.3-EXTRACT-DIM-LIST-72
 
-`A.2.3` / `normal` / No mapped test
+`A.2.3` / `normal` / Test mapped; execution unconfirmed
 
 The list of tf variable identifiers is nonempty and comma-separated; each entry has a port identifier, zero or more variable dimensions, and optional expression initializer.
 
@@ -121656,6 +122488,7 @@ Acceptance criterion: The list of tf variable identifiers is nonempty and comma-
 
 Normative role: `definition`。
 
+- [test_annex_tf_identifier_list.sv](../tests/ch13/test_annex_tf_identifier_list.sv): Parse single and multiple ports and check identifier order and individual dimensions. Observe the first and last port initializer expressions in the syntax tree and verify that semantic checking rejects those initializers in old style declarations. Check syntax rejection of empty lists, absent commas and trailing commas.
 
 ### SV2023-A.2.3-EXTRACT-DIM-LIST-73
 
@@ -127858,7 +128691,7 @@ Normative role: `mandatory`。
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-32
 
-`A.10` / `normal` / No mapped test
+`A.10` / `normal` / Execution confirmed
 
 The set_covergroup_expression at footnote 32 must satisfy the restrictions of 19.5.1.2.
 
@@ -127866,6 +128699,7 @@ Acceptance criterion: The set_covergroup_expression at footnote 32 must satisfy 
 
 Normative role: `mandatory`。
 
+- [test_annex_set_expression_construction.sv](../tests/ch19/test_annex_set_expression_construction.sv): Pass the integral array by reference and check that the values at each construction determine the bins. Observe the array changes on a separate coverpoint and check the expression diagnostic for an associative array, an incompatible element type and identifiers declared within the covergroup.
 
 ### SV2023-A.10-EXTRACT-FOOTNOTE-33
 
@@ -131219,7 +132053,7 @@ Normative role: `definition`。
 
 ### SV2023-C.2.3-EXTRACT-TRIGGERED
 
-`C.2.3` / `normal` / No mapped test
+`C.2.3` / `normal` / Execution confirmed
 
 triggered is permitted in sequence expressions; the former ended method is removed from current standard syntax.
 
@@ -131227,6 +132061,7 @@ Acceptance criterion: triggered is permitted in sequence expressions; the former
 
 Normative role: `definition`。
 
+- [test_sequence_triggered_replaces_ended.sv](../tests/ch16/test_sequence_triggered_replaces_ended.sv): Read another sequence endpoint from within a sequence expression and count only the enabled completion. Record acceptance or a diagnostic when substituting the former method, and check that an unrelated nonexistent member is diagnosed at the selector line.
 
 ### SV2023-C.2.4-EXTRACT-HANDLE-RENAME
 
@@ -131254,18 +132089,19 @@ Normative role: `definition`。
 
 ### SV2023-C.3-EXTRACT-PACKED-DATA-SEMANTICS
 
-`C.3` / `normal` / No mapped test
+`C.3` / `normal` / Execution confirmed
 
-Use IEEE packed-data access semantics of H.14 for svLogicPackedArrRef and svBitPackedArrRef; Accellera 3.1a semantics are deprecated.
+Accellera SystemVerilog 3.1a packed-data access through svLogicPackedArrRef and svBitPackedArrRef is deprecated. Annex H.14 describes both versions of the packed-data interface.
 
-Acceptance criterion: Use IEEE packed-data access semantics of H.14 for svLogicPackedArrRef and svBitPackedArrRef; Accellera 3.1a semantics are deprecated.
+Acceptance criterion: Distinguish legacy opaque handles with explicit vector copies from current canonical vector arguments using the per-function declarations in H.14.
 
 Normative role: `definition`。
 
+- [test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv](../tests/ch35/test_dpi_legacy_and_current_packed_values_use_each_declared_abi.sv): Round trip canonical vectors and legacy opaque handles through their corresponding declarations. Compare two input sets with opposite high bits and X and Z exchanged within the same unknown mask.
 
 ### SV2023-C.4.1-EXTRACT-MIGRATE
 
-`C.4.1` / `normal` / No mapped test
+`C.4.1` / `normal` / Execution confirmed
 
 Users are encouraged to replace defparam with inline parameter redefinition.
 
@@ -131273,10 +132109,11 @@ Acceptance criterion: Users are encouraged to replace defparam with inline param
 
 Normative role: `recommendation`。
 
+- [test_defparam_migration_and_duplicate_observation.sv](../tests/ch23/test_defparam_migration_and_duplicate_observation.sv): Elaborate a hierarchical override alongside named and positional inline overrides. Compare all three values derived from the actual elaborated signal width.
 
 ### SV2023-C.4.1-EXTRACT-MULTIPLE-UNDEFINED
 
-`C.4.1` / `normal` / No mapped test
+`C.4.1` / `normal` / Execution confirmed
 
 Two defparams may target the same parameter with undefined results; do not assert a fixed winner.
 
@@ -131284,6 +132121,7 @@ Acceptance criterion: Two defparams may target the same parameter with undefined
 
 Normative role: `definition`。
 
+- [test_defparam_migration_and_duplicate_observation.sv](../tests/ch23/test_defparam_migration_and_duplicate_observation.sv): Reverse overrides in one source and confirm that the final statement takes effect. Check each override in isolation before targeting the same parameter from separate sources. Reverse the input file order with both enabled and record the observed value without fixing a winner.
 
 ### SV2023-C.4.1-EXTRACT-NAMED-PARAMETERS
 
@@ -131347,7 +132185,7 @@ Normative role: `definition`。
 
 ### SV2023-C.4.2-EXTRACT-MIGRATE
 
-`C.4.2` / `normal` / No mapped test
+`C.4.2` / `normal` / Execution confirmed
 
 Users are encouraged to replace procedural assign/deassign with alternative assignment constructs.
 
@@ -131355,6 +132193,7 @@ Acceptance criterion: Users are encouraged to replace procedural assign/deassign
 
 Normative role: `recommendation`。
 
+- [test_procedural_assign_migration_to_force.sv](../tests/ch10/test_procedural_assign_migration_to_force.sv): Replace procedural assignment activation and removal with force and release and drive both variables through the same sequence. Check input tracking and write suppression while active, retained values after removal and restoration of ordinary writes.
 
 ### SV2023-C.4.2-EXTRACT-PROCEDURAL
 
@@ -134876,7 +135715,7 @@ Normative role: `definition`。
 
 ### SV2023-H.2-EXTRACT-BINARY
 
-`H.2` / `normal` / No mapped test
+`H.2` / `normal` / Execution confirmed
 
 DPI object code compiled for a platform works without recompilation in any compliant SV implementation on that platform.
 
@@ -134884,6 +135723,8 @@ Acceptance criterion: DPI object code compiled for a platform works without reco
 
 Normative role: `mandatory`。
 
+- [test_dpi_portable_multiword_bit_and_scalar.sv](../tests/ch35/test_dpi_portable_multiword_bit_and_scalar.sv): Call the DPI shared object built once from both simulators and compare packed and scalar argument results.
+- [test_dpi_portable_logic_chunks_and_scalar_ports.sv](../tests/ch35/test_dpi_portable_logic_chunks_and_scalar_ports.sv): Call the DPI shared object built once from both simulators and compare packed and scalar argument results.
 
 ### SV2023-H.2-EXTRACT-CANONICAL
 
@@ -134995,7 +135836,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.4-EXTRACT-PORTABLE
 
-`H.4` / `normal` / No mapped test
+`H.4` / `normal` / Execution confirmed
 
 DPI application object code compiled on a platform must work with every SV simulator on that platform.
 
@@ -135003,6 +135844,8 @@ Acceptance criterion: DPI application object code compiled on a platform must wo
 
 Normative role: `mandatory`。
 
+- [test_dpi_portable_multiword_bit_and_scalar.sv](../tests/ch35/test_dpi_portable_multiword_bit_and_scalar.sv): On the same platform, check expected output on both simulators and compare the shared-object hash across both invocations without rebuilding.
+- [test_dpi_portable_logic_chunks_and_scalar_ports.sv](../tests/ch35/test_dpi_portable_logic_chunks_and_scalar_ports.sv): On the same platform, check expected output on both simulators and compare the shared-object hash across both invocations without rebuilding.
 
 ### SV2023-H.5-EXTRACT-DEPRECATED-HEADER
 
@@ -135114,7 +135957,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.6.3-EXTRACT-INITIAL
 
-`H.6.3` / `normal` / No mapped test
+`H.6.3` / `normal` / Execution confirmed
 
 Output formals have undetermined implementation-dependent initial values.
 
@@ -135122,6 +135965,7 @@ Acceptance criterion: Output formals have undetermined implementation-dependent 
 
 Normative role: `implementation_defined`。
 
+- [test_dpi_output_independent_of_initial_storage.sv](../tests/ch35/test_dpi_output_independent_of_initial_storage.sv): Observe the integer and real output storage at entry to the C function and record how initialization differs by implementation. Check the values written by the foreign function in the run with alternate storage contents as well.
 
 ### SV2023-H.6.4-EXTRACT-CHANGES
 
@@ -135173,7 +136017,7 @@ Normative role: `definition`。
 
 ### SV2023-H.6.5-EXTRACT-INSTRUMENT
 
-`H.6.5` / `normal` / No mapped test
+`H.6.5` / `normal` / Test mapped; execution unconfirmed
 
 SV call-site context instrumentation applies only to imports declared context.
 
@@ -135181,10 +136025,11 @@ Acceptance criterion: SV call-site context instrumentation applies only to impor
 
 Normative role: `definition`。
 
+- [test_dpi_context_and_noncontext_access_in_two_instances.sv](../tests/ch35/test_dpi_context_and_noncontext_access_in_two_instances.sv): Check generated code for the declaration-instance scope at three context call sites and its absence at the three ordinary call sites.
 
 ### SV2023-H.6.5-EXTRACT-NONCONTEXT
 
-`H.6.5` / `normal` / No mapped test
+`H.6.5` / `normal` / Execution confirmed
 
 Noncontext imports can access/affect only actual arguments and cannot block optimizations; context imports may access SV objects through VPI/exports and act as an optimization barrier.
 
@@ -135192,6 +136037,7 @@ Acceptance criterion: Noncontext imports can access/affect only actual arguments
 
 Normative role: `mandatory`。
 
+- [test_dpi_context_and_noncontext_access_in_two_instances.sv](../tests/ch35/test_dpi_context_and_noncontext_access_in_two_instances.sv): Read the store immediately before the context import and observe its exported write immediately after it, then check that the ordinary import changes its argument and return value while preserving both instance variables.
 
 ### SV2023-H.6.6-EXTRACT-OWNERSHIP
 
@@ -135972,7 +136818,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.9.2-EXTRACT-UNWIND
 
-`H.9.2` / `normal` / No mapped test
+`H.9.2` / `normal` / Execution confirmed
 
 Context may be set/reset at SV/context-chain boundaries; bypassing normal export return with setjmp/longjmp yields undefined behavior.
 
@@ -135980,6 +136826,7 @@ Acceptance criterion: Context may be set/reset at SV/context-chain boundaries; b
 
 Normative role: `mandatory`。
 
+- [test_dpi_context_chain_escape_observation.sv](../tests/ch35/test_dpi_context_chain_escape_observation.sv): Set a different context scope and verify restoration of the original scope on normal return. End the observation of the nonlocal transfer at the landing point in the C application.
 
 ### SV2023-H.9.3-EXTRACT-CALLER-INFO
 
@@ -136032,7 +136879,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.9.3-EXTRACT-KEY-ADVICE
 
-`H.9.3` / `normal` / No mapped test
+`H.9.3` / `normal` / Execution confirmed
 
 Static symbol addresses are recommended as keys; arbitrary integer keys are unsafe.
 
@@ -136040,6 +136887,8 @@ Acceptance criterion: Static symbol addresses are recommended as keys; arbitrary
 
 Normative role: `recommendation`。
 
+- [test_dpi_unrelated_libraries_private_and_numeric_keys.sv](../tests/ch35/test_dpi_unrelated_libraries_private_and_numeric_keys.sv): Check that two separately built libraries get independent values with static variable addresses and share a value in the same scope when they derive a key from the same integer.
+- [test_dpi_library_keys_isolate_two_instances_in_reverse_order.sv](../tests/ch35/test_dpi_library_keys_isolate_two_instances_in_reverse_order.sv): Check that two separately built libraries get independent values with static variable addresses and share a value in the same scope when they derive a key from the same integer.
 
 ### SV2023-H.9.3-EXTRACT-LOOKUP
 
@@ -136104,7 +136953,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.9.3-EXTRACT-UNIQUE-KEY
 
-`H.9.3` / `normal` / No mapped test
+`H.9.3` / `normal` / Execution confirmed
 
 Users requiring unique storage must ensure key uniqueness across all C code including unrelated libraries.
 
@@ -136112,6 +136961,8 @@ Acceptance criterion: Users requiring unique storage must ensure key uniqueness 
 
 Normative role: `mandatory`。
 
+- [test_dpi_unrelated_libraries_private_and_numeric_keys.sv](../tests/ch35/test_dpi_unrelated_libraries_private_and_numeric_keys.sv): Use separately linked C and C++ libraries in one scope to verify that distinct addresses keep values separate and identical keys share storage.
+- [test_dpi_library_keys_isolate_two_instances_in_reverse_order.sv](../tests/ch35/test_dpi_library_keys_isolate_two_instances_in_reverse_order.sv): Use separately linked C and C++ libraries in one scope to verify that distinct addresses keep values separate and identical keys share storage.
 
 ### SV2023-H.9.3-EXTRACT-USER-DATA
 
@@ -136139,7 +136990,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.9.5-EXTRACT-HANDLE-TYPES
 
-`H.9.5` / `normal` / No mapped test
+`H.9.5` / `normal` / Execution confirmed
 
 No generic DPI/VPI equivalence is defined; vpiHandle and svOpenArrayHandle are not interchangeable.
 
@@ -136147,6 +136998,7 @@ Acceptance criterion: No generic DPI/VPI equivalence is defined; vpiHandle and s
 
 Normative role: `mandatory`。
 
+- [test_dpi_and_vpi_handles_use_distinct_apis.sv](../tests/ch35/test_dpi_and_vpi_handles_use_distinct_apis.sv): Get the length with the DPI open array handle and an element of the same array through a separate VPI handle. Check the compiler type mismatch when either API function is assigned the other signature.
 
 ### SV2023-H.9.5-EXTRACT-NO-SYSTF
 
@@ -136162,7 +137014,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.9.5-EXTRACT-NO-SYSTF-ACTIVITY
 
-`H.9.5` / `normal` / No mapped test
+`H.9.5` / `normal` / Test mapped; execution unconfirmed
 
 System-task-associated callbacks/activities are unsupported inside DPI imports; use VPI system-task context for those actions.
 
@@ -136170,6 +137022,7 @@ Acceptance criterion: System-task-associated callbacks/activities are unsupporte
 
 Normative role: `mandatory`。
 
+- [test_dpi_does_not_inherit_outer_vpi_system_task.sv](../tests/ch35/test_dpi_does_not_inherit_outer_vpi_system_task.sv): Access the call handle, argument and user data in the VPI system-task callback. Check system-task handle availability in both an ordinary DPI call and a nested DPI call from a VPI system task.
 
 ### SV2023-H.10-EXTRACT-HEADER
 
@@ -137290,7 +138143,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.14-EXTRACT-OPTIONAL
 
-`H.14` / `normal` / No mapped test
+`H.14` / `normal` / Execution confirmed
 
 SV3.1a packed-data compatibility is deprecated and need not be implemented.
 
@@ -137298,10 +138151,11 @@ Acceptance criterion: SV3.1a packed-data compatibility is deprecated and need no
 
 Normative role: `permission`。
 
+- [test_dpi_c_without_deprecated_packed_declarations.sv](../tests/ch35/test_dpi_c_without_deprecated_packed_declarations.sv): Run the modern packed transfer on both simulators and check legacy execution on one and rejection of the legacy declaration on the other.
 
 ### SV2023-H.14.1-EXTRACT-OPTIONAL-HEADER
 
-`H.14.1` / `normal` / No mapped test
+`H.14.1` / `normal` / Execution confirmed
 
 IEEE implementation need not include deprecated prototypes/definitions; unsupported legacy application may fail to bind.
 
@@ -137309,6 +138163,7 @@ Acceptance criterion: IEEE implementation need not include deprecated prototypes
 
 Normative role: `permission`。
 
+- [test_dpi_c_without_deprecated_packed_declarations.sv](../tests/ch35/test_dpi_c_without_deprecated_packed_declarations.sv): Compare compilation and execution of the modern application with the original and reduced headers. Check for the unresolved symbol when the application requires the old API.
 
 ### SV2023-H.14.1-EXTRACT-PER-FUNCTION
 
@@ -137574,7 +138429,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-ACK
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Test mapped; execution unconfirmed
 
 Imported function in disabled state must call svAckDisabledState before returning.
 
@@ -137582,6 +138437,7 @@ Acceptance criterion: Imported function in disabled state must call svAckDisable
 
 Normative role: `mandatory`。
 
+- [test_dpi_import_function_acknowledges_disable.sv](../tests/ch35/test_dpi_import_function_acknowledges_disable.sv): The exported function disables its caller and the imported function observes and acknowledges the disabled state. Check whether statements in the disabled block execute and whether the peer process continues.
 
 ### SV2023-I.3-EXTRACT-ACTIVE-SCOPE
 
@@ -138485,7 +139341,7 @@ Normative role: `definition`。
 
 ### SV2023-I.3-EXTRACT-DEPRECATED
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 Delimited deprecated header portion is optional for IEEE implementations.
 
@@ -138493,6 +139349,7 @@ Acceptance criterion: Delimited deprecated header portion is optional for IEEE i
 
 Normative role: `permission`。
 
+- [test_dpi_c_without_deprecated_packed_declarations.sv](../tests/ch35/test_dpi_c_without_deprecated_packed_declarations.sv): Remove the delimited legacy portion from a temporary copy of the header. Verify that the modern API compiles in C and C++ and that the configuration using legacy types and declarations is rejected.
 
 ### SV2023-I.3-EXTRACT-DISABLED
 
@@ -139122,7 +139979,7 @@ Normative role: `mandatory`。
 
 ### SV2023-I.3-EXTRACT-PROTOTYPES
 
-`I.3` / `normal` / No mapped test
+`I.3` / `normal` / Execution confirmed
 
 Under DPI_PROTOTYPES guard XXTERN combines DPI_EXTERN/DPI_DLLISPEC and EETERN combines DPI_EXTERN/DPI_DLLESPEC.
 
@@ -139130,6 +139987,7 @@ Acceptance criterion: Under DPI_PROTOTYPES guard XXTERN combines DPI_EXTERN/DPI_
 
 Normative role: `definition`。
 
+- [test_svdpi_h_prototype_guard.sv](../tests/ch35/test_svdpi_h_prototype_guard.sv): Check the replacement tokens for both declaration qualifiers with the C and C++ preprocessors. Check the declaration with a caller-supplied common qualifier and verify that a predefined guard preserves both of the caller’s qualifiers.
 
 ### SV2023-I.3-EXTRACT-PUT-DATA
 
@@ -139314,7 +140172,7 @@ Normative role: `mandatory`。
 
 ### SV2023-J.2-EXTRACT-MULTIPLE-METHODS
 
-`J.2` / `normal` / No mapped test
+`J.2` / `normal` / Test mapped; execution unconfirmed
 
 Inclusion facilities support both self-contained bootstrap-file use and user/project selections through tool switches.
 
@@ -139322,10 +140180,12 @@ Acceptance criterion: Inclusion facilities support both self-contained bootstrap
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Load the same shared objects using bootstrap files alone and using direct selections alone.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Load the same shared objects using bootstrap files alone and using direct selections alone.
 
 ### SV2023-J.2-EXTRACT-OBJECT-SUPPORT
 
-`J.2` / `normal` / No mapped test
+`J.2` / `normal` / Execution confirmed
 
 All simulators must support foreign object-code inclusion as specified.
 
@@ -139333,10 +140193,12 @@ Acceptance criterion: All simulators must support foreign object-code inclusion 
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_calls_user_built_shared_objects.sv](../tests/ch35/test_dpi_annex_j_calls_user_built_shared_objects.sv): Load separate user-supplied shared objects and compare their initialization markers and function return values.
+- [test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv](../tests/ch35/test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv): Load separate user-supplied shared objects and compare their initialization markers and function return values.
 
 ### SV2023-J.2-EXTRACT-SCOPE
 
-`J.2` / `normal` / No mapped test
+`J.2` / `normal` / Execution confirmed
 
 Annex J inclusion rules apply to DPI-included code independent of source language, not VPI inclusion.
 
@@ -139344,10 +140206,12 @@ Acceptance criterion: Annex J inclusion rules apply to DPI-included code indepen
 
 Normative role: `definition`。
 
+- [test_dpi_unrelated_libraries_private_and_numeric_keys.sv](../tests/ch35/test_dpi_unrelated_libraries_private_and_numeric_keys.sv): Build the C and C++ shared libraries in their separate language modes and exercise both from the same design through their DPI context imports.
+- [test_dpi_library_keys_isolate_two_instances_in_reverse_order.sv](../tests/ch35/test_dpi_library_keys_isolate_two_instances_in_reverse_order.sv): Build the C and C++ shared libraries in their separate language modes and exercise both from the same design through their DPI context imports.
 
 ### SV2023-J.3-EXTRACT-ROOT
 
-`J.3` / `normal` / No mapped test
+`J.3` / `normal` / Test mapped; execution unconfirmed
 
 Relative inclusion paths are prefixed by selected root directory; absent a prior root selection,current working directory is default. -sv_root is recommended switch spelling.
 
@@ -139355,10 +140219,12 @@ Acceptance criterion: Relative inclusion paths are prefixed by selected root dir
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Resolve relative paths from the working directory and a selected root, including a root switch within the command.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Resolve relative paths from the working directory and a selected root, including a root switch within the command.
 
 ### SV2023-J.4-EXTRACT-BOOTSTRAP
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Test mapped; execution unconfirmed
 
 Support specifying bootstrap-file location, repeatable for multiple files; -sv_liblist is recommended spelling.
 
@@ -139366,10 +140232,12 @@ Acceptance criterion: Support specifying bootstrap-file location, repeatable for
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Pass multiple bootstrap files by relative and absolute paths and check initialization order and return values for their objects.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Pass multiple bootstrap files by relative and absolute paths and check initialization order and return values for their objects.
 
 ### SV2023-J.4-EXTRACT-DIRECT
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Test mapped; execution unconfirmed
 
 Support specifying shared-library path without platform extension,appending proper extension automatically; selection repeatable for multiple libraries; -sv_lib is recommended spelling.
 
@@ -139377,10 +140245,12 @@ Acceptance criterion: Support specifying shared-library path without platform ex
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Repeat direct selection four times without suffixes and check that each shared object loads and resolves its import.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Repeat direct selection four times without suffixes and check that each shared object loads and resolves its import.
 
 ### SV2023-J.4-EXTRACT-INTERFERENCE
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Execution confirmed
 
 Code provider avoids interference and ensures compatible dependencies/runtime,including conflicting versions/static initializers; application need load only objects referenced by SV or registration functions.
 
@@ -139388,10 +140258,11 @@ Acceptance criterion: Code provider avoids interference and ensures compatible d
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_isolates_versioned_dependencies.sv](../tests/ch35/test_dpi_annex_j_isolates_versioned_dependencies.sv): Build the DPI shared libraries separately and check each dependency version and initializer in both load orders. Observe initialization of an added unreferenced object and check symbol resolution failure when a dependency is replaced with an incompatible version.
 
 ### SV2023-J.4-EXTRACT-LIBRARY
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Execution confirmed
 
 Compiled code must be in appropriately suffixed platform shared library; provider supplies resolved external dependencies.
 
@@ -139399,6 +140270,8 @@ Acceptance criterion: Compiled code must be in appropriately suffixed platform s
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_calls_user_built_shared_objects.sv](../tests/ch35/test_dpi_annex_j_calls_user_built_shared_objects.sv): Pass four shared objects linked with the platform suffix and check that all four functions can be called.
+- [test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv](../tests/ch35/test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv): Pass four shared objects linked with the platform suffix and check that all four functions can be called.
 
 ### SV2023-J.4-EXTRACT-LOAD
 
@@ -139411,10 +140284,12 @@ Acceptance criterion: SV applications must integrate user-compiled/linked foreig
 Normative role: `mandatory`。
 
 - [test_dpi_resolves_imports_from_two_foreign_objects.sv](../tests/ch35/test_dpi_resolves_imports_from_two_foreign_objects.sv): The design calls two functions from user-built foreign object code and checks their different return values.
+- [test_dpi_annex_j_calls_user_built_shared_objects.sv](../tests/ch35/test_dpi_annex_j_calls_user_built_shared_objects.sv): Load four prelinked shared objects in the given order and check initialization output and each import result.
+- [test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv](../tests/ch35/test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv): Load four prelinked shared objects in the given order and check initialization output and each import result.
 
 ### SV2023-J.4-EXTRACT-MIX
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Test mapped; execution unconfirmed
 
 Both selection methods must be concurrently available and freely mixable; absolute and root-prefixed relative paths allowed.
 
@@ -139422,10 +140297,12 @@ Acceptance criterion: Both selection methods must be concurrently available and 
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Combine bootstrap files and direct selections in one run and resolve all objects from root-relative and absolute paths.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Combine bootstrap files and direct selections in one run and resolve all objects from root-relative and absolute paths.
 
 ### SV2023-J.4-EXTRACT-ORDER
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Test mapped; execution unconfirmed
 
 Load all bootstrap entries in specification/line order first,then direct-library selections in occurrence order; load any library only once.
 
@@ -139433,10 +140310,12 @@ Acceptance criterion: Load all bootstrap entries in specification/line order fir
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Compare initialization markers for line and file order, direct selections after bootstrap entries, and counts after duplicate selections.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Compare initialization markers for line and file order, direct selections after bootstrap entries, and counts after duplicate selections.
 
 ### SV2023-J.4-EXTRACT-PRECEDENCE
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Test mapped; execution unconfirmed
 
 Duplicate identical files selected through bootstrap override direct-library selection,including easily identifiable aliases such as inode-equal paths.
 
@@ -139444,10 +140323,12 @@ Acceptance criterion: Duplicate identical files selected through bootstrap overr
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Repeat bootstrap objects as direct selections by exact path and by hard-link alias and check for one initialization each in bootstrap order.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Repeat bootstrap objects as direct selections by exact path and by hard-link alias and check for one initialization each in bootstrap order.
 
 ### SV2023-J.4-EXTRACT-STAGES
 
-`J.4` / `normal` / No mapped test
+`J.4` / `normal` / Execution confirmed
 
 Object-code inclusion leaves source compile/link to user and loads resulting object into SV application.
 
@@ -139455,10 +140336,12 @@ Acceptance criterion: Object-code inclusion leaves source compile/link to user a
 
 Normative role: `definition`。
 
+- [test_dpi_annex_j_calls_user_built_shared_objects.sv](../tests/ch35/test_dpi_annex_j_calls_user_built_shared_objects.sv): Compile and link the objects separately with an external C compiler, then pass the finished objects to the simulator.
+- [test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv](../tests/ch35/test_dpi_annex_j_keeps_multiple_prebuilt_objects_available.sv): Compile and link the objects separately with an external C compiler, then pass the finished objects to the simulator.
 
 ### SV2023-J.4.1-EXTRACT-COMMENTS
 
-`J.4.1` / `normal` / No mapped test
+`J.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Arbitrary comment lines may appear between entries; first nonblank character # starts comment terminated by newline.
 
@@ -139466,10 +140349,12 @@ Acceptance criterion: Arbitrary comment lines may appear between entries; first 
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Place column-one and indented comments between entries and check that objects load in entry order.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Place column-one and indented comments between entries and check that objects load in entry order.
 
 ### SV2023-J.4.1-EXTRACT-ENTRIES
 
-`J.4.1` / `normal` / No mapped test
+`J.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Each following library-entry line contains exactly one path without platform extension,with at least one leading blank and arbitrary surrounding blanks; zero or more entries permitted.
 
@@ -139477,10 +140362,12 @@ Acceptance criterion: Each following library-entry line contains exactly one pat
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Use an empty bootstrap file and multientry lists with different leading and trailing blanks and check that the intended objects load.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Use an empty bootstrap file and multientry lists with different leading and trailing blanks and check that the intended objects load.
 
 ### SV2023-J.4.1-EXTRACT-MAGIC
 
-`J.4.1` / `normal` / No mapped test
+`J.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Bootstrap first line contains #!SV_LIBRARIES.
 
@@ -139488,6 +140375,8 @@ Acceptance criterion: Bootstrap first line contains #!SV_LIBRARIES.
 
 Normative role: `mandatory`。
 
+- [test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv](../tests/ch35/test_dpi_annex_j_combines_bootstrap_files_and_direct_libraries.sv): Pass empty and multientry bootstrap files with the prescribed first line and check that the intended objects load.
+- [test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv](../tests/ch35/test_dpi_annex_j_resolves_roots_and_deduplicates_bootstrap_aliases.sv): Pass empty and multientry bootstrap files with the prescribed first line and check that the intended objects load.
 
 ### SV2023-K.1-EXTRACT-REQUIRED
 
@@ -146033,7 +146922,7 @@ Normative role: `recommendation`。
 
 ### SV2023-L.2-EXTRACT-GUARD
 
-`L.2` / `normal` / No mapped test
+`L.2` / `normal` / Test mapped; execution unconfirmed
 
 Compatibility header diagnoses repeated/direct guarded inclusion and sets VPI_COMPATIBILITY_H.
 
@@ -146041,6 +146930,8 @@ Acceptance criterion: Compatibility header diagnoses repeated/direct guarded inc
 
 Normative role: `mandatory`。
 
+- [test_vpi_public_header_shares_one_legacy_mode_with_callbacks.sv](../tests/ch36/test_vpi_public_header_shares_one_legacy_mode_with_callbacks.sv): Check that the public header sets its guard and that diagnostics appear on direct re-entry or when including with the guard predefined.
+- [test_vpi_public_header_shares_one_recent_mode_with_callbacks.sv](../tests/ch36/test_vpi_public_header_shares_one_recent_mode_with_callbacks.sv): Check that the public header sets its guard and that diagnostics appear on direct re-entry or when including with the guard predefined.
 
 ### SV2023-L.2-EXTRACT-MAP-1364V1995-COMPARE-OBJECTS
 
@@ -147052,7 +147943,7 @@ Normative role: `definition`。
 
 ### SV2023-L.2-EXTRACT-ONE-VERSION
 
-`L.2` / `normal` / No mapped test
+`L.2` / `normal` / Test mapped; execution unconfirmed
 
 Compatibility preprocessor branches enforce only one effective compatibility-version selection.
 
@@ -147060,6 +147951,8 @@ Acceptance criterion: Compatibility preprocessor branches enforce only one effec
 
 Normative role: `mandatory`。
 
+- [test_vpi_public_header_shares_one_legacy_mode_with_callbacks.sv](../tests/ch36/test_vpi_public_header_shares_one_legacy_mode_with_callbacks.sv): Check that combinations selecting distinct effective modes are diagnosed and that all fourteen routines resolve to the same effective mode for accepted selections.
+- [test_vpi_public_header_shares_one_recent_mode_with_callbacks.sv](../tests/ch36/test_vpi_public_header_shares_one_recent_mode_with_callbacks.sv): Check that combinations selecting distinct effective modes are diagnosed and that all fourteen routines resolve to the same effective mode for accepted selections.
 
 ### SV2023-L.2-EXTRACT-RECENT-VERSIONS
 
@@ -151960,7 +152853,7 @@ Normative role: `definition`。
 
 ### SV2023-M.2-EXTRACT-DEPRECATED
 
-`M.2` / `normal` / No mapped test
+`M.2` / `normal` / Execution confirmed
 
 vpiInterfaceDecl aliases vpiVirtualInterfaceVar; vpiValid/vpiValidUnknown definitions are deprecated and do not justify retaining handles past lifetime.
 
@@ -151968,6 +152861,7 @@ Acceptance criterion: vpiInterfaceDecl aliases vpiVirtualInterfaceVar; vpiValid/
 
 Normative role: `definition`。
 
+- [test_vpi_deprecated_constants_and_live_frame.sv](../tests/ch36/test_vpi_deprecated_constants_and_live_frame.sv): Resolve the old and current names to the same virtual interface variable and verify the deprecated constant values. Query anew from the parent while the child thread is alive and after it ends to check when its frame and automatic variable are available.
 
 ### SV2023-M.2-EXTRACT-GUARD
 
@@ -151995,7 +152889,7 @@ Normative role: `definition`。
 
 ### SV2023-M.2-EXTRACT-RESERVED
 
-`M.2` / `normal` / No mapped test
+`M.2` / `normal` / Execution confirmed
 
 sv_vpi_user.h reserves 600..999, with 600..749 model extensions,750..779 coverage,800..899 future use; different identifier categories may share numbers.
 
@@ -152003,6 +152897,7 @@ Acceptance criterion: sv_vpi_user.h reserves 600..999, with 600..749 model exten
 
 Normative role: `definition`。
 
+- [test_vpi_extension_reserved_constant_ranges.sv](../tests/ch36/test_vpi_extension_reserved_constant_ranges.sv): Run an example in which an object type, a property, and a callback reason share the same number. Compile the public headers in two languages to check the coverage allocations and the unused future range. Detect inserted constants at both endpoints of the future range and exclude the neighboring values outside it.
 
 ### SV2023-M.2-EXTRACT-STEP-STRUCT
 
@@ -152184,7 +153079,7 @@ Normative role: `mandatory`。
 
 ### SV2023-N.2-EXTRACT-HELPERS
 
-`N.2` / `normal` / No mapped test
+`N.2` / `normal` / Execution confirmed
 
 Reference helpers accept mutable long* seed and long parameters: uniform(start,end),normal(mean,deviation),exponential(mean),chi_square(df),t(df),erlangian(k,mean) return double; poisson(mean) returns long.
 
@@ -152192,6 +153087,7 @@ Acceptance criterion: Reference helpers accept mutable long* seed and long param
 
 Normative role: `definition`。
 
+- [test_annex_n_reference_helpers.sv](../tests/ch20/test_annex_n_reference_helpers.sv): Compile the seven functions extracted from the local reference source using typed function pointers. Call each pointer and verify its return value and seed update.
 
 ### SV2023-N.2-EXTRACT-LIMITS
 
@@ -152364,7 +153260,7 @@ Normative role: `mandatory`。
 
 ### SV2023-N.2-EXTRACT-UNIFORM-RANGE
 
-`N.2` / `normal` / No mapped test
+`N.2` / `normal` / Execution confirmed
 
 Internal uniform falls back to floating range 0..2147483647 for start\>=end,otherwise converts endpoints to double.
 
@@ -152372,6 +153268,7 @@ Acceptance criterion: Internal uniform falls back to floating range 0..214748364
 
 Normative role: `mandatory`。
 
+- [test_annex_n_reference_helpers.sv](../tests/ch20/test_annex_n_reference_helpers.sv): Call the reference uniform helper with the same seed for equal and reversed bounds. Compare both draws with the explicit default range and check a valid range against the unit draw scaled to its real endpoints.
 
 ### SV2023-N.2-EXTRACT-UNIFORM-RESULT
 

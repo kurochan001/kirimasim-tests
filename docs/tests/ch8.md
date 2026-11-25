@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 512 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 514 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -41,6 +41,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_class_handle_default_null_and_case_equality`](../../tests/ch8/test_class_handle_default_null_and_case_equality.sv) | class handles and chandles start as null, and === and !== on class handles give the same results as == and != for the same object, a different object with equal contents and null | 8.4 6.14 | Verilator 5.052 ||
 | [`test_class_null_comparison`](../../tests/ch8/test_class_null_comparison.sv) | Class handles: null by default, compared with null, copied by assignment | 8.4 8.12 | Icarus Verilog 13.0 ||
 | [`test_class_null_handle`](../../tests/ch8/test_class_null_handle.sv) | Test: Null handle detection (check if handle is null before use) | 8.4 | Verilator 5.052 ||
+| [`test_class_null_instance_access_observation`](../../tests/ch8/test_class_null_instance_access_observation.sv) | Observe a null handle used for an instance field or a virtual method | 8.4 8.9 8.20 | Verilator 5.052 ||
 | [`test_class_object`](../../tests/ch8/test_class_object.sv) | Test class objects | 8.4 8.7 | Icarus Verilog 13.0 ||
 | [`test_class_prop_assign`](../../tests/ch8/test_class_prop_assign.sv) | Test: Class property assignment | 8.4 8.5 8.9 | Verilator 5.052 ||
 | [`test_class_register_block`](../../tests/ch8/test_class_register_block.sv) | A class that models a block of registers, with reads, writes and reset | 8.4 8.5 12.5 | Verilator 5.052 ||
@@ -91,6 +92,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_class_local_and_protected_constructors`](../../tests/ch8/test_class_local_and_protected_constructors.sv) | a constructor can be declared local, and then be called by a static method of its class, or protected, and then be called by the constructor of a derived class with super.new | 8.7 8.18 | Verilator 5.052 ||
 | [`test_class_new`](../../tests/ch8/test_class_new.sv) | Class Constructor Tests | 8.7 13.5.3 | Verilator 5.052 ||
 | [`test_class_new_args`](../../tests/ch8/test_class_new_args.sv) | Test: Class constructor with various argument types | 8.7 13.5.3 | Verilator 5.052 ||
+| [`test_class_property_before_initializer_observation`](../../tests/ch8/test_class_property_before_initializer_observation.sv) | A base constructor observes the argument before a derived property initializes | 8.7 | Icarus Verilog 13.0 ||
 | [`test_class_property_init_after_base_constructor`](../../tests/ch8/test_class_property_init_after_base_constructor.sv) | class properties get their declared or default initial values after the base constructor returns and before the rest of the constructor runs | 8.7 8.15 | Icarus Verilog 13.0 | x/z |
 | [`test_illegal_constructor_delay_control`](../../tests/ch8/test_illegal_constructor_delay_control.sv) | A class constructor cannot contain a delay control, because new is a function and shall be nonblocking | 8.7 | Icarus Verilog 13.0 | illegal design |
 | [`test_illegal_constructor_event_control`](../../tests/ch8/test_illegal_constructor_event_control.sv) | A class constructor cannot contain an event control, because new is a function and shall be nonblocking | 8.7 | Icarus Verilog 13.0 | illegal design |

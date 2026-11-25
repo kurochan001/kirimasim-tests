@@ -1,0 +1,48 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch17/test_checker_assume_clock_preserves_assigned_free_elements": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_assume_clock_preserves_assigned_free_elements.sv:23:3: Unsupported: checker rand",
+   "inputs_sha256": "c0db99d24800b613d3415dfb6dd9cbc456a7550f0bd58f8d79891f106df41e57"
+  },
+  "ch17/test_checker_assume_set_excludes_captured_formal_and_inactive_child": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_assume_set_excludes_captured_formal_and_inactive_child.sv:26:3: Unsupported: checker rand",
+   "inputs_sha256": "88b3567a144ba274a972a60675059b0e6f605003832332a23957e5de67cd3095"
+  },
+  "ch17/test_checker_assume_set_survives_procedural_capture": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_assume_set_survives_procedural_capture.sv:20:3: Unsupported: checker rand",
+   "inputs_sha256": "523c431148a331f094a362a1837446aef67f30007945c276ea3e012fca9aabdf"
+  },
+  "ch17/test_checker_assume_solve_allows_a_future_dead_end": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_assume_solve_allows_a_future_dead_end.sv:17:51: Unsupported: checker port variable default value",
+   "inputs_sha256": "cb85f7a4685e7906e300d1e3e9b495656eaeea4235bf6ca253ac5b20b57c7912"
+  },
+  "ch17/test_checker_assume_violation": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_assume_violation.sv:29:3: Unsupported: checker rand",
+   "inputs_sha256": "cce843a3ea7463b2619600f191c5f2a9b7d3fb83e6739285aa7d455a2d24b46b"
+  },
+  "ch17/test_checker_empty_assume_set_step": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_empty_assume_set_step.sv:32:3: Unsupported: checker rand",
+   "inputs_sha256": "d8639a5724680fb8448f2c881db3047f2bad4f45191b5f363fcd5baf8c4ebde8"
+  },
+  "ch17/test_checker_free_initial_values_before_any_clock": {
+   "status": "known",
+   "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_free_initial_values_before_any_clock.sv:19:3: Unsupported: checker rand",
+   "inputs_sha256": "2145e1cb561a88c2620be36c1bf74d706337f160b5967d1fbfe783d2e569a89d"
+  }
+ },
+ "generated_at": "2026-11-25T02:09:24.446713+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

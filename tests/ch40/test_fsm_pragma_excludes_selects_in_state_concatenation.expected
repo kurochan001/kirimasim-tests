@@ -1,0 +1,4 @@
+whole: concat=1 members=1
+standalone: part_select=1 width=2
+concatenations registered: bit_select=0 part_select=0
+hdl whole=01 standalone=10

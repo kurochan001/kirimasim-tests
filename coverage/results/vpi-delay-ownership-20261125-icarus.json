@@ -1,0 +1,31 @@
+{
+ "simulator": "icarus",
+ "name": "Icarus Verilog",
+ "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+ "tests": {
+  "ch37/test_vpi_interconnect_delay_device_one_fanout_branch": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'delay device or terminal declarations unavailable', expected 'delay objects source=1 target=1 owner=1'",
+   "inputs_sha256": "c5df39f9967d783de7e2dfecb626b3130fa06f950214d22f58ff9dcb38064e38"
+  },
+  "ch37/test_vpi_interconnect_delay_device_single_load": {
+   "status": "known",
+   "reason": "output differs: line 2 is 'delay device or terminal declarations unavailable', expected 'delay objects source=1 target=1 owner=1'",
+   "inputs_sha256": "b4af4d9f04f1e076d26e368fc5bc8cf33b601a9598c298b08ad95369c6a762f2"
+  },
+  "ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner": {
+   "status": "known",
+   "reason": "compile failed: tests/ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner.sv:19: error: specify blocks are not allowed in interfaces.",
+   "inputs_sha256": "6fa4a7844c94b898b057a5f5c9e3b5df6f92e5491b75e8cee1196e4585dcfb9e"
+  },
+  "ch37/test_vpi_interface_specify_paths_keep_interface_owner": {
+   "status": "known",
+   "reason": "compile failed: tests/ch37/test_vpi_interface_specify_paths_keep_interface_owner.sv:20: error: specify blocks are not allowed in interfaces.",
+   "inputs_sha256": "8272f192511203a0192ba659b84a421597b4f2ee303bc97534a7fa8b9bc09143"
+  }
+ },
+ "generated_at": "2026-11-24T21:31:31.397763+00:00",
+ "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+ "runner_changed": false,
+ "configuration": {}
+}

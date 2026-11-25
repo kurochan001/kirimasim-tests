@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "version": "private build 6fa9a05abb0c",
+  "configuration": {
+    "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+    "profile_sha256": "6e5e362a4d3c8b991374334693f50c070e4fb6d99fff7267e42407c8cd197665"
+  },
+  "tests": {
+    "ch33/test_single_pass_library_loading": {
+      "inputs_sha256": "4f03284062290c00f97c9ac9182c2de596e6782a888681f8bdee90a575ccf4c7",
+      "status": "pass",
+      "trials": {
+        "explicit": {
+          "exit": 0,
+          "stdout": [
+            "bound library value=19"
+          ]
+        },
+        "omitted": {
+          "exit": 255,
+          "stdout": [],
+          "diagnostics": [
+            "test_single_pass_library_loading.sv:18:3: error [E102]: module 'phase_needed' not found [slang: unknown module 'phase_needed']"
+          ]
+        },
+        "resupplied": {
+          "exit": 0,
+          "stdout": [
+            "bound library value=19"
+          ]
+        },
+        "malformed": {
+          "exit": 1,
+          "stdout": [],
+          "diagnostics": [
+            "lib/phase_bad.v:3:17: error: ExpectedExpression"
+          ]
+        },
+        "lazy": {
+          "exit": 0,
+          "stdout": [
+            "bound library value=19"
+          ],
+          "resolved_cells": [
+            "lib/phase_needed.v"
+          ]
+        }
+      }
+    },
+    "ch33/test_single_pass_library_nested_lookup": {
+      "inputs_sha256": "36323e99e02294bfd2435588d1fc3bf5c2576599ad26b9deac5794731a9a7649",
+      "status": "pass",
+      "trials": {
+        "explicit": {
+          "exit": 0,
+          "stdout": [
+            "nested input=3 output=10",
+            "nested input=12 output=28"
+          ]
+        },
+        "omitted": {
+          "exit": 255,
+          "stdout": [],
+          "diagnostics": [
+            "lib/phase_parent.v:5:3: error [E102]: module 'phase_child' not found [slang: unknown module 'phase_child']"
+          ]
+        },
+        "resupplied": {
+          "exit": 0,
+          "stdout": [
+            "nested input=3 output=10",
+            "nested input=12 output=28"
+          ]
+        },
+        "malformed": {
+          "exit": 1,
+          "stdout": [],
+          "diagnostics": [
+            "lib/phase_bad.v:3:17: error: ExpectedExpression"
+          ]
+        },
+        "lazy": {
+          "exit": 0,
+          "stdout": [
+            "nested input=3 output=10",
+            "nested input=12 output=28"
+          ],
+          "resolved_cells": [
+            "lib/phase_child.v",
+            "lib/phase_parent.v"
+          ]
+        }
+      }
+    }
+  }
+}

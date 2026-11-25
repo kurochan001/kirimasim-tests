@@ -1,0 +1,4 @@
+after unrelated write=0
+after referenced write=1
+after second unrelated write=1
+after second referenced write=2

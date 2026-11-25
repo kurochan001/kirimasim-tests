@@ -34,8 +34,8 @@ class GhostEvcdClose(unittest.TestCase):
 
     def check_trace(self, data: str, *, last_change: int, close_time: int) -> None:
         # The closing time is separate from the last port value change time.
-        close_times = re.findall(r"\$vcdclose\s+#([0-9]+)\s+\$end\b", data)
-        self.assertEqual(close_times, [str(close_time)])
+        self.assertEqual(len(re.findall(r"(?m)^\s*\$vcdclose\b", data)), 1)
+        self.assertRegex(data, rf"(?m)^\s*\$vcdclose\s+#{close_time}\s+\$end\s*\Z")
         current_time = None
         changes = []
         for line in data.splitlines():
@@ -61,3 +61,10 @@ class GhostEvcdClose(unittest.TestCase):
         )
         self.check_trace(traces["active.evcd"], last_change=11, close_time=29)
         self.check_trace(traces["paused.evcd"], last_change=6, close_time=29)
+
+    def test_queue_drain_finalizes_file_at_last_scheduled_event(self):
+        traces = self.capture_traces(
+            "test_evcd_close_records_final_time_when_queue_drains.sv",
+            ("drained.evcd",),
+        )
+        self.check_trace(traces["drained.evcd"], last_change=4, close_time=21)
