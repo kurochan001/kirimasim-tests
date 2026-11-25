@@ -12,9 +12,9 @@
 
 [JSON](headline.json) · [Method / 測定方法](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/daily-benchmark.md)
 
-最新の総合測定: **2026-11-24 JST — 0.55718** (25/25; complete)
+最新の総合測定: **2026-11-25 JST — 0.56561** (25/25; incomplete)
 
-[Raw / 生データ](runs/actions-45328846151-1.json) · [Actions logs / ログ](https://github.com/kurochan001/kirimasim-tests/actions/runs/45328846151/attempts/1)
+[Raw / 生データ](runs/actions-45540765572-1.json) · [Actions logs / ログ](https://github.com/kurochan001/kirimasim-tests/actions/runs/45540765572/attempts/1)
 
 <details><summary>ケース別結果・固定版との比較・過去の系列</summary>
 
@@ -22,26 +22,26 @@
 
 [JSON](latest-daily.json)
 
-**測定回:** `actions-45328846151-1` — complete
-2026-11-24T05:23:13.874403+00:00 → 2026-11-24T06:16:00.053712+00:00
+**測定回:** `actions-45540765572-1` — incomplete
+2026-11-25T03:47:30.324610+00:00 → 2026-11-25T04:45:24.042738+00:00
 
 比率は最新kirimasimの差分時間÷比較対象の差分時間です。1未満なら最新kirimasimが速いことを示します。
 
 この環境での参考値です。失敗・欠測はゼロ秒ではありません。
 
-[JSON](runs/actions-45328846151-1.json) · [Actions logs / ログ](https://github.com/kurochan001/kirimasim-tests/actions/runs/45328846151/attempts/1) · [Method / 測定方法](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/daily-benchmark.md)
+[JSON](runs/actions-45540765572-1.json) · [Actions logs / ログ](https://github.com/kurochan001/kirimasim-tests/actions/runs/45540765572/attempts/1) · [Method / 測定方法](https://github.com/kurochan001/kirimasim-tests/blob/main/docs/daily-benchmark.md)
 
-環境: github-hosted-ubuntu-24.04 / Intel(R) Xeon(R) 6975P-C / Linux-7.0.0-1014-aws-x86_64-with-glibc2.39
+環境: github-hosted-ubuntu-24.04 / AMD EPYC 9V74 80-Core Processor / Linux-7.0.0-1017-azure-x86_64-with-glibc2.39
 
 <details><summary>測定条件</summary>
 
 ```json
 {
   "machine": {
-    "os": "Linux-7.0.0-1014-aws-x86_64-with-glibc2.39",
+    "os": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
     "cores": 4,
-    "cpu": "Intel(R) Xeon(R) 6975P-C",
-    "memory_gib": 15,
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "memory_gib": 16,
     "distribution": "Ubuntu 24.04.5 LTS",
     "architecture": "x86_64"
   },
@@ -49,7 +49,7 @@
   "profile": "daily",
   "environment": "github-hosted-ubuntu-24.04",
   "image_os": "ubuntu24",
-  "image_version": "20261116.133.1",
+  "image_version": "20261116.376.1",
   "settings": {
     "runs": 5,
     "warmups": 1,
@@ -138,155 +138,155 @@
 
 </details>
 
-- `latest`: `e93839fdcbea43035a4e58ca271535f16cd3b4ad` — kirimasim 0.2.1 (commit e93839fdcbea), built with GNU 13.3.0
+- `latest`: `a50ec73c37d866bc493ecb76830ef1ddfcf7543b` — kirimasim 0.2.2 (commit a50ec73c37d8), built with GNU 13.3.0
 - `baseline`: `cfa2ccd75989c1ebb9ed63303271183377364cf0` — kirimasim 0.1.0 (commit cfa2ccd75989), built with GNU 13.3.0
 - `icarus`: `dfeee909ed9f20b4870dd93423156c0170c0e1ff` — Icarus Verilog version 13.0 (stable) (dfeee90-dirty)
-- `verilator`: `bbb60a403932a9f695cb6ff001ceb73de6ad9234` — Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261121-bbb60a4
-- `icarus_devel`: `addeab31d5297092ccafbde326f726f3c0d45e60` — Icarus Verilog version 14.0 (devel) (addeab3)
+- `verilator`: `bbb60a403932a9f695cb6ff001ceb73de6ad9234` — Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261123-bbb60a4
+- `icarus_devel`: `3f05f92b0fcd6561d907b0b023d2408371307496` — Icarus Verilog version 14.0 (devel) (3f05f92)
 
 定義・測定処理の識別情報: `{'config_sha256': '4006a76543b7c88eed78ba128e7459c54ac2ee82a78efdd401ac2d85643bef9b', 'driver_sha256': '0edb91f5cbc17e8d1eec9e77ab4c87fb7dbcf4b9ff57d233c5e94628770ad077', 'comparison_sha256': '2896f429781d5eaff2d0ecec465726de342f840892056d20304d2df179ad6be0', 'history_sha256': 'bda014f86bbbea0bd769b5458656bfda07cbcaec712624cfad17960b10b5c887', 'setup_sha256': 'aa89dd6c7df5268f361f96049069cfe68b524ff93819afc4351fcb557c91d8f9', 'adapter_sha256': '4811f9d50d4a09d8794710296d644350468c49a9579a794f27af42ac9fb6b5bc', 'benchmark_commit': 'cfa2ccd75989c1ebb9ed63303271183377364cf0', 'reference_sha256': {'bench/reference_expanded.py': 'a1196d79efb88425f61cc69ba1d9ec99542f7f5dc41fac2a07ade82090b00f4a', 'bench/reference_fourstate_mix.py': '586fb643e9ef9df9e304df83e04e711aa1b875e6cb4393e6e3c98cd1707b70e1'}}`
 
 | ケース | 処理系 | 状態 | ビルド秒 | T(1)中央値秒 | T(N)中央値秒 | 差分秒 | T(N) MAD秒 | RSS MiB | 最新/対象 | 理由・注意 |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---|
-| casez_struct (N=5000000) | latest | measured | — | 0.0053458 | 2.4504 | 2.445 | 0.0044061 | 29.762 | — |  |
-| casez_struct (N=5000000) | baseline | measured | — | 0.0052085 | 5.0605 | 5.0553 | 0.015782 | 28.316 | 0.48365 |  |
-| casez_struct (N=5000000) | icarus | measured | 0.0039358 | 0.0027948 | 5.5359 | 5.5331 | 0.010763 | 7.3359 | 0.44189 |  |
-| casez_struct (N=5000000) | verilator | measured | 4.8313 | 0.0013201 | 0.029737 | 0.028417 | 5.6681e-05 | 3.8359 | 86.042 | short incremental time; sensitive to timing noise |
-| casez_struct (N=5000000) | icarus_devel | measured | 0.0037676 | 0.0025957 | 5.1319 | 5.1293 | 0.012854 | 7.5117 | 0.47668 |  |
-| comb_chain (N=3000000) | latest | measured | — | 0.005435 | 3.8966 | 3.8912 | 0.0089442 | 29.703 | — |  |
-| comb_chain (N=3000000) | baseline | measured | — | 0.0051038 | 13.507 | 13.502 | 0.031549 | 28.359 | 0.2882 |  |
-| comb_chain (N=3000000) | icarus | measured | 0.0041906 | 0.0027645 | 19.531 | 19.528 | 0.035891 | 7.4375 | 0.19926 |  |
-| comb_chain (N=3000000) | verilator | measured | 5.6385 | 0.0013118 | 0.32625 | 0.32493 | 0.00072217 | 3.8477 | 11.975 |  |
-| comb_chain (N=3000000) | icarus_devel | measured | 0.0038585 | 0.0023939 | 12.816 | 12.813 | 0.018628 | 7.5703 | 0.30368 |  |
-| dyn_queue (N=4000000) | latest | measured | — | 0.0048301 | 3.9014 | 3.8966 | 0.011967 | 29.695 | — |  |
-| dyn_queue (N=4000000) | baseline | measured | — | 0.0051891 | 5.5731 | 5.568 | 0.021143 | 28.102 | 0.69982 |  |
-| dyn_queue (N=4000000) | icarus | measured | 0.0039996 | 0.002851 | 10.368 | 10.365 | 0.034934 | 7.3945 | 0.37595 |  |
-| dyn_queue (N=4000000) | verilator | measured | 5.0836 | 0.0013125 | 0.10524 | 0.10393 | 0.00041985 | 3.8164 | 37.494 |  |
-| dyn_queue (N=4000000) | icarus_devel | measured | 0.0039012 | 0.0026728 | 9.4474 | 9.4448 | 0.02919 | 7.6641 | 0.41257 |  |
-| fork_join (N=4000000) | latest | measured | — | 0.0052791 | 4.9791 | 4.9738 | 0.015342 | 29.559 | — |  |
-| fork_join (N=4000000) | baseline | measured | — | 0.0054558 | 6.9822 | 6.9767 | 0.0085521 | 28.137 | 0.71291 |  |
-| fork_join (N=4000000) | icarus | measured | 0.0040971 | 0.002668 | 8.9994 | 8.9967 | 0.029071 | 7.3672 | 0.55284 |  |
-| fork_join (N=4000000) | verilator | measured | 5.6849 | 0.001322 | 1.7674 | 1.766 | 0.00096784 | 3.8281 | 2.8163 |  |
-| fork_join (N=4000000) | icarus_devel | measured | 0.003681 | 0.0023762 | 6.8871 | 6.8847 | 0.00030728 | 7.5039 | 0.72244 |  |
-| func_call (N=1500000) | latest | measured | — | 0.0056474 | 4.2685 | 4.2628 | 0.0022733 | 29.473 | — |  |
-| func_call (N=1500000) | baseline | measured | — | 0.0051206 | 6.7173 | 6.7121 | 0.02454 | 28.277 | 0.63509 |  |
-| func_call (N=1500000) | icarus | measured | 0.003785 | 0.0027616 | 15.252 | 15.249 | 0.0144 | 7.3477 | 0.27954 |  |
-| func_call (N=1500000) | verilator | measured | 4.7651 | 0.0013072 | 0.0084953 | 0.0071881 | 0.00013179 | 0.31641 | 593.04 | short incremental time; sensitive to timing noise |
-| func_call (N=1500000) | icarus_devel | measured | 0.0035969 | 0.0024208 | 10.902 | 10.899 | 0.060991 | 7.5156 | 0.39111 |  |
-| gate_udp (N=400000) | latest | measured | — | 0.0070614 | 5.8453 | 5.8383 | 0.0048356 | 33.641 | — |  |
-| gate_udp (N=400000) | baseline | measured | — | 0.0060359 | 7.6579 | 7.6519 | 0.015941 | 28.188 | 0.76298 |  |
-| gate_udp (N=400000) | icarus | measured | 0.0050058 | 0.0035368 | 4.9226 | 4.9191 | 0.010407 | 7.5234 | 1.1869 |  |
-| gate_udp (N=400000) | verilator | measured | 5.4993 | 0.0012989 | 0.063333 | 0.062034 | 0.00017698 | 3.8516 | 94.114 |  |
-| gate_udp (N=400000) | icarus_devel | measured | 0.0049934 | 0.0031983 | 4.6071 | 4.6039 | 0.010431 | 7.6758 | 1.2681 |  |
-| mem_rw (N=4000000) | latest | measured | — | 0.006326 | 3.7459 | 3.7396 | 0.0065015 | 29.754 | — |  |
-| mem_rw (N=4000000) | baseline | measured | — | 0.0063721 | 7.3273 | 7.321 | 0.028468 | 28.172 | 0.51081 |  |
-| mem_rw (N=4000000) | icarus | measured | 0.0050013 | 0.0031814 | 6.1037 | 6.1005 | 0.023534 | 7.4102 | 0.613 |  |
-| mem_rw (N=4000000) | verilator | measured | 5.4813 | 0.0013388 | 0.98199 | 0.98065 | 0.0017174 | 3.8203 | 3.8134 |  |
-| mem_rw (N=4000000) | icarus_devel | measured | 0.0037306 | 0.0031438 | 4.3869 | 4.3837 | 0.015562 | 7.5508 | 0.85307 |  |
-| nba_burst (N=500000) | latest | measured | — | 0.0047864 | 0.090284 | 0.085497 | 0.00046693 | 133.77 | — |  |
-| nba_burst (N=500000) | baseline | measured | — | 0.0048133 | 0.15163 | 0.14682 | 0.00045355 | 124.4 | 0.58232 |  |
-| nba_burst (N=500000) | icarus | measured | 0.0035032 | 0.0022862 | 0.16905 | 0.16676 | 0.00052107 | 33.84 | 0.51268 |  |
-| nba_burst (N=500000) | verilator | measured | 5.4927 | 0.001193 | 0.0013915 | 0.0001985 | 6.588e-06 | 0.3125 | 430.72 | short incremental time; sensitive to timing noise; incremental time is close to observed dispersion |
-| nba_burst (N=500000) | icarus_devel | measured | 0.003438 | 0.0022386 | 0.16784 | 0.1656 | 0.0004783 | 34.039 | 0.51627 |  |
-| nba_shift (N=1000000) | latest | measured | — | 0.0056851 | 13.066 | 13.06 | 0.0098394 | 31.609 | — |  |
-| nba_shift (N=1000000) | baseline | measured | — | 0.0058947 | 35.558 | 35.552 | 0.31126 | 28.309 | 0.36735 |  |
-| nba_shift (N=1000000) | icarus | measured | 0.0056932 | 0.0030122 | 34.744 | 34.741 | 0.032341 | 7.5 | 0.37593 |  |
-| nba_shift (N=1000000) | verilator | measured | 5.5715 | 0.0012949 | 0.28732 | 0.28603 | 0.00090425 | 3.8047 | 45.66 |  |
-| nba_shift (N=1000000) | icarus_devel | measured | 0.004115 | 0.0029664 | 34.585 | 34.582 | 0.035275 | 7.6914 | 0.37765 |  |
-| proc_wait (N=1000000) | latest | measured | — | 0.009349 | 5.5021 | 5.4927 | 0.035442 | 39.57 | — |  |
-| proc_wait (N=1000000) | baseline | measured | — | 0.0075994 | 10.511 | 10.503 | 0.05545 | 30.238 | 0.52295 |  |
-| proc_wait (N=1000000) | icarus | measured | 0.0066794 | 0.0038168 | 8.6554 | 8.6516 | 0.033231 | 7.8359 | 0.63488 |  |
-| proc_wait (N=1000000) | verilator | measured | 7.4296 | 0.0014064 | 2.928 | 2.9266 | 0.0073081 | 3.9883 | 1.8769 |  |
-| proc_wait (N=1000000) | icarus_devel | measured | 0.0049736 | 0.0033018 | 8.5376 | 8.5343 | 0.053435 | 8.0664 | 0.64361 |  |
-| string_fmt (N=500000) | latest | measured | — | 0.0053939 | 3.1886 | 3.1832 | 0.010617 | 29.766 | — |  |
-| string_fmt (N=500000) | baseline | measured | — | 0.0052398 | 5.8523 | 5.8471 | 0.012656 | 28.203 | 0.54441 |  |
-| string_fmt (N=500000) | icarus | measured | 0.0049541 | 0.0027886 | 15.067 | 15.064 | 0.027649 | 7.3672 | 0.21131 |  |
-| string_fmt (N=500000) | verilator | measured | 4.8398 | 0.0013486 | 0.20066 | 0.19931 | 0.0007176 | 3.9336 | 15.971 |  |
-| string_fmt (N=500000) | icarus_devel | measured | 0.0035123 | 0.0027575 | 11.607 | 11.604 | 0.01142 | 7.543 | 0.27431 |  |
-| wide_arith (N=1500000) | latest | measured | — | 0.0054169 | 2.6963 | 2.6909 | 0.0040873 | 29.742 | — |  |
-| wide_arith (N=1500000) | baseline | measured | — | 0.0058041 | 7.1921 | 7.1863 | 0.011167 | 28.176 | 0.37445 |  |
-| wide_arith (N=1500000) | icarus | measured | 0.0038339 | 0.0026765 | 14.68 | 14.678 | 0.012373 | 7.2969 | 0.18333 |  |
-| wide_arith (N=1500000) | verilator | measured | 4.9435 | 0.0013554 | 0.12142 | 0.12006 | 0.00017423 | 3.8359 | 22.412 |  |
-| wide_arith (N=1500000) | icarus_devel | measured | 0.0038568 | 0.0023793 | 2.7335 | 2.7311 | 0.0064018 | 7.5273 | 0.98526 |  |
-| fourstate_mix (N=1000000) | latest | measured | — | 0.0048783 | 0.80189 | 0.79701 | 0.0030128 | 29.812 | — |  |
-| fourstate_mix (N=1000000) | baseline | measured | — | 0.0056236 | 1.7384 | 1.7328 | 0.00572 | 28.422 | 0.45996 |  |
-| fourstate_mix (N=1000000) | icarus | measured | 0.0042536 | 0.002751 | 3.1999 | 3.1971 | 0.01338 | 7.4141 | 0.24929 |  |
+| casez_struct (N=5000000) | latest | measured | — | 0.0044288 | 2.755 | 2.7505 | 0.025406 | 29.75 | — |  |
+| casez_struct (N=5000000) | baseline | measured | — | 0.0055122 | 5.7501 | 5.7445 | 0.041197 | 28.293 | 0.47881 |  |
+| casez_struct (N=5000000) | icarus | measured | 0.0050758 | 0.0033768 | 6.4757 | 6.4723 | 0.033998 | 7.3672 | 0.42497 |  |
+| casez_struct (N=5000000) | verilator | measured | 5.3403 | 0.0016115 | 0.025129 | 0.023517 | 6.6219e-05 | 3.8047 | 116.96 | short incremental time; sensitive to timing noise |
+| casez_struct (N=5000000) | icarus_devel | measured | 0.0047141 | 0.003181 | 6.0914 | 6.0883 | 0.052288 | 7.5 | 0.45178 |  |
+| comb_chain (N=3000000) | latest | measured | — | 0.0052629 | 4.7103 | 4.7051 | 0.0086863 | 29.762 | — |  |
+| comb_chain (N=3000000) | baseline | measured | — | 0.0045376 | 15.711 | 15.706 | 0.017918 | 28.402 | 0.29957 |  |
+| comb_chain (N=3000000) | icarus | measured | 0.0060498 | 0.0034377 | 20.92 | 20.917 | 0.11076 | 7.4375 | 0.22495 |  |
+| comb_chain (N=3000000) | verilator | measured | 6.0421 | 0.0016499 | 0.35639 | 0.35474 | 0.0011843 | 3.8125 | 13.263 |  |
+| comb_chain (N=3000000) | icarus_devel | measured | 0.0047288 | 0.0032246 | 14.565 | 14.562 | 0.012322 | 7.5781 | 0.32312 |  |
+| dyn_queue (N=4000000) | latest | measured | — | 0.0047555 | 4.4966 | 4.4918 | 0.0058195 | 29.66 | — |  |
+| dyn_queue (N=4000000) | baseline | measured | — | 0.0049491 | 6.1696 | 6.1647 | 0.02893 | 28.246 | 0.72864 |  |
+| dyn_queue (N=4000000) | icarus | measured | 0.0066371 | 0.0034796 | 10.884 | 10.881 | 0.095057 | 7.3711 | 0.41282 |  |
+| dyn_queue (N=4000000) | verilator | measured | 5.4596 | 0.001649 | 0.12299 | 0.12134 | 7.7874e-05 | 3.8516 | 37.019 |  |
+| dyn_queue (N=4000000) | icarus_devel | measured | 0.0045579 | 0.0034135 | 10.525 | 10.521 | 0.03508 | 7.6328 | 0.42693 |  |
+| fork_join (N=4000000) | latest | measured | — | 0.0046871 | 6.0848 | 6.0801 | 0.012442 | 29.477 | — |  |
+| fork_join (N=4000000) | baseline | measured | — | 0.0049725 | 8.4402 | 8.4352 | 0.00048567 | 28.238 | 0.72081 |  |
+| fork_join (N=4000000) | icarus | measured | 0.0055051 | 0.0033013 | 9.8097 | 9.8064 | 0.037842 | 7.3867 | 0.62002 |  |
+| fork_join (N=4000000) | verilator | measured | 6.4161 | 0.0016391 | 1.8077 | 1.806 | 0.0059743 | 3.8516 | 3.3665 |  |
+| fork_join (N=4000000) | icarus_devel | measured | 0.0044995 | 0.0028418 | 7.5986 | 7.5957 | 0.058476 | 7.5312 | 0.80047 |  |
+| func_call (N=1500000) | latest | measured | — | 0.0045824 | 5.0429 | 5.0383 | 0.035114 | 29.613 | — |  |
+| func_call (N=1500000) | baseline | measured | — | 0.004668 | 8.1309 | 8.1263 | 0.0096569 | 28.18 | 0.62001 |  |
+| func_call (N=1500000) | icarus | measured | 0.0063165 | 0.0033718 | 16.72 | 16.717 | 0.088326 | 7.3203 | 0.30139 |  |
+| func_call (N=1500000) | verilator | measured | 5.4635 | 0.0016151 | 0.0094832 | 0.0078682 | 6.9986e-05 | 0.55469 | 640.34 | short incremental time; sensitive to timing noise |
+| func_call (N=1500000) | icarus_devel | measured | 0.0046172 | 0.0034071 | 12.61 | 12.606 | 0.047774 | 7.5508 | 0.39967 |  |
+| gate_udp (N=400000) | latest | measured | — | 0.0076601 | 5.1934 | 5.1858 | 0.02055 | 33.59 | — |  |
+| gate_udp (N=400000) | baseline | measured | — | 0.0062923 | 8.769 | 8.7627 | 0.040641 | 28.113 | 0.5918 |  |
+| gate_udp (N=400000) | icarus | measured | 0.0065375 | 0.0049008 | 5.248 | 5.2431 | 0.020757 | 7.5234 | 0.98906 |  |
+| gate_udp (N=400000) | verilator | measured | 6.7583 | 0.0017069 | 0.063522 | 0.061815 | 0.00056154 | 3.8516 | 83.891 |  |
+| gate_udp (N=400000) | icarus_devel | measured | 0.006598 | 0.0046328 | 4.9245 | 4.9199 | 0.020669 | 7.6602 | 1.054 |  |
+| mem_rw (N=4000000) | latest | measured | — | 0.0068007 | 4.0211 | 4.0143 | 0.0092852 | 29.758 | — |  |
+| mem_rw (N=4000000) | baseline | measured | — | 0.0063184 | 8.221 | 8.2147 | 0.032004 | 28.227 | 0.48868 |  |
+| mem_rw (N=4000000) | icarus | measured | 0.0065294 | 0.0039461 | 6.8787 | 6.8748 | 0.034977 | 7.4258 | 0.58392 |  |
+| mem_rw (N=4000000) | verilator | measured | 6.7633 | 0.0016659 | 1.0427 | 1.041 | 0.0084387 | 3.8555 | 3.8561 |  |
+| mem_rw (N=4000000) | icarus_devel | measured | 0.0049416 | 0.0040356 | 5.3162 | 5.3122 | 0.057244 | 7.6406 | 0.75569 |  |
+| nba_burst (N=500000) | latest | measured | — | 0.0044009 | 0.085867 | 0.081466 | 0.0010056 | 105.77 | — |  |
+| nba_burst (N=500000) | baseline | measured | — | 0.0049549 | 0.17034 | 0.16538 | 0.0029256 | 124.4 | 0.49259 |  |
+| nba_burst (N=500000) | icarus | measured | 0.0051086 | 0.0029185 | 0.18995 | 0.18703 | 0.00076152 | 33.828 | 0.43558 |  |
+| nba_burst (N=500000) | verilator | incomparable | 6.5835 | 0.001651 | 0.001475 | — | 5.8288e-05 | 0.55078 | — | non-positive or non-finite incremental elapsed time |
+| nba_burst (N=500000) | icarus_devel | measured | 0.0045594 | 0.0028693 | 0.18327 | 0.1804 | 0.0012746 | 34.035 | 0.45158 |  |
+| nba_shift (N=1000000) | latest | measured | — | 0.0061117 | 15.251 | 15.245 | 0.082478 | 31.664 | — |  |
+| nba_shift (N=1000000) | baseline | measured | — | 0.0058453 | 40.131 | 40.125 | 0.22065 | 28.195 | 0.37994 |  |
+| nba_shift (N=1000000) | icarus | measured | 0.0059408 | 0.0039432 | 37.245 | 37.241 | 0.21069 | 7.4648 | 0.40936 |  |
+| nba_shift (N=1000000) | verilator | measured | 6.7289 | 0.0016608 | 0.29768 | 0.29602 | 0.0015076 | 3.8242 | 51.499 |  |
+| nba_shift (N=1000000) | icarus_devel | measured | 0.0052225 | 0.0038288 | 37.306 | 37.302 | 0.062767 | 7.6602 | 0.40868 |  |
+| proc_wait (N=1000000) | latest | measured | — | 0.009669 | 6.714 | 6.7044 | 0.032374 | 39.723 | — |  |
+| proc_wait (N=1000000) | baseline | measured | — | 0.0075233 | 13.014 | 13.007 | 0.12242 | 30.266 | 0.51545 |  |
+| proc_wait (N=1000000) | icarus | measured | 0.0085923 | 0.0050065 | 8.0941 | 8.0891 | 0.01379 | 7.8047 | 0.82881 |  |
+| proc_wait (N=1000000) | verilator | measured | 8.8815 | 0.0017136 | 3.0666 | 3.0649 | 0.0048815 | 3.9531 | 2.1875 |  |
+| proc_wait (N=1000000) | icarus_devel | measured | 0.0063613 | 0.0043426 | 8.6874 | 8.6831 | 0.0030793 | 8.1055 | 0.77212 |  |
+| string_fmt (N=500000) | latest | measured | — | 0.0049892 | 3.7481 | 3.7431 | 0.0031016 | 29.789 | — |  |
+| string_fmt (N=500000) | baseline | measured | — | 0.0050507 | 6.9772 | 6.9721 | 0.072283 | 28.25 | 0.53687 |  |
+| string_fmt (N=500000) | icarus | measured | 0.0063615 | 0.0034618 | 16.596 | 16.592 | 0.12419 | 7.4023 | 0.22559 |  |
+| string_fmt (N=500000) | verilator | measured | 5.5765 | 0.0016939 | 0.21061 | 0.20891 | 0.0013858 | 3.9258 | 17.917 |  |
+| string_fmt (N=500000) | icarus_devel | measured | 0.004583 | 0.0035918 | 13.386 | 13.382 | 0.17374 | 7.5664 | 0.27971 |  |
+| wide_arith (N=1500000) | latest | measured | — | 0.0045388 | 2.6372 | 2.6327 | 0.011216 | 29.758 | — |  |
+| wide_arith (N=1500000) | baseline | measured | — | 0.0046746 | 7.7568 | 7.7521 | 0.042296 | 28.168 | 0.33961 |  |
+| wide_arith (N=1500000) | icarus | measured | 0.0051324 | 0.0032959 | 13.207 | 13.203 | 0.006525 | 7.3281 | 0.19939 |  |
+| wide_arith (N=1500000) | verilator | measured | 5.6499 | 0.0016304 | 0.1236 | 0.12197 | 0.00069133 | 3.8359 | 21.584 |  |
+| wide_arith (N=1500000) | icarus_devel | measured | 0.0045734 | 0.0030923 | 3.0778 | 3.0747 | 0.021966 | 7.5352 | 0.85625 |  |
+| fourstate_mix (N=1000000) | latest | measured | — | 0.0047922 | 0.89214 | 0.88735 | 0.0028053 | 29.809 | — |  |
+| fourstate_mix (N=1000000) | baseline | measured | — | 0.0055062 | 2.0668 | 2.0613 | 0.014881 | 28.449 | 0.43049 |  |
+| fourstate_mix (N=1000000) | icarus | measured | 0.0059312 | 0.0034781 | 3.2705 | 3.267 | 0.023387 | 7.4102 | 0.27161 |  |
 | fourstate_mix (N=1000000) | verilator | unsupported | — | — | — | — | — | — | — | X/Z observations require four-state semantics; excluded before execution |
-| fourstate_mix (N=1000000) | icarus_devel | measured | 0.0037487 | 0.002686 | 2.2474 | 2.2447 | 0.0011071 | 7.5508 | 0.35507 |  |
-| fifo_stream (N=200000) | latest | measured | — | 0.0060551 | 0.37145 | 0.36539 | 0.00041479 | 29.766 | — |  |
-| fifo_stream (N=200000) | baseline | measured | — | 0.0057689 | 0.7743 | 0.76853 | 0.0021065 | 28.363 | 0.47544 |  |
-| fifo_stream (N=200000) | icarus | measured | 0.0043679 | 0.0027037 | 0.55851 | 0.55581 | 0.0028334 | 7.4141 | 0.65741 |  |
-| fifo_stream (N=200000) | verilator | measured | 5.5331 | 0.0013106 | 0.063461 | 0.06215 | 0.00036188 | 3.8516 | 5.8792 |  |
-| fifo_stream (N=200000) | icarus_devel | measured | 0.0040218 | 0.0023559 | 0.48586 | 0.4835 | 0.00050248 | 7.5781 | 0.75572 |  |
-| uart_loopback (N=20000) | latest | measured | — | 0.0058201 | 0.37779 | 0.37197 | 0.0026022 | 31.699 | — |  |
-| uart_loopback (N=20000) | baseline | measured | — | 0.0061232 | 0.7136 | 0.70748 | 0.0063208 | 28.395 | 0.52577 |  |
-| uart_loopback (N=20000) | icarus | measured | 0.0047638 | 0.002876 | 0.33681 | 0.33394 | 0.00043242 | 7.4414 | 1.1139 |  |
-| uart_loopback (N=20000) | verilator | measured | 5.6416 | 0.0013129 | 0.074025 | 0.072712 | 7.7063e-05 | 3.8516 | 5.1157 |  |
-| uart_loopback (N=20000) | icarus_devel | measured | 0.004029 | 0.0027356 | 0.30181 | 0.29908 | 0.00039332 | 7.6055 | 1.2437 |  |
-| bus_fabric (N=150000) | latest | measured | — | 0.0069463 | 0.88594 | 0.87899 | 0.0044535 | 31.766 | — |  |
-| bus_fabric (N=150000) | baseline | measured | — | 0.0061766 | 2.1413 | 2.1352 | 0.0051072 | 28.395 | 0.41167 |  |
-| bus_fabric (N=150000) | icarus | measured | 0.0043631 | 0.0030673 | 0.72634 | 0.72328 | 0.0021631 | 7.4531 | 1.2153 |  |
-| bus_fabric (N=150000) | verilator | measured | 5.5765 | 0.001335 | 0.081433 | 0.080098 | 0.00015416 | 3.8516 | 10.974 |  |
-| bus_fabric (N=150000) | icarus_devel | measured | 0.0043255 | 0.0026697 | 0.67536 | 0.67269 | 0.0011684 | 7.6367 | 1.3067 |  |
-| hierarchy_fanout (N=100000) | latest | measured | — | 0.014804 | 4.8829 | 4.8681 | 0.0027584 | 47.625 | — |  |
-| hierarchy_fanout (N=100000) | baseline | measured | — | 0.0096944 | 11.329 | 11.319 | 0.0049708 | 36.172 | 0.43009 |  |
-| hierarchy_fanout (N=100000) | icarus | measured | 0.0090101 | 0.0089637 | 25.897 | 25.888 | 0.021047 | 8.2891 | 0.18804 |  |
-| hierarchy_fanout (N=100000) | verilator | measured | 5.5396 | 0.0013117 | 0.027031 | 0.025719 | 0.00048727 | 3.8477 | 189.28 | short incremental time; sensitive to timing noise |
-| hierarchy_fanout (N=100000) | icarus_devel | measured | 0.0087345 | 0.0083668 | 8.0531 | 8.0447 | 0.033167 | 8.5 | 0.60513 |  |
-| event_fanout (N=50000) | latest | measured | — | 0.019903 | 2.4339 | 2.414 | 0.001049 | 49.703 | — |  |
-| event_fanout (N=50000) | baseline | measured | — | 0.01311 | 2.8997 | 2.8865 | 0.0027751 | 42.414 | 0.8363 |  |
-| event_fanout (N=50000) | icarus | measured | 0.011407 | 0.0071901 | 3.4621 | 3.4549 | 0.021427 | 9.1211 | 0.69872 |  |
-| event_fanout (N=50000) | verilator | measured | 5.7984 | 0.0013073 | 0.05525 | 0.053943 | 0.00011887 | 3.8438 | 44.751 |  |
-| event_fanout (N=50000) | icarus_devel | measured | 0.0094099 | 0.0069609 | 3.3717 | 3.3648 | 0.0082261 | 9.2734 | 0.71744 |  |
-| word_boundary (N=4000000) | latest | measured | — | 0.0046066 | 4.5422 | 4.5376 | 0.022314 | 29.504 | — |  |
-| word_boundary (N=4000000) | baseline | measured | — | 0.0059677 | 10.358 | 10.352 | 0.105 | 28.191 | 0.43831 |  |
-| word_boundary (N=4000000) | icarus | measured | 0.0038517 | 0.0027306 | 24.019 | 24.016 | 0.041737 | 7.2891 | 0.18894 |  |
-| word_boundary (N=4000000) | verilator | measured | 4.7203 | 0.0012997 | 0.037932 | 0.036632 | 0.00031554 | 3.8359 | 123.87 | short incremental time; sensitive to timing noise |
-| word_boundary (N=4000000) | icarus_devel | measured | 0.003526 | 0.002447 | 8.4281 | 8.4256 | 0.0097304 | 7.5391 | 0.53854 |  |
-| wide_divide (N=80000) | latest | measured | — | 0.0057562 | 0.13504 | 0.12928 | 0.00031129 | 29.762 | — |  |
-| wide_divide (N=80000) | baseline | measured | — | 0.0051397 | 1.157 | 1.1519 | 0.0022871 | 28.391 | 0.11223 |  |
-| wide_divide (N=80000) | icarus | measured | 0.0038104 | 0.0025472 | 1.0707 | 1.0682 | 0.00036059 | 7.3477 | 0.12103 |  |
-| wide_divide (N=80000) | verilator | measured | 4.8182 | 0.0013126 | 0.0095723 | 0.0082597 | 2.5181e-05 | 0.31641 | 15.652 | short incremental time; sensitive to timing noise |
-| wide_divide (N=80000) | icarus_devel | measured | 0.0035687 | 0.0022279 | 0.53817 | 0.53594 | 0.0014475 | 7.5508 | 0.24122 |  |
-| packed_slice (N=1500000) | latest | measured | — | 0.0051639 | 1.7922 | 1.787 | 0.0071407 | 29.699 | — |  |
-| packed_slice (N=1500000) | baseline | measured | — | 0.0052273 | 6.1362 | 6.1309 | 0.016826 | 28.133 | 0.29147 |  |
-| packed_slice (N=1500000) | icarus | measured | 0.0041815 | 0.0027236 | 8.9523 | 8.9496 | 0.043504 | 7.3477 | 0.19967 |  |
-| packed_slice (N=1500000) | verilator | measured | 4.7475 | 0.0012516 | 0.093334 | 0.092083 | 0.00024796 | 3.8359 | 19.407 |  |
-| packed_slice (N=1500000) | icarus_devel | measured | 0.0035501 | 0.0025706 | 3.4289 | 3.4263 | 0.0013677 | 7.5352 | 0.52156 |  |
-| memory_scatter (N=5000000) | latest | measured | — | 0.042146 | 2.425 | 2.3828 | 0.0050218 | 43.766 | — |  |
-| memory_scatter (N=5000000) | baseline | measured | — | 0.048406 | 5.1907 | 5.1423 | 0.0019584 | 42.324 | 0.46338 |  |
-| memory_scatter (N=5000000) | icarus | measured | 0.0042526 | 0.026097 | 12.424 | 12.398 | 0.043901 | 7.8203 | 0.19219 |  |
-| memory_scatter (N=5000000) | verilator | measured | 4.9225 | 0.0014367 | 0.0084595 | 0.0070228 | 7.2901e-05 | 0.32031 | 339.3 | short incremental time; sensitive to timing noise |
-| memory_scatter (N=5000000) | icarus_devel | measured | 0.0038273 | 0.01663 | 7.0387 | 7.022 | 0.0082352 | 8.0117 | 0.33934 |  |
-| clock_domains (N=20000) | latest | measured | — | 0.0052943 | 0.10956 | 0.10426 | 0.0010668 | 29.699 | — |  |
-| clock_domains (N=20000) | baseline | measured | — | 0.0056123 | 0.21812 | 0.21251 | 0.0052205 | 28.32 | 0.49063 |  |
-| clock_domains (N=20000) | icarus | measured | 0.0040689 | 0.0027626 | 0.10939 | 0.10663 | 0.00043756 | 7.375 | 0.97778 |  |
-| clock_domains (N=20000) | verilator | measured | 5.7633 | 0.0013425 | 0.07421 | 0.072868 | 0.00041865 | 3.832 | 1.4308 |  |
-| clock_domains (N=20000) | icarus_devel | measured | 0.003739 | 0.002599 | 0.10698 | 0.10438 | 0.00013194 | 7.5547 | 0.99888 |  |
-| fourstate_arith (N=100000) | latest | measured | — | 0.0058424 | 0.1181 | 0.11226 | 0.00030063 | 29.824 | — |  |
-| fourstate_arith (N=100000) | baseline | measured | — | 0.0055917 | 0.17155 | 0.16596 | 0.00063238 | 28.387 | 0.67642 |  |
-| fourstate_arith (N=100000) | icarus | measured | 0.00412 | 0.0027916 | 0.24129 | 0.2385 | 0.0001681 | 7.3477 | 0.47068 |  |
+| fourstate_mix (N=1000000) | icarus_devel | measured | 0.0048225 | 0.0033792 | 2.3638 | 2.3604 | 0.015183 | 7.5664 | 0.37593 |  |
+| fifo_stream (N=200000) | latest | measured | — | 0.0049347 | 0.42795 | 0.42301 | 0.0064135 | 29.816 | — |  |
+| fifo_stream (N=200000) | baseline | measured | — | 0.0053742 | 0.86691 | 0.86153 | 0.002514 | 28.367 | 0.491 |  |
+| fifo_stream (N=200000) | icarus | measured | 0.0058244 | 0.0034765 | 0.59286 | 0.58938 | 0.0010495 | 7.4102 | 0.71772 |  |
+| fifo_stream (N=200000) | verilator | measured | 6.3088 | 0.0016143 | 0.07224 | 0.070626 | 0.00015292 | 3.8555 | 5.9895 |  |
+| fifo_stream (N=200000) | icarus_devel | measured | 0.0052428 | 0.0031281 | 0.52196 | 0.51883 | 0.0014648 | 7.5742 | 0.81531 |  |
+| uart_loopback (N=20000) | latest | measured | — | 0.0054684 | 0.44333 | 0.43786 | 0.00089543 | 31.875 | — |  |
+| uart_loopback (N=20000) | baseline | measured | — | 0.0058581 | 0.82717 | 0.82131 | 0.00040176 | 28.375 | 0.53312 |  |
+| uart_loopback (N=20000) | icarus | measured | 0.0064861 | 0.0035717 | 0.36825 | 0.36468 | 0.0017991 | 7.4375 | 1.2007 |  |
+| uart_loopback (N=20000) | verilator | measured | 6.4158 | 0.0016218 | 0.084379 | 0.082758 | 0.00066552 | 3.8516 | 5.2909 |  |
+| uart_loopback (N=20000) | icarus_devel | measured | 0.005119 | 0.0035299 | 0.32405 | 0.32052 | 0.0013281 | 7.6172 | 1.3661 |  |
+| bus_fabric (N=150000) | latest | measured | — | 0.0062385 | 1.035 | 1.0288 | 0.0040986 | 31.809 | — |  |
+| bus_fabric (N=150000) | baseline | measured | — | 0.0057495 | 2.4198 | 2.4141 | 0.0022921 | 28.367 | 0.42615 |  |
+| bus_fabric (N=150000) | icarus | measured | 0.0064304 | 0.0038373 | 0.78518 | 0.78135 | 0.0037872 | 7.4688 | 1.3167 |  |
+| bus_fabric (N=150000) | verilator | measured | 6.2732 | 0.0016054 | 0.093077 | 0.091472 | 9.2872e-05 | 3.8477 | 11.247 |  |
+| bus_fabric (N=150000) | icarus_devel | measured | 0.0054179 | 0.0036553 | 0.72369 | 0.72003 | 0.0027783 | 7.6445 | 1.4288 |  |
+| hierarchy_fanout (N=100000) | latest | measured | — | 0.014401 | 5.8125 | 5.7981 | 0.01207 | 47.758 | — |  |
+| hierarchy_fanout (N=100000) | baseline | measured | — | 0.011286 | 14.405 | 14.393 | 0.018333 | 36.297 | 0.40283 |  |
+| hierarchy_fanout (N=100000) | icarus | measured | 0.011714 | 0.011746 | 25.714 | 25.703 | 0.18838 | 8.3125 | 0.22558 |  |
+| hierarchy_fanout (N=100000) | verilator | measured | 6.3055 | 0.0017031 | 0.050511 | 0.048808 | 4.0921e-05 | 3.8516 | 118.79 | short incremental time; sensitive to timing noise |
+| hierarchy_fanout (N=100000) | icarus_devel | measured | 0.010781 | 0.01137 | 8.7325 | 8.7211 | 0.051727 | 8.4922 | 0.66483 |  |
+| event_fanout (N=50000) | latest | measured | — | 0.019185 | 2.5817 | 2.5625 | 0.0019516 | 49.766 | — |  |
+| event_fanout (N=50000) | baseline | measured | — | 0.012661 | 3.8335 | 3.8208 | 0.010512 | 42.398 | 0.67067 |  |
+| event_fanout (N=50000) | icarus | measured | 0.01515 | 0.0096074 | 3.4928 | 3.4832 | 0.0035366 | 9.1055 | 0.73567 |  |
+| event_fanout (N=50000) | verilator | measured | 6.8179 | 0.0016656 | 0.060271 | 0.058606 | 0.00024974 | 3.8711 | 43.724 |  |
+| event_fanout (N=50000) | icarus_devel | measured | 0.011721 | 0.0091248 | 3.5286 | 3.5195 | 0.0013121 | 9.2734 | 0.72809 |  |
+| word_boundary (N=4000000) | latest | measured | — | 0.0045895 | 4.9205 | 4.9159 | 0.055797 | 29.625 | — |  |
+| word_boundary (N=4000000) | baseline | measured | — | 0.0053881 | 10.642 | 10.637 | 0.051399 | 28.324 | 0.46216 |  |
+| word_boundary (N=4000000) | icarus | measured | 0.0053264 | 0.003476 | 23.236 | 23.232 | 0.094986 | 7.3359 | 0.2116 |  |
+| word_boundary (N=4000000) | verilator | measured | 5.5911 | 0.0016572 | 0.038586 | 0.036928 | 0.00011426 | 3.8359 | 133.12 | short incremental time; sensitive to timing noise |
+| word_boundary (N=4000000) | icarus_devel | measured | 0.0045303 | 0.0033541 | 9.1281 | 9.1247 | 0.059315 | 7.4844 | 0.53874 |  |
+| wide_divide (N=80000) | latest | measured | — | 0.0054732 | 0.13721 | 0.13174 | 0.0010247 | 29.801 | — |  |
+| wide_divide (N=80000) | baseline | measured | — | 0.0052924 | 1.2826 | 1.2773 | 0.0079588 | 28.379 | 0.10314 |  |
+| wide_divide (N=80000) | icarus | measured | 0.0055952 | 0.0032769 | 1.0237 | 1.0204 | 0.0053223 | 7.3164 | 0.1291 |  |
+| wide_divide (N=80000) | verilator | measured | 5.4438 | 0.0016588 | 0.0094287 | 0.0077699 | 8.3396e-05 | 0.55078 | 16.955 | short incremental time; sensitive to timing noise |
+| wide_divide (N=80000) | icarus_devel | measured | 0.004562 | 0.0029367 | 0.59361 | 0.59067 | 0.0028408 | 7.5 | 0.22303 |  |
+| packed_slice (N=1500000) | latest | measured | — | 0.0050402 | 1.8846 | 1.8796 | 0.022041 | 29.699 | — |  |
+| packed_slice (N=1500000) | baseline | measured | — | 0.0049927 | 6.0768 | 6.0718 | 0.004822 | 28.156 | 0.30956 |  |
+| packed_slice (N=1500000) | icarus | measured | 0.0051113 | 0.0033804 | 8.3304 | 8.327 | 0.038658 | 7.332 | 0.22572 |  |
+| packed_slice (N=1500000) | verilator | measured | 5.3729 | 0.0016916 | 0.086483 | 0.084791 | 0.00031823 | 3.8008 | 22.167 |  |
+| packed_slice (N=1500000) | icarus_devel | measured | 0.0045011 | 0.0033847 | 3.6263 | 3.6229 | 0.014662 | 7.5156 | 0.5188 |  |
+| memory_scatter (N=5000000) | latest | measured | — | 0.04706 | 2.7579 | 2.7108 | 0.0048214 | 43.812 | — |  |
+| memory_scatter (N=5000000) | baseline | measured | — | 0.05459 | 6.3217 | 6.2671 | 0.11969 | 42.359 | 0.43255 |  |
+| memory_scatter (N=5000000) | icarus | measured | 0.0051152 | 0.02727 | 13.098 | 13.07 | 0.02985 | 7.832 | 0.2074 |  |
+| memory_scatter (N=5000000) | verilator | measured | 5.4271 | 0.0017068 | 0.016173 | 0.014467 | 8.2595e-05 | 3.918 | 187.39 | short incremental time; sensitive to timing noise |
+| memory_scatter (N=5000000) | icarus_devel | measured | 0.004798 | 0.018333 | 8.1674 | 8.149 | 0.041338 | 8.0586 | 0.33266 |  |
+| clock_domains (N=20000) | latest | measured | — | 0.0049437 | 0.12424 | 0.1193 | 0.0008327 | 29.801 | — |  |
+| clock_domains (N=20000) | baseline | measured | — | 0.0051269 | 0.23854 | 0.23341 | 0.00070359 | 28.395 | 0.5111 |  |
+| clock_domains (N=20000) | icarus | measured | 0.0053396 | 0.003356 | 0.11452 | 0.11116 | 0.00022334 | 7.4102 | 1.0732 |  |
+| clock_domains (N=20000) | verilator | measured | 6.3699 | 0.0016189 | 0.075149 | 0.07353 | 0.0002262 | 3.8203 | 1.6224 |  |
+| clock_domains (N=20000) | icarus_devel | measured | 0.0047287 | 0.0033455 | 0.11433 | 0.11099 | 0.00079851 | 7.5586 | 1.0749 |  |
+| fourstate_arith (N=100000) | latest | measured | — | 0.0049454 | 0.1295 | 0.12456 | 0.00084545 | 29.828 | — |  |
+| fourstate_arith (N=100000) | baseline | measured | — | 0.0051295 | 0.18939 | 0.18426 | 0.0013132 | 28.375 | 0.67599 |  |
+| fourstate_arith (N=100000) | icarus | measured | 0.0051779 | 0.0033807 | 0.25173 | 0.24835 | 0.00069638 | 7.3164 | 0.50154 |  |
 | fourstate_arith (N=100000) | verilator | unsupported | — | — | — | — | — | — | — | X/Z observations require four-state semantics; excluded before execution |
-| fourstate_arith (N=100000) | icarus_devel | measured | 0.0036085 | 0.002283 | 0.22579 | 0.22351 | 2.0621e-05 | 7.5156 | 0.50224 |  |
-| resolved_bus (N=50000) | latest | measured | — | 0.0054772 | 0.15919 | 0.15372 | 0.0016148 | 29.754 | — |  |
-| resolved_bus (N=50000) | baseline | measured | — | 0.0061757 | 0.34534 | 0.33917 | 0.00052389 | 28.32 | 0.45322 |  |
-| resolved_bus (N=50000) | icarus | measured | 0.0041226 | 0.002886 | 0.47579 | 0.47291 | 0.0012353 | 7.3984 | 0.32505 |  |
+| fourstate_arith (N=100000) | icarus_devel | measured | 0.0044572 | 0.0027332 | 0.23197 | 0.22923 | 0.0013254 | 7.5547 | 0.54336 |  |
+| resolved_bus (N=50000) | latest | measured | — | 0.0051038 | 0.17055 | 0.16545 | 0.00069337 | 29.727 | — |  |
+| resolved_bus (N=50000) | baseline | measured | — | 0.0051161 | 0.38643 | 0.38132 | 0.0015173 | 28.398 | 0.43388 |  |
+| resolved_bus (N=50000) | icarus | measured | 0.0056218 | 0.003567 | 0.48754 | 0.48397 | 0.00071513 | 7.4375 | 0.34185 |  |
 | resolved_bus (N=50000) | verilator | unsupported | — | — | — | — | — | — | — | X/Z observations require four-state semantics; excluded before execution |
-| resolved_bus (N=50000) | icarus_devel | measured | 0.0038373 | 0.0027372 | 0.46803 | 0.46529 | 0.00054779 | 7.5273 | 0.33037 |  |
+| resolved_bus (N=50000) | icarus_devel | measured | 0.0045784 | 0.0034403 | 0.4872 | 0.48376 | 0.0014583 | 7.5703 | 0.342 |  |
 
 固定した総合値の集合（全ケースの有効値が必要です）：
 
-- **regression-common**: 0.52018; 12/12; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith
-- **regression-fourstate**: 0.45996; 1/1; fourstate_mix
-- **icarus-common**: 0.40168; 12/12; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith
-- **icarus-fourstate**: 0.24929; 1/1; fourstate_mix
-- **verilator-common**: 28.651; 12/12; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith
-- **expanded-regression-common**: 0.46459; 22/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains
-- **expanded-regression-fourstate**: 0.52049; 3/3; fourstate_mix, fourstate_arith, resolved_bus
-- **expanded-icarus-common**: 0.40011; 22/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains
-- **expanded-icarus-fourstate**: 0.33661; 3/3; fourstate_mix, fourstate_arith, resolved_bus
-- **expanded-verilator-common**: 26.176; 22/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains
-- **daily-overall-icarus14**: 0.55718; 25/25; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fourstate_mix, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains, fourstate_arith, resolved_bus
+- **regression-common**: 0.49887; 12/12; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith
+- **regression-fourstate**: 0.43049; 1/1; fourstate_mix
+- **icarus-common**: 0.41783; 12/12; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith
+- **icarus-fourstate**: 0.27161; 1/1; fourstate_mix
+- **verilator-common**: —; 11/12; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith — fixed comparison set incomplete or campaign invalid
+- **expanded-regression-common**: 0.44989; 22/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains
+- **expanded-regression-fourstate**: 0.50168; 3/3; fourstate_mix, fourstate_arith, resolved_bus
+- **expanded-icarus-common**: 0.42677; 22/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains
+- **expanded-icarus-fourstate**: 0.35977; 3/3; fourstate_mix, fourstate_arith, resolved_bus
+- **expanded-verilator-common**: —; 21/22; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains — fixed comparison set incomplete or campaign invalid
+- **daily-overall-icarus14**: 0.56561; 25/25; casez_struct, comb_chain, dyn_queue, fork_join, func_call, gate_udp, mem_rw, nba_burst, nba_shift, proc_wait, string_fmt, wide_arith, fourstate_mix, fifo_stream, uart_loopback, bus_fabric, hierarchy_fanout, event_fanout, word_boundary, wide_divide, packed_slice, memory_scatter, clock_domains, fourstate_arith, resolved_bus
 ## 最新の週次測定
 
 [JSON](latest-weekly.json)
@@ -442,6 +442,37 @@
 
 ## 環境・定義別の推移
 
+### `cde4aa9dacf5983c`
+
+1 runs; 2026-11-25T03:47:30.324610+00:00 → 2026-11-25T03:47:30.324610+00:00
+
+測定定義: `daily-v4-icarus14`; ケース数: **25**
+
+![regression-common](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/regression-common.svg)
+
+![regression-fourstate](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/regression-fourstate.svg)
+
+![icarus-common](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/icarus-common.svg)
+
+![icarus-fourstate](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/icarus-fourstate.svg)
+
+![verilator-common](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/verilator-common.svg)
+
+![expanded-regression-common](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/expanded-regression-common.svg)
+
+![expanded-regression-fourstate](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/expanded-regression-fourstate.svg)
+
+![expanded-icarus-common](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/expanded-icarus-common.svg)
+
+![expanded-icarus-fourstate](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/expanded-icarus-fourstate.svg)
+
+![expanded-verilator-common](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/expanded-verilator-common.svg)
+
+![daily-overall-icarus14](charts/cde4aa9dacf5983c5faa63470f9c6e6e35886923c5a3d7dc7afaf30d14026c4a/daily-overall-icarus14.svg)
+
+失敗を含む各回：
+
+- [actions-45540765572-1](runs/actions-45540765572-1.json): incomplete — `a50ec73c37d8`
 ### `ce6cd82e24d95f55`
 
 1 runs; 2026-11-23T04:17:20.572534+00:00 → 2026-11-23T04:17:20.572534+00:00
