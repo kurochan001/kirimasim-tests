@@ -1,0 +1,27 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 4437eecbf426",
+ "tests": {
+  "ch37/test_vpi_frame_scope_editions": {
+   "status": "pass",
+   "inputs_sha256": "73c10b91e6a3f19db9445ab5fda85ab21e3b7be362676444df3f8cce78dec464"
+  }
+ },
+ "generated_at": "2026-11-26T14:11:21.806967+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-vpi-frame-scope-editions",
+  "checker_sha256": "9919e3ec550f5f4b065dc1fe586c873cd310b74e32b6d9d22501f25b8825eb15",
+  "artifact_sha256": {
+   "2017": "12e3dc7bafafca28af2b89ebc2761fb7a606d68716cf04c2d93c8617c78eebec",
+   "2023": "43d042a29ead0d47da726f3286cd67a7d5e0e90c6cd237cf453eefcfa58d1a14",
+   "extractor": "e3350fcebb4edc20b6e2cf806f66013ec0c238a3ecbcba3eec8c4489de7884d8",
+   "ghost": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+   "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+   "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970"
+  },
+  "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+ }
+}

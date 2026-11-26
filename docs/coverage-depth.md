@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 17118 |
+| Tests | 17120 |
 | Clauses in scope | 1086 |
 | Clauses out of scope | 73 |
 | Clauses with a direct test | 1086/1086 |
@@ -29,7 +29,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | both releases | 1745 |
 | Icarus Verilog 13.0 only | 7425 |
 | Verilator 5.052 or 5.054 only | 3024 |
-| standard only | 4924 |
+| standard only | 4926 |
 
 <a id="章別"></a>
 
@@ -71,7 +71,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 34 | Protected envelopes | 52 | 67 | 0.8 | 0 | 26 |
 | 35 | Direct programming interface | 247 | 21 | 11.8 | 0 | 111 |
 | 36 | Programming language interface (PLI/VPI) overview | 101 | 20 | 5.0 | 0 | 44 |
-| 37 | VPI object model diagrams | 294 | 95 | 3.1 | 0 | 273 |
+| 37 | VPI object model diagrams | 296 | 95 | 3.1 | 0 | 275 |
 | 38 | VPI routine definitions | 190 | 47 | 4.0 | 0 | 110 |
 | 39 | Assertion API | 50 | 7 | 7.1 | 0 | 49 |
 | 40 | Code coverage control and API | 45 | 18 | 2.5 | 0 | 42 |

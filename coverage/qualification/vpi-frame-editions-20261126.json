@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.43-EXTRACT-FRAME-VERSION"
+  ],
+  "qualified": {
+    "version": "private build 4437eecbf426",
+    "configuration": {
+      "evidence_profile": "ghost-vpi-frame-scope-editions",
+      "checker_sha256": "9919e3ec550f5f4b065dc1fe586c873cd310b74e32b6d9d22501f25b8825eb15",
+      "artifact_sha256": {
+        "2017": "12e3dc7bafafca28af2b89ebc2761fb7a606d68716cf04c2d93c8617c78eebec",
+        "2023": "43d042a29ead0d47da726f3286cd67a7d5e0e90c6cd237cf453eefcfa58d1a14",
+        "extractor": "e3350fcebb4edc20b6e2cf806f66013ec0c238a3ecbcba3eec8c4489de7884d8",
+        "ghost": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+        "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970"
+      },
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch37/test_vpi_frame_scope_editions": {
+        "inputs_sha256": "73c10b91e6a3f19db9445ab5fda85ab21e3b7be362676444df3f8cce78dec464",
+        "clauses": {
+          "2017": {
+            "clause": "37.41",
+            "expected_scope_found": true,
+            "historical_boundary": "1364-2005",
+            "boundary_found": true
+          },
+          "2023": {
+            "clause": "37.43",
+            "expected_scope_found": true,
+            "historical_boundary": "1800-2017",
+            "boundary_found": true
+          }
+        },
+        "status": "pass",
+        "reason": ""
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 4437eecbf426",
+      "tests": {
+        "ch37/test_vpi_frame_scope_editions": {
+          "status": "pass",
+          "inputs_sha256": "73c10b91e6a3f19db9445ab5fda85ab21e3b7be362676444df3f8cce78dec464"
+        }
+      },
+      "generated_at": "2026-11-26T14:10:12.112379+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_frame_scope_editions": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_frame_scope_editions.sv:17:5: Unsupported or unknown PLI call: '$vt_task_frame_version'",
+          "inputs_sha256": "73c10b91e6a3f19db9445ab5fda85ab21e3b7be362676444df3f8cce78dec464"
+        }
+      },
+      "generated_at": "2026-11-26T14:11:18.854060+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch37/test_vpi_frame_scope_editions": {
+          "status": "known",
+          "reason": "VPI build failed: 4 errors generated.",
+          "inputs_sha256": "73c10b91e6a3f19db9445ab5fda85ab21e3b7be362676444df3f8cce78dec464"
+        }
+      },
+      "generated_at": "2026-11-26T14:11:18.816356+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 7fa2a9758cab), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_frame_scope_editions": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "73c10b91e6a3f19db9445ab5fda85ab21e3b7be362676444df3f8cce78dec464"
+        }
+      },
+      "generated_at": "2026-11-26T14:11:18.764844+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "verified_stdout": [
+    "procedure frame=1 parent=0",
+    "task frame distinct=1 procedure parent=1 local=31"
+  ],
+  "standard_sources": {
+    "2017": "https://fpga.mit.edu/6205/_static/F25/documentation/1800-2017.pdf",
+    "2023": "https://ieeexplore.ieee.org/document/10458102"
+  }
+}

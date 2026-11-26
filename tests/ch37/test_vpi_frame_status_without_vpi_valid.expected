@@ -1,0 +1,5 @@
+child frame=1 callback=1
+traversal frame=1
+child returned value=24
+end callback same frame=1 count=1
+after end cached=0 child=0 callbacks=1

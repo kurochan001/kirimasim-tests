@@ -1,0 +1,26 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 4437eecbf426",
+ "tests": {
+  "ch37/test_vpi_frame_status_without_vpi_valid": {
+   "status": "fail",
+   "reason": "the native resolver still recognized an ended frame key",
+   "inputs_sha256": "00ba40c262d13661b04288bd5452e8bade06729b0259c1a1c9b3ccc34b669c10"
+  }
+ },
+ "generated_at": "2026-11-26T14:06:21.406984+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-vpi-frame-validity",
+  "checker_sha256": "fbfd77477b43e6dfb4c6fadfc365446a6360157d6bd8949d3d0aeaf5168c488b",
+  "artifact_sha256": {
+   "ghost": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+   "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+   "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe"
+  },
+  "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+ }
+}

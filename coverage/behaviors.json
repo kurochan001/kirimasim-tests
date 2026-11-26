@@ -449005,7 +449005,82 @@
       "acceptance": "This frame model differs incompatibly from 1800-2017 and earlier versions.",
       "source_note": "IEEE 1800-2023 37.43; complete own-body source review, blocks B012. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_frame_scope_editions.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "73c10b91e6a3f19db9445ab5fda85ab21e3b7be362676444df3f8cce78dec464",
+          "evidence_profile": "ghost-vpi-frame-scope-editions",
+          "observation": "二つの規格版でフレームの対象範囲と互換性の記述を確認し、モジュールの手続きフレームと、それを親に持つ別のタスクフレームを実行で照合する。",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.sv",
+              "contains": "$vt_procedure_frame_version;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.sv",
+              "contains": "child();"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.sv",
+              "contains": "task automatic child;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.sv",
+              "contains": "$vt_task_frame_version;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.c",
+              "contains": "procedure_frame = vpi_handle(vpiFrame, 0);"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.c",
+              "contains": "vpi_handle(vpiParent, task_frame)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.c",
+              "contains": "vpi_compare_objects(parent, procedure_frame)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.c",
+              "contains": "vpi_compare_objects(task_frame, procedure_frame)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.c",
+              "contains": "vpi_iterate(vpiAutomatics, task_frame)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.expected",
+              "contains": "procedure frame=1 parent=0"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_scope_editions.expected",
+              "contains": "task frame distinct=1 procedure parent=1 local=31"
+            },
+            {
+              "file": "tools/run_vpi_frame_scope_editions.py",
+              "contains": "\"2017\": (\"37.41\","
+            },
+            {
+              "file": "tools/run_vpi_frame_scope_editions.py",
+              "contains": "\"2023\": (\"37.43\","
+            },
+            {
+              "file": "tools/run_vpi_frame_scope_editions.py",
+              "contains": "scope in section"
+            },
+            {
+              "file": "tools/run_vpi_frame_scope_editions.py",
+              "contains": "boundary_found"
+            },
+            {
+              "file": "tools/run_vpi_frame_scope_editions.py",
+              "contains": "run_ghost.run(fixture"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "37.43",
@@ -556081,7 +556156,98 @@
       "acceptance": "Handles to objects whose lifetimes ended are not supported; the former vpiValid cannot be used to retain them and status must use current callback facilities.",
       "source_note": "IEEE 1800-2023 C.4.3; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch37/test_vpi_frame_status_without_vpi_valid.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "00ba40c262d13661b04288bd5452e8bade06729b0259c1a1c9b3ccc34b669c10",
+          "evidence_profile": "ghost-vpi-frame-validity",
+          "observation": "生存中のフレームで旧プロパティを観測し、終了コールバックで保持ハンドルを消す。再走査とネイティブの検索表で終了後のフレームの状態を照合する。",
+          "evidence": [
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.sv",
+              "contains": "$vt_arm_frame_watch;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.sv",
+              "contains": "#1 $vt_sample_frame_watch;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.sv",
+              "contains": "wait fork;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.sv",
+              "contains": "#1 $vt_check_frame_watch;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "vpi_get(vpiValid, cached_child)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "callback.reason = cbEndOfFrame;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "vpi_compare_objects(event->obj, cached_child)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "cached_child = 0;"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "current_child() != 0, end_count"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "lookup(table, direct_key)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "lookup(table, traversal_key)"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.c",
+              "contains": "vpiActive"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.expected",
+              "contains": "child frame=1 callback=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.expected",
+              "contains": "traversal frame=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.expected",
+              "contains": "child returned value=24"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.expected",
+              "contains": "end callback same frame=1 count=1"
+            },
+            {
+              "file": "tests/ch37/test_vpi_frame_status_without_vpi_valid.expected",
+              "contains": "after end cached=0 child=0 callbacks=1"
+            },
+            {
+              "file": "tools/run_ghost_vpi_valid_observation.py",
+              "contains": "control_matches ="
+            },
+            {
+              "file": "tools/run_ghost_vpi_valid_observation.py",
+              "contains": "ended_keys_absent"
+            },
+            {
+              "file": "tools/run_ghost_vpi_valid_observation.py",
+              "contains": "the native resolver still recognized an ended frame key"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "C.4.3",

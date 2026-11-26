@@ -54,6 +54,7 @@ import run_ghost_sequence_method
 import run_ghost_vpi_interactive_scope
 import run_ghost_vpi_runtime_release
 import run_ghost_vpi_start_callbacks
+import run_ghost_vpi_valid_observation
 import run_ghost_library_cells
 import run_icarus_control
 import run_icarus_identifier_length
@@ -96,6 +97,7 @@ import run_verilator_vpi_dpi_bridge
 import run_verilator_width_diagnostics
 import run_vpi_compatibility_headers
 import run_vpi_compatibility_scope
+import run_vpi_frame_scope_editions
 import run_vpi_legacy_applicability
 import run_vpi_reserved_constant_ranges
 import run_vpi_vlog_option_files
@@ -172,6 +174,10 @@ EVIDENCE_PROFILES = {
         "ghost", run_ghost_vpi_interactive_scope, run_ghost_vpi_interactive_scope.CASES),
     run_ghost_vpi_runtime_release.PROFILE: (
         "ghost", run_ghost_vpi_runtime_release, run_ghost_vpi_runtime_release.CASES),
+    run_ghost_vpi_valid_observation.PROFILE: (
+        "ghost", run_ghost_vpi_valid_observation, run_ghost_vpi_valid_observation.CASES),
+    run_vpi_frame_scope_editions.PROFILE: (
+        "ghost", run_vpi_frame_scope_editions, run_vpi_frame_scope_editions.CASES),
     **{profile: ("ghost", run_ghost_vpi_start_callbacks, run_ghost_vpi_start_callbacks.CASES)
        for profile in run_ghost_vpi_start_callbacks.PROFILES.values()},
     run_null_instance_access.PROFILE: ("verilator", run_null_instance_access, run_null_instance_access.CASES),

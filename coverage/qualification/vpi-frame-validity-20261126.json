@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-C.4.3-EXTRACT-VALID"
+  ],
+  "qualified": {
+    "version": "private build 4437eecbf426",
+    "configuration": {
+      "evidence_profile": "ghost-vpi-frame-validity",
+      "checker_sha256": "fbfd77477b43e6dfb4c6fadfc365446a6360157d6bd8949d3d0aeaf5168c488b",
+      "artifact_sha256": {
+        "ghost": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+        "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe"
+      },
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch37/test_vpi_frame_status_without_vpi_valid": {
+        "inputs_sha256": "00ba40c262d13661b04288bd5452e8bade06729b0259c1a1c9b3ccc34b669c10",
+        "status": "fail",
+        "build_exit": 0,
+        "exit": 0,
+        "stdout": [
+          "child frame=1 callback=1",
+          "traversal frame=1",
+          "child returned value=24",
+          "end callback same frame=1 count=1",
+          "after end cached=0 child=0 callbacks=1"
+        ],
+        "control_matches": true,
+        "obsolete_query": [
+          {
+            "value": -1,
+            "undefined": true
+          }
+        ],
+        "native_tables": [
+          {
+            "site": "live",
+            "direct_present": 1,
+            "direct_active": 1,
+            "traversed_present": 1,
+            "traversed_active": 1
+          },
+          {
+            "site": "after end",
+            "direct_present": 1,
+            "direct_active": 0,
+            "traversed_present": 1,
+            "traversed_active": 0
+          }
+        ],
+        "measured": true,
+        "ended_keys_absent": false
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 4437eecbf426",
+      "tests": {
+        "ch37/test_vpi_frame_status_without_vpi_valid": {
+          "status": "pass",
+          "inputs_sha256": "00ba40c262d13661b04288bd5452e8bade06729b0259c1a1c9b3ccc34b669c10"
+        }
+      },
+      "generated_at": "2026-11-26T14:04:45.633494+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_frame_status_without_vpi_valid": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_frame_status_without_vpi_valid.sv:19:5: Unsupported or unknown PLI call: '$vt_arm_frame_watch'",
+          "inputs_sha256": "00ba40c262d13661b04288bd5452e8bade06729b0259c1a1c9b3ccc34b669c10"
+        }
+      },
+      "generated_at": "2026-11-26T14:04:45.468852+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch37/test_vpi_frame_status_without_vpi_valid": {
+          "status": "known",
+          "reason": "VPI build failed: 9 errors generated.",
+          "inputs_sha256": "00ba40c262d13661b04288bd5452e8bade06729b0259c1a1c9b3ccc34b669c10"
+        }
+      },
+      "generated_at": "2026-11-26T14:04:45.474344+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 7fa2a9758cab), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_frame_status_without_vpi_valid": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "00ba40c262d13661b04288bd5452e8bade06729b0259c1a1c9b3ccc34b669c10"
+        }
+      },
+      "generated_at": "2026-11-26T14:04:45.380948+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "resolver_source": {
+    "checkout_commit": "3461a741e5c6787819c8986e725b529e6d62f53c",
+    "file": "src/vpi/vpi_interface.cpp",
+    "file_sha256": "6dc90fc19a27ac0388fdc4763162ddb98ff9874740e9dcaa5068ca45740b08dc",
+    "observation": "The Ghost source resolves vpi_get through getHandleImpl and serves vpiType if it returns an object."
+  }
+}

@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 99.03%、Ghostを除く実行 52.38%、Ghostとkirimasimを含む実行 90.80%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 99.04%、Ghostを除く実行 52.38%、Ghostとkirimasimを含む実行 90.81%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 99.03%。** 規格要求の実行確認率: Ghostを除いて 52.38%、Ghostとkirimasimを含めて 90.80%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 99.04%。** 規格要求の実行確認率: Ghostを除いて 52.38%、Ghostとkirimasimを含めて 90.81%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 12212/12332 (99.03%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11198/12332 (90.80%)。
-- 登録済みだがテスト未対応: 120 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 12214/12332 (99.04%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11199/12332 (90.81%)。
+- 登録済みだがテスト未対応: 118 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -1160,6 +1160,8 @@
 - `vpi-expression-traversal-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:28:35.886580+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `vpi-expression-traversal-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:28:35.445845+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-expression-traversal-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:28:42.890949+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-frame-editions-20261126-ghost.json`: `private build 4437eecbf426` / `2026-11-26T14:11:21.806967+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `vpi-frame-validity-20261126-ghost.json`: `private build 4437eecbf426` / `2026-11-26T14:06:21.406984+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-interactive-scope-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:43:36.942567+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-io-decl-refinement-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T20:48:30.198207+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-io-decl-refinement-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T20:48:30.248426+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -1566,14 +1568,14 @@
 - 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 191。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 143、テスト対応 143。
 - 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 161。
-- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1723。
+- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1724。
 - 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 333。
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 95。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 127。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 811。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
-- C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 19。
+- C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 20。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 253。
@@ -105533,7 +105535,7 @@ vpiOriginは，詳細な活性化点を識別する。ユーザのnettype解決�
 
 ### SV2023-37.43-EXTRACT-FRAME-VERSION
 
-`37.43` / `normal` / テスト未対応
+`37.43` / `normal` / 実行確認あり
 
 1800-2017およびそれ以前のバージョンとこのフレームモデルは互換性がない。
 
@@ -105541,6 +105543,7 @@ vpiOriginは，詳細な活性化点を識別する。ユーザのnettype解決�
 
 規定の性質: `definition`。
 
+- [test_vpi_frame_scope_editions.sv](../tests/ch37/test_vpi_frame_scope_editions.sv): 二つの規格版でフレームの対象範囲と互換性の記述を確認し、モジュールの手続きフレームと、それを親に持つ別のタスクフレームを実行で照合する。
 
 ### SV2023-37.43-EXTRACT-PARENT-FRAME
 
@@ -132280,7 +132283,7 @@ vpiMemoryは，IEEE 1364の互換性モードを除いて，もはや一般的�
 
 ### SV2023-C.4.3-EXTRACT-VALID
 
-`C.4.3` / `normal` / テスト未対応
+`C.4.3` / `normal` / テスト対応あり・実行未確認
 
 寿命が終わったオブジェクトへのハンドルはサポートされていません。従来のvpiValidではそれらを保持できず、状態の取得には現在のコールバック機構を使う必要があります。
 
@@ -132288,6 +132291,7 @@ vpiMemoryは，IEEE 1364の互換性モードを除いて，もはや一般的�
 
 規定の性質: `definition`。
 
+- [test_vpi_frame_status_without_vpi_valid.sv](../tests/ch37/test_vpi_frame_status_without_vpi_valid.sv): 生存中のフレームで旧プロパティを観測し、終了コールバックで保持ハンドルを消す。再走査とネイティブの検索表で終了後のフレームの状態を照合する。
 
 ### SV2023-F.2-EXTRACT-ATTEMPTS
 

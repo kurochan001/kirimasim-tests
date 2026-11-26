@@ -25304,6 +25304,9 @@
     "ZXQPH0QXZ : 弱参照のない例で両方のクラスハンドルがnullになったことを照合し、到達不能になったオブジェクトのデストラクタを観測する。": "ZXQPH0QXZ: Use an object with no weak references, verify that both class handles become null, and observe the destructor for the unreachable object.",
     "ZXQPH0QXZ : クラスと動的配列、連想配列、文字列の確保量の増加を順に観測し、同じ値が得られる保持対照と比較して最後のハンドルを外した場合の回収量を確認する。": "ZXQPH0QXZ: Observe the heap growth from a class object, dynamic array, associative array and string, then measure reclamation after clearing the last handle against a retained control with the same values.",
     "ZXQPH0QXZ : ライブラリで修飾したセル選択、空のライブラリリストと名前付きパラメータ束縛の出力を照合し、サフィックス付き構文の受理とハッシュ付き変形の拒否を独立パーサーで確認する。": "ZXQPH0QXZ: Check the binding results for library-qualified cell selection, an empty library list and named parameters, then use an independent parser to accept suffix variants and reject hash variants.",
-    "ZXQPH0QXZ : 正の境界と境界値ゼロでキューの対照を照合し、負の境界ではコンストラクタ直前への到達を確認して診断と非ブロッキング操作の実測を記録する。": "ZXQPH0QXZ: Check the queue controls at positive and zero bounds, confirm entry into construction with a negative bound, and record diagnostics and the observed nonblocking operation."
+    "ZXQPH0QXZ : 正の境界と境界値ゼロでキューの対照を照合し、負の境界ではコンストラクタ直前への到達を確認して診断と非ブロッキング操作の実測を記録する。": "ZXQPH0QXZ: Check the queue controls at positive and zero bounds, confirm entry into construction with a negative bound, and record diagnostics and the observed nonblocking operation.",
+    "ZXQPH0QXZ : 生存中のフレームで旧プロパティを観測し、終了コールバックで保持ハンドルを消す。": "ZXQPH0QXZ: Observe the obsolete property on a live frame and clear the application handle in the end callback.",
+    "再走査とネイティブの検索表で終了後のフレームの状態を照合する。": "Check the retired frame with fresh traversal and the native resolver table.",
+    "ZXQPH0QXZ : 二つの規格版でフレームの対象範囲と互換性の記述を確認し、モジュールの手続きフレームと、それを親に持つ別のタスクフレームを実行で照合する。": "ZXQPH0QXZ: Compare how the two editions define frame scope and compatibility, then check that a module procedure frame is the parent of a distinct task frame at run time."
   }
 }

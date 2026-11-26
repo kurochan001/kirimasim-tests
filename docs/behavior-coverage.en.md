@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 99.03%, execution without Ghost 52.38%, execution with Ghost and kirimasim 90.80%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 99.04%, execution without Ghost 52.38%, execution with Ghost and kirimasim 90.81%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 99.03%. Requirement execution-confirmation rate: 52.38% without Ghost, 90.80% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 99.04%. Requirement execution-confirmation rate: 52.38% without Ghost, 90.81% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 12212/12332 ( 99.03% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11198/12332 ( 90.80% ).
-- Registered but not tested: 120.
+- The requirement coverage (test design) for registered behaviors is 12214/12332 ( 99.04% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11199/12332 ( 90.81% ).
+- Registered but not tested: 118.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -1160,6 +1160,8 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `vpi-expression-traversal-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:28:35.886580+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-expression-traversal-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:28:35.445845+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-expression-traversal-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:28:42.890949+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-frame-editions-20261126-ghost.json`: `private build 4437eecbf426` / `2026-11-26T14:11:21.806967+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-frame-validity-20261126-ghost.json`: `private build 4437eecbf426` / `2026-11-26T14:06:21.406984+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-interactive-scope-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:43:36.942567+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T20:48:30.198207+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T20:48:30.248426+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1566,14 +1568,14 @@ The number of items is the investigation status of the article by heading. This 
 - 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 191.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 143.
 - 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 161.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1723.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1724.
 - 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 333.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 127.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
 - A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 811.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
-- C Deprecation: No interpretation reserve 16/16, registration 20, test support 19.
+- C Deprecation: No interpretation reserve 16/16, registration 20, test support 20.
 - D Optional system tasks and system functions: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
@@ -105533,7 +105535,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.43-EXTRACT-FRAME-VERSION
 
-`37.43` / `normal` / No mapped test
+`37.43` / `normal` / Execution confirmed
 
 This frame model differs incompatibly from 1800-2017 and earlier versions.
 
@@ -105541,6 +105543,7 @@ Acceptance criterion: This frame model differs incompatibly from 1800-2017 and e
 
 Normative role: `definition`。
 
+- [test_vpi_frame_scope_editions.sv](../tests/ch37/test_vpi_frame_scope_editions.sv): Compare how the two editions define frame scope and compatibility, then check that a module procedure frame is the parent of a distinct task frame at run time.
 
 ### SV2023-37.43-EXTRACT-PARENT-FRAME
 
@@ -132280,7 +132283,7 @@ Normative role: `definition`。
 
 ### SV2023-C.4.3-EXTRACT-VALID
 
-`C.4.3` / `normal` / No mapped test
+`C.4.3` / `normal` / Test mapped; execution unconfirmed
 
 Handles to objects whose lifetimes ended are not supported; the former vpiValid cannot be used to retain them and status must use current callback facilities.
 
@@ -132288,6 +132291,7 @@ Acceptance criterion: Handles to objects whose lifetimes ended are not supported
 
 Normative role: `definition`。
 
+- [test_vpi_frame_status_without_vpi_valid.sv](../tests/ch37/test_vpi_frame_status_without_vpi_valid.sv): Observe the obsolete property on a live frame and clear the application handle in the end callback. Check the retired frame with fresh traversal and the native resolver table.
 
 ### SV2023-F.2-EXTRACT-ATTEMPTS
 
