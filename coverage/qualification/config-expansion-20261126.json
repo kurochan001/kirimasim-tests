@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-A.1.5-EXTRACT-CONFIG-EXPANSION-GRAMMAR"
+  ],
+  "qualified": {
+    "version": "private build 4437eecbf426",
+    "configuration": {
+      "evidence_profile": "ghost-config-expansion-grammar",
+      "checker_sha256": "0f00d0e15b3b8c81f27fc8d242020829318a06b26fcff08e7a8443fb3497a1af",
+      "grammar_revision": "1a298589a3168f87fe476f6347e0ded46344fbdf",
+      "artifact_sha256": {
+        "ghost": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "antlr": "eae2dfa119a64327444672aff63e9ec35a20180dc5b8090b7a6ab85125df4d76",
+        "java": "8261edc44ac1643e7aba9f0df5155b6d81f7977cc8a0374bb7630d838d2a3910",
+        "SystemVerilogLexer.g4": "4038f513ae2e5cca3da9cf686c55bc310d7fa734bbebd79277f3294540d3154b",
+        "SystemVerilogParser.g4": "9b8321996c00b10a1f2eb878dc47bfd3ecc9a194dd388ac5af037e032426bbe6"
+      },
+      "antlr_python_runtime": "4.13.2",
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch33/test_config_expansion_forms": {
+        "inputs_sha256": "06f144883097451e7e5b377337121354c206141dce41547b651456680e8fb4a5",
+        "reference_diagnostics": {
+          "standard": [],
+          "parameter_suffixes": [],
+          "hash_parameters": [
+            {
+              "line": 39,
+              "column": 54,
+              "token": "#",
+              "message": "no viable alternative at input 'use #'"
+            },
+            {
+              "line": 40,
+              "column": 2,
+              "token": "instance",
+              "message": "extraneous input 'instance' expecting {<EOF>, 'automatic', 'bind', 'bit', 'byte', 'chandle', 'checker', 'class', 'config', 'const', 'constraint', 'covergroup', '$unit', 'enum', 'event', 'export', 'extern', 'function', 'import', 'int', 'integer', 'interconnect', 'interface', 'let', 'localparam', 'logic', 'longint', 'macromodule', 'module', 'nettype', 'package', 'parameter', 'primitive', 'program', 'property', 'real', 'realtime', 'reg', 'sequence', 'shortint', 'shortreal', 'static', 'string', 'struct', 'supply1', 'supply0', 'task', 'time', 'timeprecision', 'timeunit', 'tri', 'triand', 'tri1', 'trior', 'trireg', 'tri0', 'type', 'typedef', 'union', 'uwire', 'var', 'virtual', 'wand', 'wire', 'wor', '(', ';', ESCAPED_IDENTIFIER, SIMPLE_IDENTIFIER}"
+            },
+            {
+              "line": 42,
+              "column": 2,
+              "token": "instance",
+              "message": "extraneous input 'instance' expecting {<EOF>, 'automatic', 'bind', 'bit', 'byte', 'chandle', 'checker', 'class', 'config', 'const', 'constraint', 'covergroup', '$unit', 'enum', 'event', 'export', 'extern', 'function', 'import', 'int', 'integer', 'interconnect', 'interface', 'let', 'localparam', 'logic', 'longint', 'macromodule', 'module', 'nettype', 'package', 'parameter', 'primitive', 'program', 'property', 'real', 'realtime', 'reg', 'sequence', 'shortint', 'shortreal', 'static', 'string', 'struct', 'supply1', 'supply0', 'task', 'time', 'timeprecision', 'timeunit', 'tri', 'triand', 'tri1', 'trior', 'trireg', 'tri0', 'type', 'typedef', 'union', 'uwire', 'var', 'virtual', 'wand', 'wire', 'wor', '(', ';', ESCAPED_IDENTIFIER, SIMPLE_IDENTIFIER}"
+            },
+            {
+              "line": 42,
+              "column": 78,
+              "token": ";",
+              "message": "mismatched input ';' expecting {ESCAPED_IDENTIFIER, SIMPLE_IDENTIFIER}"
+            },
+            {
+              "line": 43,
+              "column": 0,
+              "token": "endconfig",
+              "message": "mismatched input 'endconfig' expecting {'design', 'localparam'}"
+            }
+          ],
+          "hash_after_cell": [
+            {
+              "line": 41,
+              "column": 35,
+              "token": "#",
+              "message": "mismatched input '#' expecting ';'"
+            },
+            {
+              "line": 42,
+              "column": 2,
+              "token": "instance",
+              "message": "extraneous input 'instance' expecting {<EOF>, 'automatic', 'bind', 'bit', 'byte', 'chandle', 'checker', 'class', 'config', 'const', 'constraint', 'covergroup', '$unit', 'enum', 'event', 'export', 'extern', 'function', 'import', 'int', 'integer', 'interconnect', 'interface', 'let', 'localparam', 'logic', 'longint', 'macromodule', 'module', 'nettype', 'package', 'parameter', 'primitive', 'program', 'property', 'real', 'realtime', 'reg', 'sequence', 'shortint', 'shortreal', 'static', 'string', 'struct', 'supply1', 'supply0', 'task', 'time', 'timeprecision', 'timeunit', 'tri', 'triand', 'tri1', 'trior', 'trireg', 'tri0', 'type', 'typedef', 'union', 'uwire', 'var', 'virtual', 'wand', 'wire', 'wor', '(', ';', ESCAPED_IDENTIFIER, SIMPLE_IDENTIFIER}"
+            },
+            {
+              "line": 42,
+              "column": 78,
+              "token": ";",
+              "message": "mismatched input ';' expecting {ESCAPED_IDENTIFIER, SIMPLE_IDENTIFIER}"
+            },
+            {
+              "line": 43,
+              "column": 0,
+              "token": "endconfig",
+              "message": "mismatched input 'endconfig' expecting {'design', 'localparam'}"
+            }
+          ]
+        },
+        "rejected_at_hash": {
+          "hash_parameters": true,
+          "hash_after_cell": true
+        },
+        "ghost": {
+          "standard": {
+            "exit": 0,
+            "stdout": [
+              "bindings 11,12 13,14 3 1"
+            ]
+          },
+          "hash_parameters": {
+            "exit": 0,
+            "stdout": [
+              "bindings 11,12 13,14 3 1"
+            ]
+          },
+          "hash_after_cell": {
+            "exit": 0,
+            "stdout": [
+              "bindings 11,12 13,14 3 1"
+            ]
+          }
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 4437eecbf426",
+      "tests": {
+        "ch33/test_config_expansion_forms": {
+          "status": "pass",
+          "inputs_sha256": "06f144883097451e7e5b377337121354c206141dce41547b651456680e8fb4a5"
+        }
+      },
+      "generated_at": "2026-11-26T13:14:38.442897+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch33/test_config_expansion_forms": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch33/test_config_expansion_forms.sv:39:55: syntax error, unexpected '.', expecting ';'",
+          "inputs_sha256": "06f144883097451e7e5b377337121354c206141dce41547b651456680e8fb4a5"
+        }
+      },
+      "generated_at": "2026-11-26T13:14:38.513045+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch33/test_config_expansion_forms": {
+          "status": "known",
+          "reason": "compile failed: tests/ch33/test_config_expansion_forms.sv:31: sorry: config declarations are not supported and will be skipped.",
+          "inputs_sha256": "06f144883097451e7e5b377337121354c206141dce41547b651456680e8fb4a5"
+        }
+      },
+      "generated_at": "2026-11-26T13:14:38.425384+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 2d81f8c39802), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch33/test_config_expansion_forms": {
+          "status": "fail",
+          "reason": "output differs (exit 2): error: expected identifier",
+          "inputs_sha256": "06f144883097451e7e5b377337121354c206141dce41547b651456680e8fb4a5"
+        }
+      },
+      "generated_at": "2026-11-26T13:14:38.414946+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "slang": {
+    "version": "slang version 12.0.0+0",
+    "artifact_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+    "fixture_sha256": "6abc833eed09112be859768284507a01b4c59a8598167e870cfb849b8618fd26",
+    "arguments": [
+      "--std=1800-2023",
+      "--parse-only"
+    ],
+    "variants": {
+      "standard": {
+        "exit": 1,
+        "first_diagnostic": "test_config_expansion_forms.sv:39:54: error: expected identifier"
+      },
+      "cell_only_control": {
+        "exit": 0,
+        "first_diagnostic": ""
+      },
+      "isolated_hash_after_cell": {
+        "exit": 0,
+        "first_diagnostic": ""
+      }
+    }
+  }
+}

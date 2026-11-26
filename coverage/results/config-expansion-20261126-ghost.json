@@ -1,0 +1,28 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build 4437eecbf426",
+ "tests": {
+  "ch33/test_config_expansion_forms": {
+   "status": "pass",
+   "inputs_sha256": "06f144883097451e7e5b377337121354c206141dce41547b651456680e8fb4a5"
+  }
+ },
+ "generated_at": "2026-11-26T13:14:43.443698+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-config-expansion-grammar",
+  "checker_sha256": "0f00d0e15b3b8c81f27fc8d242020829318a06b26fcff08e7a8443fb3497a1af",
+  "grammar_revision": "1a298589a3168f87fe476f6347e0ded46344fbdf",
+  "artifact_sha256": {
+   "ghost": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+   "antlr": "eae2dfa119a64327444672aff63e9ec35a20180dc5b8090b7a6ab85125df4d76",
+   "java": "8261edc44ac1643e7aba9f0df5155b6d81f7977cc8a0374bb7630d838d2a3910",
+   "SystemVerilogLexer.g4": "4038f513ae2e5cca3da9cf686c55bc310d7fa734bbebd79277f3294540d3154b",
+   "SystemVerilogParser.g4": "9b8321996c00b10a1f2eb878dc47bfd3ecc9a194dd388ac5af037e032426bbe6"
+  },
+  "antlr_python_runtime": "4.13.2",
+  "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+ }
+}

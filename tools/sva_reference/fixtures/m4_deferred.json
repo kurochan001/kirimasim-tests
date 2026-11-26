@@ -606,5 +606,17 @@
       "rising.push_back($time)",
       "ticks(changing)"
     ]
+  },
+  "tests/ch24/test_design_and_program_assertion_clocks.sv": {
+    "source_sha256": "59e1eb2a1c8bc0747960459e8d2ae85bc4640f28795cb2757dc6f1202ded748a",
+    "reason": "Assertions clocked by the design and by the program need separate input histories and program-region scheduling. The M4 single-clock model does not cover this case.",
+    "evidence": [
+      "program observations",
+      "@(posedge module_clock)",
+      "@(posedge program_clock)",
+      "$sampled(program_data)"
+    ],
+    "reviewed_on": "2026-11-26",
+    "reviewer": "Codex (AI)"
   }
 }

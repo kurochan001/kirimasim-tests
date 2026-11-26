@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-15.4.1-EXTRACT-NEGATIVE-BOUND-ILLEGAL"
+  ],
+  "qualified": {
+    "version": "private build 4437eecbf426",
+    "configuration": {
+      "evidence_profile": "ghost-verilator-mailbox-bound-domain",
+      "checker_sha256": "9e39f2fc1e6bc28f0935f392d6d06cb700a2f7acf551436e709b4c93283fd96d",
+      "artifact_sha256": {
+        "ghost": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9"
+      },
+      "verilator_version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "verilator_runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch15/test_mailbox_bound_domain_observation": {
+        "inputs_sha256": "fc7630fac0977a2ae81dd88967585bcc942f3055b2cab37db520d93229c81ab6",
+        "build_exit": 0,
+        "trials": {
+          "ghost": {
+            "control": {
+              "bound": null,
+              "exit": 0,
+              "stdout": [
+                "bounded values=17,29 remaining=0",
+                "unbounded values=17,29,44 remaining=0"
+              ],
+              "bound_diagnostics": 0,
+              "pass": true
+            },
+            "minus_one": {
+              "bound": -1,
+              "exit": 0,
+              "stdout": [
+                "bounded values=17,29 remaining=0",
+                "unbounded values=17,29,44 remaining=0",
+                "before negative constructor bound=-1",
+                "negative nonblocking put=1"
+              ],
+              "bound_diagnostics": 0,
+              "entered_undefined_input": true,
+              "pass": true
+            },
+            "signed_minimum": {
+              "bound": -2147483648,
+              "exit": 0,
+              "stdout": [
+                "bounded values=17,29 remaining=0",
+                "unbounded values=17,29,44 remaining=0",
+                "before negative constructor bound=-2147483648",
+                "negative nonblocking put=1"
+              ],
+              "bound_diagnostics": 0,
+              "entered_undefined_input": true,
+              "pass": true
+            }
+          },
+          "verilator": {
+            "control": {
+              "bound": null,
+              "exit": 0,
+              "stdout": [
+                "bounded values=17,29 remaining=0",
+                "unbounded values=17,29,44 remaining=0"
+              ],
+              "bound_diagnostics": 0,
+              "pass": true
+            },
+            "minus_one": {
+              "bound": -1,
+              "exit": 0,
+              "stdout": [
+                "bounded values=17,29 remaining=0",
+                "unbounded values=17,29,44 remaining=0",
+                "before negative constructor bound=-1",
+                "negative nonblocking put=0"
+              ],
+              "bound_diagnostics": 0,
+              "entered_undefined_input": true,
+              "pass": true
+            },
+            "signed_minimum": {
+              "bound": -2147483648,
+              "exit": 0,
+              "stdout": [
+                "bounded values=17,29 remaining=0",
+                "unbounded values=17,29,44 remaining=0",
+                "before negative constructor bound=-2147483648",
+                "negative nonblocking put=0"
+              ],
+              "bound_diagnostics": 0,
+              "entered_undefined_input": true,
+              "pass": true
+            }
+          }
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 4437eecbf426",
+      "tests": {
+        "ch15/test_mailbox_bound_domain_observation": {
+          "status": "pass",
+          "inputs_sha256": "fc7630fac0977a2ae81dd88967585bcc942f3055b2cab37db520d93229c81ab6"
+        }
+      },
+      "generated_at": "2026-11-26T13:24:00.071536+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch15/test_mailbox_bound_domain_observation": {
+          "status": "pass",
+          "inputs_sha256": "fc7630fac0977a2ae81dd88967585bcc942f3055b2cab37db520d93229c81ab6"
+        }
+      },
+      "generated_at": "2026-11-26T13:24:05.445334+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch15/test_mailbox_bound_domain_observation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch15/test_mailbox_bound_domain_observation.sv:14: syntax error",
+          "inputs_sha256": "fc7630fac0977a2ae81dd88967585bcc942f3055b2cab37db520d93229c81ab6"
+        }
+      },
+      "generated_at": "2026-11-26T13:24:00.036610+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 2d81f8c39802), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch15/test_mailbox_bound_domain_observation": {
+          "status": "unsupported",
+          "reason": "type 'std::mailbox#(int)' (not implemented yet)",
+          "inputs_sha256": "fc7630fac0977a2ae81dd88967585bcc942f3055b2cab37db520d93229c81ab6"
+        }
+      },
+      "generated_at": "2026-11-26T13:24:00.039460+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "slang": {
+    "version": "slang version 12.0.0+0",
+    "exit": 0,
+    "fixture_sha256": "27b1c7f7d258648c9bc702ecd3859a7c941c00655e1d054ec7cdf59bceec79fa",
+    "arguments": [
+      "--std=1800-2023"
+    ],
+    "stdout": [
+      "Top level design units:",
+      "    test_mailbox_bound_domain_observation",
+      "",
+      "",
+      "Build succeeded: 0 errors, 0 warnings"
+    ],
+    "stderr": []
+  }
+}

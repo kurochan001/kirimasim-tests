@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-8.29-EXTRACT-AUTOMATIC-DYNAMIC-MEMORY"
+  ],
+  "qualified": {
+    "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "configuration": {
+      "evidence_profile": "verilator-managed-storage",
+      "checker_sha256": "0360fbc9e3d943aefc242ecb1d283ee19f6fb90d56a1ce82be6a43d606de2cbc",
+      "artifact_sha256": {
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9"
+      },
+      "sanitizer": "address",
+      "sampling_tolerance_bytes": 4096
+    },
+    "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+    "tests": {
+      "ch8/test_class_managed_storage_lifetime": {
+        "inputs_sha256": "2adfc2cb35965ef0965ef54cd3c7e60b814c2760de0e27127b6f6de4330b31e9",
+        "build_exit": 0,
+        "trials": {
+          "retained": {
+            "exit": 0,
+            "asan_report": false,
+            "stdout": [
+              "values 41 2047 262144",
+              "heap 29981 30125 67061 148981 411133 427781 handle=1"
+            ],
+            "samples": {
+              "baseline": 29981,
+              "object": 30125,
+              "dynamic_array": 67061,
+              "associative_array": 148981,
+              "string": 411133,
+              "final": 427781,
+              "handle": 1
+            }
+          },
+          "dropped": {
+            "exit": 0,
+            "asan_report": false,
+            "stdout": [
+              "values 41 2047 262144",
+              "heap 30029 30173 67109 149029 411181 46685 handle=0"
+            ],
+            "samples": {
+              "baseline": 30029,
+              "object": 30173,
+              "dynamic_array": 67109,
+              "associative_array": 149029,
+              "string": 411181,
+              "final": 46685,
+              "handle": 0
+            }
+          }
+        },
+        "growth_bytes": {
+          "retained": {
+            "object": 144,
+            "dynamic_array": 36936,
+            "associative_array": 81920,
+            "string": 262152
+          },
+          "dropped": {
+            "object": 144,
+            "dynamic_array": 36936,
+            "associative_array": 81920,
+            "string": 262152
+          }
+        },
+        "paired_release_bytes": 381144,
+        "populated_bytes": 381152,
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch8/test_class_managed_storage_lifetime": {
+          "status": "pass",
+          "inputs_sha256": "2adfc2cb35965ef0965ef54cd3c7e60b814c2760de0e27127b6f6de4330b31e9"
+        }
+      },
+      "generated_at": "2026-11-26T13:03:55.297896+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 4437eecbf426",
+      "tests": {
+        "ch8/test_class_managed_storage_lifetime": {
+          "status": "pass",
+          "inputs_sha256": "2adfc2cb35965ef0965ef54cd3c7e60b814c2760de0e27127b6f6de4330b31e9"
+        }
+      },
+      "generated_at": "2026-11-26T13:03:51.613639+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch8/test_class_managed_storage_lifetime": {
+          "status": "known",
+          "reason": "compile failed: tests/ch8/test_class_managed_storage_lifetime.sv:24: syntax error",
+          "inputs_sha256": "2adfc2cb35965ef0965ef54cd3c7e60b814c2760de0e27127b6f6de4330b31e9"
+        }
+      },
+      "generated_at": "2026-11-26T13:03:32.187408+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 2d81f8c39802), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch8/test_class_managed_storage_lifetime": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "2adfc2cb35965ef0965ef54cd3c7e60b814c2760de0e27127b6f6de4330b31e9"
+        }
+      },
+      "generated_at": "2026-11-26T13:03:32.167854+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "slang": {
+    "version": "slang version 12.0.0+0",
+    "arguments": [
+      "--std=1800-2023"
+    ],
+    "fixture_sha256": "931f5d5c9f33e00a42d75415b2d5637e02f3ba254f136a621d69309ec1489763",
+    "exit": 0,
+    "stdout": [
+      "Top level design units:",
+      "    test_class_managed_storage_lifetime",
+      "",
+      "",
+      "Build succeeded: 0 errors, 0 warnings"
+    ],
+    "stderr": []
+  }
+}

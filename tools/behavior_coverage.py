@@ -44,6 +44,7 @@ import run_ghost_checker_initialization
 import run_ghost_coverage_database
 import run_ghost_dpi_load
 import run_ghost_class_stream_cycle
+import run_ghost_config_expansion
 import run_ghost_dpi_disabled_values
 import run_ghost_dpi_function_ack
 import run_ghost_dpi_versioned_dependencies
@@ -63,6 +64,7 @@ import run_icarus_queue_allocation
 import run_icarus_vendor_startup
 import run_language_defaults
 import run_language_diagnostics
+import run_mailbox_bound_domain
 import run_null_instance_access
 import run_optional_lexical
 import run_preprocessor_effects
@@ -86,8 +88,10 @@ import run_scheduler_reference
 import run_stacktrace
 import run_verilator_dpi_context
 import run_verilator_directive_extension
+import run_verilator_class_collection
 import run_verilator_constraint_calls
 import run_verilator_libmap
+import run_verilator_managed_storage
 import run_verilator_vpi_dpi_bridge
 import run_verilator_width_diagnostics
 import run_vpi_compatibility_headers
@@ -159,6 +163,8 @@ EVIDENCE_PROFILES = {
     run_ghost_evcd.PROFILE: ("ghost", run_ghost_evcd, run_ghost_evcd.CASE_METHODS),
     run_ghost_class_stream_cycle.PROFILE: (
         "ghost", run_ghost_class_stream_cycle, run_ghost_class_stream_cycle.CASES),
+    run_ghost_config_expansion.PROFILE: (
+        "ghost", run_ghost_config_expansion, run_ghost_config_expansion.CASES),
     run_ghost_language_latitude.PROFILE: (
         "ghost", run_ghost_language_latitude, run_ghost_language_latitude.CASES),
     run_ghost_sequence_method.PROFILE: ("ghost", run_ghost_sequence_method, run_ghost_sequence_method.CASES),
@@ -169,6 +175,7 @@ EVIDENCE_PROFILES = {
     **{profile: ("ghost", run_ghost_vpi_start_callbacks, run_ghost_vpi_start_callbacks.CASES)
        for profile in run_ghost_vpi_start_callbacks.PROFILES.values()},
     run_null_instance_access.PROFILE: ("verilator", run_null_instance_access, run_null_instance_access.CASES),
+    run_mailbox_bound_domain.PROFILE: ("ghost", run_mailbox_bound_domain, run_mailbox_bound_domain.CASES),
     run_stacktrace.PROFILE: ("ghost", run_stacktrace, run_stacktrace.CASES),
     run_ghost_library_cells.PROFILE: ("ghost", run_ghost_library_cells, run_ghost_library_cells.CASES),
     run_ghost_checker_initialization.PROFILE: (
@@ -188,7 +195,11 @@ EVIDENCE_PROFILES = {
         "icarus", run_icarus_queue_allocation, run_icarus_queue_allocation.CASES),
     run_verilator_constraint_calls.PROFILE: (
         "verilator", run_verilator_constraint_calls, run_verilator_constraint_calls.CASES),
+    run_verilator_class_collection.PROFILE: (
+        "verilator", run_verilator_class_collection, run_verilator_class_collection.CASES),
     run_verilator_libmap.PROFILE: ("verilator", run_verilator_libmap, run_verilator_libmap.CASE_MAPS),
+    run_verilator_managed_storage.PROFILE: (
+        "verilator", run_verilator_managed_storage, run_verilator_managed_storage.CASES),
     run_verilator_directive_extension.PROFILE: (
         "verilator", run_verilator_directive_extension, run_verilator_directive_extension.CASES),
     run_verilator_width_diagnostics.PROFILE: (
@@ -272,6 +283,11 @@ def runtime_diagnostic_witness(fields: dict[str, str]) -> bool:
     return simulation_output_witness(fields) and bool(fields.get("expected_stderr_regex"))
 
 
+def undefined_input_requirement(checker, rid: str) -> bool:
+    """An explicit checker scope for a prohibited input with optional diagnosis."""
+    return rid in getattr(checker, "UNDEFINED_INPUT_REQUIREMENTS", ())
+
+
 def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
     """Reject malformed/stale links; an intentionally unmapped obligation is valid."""
     require(inventory.get("schema") == registry.get("schema") == 1, "unknown schema")
@@ -339,12 +355,15 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                              or profile == run_verilator_libmap.PROFILE and rejected_design),
                         f"unsupported evidence profile: {rid}")
             runtime_error = r["kind"] == "error" and runtime_diagnostic_witness(fields)
-            profile_error = (r["kind"] == "error"
-                             and rid in getattr(checker, "DIAGNOSTIC_REQUIREMENTS", ()))
+            profile_anchor = None
+            if r["kind"] == "error" and rid in getattr(checker, "DIAGNOSTIC_REQUIREMENTS", ()):
+                profile_anchor = checker.DIAGNOSTIC_ANCHOR
+            if r["kind"] == "error" and undefined_input_requirement(checker, rid):
+                profile_anchor = checker.UNDEFINED_INPUT_ANCHOR
             companion = r["kind"] == "error" and groups and simulation_output_witness(fields)
-            require(rejected_design == (r["kind"] == "error") or runtime_error or profile_error or companion,
+            require(rejected_design == (r["kind"] == "error") or runtime_error or profile_anchor or companion,
                     f"negative/positive case mismatch: {rid}")
-            if rejected_design or runtime_error or profile_error:
+            if rejected_design or runtime_error or profile_anchor:
                 error_witnesses.add(c["test"])
             require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", c.get("reviewed_on", ""))
                     and c.get("reviewer") and c.get("observation"),
@@ -373,9 +392,9 @@ def validate(inventory: dict, registry: dict) -> tuple[dict, list]:
                                         a["contains"] == ":expected_stderr_regex: "
                                         + fields.get("expected_stderr_regex", "")
                                         for a in anchors)
-                if profile_error:
+                if profile_anchor:
                     checked_oracle = output_anchor and not diagnostic_only and any(
-                        a["file"] == checker.CHECKER and checker.DIAGNOSTIC_ANCHOR in a["contains"] for a in anchors
+                        a["file"] == checker.CHECKER and profile_anchor in a["contains"] for a in anchors
                     )
                 elif runtime_error:
                     checked_oracle = not diagnostic_only and output_anchor and diagnostic_anchor
@@ -481,6 +500,7 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
         simulator = data.get("simulator")
         configuration = data.get("configuration") or {}
         profile = configuration.get("evidence_profile")
+        checker = None
         if profile is not None:
             registered = EVIDENCE_PROFILES.get(profile) if isinstance(profile, str) else None
             if registered is None or simulator != registered[0]:
@@ -530,13 +550,15 @@ def execution(rows: list, result_paths: list[Path]) -> tuple[dict, list]:
                                            ("fail", "known", "unsupported") else "not_run")
                     continue
                 # Unsupported syntax can satisfy a rejection test's line
-                # regexp. It needs a reviewed, pinned oracle. A runtime
-                # witness has to reach its expected output and diagnostic.
+                # regexp. It needs a reviewed, pinned oracle. Runtime
+                # evidence checks diagnostics or entry into an undefined
+                # input through an explicitly scoped profile.
                 # A test recorded with Verilator 5.054 (added while the pin
                 # moves from 5.052) counts only with a 5.054 run, and one
                 # recorded with 5.052 only with a 5.052 run.
                 fields = suite_results.header(test) if r["kind"] == "error" else {}
                 positive_witness = (runtime_diagnostic_witness(fields)
+                                    or undefined_input_requirement(checker, r["id"])
                                     or (r.get("check_groups") and simulation_output_witness(fields)))
                 if r["kind"] == "error" and not positive_witness:
                     oracle = {"icarus": (("iverilog@13.0", r"version 13\.0(?:\s|$)"),),

@@ -76518,7 +76518,94 @@
       "acceptance": "Unreferenced class objects are garbage collected; chandle-held foreign pointers do not acquire class-object garbage collection semantics.",
       "source_note": "IEEE 1800-2023 8.4; complete own-body source review, blocks B018. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0",
+          "evidence_profile": "verilator-class-collection",
+          "observation": "最後のクラスハンドルを外した後のデストラクタ実行と、その後にCで確保した領域の値を読み取れることを照合する。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original = new;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original.foreign = new_foreign_payload();"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining = original;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "#1 original = null;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining.value, read_foreign_payload(remaining.foreign)"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining = null;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original == null && remaining == null, read_native_payload()"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "free_foreign_payload();"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "malloc(sizeof(*payload))"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "return value == payload && value != NULL ? *payload : -1;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "return read_foreign_payload(payload);"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "free(payload);"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "alias live t=2 value=17 foreign=23"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "dropping last handle t=3"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "native storage t=4 handles cleared=1 value=23"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "DESTRUCTOR.finditer(text)"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "std::puts(\"{MARKER}\")"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "\"-fsanitize=address\""
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "expected_traced = [*expected[:2], MARKER, expected[2]]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.4",
@@ -86820,7 +86907,82 @@
       "acceptance": "The runtime manages storage for objects, strings and dynamic/associative arrays automatically and reclaims objects no longer used; no particular reclamation instant is guaranteed.",
       "source_note": "IEEE 1800-2023 8.29; complete own-body source review, blocks B002, B007, B008. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_class_managed_storage_lifetime.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "2adfc2cb35965ef0965ef54cd3c7e60b814c2760de0e27127b6f6de4330b31e9",
+          "evidence_profile": "verilator-managed-storage",
+          "observation": "クラスと動的配列、連想配列、文字列の確保量の増加を順に観測し、同じ値が得られる保持対照と比較して最後のハンドルを外した場合の回収量を確認する。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "mem = new;"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "mem.dynamic_values = new[8192];"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "mem.sparse[3*i] = i;"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "mem.text_value = {mem.text_value, mem.text_value};"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "with_object = managed_heap_bytes();"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "with_dynamic = managed_heap_bytes();"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "with_assoc = managed_heap_bytes();"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "with_string = managed_heap_bytes();"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "mem = null;"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.sv",
+              "contains": "final_bytes = managed_heap_bytes();"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.c",
+              "contains": "return __sanitizer_get_current_allocated_bytes();"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.c",
+              "contains": "strlen(contents);"
+            },
+            {
+              "file": "tests/ch8/test_class_managed_storage_lifetime.expected",
+              "contains": "values 41 2047 262144"
+            },
+            {
+              "file": "tools/run_verilator_managed_storage.py",
+              "contains": "(\"retained\", []), (\"dropped\", [\"+drop_handle\"])"
+            },
+            {
+              "file": "tools/run_verilator_managed_storage.py",
+              "contains": "retained[\"handle\"] == 1 and dropped[\"handle\"] == 0"
+            },
+            {
+              "file": "tools/run_verilator_managed_storage.py",
+              "contains": "abs(paired_release - populated) <= SAMPLING_TOLERANCE_BYTES"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.29",
@@ -86840,7 +87002,94 @@
       "acceptance": "Garbage collection transitions an object from strong reachability toward unreachability, possibly through weak reachability; storage becomes eligible for reclamation when unreachable.",
       "source_note": "IEEE 1800-2023 8.29; complete own-body source review, blocks B010. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0",
+          "evidence_profile": "verilator-class-collection",
+          "observation": "一方のクラスハンドルを外しても別名参照から値を読み取れ、最後のハンドルを外した後にデストラクタが実行されることを照合する。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original = new;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original.foreign = new_foreign_payload();"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining = original;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "#1 original = null;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining.value, read_foreign_payload(remaining.foreign)"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining = null;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original == null && remaining == null, read_native_payload()"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "free_foreign_payload();"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "malloc(sizeof(*payload))"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "return value == payload && value != NULL ? *payload : -1;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "return read_foreign_payload(payload);"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "free(payload);"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "alias live t=2 value=17 foreign=23"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "dropping last handle t=3"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "native storage t=4 handles cleared=1 value=23"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "DESTRUCTOR.finditer(text)"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "std::puts(\"{MARKER}\")"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "\"-fsanitize=address\""
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "expected_traced = [*expected[:2], MARKER, expected[2]]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.29",
@@ -86894,7 +87143,94 @@
       "acceptance": "An object reachable by neither strong nor weak references is unreachable.",
       "source_note": "IEEE 1800-2023 8.29; complete own-body source review, blocks B009. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0",
+          "evidence_profile": "verilator-class-collection",
+          "observation": "弱参照のない例で両方のクラスハンドルがnullになったことを照合し、到達不能になったオブジェクトのデストラクタを観測する。",
+          "evidence": [
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original = new;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original.foreign = new_foreign_payload();"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining = original;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "#1 original = null;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining.value, read_foreign_payload(remaining.foreign)"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "remaining = null;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "original == null && remaining == null, read_native_payload()"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.sv",
+              "contains": "free_foreign_payload();"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "malloc(sizeof(*payload))"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "return value == payload && value != NULL ? *payload : -1;"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "return read_foreign_payload(payload);"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.c",
+              "contains": "free(payload);"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "alias live t=2 value=17 foreign=23"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "dropping last handle t=3"
+            },
+            {
+              "file": "tests/ch8/test_class_collection_leaves_foreign_allocation.expected",
+              "contains": "native storage t=4 handles cleared=1 value=23"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "DESTRUCTOR.finditer(text)"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "std::puts(\"{MARKER}\")"
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "\"-fsanitize=address\""
+            },
+            {
+              "file": "tools/run_verilator_class_collection.py",
+              "contains": "expected_traced = [*expected[:2], MARKER, expected[2]]"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "8.29",
@@ -157275,7 +157611,74 @@
       "acceptance": "A negative mailbox bound is illegal with potentially indeterminate behavior; a warning is optional, so tests cannot require one defined negative-capacity queue.",
       "source_note": "IEEE 1800-2023 15.4.1; complete own-body source review, blocks B006. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "mandatory",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "fc7630fac0977a2ae81dd88967585bcc942f3055b2cab37db520d93229c81ab6",
+          "evidence_profile": "ghost-verilator-mailbox-bound-domain",
+          "observation": "正の境界と境界値ゼロでキューの対照を照合し、負の境界ではコンストラクタ直前への到達を確認して診断と非ブロッキング操作の実測を記録する。",
+          "evidence": [
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "bounded = new(2);"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "bounded.try_put(44)"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "unbounded = new(0);"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "unbounded.try_put(44)"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "selected_bound >= 0"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "before negative constructor bound=%0d"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "negative = new(selected_bound);"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.sv",
+              "contains": "negative.try_put(91)"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.expected",
+              "contains": "bounded values=17,29 remaining=0"
+            },
+            {
+              "file": "tests/ch15/test_mailbox_bound_domain_observation.expected",
+              "contains": "unbounded values=17,29,44 remaining=0"
+            },
+            {
+              "file": "tools/run_mailbox_bound_domain.py",
+              "contains": "\"minus_one\": -1, \"signed_minimum\": -(2**31)"
+            },
+            {
+              "file": "tools/run_mailbox_bound_domain.py",
+              "contains": "entered_undefined_input = bound < 0 and output[:len(prefix)] == prefix"
+            },
+            {
+              "file": "tools/run_mailbox_bound_domain.py",
+              "contains": "\"bound_diagnostics\": diagnostics"
+            },
+            {
+              "file": "tools/run_mailbox_bound_domain.py",
+              "contains": "output == expected and diagnostics == 0"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "15.4.1",
@@ -510407,7 +510810,78 @@
       "acceptance": "Cell selectors permit library qualification; liblists may be empty; use permits cell binding, one or more named parameter assignments, or both, and optional config suffix. This formal grammar contains no hash-parenthesized assignment-list alternative.",
       "source_note": "IEEE 1800-2023 A.1.5; complete own-body source review, blocks B003. The rule is paraphrased; conditions and referenced rules remain applicable.",
       "modality": "definition",
-      "checks": [],
+      "checks": [
+        {
+          "test": "tests/ch33/test_config_expansion_forms.sv",
+          "reviewer": "Codex (AI)",
+          "reviewed_on": "2026-11-26",
+          "inputs_sha256": "06f144883097451e7e5b377337121354c206141dce41547b651456680e8fb4a5",
+          "evidence_profile": "ghost-config-expansion-grammar",
+          "observation": "ライブラリで修飾したセル選択、空のライブラリリストと名前付きパラメータ束縛の出力を照合し、サフィックス付き構文の受理とハッシュ付き変形の拒否を独立パーサーで確認する。",
+          "evidence": [
+            {
+              "file": "tests/ch33/test_config_expansion_forms.sv",
+              "contains": "cell expansion_default liblist;"
+            },
+            {
+              "file": "tests/ch33/test_config_expansion_forms.sv",
+              "contains": "cell work.expansion_replacement use work.expansion_replacement;"
+            },
+            {
+              "file": "tests/ch33/test_config_expansion_forms.sv",
+              "contains": "use .P(11), .Q(12);"
+            },
+            {
+              "file": "tests/ch33/test_config_expansion_forms.sv",
+              "contains": "use work.expansion_replacement .P(13), .Q(14);"
+            },
+            {
+              "file": "tests/ch33/test_config_expansion_forms.sv",
+              "contains": "use work.expansion_nested:config;"
+            },
+            {
+              "file": "tests/ch33/test_config_expansion_forms.sv",
+              "contains": "named_only.P, named_only.Q,"
+            },
+            {
+              "file": "tests/ch33/test_config_expansion_forms.sv",
+              "contains": "cell_and_named.P, cell_and_named.Q, nested.P, default_cell.P"
+            },
+            {
+              "file": "tests/ch33/test_config_expansion_forms.expected",
+              "contains": "bindings 11,12 13,14 3 1"
+            },
+            {
+              "file": "tools/run_ghost_config_expansion.py",
+              "contains": "GRAMMAR_REVISION"
+            },
+            {
+              "file": "tools/run_ghost_config_expansion.py",
+              "contains": "use .P(11), .Q(12):config;"
+            },
+            {
+              "file": "tools/run_ghost_config_expansion.py",
+              "contains": "use work.expansion_nested .P(13), .Q(14):config;"
+            },
+            {
+              "file": "tools/run_ghost_config_expansion.py",
+              "contains": "use #(.P(11), .Q(12));"
+            },
+            {
+              "file": "tools/run_ghost_config_expansion.py",
+              "contains": "use work.expansion_replacement #(.P(13), .Q(14));"
+            },
+            {
+              "file": "tools/run_ghost_config_expansion.py",
+              "contains": "parser.source_text()"
+            },
+            {
+              "file": "tools/run_ghost_config_expansion.py",
+              "contains": "all(rejected_at_hash.values())"
+            }
+          ]
+        }
+      ],
       "source_spans": [
         {
           "section": "A.1.5",

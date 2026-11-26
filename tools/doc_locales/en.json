@@ -25298,6 +25298,12 @@
     "ZXQPH0QXZ : 旧アプリケーションが使う実数配列の旧ルート型を観測する。": "ZXQPH0QXZ: Observe the old real-array root type used by the legacy application.",
     "互換指定を省いた現行アプリケーションで配列型を照合し、同じ要素値を取得する。": "Check the current array type with the migrated application using default bindings and retrieve the same element value.",
     "ZXQPH0QXZ : 途中で打ち切るイテレータを一度だけ解放し、解放済みと走査終了済みのスロットからの解放を省略する。": "ZXQPH0QXZ: Release the abandoned iterator once and skip release for the slots already released or exhausted.",
-    "別の有効なネットハンドルを保持し、終了時に新しいハンドルとの同一性と値を照合する。": "Retain a separate valid net handle and check its identity and value at the end of simulation."
+    "別の有効なネットハンドルを保持し、終了時に新しいハンドルとの同一性と値を照合する。": "Retain a separate valid net handle and check its identity and value at the end of simulation.",
+    "ZXQPH0QXZ : 最後のクラスハンドルを外した後のデストラクタ実行と、その後にCで確保した領域の値を読み取れることを照合する。": "ZXQPH0QXZ: Check that the native class destructor runs after the last class handle is cleared and that the C allocation remains readable afterward.",
+    "ZXQPH0QXZ : 一方のクラスハンドルを外しても別名参照から値を読み取れ、最後のハンドルを外した後にデストラクタが実行されることを照合する。": "ZXQPH0QXZ: Check that one alias keeps the object accessible after another alias is cleared and that the native destructor runs after the last alias is cleared.",
+    "ZXQPH0QXZ : 弱参照のない例で両方のクラスハンドルがnullになったことを照合し、到達不能になったオブジェクトのデストラクタを観測する。": "ZXQPH0QXZ: Use an object with no weak references, verify that both class handles become null, and observe the destructor for the unreachable object.",
+    "ZXQPH0QXZ : クラスと動的配列、連想配列、文字列の確保量の増加を順に観測し、同じ値が得られる保持対照と比較して最後のハンドルを外した場合の回収量を確認する。": "ZXQPH0QXZ: Observe the heap growth from a class object, dynamic array, associative array and string, then measure reclamation after clearing the last handle against a retained control with the same values.",
+    "ZXQPH0QXZ : ライブラリで修飾したセル選択、空のライブラリリストと名前付きパラメータ束縛の出力を照合し、サフィックス付き構文の受理とハッシュ付き変形の拒否を独立パーサーで確認する。": "ZXQPH0QXZ: Check the binding results for library-qualified cell selection, an empty library list and named parameters, then use an independent parser to accept suffix variants and reject hash variants.",
+    "ZXQPH0QXZ : 正の境界と境界値ゼロでキューの対照を照合し、負の境界ではコンストラクタ直前への到達を確認して診断と非ブロッキング操作の実測を記録する。": "ZXQPH0QXZ: Check the queue controls at positive and zero bounds, confirm entry into construction with a negative bound, and record diagnostics and the observed nonblocking operation."
   }
 }

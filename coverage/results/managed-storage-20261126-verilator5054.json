@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch8/test_class_managed_storage_lifetime": {
+   "status": "pass",
+   "inputs_sha256": "2adfc2cb35965ef0965ef54cd3c7e60b814c2760de0e27127b6f6de4330b31e9"
+  }
+ },
+ "generated_at": "2026-11-26T13:03:49.698771+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-managed-storage",
+  "checker_sha256": "0360fbc9e3d943aefc242ecb1d283ee19f6fb90d56a1ce82be6a43d606de2cbc",
+  "artifact_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9"
+  },
+  "sanitizer": "address",
+  "sampling_tolerance_bytes": 4096
+ }
+}

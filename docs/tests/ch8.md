@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 514 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 516 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -32,6 +32,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_class_basic`](../../tests/ch8/test_class_basic.sv) | Test for class basics | 8.4 8.6 | Icarus Verilog 13.0 ||
 | [`test_class_basic_2`](../../tests/ch8/test_class_basic_2.sv) | Class constructor, properties and methods, and independent instances | 8.4 8.7 | Icarus Verilog 13.0 ||
 | [`test_class_basic_edge_cases`](../../tests/ch8/test_class_basic_edge_cases.sv) | Class basic edge cases | 8.4 8.6 8.7 | Icarus Verilog 13.0 ||
+| [`test_class_collection_leaves_foreign_allocation`](../../tests/ch8/test_class_collection_leaves_foreign_allocation.sv) | Drop both class handles and leave the foreign allocation under C ownership | 8.4 8.29 | Verilator 5.054 | DPI |
 | [`test_class_compare`](../../tests/ch8/test_class_compare.sv) | Test: Class comparison | 8.4 8.5 8.6 | Verilator 5.052 ||
 | [`test_class_component_tree`](../../tests/ch8/test_class_component_tree.sv) | A tree of class objects that build hierarchical names from their parents | 8.4 8.5 7.10 | Verilator 5.052 ||
 | [`test_class_edge`](../../tests/ch8/test_class_edge.sv) | Classes: construction, methods, local members, inheritance | 8.4 8.6 8.13 8.18 | Icarus Verilog 13.0 ||
@@ -363,6 +364,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_forward_class_defined_in_other_scope`](../../tests/ch8/test_illegal_forward_class_defined_in_other_scope.sv) | the class of a forward class declaration has to be defined in the same local scope | 8.27 6.18 | Verilator 5.052 | illegal design |
 | [`test_class_vs_struct_assignment`](../../tests/ch8/test_class_vs_struct_assignment.sv) | Assigning a class handle shares one object, while assigning a structure copies its value | 8.28 8.12 7.2 | Verilator 5.052 ||
 | [`test_illegal_cast_class_handle_to_integral`](../../tests/ch8/test_illegal_cast_class_handle_to_integral.sv) | a class handle cannot be cast to an integral type | 8.28 6.24.1 | standard only | illegal design |
+| [`test_class_managed_storage_lifetime`](../../tests/ch8/test_class_managed_storage_lifetime.sv) | Observe storage for a class object, dynamic array, associative array and string | 8.29 | Verilator 5.054 | DPI |
 | [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) | An object stays strongly reachable, so its weak references are not cleared, while a handle in an active scope refers to it or a nonblocking assignment to one of its members is pending | 8.29 8.30.3 | standard only ||
 | [`test_weak_reference_std_scope_and_strong_reachability`](../../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) | std declares weak_reference and another scope may declare its own class of that name, and a handle in an active scope keeps its referent strongly reachable | 8.29 8.30.1 | standard only ||
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) | std::weak_reference has a class type parameter T, a constructor taking a T referent, get() returning T with the referent until clear() sets it to null, clear() returning nothing, and a static get_id(T) whose longint result is 0 for null, nonzero for an object and the same at every call for one object | 8.30 G.7 | standard only ||

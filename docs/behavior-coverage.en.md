@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 98.98%, execution without Ghost 52.34%, execution with Ghost and kirimasim 90.76%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 99.03%, execution without Ghost 52.38%, execution with Ghost and kirimasim 90.80%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 98.98%. Requirement execution-confirmation rate: 52.34% without Ghost, 90.76% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 99.03%. Requirement execution-confirmation rate: 52.38% without Ghost, 90.80% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 12206/12332 ( 98.98% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11192/12332 ( 90.76% ).
-- Registered but not tested: 126.
+- The requirement coverage (test design) for registered behaviors is 12212/12332 ( 99.03% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11198/12332 ( 90.80% ).
+- Registered but not tested: 120.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -113,7 +113,9 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `checkpoint-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:42:38.634835+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `checkpoint-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.598706+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `checkpoint-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.635198+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
+- `class-collection-20261126-verilator5054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T12:55:06.507526+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `class-stream-cycle-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T11:35:19.289928+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `config-expansion-20261126-ghost.json`: `private build 4437eecbf426` / `2026-11-26T13:14:43.443698+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-ghost-strict.json`: `private build 698058bc29ba` / `2026-11-23T12:19:55.008109+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:19:54.956799+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `constant-function-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:19:54.924264+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -853,6 +855,8 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `library-map-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T20:48:24.673480+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
 - `library-map-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T20:50:45.119056+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
 - `library-map-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T20:50:45.535338+00:00` / 7/12332 execution checked; 0 entries refer to older inputs.
+- `mailbox-bound-domain-20261126-ghost-verilator.json`: `private build 4437eecbf426` / `2026-11-26T13:24:03.425620+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
+- `managed-storage-20261126-verilator5054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T13:03:49.698771+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T02:39:43.830642+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:45.516267+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:47.250370+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1533,14 +1537,14 @@ The number of items is the investigation status of the article by heading. This 
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 155.
 - 6 Data types: No interpretation reservation 92/92, registration 720, test support 720.
 - 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 345.
-- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 245.
+- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 249.
 - 9 Processes: No interpretation reservation 34/34, registration 192, test support 191.
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 156.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 459.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 115.
 - 13 Tasks and functions (subroutines): no interpretation reservation 20/20, registration 124, test support 124.
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 87.
-- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 87.
+- 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 88.
 - 16 Assertions: No interpretation reservation 82/82, registration 557, test support 557.
 - 17 Checkers: No interpretation reservations 13/13, registration 81, test support 77.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 323 mapped to tests.
@@ -1567,7 +1571,7 @@ The number of items is the investigation status of the article by heading. This 
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
 - 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 127.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
-- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 810.
+- A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 811.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
 - C Deprecation: No interpretation reserve 16/16, registration 20, test support 19.
 - D Optional system tasks and system functions: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
@@ -20195,7 +20199,7 @@ Normative role: `definition`。
 
 ### SV2023-8.4-EXTRACT-OBJECT-GARBAGE-COLLECTION
 
-`8.4` / `normal` / No mapped test
+`8.4` / `normal` / Execution confirmed
 
 Unreferenced class objects are garbage collected; chandle-held foreign pointers do not acquire class-object garbage collection semantics.
 
@@ -20203,6 +20207,7 @@ Acceptance criterion: Unreferenced class objects are garbage collected; chandle-
 
 Normative role: `mandatory`。
 
+- [test_class_collection_leaves_foreign_allocation.sv](../tests/ch8/test_class_collection_leaves_foreign_allocation.sv): Check that the native class destructor runs after the last class handle is cleared and that the C allocation remains readable afterward.
 
 ### SV2023-8.4-EXTRACT-OBJECT-HANDLE-ALLOCATION
 
@@ -22744,7 +22749,7 @@ Normative role: `definition`。
 
 ### SV2023-8.29-EXTRACT-AUTOMATIC-DYNAMIC-MEMORY
 
-`8.29` / `normal` / No mapped test
+`8.29` / `normal` / Execution confirmed
 
 The runtime manages storage for objects, strings and dynamic/associative arrays automatically and reclaims objects no longer used; no particular reclamation instant is guaranteed.
 
@@ -22752,10 +22757,11 @@ Acceptance criterion: The runtime manages storage for objects, strings and dynam
 
 Normative role: `mandatory`。
 
+- [test_class_managed_storage_lifetime.sv](../tests/ch8/test_class_managed_storage_lifetime.sv): Observe the heap growth from a class object, dynamic array, associative array and string, then measure reclamation after clearing the last handle against a retained control with the same values.
 
 ### SV2023-8.29-EXTRACT-GARBAGE-LIFECYCLE
 
-`8.29` / `normal` / No mapped test
+`8.29` / `normal` / Execution confirmed
 
 Garbage collection transitions an object from strong reachability toward unreachability, possibly through weak reachability; storage becomes eligible for reclamation when unreachable.
 
@@ -22763,6 +22769,7 @@ Acceptance criterion: Garbage collection transitions an object from strong reach
 
 Normative role: `definition`。
 
+- [test_class_collection_leaves_foreign_allocation.sv](../tests/ch8/test_class_collection_leaves_foreign_allocation.sv): Check that one alias keeps the object accessible after another alias is cleared and that the native destructor runs after the last alias is cleared.
 
 ### SV2023-8.29-EXTRACT-STRONGLY-REACHABLE
 
@@ -22778,7 +22785,7 @@ Normative role: `definition`。
 
 ### SV2023-8.29-EXTRACT-UNREACHABLE
 
-`8.29` / `normal` / No mapped test
+`8.29` / `normal` / Execution confirmed
 
 An object reachable by neither strong nor weak references is unreachable.
 
@@ -22786,6 +22793,7 @@ Acceptance criterion: An object reachable by neither strong nor weak references 
 
 Normative role: `definition`。
 
+- [test_class_collection_leaves_foreign_allocation.sv](../tests/ch8/test_class_collection_leaves_foreign_allocation.sv): Use an object with no weak references, verify that both class handles become null, and observe the destructor for the unreachable object.
 
 ### SV2023-8.29-EXTRACT-WEAK-RECLAMATION-REFERENCE
 
@@ -37827,7 +37835,7 @@ Normative role: `definition`。
 
 ### SV2023-15.4.1-EXTRACT-NEGATIVE-BOUND-ILLEGAL
 
-`15.4.1` / `error` / No mapped test
+`15.4.1` / `error` / Execution confirmed
 
 A negative mailbox bound is illegal with potentially indeterminate behavior; a warning is optional, so tests cannot require one defined negative-capacity queue.
 
@@ -37835,6 +37843,7 @@ Acceptance criterion: A negative mailbox bound is illegal with potentially indet
 
 Normative role: `mandatory`。
 
+- [test_mailbox_bound_domain_observation.sv](../tests/ch15/test_mailbox_bound_domain_observation.sv): Check the queue controls at positive and zero bounds, confirm entry into construction with a negative bound, and record diagnostics and the observed nonblocking operation.
 
 ### SV2023-15.4.1-EXTRACT-NEW-HANDLE-BOUND
 
@@ -120499,7 +120508,7 @@ Normative role: `definition`。
 
 ### SV2023-A.1.5-EXTRACT-CONFIG-EXPANSION-GRAMMAR
 
-`A.1.5` / `normal` / No mapped test
+`A.1.5` / `normal` / Execution confirmed
 
 Cell selectors permit library qualification; liblists may be empty; use permits cell binding, one or more named parameter assignments, or both, and optional config suffix. This formal grammar contains no hash-parenthesized assignment-list alternative.
 
@@ -120507,6 +120516,7 @@ Acceptance criterion: Cell selectors permit library qualification; liblists may 
 
 Normative role: `definition`。
 
+- [test_config_expansion_forms.sv](../tests/ch33/test_config_expansion_forms.sv): Check the binding results for library-qualified cell selection, an empty library list and named parameters, then use an independent parser to accept suffix variants and reject hash variants.
 
 ### SV2023-A.1.5-EXTRACT-CONFIG-SOURCE-GRAMMAR
 

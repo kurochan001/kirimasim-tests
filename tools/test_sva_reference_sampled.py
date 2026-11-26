@@ -145,7 +145,7 @@ class M4IntegrationTests(unittest.TestCase):
             return original_read(path, *args, **kwargs)
         with mock.patch.object(m4, "generate", generate), mock.patch.object(Path, "read_text", read):
             result = m4.run()
-        self.assertEqual(result["counts"], {"deferred": 58, "match": 8})
+        self.assertEqual(result["counts"], {"deferred": 59, "match": 8})
 
     def test_emit_only_never_opens_expected_and_writes_evidence(self):
         from sva_reference import m4
@@ -156,7 +156,7 @@ class M4IntegrationTests(unittest.TestCase):
             return original(path, *args, **kwargs)
         with tempfile.TemporaryDirectory() as directory, mock.patch.object(Path,"read_text",read):
             result = m4.run(emit_only=True, output_dir=directory)
-            self.assertEqual(result["counts"], {"deferred": 58, "generated": 8})
+            self.assertEqual(result["counts"], {"deferred": 59, "generated": 8})
             self.assertEqual(len(list(Path(directory).glob("*.actual"))), 8)
             self.assertEqual(len(list(Path(directory).glob("*.events.json"))), 8)
 

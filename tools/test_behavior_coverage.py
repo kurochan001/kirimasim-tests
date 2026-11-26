@@ -20,6 +20,7 @@ import run_ghost_evcd
 import run_ghost_library_cells
 import run_icarus_control
 import run_language_diagnostics
+import run_mailbox_bound_domain
 import run_protect_encryption
 import run_protect_pragma_syntax
 import run_slang_source_checks
@@ -262,6 +263,29 @@ class BehaviorCoverageTests(unittest.TestCase):
                             else anchor["contains"].startswith(":expected_stderr_regex:"))
                 ]
                 self.assert_invalid("mapping must identify the checked output/diagnostic")
+
+    def test_undefined_input_observation_requires_its_own_profile_and_entry_anchor(self):
+        checker = run_mailbox_bound_domain
+        rid, = checker.UNDEFINED_INPUT_REQUIREMENTS
+        row = copy.deepcopy(next(r for r in self.registry["requirements"] if r["id"] == rid))
+        self.reg["requirements"] = [row]
+        _, rows = self.validated()
+        check = row["checks"][0]
+
+        result = self.result(simulator="ghost")
+        result["version"] = "private build 123456789abc"
+        execution, ignored = self.execute(result, rows)
+        self.assertEqual((execution["executed"], ignored), ([], []))
+        result["configuration"] = {"evidence_profile": checker.PROFILE,
+                                   "checker_sha256": checker.checker_digest()}
+        execution, ignored = self.execute(result, rows)
+        self.assertEqual((execution["executed"], ignored), ([rid], []))
+
+        profile = check.pop("evidence_profile")
+        self.assert_invalid("negative/positive case mismatch")
+        check["evidence_profile"] = profile
+        check["evidence"] = [a for a in check["evidence"] if checker.UNDEFINED_INPUT_ANCHOR not in a["contains"]]
+        self.assert_invalid("mapping must identify the checked output/diagnostic")
 
     def test_runtime_error_simulation_pass_counts_with_fresh_provenance(self):
         row = next(r for r in self.registry["requirements"]

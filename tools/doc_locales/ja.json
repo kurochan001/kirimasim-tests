@@ -3,6 +3,10 @@
   "draft_model": "google/madlad400-3b-mt",
   "draft_model_revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094",
   "translations": {
+    "Legal mailbox bounds and nonblocking observations after a negative bound": "メールボックスの合法な境界値と、負の境界値での非ブロッキング操作を観測する",
+    "Configuration cell binding, an empty liblist, and named overrides with use": "構成のセル束縛、空のライブラリリスト、useによる名前付きパラメータ指定を確認する",
+    "Observe storage for a class object, dynamic array, associative array and string": "クラスオブジェクト、動的配列、連想配列、文字列の確保領域を観測する",
+    "Drop both class handles and leave the foreign allocation under C ownership": "両方のクラスハンドルを外した後もC側が確保領域を管理することを確認する",
     "Use a legacy ZXQPH0QXZ application on a memory in a ZXQPH1QXZ design partition": "ZXQPH1QXZの設計区画にあるメモリを旧互換ZXQPH0QXZアプリケーションで読み取る",
     "Compare a timed race and its ZXQPH0QXZ wakeup with the traces permitted by the event scheduler": "時刻を指定した競合とZXQPH0QXZによる処理の再開を、イベントスケジューラが許容するトレースと照合する",
     "Stream a class with a null link and observe the same expression after making the link cyclic": "ヌルのリンクを持つクラスをストリーミングし、リンクを循環させて同じ式を評価した結果を観測する",

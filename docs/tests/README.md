@@ -17,14 +17,14 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 5 | [Lexical conventions](ch5.md) | 533 | 415 |
 | 6 | [Data types](ch6.md) | 924 | 265 |
 | 7 | [Aggregate data types](ch7.md) | 1139 | 604 |
-| 8 | [Classes](ch8.md) | 514 | 138 |
+| 8 | [Classes](ch8.md) | 516 | 138 |
 | 9 | [Processes](ch9.md) | 493 | 233 |
 | 10 | [Assignment statements](ch10.md) | 770 | 521 |
 | 11 | [Operators and expressions](ch11.md) | 2638 | 2054 |
 | 12 | [Procedural programming statements](ch12.md) | 328 | 125 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 764 | 504 |
 | 14 | [Clocking blocks](ch14.md) | 174 | 72 |
-| 15 | [Interprocess synchronization and communication](ch15.md) | 217 | 133 |
+| 15 | [Interprocess synchronization and communication](ch15.md) | 218 | 133 |
 | 16 | [Assertions](ch16.md) | 819 | 133 |
 | 17 | [Checkers](ch17.md) | 141 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 302 | 57 |
@@ -42,7 +42,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 30 | [Specify blocks](ch30.md) | 73 ||
 | 31 | [Timing checks](ch31.md) | 89 ||
 | 32 | [Backannotation using the standard delay format](ch32.md) | 80 | 18 |
-| 33 | [Configuring the contents of a design](ch33.md) | 109 | 41 |
+| 33 | [Configuring the contents of a design](ch33.md) | 110 | 41 |
 | 34 | [Protected envelopes](ch34.md) | 52 ||
 | 35 | [Direct programming interface](ch35.md) | 247 | 48 |
 | 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 101 ||

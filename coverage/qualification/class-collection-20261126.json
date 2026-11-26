@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-8.4-EXTRACT-OBJECT-GARBAGE-COLLECTION",
+    "SV2023-8.29-EXTRACT-GARBAGE-LIFECYCLE",
+    "SV2023-8.29-EXTRACT-UNREACHABLE"
+  ],
+  "qualified": {
+    "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "configuration": {
+      "evidence_profile": "verilator-class-collection",
+      "checker_sha256": "e2a5866f78079f01df9adceaef1cc6e5829841b7d75bd456c9a82c0448a2db77",
+      "artifact_sha256": {
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9"
+      },
+      "sanitizer": "address",
+      "leak_detection": false
+    },
+    "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+    "tests": {
+      "ch8/test_class_collection_leaves_foreign_allocation": {
+        "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0",
+        "generated_header": "Vcollection___024unit__03a__03acollection_sample__Vclpkg.h",
+        "destructor": "~Vcollection___024unit__03a__03acollection_sample() {}",
+        "trials": {
+          "plain": {
+            "build_exit": 0,
+            "exit": 0,
+            "asan_report": false,
+            "stdout": [
+              "alias live t=2 value=17 foreign=23",
+              "dropping last handle t=3",
+              "native storage t=4 handles cleared=1 value=23"
+            ]
+          },
+          "traced": {
+            "build_exit": 0,
+            "exit": 0,
+            "asan_report": false,
+            "stdout": [
+              "alias live t=2 value=17 foreign=23",
+              "dropping last handle t=3",
+              "collection_sample native destructor",
+              "native storage t=4 handles cleared=1 value=23"
+            ]
+          }
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch8/test_class_collection_leaves_foreign_allocation": {
+          "status": "pass",
+          "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0"
+        }
+      },
+      "generated_at": "2026-11-26T12:54:09.370749+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 6fa9a05abb0c",
+      "tests": {
+        "ch8/test_class_collection_leaves_foreign_allocation": {
+          "status": "pass",
+          "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0"
+        }
+      },
+      "generated_at": "2026-11-26T12:53:56.587055+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "6fa9a05abb0c2bb99bcb32d01a91bdea937dfc8954302cbbfb2de97e761792f4",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch8/test_class_collection_leaves_foreign_allocation": {
+          "status": "known",
+          "reason": "compile failed: tests/ch8/test_class_collection_leaves_foreign_allocation.sv:16: syntax error",
+          "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0"
+        }
+      },
+      "generated_at": "2026-11-26T12:53:56.281310+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 2d81f8c39802), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch8/test_class_collection_leaves_foreign_allocation": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0"
+        }
+      },
+      "generated_at": "2026-11-26T12:53:56.188733+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "slang": {
+    "version": "slang version 12.0.0+0",
+    "arguments": [
+      "--std=1800-2023"
+    ],
+    "fixture_sha256": "2c1a9952e52b5cb905e5b8632f3030df3fdc7f1f79c8a96bfcae130d57e89a56",
+    "exit": 0,
+    "stdout": [
+      "Top level design units:",
+      "    test_class_collection_leaves_foreign_allocation",
+      "",
+      "",
+      "Build succeeded: 0 errors, 0 warnings"
+    ],
+    "stderr": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch8/test_class_collection_leaves_foreign_allocation": {
+   "status": "pass",
+   "inputs_sha256": "f9155e9d14f012144a4f6a32eeac558ef068f9b7ac4b66a8b89c7394023140d0"
+  }
+ },
+ "generated_at": "2026-11-26T12:55:06.507526+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-class-collection",
+  "checker_sha256": "e2a5866f78079f01df9adceaef1cc6e5829841b7d75bd456c9a82c0448a2db77",
+  "artifact_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9"
+  },
+  "sanitizer": "address",
+  "leak_detection": false
+ }
+}

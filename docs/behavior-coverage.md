@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 98.98%、Ghostを除く実行 52.34%、Ghostとkirimasimを含む実行 90.76%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 99.03%、Ghostを除く実行 52.38%、Ghostとkirimasimを含む実行 90.80%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 98.98%。** 規格要求の実行確認率: Ghostを除いて 52.34%、Ghostとkirimasimを含めて 90.76%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 99.03%。** 規格要求の実行確認率: Ghostを除いて 52.38%、Ghostとkirimasimを含めて 90.80%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 12206/12332 (98.98%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11192/12332 (90.76%)。
-- 登録済みだがテスト未対応: 126 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 12212/12332 (99.03%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11198/12332 (90.80%)。
+- 登録済みだがテスト未対応: 120 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -113,7 +113,9 @@
 - `checkpoint-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:42:38.634835+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `checkpoint-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.598706+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `checkpoint-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:42:38.635198+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
+- `class-collection-20261126-verilator5054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T12:55:06.507526+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `class-stream-cycle-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T11:35:19.289928+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `config-expansion-20261126-ghost.json`: `private build 4437eecbf426` / `2026-11-26T13:14:43.443698+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `constant-function-ports-20261123-ghost-strict.json`: `private build 698058bc29ba` / `2026-11-23T12:19:55.008109+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `constant-function-ports-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T12:19:54.956799+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `constant-function-ports-20261123-kirimasim.json`: `kirimasim 0.2.0 (commit 3fcc3ee078b3), built with AppleClang 21.0.0.21000334` / `2026-11-23T12:19:54.924264+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -853,6 +855,8 @@
 - `library-map-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T20:48:24.673480+00:00` / 7/12332 動作確認、古い入力との対応 0 件。
 - `library-map-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T20:50:45.119056+00:00` / 7/12332 動作確認、古い入力との対応 0 件。
 - `library-map-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T20:50:45.535338+00:00` / 7/12332 動作確認、古い入力との対応 0 件。
+- `mailbox-bound-domain-20261126-ghost-verilator.json`: `private build 4437eecbf426` / `2026-11-26T13:24:03.425620+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
+- `managed-storage-20261126-verilator5054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T13:03:49.698771+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `memory-file-boundaries-20261119k-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-19T02:39:43.830642+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run1.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:45.516267+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `memory-file-boundaries-20261119k-kirimasim-a6222f0656d4-run2.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T02:39:47.250370+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -1533,14 +1537,14 @@
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 155、テスト対応 155。
 - 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 720。
 - 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 345。
-- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 245。
+- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 249。
 - 9 Processes: 解釈保留なし 34/34、登録 192、テスト対応 191。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 156。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 459。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 115。
 - 13 Tasks and functions (subroutines): 解釈保留なし 20/20、登録 124、テスト対応 124。
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 87。
-- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 87。
+- 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 88。
 - 16 Assertions: 解釈保留なし 82/82、登録 557、テスト対応 557。
 - 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 77。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 323。
@@ -1567,7 +1571,7 @@
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 95。
 - 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 127。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
-- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 810。
+- A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 811。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
 - C Deprecation: 解釈保留なし 16/16、登録 20、テスト対応 19。
 - D Optional system tasks and system functions: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
@@ -20195,7 +20199,7 @@ SV クラスのインスタンスはチャンドルではなくオブジェク�
 
 ### SV2023-8.4-EXTRACT-OBJECT-GARBAGE-COLLECTION
 
-`8.4` / `normal` / テスト未対応
+`8.4` / `normal` / 実行確認あり
 
 参照されないクラスオブジェクトはガベージコレクションされる。チャンドル持ち外国ポインタはクラスオブジェクトガベージコレクション意味論を獲得しない。
 
@@ -20203,6 +20207,7 @@ SV クラスのインスタンスはチャンドルではなくオブジェク�
 
 規定の性質: `mandatory`。
 
+- [test_class_collection_leaves_foreign_allocation.sv](../tests/ch8/test_class_collection_leaves_foreign_allocation.sv): 最後のクラスハンドルを外した後のデストラクタ実行と、その後にCで確保した領域の値を読み取れることを照合する。
 
 ### SV2023-8.4-EXTRACT-OBJECT-HANDLE-ALLOCATION
 
@@ -22744,7 +22749,7 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 ### SV2023-8.29-EXTRACT-AUTOMATIC-DYNAMIC-MEMORY
 
-`8.29` / `normal` / テスト未対応
+`8.29` / `normal` / 実行確認あり
 
 ランタイムはオブジェクト，文字列，動的／連想配列のストレージを自動的に管理し，もはや使用されないオブジェクトを回収する。特定の回収瞬間は保証されません
 
@@ -22752,10 +22757,11 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 規定の性質: `mandatory`。
 
+- [test_class_managed_storage_lifetime.sv](../tests/ch8/test_class_managed_storage_lifetime.sv): クラスと動的配列、連想配列、文字列の確保量の増加を順に観測し、同じ値が得られる保持対照と比較して最後のハンドルを外した場合の回収量を確認する。
 
 ### SV2023-8.29-EXTRACT-GARBAGE-LIFECYCLE
 
-`8.29` / `normal` / テスト未対応
+`8.29` / `normal` / 実行確認あり
 
 ガベージコレクションは，強い到達性から弱い到達性を経て，物体を不到達性へと移行させる。貯蔵庫は 到達不能になると 回収可能になる
 
@@ -22763,6 +22769,7 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 規定の性質: `definition`。
 
+- [test_class_collection_leaves_foreign_allocation.sv](../tests/ch8/test_class_collection_leaves_foreign_allocation.sv): 一方のクラスハンドルを外しても別名参照から値を読み取れ、最後のハンドルを外した後にデストラクタが実行されることを照合する。
 
 ### SV2023-8.29-EXTRACT-STRONGLY-REACHABLE
 
@@ -22778,7 +22785,7 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 ### SV2023-8.29-EXTRACT-UNREACHABLE
 
-`8.29` / `normal` / テスト未対応
+`8.29` / `normal` / 実行確認あり
 
 強い参照も弱い参照もないオブジェクトは，到達不能である。
 
@@ -22786,6 +22793,7 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 規定の性質: `definition`。
 
+- [test_class_collection_leaves_foreign_allocation.sv](../tests/ch8/test_class_collection_leaves_foreign_allocation.sv): 弱参照のない例で両方のクラスハンドルがnullになったことを照合し、到達不能になったオブジェクトのデストラクタを観測する。
 
 ### SV2023-8.29-EXTRACT-WEAK-RECLAMATION-REFERENCE
 
@@ -37827,7 +37835,7 @@ Semaphore try_getは鍵を待たない。
 
 ### SV2023-15.4.1-EXTRACT-NEGATIVE-BOUND-ILLEGAL
 
-`15.4.1` / `error` / テスト未対応
+`15.4.1` / `error` / 実行確認あり
 
 負のメールボックス結合は不正であり，不確定な挙動をもつ可能性がある。警告はオプションで テストは 定義された負の容量のキューを必要としない
 
@@ -37835,6 +37843,7 @@ Semaphore try_getは鍵を待たない。
 
 規定の性質: `mandatory`。
 
+- [test_mailbox_bound_domain_observation.sv](../tests/ch15/test_mailbox_bound_domain_observation.sv): 正の境界と境界値ゼロでキューの対照を照合し、負の境界ではコンストラクタ直前への到達を確認して診断と非ブロッキング操作の実測を記録する。
 
 ### SV2023-15.4.1-EXTRACT-NEW-HANDLE-BOUND
 
@@ -120499,7 +120508,7 @@ $warning の厳密性命令は，省略された括弧または引数リスト�
 
 ### SV2023-A.1.5-EXTRACT-CONFIG-EXPANSION-GRAMMAR
 
-`A.1.5` / `normal` / テスト未対応
+`A.1.5` / `normal` / 実行確認あり
 
 細胞選択器はライブラリの定性を可能にする。liblists は空であるかもしれません使用するには、セルバインド、1つ以上の名前付けパラメータ代入、または両方を許可し、オプションの config 接尾辞を使用します。この形式文法はハッシュ括弧付き代入リストの代替を含まない。
 
@@ -120507,6 +120516,7 @@ $warning の厳密性命令は，省略された括弧または引数リスト�
 
 規定の性質: `definition`。
 
+- [test_config_expansion_forms.sv](../tests/ch33/test_config_expansion_forms.sv): ライブラリで修飾したセル選択、空のライブラリリストと名前付きパラメータ束縛の出力を照合し、サフィックス付き構文の受理とハッシュ付き変形の拒否を独立パーサーで確認する。
 
 ### SV2023-A.1.5-EXTRACT-CONFIG-SOURCE-GRAMMAR
 
