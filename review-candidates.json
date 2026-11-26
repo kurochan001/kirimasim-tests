@@ -1,29 +1,29 @@
 {
  "inputs": {
   "icarus": {
-   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1291-g3f05f92b)",
-   "time": "2026-11-25T05:36:07Z",
-   "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97"
+   "version": "Icarus Verilog version 14.0 (devel) (s20260301-1293-g24acba16)",
+   "time": "2026-11-26T06:35:01Z",
+   "suite_commit": "3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-394-g342ca8e0",
-   "time": "2026-11-25T05:36:07Z",
-   "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97"
+   "version": "Verilator 5.055 devel rev v5.054-404-gf01db861",
+   "time": "2026-11-26T06:35:01Z",
+   "suite_commit": "3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc"
   },
   "kirimasim": {
-   "version": "kirimasim 0.2.2 (commit a50ec73c37d8), built with GNU 13.3.0",
-   "time": "2026-11-25T05:36:07Z",
-   "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97"
+   "version": "kirimasim 0.2.2 (commit 8a20a6d9337c), built with GNU 13.3.0",
+   "time": "2026-11-26T06:35:01Z",
+   "suite_commit": "3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc"
   },
   "lyra": {
-   "version": "Lyra (commit b1666593b9f4)",
-   "time": "2026-11-25T05:36:07Z",
-   "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97"
+   "version": "Lyra (commit d55cec646337)",
+   "time": "2026-11-26T06:35:01Z",
+   "suite_commit": "3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc"
   },
   "ghost": {
-   "version": "private build a4db8bcf783c",
-   "time": "2026-11-25T05:36:07Z",
-   "suite_commit": "f029182b31bfe8fded04eeb649f19517d988ca97"
+   "version": "private build ca9735e98154",
+   "time": "2026-11-26T06:35:01Z",
+   "suite_commit": "3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc"
   }
  },
  "candidates": {
@@ -36,12 +36,29 @@
    "ch20/test_finish_diagnostic_two_reports_time_location_memory_and_cpu",
    "ch20/test_illegal_isunbounded_constant_expression_not_parameter_name",
    "ch20/test_sampled_value_functions_accept_empty_trailing_clock_arguments",
+   "ch20/test_stop_suspends_each_call_and_resumes_same_tick",
    "ch21/test_scan_reports_destination_for_suppressed_conversion",
    "ch21/test_vcd_dumpvars_selects_single_bit_with_nonzero_vector_indices",
+   "ch22/test_angle_include_search_uses_only_standard_files",
+   "ch22/test_selected_default_keyword_set_controls_bit",
    "ch23/test_uwire_nonmerge_warns_when_port_width_conversion_is_required",
    "ch28/test_aliased_user_nettype_switch_connects_original_and_renamed_nets",
    "ch28/test_illegal_interconnect_scalar_connects_to_primitive_array",
    "ch28/test_interconnect_vector_and_ordinary_scalar_connect_to_primitive_array",
+   "ch3/test_library_contains_all_seven_cell_categories",
+   "ch33/test_illegal_library_map_contains_a_module_declaration",
+   "ch33/test_illegal_library_map_same_priority_file_match",
+   "ch33/test_library_map_dot_and_parent_are_relative_to_the_map",
+   "ch33/test_library_map_grammar_binds_config_and_local_include_lists",
+   "ch33/test_library_map_hierarchical_wildcard_matches_zero_and_nested_directories",
+   "ch33/test_library_map_include_preserves_its_own_relative_paths",
+   "ch33/test_library_map_question_matches_exactly_one_character",
+   "ch33/test_library_map_relative_directory_path_aliases",
+   "ch33/test_library_map_reversed_order_changes_selected_cell",
+   "ch33/test_library_map_star_stays_within_a_path_component",
+   "ch33/test_library_maps_prefer_explicit_then_wildcard_then_directory",
+   "ch33/test_library_search_option_overrides_map_default_order",
+   "ch33/test_nested_library_map_includes_restore_the_containing_directory",
    "ch6/test_uwire_padded_port_connection_warns",
    "ch9/test_intraassignment_repeat_counts_two_edges_at_one_time"
   ],
@@ -63,10 +80,13 @@
    "ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace",
    "ch17/test_checker_port_property_actual_attributes_and_omissions",
    "ch18/test_constraint_function_priority_does_not_prune_high_randc_cycle",
+   "ch18/test_constraint_function_priority_partition",
    "ch19/test_coverpoint_distinguishes_literal_unknowns_from_evaluated_unknowns",
    "ch19/test_default_sequence_catches_first_unmatched_transition",
    "ch20/test_elaboration_messages_identify_selected_scope_without_user_formatting",
    "ch20/test_global_clock_sampled_functions_evaluate_computed_operands",
+   "ch20/test_stacktrace_resumed_task_context",
+   "ch20/test_stacktrace_task_and_function_results",
    "ch23/test_interconnect_single_port_retains_all_local_wired_drivers",
    "ch23/test_resolved_user_nettype_counts_local_drivers_across_port_merges",
    "ch25/test_illegal_ref_modport_signal_used_as_timing_check_terminal",
@@ -75,14 +95,18 @@
    "ch31/test_inconsistent_negative_limits_clear_numerically_smallest_limit",
    "ch31/test_inconsistent_negative_timing_recalculates_after_each_relaxation",
    "ch31/test_negative_setup_shift_clamps_adjusted_hold_and_warns",
+   "ch31/test_negative_setuphold_explicit_and_implicit_latches",
    "ch31/test_negative_setuphold_has_exclusive_window_endpoints",
    "ch31/test_negative_setuphold_notifier_tracks_repeated_delayed_edges",
+   "ch31/test_negative_timing_adjusts_all_check_categories",
    "ch31/test_negative_timing_condition_compares_undelayed_input_at_delayed_edge",
+   "ch31/test_negative_timing_copies_align_setup_and_hold",
    "ch31/test_negative_timing_notifiers_follow_delayed_violating_edges",
    "ch31/test_recrem_negative_limits_apply_timestamp_and_timecheck_conditions",
    "ch31/test_setuphold_and_recrem_shift_the_same_violation_window",
    "ch31/test_setuphold_negative_limits_event_roles_and_conditions",
    "ch31/test_setuphold_uses_explicit_delayed_reference_for_both_checks",
+   "ch31/test_skew_checks_use_undelayed_timing_inputs",
    "ch31/test_specify_output_waits_for_longer_negative_timing_delay",
    "ch31/test_timing_condition_can_use_explicit_delayed_reference_value",
    "ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports",
@@ -98,6 +122,7 @@
    "ch32/test_sdf_task_arguments_override_configuration_scaling",
    "ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import",
    "ch35/test_dpi_disabled_import_task_cannot_call_another_export",
+   "ch35/test_dpi_import_function_rejects_omitted_acknowledgement",
    "ch35/test_dpi_import_task_rejects_disable_status_after_normal_return",
    "ch35/test_dpi_import_task_rejects_wrong_status_after_disable",
    "ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task",
@@ -107,21 +132,37 @@
    "ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary",
    "ch36/test_vpi_compatibility_mode_uses_null_handle_for_bound_mode",
    "ch37/test_vpi_aggregate_nets_do_not_have_whole_values",
+   "ch37/test_vpi_callback_relationship_arrows",
    "ch37/test_vpi_class_definition_and_specialization_value_access_differ",
+   "ch37/test_vpi_class_specializations_are_scopes_with_definition_relations",
    "ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage",
    "ch37/test_vpi_delayed_write_refuses_automatic_variable",
+   "ch37/test_vpi_direct_modport_expression",
    "ch37/test_vpi_dpi_language_and_linkage_name_for_imports_and_exports",
+   "ch37/test_vpi_get_value_classifies_assignment_and_builtin_side_effects",
+   "ch37/test_vpi_inline_member_typespec_name",
+   "ch37/test_vpi_interconnect_delay_device_one_fanout_branch",
+   "ch37/test_vpi_interconnect_delay_device_single_load",
+   "ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner",
    "ch37/test_vpi_interface_formal_rejects_get_and_put_delays",
+   "ch37/test_vpi_interface_specify_paths_keep_interface_owner",
    "ch37/test_vpi_legacy_array_property_on_named_event_elements",
    "ch37/test_vpi_legacy_array_property_on_net_elements",
    "ch37/test_vpi_legacy_array_property_on_variable_elements",
+   "ch37/test_vpi_net_bit_loads_follow_plain_continuous_assignment",
+   "ch37/test_vpi_net_bit_loads_follow_reordered_continuous_assignment",
    "ch37/test_vpi_part_select_uses_distinct_bound_relations",
    "ch37/test_vpi_port_bit_excludes_name_and_port_index",
+   "ch37/test_vpi_program_array_interface_port_relation",
+   "ch37/test_vpi_program_scalar_interface_port_relation",
    "ch37/test_vpi_property_variables_expose_declarations_without_values",
    "ch37/test_vpi_put_rejects_hidden_side_effects_in_index_calls",
    "ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index",
+   "ch37/test_vpi_ref_port_simple_expression_use",
    "ch37/test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges",
+   "ch37/test_vpi_sdf_delay_device_and_terminal_type_names",
    "ch37/test_vpi_simulated_net_is_shared_across_interconnect_merges",
+   "ch37/test_vpi_size_query_preserves_side_effecting_string_call",
    "ch37/test_vpi_static_part_select_rejects_ambiguous_expression",
    "ch37/test_vpi_typespec_handles_allow_static_storage_only",
    "ch37/test_vpi_unpacked_aggregates_only_expose_member_values",
@@ -129,19 +170,27 @@
    "ch37/test_vpi_unpacked_union_rejects_whole_value_access",
    "ch37/test_vpi_value_change_callback_refuses_automatic_variable",
    "ch37/test_vpi_whole_value_is_unavailable_for_nonvalue_variable_kinds",
+   "ch38/test_vpi_action_error_callback_information",
    "ch38/test_vpi_bulk_array_checks_element_type_and_storage_lifetime",
    "ch38/test_vpi_bulk_net_deposit_clears_when_equal_resolution_driver_changes",
+   "ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback",
    "ch38/test_vpi_control_scope_change_reports_selected_instance",
    "ch38/test_vpi_direct_reset_brackets_time_zero_restoration",
    "ch38/test_vpi_end_of_frame_or_thread_object_reports_no_time",
+   "ch38/test_vpi_end_save_data_is_available_at_start_of_restart",
+   "ch38/test_vpi_feature_callbacks_bracket_state_restore",
    "ch38/test_vpi_flush_exposes_live_console_and_current_log_bytes",
    "ch38/test_vpi_force_and_release_concatenated_net_selections_and_variable",
    "ch38/test_vpi_force_release_rejects_variable_and_user_nettype_selections",
    "ch38/test_vpi_force_release_whole_resolved_user_nettype",
    "ch38/test_vpi_printf_reports_formatted_length_and_encoding_error",
+   "ch38/test_vpi_put_data_counts_at_end_of_save",
+   "ch38/test_vpi_put_data_counts_at_start_of_save",
    "ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances",
    "ch38/test_vpi_put_value_rejects_user_nettype_subelement",
    "ch38/test_vpi_refuses_force_release_disable_callbacks_on_variable_bits",
+   "ch38/test_vpi_removed_timer_callback_disappears_from_iteration",
+   "ch38/test_vpi_removed_value_callback_disappears_from_iteration",
    "ch38/test_vpi_reset_defers_until_return_and_restores_initial_state",
    "ch38/test_vpi_restart_clears_and_allows_reassociation_of_callsite_userdata",
    "ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change",
@@ -158,6 +207,8 @@
    "ch39/test_vpi_assertion_initialization_callback_guards_controls",
    "ch39/test_vpi_assertion_system_fail_action_controls_respect_scope",
    "ch39/test_vpi_assertion_system_notifications_follow_lifecycle",
+   "ch40/test_vpi_covered_count_assertion_successes",
+   "ch6/test_scalared_net_vpi_expansion",
    "ch9/test_await_resumes_after_normal_and_forced_exit_then_rejects_self",
    "ch9/test_process_await_rejects_current_process",
    "ch9/test_process_function_cannot_suspend_current_process"
@@ -168,14 +219,13 @@
    "ch26/test_package_wildcard_binding_across_functions",
    "ch26/test_wildcard_reference_in_generate_binds_name_in_enclosing_scope",
    "ch28/test_illegal_resistive_pass_switch_vector_terminals",
-   "ch30/test_specify_path_delay_preserves_large_integral_tick"
+   "ch30/test_specify_path_delay_preserves_large_integral_tick",
+   "ch5/test_tool_system_function_raw_simulation_time",
+   "ch6/test_vectored_bit_select_when_permitted",
+   "ch6/test_vectored_part_select_when_permitted"
   ]
  },
  "spec_only_clauses": [
-  {
-   "clause": "9.4.4",
-   "tests": 2
-  },
   {
    "clause": "12.4.2.2",
    "tests": 2
@@ -201,15 +251,15 @@
    "tests": 2
   },
   {
+   "clause": "17.9",
+   "tests": 2
+  },
+  {
    "clause": "19.6.1.1",
    "tests": 2
   },
   {
    "clause": "20.12",
-   "tests": 2
-  },
-  {
-   "clause": "21.7.3.6.1",
    "tests": 2
   },
   {
@@ -233,15 +283,7 @@
    "tests": 2
   },
   {
-   "clause": "31.9.3",
-   "tests": 2
-  },
-  {
    "clause": "32.2",
-   "tests": 2
-  },
-  {
-   "clause": "33.3.1.1",
    "tests": 2
   },
   {
@@ -249,7 +291,147 @@
    "tests": 2
   },
   {
-   "clause": "35.2.2.1",
+   "clause": "33.6.1",
+   "tests": 2
+  },
+  {
+   "clause": "33.8.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.1.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.2.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.2.2",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.5.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.6.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.7.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.7.2",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.8.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.9.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.10.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.11.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.12.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.13.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.14.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.15.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.16.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.17.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.18.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.19.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.20.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.21.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.22.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.23.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.24.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.25.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.26.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.27.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.28.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.29.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.30.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.30.2",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.31.1",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.31.2",
+   "tests": 2
+  },
+  {
+   "clause": "34.5.32.1",
    "tests": 2
   },
   {
@@ -261,10 +443,6 @@
    "tests": 2
   },
   {
-   "clause": "37.56",
-   "tests": 2
-  },
-  {
    "clause": "37.69",
    "tests": 2
   },
@@ -273,19 +451,11 @@
    "tests": 2
   },
   {
-   "clause": "38.9",
-   "tests": 2
-  },
-  {
    "clause": "39.4.2.1",
    "tests": 2
   },
   {
    "clause": "39.5.3",
-   "tests": 2
-  },
-  {
-   "clause": "40.2.1",
    "tests": 2
   },
   {
@@ -298,6 +468,10 @@
   },
   {
    "clause": "8.29",
+   "tests": 3
+  },
+  {
+   "clause": "9.4.4",
    "tests": 3
   },
   {
@@ -325,6 +499,10 @@
    "tests": 3
   },
   {
+   "clause": "22.11.1",
+   "tests": 3
+  },
+  {
    "clause": "23.3.3.7.2",
    "tests": 3
   },
@@ -345,15 +523,19 @@
    "tests": 3
   },
   {
-   "clause": "37.9",
-   "tests": 3
-  },
-  {
    "clause": "37.38",
    "tests": 3
   },
   {
+   "clause": "37.45",
+   "tests": 3
+  },
+  {
    "clause": "37.55",
+   "tests": 3
+  },
+  {
+   "clause": "37.56",
    "tests": 3
   },
   {
@@ -401,6 +583,10 @@
    "tests": 3
   },
   {
+   "clause": "40.2.1",
+   "tests": 3
+  },
+  {
    "clause": "40.5.3",
    "tests": 3
   },
@@ -445,6 +631,10 @@
    "tests": 4
   },
   {
+   "clause": "21.7.3.6.1",
+   "tests": 4
+  },
+  {
    "clause": "28.16.2.1",
    "tests": 4
   },
@@ -457,7 +647,11 @@
    "tests": 4
   },
   {
-   "clause": "37.3.5",
+   "clause": "33.3.1.1",
+   "tests": 4
+  },
+  {
+   "clause": "33.3.2",
    "tests": 4
   },
   {
@@ -493,10 +687,6 @@
    "tests": 4
   },
   {
-   "clause": "37.58",
-   "tests": 4
-  },
-  {
    "clause": "37.66",
    "tests": 4
   },
@@ -507,18 +697,6 @@
   {
    "clause": "37.74",
    "tests": 4
-  },
-  {
-   "clause": "37.80",
-   "tests": 4
-  },
-  {
-   "clause": "37.81",
-   "tests": 4
-  },
-  {
-   "clause": "6.7.3",
-   "tests": 5
   },
   {
    "clause": "6.22.6",
@@ -565,19 +743,19 @@
    "tests": 5
   },
   {
+   "clause": "31.9.3",
+   "tests": 5
+  },
+  {
    "clause": "33.4.2",
    "tests": 5
   },
   {
-   "clause": "37.3.2",
+   "clause": "37.9",
    "tests": 5
   },
   {
    "clause": "37.24",
-   "tests": 5
-  },
-  {
-   "clause": "37.46",
    "tests": 5
   },
   {
@@ -586,6 +764,10 @@
   },
   {
    "clause": "37.54",
+   "tests": 5
+  },
+  {
+   "clause": "37.58",
    "tests": 5
   },
   {
@@ -605,12 +787,24 @@
    "tests": 5
   },
   {
+   "clause": "37.80",
+   "tests": 5
+  },
+  {
+   "clause": "37.81",
+   "tests": 5
+  },
+  {
    "clause": "40.3.2.4",
    "tests": 5
   },
   {
    "clause": "40.3.2.5",
    "tests": 5
+  },
+  {
+   "clause": "6.7.3",
+   "tests": 6
   },
   {
    "clause": "7.9.8",
@@ -653,19 +847,11 @@
    "tests": 6
   },
   {
-   "clause": "31.4.1",
-   "tests": 6
-  },
-  {
    "clause": "31.4.5",
    "tests": 6
   },
   {
    "clause": "36.8.1",
-   "tests": 6
-  },
-  {
-   "clause": "37.6",
    "tests": 6
   },
   {
@@ -690,6 +876,10 @@
   },
   {
    "clause": "37.83",
+   "tests": 6
+  },
+  {
+   "clause": "38.9",
    "tests": 6
   },
   {
@@ -733,19 +923,15 @@
    "tests": 7
   },
   {
-   "clause": "31.4.2",
+   "clause": "31.4.1",
+   "tests": 7
+  },
+  {
+   "clause": "37.3.2",
    "tests": 7
   },
   {
    "clause": "37.3.4",
-   "tests": 7
-  },
-  {
-   "clause": "37.15",
-   "tests": 7
-  },
-  {
-   "clause": "37.29",
    "tests": 7
   },
   {
@@ -785,10 +971,6 @@
    "tests": 8
   },
   {
-   "clause": "19.5.1.1",
-   "tests": 8
-  },
-  {
    "clause": "19.5.5",
    "tests": 8
   },
@@ -797,11 +979,23 @@
    "tests": 8
   },
   {
+   "clause": "31.4.2",
+   "tests": 8
+  },
+  {
    "clause": "32.4.2",
    "tests": 8
   },
   {
-   "clause": "37.22",
+   "clause": "37.6",
+   "tests": 8
+  },
+  {
+   "clause": "37.15",
+   "tests": 8
+  },
+  {
+   "clause": "37.29",
    "tests": 8
   },
   {
@@ -817,7 +1011,7 @@
    "tests": 9
   },
   {
-   "clause": "21.7.4.1",
+   "clause": "19.5.1.1",
    "tests": 9
   },
   {
@@ -829,11 +1023,11 @@
    "tests": 9
   },
   {
-   "clause": "37.40",
+   "clause": "37.22",
    "tests": 9
   },
   {
-   "clause": "37.44",
+   "clause": "37.46",
    "tests": 9
   },
   {
@@ -845,15 +1039,7 @@
    "tests": 9
   },
   {
-   "clause": "40.5.2",
-   "tests": 9
-  },
-  {
    "clause": "16.12.13",
-   "tests": 10
-  },
-  {
-   "clause": "16.13.1",
    "tests": 10
   },
   {
@@ -869,11 +1055,15 @@
    "tests": 10
   },
   {
+   "clause": "37.40",
+   "tests": 10
+  },
+  {
    "clause": "37.41",
    "tests": 10
   },
   {
-   "clause": "17.7.2",
+   "clause": "16.13.1",
    "tests": 11
   },
   {
@@ -909,7 +1099,15 @@
    "tests": 12
   },
   {
+   "clause": "21.7.4.1",
+   "tests": 12
+  },
+  {
    "clause": "23.3.3.7.1",
+   "tests": 12
+  },
+  {
+   "clause": "37.44",
    "tests": 12
   },
   {
@@ -925,15 +1123,15 @@
    "tests": 13
   },
   {
-   "clause": "37.25",
+   "clause": "40.5.2",
    "tests": 13
+  },
+  {
+   "clause": "37.25",
+   "tests": 14
   },
   {
    "clause": "37.59",
-   "tests": 13
-  },
-  {
-   "clause": "36.12.1",
    "tests": 14
   },
   {
@@ -941,35 +1139,35 @@
    "tests": 14
   },
   {
-   "clause": "40.2.2",
-   "tests": 14
-  },
-  {
    "clause": "16.12.17",
    "tests": 15
   },
   {
-   "clause": "21.7.3.1",
-   "tests": 15
+   "clause": "17.7.2",
+   "tests": 16
   },
   {
-   "clause": "37.47",
-   "tests": 15
+   "clause": "21.7.3.1",
+   "tests": 16
+  },
+  {
+   "clause": "36.12.1",
+   "tests": 16
+  },
+  {
+   "clause": "40.2.2",
+   "tests": 16
   },
   {
    "clause": "40.3.2.2",
    "tests": 16
   },
   {
-   "clause": "11.9",
-   "tests": 17
-  },
-  {
-   "clause": "37.32",
-   "tests": 17
-  },
-  {
    "clause": "37.33",
+   "tests": 17
+  },
+  {
+   "clause": "37.47",
    "tests": 17
   },
   {
@@ -977,24 +1175,32 @@
    "tests": 17
   },
   {
-   "clause": "7.3.2",
+   "clause": "11.9",
    "tests": 18
   },
   {
-   "clause": "37.31",
+   "clause": "37.32",
    "tests": 18
+  },
+  {
+   "clause": "7.3.2",
+   "tests": 19
   },
   {
    "clause": "31.3.2",
    "tests": 19
   },
   {
-   "clause": "36.12.2.1",
+   "clause": "37.31",
    "tests": 19
   },
   {
    "clause": "16.11",
    "tests": 20
+  },
+  {
+   "clause": "36.12.2.1",
+   "tests": 21
   },
   {
    "clause": "31.3.1",
@@ -1022,11 +1228,7 @@
   },
   {
    "clause": "40.3.2.1",
-   "tests": 32
-  },
-  {
-   "clause": "15.5.5.2",
-   "tests": 50
+   "tests": 33
   },
   {
    "clause": "15.5.5.3",
@@ -1479,6 +1681,30 @@
    }
   },
   {
+   "test": "ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "fail"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_interface_specify_paths_keep_interface_owner",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "fail"
+   }
+  },
+  {
    "test": "ch37/test_vpi_iterator_objects",
    "kind": "contested",
    "status": "unresolved",
@@ -1599,6 +1825,18 @@
    }
   },
   {
+   "test": "ch37/test_vpi_program_array_interface_port_relation",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "fail"
+   }
+  },
+  {
    "test": "ch37/test_vpi_program_interface_relations",
    "kind": "contested",
    "status": "resolved",
@@ -1608,6 +1846,18 @@
     "kirimasim": "unsupported",
     "lyra": "unsupported",
     "ghost": "pass"
+   }
+  },
+  {
+   "test": "ch37/test_vpi_program_scalar_interface_port_relation",
+   "kind": "contested",
+   "status": "unresolved",
+   "results": {
+    "icarus": "known",
+    "verilator": "known",
+    "kirimasim": "unsupported",
+    "lyra": "unsupported",
+    "ghost": "fail"
    }
   },
   {

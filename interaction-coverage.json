@@ -65211,8 +65211,8 @@
     {
       "source": "results/ghost.json",
       "simulator": "ghost",
-      "version": "private build a4db8bcf783c",
-      "generated_at": "2026-11-25T03:49:07.053617+00:00",
+      "version": "private build ca9735e98154",
+      "generated_at": "2026-11-26T03:17:24.249471+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -66947,8 +66947,8 @@
         },
         "array_reduction_constraint": {
           "case_statuses": {
-            "pass": 13,
-            "fail": 0,
+            "pass": 12,
+            "fail": 1,
             "known": 0,
             "unsupported": 0,
             "stale": 0,
@@ -66956,14 +66956,14 @@
           },
           "coverage": {
             "2": {
-              "passed": 96,
+              "passed": 95,
               "total": 96,
-              "missing": 0
+              "missing": 1
             },
             "3": {
-              "passed": 40,
+              "passed": 37,
               "total": 40,
-              "missing": 0
+              "missing": 3
             }
           },
           "mandatory_witnesses": {
@@ -66973,7 +66973,7 @@
             "tests/gen/ch18/test_gen_cross_randreduce_33_signed_dynamic_sum_wide_2_sat_fail_sat.sv": "pass"
           },
           "provenance_problem": "",
-          "complete": true
+          "complete": false
         },
         "associative_array_queries": {
           "case_statuses": {
@@ -68762,8 +68762,8 @@
     {
       "source": "results/icarus.json",
       "simulator": "icarus",
-      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1291-g3f05f92b)",
-      "generated_at": "2026-11-25T03:35:31.003215+00:00",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-1293-g24acba16)",
+      "generated_at": "2026-11-26T02:35:11.563969+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -72313,8 +72313,8 @@
     {
       "source": "results/kirimasim.json",
       "simulator": "kirimasim",
-      "version": "kirimasim 0.2.2 (commit a50ec73c37d8), built with GNU 13.3.0",
-      "generated_at": "2026-11-25T03:36:17.239103+00:00",
+      "version": "kirimasim 0.2.2 (commit 8a20a6d9337c), built with GNU 13.3.0",
+      "generated_at": "2026-11-26T02:55:29.852982+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -75864,8 +75864,8 @@
     {
       "source": "results/lyra.json",
       "simulator": "lyra",
-      "version": "Lyra (commit b1666593b9f4)",
-      "generated_at": "2026-11-25T05:35:42.335225+00:00",
+      "version": "Lyra (commit d55cec646337)",
+      "generated_at": "2026-11-26T06:34:29.366669+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -79415,8 +79415,8 @@
     {
       "source": "results/verilator.json",
       "simulator": "verilator",
-      "version": "Verilator 5.055 devel rev v5.054-394-g342ca8e0",
-      "generated_at": "2026-11-25T04:56:24.137771+00:00",
+      "version": "Verilator 5.055 devel rev v5.054-404-gf01db861",
+      "generated_at": "2026-11-26T04:14:23.440527+00:00",
       "models": {
         "scheduling_visibility": {
           "case_statuses": {
@@ -79649,23 +79649,23 @@
         },
         "argument_binding_index": {
           "case_statuses": {
-            "pass": 8,
+            "pass": 9,
             "fail": 0,
-            "known": 28,
+            "known": 27,
             "unsupported": 0,
             "stale": 0,
             "not_run": 0
           },
           "coverage": {
             "2": {
-              "passed": 75,
+              "passed": 83,
               "total": 162,
-              "missing": 87
+              "missing": 79
             },
             "3": {
-              "passed": 15,
+              "passed": 17,
               "total": 63,
-              "missing": 48
+              "missing": 46
             }
           },
           "mandatory_witnesses": {

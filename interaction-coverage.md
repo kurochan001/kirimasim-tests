@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/f029182b31bfe8fded04eeb649f19517d988ca97/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/3cf9bee18ef7b1b3794016cd528cfbb774a2d0fc/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2337,8 +2337,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/ghost.json
 
-- 環境: private build a4db8bcf783c。
-- 実行日時: 2026-11-25T03:49:07.053617+00:00。
+- 環境: private build ca9735e98154。
+- 実行日時: 2026-11-26T03:17:24.249471+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2620,10 +2620,10 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 4/4。
   - ケース状態: pass=18, fail=0, known=0, unsupported=0, stale=0, not_run=0。
 - array_reduction_constraint:
-  - 2因子の合格確認済み組合せ: 96/96。
-  - 3因子の合格確認済み組合せ: 40/40。
+  - 2因子の合格確認済み組合せ: 95/96。
+  - 3因子の合格確認済み組合せ: 37/40。
   - 必須ケース: 4/4。
-  - ケース状態: pass=13, fail=0, known=0, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=12, fail=1, known=0, unsupported=0, stale=0, not_run=0。
 - associative_array_queries:
   - 2因子の合格確認済み組合せ: 93/93。
   - 3因子の合格確認済み組合せ: 54/54。
@@ -2897,8 +2897,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/icarus.json
 
-- 環境: Icarus Verilog version 14.0 (devel) (s20260301-1291-g3f05f92b)。
-- 実行日時: 2026-11-25T03:35:31.003215+00:00。
+- 環境: Icarus Verilog version 14.0 (devel) (s20260301-1293-g24acba16)。
+- 実行日時: 2026-11-26T02:35:11.563969+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3457,8 +3457,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.2.2 (commit a50ec73c37d8), built with GNU 13.3.0。
-- 実行日時: 2026-11-25T03:36:17.239103+00:00。
+- 環境: kirimasim 0.2.2 (commit 8a20a6d9337c), built with GNU 13.3.0。
+- 実行日時: 2026-11-26T02:55:29.852982+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -4017,8 +4017,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/lyra.json
 
-- 環境: Lyra (commit b1666593b9f4)。
-- 実行日時: 2026-11-25T05:35:42.335225+00:00。
+- 環境: Lyra (commit d55cec646337)。
+- 実行日時: 2026-11-26T06:34:29.366669+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 111/126。
@@ -4577,8 +4577,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-394-g342ca8e0。
-- 実行日時: 2026-11-25T04:56:24.137771+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-404-gf01db861。
+- 実行日時: 2026-11-26T04:14:23.440527+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -4621,10 +4621,10 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
   - 必須ケース: 1/3。
   - ケース状態: pass=21, fail=0, known=15, unsupported=0, stale=0, not_run=0。
 - argument_binding_index:
-  - 2因子の合格確認済み組合せ: 75/162。
-  - 3因子の合格確認済み組合せ: 15/63。
+  - 2因子の合格確認済み組合せ: 83/162。
+  - 3因子の合格確認済み組合せ: 17/63。
   - 必須ケース: 2/5。
-  - ケース状態: pass=8, fail=0, known=28, unsupported=0, stale=0, not_run=0。
+  - ケース状態: pass=9, fail=0, known=27, unsupported=0, stale=0, not_run=0。
 - packed_structure:
   - 2因子の合格確認済み組合せ: 133/186。
   - 3因子の合格確認済み組合せ: 24/52。
