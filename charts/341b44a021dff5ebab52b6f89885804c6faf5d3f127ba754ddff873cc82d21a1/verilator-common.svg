@@ -6,7 +6,7 @@
 <text x="20.0" y="48.0" class="muted" text-anchor="start">latest / peer incremental elapsed; lower is faster; gaps are missing</text>
 <line class="line c-ratio" x1="20" x2="38" y1="70" y2="70"/>
 <circle class="mk c-ratio" cx="29.0" cy="70.0" r="7.5"/>
-<text x="44.0" y="74.0" text-anchor="start">last available latest / verilator: 28.6509</text>
+<text x="44.0" y="74.0" text-anchor="start">last available latest / verilator: 29.4664</text>
 <line class="grid" x1="64" x2="852" y1="340.0" y2="340.0"/>
 <text x="56.0" y="344.0" class="muted" text-anchor="end">0</text>
 <line class="grid" x1="64" x2="852" y1="290.4" y2="290.4"/>
@@ -20,14 +20,21 @@
 <line class="grid" x1="64" x2="852" y1="92.0" y2="92.0"/>
 <text x="56.0" y="96.0" class="muted" text-anchor="end">50</text>
 <line class="axis" x1="64" x2="852" y1="340" y2="340"/>
-<line class="axis" x1="163.9" x2="163.9" y1="340" y2="344"/>
-<text x="163.9" y="358.0" class="muted" text-anchor="middle">11-21</text>
-<line class="axis" x1="416.5" x2="416.5" y1="340" y2="344"/>
-<text x="416.5" y="358.0" class="muted" text-anchor="middle">11-22</text>
-<line class="axis" x1="669.0" x2="669.0" y1="340" y2="344"/>
-<text x="669.0" y="358.0" class="muted" text-anchor="middle">11-23</text>
-<polyline class="line c-ratio" points="64.0,215.2 298.0,213.5 852.0,197.9"/>
+<line class="axis" x1="115.8" x2="115.8" y1="340" y2="344"/>
+<text x="115.8" y="358.0" class="muted" text-anchor="middle">11-21</text>
+<line class="axis" x1="246.6" x2="246.6" y1="340" y2="344"/>
+<text x="246.6" y="358.0" class="muted" text-anchor="middle">11-22</text>
+<line class="axis" x1="377.5" x2="377.5" y1="340" y2="344"/>
+<text x="377.5" y="358.0" class="muted" text-anchor="middle">11-23</text>
+<line class="axis" x1="508.3" x2="508.3" y1="340" y2="344"/>
+<text x="508.3" y="358.0" class="muted" text-anchor="middle">11-24</text>
+<line class="axis" x1="639.1" x2="639.1" y1="340" y2="344"/>
+<text x="639.1" y="358.0" class="muted" text-anchor="middle">11-25</text>
+<line class="axis" x1="770.0" x2="770.0" y1="340" y2="344"/>
+<text x="770.0" y="358.0" class="muted" text-anchor="middle">11-26</text>
+<polyline class="line c-ratio" points="64.0,215.2 185.2,213.5 472.3,197.9 852.0,193.8"/>
 <circle class="mk c-ratio" cx="64.0" cy="215.2" r="7.5"/>
-<circle class="mk c-ratio" cx="298.0" cy="213.5" r="7.5"/>
-<circle class="mk c-ratio" cx="852.0" cy="197.9" r="7.5"/>
+<circle class="mk c-ratio" cx="185.2" cy="213.5" r="7.5"/>
+<circle class="mk c-ratio" cx="472.3" cy="197.9" r="7.5"/>
+<circle class="mk c-ratio" cx="852.0" cy="193.8" r="7.5"/>
 </svg>
