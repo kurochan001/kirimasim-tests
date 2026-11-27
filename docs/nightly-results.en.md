@@ -17,6 +17,8 @@
 
 ## Latest verified checkpoint
 
+![Nightly runs on main. The independent simulator jobs and the Lyra build, four test shards and merge supply result JSON to the publication job.](diagrams/nightly-flow.en.svg)
+
 The Nightly runs on `main` every night with icarus, verilator, kirimasim, lyra-build, lyra-shards (four parts), lyra (merge), ghost and publish.
 The results of the latest run are in the [report on the `results` branch](https://github.com/kurochan001/kirimasim-tests/tree/results#readme).
 

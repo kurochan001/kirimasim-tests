@@ -19,6 +19,8 @@
 
 ## 最新の確認状況
 
+![Nightlyはmainで実行する。シミュレータ別のジョブと、Lyraのビルド・4分割テスト・統合から得られた結果JSONを公開ジョブが集約する。](diagrams/nightly-flow.ja.svg)
+
 Nightlyは毎晩`main`で、icarus・verilator・kirimasim・lyra-build・lyra-shards（4分割）・lyra（統合）・ghost・publishを実行します。
 最新の実行の結果は[`results`ブランチのレポート](https://github.com/kurochan001/kirimasim-tests/tree/results#readme)にあります。
 

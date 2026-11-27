@@ -601,6 +601,8 @@ it does not know.
 
 ### How a test is judged
 
+![A legal design must match normalized output and any requested exit-code and diagnostic checks. An intentionally illegal design must be rejected with the expected error.](docs/diagrams/test-verdict.en.svg)
+
 For how X/Z, bit/logic, width and signedness change observations, see [small SV examples](docs/faq.en.md#q50-sv-values-change-observations); [Q4](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator) explains `:lrm:` versus `:oracle:`.
 
 A test passes when the simulator's standard output, after removing blank lines (including whitespace-only lines)

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 454" role="img" aria-labelledby="title desc" xml:lang="ja">
+  <title id="title">規格からレビュー済みのテスト対応へ</title>
+  <desc id="desc">出典を索引化し、要求を抽出して監査します。台帳を見直し、既存のテストとの照合、新規テストの作成、表に対応する生成テストのいずれかで対応します。独立レビューを経て統合・計測・記録に進みます。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#5b7088"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="878" height="452" rx="22" fill="#f4f7fb" stroke="#c7d3df" stroke-width="2"/>
+  <g text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', Meiryo, 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif">
+    <path d="M 440 95 V 118" fill="none" stroke="#5b7088" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <path d="M 440 198 V 218 H 156 V 239" fill="none" stroke="#5b7088" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <path d="M 440 218 V 239" fill="none" stroke="#5b7088" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <path d="M 440 218 H 724 V 239" fill="none" stroke="#5b7088" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <path d="M 156 323 V 347 H 724 V 323" fill="none" stroke="#5b7088" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 440 323 V 347 H 224 V 364" fill="none" stroke="#5b7088" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <path d="M 402 400 H 469" fill="none" stroke="#5b7088" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <rect x="230" y="23" width="420" height="72" rx="12" fill="#e6f0ff" stroke="#789cc7" stroke-width="1.5"/>
+    <text x="440" y="54" font-size="24" font-weight="700" fill="#172d46">A・B  出典索引と要求抽出</text>
+    <text x="440" y="79" font-size="18" font-weight="400" fill="#314b65">出典の位置を記録して監査</text>
+    <rect x="230" y="124" width="420" height="74" rx="12" fill="#e6f0ff" stroke="#789cc7" stroke-width="1.5"/>
+    <text x="440" y="156" font-size="24" font-weight="700" fill="#172d46">C  要求台帳を見直す</text>
+    <text x="440" y="181" font-size="18" font-weight="400" fill="#314b65">テストで観測できる形に整理</text>
+    <rect x="34" y="245" width="244" height="78" rx="12" fill="#ffffff" stroke="#a9bed3" stroke-width="1.5"/>
+    <text x="156" y="279" font-size="24" font-weight="700" fill="#172d46">D  既存テストを照合</text>
+    <text x="156" y="304" font-size="18" font-weight="400" fill="#314b65">対応するテストを探す</text>
+    <rect x="318" y="245" width="244" height="78" rx="12" fill="#ffffff" stroke="#a9bed3" stroke-width="1.5"/>
+    <text x="440" y="279" font-size="24" font-weight="700" fill="#172d46">E  新規テストを作成</text>
+    <text x="440" y="304" font-size="18" font-weight="400" fill="#314b65">対象の動作を検証する</text>
+    <rect x="602" y="245" width="244" height="78" rx="12" fill="#ffffff" stroke="#a9bed3" stroke-width="1.5"/>
+    <text x="724" y="279" font-size="24" font-weight="700" fill="#172d46">E′  テストを生成</text>
+    <text x="724" y="304" font-size="18" font-weight="400" fill="#314b65">表形式の要件に対応する</text>
+    <rect x="46" y="370" width="356" height="60" rx="12" fill="#e1f5ef" stroke="#659c91" stroke-width="1.5"/>
+    <text x="224" y="408" font-size="24" font-weight="700" fill="#172d46">F  独立レビュー</text>
+    <rect x="475" y="370" width="359" height="60" rx="12" fill="#e1f5ef" stroke="#659c91" stroke-width="1.5"/>
+    <text x="654" y="408" font-size="24" font-weight="700" fill="#172d46">G  統合・計測・記録</text>
+  </g>
+</svg>

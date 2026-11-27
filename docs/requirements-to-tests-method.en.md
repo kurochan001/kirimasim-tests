@@ -22,18 +22,10 @@ Related materials: [Results of requirement extraction](requirement-extraction.en
 
 ## 2. The whole flow.
 
-```text
-PDF ─┬─> A. Source index and section ledger (locations and hashes only)
-     └─> B. Requirement extraction and source audit (behaviors.json / requirement-audit.json)
-              │
-              ├─> C. Ledger review (recast requirements in observable terms; resolve deferred interpretations)
-              │
-              ├─> D. Matching against existing tests ──────────┐
-              ├─> E. Creating new tests ───────────────────────┤─> F. Independent review ─> G. Integration, measurement, and recording
-              └─> E'. Generated tests for tabular requirements ┘
-```
+![Index the source and extract the requirements (A–B). Review the ledger (C), then match existing tests (D), write new tests (E) or generate table cases (E′). Independently review the mappings (F), then integrate, measure and record the results (G).](diagrams/requirements-flow.en.svg)
 
 The results of each stage are the table of `coverage/` and the data of `docs/`, and they are examined together at the time of the integration of G.
+The source index records locations and hashes. The extracted requirements and source audit are stored in `coverage/behaviors.json` and `coverage/requirement-audit.json`.
 
 <a id="3-準備"></a>
 

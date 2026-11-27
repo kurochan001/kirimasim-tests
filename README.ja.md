@@ -530,6 +530,8 @@ publishジョブは、その実行の要求カバレッジとして`behavior-cov
 
 ### 合否の判定方法
 
+![合法な設計では正規化した出力と指定された終了コード・診断を照合する。不正な設計では指定されたエラーによる拒否を確認する。](docs/diagrams/test-verdict.ja.svg)
+
 X/Z・bit/logic・幅と符号で観測が変わる理由は[SVの小さな具体例](docs/faq.md#q50-sv-values-change-observations)、`:lrm:`と`:oracle:`の役割は[Q4](docs/faq.md#q4-are-expected-outputs-copied-from-a-simulator)を参照してください。
 
 標準出力から空行、空白文字だけの行、シミュレータ自身のバナーを取り除き、期待出力と完全一致すれば合格です

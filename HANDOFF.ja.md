@@ -2,25 +2,29 @@
 
 [English](HANDOFF.md) / [日本語](HANDOFF.ja.md)
 
-## 目標と現在地
+## 現在地（2026-11-27 JST）
 
-IEEE 1800-2023 の要求台帳12,332件すべてに、原典に照らして妥当なテストを対応づけます。現在の対応件数、未対応件数、全ツールの実行確認件数、公開ツールで再現できる件数は集計JSONで確認できます。[集計JSON](coverage/behavior-summary.json) · [集計の読み方](docs/behavior-coverage-summary.md)
+- `main` の基準コミットは `06f00049` です。回帰テスト44件と検証記録を追加し、このコミットの GitHub Actions `Check` は4ジョブすべて成功しました。[コミット](https://github.com/kurochan001/kirimasim-tests/commit/06f00049d0ee834b9d7d54e8939c6078cd7f2cc3) · [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/45995209954)
+- IEEE 1800-2023 の要件とテストの対応付けは **12,332 / 12,332件（100%）** です。保存済みの実行証跡は全環境で11,204件、公開ツールで再現可能な範囲は6,462件です。[集計JSON](coverage/behavior-summary.json) · [集計の読み方](docs/behavior-coverage-summary.md)
+- 一つ前のコミット `fcaeb425` の Nightly では Ghost と Lyra のビルドジョブが失敗し、Lyra の実行はスキップされました。Icarus、Verilator、kirimasim のジョブと結果公開は成功しました。[Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/45927477463)
+
+## Ghost のFail調査
+
+直近のローカル全体実行はシミュレーション16,895件で、Pass 16,650件、Fail 245件でした。調査の内訳は次のとおりです。
+
+- 55ケースを `kirimasim-tests` の新規Issue 14件（#92〜#105）に登録しました。別の2ケースは既存の #76 と同じ論点です。[新規Issue一覧](https://github.com/kurochan001/kirimasim-tests/issues?q=is%3Aissue+label%3Abug+created%3A2026-11-26..2026-11-27) · [既存Issue #76](https://github.com/kurochan001/kirimasim-tests/issues/76)
+- 上記57ケースを除くと、83ケースは新規 `sukimasim` Issue 52件に対応し、10ケースは既存の `sukimasim` Issue に関連し、95ケースは原因未確定です。
+- このワークスペースの `out/ghost-triage-20261127/` に `full.json`（全体結果）、`suite-side/created.json`（スイート側のIssueとケースの対応表）、`created-issues.json`（sukimasim側の起票記録）があります。`out/` はGit管理対象外です。公開Issueには独立した再現例を使い、非公開の診断や実行プロファイルはローカルで扱います。[投稿方針](docs/faq.md#q45-issueに商用シミュレータの出力診断を載せてもよいですか)
 
 ## 作業の再開
 
 リポジトリのルートを OpenCode で開き、このファイルを参照させます。`git status --short --branch` と `git log -1 --oneline` でブランチと作業ツリーを確認します。
 
-```sh
-python3 - <<'PY'
-import json
-from pathlib import Path
+![Failを再現し、テストやランナーの問題はkirimasim-testsへ、シミュレータの動作不良はシミュレータ側へ起票する。原因が未確定なら観測を残して調査を続ける。](docs/diagrams/failure-triage.ja.svg)
 
-ledger = json.loads(Path('coverage/behaviors.json').read_text())
-for row in ledger['requirements']:
-    if not row['checks']:
-        print(row['id'], row['acceptance'])
-PY
-```
+1. 未解決のスイート側Issueを確認します。着手する場合の入口は #92 です。チェックポイントの進捗行だけを比較対象から外すと4ケースがPassになり、コールバックの差分を持つ対照ケースはFailのままでした。[Issue #92](https://github.com/kurochan001/kirimasim-tests/issues/92)
+2. 専用の実行条件を必要とするケースは、Issueに記載した対話操作、コンパイル設定、入力の配置をそろえて再実行します。条件を確認できない場合は未実行として扱い、条件をそろえた上で再現する動作差分を調べます。[対話実行 #93](https://github.com/kurochan001/kirimasim-tests/issues/93) · [コンパイル設定 #94](https://github.com/kurochan001/kirimasim-tests/issues/94) · [ライブラリマップ #95](https://github.com/kurochan001/kirimasim-tests/issues/95)
+3. Nightly の調査を再開するときは、現行 `main` の新規実行を確認します。以前の実行を再実行すると、その実行の元のコミットが使われます。[Nightlyの再実行手順](docs/nightly-results.md)
 
 対象要件の `source_spans` から規格本文の節とブロックを特定し、手元の IEEE 1800-2023 本文と `tests/chNN/` を確認します。テスト追加後は該当ランナーで再実行し、入力のフィンガープリント、照合条件、実測差分を記録してから台帳に対応を追加します。規格が複数の結果を許す場合は、必要な事前条件や対照の成立を確認して観測を残します。[要求台帳](coverage/behaviors.json) · [原典索引](coverage/requirement-source-index.json) · [対応づけの手順](docs/requirements-to-tests-method.md)
 
@@ -39,7 +43,16 @@ python3 -m unittest discover -s tools -p 'test_*.py'
 
 テスト追加時は、対応する生成コマンドを `--update` で実行します。手書きの日英文書を更新した場合は `python3 tools/documentation_languages.py --record` で記録を更新します。Ghostの再実行にはアクセス可能な実行ファイルと strict プロファイルが必要です。公開ツールだけで再現できる範囲は各記録に記載しています。[検証記録と再実行手順](coverage/README.md) · [CIの定義](.github/workflows/check.yml)
 
-## 直近の結果と未対応候補
+#92 の対象と対照を絞って再実行する場合は、`GHOST_BIN`、`GHOST_INCLUDE`、`GHOST_PROFILE` に手元のパスを設定してから実行します。変更前後で `--json` の出力先を変え、差分を照合します。
+
+```sh
+python3 tools/run_ghost.py --simulator "$GHOST_BIN" --include "$GHOST_INCLUDE" \
+  --profile "$GHOST_PROFILE" --json out/checkpoint-replay.json \
+  tests/ch38/test_vpi_end_save_data_is_available_at_start_of_restart.sv \
+  tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv
+```
+
+## 検証記録の履歴
 
 - §4.3の参照スケジューラは、通常系と競合する書き込みを持つ2条件の全てで、Icarus、Ghost、Verilator、kirimasimの実測が許容トレースに一致しました。[検証記録](coverage/qualification/scheduler-reference-20261125.json)
 - §11.4.14.1の循環クラスのストリーミングでは、Ghostで通常系が値 `35` を返し、自己参照を確認した別実行はシグナル11で終了しました。循環時の結果は規格上未定義です。[検証記録](coverage/qualification/class-stream-cycle-20261125.json)

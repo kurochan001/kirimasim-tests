@@ -2,25 +2,29 @@
 
 [English](HANDOFF.md) / [日本語](HANDOFF.ja.md)
 
-## Goal and status
+## Status as of November 27, 2026 (JST)
 
-Map all 12,332 entries in the IEEE 1800-2023 requirements ledger to tests that substantiate the applicable source rules. The summary JSON reports the current mapping count, open requirements, execution evidence across all tools, and execution evidence reproducible with public tools. [Summary JSON](coverage/behavior-summary.json) · [How to read the summary](docs/behavior-coverage-summary.en.md)
+- The handoff starts from `main` at `06f00049`, which adds 44 regression fixtures and their verification records. All four GitHub Actions `Check` jobs for that commit passed. [Commit](https://github.com/kurochan001/kirimasim-tests/commit/06f00049d0ee834b9d7d54e8939c6078cd7f2cc3) · [Check](https://github.com/kurochan001/kirimasim-tests/actions/runs/45995209954)
+- The suite has reviewed test mappings for **all 12,332 IEEE 1800-2023 requirements (100%)**. Saved execution evidence covers 11,204 requirements across environments, including 6,462 reproducible with public tools. [Summary JSON](coverage/behavior-summary.json) · [How to read the summary](docs/behavior-coverage-summary.en.md)
+- The Nightly run for the previous commit, `fcaeb425`, failed to build Ghost and Lyra and skipped Lyra execution. The Icarus, Verilator, kirimasim, and publication jobs succeeded. [Nightly](https://github.com/kurochan001/kirimasim-tests/actions/runs/45927477463)
+
+## Ghost failure triage
+
+The latest local full run recorded 16,895 simulation cases, with 16,650 passes and 245 failures. The triage accounts for them as follows.
+
+- 55 cases are tracked in 14 new `kirimasim-tests` issues (#92–#105). Two other cases share the question raised in existing issue #76. [New issues](https://github.com/kurochan001/kirimasim-tests/issues?q=is%3Aissue+label%3Abug+created%3A2026-11-26..2026-11-27) · [Existing issue #76](https://github.com/kurochan001/kirimasim-tests/issues/76)
+- Of the remaining cases, 83 are associated with 52 new `sukimasim` issues, 10 relate to existing `sukimasim` issues, and 95 still need a cause established.
+- This workspace has `full.json` (full results), `suite-side/created.json` (suite issue-to-case mapping), and `created-issues.json` (sukimasim issue records) under `out/ghost-triage-20261127/`. Git ignores `out/`. Use independently written reproducers in public issues and keep private diagnostics and runtime profiles local. [Posting policy](docs/faq.en.md#q45-may-i-post-commercial-simulator-output-or-diagnostics-in-an-issue)
 
 ## Resume work
 
 Open the repository root in OpenCode and point it to this file. Check the branch and worktree with `git status --short --branch` and `git log -1 --oneline`.
 
-```sh
-python3 - <<'PY'
-import json
-from pathlib import Path
+![Reproduce the failure, then track fixture and runner issues in kirimasim-tests and confirmed simulator defects in the simulator repository. Keep investigating when the cause is unclear.](docs/diagrams/failure-triage.en.svg)
 
-ledger = json.loads(Path('coverage/behaviors.json').read_text())
-for row in ledger['requirements']:
-    if not row['checks']:
-        print(row['id'], row['acceptance'])
-PY
-```
+1. Check the open suite issues. Issue #92 is a starting point. Filtering only checkpoint progress lines let four cases pass, while the control case with a callback mismatch still failed. [Issue #92](https://github.com/kurochan001/kirimasim-tests/issues/92)
+2. Reproduce tests that require a dedicated setup with the interactive controls, compile settings, and staged inputs named in their issues. Report cases as unrun when the setup cannot be verified. Investigate behavioral differences that reproduce once the setup is in place. [Interactive execution #93](https://github.com/kurochan001/kirimasim-tests/issues/93) · [Compile settings #94](https://github.com/kurochan001/kirimasim-tests/issues/94) · [Library maps #95](https://github.com/kurochan001/kirimasim-tests/issues/95)
+3. To resume Nightly investigation, check a new run on the current `main`. Rerunning an earlier workflow uses the commit from that run. [Nightly instructions](docs/nightly-results.en.md)
 
 Use a requirement's `source_spans` to identify the section and block, then inspect an authorized copy of IEEE 1800-2023 and the existing files in `tests/chNN/`. Run new tests with the applicable runners and record the input fingerprint, observed differences, and acceptance checks before adding a mapping. When the standard permits several outcomes, confirm that the required preconditions and controls held and record the observation. [Requirements ledger](coverage/behaviors.json) · [Source index](coverage/requirement-source-index.json) · [Mapping procedure](docs/requirements-to-tests-method.en.md)
 
@@ -39,7 +43,16 @@ python3 -m unittest discover -s tools -p 'test_*.py'
 
 After changing tests, regenerate the affected reports with their `--update` commands. After editing paired handwritten documents, run `python3 tools/documentation_languages.py --record`. Ghost replays require an accessible executable and strict runtime profile. Individual records identify the portions reproducible with public tools. [Evidence and replay instructions](coverage/README.en.md) · [CI workflow](.github/workflows/check.yml)
 
-## Recent results and open candidates
+For a focused replay of one case from #92 and its control, set `GHOST_BIN`, `GHOST_INCLUDE`, and `GHOST_PROFILE` to local paths. Use separate `--json` destinations for the before and after runs so you can compare both results.
+
+```sh
+python3 tools/run_ghost.py --simulator "$GHOST_BIN" --include "$GHOST_INCLUDE" \
+  --profile "$GHOST_PROFILE" --json out/checkpoint-replay.json \
+  tests/ch38/test_vpi_end_save_data_is_available_at_start_of_restart.sv \
+  tests/ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change.sv
+```
+
+## Verification history
 
 - For the §4.3 reference scheduler, all three configurations matched the allowed traces on Icarus, Ghost, Verilator, and kirimasim. The configurations include a control and two cases with competing writes. [Qualification record](coverage/qualification/scheduler-reference-20261125.json)
 - For §11.4.14.1 class streaming, Ghost returned `35` in the acyclic control. The separate process terminated with signal 11 after confirming the self-reference. The standard leaves the cyclic result undefined. [Qualification record](coverage/qualification/class-stream-cycle-20261125.json)
