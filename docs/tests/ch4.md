@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[All chapters](README.md). 485 tests, 386 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 487 tests, 386 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -19,6 +19,8 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) | Only a change of the value of a variable or net is an update event, and an update event wakes every process sensitive to it, as its event control filters it | 4.3 4.5 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) | The regions of one time slot come in their defined order, with the PLI regions between the simulation regions: Preponed, Pre-Active, Active, Inactive, Pre-NBA, NBA, Observed, Reactive, Re-Inactive, Re-NBA, the active region set again, Pre-Postponed and Postponed | 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 | standard only | VPI |
 | [`test_time_slots_advance_in_order`](../../tests/ch4/test_time_slots_advance_in_order.sv) | Simulation time moves to the earliest nonempty time slot, in increasing order, after all the events of the current slot are processed, and the simulation ends when no slot has events left | 4.4 4.5 9.2.3 | Icarus Verilog 13.0 ||
+| [`test_pli_region_controls_assertion_fail`](../../tests/ch4/test_pli_region_controls_assertion_fail.sv) | A failing Observed property uses the old sample and still schedules its reactive action | 4.4.1 4.4.2.5 4.4.3.1 4.4.3.5 4.4.3.6 4.4.3.7 4.4.3.8 | standard only | VPI, several files |
+| [`test_pli_region_controls_assertion_pass`](../../tests/ch4/test_pli_region_controls_assertion_pass.sv) | A passing Observed property follows active updates and precedes reactive feedback | 4.4.1 4.4.2.5 4.4.3.1 4.4.3.5 4.4.3.6 4.4.3.7 4.4.3.8 | standard only | VPI, several files |
 | [`test_simulation_regions_in_one_time_slot`](../../tests/ch4/test_simulation_regions_in_one_time_slot.sv) | One time slot runs its simulation regions in order: values sampled in the Preponed region, then the Active, Inactive and NBA regions, the Observed region where a sequence end point is recorded, the Reactive, Re-Inactive and Re-NBA regions, the active region set again, and the Postponed region last | 4.4.2 4.4 4.5 4.4.2.1 4.4.2.5 16.13.6 24.3.1 | standard only ||
 | [`test_one_step_sample_before_time_slot`](../../tests/ch4/test_one_step_sample_before_time_slot.sv) | A #1step input of a clocking block samples the value that the signal had immediately before the time slot of the clock edge, not a value written in the Active or NBA region of that slot | 4.4.2.1 14.4 14.3 | Verilator 5.052 ||
 | [`test_preponed_sample_observed_before_action`](../../tests/ch4/test_preponed_sample_observed_before_action.sv) | A concurrent assertion samples before an NBA update but its pass action sees the updated live value | 4.4.2.1 4.4.2.5 16.5.1 | standard only ||

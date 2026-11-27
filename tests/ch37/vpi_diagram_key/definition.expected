@@ -1,0 +1,7 @@
+object definition border=solid type=bold
+object reference border=solid type=regular
+class definition border=dotted type=bold-italic
+named group nested=class-reference,object-definition,object-reference
+figure module=object-reference net=object-definition
+figure net properties=string,boolean,integer
+outline contrast changed=solid->dotted rejected=1

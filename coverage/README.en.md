@@ -356,6 +356,7 @@ Requirement coverage (test design) of 100% means that every item in the requirem
 - Checked mailbox bounds 2 and 0 under 15.4.1. The probe confirmed entry into construction with `-1` and `-2147483648` and recorded the subsequent nonblocking operation. For both negative inputs, `try_put` returned 1 on Ghost strict and 0 on Verilator 5.054. Neither run emitted a negative-bound diagnostic. The standard prohibits a negative bound, allows indeterminate behavior, and makes diagnosis optional. Replay using `python3 tools/run_mailbox_bound_domain.py --ghost /path/to/ghost --verilator /path/to/verilator --profile /path/to/profile.json --json /tmp/mailbox-bound.json --observations /tmp/mailbox-bound-observed.json`. [Qualification results](qualification/mailbox-bound-domain-20261126.json)
 - Checked frame lifetime under Annex C.4.3. Ghost strict returned `vpiUndefined` for the obsolete `vpiValid` query on the live child frame. Its `cbEndOfFrame` fired once for the same frame, and fresh traversal afterward yielded no child frame. The native resolver used by Ghost `vpi_get` still found inactive entries for both the direct and traversed keys. The retirement check reported a mismatch. Replay using `python3 tools/run_ghost_vpi_valid_observation.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-valid.json --observations /tmp/vpi-valid-observed.json`. [Qualification results](qualification/vpi-frame-validity-20261126.json)
 - Compared the frame model in 37.43 with 37.41 of the 2017 edition. The 2017 model defined frames in terms of task and function automatic variables. The 2023 model covers dynamically activated procedural scopes. In Ghost strict, the frame obtained from an `initial` procedure was the parent of the distinct automatic task frame. Replay using `python3 tools/run_vpi_frame_scope_editions.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --pdf-2017 /path/to/1800-2017.pdf --pdf-2023 /path/to/1800-2023.pdf --json /tmp/frame-editions.json --observations /tmp/frame-editions-observed.json`. [Qualification results](qualification/vpi-frame-editions-20261126.json) · [IEEE 1800-2017](https://fpga.mit.edu/6205/_static/F25/documentation/1800-2017.pdf) · [IEEE 1800-2023](https://ieeexplore.ieee.org/document/10458102)
+- The §25.9 regressions check that the selected interface edge releases both a procedural wait inside `initial` and a task wait. The illegal case reads a virtual interface component in the implicit sensitivity list of `always_comb`. Strict Ghost matched the legal control and the three existing rejection tests. It elaborated the new illegal case and printed `observed=47` in simulation. Verilator 5.054 and kirimasim 0.2.2 also matched the new legal control and accepted the illegal case. The Icarus 13.0 runner skipped comparison for all five tests. The ledger credits execution when the legal control and all four rejection tests match in one run. [Observations](qualification/virtual-sensitivity-20261126.json) · [Ghost](results/virtual-sensitivity-20261126-ghost-strict.json) · [Verilator](results/virtual-sensitivity-20261126-verilator5.054-seed1.json) · [kirimasim](results/virtual-sensitivity-20261126-kirimasim.json) · [Icarus](results/virtual-sensitivity-20261126-icarus13.json)
 - Added five checker free-variable and assume-set tests and mapped six Chapter 17 requirements. Ghost strict mode matched the normal output for all five new tests and two controls at both seeds. Slang accepted all seven. Icarus 13.0 and Verilator 5.054 did not compile these cases, and kirimasim 0.2.2 reported unsupported checker instances. In a separate six-seed initialization probe, Ghost preserved the explicit initializer and the ordinary random control varied each time. All uninitialized active, inactive and const free variables were zero before any clock event, so the initialization probe reported a mismatch. [Ghost](results/checker-assume-20261125-ghost.json) · [Initialization measurements](results/checker-initialization-20261125-ghost.json) · [Slang](slang/checker-assume-20261125-slang.json) · [kirimasim](results/checker-assume-20261125-kirimasim022.json)
 - Isolated retries and short controls reproduced both timeouts from the final full runs. Ghost stalled on the ambiguous VPI relation for an automatic part select. Icarus 13.0 returned a dynamic-array increment that sent the loop through out-of-range negative indices. [Timeout evidence](qualification/simulator-timeout-probes-20261124.json)
 - The Chapter 22 run rechecked all 120 chapter tests after the added keyword case changed the fingerprints of existing tests that search that directory for includes. [Ghost](results/preprocessor-refresh-20261124-ghost-strict.json) · [Icarus](results/preprocessor-refresh-20261124-icarus13.json) · [kirimasim](results/preprocessor-refresh-20261124-kirimasim.json) · [Verilator seed 1](results/preprocessor-refresh-20261124-verilator5.054-seed1.json) · [seed 73](results/preprocessor-refresh-20261124-verilator5.054-seed73.json)
@@ -518,6 +519,282 @@ We corrected 5 index misidentifications and the omission of Section 8.23 using t
 <a id="ciとnightly"></a>
 
 <a id="ci-とナイトリー"></a>
+
+## VPI iterator release
+
+For §38.38, a debugger distinguished two iterators that were live at the same time in Icarus Verilog 13.0. The first was explicitly released after reading the first child. The second was released by the scan that returned NULL after all three children. Each path invoked `operator delete` once with the corresponding iterator address. A control substituted an explicit release for the terminal scan. It produced the same normal output and failed the deallocation check. The tested Icarus implementation has no separate error path for a valid iterator. [Qualification results](qualification/vpi-iterator-release-20261126.json) · [Icarus 13.0 source](https://github.com/steveicarus/iverilog/blob/dfeee909ed9f20b4870dd93423156c0170c0e1ff/vvp/vpi_iter.cc#L27-L78)
+
+Replay using `python3 tools/run_icarus_iterator_release.py --iverilog-bin /path/to/bin --json /tmp/iterator-release.json --observations /tmp/iterator-release-observed.json`.
+
+## Protection pragma reset
+
+The §34.4 `reset` test configures Base64, checks that resetting restores the default encoding in the same file, and then checks a new uuencode configuration. Both Slang builds accepted the equivalent `pragma reset protect` and diagnosed the controls that removed the reset or supplied invalid uuencode after reconfiguration. Ghost matched the ordinary simulation output. [Qualification results](qualification/protect-keyword-reset-20261126.json)
+
+## Protection pragma key selection
+
+The tests map six key keywords from §34.4 and the digest key name from §34.5.18.2. The body controls verified the corresponding key when the name changed under one owner or the owner changed while the name stayed the same. Omitting just the digest key name inherited the data key name under the explicit digest key owner. When the inherited name was unknown to that owner, the check identified the owner and name in the rejection.
+
+All 55 public-key reference checks, 34 author digest session-key reference checks, and 36 replayed recipient reference checks matched using OpenSSL. Ghost and Icarus matched the ordinary output on the four targeted fixtures. In all eight direct hdl-encrypt 0.1.0 selector trials, the emitted envelope omitted the key selector. The prepared-envelope trials also showed a delimiter mismatch. [Qualification and run results](qualification/protect-key-selectors-20261126.json)
+
+Replay using `python3 tools/run_protect_public_keys.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-public-keys.json`. Use `tools/run_protect_author_digests.py` with the same arguments for the session-key checks.
+
+## Digest metadata in signed envelopes
+
+The reference test checked the output placement of `digest_keyowner`, `digest_keyname`, `digest_key_method`, and `digest_method`. All four remained visible in the unsigned envelope. In the signed envelope, the recipient recovered them by opening the `key_block`. Changing the owner or name independently caused authentication to fail. A control duplicated the four signed fields in clear text. It recovered the body and digest, and failed the placement check. [Qualification record](qualification/protect-digest-placement-20261127.json)
+
+The new fixture matched all 28 reference checks and the ordinary Ghost and Icarus outputs. hdl-encrypt 0.1.0 produced a recoverable body for the ordinary input while omitting the digest block. The prepared signed-envelope trial also showed a closing delimiter mismatch. Replay using `python3 tools/run_protect_author_digests.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-digest-placement.json`.
+
+## Implementation-defined protection algorithms
+
+The test for §34.5.9.2, §34.5.11.2, and §34.5.21.2 checks standard encodings, required DES and optional CBC ciphers, and the standard digests. Its reference implementation explicitly registers three additional identifiers for hexadecimal encoding, AES-CTR, and SHA-256. Icarus ran the recovered body. Removing each registration separately identified the field with the unrecognized identifier. The AES-CTR control matched the first two blocks of the NIST known-answer vector. [Qualification record](qualification/protect-algorithm-extensions-20261127.json) · [NIST SP 800-38A F.5.1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf#page=62)
+
+hdl-encrypt 0.1.0 produced a recoverable body from the input requesting extra identifiers. Its output substituted `aes256-cbc` and omitted the encoding and digest identifiers. The same record includes replays of the existing format matrices and their direct output differences for the required methods.
+
+Replay using `python3 tools/run_protect_algorithm_extensions.py --python /path/to/venv/bin/python --nettle-prefix /path/to/nettle --iverilog-bin /path/to/bin --json /tmp/protect-extensions.json`.
+
+## Protected model isolation and comments
+
+The tests for §34.5.1.2 and §34.5.30.2 use two owners with the same key name and different ciphers and encodings. The reference recovered each model on its own, adjacent to the other, and in reverse order. Removing a local cipher declaration caused rejection with the neighbor present. Comments before the opening, from included source, and before the closing appeared once as clear text immediately ahead of the matching `data_block`. The checks detected misplaced and missing comments. Icarus ran the recovered models. [Qualification record](qualification/protect-envelope-isolation-20261127.json)
+
+The direct hdl-encrypt 0.1.0 output also recovered both models in isolation and reverse order. It omitted `begin_protected` and left the prefix comment outside its envelope. With the include expanded before encryption, the included note and the closing comment remained inside the encrypted body.
+
+Replay using `python3 tools/run_protect_envelope_isolation.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-isolation.json`.
+
+## Defaults for digest settings
+
+The §34.4 test omits the digest key owner, name, public key, cipher, and decryption key one at a time. Decryption verifies inheritance from the current data settings. The two public-key contexts change the owner and name, and the two session-key contexts use AES-128 and AES-256. All ten reference checks matched, and Icarus ran the four reconstructed models. [Qualification record](qualification/protect-digest-defaults-20261127.json)
+
+The direct hdl-encrypt 0.1.0 run recovered all four bodies. All four explicit digest requests remained in the recovered bodies, and the output envelopes omitted the digest blocks.
+
+Replay using `python3 tools/run_protect_digest_defaults.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-defaults.json`.
+
+## Protection key uniqueness per owner
+
+The reference tests for §34.5.10.2 and §34.5.16.2 duplicate the key name, decryption key, and public key one field at a time for both data and digests. All six cases identify the duplicated field for the shared owner. Registering the same name and key material under a different owner permits AES and RSA decryption. The checks compare decoded material when one registration uses Base64 and another uses uuencode. All three reconstructed models also produce the expected Icarus output. [Qualification record](qualification/protect-owner-key-uniqueness-20261127.json)
+
+hdl-encrypt 0.1.0 used the single CLI recipient key for all three models, and that key recovered every input body. The output envelopes omit both data and digest key owners. The reference test covers the owner-specific registrations.
+
+Rerun with `python3 tools/run_protect_owner_key_uniqueness.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-owner-keys.json`.
+
+## Viewport access to protected objects
+
+The reference test for §34.4 and §34.5.32.2 uses Slang declaration locations to assign objects in two recovered models to their protected envelopes. An Icarus VPI probe reads a named object and denies reads through that viewport of an unlisted object and an object in the adjacent envelope. The same `access="tool access"` string selects read-only or read/write access in two reference policies. The VPI write leaves the value at `42` or changes it to `5b`, respectively. [Qualification record](qualification/protect-viewport-20261127.json)
+
+The same results hold when both the envelope and instance order are reversed. In each order, the reference test rejects viewport declarations for an object in an adjacent envelope, an object in clear source, and an unknown name. The tested Slang build accepts all six variants. hdl-encrypt 0.1.0 encrypts both bodies for each fixture, and the viewport directives are present in the recovered models. The reference policies and VPI probe supply the access results.
+
+Rerun with `python3 tools/run_protect_viewport.py --python /path/to/venv/bin/python --slang /path/to/slang --iverilog-bin /path/to/bin --json /tmp/protect-viewport.json`.
+
+## VPI handle retirement on restart
+
+The §37.2.2 test acquires handles for a module, a register, a bit select, a pending event, and four callbacks. Only the start and end restart callback handles should survive restart. The test inspects Ghost's internal lookup table without passing old handles to the public VPI after restart and records the corresponding state in a control that skips restart. [Qualification record](qualification/vpi-restart-release-20261127.json)
+
+Strict Ghost restored the checkpoint value `11` and invoked both restart callbacks once. All eight observed keys were still present in its lookup table, and the old value-change and end-of-simulation callbacks fired after restart. The newly registered value-change callback also fired once. Icarus Verilog 13.0 reported that `$save` and `$restart` are unavailable.
+
+Rerun with `python3 tools/run_ghost_vpi_restart_release.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/restart-release.json --observations /tmp/restart-release-observed.json`.
+
+## Global pulse control settings
+
+The reference runner for §30.7, §30.7.2, §30.7.4.1 and §30.7.4.2 validates the reject and error percentages and projects them through SDF onto paths without explicit settings. It rejects eight invalid inputs, reports reject 50 and error 25, and corrects them to 50 and 50. Ghost produces the expected waveform for all six configurations. Giving the asymmetric path the same absolute limits as the symmetric path changes its waveform. [Qualification record](qualification/global-pulse-options-20261127.json)
+
+The local `PATHPULSE$` and SDF traces stay the same as global percentages change. A control that incorrectly applies the global settings changes both traces. For pulse style and cancellation, Ghost runs both directions of the specify overrides and checks the time and presence of the X transitions. The reference runner interprets the launch options, and Ghost measures the SDF and specify behavior.
+
+Rerun with `python3 tools/run_ghost_pulse_options.py --ghost /path/to/ghost --profile /path/to/profile.json --json /tmp/global-pulse-options.json`.
+
+## PLI control points and event regions
+
+The checks for §4.4.1, §4.4.2.5, §4.4.3.1 and §4.4.3.5–8 exercise a passing assertion at time 10 and a failing assertion at time 6. Both twelve-line traces from Ghost's public PLI callbacks and SystemVerilog match the reference. They show the prior assertion sample, Active work after the NBA update, the Reactive action, and the Re-NBA update. [Qualification record](qualification/pli-region-controls-20261127.json)
+
+The reference model rejects net and variable writes at Preponed and Pre-Observed, rejects the prohibited current-slot insertions, and runs the next-slot events. It rejects PLI callback placement in Observed while property evaluation proceeds. The Pre-Re-NBA and Post-Re-NBA controls read and write state and generate Reactive work that runs before pending Active work.
+
+A standalone probe of `FullDeltaScheduler` in the same Ghost binary runs the Active work queued by Pre-Re-NBA before the new Reactive work and before the Re-NBA update. The record includes this internal observation alongside the public PLI trace.
+
+Rerun with `python3 tools/run_pli_region_controls.py --ghost /path/to/ghost --include /path/to/include --profile /path/to/profile.json --json /tmp/pli-region-controls.json`.
+
+## Vector expansion and negative timing checks
+
+The ordinary §31.8 run observes one vector width check and one vector setup check. The reference runner expands three data bits and two clock bits. Ghost VPI observes three width checks and six setup checks sharing one notifier. Each of the six individual bit-pair stimuli triggers one width and one setup check. The controls detect both a repeated bit pair and a separate notifier. [Qualification record](qualification/timing-options-20261127.json)
+
+The checks for §31.9 and §31.9.2 use explicit signal delays and equivalent nonnegative checks. Both timing check types associate the conditions with the first and second delayed edges and distinguish the swapped conditions and the out-of-window controls. Delaying the condition inputs changes the verdict. A condition derived from an explicitly delayed signal also gives a different result from the raw signal. With negative limits supplied directly to Ghost, the named delayed signals already show the raw values at the early observations, and the violation verdicts differ from the expected trace.
+
+Rerun with `python3 tools/run_ghost_timing_options.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/timing-options.json`.
+
+## Checker free-variable choices
+
+The §17.7 and §17.7.2 test drives an assigned checker variable to 2 and then 1 on separate write and assumption clocks. The reference runner projects the four single-cycle assumption expressions onto a Yosys SAT model. It compares all 36 one-step witnesses and all 21 two-step traces with an independent exhaustive check. Allowing the constant to change adds 60 traces, and an extra contradictory assumption eliminates every two-step solution. [Qualification record](qualification/checker-free-choices-20261127.json)
+
+Ghost accepted all 21 explicit input replays through the original assumption expressions. A failing input triggered three expected failure actions on the first edge, and the contradiction triggered its action only on the second edge. With the unmodified checker, the constant and the two active variables were zero in every seed. The relation failed at both sample edges, even though the ordinary random control varied and the reference model had solutions. This run verifies the named failure actions and constant stability. It leaves native random selection and solution search unconfirmed. §17.7.2 permits an unsuccessful attempt even when a solution exists.
+
+The public formal check runs with `python3 tools/run_checker_free_choices.py --json /tmp/checker-free-choices.json`. Add `--simulator /path/to/ghost --profile /path/to/profile.json` to run the Ghost measurements as well.
+
+## VPI base object type reservations
+
+For K.2, C11 and C++17 evaluated the object type declarations in the extension headers from Icarus 13.0, Verilator 5.054, and Ghost. All object type declarations in the base reservation of 1–299 were aliases that resolved to their existing base values. The injected declarations at 1 and 299 were detected, and the probes at 0 and 300 fell outside the reservation. The ordinary VPI application printed the expected constants in all three simulators. [Qualification record](qualification/vpi-base-object-codes-20261127.json)
+
+Rerun the compiler check with `python3 tools/run_vpi_base_object_codes.py --headers verilator=/path/to/vltstd --json /tmp/vpi-base-object-codes.json`. Repeat `--headers NAME=PATH` to compare more header sets.
+
+## VPI port indices and input delays
+
+For §37.14, the new test exercises single and multiple indices into ordinary ports with nonzero declared bounds. It programs separate rise and fall delays of 3 and 5 ticks on one module input and reads them back through a fresh handle lookup. The adjacent input uses the same source signal and retains zero delay. The existing interface-port test exercises the separate exception. [Qualification record](qualification/vpi-input-port-delays-20261127.json)
+
+Ghost read back both values through the native VPI calls. Its native port selection did not give the expected bit handles. The input transitions were seen at 10 and 20 ns, the source transition times. The reference run computes the port bit offsets from the declared bounds, uses the VPI bit iterator on flat packed ports, and applies the configured delays in the HDL. It observes edges at 13 and 25 ns, rejects reversed indices, and detects missing propagation delays.
+
+Rerun with `python3 tools/run_vpi_input_port_delays.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-input-port-delays.json`.
+
+## Deprecated DPI source layout
+
+The H.14.3 test evaluates two reference implementations of `svdpi_src.h` in C11 and C++17. Each exposes exactly the two declarations for packed bit and logic objects. Both macros accept a width expression and can declare an element type for a separate outer array. The controls detect an extra macro, an extra type declaration, and definitions that produce array types. The tested Ghost and Verilator header sets supplied `svdpi.h` and lacked the optional source header. [Qualification record](qualification/dpi-legacy-source-layout-20261127.json)
+
+The two C reference hosts implement different native packed layouts. Both load the same prebuilt shared library for the application using opaque handles. The source-dependent application succeeds when built with the corresponding header. Cross-loading reports a mismatch in size or offset before conversion in both directions. Both hosts detect a control that drops the unknown-state mask. Ghost runs the same opaque-handle library and the word-layout build with the real deprecated DPI import, preserving both values and X/Z. Verilator rejects the deprecated import in ordinary execution. The public compiler and host replays use its shipped `svdpi.h`.
+
+Rerun with `python3 tools/run_dpi_legacy_source_layout.py --include /path/to/svdpi/include --json /tmp/dpi-source-layout.json`. Add `--simulator /path/to/ghost --profile /path/to/profile.json` for the Ghost runs.
+
+## Coverage database formats and logical names
+
+The §40.3.2.5 reference runner associates two logical names with relocated files. It places JSON exported by the Ghost CLI in separate nested directories and stores Verilator's CLI coverage data in a single directory. Native CLI reads retrieved complementary counts of `(3, 0)` and `(0, 3)` for both formats and merged them to `(3, 3)`. Swapping the names' entries exchanged the counts. Ghost rejected the Verilator database, and Verilator extracted no hits from the Ghost JSON. [Qualification record](qualification/coverage-database-storage-20261127.json)
+
+The runner supplies the logical name lookup for the CLI replays. The separate Ghost run of the SystemVerilog calls returned `SV_COV_NOCOV` from `$coverage_save` and `SV_COV_ERROR` from `$coverage_merge`.
+
+Rerun the public checks with `python3 tools/run_coverage_database_storage_profiles.py --json /tmp/coverage-storage.json`. Add `--ghost /path/to/ghost --profile /path/to/profile.json` for the second format and the SystemVerilog call measurements.
+
+## Implementation limit on automatic coverage bins
+
+For §19.5.3, both coverpoints request 13 automatic bins. Verilator 5.054 generates 5, 9, 13 and 13 bins for the four-bit coverpoint when `--coverage-max-bins` is 5, 9, 13 or 20. The two-bit control always has four bins. The compiler reports the applied cap at the four-bit declaration for caps 5 and 9. Each configuration was simulated at seeds 1 and 73. The runner checks the initial percentages, exact hit counts across the full sweep, and the remainder in the last bin. Ghost reports 13 and 4 bins on the unchanged source. [Qualification record](qualification/automatic-bin-limit-20261127.json) · [Saved Verilator result](results/automatic-bin-limit-20261127-verilator5.054.json)
+
+Rerun with `python3 tools/run_verilator_automatic_bin_limit.py --verilator /path/to/verilator --json /tmp/automatic-bin-limit.json --observations /tmp/automatic-bin-limit-observed.json`.
+
+## C layout of unpacked union members
+
+For §7.3.1 the runner compiles measurements of the actual C++ union generated by Verilator 5.054 and of a separately declared C union. It compares both member offsets, the ascending offsets within each structure, their sizes, and their alignments. The generated structures occupy 24 and 32 bytes on the measured host and overlay at offset zero. C reads common initial members and the active real value from the generated type. The generated type then reads signed integers and a real value written by C. Swapping the first two fields of one generated structure creates an offset mismatch and stops before any byte transfer. The ordinary SystemVerilog common-member test matched on Ghost and Verilator. [Qualification record](qualification/unpacked-union-c-layout-20261127.json) · [Saved Verilator result](results/unpacked-union-c-layout-20261127-verilator5.054.json)
+
+Rerun with `python3 tools/run_unpacked_union_c_layout.py --verilator /path/to/verilator --json /tmp/union-layout.json --observations /tmp/union-layout-observed.json`.
+
+## VPI host defaults and compile-bound modes
+
+For §§36.12.2 and 36.12.2.2, a macOS test adapter binds the default once at library load and delegates the property and iteration calls to Ghost's VPI entry points. Under the 1995 default, the two unchanged unbound libraries observe a memory, a memory word, and only the integer in the variable iteration. Under the current default they observe a variable array, a register, and all three variables. The 1995 and 2023 compile-bound libraries keep their respective results in each run. Every library reads 47 from the same storage word. [Qualification record](qualification/vpi-host-default-modes-20261127.json)
+
+Changing the environment between two callbacks leaves the selected default in effect. The adapter diagnoses an ambiguous selection and leaves both unbound applications without a selected view. The ordinary Ghost runs observe the current view for both unbound libraries. The setting used in the qualification belongs to the test adapter.
+
+Rerun on macOS with `python3 tools/run_vpi_host_default_modes.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-host-default.json`.
+
+A second fixture reuses the same two unbound libraries with no compile-bound companion. Reversing their load order reverses their callback order. Both applications still report the selected mode and read `83` from the new design. This covers the default-only setup independently of the mixed-mode case.
+
+## Separate compilation and configuration binding
+
+The §33.5 and §33.5.3 tests compile cells in individual Yosys processes and save two configurations before deleting the staged SystemVerilog sources. A fresh reference binder selects the compiled configuration, follows the subinstances found in each persisted object and binds the same worker object to different leaves at two paths. Yosys proves `west=a2 east=a1` for the crossed configuration and `west=a1 east=a2` for the local configuration. Negative runs withhold the compiled configuration, a required leaf or the intermediate enclosure that contains both worker instances. The source-only Slang elaboration and Ghost simulation agree with the reference runs. Verilator 5.054 binds both leaves alike for each fixture, yielding `west=a2 east=a2` for the direct fixture and `west=a1 east=a1` for the deeper fixture under both configurations. [Qualification record](qualification/config-precompiled-cells-20261127.json)
+
+Rerun with `python3 tools/run_config_precompiled_cells.py --slang /path/to/slang --json /tmp/config-precompiled-cells.json`. Yosys and Verilator are selected from `PATH` by default. Supply `--ghost /path/to/ghost` to include the Ghost source comparison.
+
+## VPI extension formats for `misc`
+
+The §38.15 fixture tests a reference provider with two private format IDs. The provider reads 40-bit and 10-bit signals through each simulator's `vpiVectorVal` API. One ID returns the width and the `aval` and `bval` words through `misc`. The other returns counts of `0`, `1`, `X` and `Z`. Ghost and Icarus supplied identical vectors and both reference runs matched the expected payloads. The reference provider leaves the payload empty for an unregistered ID. Rebuilding only the provider with a changed bit-plane ID removes the bit-plane result while preserving the counts and the standard vector output. [Qualification record](qualification/vpi-misc-format-extensions-20261127.json)
+
+The native calls with these private IDs returned no data or error on Ghost. Icarus stopped at the first private ID with an internal assertion. The normal VPI vector control passed on Ghost and Icarus. Verilator 5.054 returned zero `bval` words. The extension tests count toward design coverage and use a reference provider.
+
+Run the public reproduction with `python3 tools/run_vpi_misc_format_extensions.py --iverilog-bin /path/to/icarus/bin --json /tmp/vpi-misc-icarus.json`. The Ghost reproduction uses `--ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json` in place of `--iverilog-bin`.
+
+## VPI access to protected objects
+
+The §§37.3.6, 37.42, 37.59 and 38 test encrypts and recovers two source ranges with fixture-owned keys. It repeats the run with the ranges on the other side of the same design. Slang checks the source locations of the arrays, class references, module instances, system calls and arguments. A reference adapter uses these recovered ranges on Ghost's actual VPI objects. Each layout blocks integer and string properties, parent and index navigation, lookup through a protected scope, and iteration on that scope. The type and protection flag remain readable. Both the system task and system function yield their protected arguments, and the expression widths stay readable. [Qualification record](qualification/vpi-protected-access-20261127.json)
+
+Ghost's direct run on the recovered source returned zero protection flags and allowed the operations for both sides. A direct run on the encrypted input without configured keys reported an undeclared object. The reference runs count toward design coverage. Use `python3 tools/run_vpi_protected_access.py --ghost /path/to/ghost --slang /path/to/slang --python /path/to/hdl-encrypt-venv/bin/python --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-protected-access.json` to reproduce the comparison.
+
+## Statement callbacks on protected code
+
+The §§38.36.1.1 and 38.36.1.3 test encrypts and recovers either the left or the right named block. Slang verifies the source range of each block and its child statements. A reference adapter rejects individual `cbStmt` registration on the protected block with a null handle and a diagnostic. Its module-wide registration excludes the protected block, delay and assignment, and registers actual Ghost callbacks for the six clear statements. After the module-wide handle is removed, an independently registered callback still fires on the final assignment. The final values are `29`, `47` and `63` in both layouts. Ghost's direct run on the recovered source accepts both individual registrations and reports callbacks for both branches. [Qualification record](qualification/vpi-protected-callbacks-20261127.json)
+
+Run `python3 tools/run_vpi_protected_callbacks.py --ghost /path/to/ghost --slang /path/to/slang --python /path/to/hdl-encrypt-venv/bin/python --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-protected-callbacks.json` to reproduce the comparison.
+
+## Weak references and class collection
+
+The §§8.29, 8.30.1 and 8.30.5 test passes weak wrappers through a task and a containing class, then observes generated Verilator destructor calls with a reference weak-view adapter under AddressSanitizer. Creating the weak views leaves the strong counts unchanged. One wrapper is collected while its referent is still strongly reachable. After the last strong handle is removed, the two surviving views still reach the queued object at strong count zero. The native destructor hook clears both views with one atomic exchange. A peer object stays live. In the control, keeping one extra native strong handle prevents collection at that observation point. [Qualification record](qualification/weak-reference-collection-20261127.json)
+
+The SystemVerilog associative array retains its numeric key through the target's collection. The reference allocator then reuses the ID for a newly constructed object while the old views stay null. The ordinary Ghost run uses `std::weak_reference` and matches the live-view and numeric-key output. In a supplementary observation, Ghost still reads `29` through both views after dropping the last source-level strong handle. Verilator 5.054 rejects the ordinary `std::weak_reference` declaration. The reference results count toward design coverage.
+
+Run `python3 tools/run_weak_reference_collection.py --json /tmp/weak-reference-collection.json` to compile and replay the reference and strong-control cases.
+
+## Class reclaim callbacks and handle release
+
+The §§37.2.2 and 38.36.1 test observes actual generated Verilator destructors under AddressSanitizer. A reference VPI adapter delivers the typespec subscription for both instances of the selected type and the object subscription for the selected instance alone. The independent class has no delivery. During a callback the client reads the class type, 64-bit identity, protection flag and allocation and lifetime properties. The delivered time pointer is null. After the callbacks return, the reference table retires both object handles, property and array-element handles, the method handle, and all four object-specific registrations. The typespec subscription stays active. Holding a real extra strong handle prevents that instance's destruction and delivery during the trial. [Qualification record](qualification/vpi-class-reclaim-20261127.json)
+
+The direct Ghost run accepts the typespec and object reclaim registrations and also accepts the class-variable target. It reports two creation callbacks and zero reclaim deliveries in this fixture. The companion Ghost test reads a static task-local handle and receives its value-change callback after the task returns. Additional companions exercise frame and thread targets and `cbForce`/`cbRelease` with a null target. In the expression and primitive-terminal companion, Ghost accepts registration on both targets, while the callback stream records only net events.
+
+Run `python3 tools/run_vpi_class_reclaim.py --json /tmp/vpi-class-reclaim.json` to reproduce the reference and held cases.
+
+## Automatic frame and thread lifetimes
+
+The tests for §§37.3.7 and 37.3.8 pair the class collection fixture with a fixture that overlaps two calls to an automatic task. In AddressSanitizer-instrumented Verilator code, the reference VPI reads the actual integer, byte, and bit values during frame start and end callbacks. The frame's handles and subscriptions disappear after return, and the calling thread is still alive at the next sample. The reference observes thread creation and destruction and delivers `cbEndOfObject` for both frames and threads. [Qualification record](qualification/vpi-automatic-frame-lifetime-20261127.json)
+
+Ghost, Icarus Verilog, Verilator, and kirimasim matched the ordinary HDL output. Slang analyzed the design without errors. In separate Ghost VPI tests, thread start matched. The frame start callbacks arrived before the task body, but the arguments and locals were unavailable in those callbacks. After the end callbacks, the callback manager and thread state reflected termination, and the internal handle table still held entries for the ended objects.
+
+Rerun with `python3 tools/run_vpi_automatic_frame_lifetime.py --json /tmp/vpi-automatic-frame-lifetime.json` and the class collection command.
+
+## Other transient objects
+
+The §37.3.7 fixture replaces a dynamic array while a forked task holds a reference to one of its elements. Ghost observed the write of 43 through the outdated reference and the separate value of 69 in the replacement array. It read the block-scoped reference as 23 and tracked the thread through its end callback after leaving the scope. The argument iterator returned null on its terminal scan, and a separate Icarus fixture observed actual deallocation at terminal scan. [Qualification record](qualification/vpi-other-transient-20261127.json)
+
+The scheduled event was pending before delivery and set the target to 91 before its handle was released. The retained timer fired once, and the removed timer did not fire. A separate Ghost test still differed on immediate enumeration of the removed timer. [Ghost run](results/vpi-other-transient-20261127-ghost.json)
+
+## Attributes of terminals, paths, timing checks, and table entries
+
+The §37.83 test selects two Ghost-created objects of each kind: primitive terminals, path terminals, module paths, timing checks, and UDP table entries. The helper sets two attributes on one owner and one on the other. Public VPI calls verify enumeration, types, names, integer and real values, and each attribute's parent. A separate run moves one attribute into the wrong module path's iterator and gives a path terminal attribute the wrong parent. The client detects both changes. [Qualification record](qualification/vpi-extended-attributes-20261127.json)
+
+The ordinary source exposes the gate's native attribute and leaves both objects of each tested kind with empty attribute lists. Ghost and Slang accept the tested primitive input annotation, and Ghost still reports an empty terminal attribute list. Both tools diagnose the tested annotation positions for the other four kinds. The ten requirement mappings use the run with helper-set attributes.
+
+Rerun with `python3 tools/run_vpi_extended_attributes.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-extended-attributes.json`.
+
+## Program and interface ownership
+
+The tests for §§37.6, 37.9, and 37.39 use Ghost-created programs, interfaces, arrays, and module paths. A helper sets the diagrammed ownership edges. Each program enumerates its selected scalar interface and array, the original array elements remain accessible by index, and the selected objects lead back to their respective programs. The connected physical controls keep their module owner. The path checks verify the actual interface endpoints, `vpiInstance` links and null legacy `vpiModule` links for two paths of one interface and one path of the other. [Qualification record](qualification/vpi-interface-ownership-20261127.json)
+
+When the legacy lookup follows the private parent hierarchy, Ghost returns the outer module for the interface paths. The modern instance link still returns the interface. In direct source comparisons, Ghost and Slang diagnose interface instantiation in a program and `specify` in an interface. The seven requirement mappings use the trial with controlled ownership edges.
+
+Rerun with `python3 tools/run_vpi_interface_ownership.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-interface-ownership.json`.
+
+## Pure constraint and structure pattern properties
+
+The tests for §§37.34 and 37.72 use Slang to identify a pure constraint, its concrete implementation, and a final constraint that cannot be overridden. Slang diagnoses removing the implementation and overriding the final constraint in separate controls. The parser also identifies the nested structure patterns by their bound variables and analyzes both field arrangements. [Qualification record](qualification/vpi-pattern-constraint-20261127.json)
+
+A helper sets the parsed properties on the actual VPI objects. The public `vpiVirtual` lookup returns true for the pure declaration and false for the final control. The nested `vpiName` lookup returns its field name, and the names and HDL values follow the swapped fields. In the ordinary Ghost run, the pure constraint flag is false and the nested pattern names are absent.
+
+Rerun with `python3 tools/run_vpi_pattern_constraint_properties.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-pattern-constraint.json`.
+
+## Diagram notation and common VPI access
+
+The §37.4.1 checker measures outlines and typefaces in the inventoried IEEE PDF. It classifies object and class definitions and references, the anonymous enclosure, and the symbols nested inside a class definition. The instance reference in a separate figure resolves to its named definition. The anonymous group cannot be resolved through a member name. Changing the solid stroke and the reference typeface causes the checker to reject the corresponding symbols. [Qualification record](qualification/vpi-diagram-key-20261127.json)
+
+In the §37.3 Ghost run, all four instance kinds expose names, an iterator over their variables, and links back to each variable's owner. The scalar and vector nets expose their names, widths of one and four, Boolean vector flags, and the module that owns them. [Ghost run](results/vpi-diagram-access-20261127-ghost.json)
+
+The diagram check uses Poppler's `pdftoppm`, pdfplumber, and Pillow. Run `python3 tools/run_vpi_diagram_key.py --pdf /path/to/IEEE_Std_1800-2023_SystemVerilog.pdf --json /tmp/vpi-diagram-key.json`. The licensed PDF and rendered pages remain outside the repository.
+
+## Task and function parents in VPI
+
+Slang identifies a task with a `ref` formal, a function with a `const ref` formal, and a function with an ordinary input. Ghost exposes the first two as distinct reference objects with the same formal name and provides `vpiTaskFunc` links to their declarations. The reference test sets `vpiParent` on separate task and function views and checks the exact object returned by public VPI. Exchanging the reference objects makes both identity checks fail. In the native run the declarations have module parents. [Qualification record](qualification/vpi-task-reference-parent-20261127.json)
+
+Rerun with `python3 tools/run_vpi_task_reference_parent.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-reference-parent.json`.
+
+## Equality of associative keys
+
+The §7.8.5 group exercises independently allocated dynamic arrays, a structure with queue and string members, and event handles. Slang accepts those key types. It also accepts equality on the structure containing a nested real member and diagnoses its use as a key. Strict Ghost matches both dynamically sized key tests and the real-containing key diagnostic. [Qualification record](qualification/associative-key-equality-20261127.json)
+
+The event regression compares three event handles and uses the results to check the expected two distinct entries. Ghost observes the correct equality matrix but creates a single entry. An assignment through the alias changes both lookups to 63. The reference replay uses the measured equality matrix and produces the expected values 17 and 59 after the assignment.
+
+Rerun with `python3 tools/run_associative_key_equality.py --ghost /path/to/ghost --slang /path/to/slang --profile /path/to/profile.json --json /tmp/associative-key-equality.json`.
+
+## Process control and target origin
+
+The §9.7 test obtains distinct process handles from an initial procedure, an always procedure, a fork from each, and a nested fork. Ghost suspends and resumes all five targets, observes progress from each, and then kills and awaits each target. Slang identifies the origins in the source, and the VPI application checks the fork parent IDs against Ghost's runtime graph. [Qualification record](qualification/process-control-target-origins-20261127.json)
+
+After the final procedure, a separate captured caller attempts `await`, `suspend`, `resume`, and `kill` on the final-origin handle. The reference guard rejects all four operations and the handle's state stays unchanged. With the guard removed, Ghost's internal API reports that await would block and changes the handle's state to suspended, running, then killed. These are calls on the captured handles through the internal API at the end-of-simulation callback.
+
+Rerun with `python3 tools/run_process_control_target_origins.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/process-origins.json`.
+
+## Edition selection for normative references
+
+The Chapter 2 checker reads citations from the inventoried IEEE 1800-2023 PDF and resolves them against publisher records reviewed through 2026-11-27. For dated references it selects IEEE 1364-1995 over the 2005 edition and the August 2002 FIPS 180-2 edition despite a later change notice and the later FIPS 180-4. Ghost uses the same source and VPI probe with both IEEE 1364 versions. The 1995 API sees a memory and a memory word, and the 2005 API sees a reg array and a reg. Both read 101. The SHA-1 known-answer check uses the bytes of `abc`. [Qualification record](qualification/normative-reference-editions-20261127.json) · [IEEE 1364-1995](https://standards.ieee.org/ieee/1364/2051/) · [NIST FIPS 180-2](https://csrc.nist.gov/pubs/fips/180-2/final)
+
+The undated references select IEEE 754-2019 and IEEE 1003.1-2024 at the recorded cutoff. Historical POSIX cutoffs select a published amendment, then the first and second published corrigenda for a later base. The current selections exclude the unpublished IEEE projects. Ghost and Icarus match the binary64 checks. The host utilities and Python decoders recover all 96 bytes from both the historical and Base64 uuencode formats. The registry selection checks and the behavioral traces are both in the qualification record. [IEEE 754-2019](https://standards.ieee.org/ieee/754/6210/) · [IEEE 1003.1-2024](https://standards.ieee.org/ieee/1003.1/7700/) · [POSIX uuencode](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uuencode.html)
+
+Rerun with the inventoried PDF, Poppler's `pdftotext`, a C compiler, OpenSSL, Icarus, and the `uuencode` and `uudecode` utilities. Use `python3 tools/run_normative_reference_editions.py --pdf /path/to/IEEE-1800-2023.pdf --ghost /path/to/ghost --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/normative-reference-editions.json`.
 
 ## CI and nightly
 

@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-34.4-EXTRACT-PROTECT-DEFAULTS"
+  ],
+  "explicit_digest_defaults": {
+    "digest_keyowner": "34.5.16.2",
+    "digest_key_method": "34.5.17.2",
+    "digest_keyname": "34.5.18.2",
+    "digest_public_key": "34.5.19.2",
+    "digest_decrypt_key": "34.5.20.2"
+  },
+  "qualification": {
+    "profile": "protect-digest-defaults",
+    "checker_sha256": "ee3be9e877c94bfaa841391e28529eb0db588b528f6ec68580a824c0ee6c52c8",
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "tests": {
+      "ch34/test_protect_digest_defaults_follow_data": {
+        "inputs_sha256": "fd28ae283966be1c582f3fe1e930a0a57e56b54e76c083e71229b742bc088884",
+        "reference": {
+          "contexts": [
+            {
+              "data_method": "aes128-cbc",
+              "data_keyowner": "",
+              "data_keyname": "",
+              "checks": {
+                "digest_key_method": true,
+                "digest_decrypt_key": true
+              },
+              "body_recovered": true
+            },
+            {
+              "data_method": "aes256-cbc",
+              "data_keyowner": "",
+              "data_keyname": "",
+              "checks": {
+                "digest_key_method": true,
+                "digest_decrypt_key": true
+              },
+              "body_recovered": true
+            },
+            {
+              "data_method": "rsa",
+              "data_keyowner": "Fixture East",
+              "data_keyname": "assembly",
+              "checks": {
+                "digest_keyowner": true,
+                "digest_keyname": true,
+                "digest_public_key": true
+              },
+              "body_recovered": true
+            },
+            {
+              "data_method": "rsa",
+              "data_keyowner": "Fixture West",
+              "data_keyname": "backup",
+              "checks": {
+                "digest_keyowner": true,
+                "digest_keyname": true,
+                "digest_public_key": true
+              },
+              "body_recovered": true
+            }
+          ],
+          "counts_by_omitted_keyword": {
+            "digest_keyowner": 2,
+            "digest_key_method": 2,
+            "digest_keyname": 2,
+            "digest_public_key": 2,
+            "digest_decrypt_key": 2
+          },
+          "data_settings_change_between_contexts": true,
+          "recovered_hdl_matches": true
+        },
+        "native": {
+          "outcome": "recovered",
+          "recovered_bodies": 4,
+          "digest_requests": 4,
+          "output_digest_blocks": 0,
+          "requests_in_recovered_bodies": 4
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch34/test_protect_digest_defaults_follow_data": {
+          "status": "pass",
+          "inputs_sha256": "fd28ae283966be1c582f3fe1e930a0a57e56b54e76c083e71229b742bc088884"
+        }
+      },
+      "generated_at": "2026-11-26T15:33:01.250182+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch34/test_protect_digest_defaults_follow_data": {
+          "status": "pass",
+          "inputs_sha256": "fd28ae283966be1c582f3fe1e930a0a57e56b54e76c083e71229b742bc088884"
+        }
+      },
+      "generated_at": "2026-11-26T15:33:01.242259+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch34/test_protect_digest_defaults_follow_data": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_digest_defaults_follow_data.sv:18:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "fd28ae283966be1c582f3fe1e930a0a57e56b54e76c083e71229b742bc088884"
+        }
+      },
+      "generated_at": "2026-11-26T15:33:01.265175+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  },
+  "negative_controls": {
+    "repeated_data_cipher_detected": true,
+    "repeated_context_still_recovers_hdl": true,
+    "wrong_inherited_digest_keyname_diagnosed": true
+  }
+}

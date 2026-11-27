@@ -1,0 +1,8 @@
+IEEE 1364 pin=1364-1995 newest=1364-2005
+FIPS 180 pin=180-2 (2002-08) updates=-
+FIPS 180 later=180-4 (2015-08) available-update=180-2 Change Notice 1
+sha1 abc=a9993e364706816aba3e25717850c26c9cd0d89d
+1364-1995 lookup=vpi_handle_by_name_1364v1995
+1364-1995 array=29 element=30 value=101
+1364-2005 lookup=vpi_handle_by_name_1364v2005
+1364-2005 array=116 element=48 value=101

@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[All chapters](README.md). 516 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 517 tests, 138 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -366,6 +366,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_illegal_cast_class_handle_to_integral`](../../tests/ch8/test_illegal_cast_class_handle_to_integral.sv) | a class handle cannot be cast to an integral type | 8.28 6.24.1 | standard only | illegal design |
 | [`test_class_managed_storage_lifetime`](../../tests/ch8/test_class_managed_storage_lifetime.sv) | Observe storage for a class object, dynamic array, associative array and string | 8.29 | Verilator 5.054 | DPI |
 | [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) | An object stays strongly reachable, so its weak references are not cleared, while a handle in an active scope refers to it or a nonblocking assignment to one of its members is pending | 8.29 8.30.3 | standard only ||
+| [`test_weak_reference_reclamation`](../../tests/ch8/test_weak_reference_reclamation.sv) | Weak wrappers and numeric keys remain observable when the original class object becomes collectible | 8.29 8.30.1 8.30.5 | standard only | several files |
 | [`test_weak_reference_std_scope_and_strong_reachability`](../../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) | std declares weak_reference and another scope may declare its own class of that name, and a handle in an active scope keeps its referent strongly reachable | 8.29 8.30.1 | standard only ||
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) | std::weak_reference has a class type parameter T, a constructor taking a T referent, get() returning T with the referent until clear() sets it to null, clear() returning nothing, and a static get_id(T) whose longint result is 0 for null, nonzero for an object and the same at every call for one object | 8.30 G.7 | standard only ||
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) | weak_reference requires a class type parameter | 8.30.1 | standard only | illegal design |

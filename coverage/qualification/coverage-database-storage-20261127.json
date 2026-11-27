@@ -1,0 +1,333 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-40.3.2.5-EXTRACT-DATABASE-REPRESENTATION"
+  ],
+  "qualification": {
+    "profile": "coverage-database-storage-reference",
+    "checker_sha256": "08e6e33bd5c129cafcd9dfd53327cda379aef71f71975c6052ef2b5252c8163b",
+    "artifact_sha256": {
+      "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "converter": "903356657c910eeeae54f57a0b1193215c966319324c7f58aa56b9dd2432cc93",
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5",
+      "profile": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "verilator_version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "tests": {
+      "ch40/test_coverage_database_storage_profiles": {
+        "inputs_sha256": "bf5e6f690763d34d42de8eb113b9042b57317864b2f45708042f25cb6365b4c6",
+        "verilator": {
+          "entries": {
+            "db/north": {
+              "stdout": [
+                "selected=0"
+              ],
+              "captured": {
+                "path": "capture-0",
+                "bytes": 496,
+                "sha256": "f6d746de080cd8be5d55b117bdc0677cf141bf85f1dd3bb2c42d91c91dc95a63"
+              },
+              "persisted": {
+                "path": "output-flat-19",
+                "bytes": 496,
+                "sha256": "f6d746de080cd8be5d55b117bdc0677cf141bf85f1dd3bb2c42d91c91dc95a63"
+              }
+            },
+            "db/south": {
+              "stdout": [
+                "selected=1"
+              ],
+              "captured": {
+                "path": "capture-1",
+                "bytes": 496,
+                "sha256": "1ebdbcea19b7b3ee721794c8889b0801fda4c52cf471ea7a2b0b2a066eb24eda"
+              },
+              "persisted": {
+                "path": "output-flat-43",
+                "bytes": 496,
+                "sha256": "1ebdbcea19b7b3ee721794c8889b0801fda4c52cf471ea7a2b0b2a066eb24eda"
+              }
+            }
+          },
+          "retrieved_counts": {
+            "db/north": [
+              3,
+              0
+            ],
+            "db/south": [
+              0,
+              3
+            ]
+          },
+          "switched_counts": {
+            "db/north": [
+              0,
+              3
+            ],
+            "db/south": [
+              3,
+              0
+            ]
+          },
+          "merged_counts": [
+            3,
+            3
+          ],
+          "merged_artifact": {
+            "path": "combined",
+            "bytes": 496,
+            "sha256": "198152968fca289e4981f83368ccb03d31ecd6b2ee95a278254ec133f3b95fd6"
+          },
+          "checks": {
+            "complementary_entries_read_by_name": true,
+            "merged_cover_counts_preserved": true,
+            "switched_entries_detected": true,
+            "storage_paths_are_independent_of_names": true
+          },
+          "pass": true
+        },
+        "ghost": {
+          "entries": {
+            "db/north": {
+              "stdout": [
+                "selected=0"
+              ],
+              "captured": {
+                "path": "capture-0",
+                "bytes": 287,
+                "sha256": "3a7f2814c3191d17e010e1b6d3668c31b474cbe09610f481e9f287a6cf9bc393"
+              },
+              "persisted": {
+                "path": "archive/region/part-7",
+                "bytes": 287,
+                "sha256": "3a7f2814c3191d17e010e1b6d3668c31b474cbe09610f481e9f287a6cf9bc393"
+              }
+            },
+            "db/south": {
+              "stdout": [
+                "selected=1"
+              ],
+              "captured": {
+                "path": "capture-1",
+                "bytes": 287,
+                "sha256": "e6ac5d682cc181b7ff86b2d5e50e152da611103b207710300beabc8b18c0e185"
+              },
+              "persisted": {
+                "path": "objects/segment-2",
+                "bytes": 287,
+                "sha256": "e6ac5d682cc181b7ff86b2d5e50e152da611103b207710300beabc8b18c0e185"
+              }
+            }
+          },
+          "retrieved_counts": {
+            "db/north": [
+              3,
+              0
+            ],
+            "db/south": [
+              0,
+              3
+            ]
+          },
+          "switched_counts": {
+            "db/north": [
+              0,
+              3
+            ],
+            "db/south": [
+              3,
+              0
+            ]
+          },
+          "merged_counts": [
+            3,
+            3
+          ],
+          "merged_artifact": {
+            "path": "combined",
+            "bytes": 331,
+            "sha256": "5722bbd5b721456ac08c698b00ae17e828cb7dfae1c0d92e3437691fb2b3aed6"
+          },
+          "checks": {
+            "complementary_entries_read_by_name": true,
+            "merged_cover_counts_preserved": true,
+            "switched_entries_detected": true,
+            "storage_paths_are_independent_of_names": true
+          },
+          "pass": true,
+          "native_calls": [
+            "standard save=0 merge=-1",
+            "selected=0"
+          ]
+        },
+        "encodings": {
+          "checks": {
+            "different_payloads": true,
+            "ghost_rejects_foreign_database": true,
+            "verilator_no_hits_from_foreign_database": true
+          },
+          "ghost_exit": 1,
+          "verilator_exit": 0,
+          "pass": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "public": {
+    "profile": "coverage-database-storage-reference",
+    "checker_sha256": "08e6e33bd5c129cafcd9dfd53327cda379aef71f71975c6052ef2b5252c8163b",
+    "artifact_sha256": {
+      "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "converter": "903356657c910eeeae54f57a0b1193215c966319324c7f58aa56b9dd2432cc93",
+      "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    },
+    "verilator_version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "tests": {
+      "ch40/test_coverage_database_storage_profiles": {
+        "inputs_sha256": "bf5e6f690763d34d42de8eb113b9042b57317864b2f45708042f25cb6365b4c6",
+        "verilator": {
+          "entries": {
+            "db/north": {
+              "stdout": [
+                "selected=0"
+              ],
+              "captured": {
+                "path": "capture-0",
+                "bytes": 496,
+                "sha256": "f6d746de080cd8be5d55b117bdc0677cf141bf85f1dd3bb2c42d91c91dc95a63"
+              },
+              "persisted": {
+                "path": "output-flat-19",
+                "bytes": 496,
+                "sha256": "f6d746de080cd8be5d55b117bdc0677cf141bf85f1dd3bb2c42d91c91dc95a63"
+              }
+            },
+            "db/south": {
+              "stdout": [
+                "selected=1"
+              ],
+              "captured": {
+                "path": "capture-1",
+                "bytes": 496,
+                "sha256": "1ebdbcea19b7b3ee721794c8889b0801fda4c52cf471ea7a2b0b2a066eb24eda"
+              },
+              "persisted": {
+                "path": "output-flat-43",
+                "bytes": 496,
+                "sha256": "1ebdbcea19b7b3ee721794c8889b0801fda4c52cf471ea7a2b0b2a066eb24eda"
+              }
+            }
+          },
+          "retrieved_counts": {
+            "db/north": [
+              3,
+              0
+            ],
+            "db/south": [
+              0,
+              3
+            ]
+          },
+          "switched_counts": {
+            "db/north": [
+              0,
+              3
+            ],
+            "db/south": [
+              3,
+              0
+            ]
+          },
+          "merged_counts": [
+            3,
+            3
+          ],
+          "merged_artifact": {
+            "path": "combined",
+            "bytes": 496,
+            "sha256": "198152968fca289e4981f83368ccb03d31ecd6b2ee95a278254ec133f3b95fd6"
+          },
+          "checks": {
+            "complementary_entries_read_by_name": true,
+            "merged_cover_counts_preserved": true,
+            "switched_entries_detected": true,
+            "storage_paths_are_independent_of_names": true
+          },
+          "pass": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch40/test_coverage_database_storage_profiles": {
+          "status": "pass",
+          "inputs_sha256": "bf5e6f690763d34d42de8eb113b9042b57317864b2f45708042f25cb6365b4c6"
+        }
+      },
+      "generated_at": "2026-11-26T17:37:53.918489+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch40/test_coverage_database_storage_profiles": {
+          "status": "pass",
+          "inputs_sha256": "bf5e6f690763d34d42de8eb113b9042b57317864b2f45708042f25cb6365b4c6"
+        }
+      },
+      "generated_at": "2026-11-26T17:38:03.435039+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch40/test_coverage_database_storage_profiles": {
+          "status": "known",
+          "reason": "compile failed: tests/ch40/test_coverage_database_storage_profiles.sv:18: sorry: concurrent_assertion_item not supported. Try -gno-assertions or -gsupported-assertions to turn this message off.",
+          "inputs_sha256": "bf5e6f690763d34d42de8eb113b9042b57317864b2f45708042f25cb6365b4c6"
+        }
+      },
+      "generated_at": "2026-11-26T17:37:54.052275+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch40/test_coverage_database_storage_profiles": {
+          "status": "unsupported",
+          "reason": "concurrent assertion (not implemented yet)",
+          "inputs_sha256": "bf5e6f690763d34d42de8eb113b9042b57317864b2f45708042f25cb6365b4c6"
+        }
+      },
+      "generated_at": "2026-11-26T17:37:54.198117+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

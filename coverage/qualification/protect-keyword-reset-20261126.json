@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-34.4-EXTRACT-KEYWORD-RESET",
+    "SV2023-34.5.31.2-EXTRACT-RESET-PROTECT"
+  ],
+  "case": "ch34/test_protect_reset_restores_default_before_reconfiguration",
+  "source_checks": [
+    {
+      "profile": "slang-source-checks",
+      "compiler": "Slang",
+      "version": "slang version 12.0.0+0",
+      "binary_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "checker_sha256": "cc08ef98b72472642da9024aa19cbc9339c171f609f9988d2160fd9432168f89",
+      "reset_options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q",
+        "-Werror",
+        "-Wno-protected-envelope",
+        "-Wempty-member",
+        "-Wno-error=empty-member"
+      ],
+      "test": {
+        "inputs_sha256": "3dafb85ee85a67f9a736eda3769972cd5a8b7c48742d8415aeac94ffae0f579d",
+        "checks": {
+          "reconfigure_after_reset": {
+            "pass": true,
+            "returncode": 0,
+            "diagnostics": [],
+            "expected_diagnostics": []
+          },
+          "reconfigure_after_named_reset": {
+            "pass": true,
+            "returncode": 0,
+            "diagnostics": [],
+            "expected_diagnostics": []
+          },
+          "old_encoding_without_reset": {
+            "pass": true,
+            "returncode": 1,
+            "diagnostics": [
+              "test_protect_reset_restores_default_before_reconfiguration.sv:20:1: error: invalid base64 byte '?' -- attempting to skip remaining encoded text [-Winvalid-encoding-byte]"
+            ],
+            "expected_diagnostics": [
+              {
+                "file": "test_protect_reset_restores_default_before_reconfiguration.sv",
+                "line": 20,
+                "message": "invalid base64 byte",
+                "severity": "error"
+              }
+            ]
+          },
+          "invalid_new_encoding": {
+            "pass": true,
+            "returncode": 1,
+            "diagnostics": [
+              "test_protect_reset_restores_default_before_reconfiguration.sv:23:2: error: invalid uuencode byte 'n' -- attempting to skip remaining encoded text [-Winvalid-encoding-byte]"
+            ],
+            "expected_diagnostics": [
+              {
+                "file": "test_protect_reset_restores_default_before_reconfiguration.sv",
+                "line": 23,
+                "message": "invalid uuencode byte",
+                "severity": "error"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "profile": "slang-source-checks",
+      "compiler": "Slang",
+      "version": "slang version 12.0.0+a88cbc1b3",
+      "binary_sha256": "5fcf043a7b6a40f2d4747d0a726ddf0c428ff3a19c6ebf3e49d85e870c9a74fd",
+      "checker_sha256": "cc08ef98b72472642da9024aa19cbc9339c171f609f9988d2160fd9432168f89",
+      "reset_options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q",
+        "-Werror",
+        "-Wno-protected-envelope",
+        "-Wempty-member",
+        "-Wno-error=empty-member"
+      ],
+      "test": {
+        "inputs_sha256": "3dafb85ee85a67f9a736eda3769972cd5a8b7c48742d8415aeac94ffae0f579d",
+        "checks": {
+          "reconfigure_after_reset": {
+            "pass": true,
+            "returncode": 0,
+            "diagnostics": [],
+            "expected_diagnostics": []
+          },
+          "reconfigure_after_named_reset": {
+            "pass": true,
+            "returncode": 0,
+            "diagnostics": [],
+            "expected_diagnostics": []
+          },
+          "old_encoding_without_reset": {
+            "pass": true,
+            "returncode": 1,
+            "diagnostics": [
+              "test_protect_reset_restores_default_before_reconfiguration.sv:20:1: error: invalid base64 byte '?' -- attempting to skip remaining encoded text [-Winvalid-encoding-byte]"
+            ],
+            "expected_diagnostics": [
+              {
+                "file": "test_protect_reset_restores_default_before_reconfiguration.sv",
+                "line": 20,
+                "message": "invalid base64 byte",
+                "severity": "error"
+              }
+            ]
+          },
+          "invalid_new_encoding": {
+            "pass": true,
+            "returncode": 1,
+            "diagnostics": [
+              "test_protect_reset_restores_default_before_reconfiguration.sv:23:2: error: invalid uuencode byte 'n' -- attempting to skip remaining encoded text [-Winvalid-encoding-byte]"
+            ],
+            "expected_diagnostics": [
+              {
+                "file": "test_protect_reset_restores_default_before_reconfiguration.sv",
+                "line": 23,
+                "message": "invalid uuencode byte",
+                "severity": "error"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch34/test_protect_reset_restores_default_before_reconfiguration": {
+          "status": "known",
+          "reason": "compile failed: tests/ch34/test_protect_reset_restores_default_before_reconfiguration.sv:17: syntax error",
+          "inputs_sha256": "3dafb85ee85a67f9a736eda3769972cd5a8b7c48742d8415aeac94ffae0f579d"
+        }
+      },
+      "generated_at": "2026-11-26T14:43:51.303059+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build c494c95b55bc",
+      "tests": {
+        "ch34/test_protect_reset_restores_default_before_reconfiguration": {
+          "status": "pass",
+          "inputs_sha256": "3dafb85ee85a67f9a736eda3769972cd5a8b7c48742d8415aeac94ffae0f579d"
+        }
+      },
+      "generated_at": "2026-11-26T14:43:51.340931+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "c494c95b55bc8a1ee1f60a2e43b2a0d9e9247cee21cd82669fcd0bd22e954c41",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    }
+  }
+}

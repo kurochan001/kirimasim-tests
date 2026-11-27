@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.14-EXTRACT-DIAGRAM-021"
+  ],
+  "qualification": {
+    "profile": "input-port-delay-reference",
+    "checker_sha256": "2264a0162035809fdb3dd59463ee446ddaf04d16b8370556f77796f65e4a9e04",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "profile": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+      "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+      "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970"
+    },
+    "tests": {
+      "ch37/test_vpi_indexed_ports_and_input_delays": {
+        "inputs_sha256": "e1d7ce3d3e821d0db387960c325eb777d6cd6977a9057b6759c68a950ec21398",
+        "declared_bounds": [
+          7,
+          4,
+          2,
+          1,
+          5,
+          4
+        ],
+        "programmed_delays": [
+          3,
+          5
+        ],
+        "native": {
+          "compile_exit": 0,
+          "exit": 0,
+          "stdout": [
+            "ordinary input=1 peer=1",
+            "before rise=0 fall=0",
+            "after rise=3 fall=5",
+            "untouched rise=0 fall=0",
+            "single high=0 low=0 distinct=0 outside=1",
+            "multi high=0 low=0 distinct=0 reversed=1",
+            "rise before=1 peer=1",
+            "rise after=1 peer=1",
+            "fall before=0 peer=0",
+            "fall after=0 peer=0",
+            "edge ticks rise=10 fall=20"
+          ]
+        },
+        "native_matches": false,
+        "projected": {
+          "compile_exit": 0,
+          "exit": 0,
+          "stdout": [
+            "ordinary input=1 peer=1",
+            "before rise=0 fall=0",
+            "after rise=3 fall=5",
+            "untouched rise=0 fall=0",
+            "single high=1 low=1 distinct=1 outside=1",
+            "multi high=1 low=1 distinct=1 reversed=1",
+            "rise before=0 peer=1",
+            "rise after=1 peer=1",
+            "fall before=1 peer=0",
+            "fall after=0 peer=0",
+            "edge ticks rise=13 fall=25"
+          ]
+        },
+        "wrong_order": {
+          "compile_exit": 0,
+          "exit": 0,
+          "stdout": [
+            "ordinary input=1 peer=1",
+            "before rise=0 fall=0",
+            "after rise=3 fall=5",
+            "untouched rise=0 fall=0",
+            "single high=1 low=1 distinct=1 outside=1",
+            "multi high=0 low=0 distinct=0 reversed=0",
+            "rise before=0 peer=1",
+            "rise after=1 peer=1",
+            "fall before=1 peer=0",
+            "fall after=0 peer=0",
+            "edge ticks rise=13 fall=25"
+          ]
+        },
+        "missing_delay": {
+          "compile_exit": 0,
+          "exit": 0,
+          "stdout": [
+            "ordinary input=1 peer=1",
+            "before rise=0 fall=0",
+            "after rise=3 fall=5",
+            "untouched rise=0 fall=0",
+            "single high=1 low=1 distinct=1 outside=1",
+            "multi high=1 low=1 distinct=1 reversed=1",
+            "rise before=1 peer=1",
+            "rise after=1 peer=1",
+            "fall before=0 peer=0",
+            "fall after=0 peer=0",
+            "edge ticks rise=10 fall=20"
+          ]
+        },
+        "checks": {
+          "native_delay_storage_and_adjacent_port": true,
+          "reference_geometry_and_waveform": true,
+          "reversed_multi_index_detected": true,
+          "immediate_propagation_detected": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch37/test_vpi_indexed_ports_and_input_delays": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "e1d7ce3d3e821d0db387960c325eb777d6cd6977a9057b6759c68a950ec21398"
+        },
+        "ch37/test_vpi_interface_formal_rejects_get_and_put_delays": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "1a3810314ec4a776ca971007d026f1dd00ed89a65abe2d098f54d58517617692"
+        }
+      },
+      "generated_at": "2026-11-26T17:16:46.688024+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch37/test_vpi_indexed_ports_and_input_delays": {
+          "status": "known",
+          "reason": "VPI build failed: 6 errors generated.",
+          "inputs_sha256": "e1d7ce3d3e821d0db387960c325eb777d6cd6977a9057b6759c68a950ec21398"
+        }
+      },
+      "generated_at": "2026-11-26T17:16:46.180809+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_indexed_ports_and_input_delays": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'rise before=1 peer=1', expected 'ordinary input=1 peer=1'",
+          "inputs_sha256": "e1d7ce3d3e821d0db387960c325eb777d6cd6977a9057b6759c68a950ec21398"
+        }
+      },
+      "generated_at": "2026-11-26T17:16:54.033156+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 7fa2a9758cab), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_indexed_ports_and_input_delays": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "e1d7ce3d3e821d0db387960c325eb777d6cd6977a9057b6759c68a950ec21398"
+        }
+      },
+      "generated_at": "2026-11-26T17:16:46.239876+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+      "slang_version": "slang version 12.1.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T17:16:46.148745+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch37/test_vpi_indexed_ports_and_input_delays": {
+          "kind": "legal",
+          "vpi": true,
+          "status": "clean",
+          "inputs_sha256": "e1d7ce3d3e821d0db387960c325eb777d6cd6977a9057b6759c68a950ec21398"
+        }
+      }
+    }
+  }
+}

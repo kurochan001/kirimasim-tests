@@ -1,0 +1,4 @@
+library middleLib enclosure.sv;
+library cellsLib ../precompiled_cells/worker.sv;
+library westLib ../precompiled_cells/west.sv;
+library eastLib ../precompiled_cells/east.sv;

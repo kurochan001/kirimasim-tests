@@ -44,7 +44,9 @@ def record(frame, location, internal_dict):
     address = frame.FindRegister(register).GetValueAsUnsigned()
     callers = tuple(thread.GetFrameAtIndex(i).GetFunctionName()
                     for i in range(1, min(thread.GetNumFrames(), 8)))
-    if "check_iterators" not in callers:
+    if (not callers or (callers[0] or "").startswith("operator delete(")
+            or "check_iterators" not in callers
+            or not any((name or "").startswith("iterator_free_object(") for name in callers)):
         return False
     route = "scan" if "vpi_scan" in callers else "other"
     print(f"ITER_FREE {address:#x} {route}", flush=True)
@@ -107,7 +109,7 @@ def observe(binaries: dict[str, Path], fixture: Path) -> dict:
             str(binaries["lldb"]), "--batch", "--no-lldbinit",
             "-o", "settings set target.disable-aslr false",
             "-o", f"command script import {script}",
-            "-o", "breakpoint set --skip-prologue false --name iterator_free_object",
+            "-o", r'breakpoint set --skip-prologue false --func-regex "^operator delete\(void\*(, unsigned (long|int))?\)$"',
             "-o", "breakpoint command add -F inspect_iterator.record 1",
             "-o", "run", "--", str(binaries["vvp"]), "-M.", "-mapp",
             "design.vvp", "+trace_iterators",

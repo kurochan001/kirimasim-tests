@@ -3,7 +3,7 @@
 :description: Explicit digest public keys and inheritance from the data key
 :tags: ch34
 :type: simulation
-:lrm: 1800-2023 34.5.16.2 34.5.19.2
+:lrm: 1800-2023 34.4 34.5.16.2 34.5.18.2 34.5.19.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

@@ -76,25 +76,25 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **17120 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **17164 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9170 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3024 |
-| The standard only, with no fixed-release simulator oracle recorded | 4926 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9178 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3028 |
+| The standard only, with no fixed-release simulator oracle recorded | 4958 |
 
-4127 tests depend on x or z values (`:fourstate: yes`). 963 tests include C code. 252 use DPI (`:dpi_c:`) and 715 use VPI (`:vpi_c:`). A test can use both. 3155 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 180 tests check the exit code of the simulation (`:expected_exit:`). 101 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 8 name include directories (`:incdirs:`), 156 name the top-level module or configuration (`:top_module:`), and 1317 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4130 tests depend on x or z values (`:fourstate: yes`). 983 tests include C code. 253 use DPI (`:dpi_c:`) and 734 use VPI (`:vpi_c:`). A test can use both. 3156 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 185 tests check the exit code of the simulation (`:expected_exit:`). 127 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 9 name include directories (`:incdirs:`), 170 name the top-level module or configuration (`:top_module:`), and 1317 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 166 | 123 | 15 | 28 |
-| 4 | Scheduling semantics | 485 | 446 | 8 | 31 |
+| 4 | Scheduling semantics | 487 | 446 | 8 | 33 |
 | 5 | Lexical conventions | 533 | 447 | 31 | 55 |
-| 6 | Data types | 924 | 571 | 176 | 177 |
-| 7 | Aggregate data types | 1139 | 327 | 491 | 321 |
-| 8 | Classes | 516 | 78 | 282 | 156 |
-| 9 | Processes | 493 | 353 | 58 | 82 |
+| 6 | Data types | 925 | 571 | 176 | 178 |
+| 7 | Aggregate data types | 1141 | 327 | 492 | 322 |
+| 8 | Classes | 517 | 78 | 282 | 157 |
+| 9 | Processes | 494 | 353 | 58 | 83 |
 | 10 | Assignment statements | 770 | 599 | 83 | 88 |
 | 11 | Operators and expressions | 2638 | 2026 | 241 | 371 |
 | 12 | Procedural programming statements | 328 | 216 | 34 | 78 |
@@ -102,30 +102,30 @@ The suite has **17120 tests** in 38 chapters. 9351 of them are generated. The [g
 | 14 | Clocking blocks | 174 |  | 103 | 71 |
 | 15 | Interprocess synchronization and communication | 218 | 3 | 69 | 146 |
 | 16 | Assertions | 819 | 38 | 123 | 658 |
-| 17 | Checkers | 141 |  | 49 | 92 |
+| 17 | Checkers | 142 |  | 49 | 93 |
 | 18 | Constrained random value generation | 302 | 4 | 139 | 159 |
-| 19 | Functional coverage | 259 |  | 71 | 188 |
+| 19 | Functional coverage | 260 |  | 72 | 188 |
 | 20 | Utility system tasks and system functions | 723 | 399 | 123 | 201 |
 | 21 | Input/output system tasks and system functions | 971 | 548 | 111 | 312 |
 | 22 | Compiler directives | 1332 | 1245 | 42 | 45 |
 | 23 | Modules and hierarchy | 448 | 290 | 59 | 99 |
 | 24 | Programs | 225 | 38 | 38 | 149 |
-| 25 | Interfaces | 282 | 90 | 126 | 66 |
+| 25 | Interfaces | 284 | 90 | 127 | 67 |
 | 26 | Packages | 271 | 98 | 70 | 103 |
 | 27 | Generate constructs | 295 | 238 | 21 | 36 |
 | 28 | Gate-level and switch-level modeling | 423 | 329 | 3 | 91 |
 | 29 | User-defined primitives | 148 | 97 | 14 | 37 |
-| 30 | Specify blocks | 73 | 38 | 1 | 34 |
-| 31 | Timing checks | 89 | 18 | 1 | 70 |
+| 30 | Specify blocks | 74 | 38 | 1 | 35 |
+| 31 | Timing checks | 92 | 18 | 1 | 73 |
 | 32 | Backannotation using the standard delay format | 80 | 19 |  | 61 |
-| 33 | Configuring the contents of a design | 110 | 7 | 9 | 94 |
-| 34 | Protected envelopes | 52 | 24 | 2 | 26 |
-| 35 | Direct programming interface | 247 |  | 136 | 111 |
-| 36 | Programming language interface (PLI/VPI) overview | 101 | 35 | 22 | 44 |
-| 37 | VPI object model diagrams | 296 | 20 | 1 | 275 |
-| 38 | VPI routine definitions | 190 | 70 | 10 | 110 |
+| 33 | Configuring the contents of a design | 112 | 7 | 9 | 96 |
+| 34 | Protected envelopes | 59 | 31 | 2 | 26 |
+| 35 | Direct programming interface | 248 |  | 136 | 112 |
+| 36 | Programming language interface (PLI/VPI) overview | 105 | 36 | 22 | 47 |
+| 37 | VPI object model diagrams | 306 | 20 | 1 | 285 |
+| 38 | VPI routine definitions | 194 | 70 | 10 | 114 |
 | 39 | Assertion API | 50 |  | 1 | 49 |
-| 40 | Code coverage control and API | 45 | 1 | 2 | 42 |
+| 40 | Code coverage control and API | 46 | 1 | 3 | 42 |
 <!-- suite-stats:end -->
 
 The total includes 267 `:type: formal` tests. They are checked with SymbiYosys
@@ -313,13 +313,13 @@ The requirement denominator is **12,332 requirements**: those that the
 merging duplicate rows, with 34 rows that mixed an accepted and a rejected form
 each split in two with the owner's approval. The [history](docs/history.md)
 records how the denominator changed. The reviewer was an AI, not an independent human.
-Design coverage is **99.04% (12,214/12,332)**;
-execution coverage from the saved `coverage/results/` evidence of the tools
+Design coverage is **100% (12,332/12,332)**.
+Execution coverage from the saved `coverage/results/` evidence of the tools
 anyone can reproduce (Icarus Verilog, Verilator and SymbiYosys) is
-**52.38% (6,459/12,332)**.
-Of these rows, 6,167 are confirmed by a simulator and 292 by formal checks alone, which run no simulator.
-With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 90.81% (11,199/12,332).
-Clauses 1 to 40 alone are at 98.78% (9,383/9,499) design coverage.
+**52.40% (6,462/12,332)**.
+Of these rows, 6,170 are confirmed by a simulator and 292 by formal checks alone, which run no simulator.
+With the results of Ghost, an unreleased simulator, and of kirimasim added, it is 90.85% (11,204/12,332).
+Clauses 1 to 40 have 100% (9,499/9,499) design coverage.
 See the [generated behavior summary](docs/behavior-coverage-summary.en.md) for the
 measurement inputs and denominator.
 The full existing-test semantic review is still incomplete.
@@ -341,12 +341,11 @@ Tests are grouped in directories by the chapter (clause) of IEEE 1800-2023
 that the first clause in their `:lrm:` belongs to. The columns Icarus,
 Verilator and Standard only count the tests by where their expected output
 was recorded, as in the first table. Clauses 1 and 2 set out no behavior to
-test. Clause 34 (protected envelopes) has only four tests, of the envelope
-syntax and of Verilator leaving a data block out of the source: neither
-Icarus Verilog nor Verilator decrypts an envelope, and the
-[protected-envelope boundary](docs/protected-envelope-boundary.en.md) gives the
-audit-time reasons for the untested requirements; after the denominator review,
-209 of the 214 clause-34 requirements remain unmapped. Which parts of a design
+test. The clause 34 suite includes pragma syntax tests and standalone
+protection checks. The standalone checks include reference decryption and
+simulation of recovered SystemVerilog. The qualification records are linked
+from the [coverage guide](coverage/README.en.md), and the [generated summary](docs/behavior-coverage-summary.en.md)
+reports the remaining requirements. Which parts of a design
 have coverage depends on the tool and its options, so the tests of clause 40
 print only what holds for every result, such as the values the standard
 allows and how the results of the coverage functions relate.

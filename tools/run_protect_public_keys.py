@@ -31,6 +31,7 @@ CASES = {DATA: "public data=3d,18", DIGEST: "public digest=79", EXCHANGE: "publi
          ADJACENT: "public adjacent=64,af"}
 DIAGNOSTIC_REQUIREMENTS = {
     "SV2023-34.5.12.2-EXTRACT-NAME-SELECT",
+    "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME",
     "SV2023-34.5.25.2-EXTRACT-KEY-NAME",
 }
 DIAGNOSTIC_ANCHOR = "def unknown_name_at_selector("
@@ -164,9 +165,10 @@ def open_selected(openssl: str, wire: bytes, fields: Fields, keys: dict,
     return decipher(openssl, pair, author.payload(wire, fields.block).decoded)
 
 
-def unknown_name_at_selector(text: bytes, fields: Fields, keys: dict, owner: bytes, name: bytes) -> bool:
+def unknown_name_at_selector(text: bytes, fields: Fields, keys: dict, owner: bytes, name: bytes,
+                             fallback: Selection | None = None) -> bool:
     try:
-        encryption_key(read_selection(text, fields), fields, keys)
+        encryption_key(read_selection(text, fields, fallback), fields, keys)
     except UnknownName as error:
         return (error.keyword, error.owner, error.name) == (fields.name, owner, name)
     return False
@@ -298,12 +300,19 @@ def reference_controls(openssl: str, work: Path, case: str, fixture: Path, keys:
     settings = protect.fields(source)
     mode = settings[b"enctype"]
     if case == DATA:
-        result, wire = selection_controls(openssl, work, read_selection(source, DATA_FIELDS),
-                                          DATA_FIELDS, keys, mode, body, libraries)
+        data = read_selection(source, DATA_FIELDS)
+        result, wire = selection_controls(openssl, work, data, DATA_FIELDS, keys, mode, body, libraries)
         recovered = open_selected(openssl, wire, DATA_FIELDS, keys, libraries)
         result["third_party_data_key_supplier"] = (
             read_selection(wire, DATA_FIELDS).owner not in {settings[b"author"], REFERENCE_AGENT}
             and recovered == body
+        )
+        backup = replace(data, name=BACKUP)
+        backup_wire = seal(openssl, work, selection_text(backup, DATA_FIELDS, mode), DATA_FIELDS, keys, body, mode)
+        result["same_owner_changed_data_keyname"] = (
+            open_selected(openssl, backup_wire, DATA_FIELDS, keys, libraries) == body
+            and author.rejected(lambda: decipher(openssl, keys[(data.owner, data.name)],
+                                                author.payload(backup_wire, DATA_FIELDS.block).decoded))
         )
     elif case == DIGEST:
         data = include_public_key(source, DATA_FIELDS, keys)
@@ -319,6 +328,22 @@ def reference_controls(openssl: str, work: Path, case: str, fixture: Path, keys:
             read_selection(inherited_wire, DIGEST_FIELDS) == data
             and open_selected(openssl, inherited_wire, DIGEST_FIELDS, keys, libraries) == expected
         )
+        # Keep the digest owner explicit while omitting only the key name.
+        omitted_name = replace(explicit, name=None, public_der=keys[(explicit.owner, data.name)].public_der)
+        default_request = selection_text(omitted_name, DIGEST_FIELDS, mode)
+        default_wire = seal(openssl, work, default_request, DIGEST_FIELDS, keys, expected, mode, fallback=data)
+        result["digest_name_inherits_with_explicit_owner"] = (
+            DIGEST_FIELDS.name not in protect.fields(default_request)
+            and read_selection(default_wire, DIGEST_FIELDS) == replace(omitted_name, name=data.name)
+            and open_selected(openssl, default_wire, DIGEST_FIELDS, keys, libraries) == expected
+        )
+        result["same_name_data_key_rejected_for_digest"] = author.rejected(
+            lambda: decipher(openssl, keys[(data.owner, data.name)],
+                             author.payload(default_wire, DIGEST_FIELDS.block).decoded))
+        # The alternate name is registered to the data owner alone.
+        alternate_data = replace(data, name=BACKUP, public_der=keys[(data.owner, BACKUP)].public_der)
+        result["unknown_inherited_digest_name"] = unknown_name_at_selector(
+            default_request, DIGEST_FIELDS, keys, explicit.owner, BACKUP, fallback=alternate_data)
         # The name selects West but the inherited DER still belongs to East.
         without_public = selection_text(explicit, DIGEST_FIELDS, mode)
         result["inherited_public_and_explicit_name_mismatch"] = author.rejected(

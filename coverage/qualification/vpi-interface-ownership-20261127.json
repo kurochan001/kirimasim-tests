@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.6-EXTRACT-DIAGRAM-011",
+    "SV2023-37.6-EXTRACT-DIAGRAM-012",
+    "SV2023-37.39-EXTRACT-INTERFACE-SPECIFY-MODULE",
+    "SV2023-37.9-EXTRACT-DIAGRAM-010",
+    "SV2023-37.9-EXTRACT-DIAGRAM-011",
+    "SV2023-37.9-EXTRACT-DIAGRAM-012",
+    "SV2023-37.9-EXTRACT-DIAGRAM-013"
+  ],
+  "qualification": {
+    "profile": "ghost-interface-ownership-reference",
+    "checker_sha256": "cc2e67c54cbcf57fc5d033677f0920a5c59ed6409c4930a96eb3a1399eda1729",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "ghost_headers": "631f6b274a9007a0a2b95467e8820ffcbc0e5866232f005cd8fb97ef589c86ef"
+    },
+    "ghost": "private build 2f3874bf7b63",
+    "slang": "slang version 12.0.0+0",
+    "runtime_profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "tests": {
+      "ch37/test_vpi_interface_ownership": {
+        "inputs_sha256": "c54fc276eab5105540eff9bdaa6f48e6247cf9ae255b58951990ed368885b887",
+        "trials": {
+          "native": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "hdl paths=10 scalar=10 array=10 physical=11",
+              "phase native controls module=1/1 members=1/1 path-parents=1/1",
+              "left scalar children=0 match=0 owner=0 sibling=0 physical=0",
+              "right scalar children=0 match=0 owner=0 sibling=0 physical=0",
+              "left array children=0 match=0 owner=0 sibling=0 physical=0",
+              "right array children=0 match=0 owner=0 sibling=0 physical=0",
+              "module paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=2 null=0 ancestor=0",
+              "left paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0",
+              "right paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0",
+              "hdl after probe=10"
+            ]
+          },
+          "seeded": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "hdl paths=10 scalar=10 array=10 physical=11",
+              "phase native controls module=1/1 members=1/1 path-parents=1/1",
+              "left scalar children=0 match=0 owner=0 sibling=0 physical=0",
+              "right scalar children=0 match=0 owner=0 sibling=0 physical=0",
+              "left array children=0 match=0 owner=0 sibling=0 physical=0",
+              "right array children=0 match=0 owner=0 sibling=0 physical=0",
+              "module paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=2 null=0 ancestor=0",
+              "left paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0",
+              "right paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0",
+              "phase seeded controls module=1/1 members=1/1 path-parents=1/1",
+              "left scalar children=1 match=1 owner=1 sibling=0 physical=0",
+              "right scalar children=1 match=1 owner=1 sibling=0 physical=0",
+              "left array children=1 match=1 owner=1 sibling=0 physical=0",
+              "right array children=1 match=1 owner=1 sibling=0 physical=0",
+              "module paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=2 null=0 ancestor=0",
+              "left paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=0 null=2 ancestor=0",
+              "right paths=1 typed=1 endpoints=2 owner=1 sibling=0 legacy=0 null=1 ancestor=0",
+              "hdl after probe=10"
+            ]
+          },
+          "legacy_fallback": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "hdl paths=10 scalar=10 array=10 physical=11",
+              "phase native controls module=1/1 members=1/1 path-parents=1/1",
+              "left scalar children=0 match=0 owner=0 sibling=0 physical=0",
+              "right scalar children=0 match=0 owner=0 sibling=0 physical=0",
+              "left array children=0 match=0 owner=0 sibling=0 physical=0",
+              "right array children=0 match=0 owner=0 sibling=0 physical=0",
+              "module paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=2 null=0 ancestor=0",
+              "left paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0",
+              "right paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0",
+              "phase seeded controls module=1/1 members=1/1 path-parents=1/1",
+              "left scalar children=1 match=1 owner=1 sibling=0 physical=0",
+              "right scalar children=1 match=1 owner=1 sibling=0 physical=0",
+              "left array children=1 match=1 owner=1 sibling=0 physical=0",
+              "right array children=1 match=1 owner=1 sibling=0 physical=0",
+              "module paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=2 null=0 ancestor=0",
+              "left paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=0 null=0 ancestor=2",
+              "right paths=1 typed=1 endpoints=2 owner=1 sibling=0 legacy=0 null=0 ancestor=1",
+              "hdl after probe=10"
+            ]
+          }
+        },
+        "grammar": {
+          "native": {
+            "slang_exit": 0
+          },
+          "DIRECT_INTERFACE_SPECIFY": {
+            "slang": {
+              "exit": 1,
+              "diagnostics_at_candidate_lines": [
+                21
+              ]
+            },
+            "ghost": {
+              "exit": 1,
+              "diagnostics_at_candidate_lines": [
+                21
+              ]
+            }
+          },
+          "DIRECT_PROGRAM_CHILDREN": {
+            "slang": {
+              "exit": 1,
+              "diagnostics_at_candidate_lines": [
+                29,
+                30
+              ]
+            },
+            "ghost": {
+              "exit": 1,
+              "diagnostics_at_candidate_lines": [
+                29,
+                30
+              ]
+            }
+          }
+        },
+        "checks": {
+          "native_trace_matches": true,
+          "seeded_trace_matches": true,
+          "legacy_fallback_trace_matches": true,
+          "legacy_fallback_is_distinguished": true,
+          "source_comparisons_are_observed": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary_tools": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch37/test_vpi_interface_ownership": {
+          "status": "pass",
+          "inputs_sha256": "c54fc276eab5105540eff9bdaa6f48e6247cf9ae255b58951990ed368885b887"
+        }
+      },
+      "generated_at": "2026-11-26T20:02:28.402311+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch37/test_vpi_interface_ownership": {
+          "status": "known",
+          "reason": "output differs: line 2 is 'ownership VPI declarations unavailable', expected 'phase native controls module=1/1 members=1/1 path-parents...'",
+          "inputs_sha256": "c54fc276eab5105540eff9bdaa6f48e6247cf9ae255b58951990ed368885b887"
+        }
+      },
+      "generated_at": "2026-11-26T20:02:28.402761+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_interface_ownership": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_interface_ownership.sv:58:5: Unsupported or unknown PLI call: '$vt_interface_owners'",
+          "inputs_sha256": "c54fc276eab5105540eff9bdaa6f48e6247cf9ae255b58951990ed368885b887"
+        }
+      },
+      "generated_at": "2026-11-26T20:02:28.194785+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_interface_ownership": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "c54fc276eab5105540eff9bdaa6f48e6247cf9ae255b58951990ed368885b887"
+        }
+      },
+      "generated_at": "2026-11-26T20:02:28.120416+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

@@ -1,0 +1,3 @@
+#define SV_BIT_PACKED_ARRAY(WIDTH, NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME
+#define SV_LOGIC_PACKED_ARRAY(WIDTH, NAME) \
+    struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME

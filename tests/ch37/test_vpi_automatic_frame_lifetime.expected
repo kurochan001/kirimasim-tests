@@ -1,0 +1,11 @@
+sample 0
+start branch=0 stamp=53 vector=37
+sample 6
+start branch=1 stamp=54 vector=38
+sample 1
+finish branch=0 stamp=53 vector=53
+sample 2
+finish branch=1 stamp=54 vector=54
+sample 3
+sample 4
+sample 5

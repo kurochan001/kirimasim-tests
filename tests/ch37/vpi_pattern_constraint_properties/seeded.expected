@@ -1,0 +1,7 @@
+constraints implemented=1/41 final=1/62
+constraint pure_owner.pending virtual=1 boolean=1
+constraint fixed_control.permanent virtual=0 boolean=1
+structure outer member=(anonymous)
+structure binding=first member=left
+structure binding=second member=right
+matched first=19 second=31

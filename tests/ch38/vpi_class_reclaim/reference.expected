@@ -1,0 +1,17 @@
+registrations create-type=1 reclaim-type=1 variable-rejected=1
+live slots=32,50 other=63
+create serial=29 class=1 id64=1
+create serial=47 class=1 id64=1
+object registrations reclaim=1 end=1 create-rejected=1
+member registrations property=1 element=1
+reclaim serial=29 objects=2 members=2 elements=1 methods=1 callbacks=4
+callback type serial=29 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1
+callback object serial=29 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1
+callback end serial=29 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1
+after serial=29 retired=10 remaining=0
+reclaim serial=63 objects=2 members=0 elements=0 methods=0 callbacks=0
+after serial=63 retired=2 remaining=0
+reclaim serial=47 objects=2 members=2 elements=1 methods=1 callbacks=0
+callback type serial=47 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1
+after serial=47 retired=6 remaining=0
+counts type=2 object=1 end=1 first-live=0 type-handle=1 type-callback=1

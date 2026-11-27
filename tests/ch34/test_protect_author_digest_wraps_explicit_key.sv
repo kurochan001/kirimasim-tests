@@ -3,7 +3,7 @@
 :description: Author ciphertext with a digest key distinct from the data key
 :tags: ch34
 :type: simulation
-:lrm: 1800-2023 34.5.11.2 34.5.14.2 34.5.20.2 34.5.27.2
+:lrm: 1800-2023 34.4 34.5.11.2 34.5.14.2 34.5.20.2 34.5.27.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

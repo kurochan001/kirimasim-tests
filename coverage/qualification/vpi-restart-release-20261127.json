@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.2.2-EXTRACT-RESTART-RELEASE"
+  ],
+  "observations": {
+    "version": "private build b7abb6b0569f",
+    "configuration": {
+      "evidence_profile": "ghost-vpi-restart-release",
+      "checker_sha256": "2d2117642be62cc63a2311b28edefc97a6184123df091e743ffe62ccb4952bcc",
+      "artifact_sha256": {
+        "ghost": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "header": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+        "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+      },
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch37/test_vpi_restart_releases_previous_handles": {
+        "inputs_sha256": "18aaf24aba97028c79236b8fa5a794e5790ee84fbe5e194e6b73cbeb5e6b526b",
+        "status": "fail",
+        "handle_order": [
+          "module_scope",
+          "register",
+          "packed_bit",
+          "scheduled_event",
+          "value_change_callback",
+          "end_of_simulation_callback",
+          "start_restart_callback",
+          "end_restart_callback"
+        ],
+        "expected_after_restart": "00000011",
+        "expected_stdout": [
+          "armed scope=1 watched=1 bit=1 event=1 callbacks=1111",
+          "start restart reason=1",
+          "end restart reason=1",
+          "restored value=11",
+          "fresh register=1 callback=1",
+          "restart hits=1,1 old pre=2 old post=0 fresh=1"
+        ],
+        "restart": {
+          "exit": 0,
+          "handle_tables": [
+            {
+              "phase": "before",
+              "present": "11111111"
+            },
+            {
+              "phase": "start",
+              "present": "11111111"
+            },
+            {
+              "phase": "end",
+              "present": "11111111"
+            },
+            {
+              "phase": "resumed",
+              "present": "11111111"
+            }
+          ],
+          "stdout": [
+            "armed scope=1 watched=1 bit=1 event=1 callbacks=1111",
+            "start restart reason=1",
+            "end restart reason=1",
+            "restored value=11",
+            "fresh register=1 callback=1",
+            "restart hits=1,1 old pre=2 old post=1 fresh=1",
+            "old end-of-simulation callback fired"
+          ]
+        },
+        "control": {
+          "exit": 0,
+          "handle_tables": [
+            {
+              "phase": "before",
+              "present": "11111111"
+            },
+            {
+              "phase": "resumed",
+              "present": "11111111"
+            }
+          ],
+          "stdout": [
+            "armed scope=1 watched=1 bit=1 event=1 callbacks=1111",
+            "restored value=17",
+            "fresh register=1 callback=1",
+            "restart hits=0,0 old pre=3 old post=0 fresh=1",
+            "old end-of-simulation callback fired"
+          ]
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch37/test_vpi_restart_releases_previous_handles": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "18aaf24aba97028c79236b8fa5a794e5790ee84fbe5e194e6b73cbeb5e6b526b"
+        },
+        "ch38/test_vpi_restart_preserves_restart_callbacks_and_drops_value_change": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "a47af57fd53297a0b49681f5207fbf7c3f0ffa866a4b4c307888fcb096d5d5b0"
+        }
+      },
+      "generated_at": "2026-11-26T16:06:24.295380+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch37/test_vpi_restart_releases_previous_handles": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'SORRY: tests/ch37/test_vpi_restart_releases_previous_hand...', expected 'armed scope=1 watched=1 bit=1 event=1 callbacks=1111'",
+          "inputs_sha256": "18aaf24aba97028c79236b8fa5a794e5790ee84fbe5e194e6b73cbeb5e6b526b"
+        }
+      },
+      "generated_at": "2026-11-26T16:06:24.057436+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_restart_releases_previous_handles": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_restart_releases_previous_handles.sv:25:8: Unsupported or unknown PLI call: '$observe_restart_handles'",
+          "inputs_sha256": "18aaf24aba97028c79236b8fa5a794e5790ee84fbe5e194e6b73cbeb5e6b526b"
+        }
+      },
+      "generated_at": "2026-11-26T16:06:23.808666+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  },
+  "icarus_checkpoint_support": {
+    "compile_exit": 0,
+    "execution_exit": 1,
+    "checkpoint_messages": [
+      "SORRY: tests/ch37/test_vpi_restart_releases_previous_handles.sv:27: $save() is not available in Icarus Verilog.",
+      "SORRY: tests/ch37/test_vpi_restart_releases_previous_handles.sv:32: $restart() is not available in Icarus Verilog."
+    ]
+  },
+  "acceptance_controls": {
+    "callback_failure_detected_with_correct_tables": true,
+    "stale_tables_detected_with_correct_callback_output": true,
+    "missing_restart_phase_is_unsupported": true,
+    "losing_a_restart_callback_handle_is_a_failure": true,
+    "oracle_tables_and_callback_outputs_pass": true
+  }
+}

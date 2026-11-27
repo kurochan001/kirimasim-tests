@@ -1,0 +1,37 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch25/test_illegal_virtual_interface_component_in_always_comb": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "70308686022111c0d54f1a3a310e48ce99d912985571714073888594b32607eb"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_always_event_control": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "455d54fb34fcfd9f8228c5607bfc29e946499ddc1a145af0a574a0136c3b08c9"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_always_ff": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "424ef18184d722dad6ecc9d14a05a0f43a16f01d94b84fe6748b3d86ab77d39d"
+  },
+  "ch25/test_illegal_virtual_interface_component_in_continuous_assign": {
+   "status": "known",
+   "reason": "the design was accepted, but it is illegal",
+   "inputs_sha256": "6e0b98d13f847e92faa4867cac68ed87b259bb7e91aec71760019ea30bc6aad6"
+  },
+  "ch25/test_virtual_interface_procedural_edge_controls": {
+   "status": "pass",
+   "inputs_sha256": "23a8eebf1936f5e9d50ad9bfc907aaf9cb7567968976d63611f86a280ee905d4"
+  }
+ },
+ "generated_at": "2026-11-26T14:26:15.300330+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "seed": 1
+ }
+}

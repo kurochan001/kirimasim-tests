@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-7.8.5-EXTRACT-EQUALITY-REQUIRED"
+  ],
+  "qualification": {
+    "checker_sha256": "1826b75cb49ad2bef25159bb45ecf036800583ddb691035d27c386ded1902f63",
+    "inputs_sha256": {
+      "event": "d7a6afe6a946947a2dbb004c9225c4efcb8077d0125fef9d49203d676a942370",
+      "dynamic_array": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e",
+      "queue_and_string": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6",
+      "real_member": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6"
+    },
+    "runtime_profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3"
+    },
+    "slang_version": "slang version 12.0.0+0",
+    "checks": {
+      "event_and_dynamically_sized_keys_elaborate": true,
+      "ghost_dynamically_sized_keys_match": true,
+      "event_reference_uses_measured_equality": true,
+      "floating_member_is_an_exception_to_key_eligibility": true
+    },
+    "slang": {
+      "event": {
+        "exit": 0,
+        "rejected_floating_key": false
+      },
+      "dynamic_array": {
+        "exit": 0,
+        "rejected_floating_key": false
+      },
+      "queue_and_string": {
+        "exit": 0,
+        "rejected_floating_key": false
+      },
+      "real_member": {
+        "exit": 1,
+        "rejected_floating_key": true
+      },
+      "real_equality_control": {
+        "exit": 0
+      }
+    },
+    "ghost": {
+      "event": {
+        "exit": 0,
+        "completed": true,
+        "output": [
+          "equality=110/110/001",
+          "alias-value=59 other-value=59 entries=1",
+          "updated-original=63 unchanged-other=63 entries=1"
+        ]
+      },
+      "dynamic_array": {
+        "exit": 0,
+        "completed": true,
+        "output": [
+          "equal=1 value=17",
+          "entries=3 original=17 changed=29 empty=11"
+        ]
+      },
+      "queue_and_string": {
+        "exit": 0,
+        "completed": true,
+        "output": [
+          "keys=3 same=82 short=33 other=66 mutated=0"
+        ]
+      },
+      "real_equality_control": {
+        "exit": 0,
+        "completed": true,
+        "output": [
+          "real-aggregate equal=1",
+          "real-aggregate distinct=1"
+        ]
+      },
+      "event_equality_only": {
+        "exit": 0,
+        "completed": true,
+        "output": [
+          "equality=110/110/001"
+        ]
+      }
+    },
+    "event_reference": [
+      "equality=110/110/001",
+      "alias-value=13 other-value=59 entries=2",
+      "updated-original=17 unchanged-other=59 entries=2"
+    ],
+    "native_event_matches": false,
+    "pass": true
+  },
+  "ordinary_tools": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch7/test_associative_dynamic_array_key_equality": {
+          "status": "pass",
+          "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e"
+        },
+        "ch7/test_associative_event_key_identity": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "d7a6afe6a946947a2dbb004c9225c4efcb8077d0125fef9d49203d676a942370"
+        },
+        "ch7/test_associative_key_uses_queue_and_string_values_structurally": {
+          "status": "pass",
+          "inputs_sha256": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6"
+        },
+        "ch7/test_illegal_associative_index_contains_nested_real": {
+          "status": "pass",
+          "inputs_sha256": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6"
+        }
+      },
+      "generated_at": "2026-11-26T20:37:50.654422+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch7/test_associative_dynamic_array_key_equality": {
+          "status": "known",
+          "reason": "compile failed: tests/ch7/test_associative_dynamic_array_key_equality.sv:15: error: Type name `dynamic_key' cannot be used in an expression.",
+          "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e"
+        },
+        "ch7/test_associative_event_key_identity": {
+          "status": "known",
+          "reason": "compile failed: tests/ch7/test_associative_event_key_identity.sv:14: syntax error",
+          "inputs_sha256": "d7a6afe6a946947a2dbb004c9225c4efcb8077d0125fef9d49203d676a942370"
+        },
+        "ch7/test_associative_key_uses_queue_and_string_values_structurally": {
+          "status": "known",
+          "reason": "compile failed: tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv:14: sorry: Unpacked structs not supported.",
+          "inputs_sha256": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6"
+        },
+        "ch7/test_illegal_associative_index_contains_nested_real": {
+          "status": "known",
+          "reason": "no error matches 'test_illegal_associative_index_contains_nested_real\\\\.sv:17:(?:\\\\d+:)?[^\\\\n]*(?i:(?:associative|index|key)[^\\\\n]*(?:real|floating|element|equality|type)|(?:real|floating)[^\\\\n]*(?:associative|index|key))'",
+          "inputs_sha256": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6"
+        }
+      },
+      "generated_at": "2026-11-26T20:37:50.356567+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch7/test_associative_dynamic_array_key_equality": {
+          "status": "known",
+          "reason": "crashed (signal 11)",
+          "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e"
+        },
+        "ch7/test_associative_event_key_identity": {
+          "status": "known",
+          "reason": "build failed: %Error-UNSUPPORTED: tests/ch7/test_associative_event_key_identity.sv:21:18: Assignment to and from event in statically scheduled context.",
+          "inputs_sha256": "d7a6afe6a946947a2dbb004c9225c4efcb8077d0125fef9d49203d676a942370"
+        },
+        "ch7/test_associative_key_uses_queue_and_string_values_structurally": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'keys=2 same=34 short=34 other=66 mutated=0000000000000000...', expected 'keys=3 same=82 short=33 other=66 mutated=0'",
+          "inputs_sha256": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6"
+        },
+        "ch7/test_illegal_associative_index_contains_nested_real": {
+          "status": "known",
+          "reason": "the design was accepted, but it is illegal",
+          "inputs_sha256": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6"
+        }
+      },
+      "generated_at": "2026-11-26T20:38:02.520665+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.3.0 (commit f0abaff21ee9), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch7/test_associative_dynamic_array_key_equality": {
+          "status": "unsupported",
+          "reason": "variable of type 'int$[test_associative_dynamic_array_key_equality.dynamic_key]' (not implemented yet)",
+          "inputs_sha256": "878f0ad168760889321f2ca1fe0cc7d75b7c123affba1b627e3c0c8a5e34569e"
+        },
+        "ch7/test_associative_event_key_identity": {
+          "status": "unsupported",
+          "reason": "variable of type 'int$[test_associative_event_key_identity.event_key]' (not implemented yet)",
+          "inputs_sha256": "d7a6afe6a946947a2dbb004c9225c4efcb8077d0125fef9d49203d676a942370"
+        },
+        "ch7/test_associative_key_uses_queue_and_string_values_structurally": {
+          "status": "unsupported",
+          "reason": "associative key field of this type (not implemented yet)",
+          "inputs_sha256": "e3c971d609a1aac397b82d530401a93687e5511d3b6a9e10b17f71d67bcf51e6"
+        },
+        "ch7/test_illegal_associative_index_contains_nested_real": {
+          "status": "pass",
+          "inputs_sha256": "44050a9950f44e6dc60537a27e347b8937b8a991bec870611cbd25c05b8a6cf6"
+        }
+      },
+      "generated_at": "2026-11-26T20:37:50.349722+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

@@ -1,0 +1,13 @@
+object definition border=solid type=bold
+object reference border=solid type=regular
+class definition border=dotted type=bold-italic
+class reference border=dotted type=italic
+unnamed group border=dotted type=none
+named group nested=class-reference,object-definition,object-reference
+unnamed group members=2 named-targets=0
+figure module=object-reference net=object-definition
+figure net properties=string,boolean,integer
+instance definition members=package,interface,program,module
+instance reference resolved=instance
+outline contrast changed=solid->dotted rejected=1
+type contrast changed=italic->bold-italic rejected=1

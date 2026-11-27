@@ -4,7 +4,7 @@
 
 [English](ch8.md) / [日本語](ch8.ja.md)
 
-[すべての章](README.ja.md) .テストは516本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは517本で、そのうち138本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -366,6 +366,7 @@
 | [`test_illegal_cast_class_handle_to_integral`](../../tests/ch8/test_illegal_cast_class_handle_to_integral.sv) |クラスハンドルは整数型に変換できません| 8.28 6.24.1 |規格のみ|規格違反の設計|
 | [`test_class_managed_storage_lifetime`](../../tests/ch8/test_class_managed_storage_lifetime.sv) |クラスオブジェクト、動的配列、連想配列、文字列の確保領域を観測する| 8.29 | Verilator 5.054 | DPI |
 | [`test_object_strongly_reachable`](../../tests/ch8/test_object_strongly_reachable.sv) |アクティブスコープのハンドルがオブジェクトを参照するか、またはそのメンバーに非ブロック代入が待ち受けている間、オブジェクトは強く到達可能に保たれ、弱い参照はクリアされません。| 8.29 8.30.3 |規格のみ||
+| [`test_weak_reference_reclamation`](../../tests/ch8/test_weak_reference_reclamation.sv) |元のクラスオブジェクトが回収可能になっても弱参照ラッパーと数値キーを観測できる| 8.29 8.30.1 8.30.5 |規格のみ|複数のファイル|
 | [`test_weak_reference_std_scope_and_strong_reachability`](../../tests/ch8/test_weak_reference_std_scope_and_strong_reachability.sv) |これは、stdがweak_referenceを宣言し、他のスコープが同じ名前のクラスを宣言する場合に、アクティブスコープのハンドルがその参照者を強く到達可能に保つことを意味します。| 8.29 8.30.1 |規格のみ||
 | [`test_weak_reference_prototypes`](../../tests/ch8/test_weak_reference_prototypes.sv) |std::weak_referenceは、クラス型パラメータT、T型の参照対象を受け取るコンストラクタ、clear()で参照対象がnullにされるまでT型でその参照対象を返すget()、戻り値のないclear()、およびstaticのget_id(T)を持ちます。このstaticメソッドのlongint型の結果は、nullに対して0、オブジェクトに対して0以外であり、同じオブジェクトなら呼び出しのたびに同じ値となります。| 8.30 G.7 |規格のみ||
 | [`test_illegal_weak_reference_scalar_type`](../../tests/ch8/test_illegal_weak_reference_scalar_type.sv) |weak_reference にはクラスタイプパラメータが必要です| 8.30.1 |規格のみ|規格違反の設計|

@@ -1,0 +1,621 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.3.6-EXTRACT-PROTECTED-ACCESS",
+    "SV2023-37.3.6-EXTRACT-PROTECTED-FLAG",
+    "SV2023-37.42-EXTRACT-PROTECTED-SYSTEM-ARGUMENTS",
+    "SV2023-37.59-EXTRACT-PROTECTED-EXPRESSION-SIZE",
+    "SV2023-38.6-EXTRACT-GET-PROTECTED-ERROR",
+    "SV2023-38.7-EXTRACT-GET64-PROTECTED-ERROR",
+    "SV2023-38.11-EXTRACT-STRING-PROTECTED",
+    "SV2023-38.18-EXTRACT-HANDLE-PROTECTED",
+    "SV2023-38.19-EXTRACT-INDEX-PROTECTED",
+    "SV2023-38.20-EXTRACT-MULTI-INDEX-PROTECTED",
+    "SV2023-38.21-EXTRACT-NAME-PROTECTION",
+    "SV2023-38.23-EXTRACT-ITERATOR-PROTECTED"
+  ],
+  "qualification": {
+    "profile": "vpi-protected-access-reference",
+    "checker_sha256": "d3b08d9c5915a11087fc46794c2784e481c8b8262cf7525757307879802f662f",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "python": "7c72112b685250b1aec69081696d8fc04040ccefc34505ca56ac48ace7da8d5b",
+      "openssl": "da101a01999a93ea6eddfe1392752bce2b5a91a41e4b00e1d9656fc682a1dc85",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "profile": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+      "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+      "vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c"
+    },
+    "versions": {
+      "ghost": "sukimasim version 0.9.9.2",
+      "slang": "slang version 12.0.0+0",
+      "cc": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+      "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)"
+    },
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "tests": {
+      "ch38/test_vpi_protected_access_controls": {
+        "inputs_sha256": "ae1c6fac612f99312d36873672a6b4d62d4a0b3c98b2e1b3e06da1af49477444",
+        "layouts": {
+          "right": {
+            "ranges": [
+              [
+                29,
+                38
+              ],
+              [
+                53,
+                57
+              ]
+            ],
+            "origins": {
+              "top": {
+                "line": 41,
+                "envelope": null
+              },
+              "left_grid": {
+                "line": 47,
+                "envelope": null
+              },
+              "left_object": {
+                "line": 48,
+                "envelope": null
+              },
+              "left_scope": {
+                "line": 49,
+                "envelope": null
+              },
+              "left_definition": {
+                "line": 18,
+                "envelope": null
+              },
+              "left_task": {
+                "line": 22,
+                "envelope": null
+              },
+              "left_task_arg1": {
+                "line": 22,
+                "envelope": null,
+                "type": "logic[6:0]"
+              },
+              "left_task_arg2": {
+                "line": 22,
+                "envelope": null,
+                "type": "bit[3:0]"
+              },
+              "left_function": {
+                "line": 23,
+                "envelope": null
+              },
+              "left_function_arg1": {
+                "line": 23,
+                "envelope": null,
+                "type": "logic[6:0]"
+              },
+              "left_function_arg2": {
+                "line": 23,
+                "envelope": null,
+                "type": "bit[3:0]"
+              },
+              "right_grid": {
+                "line": 54,
+                "envelope": 1
+              },
+              "right_object": {
+                "line": 55,
+                "envelope": 1
+              },
+              "right_scope": {
+                "line": 56,
+                "envelope": 1
+              },
+              "right_definition": {
+                "line": 30,
+                "envelope": 0
+              },
+              "right_task": {
+                "line": 34,
+                "envelope": 0
+              },
+              "right_task_arg1": {
+                "line": 34,
+                "envelope": 0,
+                "type": "logic[6:0]"
+              },
+              "right_task_arg2": {
+                "line": 34,
+                "envelope": 0,
+                "type": "bit[3:0]"
+              },
+              "right_function": {
+                "line": 35,
+                "envelope": 0
+              },
+              "right_function_arg1": {
+                "line": 35,
+                "envelope": 0,
+                "type": "logic[6:0]"
+              },
+              "right_function_arg2": {
+                "line": 35,
+                "envelope": 0,
+                "type": "bit[3:0]"
+              }
+            },
+            "native_restored": {
+              "exit": 0,
+              "output": [
+                "call1 handle=1 flag=0/ok type=1/ok",
+                "call1 kind=task/ok",
+                "call1 arguments=1/ok",
+                "call1.arg1 handle=1 flag=0/ok type=1/ok",
+                "call1.arg1 expression-size=7/ok",
+                "call1.arg2 handle=1 flag=0/ok type=1/ok",
+                "call1.arg2 expression-size=4/ok",
+                "call2 handle=1 flag=0/ok type=1/ok",
+                "call2 kind=function/ok",
+                "call2 arguments=1/ok",
+                "call2.arg1 handle=1 flag=0/ok type=1/ok",
+                "call2.arg1 expression-size=7/ok",
+                "call2.arg2 handle=1 flag=0/ok type=1/ok",
+                "call2.arg2 expression-size=4/ok",
+                "call3 handle=1 flag=0/ok type=1/ok",
+                "call3 kind=task/ok",
+                "call3 arguments=1/ok",
+                "call3.arg1 handle=1 flag=0/ok type=1/ok",
+                "call3.arg1 expression-size=7/ok",
+                "call3.arg2 handle=1 flag=0/ok type=1/ok",
+                "call3.arg2 expression-size=4/ok",
+                "call4 handle=1 flag=0/ok type=1/ok",
+                "call4 kind=function/ok",
+                "call4 arguments=1/ok",
+                "call4.arg1 handle=1 flag=0/ok type=1/ok",
+                "call4.arg1 expression-size=7/ok",
+                "call4.arg2 handle=1 flag=0/ok type=1/ok",
+                "call4.arg2 expression-size=4/ok",
+                "top handle=1 flag=0/ok type=1/ok",
+                "left_grid handle=1 flag=0/ok type=1/ok",
+                "left_grid get=4/ok",
+                "left_grid string=left_grid/ok",
+                "left_grid parent=1/ok",
+                "left_grid index=1/ok",
+                "left_grid multi=1/ok value=90",
+                "right_grid handle=1 flag=0/ok type=1/ok",
+                "right_grid get=4/ok",
+                "right_grid string=right_grid/ok",
+                "right_grid parent=1/ok",
+                "right_grid index=1/ok",
+                "right_grid multi=1/ok value=165",
+                "left_object handle=1 flag=0/ok type=1/ok",
+                "left_object get64=positive/ok",
+                "right_object handle=1 flag=0/ok type=1/ok",
+                "right_object get64=positive/ok",
+                "left_scope handle=1 flag=0/ok type=1/ok",
+                "left_scope scoped-name=1/ok",
+                "left_scope full-name=1/ok",
+                "left_scope iterate=1/ok",
+                "right_scope handle=1 flag=0/ok type=1/ok",
+                "right_scope scoped-name=1/ok",
+                "right_scope full-name=1/ok",
+                "right_scope iterate=1/ok"
+              ],
+              "diagnostics": []
+            },
+            "native_encrypted": {
+              "exit": 1,
+              "output": [],
+              "diagnostics": [
+                "encrypted.sv:65:5: error [E102]: undefined identifier 'right_grid' [slang: use of undeclared identifier 'right_grid']",
+                "63 |   initial begin",
+                "64 |     left_grid[-1][5] = 8'h5a;",
+                "65 |     right_grid[-1][5] = 8'ha5;",
+                "   |     ^",
+                "66 |     #3 $finish(0);",
+                "67 |   end",
+                "note: Examples:",
+                "    - logic my_signal; // Declare before use",
+                "    - Check spelling of variable name",
+                "    - Import package if identifier is in a package",
+                "Parse error occurred: code=2 message=Compilation failed with 1 errors"
+              ]
+            },
+            "reference": {
+              "exit": 0,
+              "output": [
+                "call1 handle=1 flag=0/ok type=1/ok",
+                "call1 kind=task/ok",
+                "call1 arguments=1/ok",
+                "call1.arg1 handle=1 flag=0/ok type=1/ok",
+                "call1.arg1 expression-size=7/ok",
+                "call1.arg2 handle=1 flag=0/ok type=1/ok",
+                "call1.arg2 expression-size=4/ok",
+                "call2 handle=1 flag=0/ok type=1/ok",
+                "call2 kind=function/ok",
+                "call2 arguments=1/ok",
+                "call2.arg1 handle=1 flag=0/ok type=1/ok",
+                "call2.arg1 expression-size=7/ok",
+                "call2.arg2 handle=1 flag=0/ok type=1/ok",
+                "call2.arg2 expression-size=4/ok",
+                "call3 handle=1 flag=1/ok type=1/ok",
+                "call3 kind=task/ok",
+                "call3 arguments=1/ok",
+                "call3.arg1 handle=1 flag=1/ok type=1/ok",
+                "call3.arg1 expression-size=7/ok",
+                "call3.arg2 handle=1 flag=1/ok type=1/ok",
+                "call3.arg2 expression-size=4/ok",
+                "call4 handle=1 flag=1/ok type=1/ok",
+                "call4 kind=function/ok",
+                "call4 arguments=1/ok",
+                "call4.arg1 handle=1 flag=1/ok type=1/ok",
+                "call4.arg1 expression-size=7/ok",
+                "call4.arg2 handle=1 flag=1/ok type=1/ok",
+                "call4.arg2 expression-size=4/ok",
+                "top handle=1 flag=0/ok type=1/ok",
+                "left_grid handle=1 flag=0/ok type=1/ok",
+                "left_grid get=4/ok",
+                "left_grid string=left_grid/ok",
+                "left_grid parent=1/ok",
+                "left_grid index=1/ok",
+                "left_grid multi=1/ok value=90",
+                "right_grid handle=1 flag=1/ok type=1/ok",
+                "right_grid get=-1/denied",
+                "right_grid string=NULL/denied",
+                "right_grid parent=0/denied",
+                "right_grid index=0/denied",
+                "right_grid multi=0/denied value=0",
+                "left_object handle=1 flag=0/ok type=1/ok",
+                "left_object get64=positive/ok",
+                "right_object handle=1 flag=1/ok type=1/ok",
+                "right_object get64=-1/denied",
+                "left_scope handle=1 flag=0/ok type=1/ok",
+                "left_scope scoped-name=1/ok",
+                "left_scope full-name=1/ok",
+                "left_scope iterate=1/ok",
+                "right_scope handle=1 flag=1/ok type=1/ok",
+                "right_scope scoped-name=0/denied",
+                "right_scope full-name=0/denied",
+                "right_scope iterate=0/denied"
+              ],
+              "diagnostics": []
+            }
+          },
+          "left": {
+            "ranges": [
+              [
+                18,
+                27
+              ],
+              [
+                47,
+                51
+              ]
+            ],
+            "origins": {
+              "top": {
+                "line": 41,
+                "envelope": null
+              },
+              "left_grid": {
+                "line": 48,
+                "envelope": 1
+              },
+              "left_object": {
+                "line": 49,
+                "envelope": 1
+              },
+              "left_scope": {
+                "line": 50,
+                "envelope": 1
+              },
+              "left_definition": {
+                "line": 19,
+                "envelope": 0
+              },
+              "left_task": {
+                "line": 23,
+                "envelope": 0
+              },
+              "left_task_arg1": {
+                "line": 23,
+                "envelope": 0,
+                "type": "logic[6:0]"
+              },
+              "left_task_arg2": {
+                "line": 23,
+                "envelope": 0,
+                "type": "bit[3:0]"
+              },
+              "left_function": {
+                "line": 24,
+                "envelope": 0
+              },
+              "left_function_arg1": {
+                "line": 24,
+                "envelope": 0,
+                "type": "logic[6:0]"
+              },
+              "left_function_arg2": {
+                "line": 24,
+                "envelope": 0,
+                "type": "bit[3:0]"
+              },
+              "right_grid": {
+                "line": 55,
+                "envelope": null
+              },
+              "right_object": {
+                "line": 56,
+                "envelope": null
+              },
+              "right_scope": {
+                "line": 57,
+                "envelope": null
+              },
+              "right_definition": {
+                "line": 31,
+                "envelope": null
+              },
+              "right_task": {
+                "line": 35,
+                "envelope": null
+              },
+              "right_task_arg1": {
+                "line": 35,
+                "envelope": null,
+                "type": "logic[6:0]"
+              },
+              "right_task_arg2": {
+                "line": 35,
+                "envelope": null,
+                "type": "bit[3:0]"
+              },
+              "right_function": {
+                "line": 36,
+                "envelope": null
+              },
+              "right_function_arg1": {
+                "line": 36,
+                "envelope": null,
+                "type": "logic[6:0]"
+              },
+              "right_function_arg2": {
+                "line": 36,
+                "envelope": null,
+                "type": "bit[3:0]"
+              }
+            },
+            "native_restored": {
+              "exit": 0,
+              "output": [
+                "call1 handle=1 flag=0/ok type=1/ok",
+                "call1 kind=task/ok",
+                "call1 arguments=1/ok",
+                "call1.arg1 handle=1 flag=0/ok type=1/ok",
+                "call1.arg1 expression-size=7/ok",
+                "call1.arg2 handle=1 flag=0/ok type=1/ok",
+                "call1.arg2 expression-size=4/ok",
+                "call2 handle=1 flag=0/ok type=1/ok",
+                "call2 kind=function/ok",
+                "call2 arguments=1/ok",
+                "call2.arg1 handle=1 flag=0/ok type=1/ok",
+                "call2.arg1 expression-size=7/ok",
+                "call2.arg2 handle=1 flag=0/ok type=1/ok",
+                "call2.arg2 expression-size=4/ok",
+                "call3 handle=1 flag=0/ok type=1/ok",
+                "call3 kind=task/ok",
+                "call3 arguments=1/ok",
+                "call3.arg1 handle=1 flag=0/ok type=1/ok",
+                "call3.arg1 expression-size=7/ok",
+                "call3.arg2 handle=1 flag=0/ok type=1/ok",
+                "call3.arg2 expression-size=4/ok",
+                "call4 handle=1 flag=0/ok type=1/ok",
+                "call4 kind=function/ok",
+                "call4 arguments=1/ok",
+                "call4.arg1 handle=1 flag=0/ok type=1/ok",
+                "call4.arg1 expression-size=7/ok",
+                "call4.arg2 handle=1 flag=0/ok type=1/ok",
+                "call4.arg2 expression-size=4/ok",
+                "top handle=1 flag=0/ok type=1/ok",
+                "left_grid handle=1 flag=0/ok type=1/ok",
+                "left_grid get=4/ok",
+                "left_grid string=left_grid/ok",
+                "left_grid parent=1/ok",
+                "left_grid index=1/ok",
+                "left_grid multi=1/ok value=90",
+                "right_grid handle=1 flag=0/ok type=1/ok",
+                "right_grid get=4/ok",
+                "right_grid string=right_grid/ok",
+                "right_grid parent=1/ok",
+                "right_grid index=1/ok",
+                "right_grid multi=1/ok value=165",
+                "left_object handle=1 flag=0/ok type=1/ok",
+                "left_object get64=positive/ok",
+                "right_object handle=1 flag=0/ok type=1/ok",
+                "right_object get64=positive/ok",
+                "left_scope handle=1 flag=0/ok type=1/ok",
+                "left_scope scoped-name=1/ok",
+                "left_scope full-name=1/ok",
+                "left_scope iterate=1/ok",
+                "right_scope handle=1 flag=0/ok type=1/ok",
+                "right_scope scoped-name=1/ok",
+                "right_scope full-name=1/ok",
+                "right_scope iterate=1/ok"
+              ],
+              "diagnostics": []
+            },
+            "native_encrypted": {
+              "exit": 1,
+              "output": [],
+              "diagnostics": [
+                "encrypted.sv:64:5: error [E102]: undefined identifier 'left_grid' [slang: use of undeclared identifier 'left_grid']",
+                "62 | ",
+                "63 |   initial begin",
+                "64 |     left_grid[-1][5] = 8'h5a;",
+                "   |     ^",
+                "65 |     right_grid[-1][5] = 8'ha5;",
+                "66 |     #3 $finish(0);",
+                "note: Examples:",
+                "    - logic my_signal; // Declare before use",
+                "    - Check spelling of variable name",
+                "    - Import package if identifier is in a package",
+                "Parse error occurred: code=2 message=Compilation failed with 1 errors"
+              ]
+            },
+            "reference": {
+              "exit": 0,
+              "output": [
+                "call1 handle=1 flag=1/ok type=1/ok",
+                "call1 kind=task/ok",
+                "call1 arguments=1/ok",
+                "call1.arg1 handle=1 flag=1/ok type=1/ok",
+                "call1.arg1 expression-size=7/ok",
+                "call1.arg2 handle=1 flag=1/ok type=1/ok",
+                "call1.arg2 expression-size=4/ok",
+                "call2 handle=1 flag=1/ok type=1/ok",
+                "call2 kind=function/ok",
+                "call2 arguments=1/ok",
+                "call2.arg1 handle=1 flag=1/ok type=1/ok",
+                "call2.arg1 expression-size=7/ok",
+                "call2.arg2 handle=1 flag=1/ok type=1/ok",
+                "call2.arg2 expression-size=4/ok",
+                "call3 handle=1 flag=0/ok type=1/ok",
+                "call3 kind=task/ok",
+                "call3 arguments=1/ok",
+                "call3.arg1 handle=1 flag=0/ok type=1/ok",
+                "call3.arg1 expression-size=7/ok",
+                "call3.arg2 handle=1 flag=0/ok type=1/ok",
+                "call3.arg2 expression-size=4/ok",
+                "call4 handle=1 flag=0/ok type=1/ok",
+                "call4 kind=function/ok",
+                "call4 arguments=1/ok",
+                "call4.arg1 handle=1 flag=0/ok type=1/ok",
+                "call4.arg1 expression-size=7/ok",
+                "call4.arg2 handle=1 flag=0/ok type=1/ok",
+                "call4.arg2 expression-size=4/ok",
+                "top handle=1 flag=0/ok type=1/ok",
+                "left_grid handle=1 flag=1/ok type=1/ok",
+                "left_grid get=-1/denied",
+                "left_grid string=NULL/denied",
+                "left_grid parent=0/denied",
+                "left_grid index=0/denied",
+                "left_grid multi=0/denied value=0",
+                "right_grid handle=1 flag=0/ok type=1/ok",
+                "right_grid get=4/ok",
+                "right_grid string=right_grid/ok",
+                "right_grid parent=1/ok",
+                "right_grid index=1/ok",
+                "right_grid multi=1/ok value=165",
+                "left_object handle=1 flag=1/ok type=1/ok",
+                "left_object get64=-1/denied",
+                "right_object handle=1 flag=0/ok type=1/ok",
+                "right_object get64=positive/ok",
+                "left_scope handle=1 flag=1/ok type=1/ok",
+                "left_scope scoped-name=0/denied",
+                "left_scope full-name=0/denied",
+                "left_scope iterate=0/denied",
+                "right_scope handle=1 flag=0/ok type=1/ok",
+                "right_scope scoped-name=1/ok",
+                "right_scope full-name=1/ok",
+                "right_scope iterate=1/ok"
+              ],
+              "diagnostics": []
+            }
+          }
+        },
+        "checks": {
+          "right_origins_match_recovered_envelopes": true,
+          "right_reference_matches_allowed_and_denied_operations": true,
+          "right_native_restored_observation_matches_public_control": true,
+          "right_native_encrypted_result_recorded": true,
+          "left_origins_match_recovered_envelopes": true,
+          "left_reference_matches_allowed_and_denied_operations": true,
+          "left_native_restored_observation_matches_public_control": true,
+          "left_native_encrypted_result_recorded": true,
+          "layout_swap_preserves_design_and_swaps_access": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch38/test_vpi_protected_access_controls": {
+          "status": "pass",
+          "inputs_sha256": "ae1c6fac612f99312d36873672a6b4d62d4a0b3c98b2e1b3e06da1af49477444"
+        }
+      },
+      "generated_at": "2026-11-26T18:46:57.053206+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch38/test_vpi_protected_access_controls": {
+          "status": "known",
+          "reason": "VPI build failed: 3 errors generated.",
+          "inputs_sha256": "ae1c6fac612f99312d36873672a6b4d62d4a0b3c98b2e1b3e06da1af49477444"
+        }
+      },
+      "generated_at": "2026-11-26T18:46:56.824446+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch38/test_vpi_protected_access_controls": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch38/test_vpi_protected_access_controls.sv:29:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "ae1c6fac612f99312d36873672a6b4d62d4a0b3c98b2e1b3e06da1af49477444"
+        }
+      },
+      "generated_at": "2026-11-26T18:46:56.847700+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch38/test_vpi_protected_access_controls": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "ae1c6fac612f99312d36873672a6b4d62d4a0b3c98b2e1b3e06da1af49477444"
+        }
+      },
+      "generated_at": "2026-11-26T18:46:56.775585+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

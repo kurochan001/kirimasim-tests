@@ -1,0 +1,17 @@
+target handles=5 suspended=5 progress=0
+resumed progress=31
+killed and awaited=5
+final distinct=1
+origin initial_root kind=Initial parent=- permit=1
+origin initial_child kind=Fork parent=initial_root permit=1
+origin always_root kind=Always parent=- permit=1
+origin always_child kind=Fork parent=always_root permit=1
+origin nested_child kind=Fork parent=always_child permit=1
+origin controller kind=Initial parent=- permit=1
+origin terminal kind=Final parent=- permit=0
+caller distinct=1
+await reached target would-block=1
+suspend reached target state=3
+resume reached target state=1
+kill reached target state=4
+final state unchanged=0

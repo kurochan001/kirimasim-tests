@@ -1,0 +1,2204 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-17.7-EXTRACT-CONST-FORMAL-SIM",
+    "SV2023-17.7-EXTRACT-FORMAL-FREE",
+    "SV2023-17.7-EXTRACT-FREE-VARIABLE",
+    "SV2023-17.7.2-EXTRACT-SOLVE-CURRENT-STEP"
+  ],
+  "qualification": {
+    "profile": "checker-choice-reference",
+    "checker_sha256": "6dc07695d1c76d28cd58fc9881a39a5462b004e853b5e626580fd954e3738f47",
+    "yosys_version": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",
+    "yosys_sha256": "435b1d43de6985eeaad8330b0636d0f7bb1143311fd27382bf258d04fb2873c4",
+    "tests": {
+      "ch17/test_checker_free_joint_solutions": {
+        "inputs_sha256": "c7ab4c51249a25d06fedf4d89f44f2bd08e472e6998806862643771696ca47f7",
+        "formal": {
+          "checks": {
+            "all_assumption_consistent_values": true,
+            "all_two_step_constant_traces": true,
+            "reselected_key_changes_trace_set": true,
+            "contradictory_step_has_no_witness": true
+          },
+          "single_step_count": 36,
+          "two_step_count": 21,
+          "reselected_key_count": 81,
+          "reselected_key_extras": 60,
+          "contradictory_two_step_count": 0,
+          "single_step_traces": [
+            [
+              [
+                0,
+                0,
+                1,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                2,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                1,
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                2,
+                0,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                2,
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                3,
+                1,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                3,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                1,
+                0,
+                1,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                0,
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                1,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                1,
+                2,
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                1,
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                0,
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                3,
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                0,
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                0,
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                1,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                1,
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                1,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                3,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                3,
+                1,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                0,
+                1,
+                2
+              ]
+            ],
+            [
+              [
+                3,
+                0,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                0,
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                1,
+                0,
+                2
+              ]
+            ],
+            [
+              [
+                3,
+                1,
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                1,
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                1,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                3,
+                3,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                3,
+                1,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                3,
+                2,
+                2
+              ]
+            ]
+          ],
+          "two_step_traces": [
+            [
+              [
+                0,
+                2,
+                0,
+                2
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                2,
+                0,
+                2
+              ],
+              [
+                0,
+                1,
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                2,
+                3,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                2,
+                3,
+                1
+              ],
+              [
+                0,
+                1,
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                1,
+                2
+              ],
+              [
+                1,
+                1,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                1,
+                2
+              ],
+              [
+                1,
+                1,
+                2,
+                2
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                2,
+                3,
+                0
+              ],
+              [
+                1,
+                1,
+                2,
+                2
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                1,
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                0,
+                2
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                0,
+                1
+              ],
+              [
+                3,
+                1,
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                1,
+                0
+              ],
+              [
+                3,
+                1,
+                0,
+                2
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                1,
+                0
+              ],
+              [
+                3,
+                1,
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                1,
+                0
+              ],
+              [
+                3,
+                1,
+                3,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                3,
+                2
+              ],
+              [
+                3,
+                1,
+                0,
+                2
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                3,
+                2
+              ],
+              [
+                3,
+                1,
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                3,
+                2,
+                3,
+                2
+              ],
+              [
+                3,
+                1,
+                3,
+                1
+              ]
+            ]
+          ],
+          "pass": true
+        },
+        "pass": true,
+        "ghost": {
+          "checks": {
+            "all_formal_witnesses_replayed": true,
+            "wrong_tuple_sets_only_expected_failures": true,
+            "contradiction_fails_only_on_second_edge": true,
+            "native_constant_and_failure_timing": true,
+            "ordinary_rng_changed_with_seed": true
+          },
+          "replays": [
+            {
+              "expected_trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=0 held=2 x=0 y=2 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=0 held=1 x=0 y=1 failed=0"
+                ],
+                "trace": [
+                  [
+                    0,
+                    2,
+                    0,
+                    2
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  1,
+                  3,
+                  2
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=0 held=2 x=0 y=2 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=0 held=1 x=3 y=2 failed=0"
+                ],
+                "trace": [
+                  [
+                    0,
+                    2,
+                    0,
+                    2
+                  ],
+                  [
+                    0,
+                    1,
+                    3,
+                    2
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  0,
+                  2,
+                  3,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  1
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=0 held=2 x=3 y=1 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=0 held=1 x=0 y=1 failed=0"
+                ],
+                "trace": [
+                  [
+                    0,
+                    2,
+                    3,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  0,
+                  2,
+                  3,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  3,
+                  2
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=0 held=2 x=3 y=1 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=0 held=1 x=3 y=2 failed=0"
+                ],
+                "trace": [
+                  [
+                    0,
+                    2,
+                    3,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    3,
+                    2
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  1,
+                  2,
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=1 held=2 x=1 y=2 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=1 held=1 x=0 y=0 failed=0"
+                ],
+                "trace": [
+                  [
+                    1,
+                    2,
+                    1,
+                    2
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    0
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  1,
+                  2,
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=1 held=2 x=1 y=2 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=1 held=1 x=2 y=2 failed=0"
+                ],
+                "trace": [
+                  [
+                    1,
+                    2,
+                    1,
+                    2
+                  ],
+                  [
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  1,
+                  2,
+                  3,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=1 held=2 x=3 y=0 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=1 held=1 x=0 y=0 failed=0"
+                ],
+                "trace": [
+                  [
+                    1,
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    0
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  1,
+                  2,
+                  3,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=1 held=2 x=3 y=0 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=1 held=1 x=2 y=2 failed=0"
+                ],
+                "trace": [
+                  [
+                    1,
+                    2,
+                    3,
+                    0
+                  ],
+                  [
+                    1,
+                    1,
+                    2,
+                    2
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  2,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  2,
+                  1
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=2 held=2 x=0 y=0 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=2 held=1 x=2 y=1 failed=0"
+                ],
+                "trace": [
+                  [
+                    2,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    1,
+                    2,
+                    1
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  2,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  3,
+                  0
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=2 held=2 x=0 y=0 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=2 held=1 x=3 y=0 failed=0"
+                ],
+                "trace": [
+                  [
+                    2,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    2,
+                    1,
+                    3,
+                    0
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  2,
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  1,
+                  2,
+                  1
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=2 held=2 x=1 y=1 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=2 held=1 x=2 y=1 failed=0"
+                ],
+                "trace": [
+                  [
+                    2,
+                    2,
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    1,
+                    2,
+                    1
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  2,
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  1,
+                  3,
+                  0
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=2 held=2 x=1 y=1 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=2 held=1 x=3 y=0 failed=0"
+                ],
+                "trace": [
+                  [
+                    2,
+                    2,
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    1,
+                    3,
+                    0
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=0 y=1 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=0 y=2 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    0,
+                    1
+                  ],
+                  [
+                    3,
+                    1,
+                    0,
+                    2
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  2,
+                  0
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=0 y=1 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=2 y=0 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    0,
+                    1
+                  ],
+                  [
+                    3,
+                    1,
+                    2,
+                    0
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  3,
+                  1
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=0 y=1 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=3 y=1 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    0,
+                    1
+                  ],
+                  [
+                    3,
+                    1,
+                    3,
+                    1
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  1,
+                  0
+                ],
+                [
+                  3,
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=1 y=0 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=0 y=2 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    1,
+                    0
+                  ],
+                  [
+                    3,
+                    1,
+                    0,
+                    2
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  1,
+                  0
+                ],
+                [
+                  3,
+                  1,
+                  2,
+                  0
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=1 y=0 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=2 y=0 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    1,
+                    0
+                  ],
+                  [
+                    3,
+                    1,
+                    2,
+                    0
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  1,
+                  0
+                ],
+                [
+                  3,
+                  1,
+                  3,
+                  1
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=1 y=0 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=3 y=1 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    1,
+                    0
+                  ],
+                  [
+                    3,
+                    1,
+                    3,
+                    1
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=3 y=2 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=0 y=2 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    1,
+                    0,
+                    2
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1,
+                  2,
+                  0
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=3 y=2 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=2 y=0 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    1,
+                    2,
+                    0
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            },
+            {
+              "expected_trace": [
+                [
+                  3,
+                  2,
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  1,
+                  3,
+                  1
+                ]
+              ],
+              "expected_masks": [
+                0,
+                0
+              ],
+              "observed": {
+                "seed": 1,
+                "seed_control": "6ac1f425",
+                "exit": 0,
+                "stdout": [
+                  "seed control=6ac1f425",
+                  "step=0 held=2 mask_ok=1 constant=1",
+                  "choice step=0 key=3 held=2 x=3 y=2 failed=0",
+                  "between held=1 no_new_failures=1",
+                  "step=1 held=1 mask_ok=1 constant=1",
+                  "choice step=1 key=3 held=1 x=3 y=1 failed=0"
+                ],
+                "trace": [
+                  [
+                    3,
+                    2,
+                    3,
+                    2
+                  ],
+                  [
+                    3,
+                    1,
+                    3,
+                    1
+                  ]
+                ],
+                "failure_masks": [
+                  0,
+                  0
+                ],
+                "invariants_hold": true
+              },
+              "pass": true
+            }
+          ],
+          "illegal_tuple": {
+            "expected_trace": [
+              [
+                1,
+                2,
+                2,
+                3
+              ],
+              [
+                1,
+                1,
+                2,
+                2
+              ]
+            ],
+            "expected_masks": [
+              7,
+              0
+            ],
+            "observed": {
+              "seed": 1,
+              "seed_control": "6ac1f425",
+              "exit": 0,
+              "stdout": [
+                "seed control=6ac1f425",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=1 held=2 x=2 y=3 failed=7",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=1 held=1 x=2 y=2 failed=0"
+              ],
+              "trace": [
+                [
+                  1,
+                  2,
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              ],
+              "failure_masks": [
+                7,
+                0
+              ],
+              "invariants_hold": true
+            },
+            "pass": true
+          },
+          "impossible_tuple": {
+            "expected_trace": [
+              [
+                1,
+                2,
+                1,
+                2
+              ],
+              [
+                1,
+                1,
+                2,
+                2
+              ]
+            ],
+            "expected_masks": [
+              0,
+              8
+            ],
+            "observed": {
+              "seed": 1,
+              "seed_control": "6ac1f425",
+              "exit": 0,
+              "stdout": [
+                "seed control=6ac1f425",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=1 held=2 x=1 y=2 failed=0",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=1 held=1 x=2 y=2 failed=8"
+              ],
+              "trace": [
+                [
+                  1,
+                  2,
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  1,
+                  2,
+                  2
+                ]
+              ],
+              "failure_masks": [
+                0,
+                8
+              ],
+              "invariants_hold": true
+            },
+            "pass": true
+          },
+          "native": [
+            {
+              "seed": 1,
+              "seed_control": "6ac1f425",
+              "exit": 0,
+              "stdout": [
+                "seed control=6ac1f425",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=0 held=2 x=0 y=0 failed=2",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=0 held=1 x=0 y=0 failed=2"
+              ],
+              "trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "failure_masks": [
+                2,
+                2
+              ],
+              "invariants_hold": true,
+              "matches_formal_witness": false
+            },
+            {
+              "seed": 7,
+              "seed_control": "1388f0af",
+              "exit": 0,
+              "stdout": [
+                "seed control=1388f0af",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=0 held=2 x=0 y=0 failed=2",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=0 held=1 x=0 y=0 failed=2"
+              ],
+              "trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "failure_masks": [
+                2,
+                2
+              ],
+              "invariants_hold": true,
+              "matches_formal_witness": false
+            },
+            {
+              "seed": 31,
+              "seed_control": "493ad2d2",
+              "exit": 0,
+              "stdout": [
+                "seed control=493ad2d2",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=0 held=2 x=0 y=0 failed=2",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=0 held=1 x=0 y=0 failed=2"
+              ],
+              "trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "failure_masks": [
+                2,
+                2
+              ],
+              "invariants_hold": true,
+              "matches_formal_witness": false
+            },
+            {
+              "seed": 73,
+              "seed_control": "a4875396",
+              "exit": 0,
+              "stdout": [
+                "seed control=a4875396",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=0 held=2 x=0 y=0 failed=2",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=0 held=1 x=0 y=0 failed=2"
+              ],
+              "trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "failure_masks": [
+                2,
+                2
+              ],
+              "invariants_hold": true,
+              "matches_formal_witness": false
+            },
+            {
+              "seed": 101,
+              "seed_control": "8432b35f",
+              "exit": 0,
+              "stdout": [
+                "seed control=8432b35f",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=0 held=2 x=0 y=0 failed=2",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=0 held=1 x=0 y=0 failed=2"
+              ],
+              "trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "failure_masks": [
+                2,
+                2
+              ],
+              "invariants_hold": true,
+              "matches_formal_witness": false
+            },
+            {
+              "seed": 509,
+              "seed_control": "c180e57a",
+              "exit": 0,
+              "stdout": [
+                "seed control=c180e57a",
+                "step=0 held=2 mask_ok=1 constant=1",
+                "choice step=0 key=0 held=2 x=0 y=0 failed=2",
+                "between held=1 no_new_failures=1",
+                "step=1 held=1 mask_ok=1 constant=1",
+                "choice step=1 key=0 held=1 x=0 y=0 failed=2"
+              ],
+              "trace": [
+                [
+                  0,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "failure_masks": [
+                2,
+                2
+              ],
+              "invariants_hold": true,
+              "matches_formal_witness": false
+            }
+          ],
+          "native_impossible": {
+            "seed": 1,
+            "seed_control": "6ac1f425",
+            "exit": 0,
+            "stdout": [
+              "seed control=6ac1f425",
+              "step=0 held=2 mask_ok=1 constant=1",
+              "choice step=0 key=0 held=2 x=0 y=0 failed=2",
+              "between held=1 no_new_failures=1",
+              "step=1 held=1 mask_ok=1 constant=1",
+              "choice step=1 key=0 held=1 x=0 y=0 failed=10"
+            ],
+            "trace": [
+              [
+                0,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0,
+                0
+              ]
+            ],
+            "failure_masks": [
+              2,
+              10
+            ],
+            "invariants_hold": true
+          },
+          "pass": true
+        }
+      }
+    },
+    "ghost_binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+    "ghost_profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch17/test_checker_free_joint_solutions": {
+          "status": "pass",
+          "inputs_sha256": "c7ab4c51249a25d06fedf4d89f44f2bd08e472e6998806862643771696ca47f7"
+        }
+      },
+      "generated_at": "2026-11-26T17:00:54.772471+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch17/test_checker_free_joint_solutions": {
+          "status": "known",
+          "reason": "compile failed: tests/ch17/test_checker_free_joint_solutions.sv:14: syntax error",
+          "inputs_sha256": "c7ab4c51249a25d06fedf4d89f44f2bd08e472e6998806862643771696ca47f7"
+        }
+      },
+      "generated_at": "2026-11-26T17:00:54.730702+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch17/test_checker_free_joint_solutions": {
+          "status": "known",
+          "reason": "build failed: %Error-UNSUPPORTED: tests/ch17/test_checker_free_joint_solutions.sv:17:34: Unsupported: checker port variable default value",
+          "inputs_sha256": "c7ab4c51249a25d06fedf4d89f44f2bd08e472e6998806862643771696ca47f7"
+        }
+      },
+      "generated_at": "2026-11-26T17:00:54.784664+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 7fa2a9758cab), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch17/test_checker_free_joint_solutions": {
+          "status": "unsupported",
+          "reason": "checker instance (not implemented yet)",
+          "inputs_sha256": "c7ab4c51249a25d06fedf4d89f44f2bd08e472e6998806862643771696ca47f7"
+        }
+      },
+      "generated_at": "2026-11-26T17:01:02.433017+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+      "slang_version": "slang version 12.1.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T17:01:02.464726+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch17/test_checker_free_joint_solutions": {
+          "kind": "legal",
+          "status": "clean",
+          "inputs_sha256": "c7ab4c51249a25d06fedf4d89f44f2bd08e472e6998806862643771696ca47f7"
+        }
+      }
+    }
+  }
+}

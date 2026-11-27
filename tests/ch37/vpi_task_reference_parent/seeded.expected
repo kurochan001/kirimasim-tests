@@ -1,0 +1,7 @@
+declaration task kind=1 ref=1 backlink=1 module-parent=1
+declaration function kind=1 ref=1 backlink=1 module-parent=1
+declaration input-control kind=1 ref=0 backlink=0 module-parent=1
+reference objects distinct=1
+view task kind=1 ref=1 intended=1 sibling=0 backlink=1
+view function kind=1 ref=1 intended=1 sibling=0 backlink=1
+hdl task=20 function=33 control=36

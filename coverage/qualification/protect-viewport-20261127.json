@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT",
+    "SV2023-34.5.32.2-EXTRACT-VIEWPORT-ACCESS",
+    "SV2023-34.5.32.2-EXTRACT-VIEWPORT-OBJECT"
+  ],
+  "qualification": {
+    "profile": "protect-viewport",
+    "checker_sha256": "7aa5e8f3704395b77829512da9d80c00c02c79e35bc2780347ba9b4732cf496e",
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+    "slang": "slang version 12.0.0+0",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "tests": {
+      "ch34/test_protect_viewport_uses_current_envelope": {
+        "inputs_sha256": "dd499d67d7cfbed5ce5da92d5845ef81db16f913a7c6d07831910418f2327d69",
+        "objects": {
+          "viewport_top.east.opened": 0,
+          "viewport_top.east.writable": 0,
+          "viewport_top.east.kept": 0,
+          "viewport_top.west.opened": 1,
+          "viewport_top.west.kept": 1,
+          "viewport_top.clear": null
+        },
+        "reference_policies": {
+          "tool_access_read": {
+            "permissions": {
+              "0:viewport_top.east.opened": 1,
+              "0:viewport_top.east.writable": 1,
+              "1:viewport_top.west.opened": 1
+            },
+            "expected": [
+              "viewport read_east=00000021",
+              "viewport write_readonly=ffffffff",
+              "viewport read_custom=00000042",
+              "viewport write_custom=ffffffff",
+              "viewport read_unlisted=ffffffff",
+              "viewport read_from_adjacent=ffffffff",
+              "viewport read_west=00000070",
+              "viewport read_clear_through_viewport=ffffffff",
+              "viewport values=21,42,38,70,68,13"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "viewport read_east=00000021",
+                "viewport write_readonly=ffffffff",
+                "viewport read_custom=00000042",
+                "viewport write_custom=ffffffff",
+                "viewport read_unlisted=ffffffff",
+                "viewport read_from_adjacent=ffffffff",
+                "viewport read_west=00000070",
+                "viewport read_clear_through_viewport=ffffffff",
+                "viewport values=21,42,38,70,68,13"
+              ]
+            },
+            "pass": true
+          },
+          "tool_access_read_write": {
+            "permissions": {
+              "0:viewport_top.east.opened": 1,
+              "0:viewport_top.east.writable": 3,
+              "1:viewport_top.west.opened": 1
+            },
+            "expected": [
+              "viewport read_east=00000021",
+              "viewport write_readonly=ffffffff",
+              "viewport read_custom=00000042",
+              "viewport write_custom=0000005b",
+              "viewport read_unlisted=ffffffff",
+              "viewport read_from_adjacent=ffffffff",
+              "viewport read_west=00000070",
+              "viewport read_clear_through_viewport=ffffffff",
+              "viewport values=21,5b,38,70,68,13"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "viewport read_east=00000021",
+                "viewport write_readonly=ffffffff",
+                "viewport read_custom=00000042",
+                "viewport write_custom=0000005b",
+                "viewport read_unlisted=ffffffff",
+                "viewport read_from_adjacent=ffffffff",
+                "viewport read_west=00000070",
+                "viewport read_clear_through_viewport=ffffffff",
+                "viewport values=21,5b,38,70,68,13"
+              ]
+            },
+            "pass": true
+          }
+        },
+        "target_variants": {
+          "adjacent_envelope": {
+            "target": "viewport_top.west.opened",
+            "reference_rejected_at_viewport": true,
+            "slang_exit": 0,
+            "slang_errors": []
+          },
+          "clear_source": {
+            "target": "viewport_top.clear",
+            "reference_rejected_at_viewport": true,
+            "slang_exit": 0,
+            "slang_errors": []
+          },
+          "missing_object": {
+            "target": "viewport_top.east.missing",
+            "reference_rejected_at_viewport": true,
+            "slang_exit": 0,
+            "slang_errors": []
+          }
+        },
+        "native_encryptor": {
+          "recovered_model_bodies": 2,
+          "viewport_expression_count_in_encrypted_output": 0,
+          "viewport_expressions_in_recovered_models": 3
+        },
+        "pass": true
+      },
+      "ch34/test_protect_viewport_keeps_access_after_reordering": {
+        "inputs_sha256": "83f72293303d94e1b851ccc18621342fee3b3c0814a0a9919aab6554b3cb1324",
+        "objects": {
+          "viewport_top.west.opened": 0,
+          "viewport_top.west.kept": 0,
+          "viewport_top.east.opened": 1,
+          "viewport_top.east.writable": 1,
+          "viewport_top.east.kept": 1,
+          "viewport_top.clear": null
+        },
+        "reference_policies": {
+          "tool_access_read": {
+            "permissions": {
+              "0:viewport_top.west.opened": 1,
+              "1:viewport_top.east.opened": 1,
+              "1:viewport_top.east.writable": 1
+            },
+            "expected": [
+              "viewport read_east=00000021",
+              "viewport write_readonly=ffffffff",
+              "viewport read_custom=00000042",
+              "viewport write_custom=ffffffff",
+              "viewport read_unlisted=ffffffff",
+              "viewport read_from_adjacent=ffffffff",
+              "viewport read_west=00000070",
+              "viewport read_clear_through_viewport=ffffffff",
+              "viewport values=21,42,38,70,68,13"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "viewport read_east=00000021",
+                "viewport write_readonly=ffffffff",
+                "viewport read_custom=00000042",
+                "viewport write_custom=ffffffff",
+                "viewport read_unlisted=ffffffff",
+                "viewport read_from_adjacent=ffffffff",
+                "viewport read_west=00000070",
+                "viewport read_clear_through_viewport=ffffffff",
+                "viewport values=21,42,38,70,68,13"
+              ]
+            },
+            "pass": true
+          },
+          "tool_access_read_write": {
+            "permissions": {
+              "0:viewport_top.west.opened": 1,
+              "1:viewport_top.east.opened": 1,
+              "1:viewport_top.east.writable": 3
+            },
+            "expected": [
+              "viewport read_east=00000021",
+              "viewport write_readonly=ffffffff",
+              "viewport read_custom=00000042",
+              "viewport write_custom=0000005b",
+              "viewport read_unlisted=ffffffff",
+              "viewport read_from_adjacent=ffffffff",
+              "viewport read_west=00000070",
+              "viewport read_clear_through_viewport=ffffffff",
+              "viewport values=21,5b,38,70,68,13"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "viewport read_east=00000021",
+                "viewport write_readonly=ffffffff",
+                "viewport read_custom=00000042",
+                "viewport write_custom=0000005b",
+                "viewport read_unlisted=ffffffff",
+                "viewport read_from_adjacent=ffffffff",
+                "viewport read_west=00000070",
+                "viewport read_clear_through_viewport=ffffffff",
+                "viewport values=21,5b,38,70,68,13"
+              ]
+            },
+            "pass": true
+          }
+        },
+        "target_variants": {
+          "adjacent_envelope": {
+            "target": "viewport_top.west.opened",
+            "reference_rejected_at_viewport": true,
+            "slang_exit": 0,
+            "slang_errors": []
+          },
+          "clear_source": {
+            "target": "viewport_top.clear",
+            "reference_rejected_at_viewport": true,
+            "slang_exit": 0,
+            "slang_errors": []
+          },
+          "missing_object": {
+            "target": "viewport_top.east.missing",
+            "reference_rejected_at_viewport": true,
+            "slang_exit": 0,
+            "slang_errors": []
+          }
+        },
+        "native_encryptor": {
+          "recovered_model_bodies": 2,
+          "viewport_expression_count_in_encrypted_output": 0,
+          "viewport_expressions_in_recovered_models": 3
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch34/test_protect_viewport_keeps_access_after_reordering": {
+          "status": "pass",
+          "inputs_sha256": "83f72293303d94e1b851ccc18621342fee3b3c0814a0a9919aab6554b3cb1324"
+        },
+        "ch34/test_protect_viewport_uses_current_envelope": {
+          "status": "pass",
+          "inputs_sha256": "dd499d67d7cfbed5ce5da92d5845ef81db16f913a7c6d07831910418f2327d69"
+        }
+      },
+      "generated_at": "2026-11-26T15:55:23.553397+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch34/test_protect_viewport_keeps_access_after_reordering": {
+          "status": "pass",
+          "inputs_sha256": "83f72293303d94e1b851ccc18621342fee3b3c0814a0a9919aab6554b3cb1324"
+        },
+        "ch34/test_protect_viewport_uses_current_envelope": {
+          "status": "pass",
+          "inputs_sha256": "dd499d67d7cfbed5ce5da92d5845ef81db16f913a7c6d07831910418f2327d69"
+        }
+      },
+      "generated_at": "2026-11-26T15:55:23.556285+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch34/test_protect_viewport_keeps_access_after_reordering": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_viewport_keeps_access_after_reordering.sv:16:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "83f72293303d94e1b851ccc18621342fee3b3c0814a0a9919aab6554b3cb1324"
+        },
+        "ch34/test_protect_viewport_uses_current_envelope": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_viewport_uses_current_envelope.sv:16:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "dd499d67d7cfbed5ce5da92d5845ef81db16f913a7c6d07831910418f2327d69"
+        }
+      },
+      "generated_at": "2026-11-26T15:55:23.586261+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  },
+  "negative_controls": {
+    "omitting_grant_blocks_previously_readable_east_object": true,
+    "leaking_the_adjacent_grant_exposes_the_wrong_model_value": true,
+    "declaring_access_by_previous_order_fails_after_reordering": true,
+    "ignoring_operation_mask_writes_the_read_only_object": true,
+    "omitting_containment_validation_loses_all_three_rejections": true
+  }
+}

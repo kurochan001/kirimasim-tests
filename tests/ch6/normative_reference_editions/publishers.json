@@ -1,0 +1,135 @@
+{
+  "reviewed_through": "2026-11-27",
+  "posix_utility_url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uuencode.html",
+  "posix_utility_sha256": "fc459b87c7cfc73cb83bd294c43bb3375eb5b165b3c591989d14ebb0bd403fb2",
+  "publications": [
+    {
+      "series": "FIPS 180",
+      "id": "180-2 (2002-08)",
+      "published": "2002-08-01",
+      "kind": "edition",
+      "base": null,
+      "url": "https://csrc.nist.gov/pubs/fips/180-2/final"
+    },
+    {
+      "series": "FIPS 180",
+      "id": "180-2 Change Notice 1",
+      "published": "2004-02-25",
+      "kind": "amendment",
+      "base": "180-2 (2002-08)",
+      "url": "https://csrc.nist.gov/pubs/fips/180-2/upd1/final"
+    },
+    {
+      "series": "FIPS 180",
+      "id": "180-4 (2015-08)",
+      "published": "2015-08-04",
+      "kind": "edition",
+      "base": null,
+      "url": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+    },
+    {
+      "series": "IEEE 1364",
+      "id": "1364-1995",
+      "published": "1996-10-14",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/1364/2051/"
+    },
+    {
+      "series": "IEEE 1364",
+      "id": "1364-2005",
+      "published": "2006-04-07",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/1364/3641/"
+    },
+    {
+      "series": "IEEE 754",
+      "id": "754-2008",
+      "published": "2008-08-29",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/754/4211/"
+    },
+    {
+      "series": "IEEE 754",
+      "id": "754-2019",
+      "published": "2019-07-22",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/754/6210/"
+    },
+    {
+      "series": "IEEE 754",
+      "id": "P754",
+      "published": null,
+      "kind": "revision-project",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/754/11684/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "1003.1-1990",
+      "published": "1990-12-07",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/1003.1/1385/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "1003.1b-1993",
+      "published": "1994-07-01",
+      "kind": "amendment",
+      "base": "1003.1-1990",
+      "url": "https://standards.ieee.org/ieee/1003.1b/1392/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "1003.1-2008",
+      "published": "2008-12-01",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/1003.1/4020/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "1003.1-2008/Cor 1-2013",
+      "published": "2013-03-15",
+      "kind": "corrigendum",
+      "base": "1003.1-2008",
+      "url": "https://standards.ieee.org/ieee/1003.1-2008_Cor_1/5219/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "1003.1-2008/Cor 2-2016",
+      "published": "2016-08-15",
+      "kind": "corrigendum",
+      "base": "1003.1-2008",
+      "url": "https://standards.ieee.org/ieee/1003.1-2008_Cor_2/6162/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "1003.1-2017",
+      "published": "2018-01-31",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/POSIX.1/7101/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "1003.1-2024",
+      "published": "2024-06-14",
+      "kind": "edition",
+      "base": null,
+      "url": "https://standards.ieee.org/ieee/1003.1/7700/"
+    },
+    {
+      "series": "IEEE 1003.1",
+      "id": "P1003.1-2024/Cor 1",
+      "published": null,
+      "kind": "corrigendum-project",
+      "base": "1003.1-2024",
+      "url": "https://standards.ieee.org/ieee/1003.1-2024_Cor_1/11920/"
+    }
+  ]
+}

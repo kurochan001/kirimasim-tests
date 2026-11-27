@@ -1,0 +1,297 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-OUTPUT-TEXT",
+    "SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-OUTPUT",
+    "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-OUTPUT",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-OUTPUT"
+  ],
+  "qualification": {
+    "profile": "protect-author-digests",
+    "checker_sha256": "ed51064ee9ba709a9e6b11aa3c447f47863b5b1e30cc889e9d59f2071188ccdd",
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "signature_mode": "detached author signature checked by the reference packager",
+    "native_prepared_mode": "already formed decryption envelope passed to ordinary CLI",
+    "tests": {
+      "ch34/test_protect_author_digest_inherits_data_key": {
+        "inputs_sha256": "730a00456f9c87be3199536e33ef9cdfd41dab53f55964c115810a98a009fab0",
+        "reference_controls": {
+          "author_signature_verified": true,
+          "unsigned_input_rejected": true,
+          "changed_author_bytes_rejected": true,
+          "wrong_recipient_rejected": true,
+          "methods_and_keys_unwrapped": true,
+          "digest_key_explicit_or_inherited": true,
+          "both_wrapped_key_encodings": true,
+          "key_buffer_encoding": true,
+          "wrapped_digest_matches_author": true,
+          "key_public_key_matches_recipient": true,
+          "key_material_only_in_wrapped_buffer": true,
+          "author_data_preserved": true,
+          "author_digest_preserved": true,
+          "body_and_digest_recovered": true,
+          "altered_digest_detected": true,
+          "wrong_digest_key_detected": true,
+          "recovered_hdl_matches": true
+        },
+        "native_ordinary": {
+          "outcome": "ordinary_body_recovered",
+          "ordinary_data_method_preserved": true,
+          "emitted_digest_blocks": 0
+        },
+        "native_prepared": {
+          "outcome": "prepared_input_malformed_delimiter",
+          "output_ranges": 0,
+          "prepared_contents_reencrypted": true
+        }
+      },
+      "ch34/test_protect_author_digest_wraps_explicit_key": {
+        "inputs_sha256": "f93ad8b037a8e8f9c842833707a28235caf1adb25045c0e2ed9b6d47ca56dcc2",
+        "reference_controls": {
+          "author_signature_verified": true,
+          "unsigned_input_rejected": true,
+          "changed_author_bytes_rejected": true,
+          "wrong_recipient_rejected": true,
+          "methods_and_keys_unwrapped": true,
+          "digest_key_explicit_or_inherited": true,
+          "both_wrapped_key_encodings": true,
+          "key_buffer_encoding": true,
+          "wrapped_digest_matches_author": true,
+          "key_public_key_matches_recipient": true,
+          "key_material_only_in_wrapped_buffer": true,
+          "author_data_preserved": true,
+          "author_digest_preserved": true,
+          "body_and_digest_recovered": true,
+          "altered_digest_detected": true,
+          "wrong_digest_key_detected": true,
+          "recovered_hdl_matches": true
+        },
+        "native_ordinary": {
+          "outcome": "ordinary_body_recovered",
+          "ordinary_data_method_preserved": true,
+          "emitted_digest_blocks": 0
+        },
+        "native_prepared": {
+          "outcome": "prepared_input_malformed_delimiter",
+          "output_ranges": 0,
+          "prepared_contents_reencrypted": true
+        }
+      },
+      "ch34/test_protect_digest_metadata_placement": {
+        "inputs_sha256": "933594d02bb55192ca86d5883ddc70e54a69eec663aa1340b7b0a2a83085f7cd",
+        "reference_controls": {
+          "author_signature_verified": true,
+          "unsigned_input_rejected": true,
+          "changed_author_bytes_rejected": true,
+          "wrong_recipient_rejected": true,
+          "methods_and_keys_unwrapped": true,
+          "digest_key_explicit_or_inherited": true,
+          "both_wrapped_key_encodings": true,
+          "key_buffer_encoding": true,
+          "wrapped_digest_matches_author": true,
+          "key_public_key_matches_recipient": true,
+          "key_material_only_in_wrapped_buffer": true,
+          "author_data_preserved": true,
+          "author_digest_preserved": true,
+          "body_and_digest_recovered": true,
+          "altered_digest_detected": true,
+          "wrong_digest_key_detected": true,
+          "recovered_hdl_matches": true,
+          "unsigned_digest_matches": true,
+          "digest_key_selected_by_owner_and_name": true,
+          "uses_key_block_without_digest_key_block": true,
+          "unsigned_preserves_digest_keyowner": true,
+          "signed_wraps_digest_keyowner": true,
+          "unsigned_preserves_digest_keyname": true,
+          "signed_wraps_digest_keyname": true,
+          "unsigned_preserves_digest_key_method": true,
+          "signed_wraps_digest_key_method": true,
+          "unsigned_preserves_digest_method": true,
+          "signed_wraps_digest_method": true
+        },
+        "native_ordinary": {
+          "outcome": "ordinary_body_recovered",
+          "ordinary_data_method_preserved": true,
+          "emitted_digest_blocks": 0
+        },
+        "native_prepared": {
+          "outcome": "prepared_input_malformed_delimiter",
+          "output_ranges": 0,
+          "prepared_contents_reencrypted": true
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch34/test_protect_digest_metadata_placement": {
+          "status": "pass",
+          "inputs_sha256": "933594d02bb55192ca86d5883ddc70e54a69eec663aa1340b7b0a2a83085f7cd"
+        }
+      },
+      "generated_at": "2026-11-26T15:02:47.507750+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch34/test_protect_digest_metadata_placement": {
+          "status": "pass",
+          "inputs_sha256": "933594d02bb55192ca86d5883ddc70e54a69eec663aa1340b7b0a2a83085f7cd"
+        }
+      },
+      "generated_at": "2026-11-26T15:02:47.498075+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch34/test_protect_digest_metadata_placement": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_digest_metadata_placement.sv:16:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "933594d02bb55192ca86d5883ddc70e54a69eec663aa1340b7b0a2a83085f7cd"
+        }
+      },
+      "generated_at": "2026-11-26T15:02:47.527811+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  },
+  "signed_cleartext_control": {
+    "change": "Copy all four wrapped digest metadata fields into the signed outer clear-text header.",
+    "reference_controls": {
+      "author_signature_verified": true,
+      "unsigned_input_rejected": true,
+      "changed_author_bytes_rejected": true,
+      "wrong_recipient_rejected": true,
+      "methods_and_keys_unwrapped": true,
+      "digest_key_explicit_or_inherited": true,
+      "both_wrapped_key_encodings": true,
+      "key_buffer_encoding": true,
+      "wrapped_digest_matches_author": true,
+      "key_public_key_matches_recipient": true,
+      "key_material_only_in_wrapped_buffer": false,
+      "author_data_preserved": true,
+      "author_digest_preserved": true,
+      "body_and_digest_recovered": true,
+      "altered_digest_detected": true,
+      "wrong_digest_key_detected": true,
+      "recovered_hdl_matches": true,
+      "unsigned_digest_matches": true,
+      "digest_key_selected_by_owner_and_name": true,
+      "uses_key_block_without_digest_key_block": true,
+      "unsigned_preserves_digest_keyowner": true,
+      "signed_wraps_digest_keyowner": false,
+      "unsigned_preserves_digest_keyname": true,
+      "signed_wraps_digest_keyname": false,
+      "unsigned_preserves_digest_key_method": true,
+      "signed_wraps_digest_key_method": false,
+      "unsigned_preserves_digest_method": true,
+      "signed_wraps_digest_method": false
+    },
+    "detected_mismatches": [
+      "key_material_only_in_wrapped_buffer",
+      "signed_wraps_digest_keyowner",
+      "signed_wraps_digest_keyname",
+      "signed_wraps_digest_key_method",
+      "signed_wraps_digest_method"
+    ]
+  },
+  "dependent_profile_replays": {
+    "public-keys": {
+      "profile": "protect-public-keys",
+      "checker_sha256": "fb8f4f413e9a518571b437a8327812cc5c4519c059b55ef2c2e64bd0ac14630f",
+      "tests": {
+        "ch34/test_protect_data_public_key_matches_owner_and_name": {
+          "inputs_sha256": "4f421b6c17a3da1efedf00c1dde4880f7c3ea2f12b0ed78d6e1c671ba1290de2",
+          "reference_checks": 15
+        },
+        "ch34/test_protect_digest_public_key_inherits_data_identity": {
+          "inputs_sha256": "38bcf62c7ae83ce2156646e450e355c5952533ab5d8a0ad8284fbe62689aaac6",
+          "reference_checks": 19
+        },
+        "ch34/test_protect_exchange_public_key_matches_owner_and_name": {
+          "inputs_sha256": "931d978a887d1ae9cebd2d981a98dd02d58c84cab6dbafd6e026ccf50bdae910",
+          "reference_checks": 14
+        },
+        "ch34/test_protect_public_key_roles_remain_separate_between_envelopes": {
+          "inputs_sha256": "118cc350f7637b23e73be24cc1ebc9916324ca2f8efba72babbb3dfb312fe092",
+          "reference_checks": 7
+        }
+      }
+    },
+    "multiple-recipients": {
+      "profile": "protect-multiple-recipients",
+      "checker_sha256": "bc454ecda7963b2df5a05c0711346da7f5b06b2ae51316bc5c02d75e5691da07",
+      "tests": {
+        "ch34/test_protect_recipients_reject_changed_body_key_metadata": {
+          "inputs_sha256": "2f9da91ba07ddb13ab408984e709b9384b7ed3c6fc15604c4bbea6c473614ecd",
+          "reference_checks": 18
+        },
+        "ch34/test_protect_recipients_wrap_the_same_body_key": {
+          "inputs_sha256": "45bb15b86dbe4c1f2622596d137c415cb4e48faf2f69340fe8fe6fe6be96c17f",
+          "reference_checks": 18
+        }
+      }
+    },
+    "nested-envelopes": {
+      "profile": "protect-nested-decryption",
+      "checker_sha256": "2030c9cdd57bcd0095b079dedfc9773ec9aedadaca1f241caeda984aa901d312",
+      "tests": {
+        "ch34/test_protect_decrypts_eight_layers_before_expanding_macros": {
+          "inputs_sha256": "44f6f035386b520a3200ff011986bc76e7b0c9c08f8c3ea139d47aee9f7f24c6",
+          "reference_checks": 11
+        },
+        "ch34/test_protect_replaces_nested_macros_before_next_envelope": {
+          "inputs_sha256": "89ff683d17dd395449ad65318c69e74c38680602ae75af5b968dbc43ace461f1",
+          "reference_checks": 14
+        }
+      }
+    },
+    "openpgp": {
+      "profile": "protect-openpgp-methods",
+      "checker_sha256": "f45d4ffae4bfa47384431cbeddf146f4df52cbe8ab9da1b61fa28a9ab01caee2",
+      "tests": {
+        "ch34/test_protect_elgamal_recovers_the_declared_payload": {
+          "inputs_sha256": "1935a56fb1f5b4267624d2553b061019b14044cc5b85c115ba4a1288f31f8d74",
+          "reference_checks": 14
+        },
+        "ch34/test_protect_pgp_rsa_recovers_the_declared_payload": {
+          "inputs_sha256": "2639aca5858cd9e30ae66e5724eba171a710522129a437e0f7fae3ce2aa7daa5",
+          "reference_checks": 13
+        }
+      }
+    }
+  },
+  "unsigned_fixture": "Keys are supplied by the test application rather than emitted as clear-text session keys."
+}

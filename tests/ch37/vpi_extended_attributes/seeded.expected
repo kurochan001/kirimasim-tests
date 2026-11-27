@@ -1,0 +1,17 @@
+gate attribute count=1 name=1 value=1 parent=1
+primitive-terminal native typed=1 distinct=1 counts=0/0
+path-terminal native typed=1 distinct=1 counts=0/0
+module-path native typed=1 distinct=1 counts=0/0
+timing-check native typed=1 distinct=1 counts=0/0
+table-entry native typed=1 distinct=1 counts=0/0
+primitive-terminal first count=2 names=2 values=2 parent=2 sibling=0
+primitive-terminal second count=1 names=1 values=1 parent=1 sibling=0
+path-terminal first count=2 names=2 values=2 parent=2 sibling=0
+path-terminal second count=1 names=1 values=1 parent=1 sibling=0
+module-path first count=2 names=2 values=2 parent=2 sibling=0
+module-path second count=1 names=1 values=1 parent=1 sibling=0
+timing-check first count=2 names=2 values=2 parent=2 sibling=0
+timing-check second count=1 names=1 values=1 parent=1 sibling=0
+table-entry first count=2 names=2 values=2 parent=2 sibling=0
+table-entry second count=1 names=1 values=1 parent=1 sibling=0
+gate attribute count=1 name=1 value=1 parent=1

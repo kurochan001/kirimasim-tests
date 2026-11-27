@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.83-EXTRACT-DIAGRAM-013",
+    "SV2023-37.83-EXTRACT-DIAGRAM-014",
+    "SV2023-37.83-EXTRACT-DIAGRAM-015",
+    "SV2023-37.83-EXTRACT-DIAGRAM-016",
+    "SV2023-37.83-EXTRACT-DIAGRAM-017",
+    "SV2023-37.83-EXTRACT-DIAGRAM-018",
+    "SV2023-37.83-EXTRACT-DIAGRAM-019",
+    "SV2023-37.83-EXTRACT-DIAGRAM-020",
+    "SV2023-37.83-EXTRACT-DIAGRAM-029",
+    "SV2023-37.83-EXTRACT-DIAGRAM-030"
+  ],
+  "qualification": {
+    "profile": "ghost-extended-attribute-reference",
+    "checker_sha256": "8b2bcd7e614c679d9c95d8995df9262650f81ac4ddb3d24bf6a6dfefb56fced5",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "ghost_headers": "631f6b274a9007a0a2b95467e8820ffcbc0e5866232f005cd8fb97ef589c86ef"
+    },
+    "ghost": "private build 2f3874bf7b63",
+    "slang": "slang version 12.0.0+0",
+    "runtime_profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "tests": {
+      "ch37/test_vpi_extended_attribute_owners": {
+        "inputs_sha256": "17e6a8a05183e97c092c61209e57d13910dc323c8f2ebfe6af8f5a58cec1f51a",
+        "trials": {
+          "ordinary": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "gate attribute count=1 name=1 value=1 parent=1",
+              "primitive-terminal native typed=1 distinct=1 counts=0/0",
+              "path-terminal native typed=1 distinct=1 counts=0/0",
+              "module-path native typed=1 distinct=1 counts=0/0",
+              "timing-check native typed=1 distinct=1 counts=0/0",
+              "table-entry native typed=1 distinct=1 counts=0/0"
+            ]
+          },
+          "source_terminal_attribute": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "gate attribute count=1 name=1 value=1 parent=1",
+              "primitive-terminal native typed=1 distinct=1 counts=0/0",
+              "path-terminal native typed=1 distinct=1 counts=0/0",
+              "module-path native typed=1 distinct=1 counts=0/0",
+              "timing-check native typed=1 distinct=1 counts=0/0",
+              "table-entry native typed=1 distinct=1 counts=0/0"
+            ]
+          },
+          "seeded": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "gate attribute count=1 name=1 value=1 parent=1",
+              "primitive-terminal native typed=1 distinct=1 counts=0/0",
+              "path-terminal native typed=1 distinct=1 counts=0/0",
+              "module-path native typed=1 distinct=1 counts=0/0",
+              "timing-check native typed=1 distinct=1 counts=0/0",
+              "table-entry native typed=1 distinct=1 counts=0/0",
+              "primitive-terminal first count=2 names=2 values=2 parent=2 sibling=0",
+              "primitive-terminal second count=1 names=1 values=1 parent=1 sibling=0",
+              "path-terminal first count=2 names=2 values=2 parent=2 sibling=0",
+              "path-terminal second count=1 names=1 values=1 parent=1 sibling=0",
+              "module-path first count=2 names=2 values=2 parent=2 sibling=0",
+              "module-path second count=1 names=1 values=1 parent=1 sibling=0",
+              "timing-check first count=2 names=2 values=2 parent=2 sibling=0",
+              "timing-check second count=1 names=1 values=1 parent=1 sibling=0",
+              "table-entry first count=2 names=2 values=2 parent=2 sibling=0",
+              "table-entry second count=1 names=1 values=1 parent=1 sibling=0",
+              "gate attribute count=1 name=1 value=1 parent=1"
+            ]
+          },
+          "contrast": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "gate attribute count=1 name=1 value=1 parent=1",
+              "primitive-terminal native typed=1 distinct=1 counts=0/0",
+              "path-terminal native typed=1 distinct=1 counts=0/0",
+              "module-path native typed=1 distinct=1 counts=0/0",
+              "timing-check native typed=1 distinct=1 counts=0/0",
+              "table-entry native typed=1 distinct=1 counts=0/0",
+              "primitive-terminal first count=2 names=2 values=2 parent=2 sibling=0",
+              "primitive-terminal second count=1 names=1 values=1 parent=1 sibling=0",
+              "path-terminal first count=2 names=2 values=2 parent=1 sibling=1",
+              "path-terminal second count=1 names=1 values=1 parent=1 sibling=0",
+              "module-path first count=1 names=1 values=1 parent=1 sibling=0",
+              "module-path second count=2 names=1 values=1 parent=1 sibling=0",
+              "timing-check first count=2 names=2 values=2 parent=2 sibling=0",
+              "timing-check second count=1 names=1 values=1 parent=1 sibling=0",
+              "table-entry first count=2 names=2 values=2 parent=2 sibling=0",
+              "table-entry second count=1 names=1 values=1 parent=1 sibling=0",
+              "gate attribute count=1 name=1 value=1 parent=1"
+            ]
+          }
+        },
+        "grammar": {
+          "ordinary": {
+            "slang_exit": 0
+          },
+          "primitive-terminal": {
+            "slang_exit": 0,
+            "ghost_exit": 0
+          },
+          "path-terminal": {
+            "line": 35,
+            "slang": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            },
+            "ghost": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            }
+          },
+          "module-path": {
+            "line": 35,
+            "slang": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            },
+            "ghost": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            }
+          },
+          "timing-check": {
+            "line": 37,
+            "slang": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            },
+            "ghost": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            }
+          },
+          "table-entry": {
+            "line": 21,
+            "slang": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            },
+            "ghost": {
+              "exit": 1,
+              "diagnosed_at_annotation": true
+            }
+          }
+        },
+        "checks": {
+          "ordinary_trace_matches": true,
+          "seeded_trace_matches": true,
+          "contrast_trace_matches": true,
+          "contrast_rejects_wrong_forward_and_reverse_edges": true,
+          "grammar_controls_are_qualified": true,
+          "all_five_owner_kinds_checked": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary_tools": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch37/test_vpi_extended_attribute_owners": {
+          "status": "pass",
+          "inputs_sha256": "17e6a8a05183e97c092c61209e57d13910dc323c8f2ebfe6af8f5a58cec1f51a"
+        }
+      },
+      "generated_at": "2026-11-26T19:53:20.218507+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch37/test_vpi_extended_attribute_owners": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'attribute VPI declarations unavailable', expected 'gate attribute count=1 name=1 value=1 parent=1'",
+          "inputs_sha256": "17e6a8a05183e97c092c61209e57d13910dc323c8f2ebfe6af8f5a58cec1f51a"
+        }
+      },
+      "generated_at": "2026-11-26T19:53:20.229458+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_extended_attribute_owners": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_extended_attribute_owners.sv:49:8: Unsupported or unknown PLI call: '$vt_extended_attributes'",
+          "inputs_sha256": "17e6a8a05183e97c092c61209e57d13910dc323c8f2ebfe6af8f5a58cec1f51a"
+        }
+      },
+      "generated_at": "2026-11-26T19:53:20.015438+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_extended_attribute_owners": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "17e6a8a05183e97c092c61209e57d13910dc323c8f2ebfe6af8f5a58cec1f51a"
+        }
+      },
+      "generated_at": "2026-11-26T19:53:19.937184+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

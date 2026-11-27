@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-2-EXTRACT-DATED-REFERENCES",
+    "SV2023-2-EXTRACT-UNDATED-REFERENCES"
+  ],
+  "posix_utility_page": {
+    "url": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uuencode.html",
+    "sha256": "fc459b87c7cfc73cb83bd294c43bb3375eb5b165b3c591989d14ebb0bd403fb2"
+  },
+  "qualification": {
+    "profile": "normative-reference-editions",
+    "checker_sha256": "c050ccb6d1ced750b076861a16e0d68f6e6bbfb0ac5058da7aec4feb4e678a08",
+    "runtime_profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "iverilog": "06ba47e2009a5f2a195fde3f002b77da3bf68c55c10902d235f09690992e5d5e",
+      "vvp": "3dacee08534bb9aa314966c21170885e84bd21dd5332ed83e456cca427bacbc8",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "openssl": "da101a01999a93ea6eddfe1392752bce2b5a91a41e4b00e1d9656fc682a1dc85",
+      "pdftotext": "e3350fcebb4edc20b6e2cf806f66013ec0c238a3ecbcba3eec8c4489de7884d8",
+      "uuencode": "96c6f8074067e3b1001a0c520e71545086bc8ad916074878edd02bf76a2ea9c4",
+      "uudecode": "96c6f8074067e3b1001a0c520e71545086bc8ad916074878edd02bf76a2ea9c4",
+      "ghost_headers": "631f6b274a9007a0a2b95467e8820ffcbc0e5866232f005cd8fb97ef589c86ef"
+    },
+    "references": {
+      "undated": [
+        "IEEE 1003.1",
+        "IEEE 754"
+      ],
+      "verilog": [
+        "1364-1995",
+        "1364-2001",
+        "1364-2005"
+      ],
+      "fips": "180-2 (2002-08)",
+      "pdf_sha256": "43d042a29ead0d47da726f3286cd67a7d5e0e90c6cd237cf453eefcfa58d1a14",
+      "section_sha256": "f4085c89d3fed4bd5bf3a028db2ca0bd3b315cd73386860808c3f632e606be85"
+    },
+    "publisher_snapshot": "2026-11-27",
+    "tests": {
+      "ch36/test_normative_dated_vpi_edition": {
+        "inputs_sha256": "c2e9df4135b103d5ebdb10218514fd1fdee58766627dc48ef8ebb66d0f811cb6",
+        "checks": {
+          "dated_matrix_matches": true,
+          "selected_edition_matches": true,
+          "newer_edition_changes_live_vpi_object_types": true
+        },
+        "trials": {
+          "1364-1995": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "lookup=vpi_handle_by_name_1364v1995",
+              "array=29 element=30 value=101"
+            ]
+          },
+          "1364-2005": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "lookup=vpi_handle_by_name_1364v2005",
+              "array=116 element=48 value=101"
+            ]
+          }
+        },
+        "output": [
+          "IEEE 1364 pin=1364-1995 newest=1364-2005",
+          "FIPS 180 pin=180-2 (2002-08) updates=-",
+          "FIPS 180 later=180-4 (2015-08) available-update=180-2 Change Notice 1",
+          "sha1 abc=a9993e364706816aba3e25717850c26c9cd0d89d",
+          "1364-1995 lookup=vpi_handle_by_name_1364v1995",
+          "1364-1995 array=29 element=30 value=101",
+          "1364-2005 lookup=vpi_handle_by_name_1364v2005",
+          "1364-2005 array=116 element=48 value=101"
+        ],
+        "pass": true
+      },
+      "ch6/test_normative_undated_binary64": {
+        "inputs_sha256": "7590034949a04ee17fe26f2d9a0fc08602916a1a2a44a6b6a58617e2f46476dd",
+        "checks": {
+          "undated_matrix_matches": true,
+          "native_binary64_matches": true,
+          "native_uuencode_and_independent_decoder_match": true
+        },
+        "output": [
+          "IEEE 754 2017-01-01 base=754-2008 updates=-",
+          "IEEE 754 2026-11-27 base=754-2019 updates=-",
+          "IEEE 1003.1 1993-01-01 base=1003.1-1990 updates=-",
+          "IEEE 1003.1 1995-01-01 base=1003.1-1990 updates=1003.1b-1993",
+          "IEEE 1003.1 2014-01-01 base=1003.1-2008 updates=1003.1-2008/Cor 1-2013",
+          "IEEE 1003.1 2017-01-01 base=1003.1-2008 updates=1003.1-2008/Cor 1-2013;1003.1-2008/Cor 2-2016",
+          "IEEE 1003.1 2019-01-01 base=1003.1-2017 updates=-",
+          "IEEE 1003.1 2026-11-27 base=1003.1-2024 updates=-",
+          "project excluded=P754",
+          "project excluded=P1003.1-2024/Cor 1",
+          "binary64 ghost/icarus=match",
+          "uuencode historical lengths=45/45/6 decoded=96",
+          "uuencode base64 decoded=96"
+        ],
+        "ghost": {
+          "exit": 0,
+          "completed": true,
+          "output": [
+            "subnormal=0000000000000001 sum=0000000000000002",
+            "tie=3ff0000000000000 negative-zero=8000000000000000"
+          ]
+        },
+        "icarus": {
+          "exit": 0,
+          "output": [
+            "subnormal=0000000000000001 sum=0000000000000002",
+            "tie=3ff0000000000000 negative-zero=8000000000000000"
+          ]
+        },
+        "posix": {
+          "historical_lengths": [
+            45,
+            45,
+            6
+          ],
+          "decoded": {
+            "historical": {
+              "match": true,
+              "octets": 96
+            },
+            "base64": {
+              "match": true,
+              "octets": 96
+            }
+          },
+          "sha256": "08359b108fa567f5dcf319fa3434da6abbc1d595f426372666447f09cc5a87dc"
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary_tools": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch36/test_normative_dated_vpi_edition": {
+          "status": "pass",
+          "inputs_sha256": "c2e9df4135b103d5ebdb10218514fd1fdee58766627dc48ef8ebb66d0f811cb6"
+        },
+        "ch6/test_normative_undated_binary64": {
+          "status": "pass",
+          "inputs_sha256": "7590034949a04ee17fe26f2d9a0fc08602916a1a2a44a6b6a58617e2f46476dd"
+        }
+      },
+      "generated_at": "2026-11-26T20:53:22.011512+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch36/test_normative_dated_vpi_edition": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'lookup=vpi_handle_by_name', expected 'lookup=vpi_handle_by_name_1364v1995'",
+          "inputs_sha256": "c2e9df4135b103d5ebdb10218514fd1fdee58766627dc48ef8ebb66d0f811cb6"
+        },
+        "ch6/test_normative_undated_binary64": {
+          "status": "pass",
+          "inputs_sha256": "7590034949a04ee17fe26f2d9a0fc08602916a1a2a44a6b6a58617e2f46476dd"
+        }
+      },
+      "generated_at": "2026-11-26T20:53:22.023549+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch36/test_normative_dated_vpi_edition": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch36/test_normative_dated_vpi_edition.sv:20:8: Unsupported or unknown PLI call: '$vt_normative_edition'",
+          "inputs_sha256": "c2e9df4135b103d5ebdb10218514fd1fdee58766627dc48ef8ebb66d0f811cb6"
+        },
+        "ch6/test_normative_undated_binary64": {
+          "status": "pass",
+          "inputs_sha256": "7590034949a04ee17fe26f2d9a0fc08602916a1a2a44a6b6a58617e2f46476dd"
+        }
+      },
+      "generated_at": "2026-11-26T20:53:25.380718+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.3.0 (commit f0abaff21ee9), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch36/test_normative_dated_vpi_edition": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "c2e9df4135b103d5ebdb10218514fd1fdee58766627dc48ef8ebb66d0f811cb6"
+        },
+        "ch6/test_normative_undated_binary64": {
+          "status": "pass",
+          "inputs_sha256": "7590034949a04ee17fe26f2d9a0fc08602916a1a2a44a6b6a58617e2f46476dd"
+        }
+      },
+      "generated_at": "2026-11-26T20:53:21.706529+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

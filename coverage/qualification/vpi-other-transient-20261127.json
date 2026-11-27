@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "requirement": "SV2023-37.3.7-EXTRACT-OTHER-TRANSIENT",
+  "runs": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch37/test_vpi_other_transient_objects": {
+          "status": "pass",
+          "inputs_sha256": "cc74a14e976f624ae9c02a462a31fa51e2fbdd155dcac7f9e47c2659d74a86fc"
+        },
+        "ch38/test_vpi_removed_timer_callback_disappears_from_iteration": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "2730abbe3798fb36b2e0a8e4bb834f4f4b495de6c0a0725614fb5ff161848d1d"
+        }
+      },
+      "generated_at": "2026-11-26T19:45:09.929948+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch37/test_vpi_other_transient_objects": {
+          "status": "known",
+          "reason": "compile failed: tests/ch37/test_vpi_other_transient_objects.sv:20: syntax error",
+          "inputs_sha256": "cc74a14e976f624ae9c02a462a31fa51e2fbdd155dcac7f9e47c2659d74a86fc"
+        }
+      },
+      "generated_at": "2026-11-26T19:45:09.481446+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_other_transient_objects": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch37/test_vpi_other_transient_objects.sv:21:5: Unsupported or unknown PLI call: '$vt_transient_sample'",
+          "inputs_sha256": "cc74a14e976f624ae9c02a462a31fa51e2fbdd155dcac7f9e47c2659d74a86fc"
+        }
+      },
+      "generated_at": "2026-11-26T19:45:09.472230+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_other_transient_objects": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "cc74a14e976f624ae9c02a462a31fa51e2fbdd155dcac7f9e47c2659d74a86fc"
+        }
+      },
+      "generated_at": "2026-11-26T19:45:09.400148+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "version": "slang version 12.0.0+0",
+      "tool_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "options": [
+        "--std=1800-2023",
+        "--define-system-task",
+        "$vt_transient_sample",
+        "tests/ch37/test_vpi_other_transient_objects.sv"
+      ],
+      "tests": {
+        "ch37/test_vpi_other_transient_objects": {
+          "status": "clean",
+          "inputs_sha256": "cc74a14e976f624ae9c02a462a31fa51e2fbdd155dcac7f9e47c2659d74a86fc",
+          "output": [
+            "Top level design units:",
+            "    test_vpi_other_transient_objects",
+            "",
+            "",
+            "Build succeeded: 0 errors, 0 warnings"
+          ]
+        }
+      }
+    }
+  },
+  "ghost_result": "coverage/results/vpi-other-transient-20261127-ghost.json",
+  "ghost_observation": {
+    "test": "ch37/test_vpi_other_transient_objects",
+    "inputs_sha256": "cc74a14e976f624ae9c02a462a31fa51e2fbdd155dcac7f9e47c2659d74a86fc",
+    "output": [
+      "iterator phase=1 typed=1 terminal=1",
+      "references phase=1 frame=1 thread=1 holder=17 outer=17 scoped=23",
+      "scheduled event type=1 pending=1 target=0",
+      "callbacks type=1/1 distinct=1 removed=1 end=1",
+      "holder outdated=43 scoped=23",
+      "iterator phase=2 typed=1 terminal=1",
+      "references phase=2 frame=1 thread=1 holder=43 outer=69 scoped=23",
+      "before delivery pending=1 target=0",
+      "caller scoped=23 replacement=69",
+      "iterator phase=3 typed=1 terminal=1",
+      "after scope thread=1 frame=0 outer=69",
+      "after delivery pending=0 target=91 removed=0 kept=1",
+      "event handle released=1",
+      "thread ending type=1 identity=1 frame=0",
+      "iterator phase=4 typed=1 terminal=1",
+      "after join thread end=1 outer=69 target=91"
+    ]
+  },
+  "icarus_iterator_cleanup": {
+    "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+    "configuration": {
+      "evidence_profile": "icarus-iterator-release",
+      "checker_sha256": "dfe7cecd0f0dc3d333ea83fa4735da27b2586d19b36e0a5b362248fc811e0e69",
+      "binary_sha256": {
+        "iverilog": "06ba47e2009a5f2a195fde3f002b77da3bf68c55c10902d235f09690992e5d5e",
+        "vvp": "3dacee08534bb9aa314966c21170885e84bd21dd5332ed83e456cca427bacbc8",
+        "iverilog-vpi": "49adb620044c46bbdce18ecf52ccb0a08ad5a4654ae3a3902cdfb4776cd0d454",
+        "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+      },
+      "debugger_version": "lldb-2103.0.34.407"
+    },
+    "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+    "tests": {
+      "ch38/test_vpi_iterator_released_on_terminal_scan": {
+        "inputs_sha256": "4b9c311a861cb6e169f1787823630f3195781d88fc75a5aa5ddb3f3d2e7f2388",
+        "pass": true,
+        "debugger_exit": 0,
+        "target_exits": [
+          0
+        ],
+        "events": [
+          "early_open early",
+          "drained_open drained",
+          "explicit_release early",
+          "cleanup early other",
+          "explicit_done",
+          "terminal_scan drained",
+          "cleanup drained scan",
+          "terminal_done"
+        ],
+        "expected_events": [
+          "early_open early",
+          "drained_open drained",
+          "explicit_release early",
+          "cleanup early other",
+          "explicit_done",
+          "terminal_scan drained",
+          "cleanup drained scan",
+          "terminal_done"
+        ],
+        "stdout": [
+          "early release=1 child readable=1",
+          "drained modules=7 terminal null=1"
+        ]
+      }
+    }
+  },
+  "ghost_timer_removal_enumeration": {
+    "test": "ch38/test_vpi_removed_timer_callback_disappears_from_iteration",
+    "inputs_sha256": "2730abbe3798fb36b2e0a8e4bb834f4f4b495de6c0a0725614fb5ff161848d1d",
+    "expected": [
+      "registered=11",
+      "before added=2",
+      "remove result=1",
+      "after added=1",
+      "delivered removed=0 kept=1"
+    ],
+    "observed": [
+      "registered=11",
+      "before added=2",
+      "remove result=1",
+      "after added=2",
+      "delivered removed=0 kept=1"
+    ]
+  }
+}

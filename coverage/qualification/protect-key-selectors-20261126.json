@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYOWNER",
+    "SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY",
+    "SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY",
+    "SV2023-34.5.18.2-EXTRACT-DIGEST-NAME"
+  ],
+  "public_keys": {
+    "profile": "protect-public-keys",
+    "checker_sha256": "feb64d32fb679b5839b9dabf45496ea1644e7c5b208f7e76de63728a9b9a1560",
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "tests": {
+      "ch34/test_protect_data_public_key_matches_owner_and_name": {
+        "inputs_sha256": "4f421b6c17a3da1efedf00c1dde4880f7c3ea2f12b0ed78d6e1c671ba1290de2",
+        "reference_controls": {
+          "combined_owner_and_name": true,
+          "same_name_different_owner": true,
+          "public_only": true,
+          "next_line_public_encoding": true,
+          "blank_line_before_public_key_rejected": true,
+          "owner_name_and_method_visible": true,
+          "name_and_public_mismatch_rejected": true,
+          "private_key_wrong_owner_rejected": true,
+          "public_key_unknown_to_owner_rejected": true,
+          "unknown_name_for_owner": true,
+          "unknown_name_in_registry": true,
+          "license_denied_with_known_key": true,
+          "third_party_data_key_supplier": true,
+          "same_owner_changed_data_keyname": true,
+          "recovered_hdl_matches": true
+        },
+        "native": {
+          "before_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": false,
+            "selector_in_clear_surroundings": true,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 1
+          },
+          "inside_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": true,
+            "selector_in_clear_surroundings": false,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 1
+          }
+        }
+      },
+      "ch34/test_protect_digest_public_key_inherits_data_identity": {
+        "inputs_sha256": "38bcf62c7ae83ce2156646e450e355c5952533ab5d8a0ad8284fbe62689aaac6",
+        "reference_controls": {
+          "combined_owner_and_name": true,
+          "same_name_different_owner": true,
+          "public_only": true,
+          "next_line_public_encoding": true,
+          "blank_line_before_public_key_rejected": true,
+          "owner_name_and_method_visible": true,
+          "name_and_public_mismatch_rejected": true,
+          "private_key_wrong_owner_rejected": true,
+          "public_key_unknown_to_owner_rejected": true,
+          "unknown_name_for_owner": true,
+          "unknown_name_in_registry": true,
+          "license_denied_with_known_key": true,
+          "inherited_data_public_key": true,
+          "digest_name_inherits_with_explicit_owner": true,
+          "same_name_data_key_rejected_for_digest": true,
+          "unknown_inherited_digest_name": true,
+          "inherited_public_and_explicit_name_mismatch": true,
+          "independent_data_and_digest_suppliers": true,
+          "recovered_hdl_matches": true
+        },
+        "native": {
+          "before_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": false,
+            "selector_in_clear_surroundings": true,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 1
+          },
+          "inside_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": true,
+            "selector_in_clear_surroundings": false,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 1
+          }
+        }
+      },
+      "ch34/test_protect_exchange_public_key_matches_owner_and_name": {
+        "inputs_sha256": "931d978a887d1ae9cebd2d981a98dd02d58c84cab6dbafd6e026ccf50bdae910",
+        "reference_controls": {
+          "combined_owner_and_name": true,
+          "same_name_different_owner": true,
+          "public_only": true,
+          "next_line_public_encoding": true,
+          "blank_line_before_public_key_rejected": true,
+          "owner_name_and_method_visible": true,
+          "name_and_public_mismatch_rejected": true,
+          "private_key_wrong_owner_rejected": true,
+          "public_key_unknown_to_owner_rejected": true,
+          "unknown_name_for_owner": true,
+          "unknown_name_in_registry": true,
+          "license_denied_with_known_key": true,
+          "key_block_recovers_body_key": true,
+          "recovered_hdl_matches": true
+        },
+        "native": {
+          "before_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": false,
+            "selector_in_clear_surroundings": true,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 1
+          },
+          "inside_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": true,
+            "selector_in_clear_surroundings": false,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 1
+          }
+        }
+      },
+      "ch34/test_protect_public_key_roles_remain_separate_between_envelopes": {
+        "inputs_sha256": "118cc350f7637b23e73be24cc1ebc9916324ca2f8efba72babbb3dfb312fe092",
+        "reference_controls": {
+          "first_body_and_digest_match": true,
+          "second_body_requires_exchange_key": true,
+          "each_owner_name_and_key_preserved": true,
+          "public_keys_keep_local_encodings": true,
+          "exchange_key_cannot_open_first_data_or_digest": true,
+          "prior_data_and_digest_keys_cannot_open_second_key_block": true,
+          "recovered_hdl_matches": true
+        },
+        "native": {
+          "before_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": false,
+            "selector_in_clear_surroundings": true,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 2
+          },
+          "inside_begin": {
+            "outcome": "envelope_selector_omitted",
+            "body_recovered_using_cli_recipient": true,
+            "selector_in_recovered_body": true,
+            "selector_in_clear_surroundings": false,
+            "author_private_key_cannot_unwrap_cli_recipient": true,
+            "emitted_data_method": "aes256-cbc",
+            "emitted_digest_blocks": 0,
+            "envelope_count": 2
+          }
+        }
+      }
+    }
+  },
+  "author_session_keys": {
+    "profile": "protect-author-digests",
+    "checker_sha256": "9d80c487b1fbe010bef5cfcac59268bd6c0795d23c5c8c584d1e5cd9c1d2dfd5",
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "signature_mode": "detached author signature checked by the reference packager",
+    "native_prepared_mode": "already formed decryption envelope passed to ordinary CLI",
+    "tests": {
+      "ch34/test_protect_author_digest_inherits_data_key": {
+        "inputs_sha256": "730a00456f9c87be3199536e33ef9cdfd41dab53f55964c115810a98a009fab0",
+        "reference_controls": {
+          "author_signature_verified": true,
+          "unsigned_input_rejected": true,
+          "changed_author_bytes_rejected": true,
+          "wrong_recipient_rejected": true,
+          "methods_and_keys_unwrapped": true,
+          "digest_key_explicit_or_inherited": true,
+          "both_wrapped_key_encodings": true,
+          "key_buffer_encoding": true,
+          "wrapped_digest_matches_author": true,
+          "key_public_key_matches_recipient": true,
+          "key_material_only_in_wrapped_buffer": true,
+          "author_data_preserved": true,
+          "author_digest_preserved": true,
+          "body_and_digest_recovered": true,
+          "altered_digest_detected": true,
+          "wrong_digest_key_detected": true,
+          "recovered_hdl_matches": true
+        },
+        "native_ordinary": {
+          "outcome": "ordinary_body_recovered",
+          "ordinary_data_method_preserved": true,
+          "emitted_digest_blocks": 0
+        },
+        "native_prepared": {
+          "outcome": "prepared_input_malformed_delimiter",
+          "output_ranges": 0,
+          "prepared_contents_reencrypted": true
+        }
+      },
+      "ch34/test_protect_author_digest_wraps_explicit_key": {
+        "inputs_sha256": "f93ad8b037a8e8f9c842833707a28235caf1adb25045c0e2ed9b6d47ca56dcc2",
+        "reference_controls": {
+          "author_signature_verified": true,
+          "unsigned_input_rejected": true,
+          "changed_author_bytes_rejected": true,
+          "wrong_recipient_rejected": true,
+          "methods_and_keys_unwrapped": true,
+          "digest_key_explicit_or_inherited": true,
+          "both_wrapped_key_encodings": true,
+          "key_buffer_encoding": true,
+          "wrapped_digest_matches_author": true,
+          "key_public_key_matches_recipient": true,
+          "key_material_only_in_wrapped_buffer": true,
+          "author_data_preserved": true,
+          "author_digest_preserved": true,
+          "body_and_digest_recovered": true,
+          "altered_digest_detected": true,
+          "wrong_digest_key_detected": true,
+          "recovered_hdl_matches": true
+        },
+        "native_ordinary": {
+          "outcome": "ordinary_body_recovered",
+          "ordinary_data_method_preserved": true,
+          "emitted_digest_blocks": 0
+        },
+        "native_prepared": {
+          "outcome": "prepared_input_malformed_delimiter",
+          "output_ranges": 0,
+          "prepared_contents_reencrypted": true
+        }
+      }
+    }
+  },
+  "recipient_replay": {
+    "profile": "protect-multiple-recipients",
+    "checker_sha256": "6c903942935caae7b88c51d463e5925e8f07a1aa1ec7d5c67898e85494411aae",
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "reference_signature": "detached fixture-author signature verified before packaging",
+    "tests": {
+      "ch34/test_protect_recipients_reject_changed_body_key_metadata": {
+        "inputs_sha256": "2f9da91ba07ddb13ab408984e709b9384b7ed3c6fc15604c4bbea6c473614ecd",
+        "reference_controls": {
+          "two_recipients_restore_one_body": true,
+          "same_unwrapped_data_metadata": true,
+          "recipient_block_payloads_differ": true,
+          "new_descriptor_for_each_wrapped_block": true,
+          "exchange_owners_and_methods_preserved": true,
+          "independent_exchange_suppliers": true,
+          "duplicate_name_under_same_owner_rejected": true,
+          "duplicate_material_under_same_owner_rejected": true,
+          "changed_exchange_owner_cannot_select_private_key": true,
+          "changed_method_cannot_open_original_payload": true,
+          "signed_data_owner_and_name_only_in_key_blocks": true,
+          "ordinary_data_owner_and_name_visible": true,
+          "signature_blocks_modified_author_body": true,
+          "recovered_hdl_matches": true,
+          "second_recipient_changes_data_keyowner": true,
+          "second_recipient_changes_data_keyname": true,
+          "second_recipient_changes_data_method": true,
+          "second_recipient_changes_data_decrypt_key": true
+        },
+        "ordinary_cli": {
+          "outcome": "one_cli_recipient_recovers_body",
+          "key_blocks": 1,
+          "key_owner": "Qualification",
+          "key_method": "rsa",
+          "output_data_method": "aes256-cbc"
+        },
+        "prepared_cli": {
+          "outcome": "prepared_input_malformed_delimiter",
+          "output_ranges": 0,
+          "prepared_contents_reencrypted": true
+        }
+      },
+      "ch34/test_protect_recipients_wrap_the_same_body_key": {
+        "inputs_sha256": "45bb15b86dbe4c1f2622596d137c415cb4e48faf2f69340fe8fe6fe6be96c17f",
+        "reference_controls": {
+          "two_recipients_restore_one_body": true,
+          "same_unwrapped_data_metadata": true,
+          "recipient_block_payloads_differ": true,
+          "new_descriptor_for_each_wrapped_block": true,
+          "exchange_owners_and_methods_preserved": true,
+          "independent_exchange_suppliers": true,
+          "duplicate_name_under_same_owner_rejected": true,
+          "duplicate_material_under_same_owner_rejected": true,
+          "changed_exchange_owner_cannot_select_private_key": true,
+          "changed_method_cannot_open_original_payload": true,
+          "signed_data_owner_and_name_only_in_key_blocks": true,
+          "ordinary_data_owner_and_name_visible": true,
+          "signature_blocks_modified_author_body": true,
+          "recovered_hdl_matches": true,
+          "second_recipient_changes_data_keyowner": true,
+          "second_recipient_changes_data_keyname": true,
+          "second_recipient_changes_data_method": true,
+          "second_recipient_changes_data_decrypt_key": true
+        },
+        "ordinary_cli": {
+          "outcome": "one_cli_recipient_recovers_body",
+          "key_blocks": 1,
+          "key_owner": "Qualification",
+          "key_method": "rsa",
+          "output_data_method": "aes256-cbc"
+        },
+        "prepared_cli": {
+          "outcome": "prepared_input_malformed_delimiter",
+          "output_ranges": 0,
+          "prepared_contents_reencrypted": true
+        }
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch34/test_protect_data_public_key_matches_owner_and_name": {
+          "status": "pass",
+          "inputs_sha256": "4f421b6c17a3da1efedf00c1dde4880f7c3ea2f12b0ed78d6e1c671ba1290de2"
+        },
+        "ch34/test_protect_digest_public_key_inherits_data_identity": {
+          "status": "pass",
+          "inputs_sha256": "38bcf62c7ae83ce2156646e450e355c5952533ab5d8a0ad8284fbe62689aaac6"
+        },
+        "ch34/test_protect_exchange_public_key_matches_owner_and_name": {
+          "status": "pass",
+          "inputs_sha256": "931d978a887d1ae9cebd2d981a98dd02d58c84cab6dbafd6e026ccf50bdae910"
+        }
+      },
+      "generated_at": "2026-11-26T14:52:11.146120+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch34/test_protect_data_public_key_matches_owner_and_name": {
+          "status": "pass",
+          "inputs_sha256": "4f421b6c17a3da1efedf00c1dde4880f7c3ea2f12b0ed78d6e1c671ba1290de2"
+        },
+        "ch34/test_protect_digest_public_key_inherits_data_identity": {
+          "status": "pass",
+          "inputs_sha256": "38bcf62c7ae83ce2156646e450e355c5952533ab5d8a0ad8284fbe62689aaac6"
+        },
+        "ch34/test_protect_exchange_public_key_matches_owner_and_name": {
+          "status": "pass",
+          "inputs_sha256": "931d978a887d1ae9cebd2d981a98dd02d58c84cab6dbafd6e026ccf50bdae910"
+        }
+      },
+      "generated_at": "2026-11-26T14:52:11.161070+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch34/test_protect_data_public_key_matches_owner_and_name": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv:15:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "4f421b6c17a3da1efedf00c1dde4880f7c3ea2f12b0ed78d6e1c671ba1290de2"
+        },
+        "ch34/test_protect_digest_public_key_inherits_data_identity": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv:15:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "38bcf62c7ae83ce2156646e450e355c5952533ab5d8a0ad8284fbe62689aaac6"
+        },
+        "ch34/test_protect_exchange_public_key_matches_owner_and_name": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv:20:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "931d978a887d1ae9cebd2d981a98dd02d58c84cab6dbafd6e026ccf50bdae910"
+        }
+      },
+      "generated_at": "2026-11-26T14:52:11.201555+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "author_ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch34/test_protect_author_digest_wraps_explicit_key": {
+          "status": "pass",
+          "inputs_sha256": "f93ad8b037a8e8f9c842833707a28235caf1adb25045c0e2ed9b6d47ca56dcc2"
+        }
+      },
+      "generated_at": "2026-11-26T14:52:41.133957+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "author_icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch34/test_protect_author_digest_wraps_explicit_key": {
+          "status": "pass",
+          "inputs_sha256": "f93ad8b037a8e8f9c842833707a28235caf1adb25045c0e2ed9b6d47ca56dcc2"
+        }
+      },
+      "generated_at": "2026-11-26T14:52:41.124464+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "digest_name_negative_control": {
+    "change": "Skip data key-name inheritance when the digest owner is explicit.",
+    "controls": {
+      "combined_owner_and_name": true,
+      "same_name_different_owner": true,
+      "public_only": true,
+      "next_line_public_encoding": true,
+      "blank_line_before_public_key_rejected": true,
+      "owner_name_and_method_visible": true,
+      "name_and_public_mismatch_rejected": true,
+      "private_key_wrong_owner_rejected": true,
+      "public_key_unknown_to_owner_rejected": true,
+      "unknown_name_for_owner": true,
+      "unknown_name_in_registry": true,
+      "license_denied_with_known_key": true,
+      "inherited_data_public_key": true,
+      "digest_name_inherits_with_explicit_owner": false,
+      "same_name_data_key_rejected_for_digest": true,
+      "unknown_inherited_digest_name": false,
+      "inherited_public_and_explicit_name_mismatch": true,
+      "independent_data_and_digest_suppliers": true,
+      "recovered_hdl_matches": true
+    },
+    "mismatches": [
+      "digest_name_inherits_with_explicit_owner",
+      "unknown_inherited_digest_name"
+    ]
+  }
+}

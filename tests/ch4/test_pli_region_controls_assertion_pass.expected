@@ -1,0 +1,12 @@
+pre-active t=10 level=0 mirror=0
+active t=10 level=0
+inactive t=10 level=1 triggered=0
+pre-nba t=10 level=1 mirror=2
+nba feedback t=10 level=2 completed=6 triggered=0
+property t=10 passed=1 sample=0 level=2 mirror=4 triggered=1
+reactive t=10 p=0 back=0
+re-inactive t=10 p=0 back=0
+re-nba feedback t=10 p=5 back=0
+active feedback t=10 p=5 back=5
+pre-postponed t=10 level=2 p=5 back=5
+postponed t=10 level=2 p=5 back=5

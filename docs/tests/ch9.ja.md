@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[すべての章](README.ja.md) .テストは493本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは494本で、そのうち233本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -257,6 +257,7 @@
 | [`test_process_await_normal_and_forced_termination`](../../tests/ch9/test_process_await_normal_and_forced_termination.sv) |process の await は自然終了と強制終了の両方で復帰し、終了済みなら直ちに戻る| 9.7 G.6 | Verilator 5.054 ||
 | [`test_process_await_rejects_current_process`](../../tests/ch9/test_process_await_rejects_current_process.sv) |プロセスは自分自身の終了を待つことはできない| 9.7 |規格のみ||
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) |プロセスクラス: self, status, kill| 9.7 | Verilator 5.052 ||
+| [`test_process_control_target_origins`](../../tests/ch9/test_process_control_target_origins.sv) |initialとalwaysおよびそのforkの子孫として生成されたプロセスを制御する| 9.7 |規格のみ|複数のファイル|
 | [`test_process_final_class_enum_values_are_distinct_and_typed`](../../tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv) |標準プロセスクラスの全状態が互いに異なるenumの値となる| 9.7 G.6 | Verilator 5.052 ||
 | [`test_process_function_can_suspend_another_waiting_process`](../../tests/ch9/test_process_function_can_suspend_another_waiting_process.sv) |関数は別のプロセスを suspend でき、呼び出し元はそのプロセスを再開できる| 9.7 G.6 |規格のみ||
 | [`test_process_function_cannot_suspend_current_process`](../../tests/ch9/test_process_function_cannot_suspend_current_process.sv) |関数が自分のプロセスを suspend するとエラーを報告する| 9.7 |規格のみ||

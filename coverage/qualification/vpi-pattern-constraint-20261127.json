@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.34-EXTRACT-DIAGRAM-007",
+    "SV2023-37.72-EXTRACT-DIAGRAM-013"
+  ],
+  "qualification": {
+    "profile": "ghost-pattern-constraint-reference",
+    "checker_sha256": "bc3843f570dd95718b3f6aae96097b400a6504503d19201d52d2ed4a3c8e2445",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "ghost_headers": "631f6b274a9007a0a2b95467e8820ffcbc0e5866232f005cd8fb97ef589c86ef"
+    },
+    "ghost": "private build 2f3874bf7b63",
+    "slang": "slang version 12.0.0+0",
+    "runtime_profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "tests": {
+      "ch37/test_vpi_pattern_constraint_properties": {
+        "inputs_sha256": "68bb87cb60776cc7ed2c275477284314e72dccede7b6e83061781728632b0b1f",
+        "trials": {
+          "native": {
+            "exit": 0,
+            "output": [
+              "constraints implemented=1/41 final=1/62",
+              "constraint pure_owner.pending virtual=0 boolean=1",
+              "constraint fixed_control.permanent virtual=0 boolean=1",
+              "structure outer member=(anonymous)",
+              "structure binding=first member=(anonymous)",
+              "structure binding=second member=(anonymous)",
+              "matched first=19 second=31"
+            ],
+            "completed": true
+          },
+          "native_swapped": {
+            "exit": 0,
+            "output": [
+              "constraints implemented=1/41 final=1/62",
+              "constraint pure_owner.pending virtual=0 boolean=1",
+              "constraint fixed_control.permanent virtual=0 boolean=1",
+              "structure outer member=(anonymous)",
+              "structure binding=first member=(anonymous)",
+              "structure binding=second member=(anonymous)",
+              "matched first=30 second=20"
+            ],
+            "completed": true
+          },
+          "seeded": {
+            "exit": 0,
+            "output": [
+              "constraints implemented=1/41 final=1/62",
+              "constraint pure_owner.pending virtual=1 boolean=1",
+              "constraint fixed_control.permanent virtual=0 boolean=1",
+              "structure outer member=(anonymous)",
+              "structure binding=first member=left",
+              "structure binding=second member=right",
+              "matched first=19 second=31"
+            ],
+            "completed": true
+          },
+          "seeded_swapped": {
+            "exit": 0,
+            "output": [
+              "constraints implemented=1/41 final=1/62",
+              "constraint pure_owner.pending virtual=1 boolean=1",
+              "constraint fixed_control.permanent virtual=0 boolean=1",
+              "structure outer member=(anonymous)",
+              "structure binding=first member=right",
+              "structure binding=second member=left",
+              "matched first=30 second=20"
+            ],
+            "completed": true
+          }
+        },
+        "parsed": {
+          "seeded": {
+            "constraints": {
+              "pure_owner": {
+                "name": "pending",
+                "abstract": true,
+                "flags": [
+                  "extern",
+                  "pure"
+                ]
+              },
+              "fixed_control": {
+                "name": "permanent",
+                "abstract": false,
+                "flags": [
+                  "final"
+                ]
+              },
+              "implementation_owner": {
+                "name": "pending",
+                "abstract": false,
+                "flags": []
+              }
+            },
+            "member_for_binding": {
+              "second": "right",
+              "first": "left"
+            }
+          },
+          "seeded_swapped": {
+            "constraints": {
+              "pure_owner": {
+                "name": "pending",
+                "abstract": true,
+                "flags": [
+                  "extern",
+                  "pure"
+                ]
+              },
+              "fixed_control": {
+                "name": "permanent",
+                "abstract": false,
+                "flags": [
+                  "final"
+                ]
+              },
+              "implementation_owner": {
+                "name": "pending",
+                "abstract": false,
+                "flags": []
+              }
+            },
+            "member_for_binding": {
+              "second": "left",
+              "first": "right"
+            }
+          }
+        },
+        "slang_controls": {
+          "OMIT_PURE_IMPLEMENTATION": {
+            "exit": 1,
+            "matched_diagnostic": true
+          },
+          "OVERRIDE_FINAL_CONSTRAINT": {
+            "exit": 1,
+            "matched_diagnostic": true
+          }
+        },
+        "checks": {
+          "native_trace_matches": true,
+          "native_swapped_trace_matches": true,
+          "seeded_trace_matches": true,
+          "seeded_swapped_trace_matches": true,
+          "pure_implementation_and_final_override_controls": true,
+          "independently_parsed_member_names_follow_the_swapped_source": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary_tools": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch37/test_vpi_pattern_constraint_properties": {
+          "status": "pass",
+          "inputs_sha256": "68bb87cb60776cc7ed2c275477284314e72dccede7b6e83061781728632b0b1f"
+        }
+      },
+      "generated_at": "2026-11-26T20:10:10.474363+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch37/test_vpi_pattern_constraint_properties": {
+          "status": "known",
+          "reason": "compile failed: tests/ch37/test_vpi_pattern_constraint_properties.sv:18: syntax error",
+          "inputs_sha256": "68bb87cb60776cc7ed2c275477284314e72dccede7b6e83061781728632b0b1f"
+        }
+      },
+      "generated_at": "2026-11-26T20:10:10.270423+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_pattern_constraint_properties": {
+          "status": "known",
+          "reason": "build failed: %Error-UNSUPPORTED: tests/ch37/test_vpi_pattern_constraint_properties.sv:43:5: Unsupported: case matches (for tagged union)",
+          "inputs_sha256": "68bb87cb60776cc7ed2c275477284314e72dccede7b6e83061781728632b0b1f"
+        }
+      },
+      "generated_at": "2026-11-26T20:10:10.264716+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_pattern_constraint_properties": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "68bb87cb60776cc7ed2c275477284314e72dccede7b6e83061781728632b0b1f"
+        }
+      },
+      "generated_at": "2026-11-26T20:10:10.183683+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

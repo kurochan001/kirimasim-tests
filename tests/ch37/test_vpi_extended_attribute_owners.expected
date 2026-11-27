@@ -1,0 +1,6 @@
+gate attribute count=1 name=1 value=1 parent=1
+primitive-terminal native typed=1 distinct=1 counts=0/0
+path-terminal native typed=1 distinct=1 counts=0/0
+module-path native typed=1 distinct=1 counts=0/0
+timing-check native typed=1 distinct=1 counts=0/0
+table-entry native typed=1 distinct=1 counts=0/0

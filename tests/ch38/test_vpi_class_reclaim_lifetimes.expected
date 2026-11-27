@@ -1,0 +1,8 @@
+native create typespec accepted=1
+native reclaim typespec accepted=1
+native reclaim variable accepted=1
+native creation class=1 id-live=1
+native reclaim object accepted=1
+native creation class=1 id-live=1
+live slots=32,50 other=63
+native counts create=2 distinct=1 type=0 object=0

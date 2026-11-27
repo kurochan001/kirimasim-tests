@@ -1,0 +1,16 @@
+iterator phase=1 typed=1 terminal=1
+references phase=1 frame=1 thread=1 holder=17 outer=17 scoped=23
+scheduled event type=1 pending=1 target=0
+callbacks type=1/1 distinct=1 removed=1 end=1
+holder outdated=43 scoped=23
+iterator phase=2 typed=1 terminal=1
+references phase=2 frame=1 thread=1 holder=43 outer=69 scoped=23
+before delivery pending=1 target=0
+caller scoped=23 replacement=69
+iterator phase=3 typed=1 terminal=1
+after scope thread=1 frame=0 outer=69
+after delivery pending=0 target=91 removed=0 kept=1
+event handle released=1
+thread ending type=1 identity=1 frame=0
+iterator phase=4 typed=1 terminal=1
+after join thread end=1 outer=69 target=91

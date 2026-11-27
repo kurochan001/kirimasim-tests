@@ -1,0 +1,27 @@
+block lines outer=20 left=22 right=29
+module placement outer=1
+module placement left-block=1
+module placement left-delay=1
+module placement left-write=1
+module placement right-block=0
+module placement right-delay=0
+module placement right-write=0
+module placement tail-delay=1
+module placement tail-write=1
+module registered=1
+direct registration left-block=1
+direct registration right-block=0
+direct registration tail-write=1
+removal scheduled=1
+module removed=1
+events outer module=1 direct=0
+events left-block module=1 direct=1
+events left-delay module=1 direct=0
+events left-write module=1 direct=0
+events right-block module=0 direct=0
+events right-delay module=0 direct=0
+events right-write module=0 direct=0
+events tail-delay module=1 direct=0
+events tail-write module=0 direct=1
+events unknown=0
+values left=29 right=47 tail=63

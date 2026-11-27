@@ -3,7 +3,7 @@
 :description: Exchange public key selection for a wrapped data encryption key
 :tags: ch34
 :type: simulation
-:lrm: 1800-2023 34.5.25.2 34.5.26.2
+:lrm: 1800-2023 34.4 34.5.25.2 34.5.26.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

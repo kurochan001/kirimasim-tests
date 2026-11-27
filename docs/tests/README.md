@@ -13,12 +13,12 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | Clause | Title | Tests | Generated |
 | ---: | --- | ---: | ---: |
 | 3 | [Design and verification building blocks](ch3.md) | 166 | 48 |
-| 4 | [Scheduling semantics](ch4.md) | 485 | 386 |
+| 4 | [Scheduling semantics](ch4.md) | 487 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 533 | 415 |
-| 6 | [Data types](ch6.md) | 924 | 265 |
-| 7 | [Aggregate data types](ch7.md) | 1139 | 604 |
-| 8 | [Classes](ch8.md) | 516 | 138 |
-| 9 | [Processes](ch9.md) | 493 | 233 |
+| 6 | [Data types](ch6.md) | 925 | 265 |
+| 7 | [Aggregate data types](ch7.md) | 1141 | 604 |
+| 8 | [Classes](ch8.md) | 517 | 138 |
+| 9 | [Processes](ch9.md) | 494 | 233 |
 | 10 | [Assignment statements](ch10.md) | 770 | 521 |
 | 11 | [Operators and expressions](ch11.md) | 2638 | 2054 |
 | 12 | [Procedural programming statements](ch12.md) | 328 | 125 |
@@ -26,27 +26,27 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 14 | [Clocking blocks](ch14.md) | 174 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 218 | 133 |
 | 16 | [Assertions](ch16.md) | 819 | 133 |
-| 17 | [Checkers](ch17.md) | 141 | 27 |
+| 17 | [Checkers](ch17.md) | 142 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 302 | 57 |
-| 19 | [Functional coverage](ch19.md) | 259 | 50 |
+| 19 | [Functional coverage](ch19.md) | 260 | 50 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 723 | 392 |
 | 21 | [Input/output system tasks and system functions](ch21.md) | 971 | 708 |
 | 22 | [Compiler directives](ch22.md) | 1332 | 1206 |
 | 23 | [Modules and hierarchy](ch23.md) | 448 | 161 |
 | 24 | [Programs](ch24.md) | 225 | 171 |
-| 25 | [Interfaces](ch25.md) | 282 | 134 |
+| 25 | [Interfaces](ch25.md) | 284 | 134 |
 | 26 | [Packages](ch26.md) | 271 | 179 |
 | 27 | [Generate constructs](ch27.md) | 295 | 180 |
 | 28 | [Gate-level and switch-level modeling](ch28.md) | 423 | 287 |
 | 29 | [User-defined primitives](ch29.md) | 148 | 61 |
-| 30 | [Specify blocks](ch30.md) | 73 ||
-| 31 | [Timing checks](ch31.md) | 89 ||
+| 30 | [Specify blocks](ch30.md) | 74 ||
+| 31 | [Timing checks](ch31.md) | 92 ||
 | 32 | [Backannotation using the standard delay format](ch32.md) | 80 | 18 |
-| 33 | [Configuring the contents of a design](ch33.md) | 110 | 41 |
-| 34 | [Protected envelopes](ch34.md) | 52 ||
-| 35 | [Direct programming interface](ch35.md) | 247 | 48 |
-| 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 101 ||
-| 37 | [VPI object model diagrams](ch37.md) | 296 ||
-| 38 | [VPI routine definitions](ch38.md) | 190 ||
+| 33 | [Configuring the contents of a design](ch33.md) | 112 | 41 |
+| 34 | [Protected envelopes](ch34.md) | 59 ||
+| 35 | [Direct programming interface](ch35.md) | 248 | 48 |
+| 36 | [Programming language interface (PLI/VPI) overview](ch36.md) | 105 ||
+| 37 | [VPI object model diagrams](ch37.md) | 306 ||
+| 38 | [VPI routine definitions](ch38.md) | 194 ||
 | 39 | [Assertion API](ch39.md) | 50 ||
-| 40 | [Code coverage control and API](ch40.md) | 45 ||
+| 40 | [Code coverage control and API](ch40.md) | 46 ||

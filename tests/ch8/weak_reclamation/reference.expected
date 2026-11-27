@@ -1,0 +1,10 @@
+live left=29 right=29 peer=47 ids-distinct=1
+after weak views strong=1,1 slots=3,1
+destroy wrapper strong=0 target-alive=1
+after wrapper drop left=29 right=29
+weakly reachable strong=0 left=29 right=29 peer=47
+destroy target strong=0 cleared=2 peer-alive=1
+after collection left=-1 right=-1
+after strong drop key=17 peer=47 peer-key=41
+replacement live=1 peer-distinct=1 old-key=17
+reused=1 old-views=-1,-1

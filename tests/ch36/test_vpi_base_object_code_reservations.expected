@@ -1,0 +1,2 @@
+base constant=7 module=32 reg=48
+extension package=600 alias logic=48 alias matches=1

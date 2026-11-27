@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[All chapters](README.md). 924 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 925 tests, 265 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -233,6 +233,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_realtime_ops_2`](../../tests/ch6/test_realtime_ops_2.sv) | Realtime variable operations | 6.12 | Icarus Verilog 13.0 ||
 | [`test_shortreal_single_precision`](../../tests/ch6/test_shortreal_single_precision.sv) | A shortreal holds a single-precision value, also when written by a nonblocking assignment, as an array element or by a cast | 6.12 6.24.1 20.5 | standard only ||
 | [`test_implicit_conversion`](../../tests/ch6/test_implicit_conversion.sv) | Tests automatic type promotions and conversions | 6.12.1 6.24.1 11.8.1 10.7 | Verilator 5.052 ||
+| [`test_normative_undated_binary64`](../../tests/ch6/test_normative_undated_binary64.sv) | Binary64 subnormal arithmetic, rounding, and signed zero follow the IEEE 754 reference | 6.12.1 2 | standard only | several files |
 | [`test_real_arithmetic`](../../tests/ch6/test_real_arithmetic.sv) | Real arithmetic and rounding conversion of real to int | 6.12.1 6.24.1 11.4.3 | Icarus Verilog 13.0 ||
 | [`test_real_conversion_wide_and_unknown`](../../tests/ch6/test_real_conversion_wide_and_unknown.sv) | Conversion to real of vectors wider than 64 bits, of a negative signed vector and of a vector with x and z bits | 6.12.1 | Icarus Verilog 13.0 | x/z |
 | [`test_type_casts`](../../tests/ch6/test_type_casts.sv) | Type casting | 6.12.1 6.24.1 | Icarus Verilog 13.0 ||

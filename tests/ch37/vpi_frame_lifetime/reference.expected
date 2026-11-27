@@ -1,0 +1,30 @@
+registry phase=0 0/0/0 0/0/0 callbacks=0
+sample 0
+callback start thread branch=0
+callback start thread branch=1
+callback start frame branch=0 stamp=53 vector=37 bit=0
+start branch=0 stamp=53 vector=37
+registry phase=6 1/1/3:53/37/0 1/0/0 callbacks=9
+sample 6
+callback start frame branch=1 stamp=54 vector=38 bit=0
+start branch=1 stamp=54 vector=38
+registry phase=1 1/1/3:53/37/0 1/1/3:54/38/0 callbacks=12
+sample 1
+finish branch=0 stamp=53 vector=53
+callback end frame branch=0 stamp=53 vector=53 bit=1
+callback end-object frame branch=0 stamp=53 vector=53 bit=1
+registry phase=2 1/0/0 1/1/3:54/38/0 callbacks=9
+sample 2
+callback end thread branch=0
+callback end-object thread branch=0
+finish branch=1 stamp=54 vector=54
+callback end frame branch=1 stamp=54 vector=54 bit=1
+callback end-object frame branch=1 stamp=54 vector=54 bit=1
+registry phase=3 0/0/0 1/0/0 callbacks=3
+sample 3
+registry phase=4 0/0/0 1/0/0 callbacks=3
+sample 4
+callback end thread branch=1
+callback end-object thread branch=1
+registry phase=5 0/0/0 0/0/0 callbacks=0
+sample 5

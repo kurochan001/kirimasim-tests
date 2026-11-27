@@ -2,7 +2,7 @@
 """Check author-encrypted body and digest payloads with fixture-owned signing keys."""
 
 import argparse
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 from io import BytesIO
 from pathlib import Path
@@ -26,9 +26,13 @@ PROFILE = "protect-author-digests"
 CHECKER = "tools/run_protect_author_digests.py"
 EXPLICIT = "ch34/test_protect_author_digest_wraps_explicit_key"
 DEFAULT = "ch34/test_protect_author_digest_inherits_data_key"
-CASES = {EXPLICIT: "author digest explicit=9b", DEFAULT: "author digest inherited=32,4f"}
+PLACEMENT = "ch34/test_protect_digest_metadata_placement"
+CASES = {EXPLICIT: "author digest explicit=9b", DEFAULT: "author digest inherited=32,4f",
+         PLACEMENT: "digest metadata payload=6d"}
 DATA_KEY = b"data_decrypt_key"
 DIGEST_KEY = b"digest_decrypt_key"
+DIGEST_SELECTOR = (b"digest_keyowner", b"digest_keyname")
+DIGEST_FIELDS = (*DIGEST_SELECTOR, b"digest_key_method", b"digest_method")
 PRAGMA = b"`pragma protect "
 DESCRIPTOR = re.compile(rb"^" + protect.PRAGMA + rb"encoding[ \t]*=")
 REPEATED_END_SUFFIX = re.compile(rb"^" + protect.PRAGMA + rb"end_protected_protected(?=\r?$)", re.M)
@@ -51,6 +55,10 @@ def checker_digest() -> str:
 
 def method_line(name: bytes, value: bytes) -> bytes:
     return PRAGMA + name + b' = "' + value + b'"\n'
+
+
+def field_text(metadata: dict[bytes, bytes], names: tuple[bytes, ...]) -> bytes:
+    return b"".join(method_line(name, metadata[name]) for name in names if name in metadata)
 
 
 def payload(text: bytes, name: bytes) -> protect.Block:
@@ -95,15 +103,18 @@ def key_text(keys: DigestKeys, mode: bytes) -> bytes:
             + digests.encoded_block(DIGEST_KEY, keys.digest_key, mode))
 
 
-def make_author_input(openssl: str, headers: dict[bytes, bytes], body: bytes) -> bytes:
+def make_author_input(openssl: str, headers: dict[bytes, bytes], body: bytes,
+                      digest_key: bytes | None = None) -> bytes:
     mode, data_method, digest_method = (headers[field] for field in
                                        (b"enctype", b"data_method", b"digest_method"))
     data_key = secrets.token_bytes(protect.CIPHERS[data_method][1])
     digest_key_method = headers.get(b"digest_key_method", data_method)
-    digest_key = (secrets.token_bytes(protect.CIPHERS[digest_key_method][1])
-                  if b"digest_key_method" in headers else data_key)
+    if digest_key is None:
+        digest_key = (secrets.token_bytes(protect.CIPHERS[digest_key_method][1])
+                      if b"digest_key_method" in headers else data_key)
     metadata = (method_line(b"data_method", data_method)
                 + method_line(b"digest_method", digest_method)
+                + field_text(headers, DIGEST_SELECTOR)
                 + digests.encoded_block(DATA_KEY, data_key, mode))
     if b"digest_key_method" in headers:
         metadata += (method_line(b"digest_key_method", digest_key_method)
@@ -125,13 +136,13 @@ def wrap_author(openssl: str, signing_public: Path, signature: Path,
     digest = payload(author, b"digest_block").decoded
     digest_text = digests.encoded_block(b"digest_block", digest, mode)
     buffer = key_text(keys, mode) + digest_text
+    buffer += field_text(protect.fields(author), (*DIGEST_SELECTOR, b"digest_method"))
     wrapped = protect.invoke([openssl, "pkeyutl", "-encrypt", "-pubin", "-inkey", str(recipient_public),
                               "-pkeyopt", "rsa_padding_mode:oaep", "-pkeyopt", "rsa_oaep_md:sha256",
                               "-pkeyopt", "rsa_mgf1_md:sha256"], buffer)
     public_der = protect.invoke([openssl, "pkey", "-pubin", "-in", str(recipient_public), "-outform", "DER"])
     return (PRAGMA + b"begin_protected\n"
             + method_line(b"key_method", b"rsa")
-            + method_line(b"digest_method", protect.fields(author)[b"digest_method"])
             + digests.encoded_block(b"key_public_key", public_der, mode)
             + digests.encoded_block(b"key_block", wrapped, mode)
             + digests.encoded_block(b"data_block", data, mode)
@@ -147,12 +158,58 @@ def read_key_block(openssl: str, private: Path, wire: bytes) -> tuple[bytes, Dig
     return clear, resolve_keys(clear)
 
 
-def authenticate(openssl: str, keys: DigestKeys, wire: bytes) -> tuple[bytes, bool]:
+def authenticate(openssl: str, keys: DigestKeys, wire: bytes, digest_method: bytes) -> tuple[bytes, bool]:
     body = protect.decrypt_body(openssl, keys.data_method, keys.data_key, payload(wire, b"data_block").decoded)
-    digest_method = protect.fields(wire)[b"digest_method"].decode()
     digest = protect.decrypt_body(openssl, keys.digest_key_method, keys.digest_key,
                                   payload(wire, b"digest_block").decoded)
-    return body, digest == hashlib.new(digest_method, body).digest()
+    return body, digest == hashlib.new(digest_method.decode(), body).digest()
+
+
+def unsigned_envelope(author: bytes, mode: bytes) -> bytes:
+    # The unsigned control supplies the fixture keys out of band.
+    return (PRAGMA + b"begin_protected\n"
+            + field_text(protect.fields(author), (b"data_method", *DIGEST_FIELDS))
+            + digests.encoded_block(b"data_block", payload(author, b"data_block").decoded, mode)
+            + digests.encoded_block(b"digest_block", payload(author, b"digest_block").decoded, mode)
+            + PRAGMA + b"end_protected\n")
+
+
+def verify_unsigned(openssl: str, wire: bytes, keys: DigestKeys,
+                    named_keys: dict[tuple[bytes, bytes], bytes], body: bytes) -> bool:
+    fields = protect.fields(wire)
+    try:
+        selector = tuple(fields[field] for field in DIGEST_SELECTOR)
+        selected_keys = replace(keys, digest_key=named_keys[selector], digest_key_method=fields[b"digest_key_method"])
+        return authenticate(openssl, selected_keys, wire, fields[b"digest_method"]) == (body, True)
+    except (KeyError, ValueError):
+        return False
+
+
+def placement_controls(openssl: str, author: bytes, wire: bytes, meta: bytes, keys: DigestKeys,
+                       named_keys: dict[tuple[bytes, bytes], bytes], body: bytes, mode: bytes) -> dict:
+    supplied = protect.fields(author)
+    unsigned = unsigned_envelope(author, mode)
+    outer, inner, unsigned_fields = map(protect.fields, (wire, meta, unsigned))
+    owner, name = (supplied[field] for field in DIGEST_SELECTOR)
+    wrong_owner = unsigned.replace(method_line(b"digest_keyowner", owner),
+                                   method_line(b"digest_keyowner", b"Fixture West"), 1)
+    wrong_name = unsigned.replace(method_line(b"digest_keyname", name),
+                                  method_line(b"digest_keyname", b"backup"), 1)
+    controls = {
+        "unsigned_digest_matches": verify_unsigned(openssl, unsigned, keys, named_keys, body),
+        "digest_key_selected_by_owner_and_name": keys.digest_key == named_keys[(owner, name)]
+            and not verify_unsigned(openssl, wrong_owner, keys, named_keys, body)
+            and not verify_unsigned(openssl, wrong_name, keys, named_keys, body),
+        "uses_key_block_without_digest_key_block": (
+            b"key_block" in protect.DIRECTIVE.findall(wire)
+            and all(b"digest_key_block" not in protect.DIRECTIVE.findall(form) for form in (wire, unsigned))
+        ),
+    }
+    for field in DIGEST_FIELDS:
+        label = field.decode("ascii")
+        controls[f"unsigned_preserves_{label}"] = unsigned_fields.get(field) == supplied[field]
+        controls[f"signed_wraps_{label}"] = inner.get(field) == supplied[field] and field not in outer
+    return controls
 
 
 def rejected(operation) -> bool:
@@ -164,11 +221,11 @@ def rejected(operation) -> bool:
 
 
 def rsa_recipient(openssl: str, directory: Path) -> tuple[Path, Path]:
-    # Make room for the fixture's complete text buffer in a single OAEP block.
+    # Fit the digest owner, name, methods and ciphertext in one OAEP block.
     private = directory / "recipient.pem"
     public = directory / "recipient-public.pem"
     private.write_bytes(protect.invoke(
-        [openssl, "genpkey", "-algorithm", "RSA", "-pkeyopt", "rsa_keygen_bits:5120"]))
+        [openssl, "genpkey", "-algorithm", "RSA", "-pkeyopt", "rsa_keygen_bits:6144"]))
     private.chmod(0o600)
     public.write_bytes(protect.invoke([openssl, "pkey", "-in", str(private), "-pubout"]))
     return private, public
@@ -181,14 +238,23 @@ def reference_checks(openssl: str, work: Path, fixture: Path, icarus_bin: Path,
     body, = (part.strip(b"\r\n") for part in layout.bodies)
     headers = protect.fields(source)
     mode = headers[b"enctype"]
-    author = make_author_input(openssl, headers, body)
+    named_keys = {}
+    digest_key = None
+    if b"digest_keyowner" in headers:
+        owner, name = (headers[field] for field in DIGEST_SELECTOR)
+        width = protect.CIPHERS[headers[b"digest_key_method"]][1]
+        named_keys = {identity: secrets.token_bytes(width) for identity in
+                      ((owner, name), (b"Fixture West", name), (owner, b"backup"))}
+        digest_key = named_keys[(owner, name)]
+    author = make_author_input(openssl, headers, body, digest_key)
     sign_private, sign_public = protect.exchange_key(openssl, work, "author")
     recipient_private, recipient_public = recipient
     signature = work / "author.sig"
     signature.write_bytes(protect.invoke([openssl, "dgst", "-sha256", "-sign", str(sign_private)], author))
     wire = wrap_author(openssl, sign_public, signature, recipient_public, author, mode)
     meta, keys = read_key_block(openssl, recipient_private, wire)
-    recovered, valid_digest = authenticate(openssl, keys, wire)
+    digest_method = protect.fields(meta)[b"digest_method"]
+    recovered, valid_digest = authenticate(openssl, keys, wire, digest_method)
     restored = work / fixture.name
     restored.write_bytes(layout.clear[0] + b"\n" + recovered + b"\n" + layout.clear[1])
 
@@ -201,7 +267,7 @@ def reference_checks(openssl: str, work: Path, fixture: Path, icarus_bin: Path,
     wrong_digest_key = bytes([keys.digest_key[0] ^ 1]) + keys.digest_key[1:]
     wrong_keys = DigestKeys(keys.data_method, keys.data_key, keys.digest_key_method, wrong_digest_key)
     try:
-        _, wrong_key_authenticated = authenticate(openssl, wrong_keys, wire)
+        _, wrong_key_authenticated = authenticate(openssl, wrong_keys, wire, digest_method)
     except ValueError:
         wrong_key_authenticated = False
     checks = {
@@ -231,10 +297,12 @@ def reference_checks(openssl: str, work: Path, fixture: Path, icarus_bin: Path,
         "author_data_preserved": payload(wire, b"data_block") == payload(author, b"data_block"),
         "author_digest_preserved": payload(wire, b"digest_block") == payload(author, b"digest_block"),
         "body_and_digest_recovered": recovered == body and valid_digest,
-        "altered_digest_detected": wrong_wire != wire and not authenticate(openssl, keys, wrong_wire)[1],
+        "altered_digest_detected": wrong_wire != wire and not authenticate(openssl, keys, wrong_wire, digest_method)[1],
         "wrong_digest_key_detected": not wrong_key_authenticated,
         "recovered_hdl_matches": run_icarus.run(restored, icarus_bin)[0],
     }
+    if named_keys:
+        checks.update(placement_controls(openssl, author, wire, meta, keys, named_keys, body, mode))
     return checks, layout.clear[0] + wire + layout.clear[1]
 
 
@@ -307,7 +375,7 @@ def main() -> int:
             if suite_results.header(fixture).get("expected_stdout") != CASES[case]:
                 parser.error(f"unexpected HDL control output for {case}")
             controls, prepared = reference_checks(openssl, work, fixture, args.iverilog_bin, recipient,
-                                                   explicit=case == EXPLICIT)
+                                                   explicit=case != DEFAULT)
             tests[case] = {
                 "inputs_sha256": fingerprints[case], "reference_controls": controls,
                 "native_ordinary": native_trial(python, openssl, work, recipient, fixture.read_bytes(), prepared=False),

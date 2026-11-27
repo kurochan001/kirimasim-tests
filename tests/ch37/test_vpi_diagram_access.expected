@@ -1,0 +1,8 @@
+root instance iterator module=1 package=1 nested=0
+package type=1 name=1 full-name=1 iterator=1 matching=1 value=11 owner=1
+interface type=1 name=1 full-name=1 iterator=1 matching=1 value=22 owner=1
+program type=1 name=1 full-name=1 iterator=1 matching=1 value=33 owner=1
+module type=1 name=1 full-name=1 iterator=1 matching=1 value=44 owner=1
+net iterator count=2 distinct=1
+scalar vector=0 size=1 owner=1
+vector vector=1 size=4 owner=1

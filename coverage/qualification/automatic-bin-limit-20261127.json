@@ -1,0 +1,490 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-19.5.3-EXTRACT-AUTO-IMPLEMENTATION-LIMIT"
+  ],
+  "observations": {
+    "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "configuration": {
+      "evidence_profile": "verilator-automatic-bin-limit",
+      "checker_sha256": "04fc6c79ddd559d78f09cc401df763f0829567d42dc6a013a040cd8c0a05f58e",
+      "artifact_sha256": {
+        "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+        "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+      },
+      "caps": [
+        5,
+        9,
+        13,
+        20
+      ],
+      "seeds": [
+        1,
+        73
+      ]
+    },
+    "tests": {
+      "ch19/test_cg_implementation_automatic_bin_limit": {
+        "inputs_sha256": "0a005be16f699db6b6a26113d4f7285ac30e2039aacf48a9f04cca987bae0bf9",
+        "trials": {
+          "5": {
+            "build_exit": 0,
+            "cap_warnings": [
+              [
+                18,
+                5,
+                5
+              ]
+            ],
+            "expected_warnings": [
+              [
+                18,
+                5,
+                5
+              ]
+            ],
+            "bin_counts": {
+              "wide_point": 5,
+              "narrow_point": 4
+            },
+            "runs": [
+              {
+                "seed": 1,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=60.000000 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 4,
+                    "1": 4,
+                    "2": 3,
+                    "3": 3,
+                    "4": 5
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "d7593d1ffa856182964caaf979ae68edd8caf60f65fd03cf98dc40107ec9a384",
+                "pass": true
+              },
+              {
+                "seed": 73,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=60.000000 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 4,
+                    "1": 4,
+                    "2": 3,
+                    "3": 3,
+                    "4": 5
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "d7593d1ffa856182964caaf979ae68edd8caf60f65fd03cf98dc40107ec9a384",
+                "pass": true
+              }
+            ],
+            "pass": true
+          },
+          "9": {
+            "build_exit": 0,
+            "cap_warnings": [
+              [
+                18,
+                9,
+                9
+              ]
+            ],
+            "expected_warnings": [
+              [
+                18,
+                9,
+                9
+              ]
+            ],
+            "bin_counts": {
+              "wide_point": 9,
+              "narrow_point": 4
+            },
+            "runs": [
+              {
+                "seed": 1,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=33.333333 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 2,
+                    "1": 1,
+                    "2": 1,
+                    "3": 2,
+                    "4": 1,
+                    "5": 1,
+                    "6": 1,
+                    "7": 1,
+                    "8": 9
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "77034107c700921f0d6ea68102fe4bf55bca15135d506979c81bd1733397d4ce",
+                "pass": true
+              },
+              {
+                "seed": 73,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=33.333333 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 2,
+                    "1": 1,
+                    "2": 1,
+                    "3": 2,
+                    "4": 1,
+                    "5": 1,
+                    "6": 1,
+                    "7": 1,
+                    "8": 9
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "77034107c700921f0d6ea68102fe4bf55bca15135d506979c81bd1733397d4ce",
+                "pass": true
+              }
+            ],
+            "pass": true
+          },
+          "13": {
+            "build_exit": 0,
+            "cap_warnings": [],
+            "expected_warnings": [],
+            "bin_counts": {
+              "wide_point": 13,
+              "narrow_point": 4
+            },
+            "runs": [
+              {
+                "seed": 1,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=23.076923 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 2,
+                    "1": 1,
+                    "10": 1,
+                    "11": 1,
+                    "12": 5,
+                    "2": 1,
+                    "3": 2,
+                    "4": 1,
+                    "5": 1,
+                    "6": 1,
+                    "7": 1,
+                    "8": 1,
+                    "9": 1
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "3db512808877d79c5dbd5795dd5ed00782d7a7511310135cbc1ee5eab3d59f80",
+                "pass": true
+              },
+              {
+                "seed": 73,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=23.076923 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 2,
+                    "1": 1,
+                    "10": 1,
+                    "11": 1,
+                    "12": 5,
+                    "2": 1,
+                    "3": 2,
+                    "4": 1,
+                    "5": 1,
+                    "6": 1,
+                    "7": 1,
+                    "8": 1,
+                    "9": 1
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "3db512808877d79c5dbd5795dd5ed00782d7a7511310135cbc1ee5eab3d59f80",
+                "pass": true
+              }
+            ],
+            "pass": true
+          },
+          "20": {
+            "build_exit": 0,
+            "cap_warnings": [],
+            "expected_warnings": [],
+            "bin_counts": {
+              "wide_point": 13,
+              "narrow_point": 4
+            },
+            "runs": [
+              {
+                "seed": 1,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=23.076923 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 2,
+                    "1": 1,
+                    "10": 1,
+                    "11": 1,
+                    "12": 5,
+                    "2": 1,
+                    "3": 2,
+                    "4": 1,
+                    "5": 1,
+                    "6": 1,
+                    "7": 1,
+                    "8": 1,
+                    "9": 1
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "3db512808877d79c5dbd5795dd5ed00782d7a7511310135cbc1ee5eab3d59f80",
+                "pass": true
+              },
+              {
+                "seed": 73,
+                "exit": 0,
+                "stdout": [
+                  "selected wide=23.076923 narrow=75.000000",
+                  "sweep wide=100.000000 narrow=100.000000"
+                ],
+                "hits": {
+                  "wide_point": {
+                    "0": 2,
+                    "1": 1,
+                    "10": 1,
+                    "11": 1,
+                    "12": 5,
+                    "2": 1,
+                    "3": 2,
+                    "4": 1,
+                    "5": 1,
+                    "6": 1,
+                    "7": 1,
+                    "8": 1,
+                    "9": 1
+                  },
+                  "narrow_point": {
+                    "0": 5,
+                    "1": 5,
+                    "2": 4,
+                    "3": 5
+                  }
+                },
+                "coverage_sha256": "3db512808877d79c5dbd5795dd5ed00782d7a7511310135cbc1ee5eab3d59f80",
+                "pass": true
+              }
+            ],
+            "pass": true
+          }
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch19/test_cg_implementation_automatic_bin_limit": {
+          "status": "pass",
+          "inputs_sha256": "0a005be16f699db6b6a26113d4f7285ac30e2039aacf48a9f04cca987bae0bf9"
+        }
+      },
+      "generated_at": "2026-11-26T17:45:36.517397+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch19/test_cg_implementation_automatic_bin_limit": {
+          "status": "known",
+          "reason": "compile failed: tests/ch19/test_cg_implementation_automatic_bin_limit.sv:16: syntax error",
+          "inputs_sha256": "0a005be16f699db6b6a26113d4f7285ac30e2039aacf48a9f04cca987bae0bf9"
+        }
+      },
+      "generated_at": "2026-11-26T17:45:36.478553+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch19/test_cg_implementation_automatic_bin_limit": {
+          "status": "pass",
+          "inputs_sha256": "0a005be16f699db6b6a26113d4f7285ac30e2039aacf48a9f04cca987bae0bf9"
+        }
+      },
+      "generated_at": "2026-11-26T17:45:42.526366+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch19/test_cg_implementation_automatic_bin_limit": {
+          "status": "unsupported",
+          "reason": "type 'measurement' (not implemented yet)",
+          "inputs_sha256": "0a005be16f699db6b6a26113d4f7285ac30e2039aacf48a9f04cca987bae0bf9"
+        }
+      },
+      "generated_at": "2026-11-26T17:45:36.567214+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+      "slang_version": "slang version 12.1.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T17:45:36.656243+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch19/test_cg_implementation_automatic_bin_limit": {
+          "kind": "legal",
+          "status": "clean",
+          "inputs_sha256": "0a005be16f699db6b6a26113d4f7285ac30e2039aacf48a9f04cca987bae0bf9"
+        }
+      }
+    }
+  },
+  "ghost_coverage": {
+    "sha256": "9e6403d449088b18cadd67c7f66d4736792b493d62536e64cf1c529f5dd2298f",
+    "hits_by_bin": {
+      "wide_point": [
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "narrow_point": [
+        5,
+        5,
+        4,
+        5
+      ]
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 [English](ch4.md) / [日本語](ch4.ja.md)
 
-[すべての章](README.ja.md) .テストは485本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは487本で、そのうち386本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -19,6 +19,8 @@
 | [`test_update_event_wakes_sensitive_processes`](../../tests/ch4/test_update_event_wakes_sensitive_processes.sv) |変数またはネットの値の変更だけが更新イベントであり、更新イベントはそれに感度のあるすべてのプロセスを起動させます。| 4.3 4.5 9.4.2 | Icarus Verilog 13.0 ||
 | [`test_pli_time_slot_region_order`](../../tests/ch4/test_pli_time_slot_region_order.sv) |1 つのタイムスロットの領域は、シミュレーション領域の間に PLI 領域を挟んで、定められた順に来る：Preponed、Pre-Active、Active、Inactive、Pre-NBA、 NBA 、Observed、Reactive、Re-Inactive、Re-NBA、再び active 領域集合、Pre-Postponed、Postponed| 4.4 4.4.2 4.4.3 4.5 4.10 38.36.2 16.13.6 24.3.1 |規格のみ| VPI |
 | [`test_time_slots_advance_in_order`](../../tests/ch4/test_time_slots_advance_in_order.sv) |シミュレーション時間は、現在のスロットのすべてのイベントが処理された後、空でない最初のタイムスロットに移動し、イベントが残っていないスロットがないときにシミュレーションが終了します。| 4.4 4.5 9.2.3 | Icarus Verilog 13.0 ||
+| [`test_pli_region_controls_assertion_fail`](../../tests/ch4/test_pli_region_controls_assertion_fail.sv) |失敗するObservedのプロパティは旧サンプルを使い、Reactiveのアクションを起動する| 4.4.1 4.4.2.5 4.4.3.1 4.4.3.5 4.4.3.6 4.4.3.7 4.4.3.8 |規格のみ|VPI 複数のファイル|
+| [`test_pli_region_controls_assertion_pass`](../../tests/ch4/test_pli_region_controls_assertion_pass.sv) |成立するObservedのプロパティはActive更新の後に評価され、Reactiveの追加処理へ進む| 4.4.1 4.4.2.5 4.4.3.1 4.4.3.5 4.4.3.6 4.4.3.7 4.4.3.8 |規格のみ|VPI 複数のファイル|
 | [`test_simulation_regions_in_one_time_slot`](../../tests/ch4/test_simulation_regions_in_one_time_slot.sv) |1 つのタイムスロットはシミュレーション領域を順に実行する：Preponed 領域で標本化される値、次に Active・Inactive・ NBA 領域、シーケンスの終点が記録される Observed 領域、Reactive・Re-Inactive・Re-NBA 領域、再び active 領域集合、最後に Postponed 領域| 4.4.2 4.4 4.5 4.4.2.1 4.4.2.5 16.13.6 24.3.1 |規格のみ||
 | [`test_one_step_sample_before_time_slot`](../../tests/ch4/test_one_step_sample_before_time_slot.sv) |クロックブロックの #1step 入力は、そのスロットのアクティブまたは NBA 領域に書き込まれた値ではなく、クロックエッジのタイムスロット直前に信号が持っていた値をサンプリングします。| 4.4.2.1 14.4 14.3 | Verilator 5.052 ||
 | [`test_preponed_sample_observed_before_action`](../../tests/ch4/test_preponed_sample_observed_before_action.sv) |コンカレントアサーションションは NBA 更新の前にサンプルを取るが、そのパスアクションは更新されたライブ値を見る| 4.4.2.1 4.4.2.5 16.5.1 |規格のみ||

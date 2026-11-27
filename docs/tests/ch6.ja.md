@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは924本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは925本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -233,6 +233,7 @@
 | [`test_realtime_ops_2`](../../tests/ch6/test_realtime_ops_2.sv) |リアルタイム変数演算| 6.12 | Icarus Verilog 13.0 ||
 | [`test_shortreal_single_precision`](../../tests/ch6/test_shortreal_single_precision.sv) |shortreal は、非ブロック代入、配列要素、キャストによって書かれたときにも、単一精度の値を保持します。| 6.12 6.24.1 20.5 |規格のみ||
 | [`test_implicit_conversion`](../../tests/ch6/test_implicit_conversion.sv) |自動型昇格と変換をテスト| 6.12.1 6.24.1 11.8.1 10.7 | Verilator 5.052 ||
+| [`test_normative_undated_binary64`](../../tests/ch6/test_normative_undated_binary64.sv) |IEEE 754 に基づく Binary64 の非正規化数の算術、丸め、符号付きゼロを確認する| 6.12.1 2 |規格のみ|複数のファイル|
 | [`test_real_arithmetic`](../../tests/ch6/test_real_arithmetic.sv) |実数演算、およびrealからintへの丸め変換| 6.12.1 6.24.1 11.4.3 | Icarus Verilog 13.0 ||
 | [`test_real_conversion_wide_and_unknown`](../../tests/ch6/test_real_conversion_wide_and_unknown.sv) |64ビットより広いベクトル、負の符号ベクトル、xとzビットを持つベクトルの実数への変換| 6.12.1 | Icarus Verilog 13.0 | x/z |
 | [`test_type_casts`](../../tests/ch6/test_type_casts.sv) |タイプキャスト| 6.12.1 6.24.1 | Icarus Verilog 13.0 ||

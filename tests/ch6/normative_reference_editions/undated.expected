@@ -1,0 +1,13 @@
+IEEE 754 2017-01-01 base=754-2008 updates=-
+IEEE 754 2026-11-27 base=754-2019 updates=-
+IEEE 1003.1 1993-01-01 base=1003.1-1990 updates=-
+IEEE 1003.1 1995-01-01 base=1003.1-1990 updates=1003.1b-1993
+IEEE 1003.1 2014-01-01 base=1003.1-2008 updates=1003.1-2008/Cor 1-2013
+IEEE 1003.1 2017-01-01 base=1003.1-2008 updates=1003.1-2008/Cor 1-2013;1003.1-2008/Cor 2-2016
+IEEE 1003.1 2019-01-01 base=1003.1-2017 updates=-
+IEEE 1003.1 2026-11-27 base=1003.1-2024 updates=-
+project excluded=P754
+project excluded=P1003.1-2024/Cor 1
+binary64 ghost/icarus=match
+uuencode historical lengths=45/45/6 decoded=96
+uuencode base64 decoded=96

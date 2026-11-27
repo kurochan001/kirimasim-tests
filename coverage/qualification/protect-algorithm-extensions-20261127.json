@@ -1,0 +1,868 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS",
+    "SV2023-34.5.11.2-EXTRACT-ALGORITHM-EXTENSIONS",
+    "SV2023-34.5.21.2-EXTRACT-DIGEST-EXTENSIONS"
+  ],
+  "qualification": {
+    "profile": "protect-algorithm-extensions",
+    "checker_sha256": "451bde977ae92c65db4869a5143d09c30371f5f88949e97365d99ebf058fdd0c",
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+    "nettle": "4.0",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "tests": {
+      "ch34/test_protect_registered_algorithm_extensions": {
+        "inputs_sha256": "3e954f1dcc0bbdbb834ffd3a869ef595935402e38c1191218d709688cc4ec0d5",
+        "reference": {
+          "standard_encodings": {
+            "base64": true,
+            "uuencode": true,
+            "quoted-printable": true,
+            "raw": true,
+            "historical_uuencode_vector": true
+          },
+          "standard_cbc": {
+            "des-cbc": true,
+            "3des-cbc": true,
+            "aes128-cbc": true,
+            "aes192-cbc": true,
+            "aes256-cbc": true,
+            "blowfish-cbc": true,
+            "twofish128-cbc": true,
+            "twofish192-cbc": true,
+            "twofish256-cbc": true,
+            "serpent128-cbc": true,
+            "serpent192-cbc": true,
+            "serpent256-cbc": true,
+            "cast128-cbc": true
+          },
+          "standard_digests": {
+            "sha1": true,
+            "md5": true,
+            "md2": true,
+            "ripemd-160": true
+          },
+          "extension_vectors": {
+            "hex_preserves_octets_and_length": true,
+            "aes128_ctr_known_answer": true,
+            "sha256_known_answer": true
+          },
+          "registered_extensions_recover_body": true,
+          "unregistered_identifiers": {
+            "enctype": true,
+            "data_method": true,
+            "digest_method": true
+          },
+          "required_cbc": "des-cbc"
+        },
+        "native": {
+          "outcome": "emitted",
+          "body_recovered": true,
+          "requested": {
+            "enctype": "fixture-hex",
+            "data_method": "fixture-aes128-ctr",
+            "digest_method": "fixture-sha256"
+          },
+          "emitted": {
+            "enctype": null,
+            "data_method": "aes256-cbc",
+            "digest_method": null
+          }
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch34/test_protect_registered_algorithm_extensions": {
+          "status": "pass",
+          "inputs_sha256": "3e954f1dcc0bbdbb834ffd3a869ef595935402e38c1191218d709688cc4ec0d5"
+        }
+      },
+      "generated_at": "2026-11-26T15:10:35.285418+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch34/test_protect_registered_algorithm_extensions": {
+          "status": "pass",
+          "inputs_sha256": "3e954f1dcc0bbdbb834ffd3a869ef595935402e38c1191218d709688cc4ec0d5"
+        }
+      },
+      "generated_at": "2026-11-26T15:10:35.297153+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch34/test_protect_registered_algorithm_extensions": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch34/test_protect_registered_algorithm_extensions.sv:15:17: Illegal encoding type for `pragma protected encoding",
+          "inputs_sha256": "3e954f1dcc0bbdbb834ffd3a869ef595935402e38c1191218d709688cc4ec0d5"
+        }
+      },
+      "generated_at": "2026-11-26T15:10:35.324006+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  },
+  "negative_controls": {
+    "wrong_key_fails_digest": true,
+    "relabelled_payload_rejected_at": {
+      "enctype": true,
+      "data_method": true,
+      "digest_method": true
+    }
+  },
+  "standard_matrix_replays": {
+    "encodings": {
+      "profile": "protect-encodings",
+      "checker_sha256": "1060d9773c297486df3c955e0c62fe2078938e4a52aa39512f57d375a52c07ef",
+      "encryptor": {
+        "version": "0.1.0",
+        "files": {
+          "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+          "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+          "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+          "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+          "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+        },
+        "cryptography": "50.0.2"
+      },
+      "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+      "tests": {
+        "ch34/test_protect_encoding_selects_output_representation": {
+          "inputs_sha256": "10a11e569858a0860a925447ca3c2beb918ee7324183c36e9e3add498658019d",
+          "reference_controls": {
+            "base64": true,
+            "uuencode": true,
+            "quoted-printable": true,
+            "raw": true,
+            "historical_uuencode_vector": true
+          },
+          "native": {
+            "base64": {
+              "outcome": "encoding_mismatch",
+              "ranges": [
+                {
+                  "requested": "base64",
+                  "emitted_encodings": {
+                    "key_block": null,
+                    "data_block": null
+                  },
+                  "decoded_using": {
+                    "key_block": "base64",
+                    "data_block": "base64"
+                  },
+                  "body_recovered": true,
+                  "requested_encodings_and_counts_match": false
+                }
+              ]
+            },
+            "uuencode": {
+              "outcome": "encoding_mismatch",
+              "ranges": [
+                {
+                  "requested": "uuencode",
+                  "emitted_encodings": {
+                    "key_block": null,
+                    "data_block": null
+                  },
+                  "decoded_using": {
+                    "key_block": "base64",
+                    "data_block": "base64"
+                  },
+                  "body_recovered": true,
+                  "requested_encodings_and_counts_match": false
+                }
+              ]
+            },
+            "quoted-printable": {
+              "outcome": "encoding_mismatch",
+              "ranges": [
+                {
+                  "requested": "quoted-printable",
+                  "emitted_encodings": {
+                    "key_block": null,
+                    "data_block": null
+                  },
+                  "decoded_using": {
+                    "key_block": "base64",
+                    "data_block": "base64"
+                  },
+                  "body_recovered": true,
+                  "requested_encodings_and_counts_match": false
+                }
+              ]
+            },
+            "raw": {
+              "outcome": "encoding_mismatch",
+              "ranges": [
+                {
+                  "requested": "raw",
+                  "emitted_encodings": {
+                    "key_block": null,
+                    "data_block": null
+                  },
+                  "decoded_using": {
+                    "key_block": "base64",
+                    "data_block": "base64"
+                  },
+                  "body_recovered": true,
+                  "requested_encodings_and_counts_match": false
+                }
+              ]
+            }
+          }
+        },
+        "ch34/test_protect_encoding_uses_separate_field_descriptors": {
+          "inputs_sha256": "821cb254fce24470d8bdb5f0811cf07b0c2b5564df879462e1f477e6e363107a",
+          "reference_controls": {
+            "data_public_key": true,
+            "data_decrypt_key": true,
+            "key_public_key": true,
+            "key_block": true,
+            "digest_block": true,
+            "data_block": true,
+            "body_recovered": true,
+            "digest_recovered": true,
+            "wrong_codec_detected": true,
+            "wrong_count_detected": true
+          },
+          "native": {
+            "separate_ranges": {
+              "outcome": "encoding_mismatch",
+              "ranges": [
+                {
+                  "requested": "base64",
+                  "emitted_encodings": {
+                    "key_block": null,
+                    "data_block": null
+                  },
+                  "decoded_using": {
+                    "key_block": "base64",
+                    "data_block": "base64"
+                  },
+                  "body_recovered": true,
+                  "requested_encodings_and_counts_match": false
+                },
+                {
+                  "requested": "uuencode",
+                  "emitted_encodings": {
+                    "key_block": null,
+                    "data_block": null
+                  },
+                  "decoded_using": {
+                    "key_block": "base64",
+                    "data_block": "base64"
+                  },
+                  "body_recovered": true,
+                  "requested_encodings_and_counts_match": false
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "cipher": {
+      "profile": "protect-cipher-methods",
+      "encryptor": {
+        "version": "0.1.0",
+        "files": {
+          "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+          "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+          "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+          "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+          "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+        },
+        "cryptography": "50.0.2"
+      },
+      "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+      "nettle": "4.0",
+      "checker_sha256": "36b5293911fd1998af60bcfcf30d32d118d4ed7ece209988f67a56af800bf379",
+      "tests": {
+        "ch34/test_protect_data_method_cipher_selection": {
+          "inputs_sha256": "42187cb5e05da54204000f0f8506fe69322b7787aeb9a8aca87ebbbc71d1ecce",
+          "checks": {
+            "des-cbc": {
+              "required": true,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "3des-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "aes128-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "aes192-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "aes256-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "pass",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "blowfish-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "twofish128-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "twofish192-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "twofish256-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "serpent128-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "serpent192-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "serpent256-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            },
+            "cast128-cbc": {
+              "required": false,
+              "reference_control": true,
+              "outcome": "substituted_method",
+              "emitted": [
+                "aes256-cbc",
+                "aes256-cbc"
+              ],
+              "recovered_bodies": 2,
+              "distinct_recovered_ivs": 2
+            }
+          },
+          "recovered_cbc_payloads": 26,
+          "distinct_recovered_ivs": 26
+        }
+      }
+    },
+    "digests": {
+      "profile": "protect-digests",
+      "encryptor": {
+        "version": "0.1.0",
+        "files": {
+          "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+          "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+          "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+          "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+          "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+        },
+        "cryptography": "50.0.2"
+      },
+      "nettle": "4.0",
+      "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)",
+      "checker_sha256": "b3917af48171bd3390a8d554065fd6d618ece8b68fee55a7dc3b77107fcb347c",
+      "tests": {
+        "ch34/test_protect_digest_distinguishes_registered_keys": {
+          "inputs_sha256": "da92a2f155e6bb8fe5865fcb4bdd02c920fca053bc4cdcd8b8f0b0928330fd06",
+          "checks": {
+            "sha1": {
+              "required": true,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            },
+            "md5": {
+              "required": true,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            },
+            "md2": {
+              "required": false,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            },
+            "ripemd-160": {
+              "required": false,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            }
+          }
+        },
+        "ch34/test_protect_digests_authenticate_key_and_data": {
+          "inputs_sha256": "5d15ee9504f8b02569e3543b42d1b958b26fec171d2229ab67d64d86bc3f5300",
+          "checks": {
+            "sha1": {
+              "required": true,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "data_session_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": true,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            },
+            "md5": {
+              "required": true,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "data_session_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": true,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            },
+            "md2": {
+              "required": false,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "data_session_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": true,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            },
+            "ripemd-160": {
+              "required": false,
+              "known_answer": true,
+              "reference_controls": {
+                "first_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true
+                },
+                "second_envelope": {
+                  "intact": true,
+                  "changed_data": true,
+                  "changed_data_digest": true,
+                  "changed_key_digest": true,
+                  "changed_digest_method": true,
+                  "unknown_digest_keyowner": true,
+                  "other_digest_keyowner": true,
+                  "unknown_digest_keyname": true,
+                  "other_digest_keyname": true
+                }
+              },
+              "outcome": "digest_mismatch",
+              "envelopes": [
+                {
+                  "requested_digest_key": "data_session_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": true,
+                  "authenticated": false
+                },
+                {
+                  "requested_digest_key": "named_digest_key",
+                  "emitted_digest_method": null,
+                  "digest_blocks": 0,
+                  "request_in_recovered_data": true,
+                  "body_recovered": true,
+                  "digest_key_selection_matches": false,
+                  "authenticated": false
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "ctr_known_answer_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf#page=62"
+}

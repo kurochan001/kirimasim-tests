@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-OBJECT",
+    "SV2023-38.36.1-EXTRACT-EVENT-CBRECLAIMOBJ",
+    "SV2023-38.36.1-EXTRACT-RECLAIM-ACCESS",
+    "SV2023-37.2.2-EXTRACT-CLASS-RELEASE"
+  ],
+  "qualification": {
+    "profile": "verilator-class-reclaim-reference",
+    "checker_sha256": "4f77206cec187fe45648c910e20586f8ab81fa0dd255e10bc78ebf43a147f630",
+    "artifact_sha256": {
+      "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "make": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "verilated.cpp": "e45571af0e4f710c251e91b18e186c689764fd0f1355746e2dbc55c26eb65b03",
+      "verilated_types.h": "cfefa84195f0ff462a5a35c1ee33fbc2e6146cc9855424eb6423268f43f51df4",
+      "vpi_user.h": "b9f3fc98128296a9067b0a8b27e50cc0a7270cfa2cef36d92e473e0417aa43c7",
+      "sv_vpi_user.h": "57e8fbbc5d94c0de1b293d3e1f9cd41fda4acbebd88a564d0e937baa25079306",
+      "verilator_bin": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    },
+    "verilator": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "sanitizer": "address",
+    "leak_detection": false,
+    "tests": {
+      "ch38/test_vpi_class_reclaim_lifetimes": {
+        "inputs_sha256": "5daecfaac1dcb5a30599a9d1f4665a89c1a1cd8c88f12c5e9ba8c23dcafc7a6e",
+        "generated_destructor_hooks": {
+          "reclaim_record": {
+            "header": "Vreclaim___024unit__03a__03areclaim_record__Vclpkg.h",
+            "before": "~Vreclaim___024unit__03a__03areclaim_record() {}",
+            "call": "observe_class_destruction(this, __PVT__serial);"
+          },
+          "reclaim_peer": {
+            "header": "Vreclaim___024unit__03a__03areclaim_peer__Vclpkg.h",
+            "before": "~Vreclaim___024unit__03a__03areclaim_peer() {}",
+            "call": "observe_class_destruction(this, __PVT__serial);"
+          }
+        },
+        "trials": {
+          "reference": {
+            "exit": 0,
+            "output": [
+              "registrations create-type=1 reclaim-type=1 variable-rejected=1",
+              "live slots=32,50 other=63",
+              "create serial=29 class=1 id64=1",
+              "create serial=47 class=1 id64=1",
+              "object registrations reclaim=1 end=1 create-rejected=1",
+              "member registrations property=1 element=1",
+              "reclaim serial=29 objects=2 members=2 elements=1 methods=1 callbacks=4",
+              "callback type serial=29 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1",
+              "callback object serial=29 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1",
+              "callback end serial=29 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1",
+              "after serial=29 retired=10 remaining=0",
+              "reclaim serial=63 objects=2 members=0 elements=0 methods=0 callbacks=0",
+              "after serial=63 retired=2 remaining=0",
+              "reclaim serial=47 objects=2 members=2 elements=1 methods=1 callbacks=0",
+              "callback type serial=47 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1",
+              "after serial=47 retired=6 remaining=0",
+              "counts type=2 object=1 end=1 first-live=0 type-handle=1 type-callback=1"
+            ],
+            "diagnostics": []
+          },
+          "held": {
+            "exit": 0,
+            "output": [
+              "registrations create-type=1 reclaim-type=1 variable-rejected=1",
+              "live slots=32,50 other=63",
+              "create serial=29 class=1 id64=1",
+              "create serial=47 class=1 id64=1",
+              "object registrations reclaim=1 end=1 create-rejected=1",
+              "member registrations property=1 element=1",
+              "reclaim serial=63 objects=2 members=0 elements=0 methods=0 callbacks=0",
+              "after serial=63 retired=2 remaining=0",
+              "reclaim serial=47 objects=2 members=2 elements=1 methods=1 callbacks=0",
+              "callback type serial=47 no-time=1 class=1 dynamic=1 auto=1 clear=1 id64=1",
+              "after serial=47 retired=6 remaining=0",
+              "counts type=1 object=0 end=0 first-live=1 type-handle=1 type-callback=1"
+            ],
+            "diagnostics": []
+          }
+        },
+        "checks": {
+          "reference_trace_matches": true,
+          "held_trace_matches": true,
+          "typespec_and_direct_registration_select_different_instances": true,
+          "callback_observes_valid_properties_before_release": true,
+          "surviving_strong_reference_prevents_reclaim": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch37/test_vpi_frame_and_thread_handle_release": {
+          "status": "pass",
+          "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8"
+        },
+        "ch37/test_vpi_lifetime_properties": {
+          "status": "pass",
+          "inputs_sha256": "66c1d3d4d104a155e0bda8cf9cd6d7e6e33115ef2fe8741bffb708733f59542d"
+        },
+        "ch38/test_vpi_assign_force_disable_callbacks": {
+          "status": "pass",
+          "inputs_sha256": "6bda5aa6d568b81a3925e0ee24fb98bef0f8530333734fddb41b80d08003ac3b"
+        },
+        "ch38/test_vpi_class_reclaim_lifetimes": {
+          "status": "pass",
+          "inputs_sha256": "5daecfaac1dcb5a30599a9d1f4665a89c1a1cd8c88f12c5e9ba8c23dcafc7a6e"
+        },
+        "ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "295aebb7e6d19c0b581d1c7b2203395451b93ce6798e2904dcc215549859206f"
+        }
+      },
+      "generated_at": "2026-11-26T19:25:34.349895+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch38/test_vpi_class_reclaim_lifetimes": {
+          "status": "known",
+          "reason": "VPI build failed: 9 errors generated.",
+          "inputs_sha256": "5daecfaac1dcb5a30599a9d1f4665a89c1a1cd8c88f12c5e9ba8c23dcafc7a6e"
+        }
+      },
+      "generated_at": "2026-11-26T19:25:33.022266+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch38/test_vpi_class_reclaim_lifetimes": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch38/test_vpi_class_reclaim_lifetimes.sv:46:5: Unsupported or unknown PLI call: '$vt_reclaim_setup'",
+          "inputs_sha256": "5daecfaac1dcb5a30599a9d1f4665a89c1a1cd8c88f12c5e9ba8c23dcafc7a6e"
+        }
+      },
+      "generated_at": "2026-11-26T19:25:33.153292+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch38/test_vpi_class_reclaim_lifetimes": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "5daecfaac1dcb5a30599a9d1f4665a89c1a1cd8c88f12c5e9ba8c23dcafc7a6e"
+        }
+      },
+      "generated_at": "2026-11-26T19:25:33.208941+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "version": "slang version 12.0.0+0",
+      "tool_sha256": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "options": [
+        "--std=1800-2023",
+        "--define-system-task",
+        "$vt_reclaim_setup",
+        "--define-system-task",
+        "$vt_reclaim_report",
+        "tests/ch38/test_vpi_class_reclaim_lifetimes.sv"
+      ],
+      "tests": {
+        "ch38/test_vpi_class_reclaim_lifetimes": {
+          "status": "clean",
+          "inputs_sha256": "5daecfaac1dcb5a30599a9d1f4665a89c1a1cd8c88f12c5e9ba8c23dcafc7a6e",
+          "output": [
+            "Top level design units:",
+            "    test_vpi_class_reclaim_lifetimes",
+            "",
+            "",
+            "Build succeeded: 0 errors, 0 warnings"
+          ]
+        }
+      }
+    }
+  },
+  "ghost_value_change_registration": {
+    "case": "ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net",
+    "inputs_sha256": "295aebb7e6d19c0b581d1c7b2203395451b93ce6798e2904dcc215549859206f",
+    "exit": 0,
+    "registration_errors": [],
+    "output": [
+      "expression same-handle=1",
+      "input-terminal same-handle=1",
+      "output-net 10:1 20:0 same-handle=1"
+    ]
+  }
+}

@@ -1,0 +1,556 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-4.4.1-EXTRACT-ACTIVE-SET",
+    "SV2023-4.4.1-EXTRACT-REACTIVE-SET",
+    "SV2023-4.4.2.5-EXTRACT-NO-OBSERVED-PLI",
+    "SV2023-4.4.3.1-EXTRACT-PREPONED-NO-CURRENT-SLOT-EVENT",
+    "SV2023-4.4.3.1-EXTRACT-PREPONED-NO-WRITE",
+    "SV2023-4.4.3.1-EXTRACT-PREPONED-READ",
+    "SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-CURRENT-SLOT-EVENT",
+    "SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-WRITE",
+    "SV2023-4.4.3.5-EXTRACT-PREOBSERVED-STABLE-READ",
+    "SV2023-4.4.3.6-EXTRACT-POSTOBSERVED-READ",
+    "SV2023-4.4.3.7-EXTRACT-READ-WRITE-CONTROL",
+    "SV2023-4.4.3.8-EXTRACT-READ-WRITE-CONTROL"
+  ],
+  "qualification": {
+    "profile": "pli-region-reference",
+    "checker_sha256": "77a86c4cd02687121ea951980e15d489759d97e7e751b9dcd662a78b650a8fec",
+    "ghost_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+    "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "active_region_set": [
+      "active",
+      "inactive",
+      "pre_nba",
+      "nba",
+      "post_nba"
+    ],
+    "reactive_region_set": [
+      "reactive",
+      "re_inactive",
+      "pre_re_nba",
+      "re_nba",
+      "post_re_nba"
+    ],
+    "groups": {
+      "active": true,
+      "reactive": true
+    },
+    "private_full_delta_scheduler": {
+      "status": "fail",
+      "expected_prefix": [
+        "pre p=0",
+        "reactive before p=0 mark=31",
+        "update p=5",
+        "post p=5 mark=31",
+        "reactive after p=5 mark=47"
+      ],
+      "expected_active_in_any_order": [
+        "active from post p=5 mark=47",
+        "active from pre p=5 mark=47"
+      ],
+      "actual": {
+        "exit": 0,
+        "stdout": [
+          "pre p=0",
+          "active from pre p=0 mark=31",
+          "reactive before p=0 mark=31",
+          "update p=5",
+          "post p=5 mark=31",
+          "active from post p=5 mark=47",
+          "reactive after p=5 mark=47"
+        ]
+      }
+    },
+    "tests": {
+      "ch4/test_pli_region_controls_assertion_pass": {
+        "inputs_sha256": "736c0c0d9ede57d450107650a33fe48074e6833c9caff5b993f8851f0d9d4ade",
+        "settings": {
+          "TICK": 10,
+          "INITIAL": 0,
+          "ACTIVE": 1,
+          "NBA": 2,
+          "RENBA": 5,
+          "PROPERTY": 0
+        },
+        "reference": {
+          "stdout": [
+            "pre-active t=10 level=0 mirror=0",
+            "active t=10 level=0",
+            "inactive t=10 level=1 triggered=0",
+            "pre-nba t=10 level=1 mirror=2",
+            "nba feedback t=10 level=2 completed=6 triggered=0",
+            "property t=10 passed=1 sample=0 level=2 mirror=4 triggered=1",
+            "reactive t=10 p=0 back=0",
+            "re-inactive t=10 p=0 back=0",
+            "re-nba feedback t=10 p=5 back=0",
+            "active feedback t=10 p=5 back=5",
+            "pre-postponed t=10 level=2 p=5 back=5",
+            "postponed t=10 level=2 p=5 back=5"
+          ],
+          "controls": {
+            "preponed": [
+              0,
+              0
+            ],
+            "post_nba": [
+              2,
+              6
+            ],
+            "pre_observed": [
+              2,
+              4,
+              6,
+              0
+            ],
+            "post_observed": [
+              1,
+              1,
+              2
+            ],
+            "pre_re_nba": [
+              0,
+              0,
+              0
+            ],
+            "pre_re_nba_feedback": [
+              0,
+              0,
+              31
+            ],
+            "post_re_nba": [
+              5,
+              0,
+              31
+            ],
+            "post_re_nba_feedback": [
+              5,
+              0,
+              47
+            ],
+            "earlier_active_work": [
+              5,
+              47
+            ],
+            "preponed_next_slot": [
+              2,
+              4
+            ],
+            "pre_observed_next_slot": [
+              2,
+              4
+            ]
+          },
+          "controls_in_order": [
+            "preponed",
+            "post_nba",
+            "pre_observed",
+            "post_observed",
+            "pre_re_nba",
+            "pre_re_nba_feedback",
+            "post_re_nba",
+            "post_re_nba_feedback",
+            "earlier_active_work",
+            "preponed_next_slot",
+            "pre_observed_next_slot"
+          ],
+          "expected_controls": {
+            "preponed": [
+              0,
+              0
+            ],
+            "post_nba": [
+              2,
+              6
+            ],
+            "pre_observed": [
+              2,
+              4,
+              6,
+              0
+            ],
+            "post_observed": [
+              1,
+              1,
+              2
+            ],
+            "pre_re_nba": [
+              0,
+              0,
+              0
+            ],
+            "pre_re_nba_feedback": [
+              0,
+              0,
+              31
+            ],
+            "post_re_nba": [
+              5,
+              0,
+              31
+            ],
+            "post_re_nba_feedback": [
+              5,
+              0,
+              47
+            ],
+            "earlier_active_work": [
+              5,
+              47
+            ],
+            "preponed_next_slot": [
+              2,
+              4
+            ],
+            "pre_observed_next_slot": [
+              2,
+              4
+            ]
+          },
+          "rejected": {
+            "observed:callback:PLI": true,
+            "preponed:write:level": true,
+            "preponed:write:mirror": true,
+            "preponed:schedule:pre_active": true,
+            "preponed:schedule:active": true,
+            "preponed:schedule:inactive": true,
+            "preponed:schedule:pre_nba": true,
+            "preponed:schedule:nba": true,
+            "preponed:schedule:post_nba": true,
+            "preponed:schedule:pre_observed": true,
+            "preponed:schedule:observed": true,
+            "preponed:schedule:post_observed": true,
+            "preponed:schedule:reactive": true,
+            "preponed:schedule:re_inactive": true,
+            "preponed:schedule:pre_re_nba": true,
+            "preponed:schedule:re_nba": true,
+            "preponed:schedule:post_re_nba": true,
+            "preponed:schedule:pre_postponed": true,
+            "preponed:schedule:postponed": true,
+            "pre_observed:write:level": true,
+            "pre_observed:write:mirror": true,
+            "pre_observed:schedule:preponed": true,
+            "pre_observed:schedule:pre_active": true,
+            "pre_observed:schedule:active": true,
+            "pre_observed:schedule:inactive": true,
+            "pre_observed:schedule:pre_nba": true,
+            "pre_observed:schedule:nba": true,
+            "pre_observed:schedule:post_nba": true,
+            "pre_observed:schedule:pre_observed": true,
+            "pre_observed:schedule:observed": true,
+            "pre_observed:schedule:post_observed": true,
+            "pre_observed:schedule:reactive": true,
+            "pre_observed:schedule:re_inactive": true,
+            "pre_observed:schedule:pre_re_nba": true,
+            "pre_observed:schedule:re_nba": true,
+            "pre_observed:schedule:post_re_nba": true,
+            "pre_observed:schedule:pre_postponed": true,
+            "pre_observed:schedule:postponed": true
+          },
+          "pass": true
+        },
+        "native_public": {
+          "exit": 0,
+          "stdout": [
+            "pre-active t=10 level=0 mirror=0",
+            "active t=10 level=0",
+            "inactive t=10 level=1 triggered=0",
+            "pre-nba t=10 level=1 mirror=2",
+            "nba feedback t=10 level=2 completed=6 triggered=0",
+            "property t=10 passed=1 sample=0 level=2 mirror=4 triggered=1",
+            "reactive t=10 p=0 back=0",
+            "re-inactive t=10 p=0 back=0",
+            "re-nba feedback t=10 p=5 back=0",
+            "active feedback t=10 p=5 back=5",
+            "pre-postponed t=10 level=2 p=5 back=5",
+            "postponed t=10 level=2 p=5 back=5"
+          ]
+        },
+        "native_public_matches": true,
+        "pass": true
+      },
+      "ch4/test_pli_region_controls_assertion_fail": {
+        "inputs_sha256": "bf54232b37624c62e8cd455050d7ffe087749d8c5c484e8a9341cff3beaa9fa6",
+        "settings": {
+          "TICK": 6,
+          "INITIAL": 11,
+          "ACTIVE": 23,
+          "NBA": 37,
+          "RENBA": 19,
+          "PROPERTY": 23
+        },
+        "reference": {
+          "stdout": [
+            "pre-active t=6 level=11 mirror=22",
+            "active t=6 level=11",
+            "inactive t=6 level=23 triggered=0",
+            "pre-nba t=6 level=23 mirror=46",
+            "nba feedback t=6 level=37 completed=41 triggered=0",
+            "property t=6 passed=0 sample=11 level=37 mirror=74 triggered=1",
+            "reactive t=6 p=0 back=0",
+            "re-inactive t=6 p=0 back=0",
+            "re-nba feedback t=6 p=19 back=0",
+            "active feedback t=6 p=19 back=19",
+            "pre-postponed t=6 level=37 p=19 back=19",
+            "postponed t=6 level=37 p=19 back=19"
+          ],
+          "controls": {
+            "preponed": [
+              11,
+              22
+            ],
+            "post_nba": [
+              37,
+              41
+            ],
+            "pre_observed": [
+              37,
+              74,
+              41,
+              0
+            ],
+            "post_observed": [
+              1,
+              0,
+              37
+            ],
+            "pre_re_nba": [
+              0,
+              0,
+              0
+            ],
+            "pre_re_nba_feedback": [
+              0,
+              0,
+              31
+            ],
+            "post_re_nba": [
+              19,
+              0,
+              31
+            ],
+            "post_re_nba_feedback": [
+              19,
+              0,
+              47
+            ],
+            "earlier_active_work": [
+              19,
+              47
+            ],
+            "preponed_next_slot": [
+              37,
+              74
+            ],
+            "pre_observed_next_slot": [
+              37,
+              74
+            ]
+          },
+          "controls_in_order": [
+            "preponed",
+            "post_nba",
+            "pre_observed",
+            "post_observed",
+            "pre_re_nba",
+            "pre_re_nba_feedback",
+            "post_re_nba",
+            "post_re_nba_feedback",
+            "earlier_active_work",
+            "preponed_next_slot",
+            "pre_observed_next_slot"
+          ],
+          "expected_controls": {
+            "preponed": [
+              11,
+              22
+            ],
+            "post_nba": [
+              37,
+              41
+            ],
+            "pre_observed": [
+              37,
+              74,
+              41,
+              0
+            ],
+            "post_observed": [
+              1,
+              0,
+              37
+            ],
+            "pre_re_nba": [
+              0,
+              0,
+              0
+            ],
+            "pre_re_nba_feedback": [
+              0,
+              0,
+              31
+            ],
+            "post_re_nba": [
+              19,
+              0,
+              31
+            ],
+            "post_re_nba_feedback": [
+              19,
+              0,
+              47
+            ],
+            "earlier_active_work": [
+              19,
+              47
+            ],
+            "preponed_next_slot": [
+              37,
+              74
+            ],
+            "pre_observed_next_slot": [
+              37,
+              74
+            ]
+          },
+          "rejected": {
+            "observed:callback:PLI": true,
+            "preponed:write:level": true,
+            "preponed:write:mirror": true,
+            "preponed:schedule:pre_active": true,
+            "preponed:schedule:active": true,
+            "preponed:schedule:inactive": true,
+            "preponed:schedule:pre_nba": true,
+            "preponed:schedule:nba": true,
+            "preponed:schedule:post_nba": true,
+            "preponed:schedule:pre_observed": true,
+            "preponed:schedule:observed": true,
+            "preponed:schedule:post_observed": true,
+            "preponed:schedule:reactive": true,
+            "preponed:schedule:re_inactive": true,
+            "preponed:schedule:pre_re_nba": true,
+            "preponed:schedule:re_nba": true,
+            "preponed:schedule:post_re_nba": true,
+            "preponed:schedule:pre_postponed": true,
+            "preponed:schedule:postponed": true,
+            "pre_observed:write:level": true,
+            "pre_observed:write:mirror": true,
+            "pre_observed:schedule:preponed": true,
+            "pre_observed:schedule:pre_active": true,
+            "pre_observed:schedule:active": true,
+            "pre_observed:schedule:inactive": true,
+            "pre_observed:schedule:pre_nba": true,
+            "pre_observed:schedule:nba": true,
+            "pre_observed:schedule:post_nba": true,
+            "pre_observed:schedule:pre_observed": true,
+            "pre_observed:schedule:observed": true,
+            "pre_observed:schedule:post_observed": true,
+            "pre_observed:schedule:reactive": true,
+            "pre_observed:schedule:re_inactive": true,
+            "pre_observed:schedule:pre_re_nba": true,
+            "pre_observed:schedule:re_nba": true,
+            "pre_observed:schedule:post_re_nba": true,
+            "pre_observed:schedule:pre_postponed": true,
+            "pre_observed:schedule:postponed": true
+          },
+          "pass": true
+        },
+        "native_public": {
+          "exit": 0,
+          "stdout": [
+            "pre-active t=6 level=11 mirror=22",
+            "active t=6 level=11",
+            "inactive t=6 level=23 triggered=0",
+            "pre-nba t=6 level=23 mirror=46",
+            "nba feedback t=6 level=37 completed=41 triggered=0",
+            "property t=6 passed=0 sample=11 level=37 mirror=74 triggered=1",
+            "reactive t=6 p=0 back=0",
+            "re-inactive t=6 p=0 back=0",
+            "re-nba feedback t=6 p=19 back=0",
+            "active feedback t=6 p=19 back=19",
+            "pre-postponed t=6 level=37 p=19 back=19",
+            "postponed t=6 level=37 p=19 back=19"
+          ]
+        },
+        "native_public_matches": true,
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch4/test_pli_region_controls_assertion_fail": {
+          "status": "pass",
+          "inputs_sha256": "bf54232b37624c62e8cd455050d7ffe087749d8c5c484e8a9341cff3beaa9fa6"
+        },
+        "ch4/test_pli_region_controls_assertion_pass": {
+          "status": "pass",
+          "inputs_sha256": "736c0c0d9ede57d450107650a33fe48074e6833c9caff5b993f8851f0d9d4ade"
+        }
+      },
+      "generated_at": "2026-11-26T16:36:34.306903+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch4/test_pli_region_controls_assertion_fail": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch4/pli_control_fixtures/phase_slot.svh:13:5: Unsupported or unknown PLI call: '$observe_region_slot'",
+          "inputs_sha256": "bf54232b37624c62e8cd455050d7ffe087749d8c5c484e8a9341cff3beaa9fa6"
+        },
+        "ch4/test_pli_region_controls_assertion_pass": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch4/pli_control_fixtures/phase_slot.svh:13:5: Unsupported or unknown PLI call: '$observe_region_slot'",
+          "inputs_sha256": "736c0c0d9ede57d450107650a33fe48074e6833c9caff5b993f8851f0d9d4ade"
+        }
+      },
+      "generated_at": "2026-11-26T16:36:33.538396+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch4/test_pli_region_controls_assertion_fail": {
+          "status": "known",
+          "reason": "compile failed: tests/ch4/pli_control_fixtures/phase_slot.svh:8: syntax error",
+          "inputs_sha256": "bf54232b37624c62e8cd455050d7ffe087749d8c5c484e8a9341cff3beaa9fa6"
+        },
+        "ch4/test_pli_region_controls_assertion_pass": {
+          "status": "known",
+          "reason": "compile failed: tests/ch4/pli_control_fixtures/phase_slot.svh:8: syntax error",
+          "inputs_sha256": "736c0c0d9ede57d450107650a33fe48074e6833c9caff5b993f8851f0d9d4ade"
+        }
+      },
+      "generated_at": "2026-11-26T16:36:33.586873+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "negative_controls": {
+    "allowing_readonly_writes_breaks_both_traces": true,
+    "allowing_an_observed_pli_callback_is_detected": true,
+    "allowing_events_in_the_current_slot_is_detected_at_both_readonly_points": true,
+    "moving_pre_re_nba_to_the_other_side_of_the_update_is_detected": true,
+    "early_post_observed_reads_the_uncomputed_property": true
+  }
+}

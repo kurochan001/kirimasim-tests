@@ -1,0 +1,18 @@
+hdl paths=10 scalar=10 array=10 physical=11
+phase native controls module=1/1 members=1/1 path-parents=1/1
+left scalar children=0 match=0 owner=0 sibling=0 physical=0
+right scalar children=0 match=0 owner=0 sibling=0 physical=0
+left array children=0 match=0 owner=0 sibling=0 physical=0
+right array children=0 match=0 owner=0 sibling=0 physical=0
+module paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=2 null=0 ancestor=0
+left paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0
+right paths=0 typed=0 endpoints=0 owner=0 sibling=0 legacy=0 null=0 ancestor=0
+phase seeded controls module=1/1 members=1/1 path-parents=1/1
+left scalar children=1 match=1 owner=1 sibling=0 physical=0
+right scalar children=1 match=1 owner=1 sibling=0 physical=0
+left array children=1 match=1 owner=1 sibling=0 physical=0
+right array children=1 match=1 owner=1 sibling=0 physical=0
+module paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=2 null=0 ancestor=0
+left paths=2 typed=2 endpoints=3 owner=2 sibling=0 legacy=0 null=2 ancestor=0
+right paths=1 typed=1 endpoints=2 owner=1 sibling=0 legacy=0 null=1 ancestor=0
+hdl after probe=10

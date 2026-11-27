@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-9.7-EXTRACT-CONTROL-TARGET-RESTRICTION"
+  ],
+  "qualification": {
+    "profile": "ghost-process-origin-reference",
+    "checker_sha256": "358175350b5f68f510bbf861fd9dd1d627270219e2cd0cf12c1ee4d8a8562cca",
+    "runtime_profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "ghost_headers": "631f6b274a9007a0a2b95467e8820ffcbc0e5866232f005cd8fb97ef589c86ef"
+    },
+    "slang": "slang version 12.0.0+0",
+    "tests": {
+      "ch9/test_process_control_target_origins": {
+        "inputs_sha256": "30644aa904ba19713f83508a20e3435e2fe5dd87e242f281b31cb40fa59f2eed",
+        "origins": {
+          "initial_root": {
+            "kind": "Initial",
+            "parent": "-"
+          },
+          "initial_child": {
+            "kind": "Fork",
+            "parent": "initial_root"
+          },
+          "always_root": {
+            "kind": "Always",
+            "parent": "-"
+          },
+          "always_child": {
+            "kind": "Fork",
+            "parent": "always_root"
+          },
+          "nested_child": {
+            "kind": "Fork",
+            "parent": "always_child"
+          },
+          "controller": {
+            "kind": "Initial",
+            "parent": "-"
+          },
+          "terminal": {
+            "kind": "Final",
+            "parent": "-"
+          }
+        },
+        "trials": {
+          "plain": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "target handles=5 suspended=5 progress=0",
+              "resumed progress=31",
+              "killed and awaited=5",
+              "final distinct=1"
+            ]
+          },
+          "guarded": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "target handles=5 suspended=5 progress=0",
+              "resumed progress=31",
+              "killed and awaited=5",
+              "final distinct=1",
+              "origin initial_root kind=Initial parent=- permit=1",
+              "origin initial_child kind=Fork parent=initial_root permit=1",
+              "origin always_root kind=Always parent=- permit=1",
+              "origin always_child kind=Fork parent=always_root permit=1",
+              "origin nested_child kind=Fork parent=always_child permit=1",
+              "origin controller kind=Initial parent=- permit=1",
+              "origin terminal kind=Final parent=- permit=0",
+              "caller distinct=1",
+              "await rejected: excluded process origin",
+              "suspend rejected: excluded process origin",
+              "resume rejected: excluded process origin",
+              "kill rejected: excluded process origin",
+              "final state unchanged=1"
+            ]
+          },
+          "unguarded": {
+            "exit": 0,
+            "completed": true,
+            "output": [
+              "target handles=5 suspended=5 progress=0",
+              "resumed progress=31",
+              "killed and awaited=5",
+              "final distinct=1",
+              "origin initial_root kind=Initial parent=- permit=1",
+              "origin initial_child kind=Fork parent=initial_root permit=1",
+              "origin always_root kind=Always parent=- permit=1",
+              "origin always_child kind=Fork parent=always_root permit=1",
+              "origin nested_child kind=Fork parent=always_child permit=1",
+              "origin controller kind=Initial parent=- permit=1",
+              "origin terminal kind=Final parent=- permit=0",
+              "caller distinct=1",
+              "await reached target would-block=1",
+              "suspend reached target state=3",
+              "resume reached target state=1",
+              "kill reached target state=4",
+              "final state unchanged=0"
+            ]
+          }
+        },
+        "checks": {
+          "plain_trace_matches": true,
+          "guarded_trace_matches": true,
+          "unguarded_trace_matches": true,
+          "all_methods_reject_the_same_excluded_process": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary_tools": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch9/test_process_control_target_origins": {
+          "status": "pass",
+          "inputs_sha256": "30644aa904ba19713f83508a20e3435e2fe5dd87e242f281b31cb40fa59f2eed"
+        }
+      },
+      "generated_at": "2026-11-26T20:55:47.143530+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch9/test_process_control_target_origins": {
+          "status": "known",
+          "reason": "compile failed: tests/ch9/test_process_control_target_origins.sv:16: syntax error",
+          "inputs_sha256": "30644aa904ba19713f83508a20e3435e2fe5dd87e242f281b31cb40fa59f2eed"
+        }
+      },
+      "generated_at": "2026-11-26T20:55:47.101370+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch9/test_process_control_target_origins": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'target handles=5 suspended=0 progress=0', expected 'target handles=5 suspended=5 progress=0'",
+          "inputs_sha256": "30644aa904ba19713f83508a20e3435e2fe5dd87e242f281b31cb40fa59f2eed"
+        }
+      },
+      "generated_at": "2026-11-26T20:55:52.896837+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.3.0 (commit f0abaff21ee9), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch9/test_process_control_target_origins": {
+          "status": "unsupported",
+          "reason": "type 'std::process' (not implemented yet)",
+          "inputs_sha256": "30644aa904ba19713f83508a20e3435e2fe5dd87e242f281b31cb40fa59f2eed"
+        }
+      },
+      "generated_at": "2026-11-26T20:55:47.106064+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}

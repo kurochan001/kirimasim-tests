@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-38.38-EXTRACT-ITERATOR-COMPLETION-RELEASE",
+    "SV2023-37.2.2-EXTRACT-ITERATOR-RELEASE",
+    "SV2023-38.40-EXTRACT-SCAN-NULL-INVALID"
+  ],
+  "qualified": {
+    "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "configuration": {
+      "evidence_profile": "icarus-iterator-release",
+      "checker_sha256": "dfe7cecd0f0dc3d333ea83fa4735da27b2586d19b36e0a5b362248fc811e0e69",
+      "binary_sha256": {
+        "iverilog": "5df81b269e1ff2c965dd00ad5a8071ca17717f416003b3661a18b2dde430e73c",
+        "vvp": "1a9bdf1f40102f64f015514f5069f99a5dd9f9f38de343743ef4c169fb358392",
+        "iverilog-vpi": "c6ca340808b12378a9fe07b2c759fda5dbaf081f969d7a6ce2ecbfbb28b201eb",
+        "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+      },
+      "debugger_version": "lldb-2103.0.34.407"
+    },
+    "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+    "tests": {
+      "ch38/test_vpi_iterator_released_on_terminal_scan": {
+        "inputs_sha256": "4b9c311a861cb6e169f1787823630f3195781d88fc75a5aa5ddb3f3d2e7f2388",
+        "pass": true,
+        "debugger_exit": 0,
+        "target_exits": [
+          0
+        ],
+        "events": [
+          "early_open early",
+          "drained_open drained",
+          "explicit_release early",
+          "cleanup early other",
+          "explicit_done",
+          "terminal_scan drained",
+          "cleanup drained scan",
+          "terminal_done"
+        ],
+        "expected_events": [
+          "early_open early",
+          "drained_open drained",
+          "explicit_release early",
+          "cleanup early other",
+          "explicit_done",
+          "terminal_scan drained",
+          "cleanup drained scan",
+          "terminal_done"
+        ],
+        "stdout": [
+          "early release=1 child readable=1",
+          "drained modules=7 terminal null=1"
+        ]
+      }
+    }
+  },
+  "ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch38/test_vpi_iterator_released_on_terminal_scan": {
+          "status": "pass",
+          "inputs_sha256": "4b9c311a861cb6e169f1787823630f3195781d88fc75a5aa5ddb3f3d2e7f2388"
+        }
+      },
+      "generated_at": "2026-11-26T14:43:21.320940+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build c494c95b55bc",
+      "tests": {
+        "ch38/test_vpi_iterator_released_on_terminal_scan": {
+          "status": "pass",
+          "inputs_sha256": "4b9c311a861cb6e169f1787823630f3195781d88fc75a5aa5ddb3f3d2e7f2388"
+        }
+      },
+      "generated_at": "2026-11-26T14:43:22.107507+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "c494c95b55bc8a1ee1f60a2e43b2a0d9e9247cee21cd82669fcd0bd22e954c41",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    }
+  },
+  "negative_control": {
+    "change": "Replace the terminal scan with an explicit release that prints the same value.",
+    "observations": {
+      "pass": false,
+      "debugger_exit": 0,
+      "target_exits": [
+        0
+      ],
+      "events": [
+        "early_open early",
+        "drained_open drained",
+        "explicit_release early",
+        "cleanup early other",
+        "explicit_done",
+        "terminal_scan drained",
+        "cleanup drained other",
+        "terminal_done"
+      ],
+      "expected_events": [
+        "early_open early",
+        "drained_open drained",
+        "explicit_release early",
+        "cleanup early other",
+        "explicit_done",
+        "terminal_scan drained",
+        "cleanup drained scan",
+        "terminal_done"
+      ],
+      "stdout": [
+        "early release=1 child readable=1",
+        "drained modules=7 terminal null=1"
+      ]
+    }
+  },
+  "scan_error_scope": {
+    "source": "https://github.com/steveicarus/iverilog/blob/dfeee909ed9f20b4870dd93423156c0170c0e1ff/vvp/vpi_iter.cc",
+    "source_sha256": "bd3f283a57978c5a51c724100b731a1734b0df1f65ee85045d2a6531db869b15",
+    "observation": "The tested Icarus iterator implementation does not have a separate error path for a valid iterator with pending objects. This replay uses valid traversal and early release, without passing null or invalid input to vpi_scan."
+  }
+}

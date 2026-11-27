@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` が `coverage/` の台帳と実行証跡から生成します。 [集計概要](behavior-coverage-summary.md) / [全要求の抽出結果](requirement-extraction.md) / [管理手順](../coverage/README.md) / [節の引用数](coverage-depth.ja.md)
 
-要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 99.04%、Ghostを除く実行 52.38%、Ghostとkirimasimを含む実行 90.81%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
+要求行の対応とPASSの証拠を数えています。[設計と実行の違い](faq.md#q16-how-do-design-and-execution-coverage-differ)を読み、テスト本数や一つのツールの一致率と区別してください。 **全規格の要求台帳ベース（確定）: 設計 100.00%、Ghostを除く実行 52.40%、Ghostとkirimasimを含む実行 90.85%。** 解釈保留・未対応を分母に含めます。分母のレビューで意味の重複を統合した値です。
 
 
-**要求カバレッジ（テスト設計）: 99.04%。** 規格要求の実行確認率: Ghostを除いて 52.38%、Ghostとkirimasimを含めて 90.81%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
+**要求カバレッジ（テスト設計）: 100.00%。** 規格要求の実行確認率: Ghostを除いて 52.40%、Ghostとkirimasimを含めて 90.85%。 節の引用やテスト本数を、全動作の網羅率に換算しません。
 
 - 規格棚卸し: 本文1–41章と附属書A–Q、計 1740 見出し。
 - 全資料の確認・要求抽出: 1740/1740 節 (100.00%)、15846/15846 出典ブロックを分類済み。
 - 規定部分の資料確認: 1703/1703 節 (100.00%)。
 - 解釈保留: 0 論点、0 節、0 登録行。保留を完了・テスト対応済みに数えません。
 - 規定部分の解釈保留なし: 1703/1703 見出し (100.00%)。資料確認率・動作網羅率とは別です。
-- 登録済み動作に対する要求カバレッジ（テスト設計）: 12214/12332 (99.04%)。
-- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11199/12332 (90.81%)。
-- 登録済みだがテスト未対応: 118 動作。
+- 登録済み動作に対する要求カバレッジ（テスト設計）: 12332/12332 (100.00%)。
+- 登録済み動作のうち、現行入力に対応するパス結果の記録があるもの: 11204/12332 (90.85%)。
+- 登録済みだがテスト未対応: 0 動作。
 
 登録済み動作だけの割合は規格全体の割合ではありません。親節の導入本文も独立した 調査対象です。図・表・構文・例外・エラー・他節参照を調べ、要求を分解して初めて その見出しを完了にできます。ツール依存・未実装は自動的な除外理由になりません。
 
@@ -87,6 +87,7 @@
 - `assignment-file-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:06:32.714058+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `assignment-file-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.714472+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `assignment-file-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.685722+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
+- `automatic-bin-limit-20261127-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T17:45:59.376132+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `bin-with-effects-20261125-verilator.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T10:33:07.747234+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `bitquery-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T16:18:16.466764+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `bitquery-20261119-kirimasim-441dddbd0fcd.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T16:18:17.457959+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -260,7 +261,6 @@
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `intcompat-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:46.053076+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `interactive-control-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T20:16:39.312745+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
-- `iterator-release-20261125-icarus13-qualified.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T06:57:25.169113+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T02:46:05.877247+00:00` / 150/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T02:46:56.224616+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `keywords-inherited-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T02:46:27.050750+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -1115,6 +1115,7 @@
 - `triggered-typed-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:58:33.898672+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `triggered-typed-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:58:33.862694+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `triggered-typed-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:58:33.887026+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `unpacked-union-c-layout-20261127-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T17:53:45.210833+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `uvm-standalone-20261123-ghost-strict.json`: `private build e95a514c6d02` / `2026-11-23T14:14:24.310807+00:00` / 6/12332 動作確認、古い入力との対応 0 件。
 - `uvm-standalone-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T14:14:24.163875+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `uvm-standalone-20261123-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T14:14:24.285520+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
@@ -1135,6 +1136,10 @@
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `virtual-sensitivity-20261126-ghost-strict.json`: `private build 4437eecbf426` / `2026-11-26T14:26:04.637880+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `virtual-sensitivity-20261126-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-26T14:26:04.629875+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `virtual-sensitivity-20261126-kirimasim.json`: `kirimasim 0.2.2 (commit 7fa2a9758cab), built with AppleClang 21.0.0.21000334` / `2026-11-26T14:26:04.608993+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `virtual-sensitivity-20261126-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T14:26:15.300330+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-action-feature-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:28:07.256761+00:00` / 13/12332 動作確認、古い入力との対応 0 件。
 - `vpi-callback-relationships-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:59:05.984735+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-checkpoint-counts-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:06:02.986071+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -1155,6 +1160,7 @@
 - `vpi-delay-ownership-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T21:31:31.397763+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-delay-ownership-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T21:31:31.167664+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-delay-ownership-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T21:31:31.159957+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-diagram-access-20261127-ghost.json`: `private build 2f3874bf7b63` / `2026-11-26T20:27:17.012595+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `vpi-dpi-bridge-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T08:22:40.347846+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `vpi-dpi-bridge-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T08:22:51.824943+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `vpi-expression-traversal-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:28:35.886580+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
@@ -1167,6 +1173,7 @@
 - `vpi-io-decl-refinement-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T20:48:30.248426+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-io-decl-refinement-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.380302+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-io-decl-refinement-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.513143+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-iterator-release-20261126-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-26T14:43:03.399450+00:00` / 3/12332 動作確認、古い入力との対応 0 件。
 - `vpi-legacy-applicability-20261125-1364v1995-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.306851+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `vpi-legacy-applicability-20261125-1364v2001-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.307756+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
 - `vpi-legacy-applicability-20261125-1364v2005-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.308269+00:00` / 2/12332 動作確認、古い入力との対応 0 件。
@@ -1181,9 +1188,11 @@
 - `vpi-options-and-action-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:55:23.398976+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `vpi-options-and-action-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:55:23.316261+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-options-and-action-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:55:35.227439+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-other-transient-20261127-ghost.json`: `private build 2f3874bf7b63` / `2026-11-26T19:45:09.929948+00:00` / 1/12332 動作確認、古い入力との対応 0 件。
 - `vpi-program-checkpoint-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T23:05:27.239273+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-program-checkpoint-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:05:27.274635+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-program-ports-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:04:05.788500+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
+- `vpi-restart-release-20261127-ghost-strict.json`: `private build b7abb6b0569f` / `2026-11-26T16:06:24.045322+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-runtime-release-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:10:05.029914+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
 - `vpi-scope-net-bits-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:55:46.489186+00:00` / 24/12332 動作確認、古い入力との対応 0 件。
 - `vpi-scope-net-bits-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T22:55:46.245101+00:00` / 0/12332 動作確認、古い入力との対応 0 件。
@@ -1456,6 +1465,7 @@
 - 採用しません: issues-48-57-20261107-verilator5.052-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: issues-48-57-20261107-verilator5.052-seed73.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: issues-76-90-20261122-ghost.json: 古い、未知の、または古いランナーの出身。
+- 検証プロファイルを確認できないか現行版と一致しないため、iterator-release-20261125-icarus13-qualified.json を集計から除外しました。
 - 採用しません: keyword-tests-20261024-icarus13.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: keyword-tests-20261024-verilator-seed1.json: 古い、未知の、または古いランナーの出身。
 - 採用しません: keyword-tests-20261024-verilator-seed73.json: 古い、未知の、または古いランナーの出身。
@@ -1533,14 +1543,14 @@
 件数は見出しごとの本文の調査状態です。動作数とは異なります。
 
 - 1 Overview: 解釈保留なし 12/12、登録 0、テスト対応 0。
-- 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 0。
+- 2 Normative references: 解釈保留なし 1/1、登録 2、テスト対応 2。
 - 3 Design and verification building blocks: 解釈保留なし 22/22、登録 146、テスト対応 146。
-- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 95。
+- 4 Scheduling semantics: 解釈保留なし 40/40、登録 107、テスト対応 107。
 - 5 Lexical conventions: 解釈保留なし 21/21、登録 155、テスト対応 155。
 - 6 Data types: 解釈保留なし 92/92、登録 720、テスト対応 720。
-- 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 345。
-- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 249。
-- 9 Processes: 解釈保留なし 34/34、登録 192、テスト対応 191。
+- 7 Aggregate data types: 解釈保留なし 61/61、登録 347、テスト対応 347。
+- 8 Classes: 解釈保留なし 49/49、登録 255、テスト対応 255。
+- 9 Processes: 解釈保留なし 34/34、登録 192、テスト対応 192。
 - 10 Assignment statements: 解釈保留なし 25/25、登録 156、テスト対応 156。
 - 11 Operators and expressions: 解釈保留なし 55/55、登録 459、テスト対応 459。
 - 12 Procedural programming statements: 解釈保留なし 28/28、登録 115、テスト対応 115。
@@ -1548,30 +1558,30 @@
 - 14 Clocking blocks: 解釈保留なし 19/19、登録 87、テスト対応 87。
 - 15 Interprocess synchronization and communication: 解釈保留なし 27/27、登録 88、テスト対応 88。
 - 16 Assertions: 解釈保留なし 82/82、登録 557、テスト対応 557。
-- 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 77。
+- 17 Checkers: 解釈保留なし 13/13、登録 81、テスト対応 81。
 - 18 Constrained random value generation: 解釈保留なし 58/58、登録 323、テスト対応 323。
-- 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 275。
+- 19 Functional coverage: 解釈保留なし 34/34、登録 276、テスト対応 276。
 - 20 Utility system tasks and system functions: 解釈保留なし 45/45、登録 320、テスト対応 320。
 - 21 入出力システムタスクとシステム関数：解釈保留なし65/65、登録383、テスト対応383。
 - 22 Compiler directives: 解釈保留なし 28/28、登録 363、テスト対応 363。
 - 23 Modules and hierarchy: 解釈保留なし 47/47、登録 260、テスト対応 260。
 - 24 Programs: 解釈保留なし 10/10、登録 29、テスト対応 29。
-- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 62。
+- 25 Interfaces: 解釈保留なし 25/25、登録 63、テスト対応 63。
 - 26 Packages: 解釈保留なし 8/8、登録 44、テスト対応 44。
 - 27 Generate constructs: 解釈保留なし 7/7、登録 32、テスト対応 32。
 - 28 Gate-level and switch-level modeling: 解釈保留なし 34/34、登録 384、テスト対応 384。
 - 29 User-defined primitives: 解釈保留なし 17/17、登録 52、テスト対応 52。
-- 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 151。
-- 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 176。
+- 30 Specify blocks: 解釈保留なし 31/31、登録 157、テスト対応 157。
+- 31 Timing checks: 解釈保留なし 26/26、登録 180、テスト対応 180。
 - 32 Backannotation using the standard delay format: 解釈保留なし 14/14、登録 131、テスト対応 131。
-- 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 61。
-- 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 191。
+- 33 Configuring the contents of a design: 解釈保留なし 36/36、登録 63、テスト対応 63。
+- 34 Protected envelopes: 解釈保留なし 104/104、登録 214、テスト対応 214。
 - 35 Direct programming interface: 解釈保留なし 31/31、登録 143、テスト対応 143。
-- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 161。
-- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1724。
-- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 333。
+- 36 Programming language interface (PLI/VPI) overview: 解釈保留なし 29/29、登録 163、テスト対応 163。
+- 37 VPI object model diagrams: 解釈保留なし 101/101、登録 1757、テスト対応 1757。
+- 38 VPI routine definitions: 解釈保留なし 51/51、登録 348、テスト対応 348。
 - 39 Assertion API: 解釈保留なし 14/14、登録 95、テスト対応 95。
-- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 127。
+- 40 Code coverage control and API: 解釈保留なし 26/26、登録 128、テスト対応 128。
 - 41 Data read API: 解釈保留なし 1/1、登録 0、テスト対応 0。
 - A Formal syntax: 解釈保留なし 87/87、登録 811、テスト対応 811。
 - B Keywords: 解釈保留なし 1/1、登録 248、テスト対応 248。
@@ -1580,10 +1590,10 @@
 - E Optional compiler directives: 参考（規範要件の分母に含めない）、登録 0、テスト対応 0。
 - F Formal semantics of concurrent assertions: 解釈保留なし 53/53、登録 253、テスト対応 253。
 - G Std package: 解釈保留なし 8/8、登録 32、テスト対応 32。
-- H DPI C layer: 解釈保留なし 72/72、登録 223、テスト対応 221。
+- H DPI C layer: 解釈保留なし 72/72、登録 223、テスト対応 223。
 - I svdpi.h: 解釈保留なし 4/4、登録 147、テスト対応 147。
 - J Inclusion of foreign language code: 解釈保留なし 7/7、登録 16、テスト対応 16。
-- K vpi_user.h: 解釈保留なし 3/3、登録 544、テスト対応 543。
+- K vpi_user.h: 解釈保留なし 3/3、登録 544、テスト対応 544。
 - L vpi_compatibility.h: 解釈保留なし 3/3、登録 88、テスト対応 88。
 - M sv_vpi_user.h: 解釈保留なし 3/3、登録 412、テスト対応 412。
 - N Algorithm for probabilistic distribution functions: 解釈保留なし 3/3、登録 39、テスト対応 39。
@@ -1601,7 +1611,7 @@
 
 ### SV2023-2-EXTRACT-DATED-REFERENCES
 
-`2` / `normal` / テスト未対応
+`2` / `normal` / テスト対応あり・実行未確認
 
 日付付けの規範参照を適用する場合は、IEEE 1800-2023 で明示的に識別された版を使用する。
 
@@ -1609,10 +1619,11 @@
 
 規定の性質: `definition`。
 
+- [test_normative_dated_vpi_edition.sv](../tests/ch36/test_normative_dated_vpi_edition.sv): 原典に記載されたIEEE 1364とFIPS 180の版を選び、後発の版と変更通知があっても指定版に固定されることを確認する。
 
 ### SV2023-2-EXTRACT-UNDATED-REFERENCES
 
-`2` / `normal` / テスト未対応
+`2` / `normal` / テスト対応あり・実行未確認
 
 日付のない規格参照は，修正・訂正とともに現在の版を示す。
 
@@ -1620,6 +1631,7 @@
 
 規定の性質: `definition`。
 
+- [test_normative_undated_binary64.sv](../tests/ch6/test_normative_undated_binary64.sv): 版指定のない二つの参照について、発行日で版を選び、適用対象の追補と正誤票を含めて未発行の案を除外する。
 
 ### SV2023-3.2-EXTRACT-DESIGN-ELEMENT-CATEGORIES
 
@@ -3530,7 +3542,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 ### SV2023-4.4.1-EXTRACT-ACTIVE-SET
 
-`4.4.1` / `normal` / テスト未対応
+`4.4.1` / `normal` / テスト対応あり・実行未確認
 
 アクティブ領域セットはアクティブ、インアクティブ、プレ-NBA、NBA、ポスト-NBA からなる。
 
@@ -3538,6 +3550,8 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 規定の性質: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): ActiveからPost-NBAまでの五つの領域を同じ集合として確認し、NBAから再び起動したActive処理の結果がPre-Observedで見えることを照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): ActiveからPost-NBAまでの五つの領域を同じ集合として確認し、NBAから再び起動したActive処理の結果がPre-Observedで見えることを照合する。
 
 ### SV2023-4.4.1-EXTRACT-ITERATIVE-SET
 
@@ -3553,7 +3567,7 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 ### SV2023-4.4.1-EXTRACT-REACTIVE-SET
 
-`4.4.1` / `normal` / テスト未対応
+`4.4.1` / `normal` / テスト対応あり・実行未確認
 
 反応性領域は反応性領域，再不活性領域，前Re‐NBA領域，Re‐NBA領域，および後Re‐NBA領域からなる。
 
@@ -3561,6 +3575,8 @@ PLIコールバックはシミュレーションモデルに評価イベント�
 
 規定の性質: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): ReactiveからPost-Re-NBAまでの五つの領域を同じ集合として確認し、そこで生じた追加処理が保留中のActive処理に先行することを照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): ReactiveからPost-Re-NBAまでの五つの領域を同じ集合として確認し、そこで生じた追加処理が保留中のActive処理に先行することを照合する。
 
 ### SV2023-4.4.2-EXTRACT-SIMULATION-REGION-SET
 
@@ -3692,7 +3708,7 @@ NBA 更新は，アクティブ領域集合で実行され，現在のスロッ�
 
 ### SV2023-4.4.2.5-EXTRACT-NO-OBSERVED-PLI
 
-`4.4.2.5` / `error` / テスト未対応
+`4.4.2.5` / `error` / テスト対応あり・実行未確認
 
 これは、Observed において PLI のコールバックを許可しないことを意味します。
 
@@ -3700,6 +3716,8 @@ NBA 更新は，アクティブ領域集合で実行され，現在のスロッ�
 
 規定の性質: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): ObservedへのPLIコールバック登録を拒否し、同じスロットでプロパティ評価と成否アクションの実行が続くことを照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): ObservedへのPLIコールバック登録を拒否し、同じスロットでプロパティ評価と成否アクションの実行が続くことを照合する。
 
 ### SV2023-4.4.2.5-EXTRACT-PROPERTY-ACTIONS-REACTIVE
 
@@ -3847,7 +3865,7 @@ PLIの特定スケジューリングポイントは，予定，活動前，予�
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-NO-CURRENT-SLOT-EVENT
 
-`4.4.3.1` / `error` / テスト未対応
+`4.4.3.1` / `error` / テスト対応あり・実行未確認
 
 前置き PLI イベントは現在のタイムスロットの他の領域をスケジュールできません。
 
@@ -3855,10 +3873,12 @@ PLIの特定スケジューリングポイントは，予定，活動前，予�
 
 規定の性質: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Preponedから現在のスロットの別領域への登録を拒否し、次のスロットへの登録とそこでの値の観測が成立することを照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Preponedから現在のスロットの別領域への登録を拒否し、次のスロットへの登録とそこでの値の観測が成立することを照合する。
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-NO-WRITE
 
-`4.4.3.1` / `error` / テスト未対応
+`4.4.3.1` / `error` / テスト対応あり・実行未確認
 
 前置 PLI イベントはネットや変数を書き込めません。
 
@@ -3866,10 +3886,12 @@ PLIの特定スケジューリングポイントは，予定，活動前，予�
 
 規定の性質: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Preponedのコールバックからネットと変数への書き込みをそれぞれ拒否し、スロット開始時の値が変わらないことを照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Preponedのコールバックからネットと変数への書き込みをそれぞれ拒否し、スロット開始時の値が変わらないことを照合する。
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-READ
 
-`4.4.3.1` / `normal` / テスト未対応
+`4.4.3.1` / `normal` / テスト対応あり・実行未確認
 
 概念上のPreponed PLI制御点では、現在のタイムスロットでネットや変数の状態が変わる前のデータを観測します。
 
@@ -3877,6 +3899,8 @@ PLIの特定スケジューリングポイントは，予定，活動前，予�
 
 規定の性質: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Preponedでネットと変数の旧値を読み、そのスロットの更新後に表示されたアサーションのサンプル値とも照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Preponedでネットと変数の旧値を読み、そのスロットの更新後に表示されたアサーションのサンプル値とも照合する。
 
 ### SV2023-4.4.3.2-EXTRACT-READ-WRITE-CONTROL
 
@@ -3916,7 +3940,7 @@ NBA PLI点制御点はNBA点以降の読み出し，書き込み，イベント�
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-CURRENT-SLOT-EVENT
 
-`4.4.3.5` / `error` / テスト未対応
+`4.4.3.5` / `error` / テスト対応あり・実行未確認
 
 予め観測された PLI イベントは、現在のスロットにイベントをスケジュールしないこと。
 
@@ -3924,10 +3948,12 @@ NBA PLI点制御点はNBA点以降の読み出し，書き込み，イベント�
 
 規定の性質: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Pre-Observedからの現在スロットへの登録を全領域で拒否し、次のスロットに予約した処理は実行されることを確認する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Pre-Observedからの現在スロットへの登録を全領域で拒否し、次のスロットに予約した処理は実行されることを確認する。
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-WRITE
 
-`4.4.3.5` / `error` / テスト未対応
+`4.4.3.5` / `error` / テスト対応あり・実行未確認
 
 予め観測された PLI イベントはネットまたは変数を書き込めない。
 
@@ -3935,10 +3961,12 @@ NBA PLI点制御点はNBA点以降の読み出し，書き込み，イベント�
 
 規定の性質: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Pre-Observedでネットと変数への書き込みを拒否し、すでに安定した値と後続のプロパティ結果が保たれることを確認する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Pre-Observedでネットと変数への書き込みを拒否し、すでに安定した値と後続のプロパティ結果が保たれることを確認する。
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-STABLE-READ
 
-`4.4.3.5` / `normal` / テスト未対応
+`4.4.3.5` / `normal` / テスト対応あり・実行未確認
 
 PLI読み出しは活性領域集合が安定化した後に起こる。
 
@@ -3946,10 +3974,12 @@ PLI読み出しは活性領域集合が安定化した後に起こる。
 
 規定の性質: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Pre-ObservedでNBA後の値とそこから起動したActive処理の完了を読み、プロパティの評価前であることを確認する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Pre-ObservedでNBA後の値とそこから起動したActive処理の完了を読み、プロパティの評価前であることを確認する。
 
 ### SV2023-4.4.3.6-EXTRACT-POSTOBSERVED-READ
 
-`4.4.3.6` / `normal` / テスト未対応
+`4.4.3.6` / `normal` / テスト対応あり・実行未確認
 
 PLI点は，観測領域またはそれ以前の領域で性質が評価された後の値を読み取る。
 
@@ -3957,10 +3987,12 @@ PLI点は，観測領域またはそれ以前の領域で性質が評価され�
 
 規定の性質: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Post-Observedでプロパティの評価済み状態と成否を読み、Reactiveで実行されたアクションと照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Post-Observedでプロパティの評価済み状態と成否を読み、Reactiveで実行されたアクションと照合する。
 
 ### SV2023-4.4.3.7-EXTRACT-READ-WRITE-CONTROL
 
-`4.4.3.7` / `normal` / テスト未対応
+`4.4.3.7` / `normal` / テスト対応あり・実行未確認
 
 Pre‐Re‐NBA PLI制御点はRe‐NBAイベントの前に読み出し値，書き込み値，イベント作成を可能にする。
 
@@ -3968,10 +4000,12 @@ Pre‐Re‐NBA PLI制御点はRe‐NBAイベントの前に読み出し値，書
 
 規定の性質: `permission`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Pre-Re-NBAが更新前の値を読み変数を書き換え、そこで生成したReactive処理がRe-NBA更新と保留中のActive処理に先行することを照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Pre-Re-NBAが更新前の値を読み変数を書き換え、そこで生成したReactive処理がRe-NBA更新と保留中のActive処理に先行することを照合する。
 
 ### SV2023-4.4.3.8-EXTRACT-READ-WRITE-CONTROL
 
-`4.4.3.8` / `normal` / テスト未対応
+`4.4.3.8` / `normal` / テスト対応あり・実行未確認
 
 Re‐NBA PLI制御点はRe‐NBA事象後の読み出し値，書き込み値，イベント作成を可能にする。
 
@@ -3979,6 +4013,8 @@ Re‐NBA PLI制御点はRe‐NBA事象後の読み出し値，書き込み値，
 
 規定の性質: `permission`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Post-Re-NBAが更新後の値を読み変数を書き換え、そこで生成したReactive処理が保留中のActive処理より先に実行されることを照合する。
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Post-Re-NBAが更新後の値を読み変数を書き換え、そこで生成したReactive処理が保留中のActive処理より先に実行されることを照合する。
 
 ### SV2023-4.4.3.9-EXTRACT-READ-WRITE-CONTROL
 
@@ -15953,7 +15989,7 @@ packedユニオンの2状態メンバを読み込むと，4状態を2状態に�
 
 ### SV2023-7.3.1-EXTRACT-UNPACKED-C-ORDER
 
-`7.3.1` / `normal` / テスト未対応
+`7.3.1` / `normal` / 実行確認あり
 
 unpacked構造の非パッケージ化ユニオンは，実装依存表現に従ってC互換の上昇アドレス部品順序化を用いる。
 
@@ -15961,6 +15997,7 @@ unpacked構造の非パッケージ化ユニオンは，実装依存表現に従
 
 規定の性質: `mandatory`。
 
+- [test_unpacked_union_c_member_order.sv](../tests/ch7/test_unpacked_union_c_member_order.sv): 生成された非パック共用体と独立したネイティブ構造体の配置を比較し、共通の先頭メンバーと実数を双方向に受け渡し、メンバーの宣言順を入れ替えると転送前に差分が出ることを確認する。
 
 ### SV2023-7.3.2-EXTRACT-MINIMUM-TAG-WIDTH
 
@@ -17773,7 +17810,7 @@ x／zを含む四状態整数指数は無効である。
 
 ### SV2023-7.8.5-EXTRACT-EQUALITY-REQUIRED
 
-`7.8.5` / `error` / テスト未対応
+`7.8.5` / `error` / テスト対応あり・実行未確認
 
 連想型インデックス型は等価性を定義しなければならない。動的サイズの型も条件を満たし得る。
 
@@ -17781,6 +17818,10 @@ x／zを含む四状態整数指数は無効である。
 
 規定の性質: `mandatory`。
 
+- [test_associative_event_key_identity.sv](../tests/ch7/test_associative_event_key_identity.sv): イベントの別名と別個のイベントの等価性を比較し、別名で更新した後も二つのキーが区別されることを調べる。
+- [test_associative_dynamic_array_key_equality.sv](../tests/ch7/test_associative_dynamic_array_key_equality.sv): 独立に確保した同じ内容の動的配列が同じ項目を指し、内容が変わった配列と空の配列が別々の項目を指すことを確認する。
+- [test_associative_key_uses_queue_and_string_values_structurally.sv](../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv): 文字列とキューを含む構造体で等価なキーを更新し、短いキューと異なる文字列のキーを別の項目として取得する。
+- [test_illegal_associative_index_contains_nested_real.sv](../tests/ch7/test_illegal_associative_index_contains_nested_real.sv): 入れ子の実数メンバーを持つ構造体をキーに使う場合の診断を、等価比較が可能な型にも適用される明示的な例外として確認する。
 
 ### SV2023-7.8.5-EXTRACT-NO-REAL-CONTAINING-KEY
 
@@ -22799,7 +22840,7 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 ### SV2023-8.29-EXTRACT-WEAK-RECLAMATION-REFERENCE
 
-`8.29` / `normal` / テスト未対応
+`8.29` / `normal` / テスト対応あり・実行未確認
 
 弱い参照は，弱い参照規則の下でその要求を防ぐことなくオブジェクトを追跡することができる。
 
@@ -22807,10 +22848,11 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 規定の性質: `permission`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): 弱参照から値を読める状態で最後の強参照を外し、生成コードのデストラクタが実行され、弱参照がクリアされることを確認する。
 
 ### SV2023-8.29-EXTRACT-WEAKLY-REACHABLE
 
-`8.29` / `normal` / テスト未対応
+`8.29` / `normal` / テスト対応あり・実行未確認
 
 対象が強く到達可能でなく，弱い参照を通してアクセスできる場合は弱い到達可能である。
 
@@ -22818,10 +22860,11 @@ pre_randomize / post_randomizeコールバックはランダム化の前後に�
 
 規定の性質: `definition`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): 回収待ちのオブジェクトで強参照数がゼロでも二つの弱参照から値を取得でき、強参照を残した対照では参照数が異なることを確認する。
 
 ### SV2023-8.30.1-EXTRACT-ATOMIC-WEAK-CLEAR
 
-`8.30.1` / `normal` / テスト未対応
+`8.30.1` / `normal` / テスト対応あり・実行未確認
 
 GC が参照が弱く到達可能であることを決定するとき，それに対する弱い参照はすべて原子的にクリアされなければならない。
 
@@ -22829,6 +22872,7 @@ GC が参照が弱く到達可能であることを決定するとき，それ�
 
 規定の性質: `mandatory`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): 参照先の実際のデストラクタで共有する状態を一度だけ交換し、二つの弱参照がそろってクリアされ、別の参照先の弱参照は影響を受けないことを確認する。
 
 ### SV2023-8.30.1-EXTRACT-STD-WEAK-REFERENCE
 
@@ -22856,7 +22900,7 @@ weak_reference は内蔵パラメータ化クラスであり、T はクラスタ
 
 ### SV2023-8.30.1-EXTRACT-WEAK-REFERENCE-NONRETAINING
 
-`8.30.1` / `normal` / テスト未対応
+`8.30.1` / `normal` / テスト対応あり・実行未確認
 
 弱い参照は，ガベージコレクションを妨げることなくアクセスを提供し，サブルーチンを通過させたり，他のオブジェクトに保持することができる。
 
@@ -22864,10 +22908,11 @@ weak_reference は内蔵パラメータ化クラスであり、T はクラスタ
 
 規定の性質: `definition`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): タスクを通してクラスのフィールドに渡した弱参照から値を読み、強参照数を増やさず、最後の強参照を外した後は参照先が回収されることを確認する。
 
 ### SV2023-8.30.1-EXTRACT-WEAK-WRAPPER-GC
 
-`8.30.1` / `normal` / テスト未対応
+`8.30.1` / `normal` / テスト対応あり・実行未確認
 
 weak_reference インスタンスは通常ガベージコレクトオブジェクトであり，その参照者が生きている間にももはや強く到達できないときに有効となる。
 
@@ -22875,6 +22920,7 @@ weak_reference インスタンスは通常ガベージコレクトオブジェ�
 
 規定の性質: `mandatory`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): 弱参照ラッパーの一つの強参照を外してデストラクタの実行を確認し、参照先と残りの弱参照がその時点で生きていることを照合する。
 
 ### SV2023-8.30.2-EXTRACT-NULL-NO-WARNING
 
@@ -23003,7 +23049,7 @@ get_id (null) はゼロを返し、すべてのライブな非ヌルオブジェ
 
 ### SV2023-8.30.5-EXTRACT-NUMERIC-ID-NONRETAINING
 
-`8.30.5` / `normal` / テスト未対応
+`8.30.5` / `normal` / テスト対応あり・実行未確認
 
 get_id の数値のみを保存する連想鍵は強いクラス参照を生成しません。収集後の再利用は 許可されています
 
@@ -23011,6 +23057,7 @@ get_id の数値のみを保存する連想鍵は強いクラス参照を生成�
 
 規定の性質: `definition`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): 連想配列に数値の識別子を保持したまま参照先を回収し、識別子の再利用後も古いキーと元の弱参照のヌル状態をそれぞれ確認する。
 
 ### SV2023-8.30.5-EXTRACT-SIGNATURE
 
@@ -25074,7 +25121,7 @@ disable forkは、呼出し元プロセスの動的な子孫関係を使用す�
 
 ### SV2023-9.7-EXTRACT-CONTROL-TARGET-RESTRICTION
 
-`9.7` / `error` / テスト未対応
+`9.7` / `error` / テスト対応あり・実行未確認
 
 これらのプロセスは、初期/常にプロセスまたはそれらから派生したフォークによって作成されたプロセスのみをターゲットとする。
 
@@ -25082,6 +25129,7 @@ disable forkは、呼出し元プロセスの動的な子孫関係を使用す�
 
 規定の性質: `mandatory`。
 
+- [test_process_control_target_origins.sv](../tests/ch9/test_process_control_target_origins.sv): 許可された二つの手続きとその子孫を実際に制御し、別の実行主体から最終手続きのハンドルに対する四つの操作を拒否する。
 
 ### SV2023-9.7-EXTRACT-FINISHED-STATE
 
@@ -46029,7 +46077,7 @@ covergroup は可視チェッカーフォーマル/変数を参照できるが�
 
 ### SV2023-17.7-EXTRACT-CONST-FORMAL-SIM
 
-`17.7` / `normal` / テスト未対応
+`17.7` / `normal` / テスト対応あり・実行未確認
 
 フォーマル検証ツールは、仮定と整合する定数の自由変数のすべての値を考慮しなければならない。これは、シミュレータが 17.7.2 の下のランダム定数を選択するためのものです。
 
@@ -46037,6 +46085,7 @@ covergroup は可視チェッカーフォーマル/変数を参照できるが�
 
 規定の性質: `mandatory`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): 定数の全値を含む二ステップの合法トレースを列挙して再選択による余分なトレースを検出し、元のソースでの定数の保持と初期値を記録する。
 
 ### SV2023-17.7-EXTRACT-CONST-FREE
 
@@ -46052,7 +46101,7 @@ covergroup は可視チェッカーフォーマル/変数を参照できるが�
 
 ### SV2023-17.7-EXTRACT-FORMAL-FREE
 
-`17.7` / `normal` / テスト未対応
+`17.7` / `normal` / テスト対応あり・実行未確認
 
 フォーマル検証ツールは、仮定と代入で許される自由変数のすべての値を考慮しなければならない。これは、シミュレータが 17.7.2 の下にランダムな値を割り当てるためです。
 
@@ -46060,10 +46109,11 @@ covergroup は可視チェッカーフォーマル/変数を参照できるが�
 
 規定の性質: `mandatory`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): 自由変数と手続きで代入した変数を使う仮定について、形式解析の全解を独立した全組み合わせ照合で確認し、二ステップの各解を仮定が受理することを確認し、元のソースでの選択と仮定の判定を別途記録する。
 
 ### SV2023-17.7-EXTRACT-FREE-VARIABLE
 
-`17.7` / `normal` / テスト未対応
+`17.7` / `normal` / テスト対応あり・実行未確認
 
 ランドチェッカー変数は自由変数であり、非決定論的に振る舞うことができる。
 
@@ -46071,6 +46121,7 @@ covergroup は可視チェッカーフォーマル/変数を参照できるが�
 
 規定の性質: `definition`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): チェッカーの自由変数について、同じ代入状態と同じ定数値の下でも複数の規格で認められる値の組を取り得ることを列挙し、各組で元の仮定が成り立つことを再生実行で確認する。
 
 ### SV2023-17.7-EXTRACT-NONCONST-FREE
 
@@ -46305,7 +46356,7 @@ checkerのassumeは、ランダム生成／フォーマル解析を制約でき�
 
 ### SV2023-17.7.2-EXTRACT-SOLVE-CURRENT-STEP
 
-`17.7.2` / `normal` / テスト未対応
+`17.7.2` / `normal` / テスト対応あり・実行未確認
 
 解法は，非アクティブ値／状態を与えた場合，現行ステップで仮定失敗を避けるすべてのアクティブチェッカ変数の値を探す。
 
@@ -46313,6 +46364,7 @@ checkerのassumeは、ランダム生成／フォーマル解析を制約でき�
 
 規定の性質: `mandatory`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): 二つの自由変数を同時に選ぶ現在ステップの解を手続きで代入した状態ごとに列挙し、矛盾した対照には解がなく、失敗は対象のクロックまで記録されないことを確認する。
 
 ### SV2023-17.7.2-EXTRACT-SOLVE-FAILURE-FREEDOM
 
@@ -51359,7 +51411,7 @@ enum coverpointは自動的にenum値ごとに1ビンを作成します。
 
 ### SV2023-19.5.3-EXTRACT-AUTO-IMPLEMENTATION-LIMIT
 
-`19.5.3` / `normal` / テスト未対応
+`19.5.3` / `normal` / 実行確認あり
 
 実装は自動ビン数を制限する。
 
@@ -51367,6 +51419,7 @@ enum coverpointは自動的にenum値ごとに1ビンを作成します。
 
 規定の性質: `implementation_defined`。
 
+- [test_cg_implementation_automatic_bin_limit.sv](../tests/ch19/test_cg_implementation_automatic_bin_limit.sv): 同じ宣言を異なる実装上限で実行し、上限が適用された位置の診断、自動ビンごとのヒット数、および上限の影響を受けない小さい定義域での結果を照合する。
 
 ### SV2023-19.5.3-EXTRACT-AUTO-INTEGRAL-COUNT
 
@@ -71955,7 +72008,7 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT
 
-`25.9` / `error` / テスト未対応
+`25.9` / `error` / テスト対応あり・実行未確認
 
 初期化後のvirtual interfaceの要素へドット表記でアクセスできるのは、手続き文の内部だけです。継続代入や、always・always_comb・always_ff手続きの感度リストでは使用できません。posedge vif.sig のようなタスク，関数，または初期ブロック内の手続き的イベント制御は手続き的命令であり，許可される。
 
@@ -71963,6 +72016,11 @@ defparam に影響を受けたインタフェースのインスタンス/階層�
 
 規定の性質: `mandatory`。
 
+- [test_illegal_virtual_interface_component_in_always_event_control.sv](../tests/ch25/test_illegal_virtual_interface_component_in_always_event_control.sv): 仮想インターフェイスの信号を always の明示感度リストに置き、その行での拒否を調べる。
+- [test_illegal_virtual_interface_component_in_always_ff.sv](../tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv): 仮想インターフェイスの信号を always_ff の明示感度リストに置き、その行での拒否を調べる。
+- [test_illegal_virtual_interface_component_in_always_comb.sv](../tests/ch25/test_illegal_virtual_interface_component_in_always_comb.sv): 初期化した仮想インターフェイスの信号を always_comb で直接読み、暗黙の感度リストに関する診断とその位置を確認する。
+- [test_illegal_virtual_interface_component_in_continuous_assign.sv](../tests/ch25/test_illegal_virtual_interface_component_in_continuous_assign.sv): 仮想インターフェイスの信号を連続代入の右辺に置き、その行での拒否を調べる。
+- [test_virtual_interface_procedural_edge_controls.sv](../tests/ch25/test_virtual_interface_procedural_edge_controls.sv): 別インスタンスの早いエッジを与えた後、選択したインターフェイスで initial とタスクが時刻5に再開し値47を読むことを確認する。実体を読む always_comb も値47を得る。
 
 ### SV2023-25.9.1-EXTRACT-VIRTUAL-CLOCKING-DRIVE
 
@@ -80109,7 +80167,7 @@ z1，z0の遅延を用いて，x遷移遅延を省略した。
 
 ### SV2023-30.7-EXTRACT-PULSE-LIMIT-SOURCES
 
-`30.7` / `normal` / テスト未対応
+`30.7` / `normal` / テスト対応あり・実行未確認
 
 PATHPULSE SDF 注釈を用いてパルス限界を修正できる。
 
@@ -80117,6 +80175,7 @@ PATHPULSE SDF 注釈を用いてパルス限界を修正できる。
 
 規定の性質: `permission`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): 既定の遅延、全体設定から求めた割合、パスのPATHPULSE指定、個別のSDF注釈でそれぞれ異なる遷移波形になることを照合する。
 
 ### SV2023-30.7-EXTRACT-PULSE-PASS
 
@@ -80229,7 +80288,7 @@ PATHPULSE 誤差限界を省略すると，提供された拒否限界と等し�
 
 ### SV2023-30.7.2-EXTRACT-GLOBAL-PULSE-ORDER-ERROR
 
-`30.7.2` / `error` / テスト未対応
+`30.7.2` / `error` / テスト対応あり・実行未確認
 
 拒否率以下の誤差は誤差であり，拒否率に等しいように修正する。
 
@@ -80237,10 +80296,11 @@ PATHPULSE 誤差限界を省略すると，提供された拒否限界と等し�
 
 規定の性質: `mandatory`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): エラー率を棄却率より低くした入力で診断を確認し、補正した同率の限界値が二つの遅延パスの実測波形に反映されることを照合する。
 
 ### SV2023-30.7.2-EXTRACT-GLOBAL-PULSE-PERCENTAGES
 
-`30.7.2` / `error` / テスト未対応
+`30.7.2` / `error` / テスト対応あり・実行未確認
 
 各モジュールの遷移遅延に対して，全体的な拒否／エラー呼出し値は0から100までのinteger％である。
 
@@ -80248,10 +80308,11 @@ PATHPULSE 誤差限界を省略すると，提供された拒否限界と等し�
 
 規定の性質: `mandatory`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): 両オプションで0と100を含む整数を受理し範囲外や小数を拒否することと、異なる上昇・下降遅延ごとに割合を適用した波形を照合する。
 
 ### SV2023-30.7.2-EXTRACT-PATHPULSE-OVER-GLOBAL
 
-`30.7.2` / `normal` / テスト未対応
+`30.7.2` / `normal` / テスト対応あり・実行未確認
 
 PATHPULSE の値は全体のパルス制限呼び出しオプションを上書きします。
 
@@ -80259,6 +80320,7 @@ PATHPULSE の値は全体のパルス制限呼び出しオプションを上書�
 
 規定の性質: `mandatory`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): 全体設定とパス個別の限界値が競合した場合に個別指定の波形が保たれ、全体設定を誤って優先した対照では波形が変わることを確認する。
 
 ### SV2023-30.7.3-EXTRACT-SDF-PULSE-PRIORITY
 
@@ -80275,7 +80337,7 @@ SDFはPATHPULSEとグローバルパーセントより優先され，経路遷�
 
 ### SV2023-30.7.4.1-EXTRACT-GLOBAL-PULSE-STYLE-PRIORITY
 
-`30.7.4.1` / `normal` / テスト未対応
+`30.7.4.1` / `normal` / テスト対応あり・実行未確認
 
 パルススタイル呼び出しオプションは、指定ブロックパルススタイル宣言を上書きします。
 
@@ -80283,6 +80345,7 @@ SDFはPATHPULSEとグローバルパーセントより優先され，経路遷�
 
 規定の性質: `mandatory`。
 
+- [test_specify_pulsestyle_ondetect.sv](../tests/ch30/test_specify_pulsestyle_ondetect.sv): 相反する二つのローカル指定に全体のパルス方式をそれぞれ適用し、X遷移の先頭時刻が両パスで同じ方式に従うことを照合する。
 
 ### SV2023-30.7.4.1-EXTRACT-PULSE-ONDETECT
 
@@ -80335,7 +80398,7 @@ pulsestyle_onevent / pulsestyle_ondetect宣言はパス出力をリストする�
 
 ### SV2023-30.7.4.2-EXTRACT-GLOBAL-SHOWCANCELLED-PRIORITY
 
-`30.7.4.2` / `normal` / テスト未対応
+`30.7.4.2` / `normal` / テスト対応あり・実行未確認
 
 ショーキャンセルされた呼び出しオプションは、指定ブロック宣言を上書きします。
 
@@ -80343,6 +80406,7 @@ pulsestyle_onevent / pulsestyle_ondetect宣言はパス出力をリストする�
 
 規定の性質: `mandatory`。
 
+- [test_showcancelled_negative_pulse_x.sv](../tests/ch30/test_showcancelled_negative_pulse_x.sv): ローカルの取消表示を全体設定で両方向に上書きし、負のパルスがXで表示される場合と表示されない場合の遷移を照合する。
 
 ### SV2023-30.7.4.2-EXTRACT-NEGATIVE-PULSE-DEFAULT
 
@@ -82334,7 +82398,7 @@ logic外部に特定した複数の条件付け信号を，条件付け信號に
 
 ### SV2023-31.8-EXTRACT-VECTOR-EXPANSION-OPTION
 
-`31.8` / `normal` / テスト未対応
+`31.8` / `normal` / テスト対応あり・実行未確認
 
 bit bit のタイミングチェックをNチェックに，または2信号のM／N‐［1］チェックをM＊Nチェックに拡張できる。すべての拡張チェックは 提供された通知者を使用します
 
@@ -82342,6 +82406,7 @@ bit bit のタイミングチェックをNチェックに，または2信号のM
 
 規定の性質: `permission`。
 
+- [test_vector_timing_check_expansion.sv](../tests/ch31/test_vector_timing_check_expansion.sv): 通常のベクタ検査とビット別の展開を実行し、各ビットと組み合わせの検査が同じ通知変数を使い、選択した組だけが違反を報告することを確認する。
 
 ### SV2023-31.8-EXTRACT-VECTOR-SINGLE-CHECK
 
@@ -82357,7 +82422,7 @@ bit bit のタイミングチェックをNチェックに，または2信号のM
 
 ### SV2023-31.9-EXTRACT-NEGATIVE-CHECK-OPTION
 
-`31.9` / `normal` / テスト未対応
+`31.9` / `normal` / テスト対応あり・実行未確認
 
 これらのオプションは、負のタイミングチェック呼び出しオプションが有効になったときに負の値を受け入れ、負の限界意味論を共有する。
 
@@ -82365,6 +82430,8 @@ bit bit のタイミングチェックをNチェックに，または2信号のM
 
 規定の性質: `mandatory`。
 
+- [test_negative_setuphold_delayed_condition_roles.sv](../tests/ch31/test_negative_setuphold_delayed_condition_roles.sv): 負の第一と第二の制限値を使い、参照手順の有効時の遅延と違反範囲を照合し、全検査を無効にすると遅延信号が元信号のコピーになることを確認する。
+- [test_negative_recrem_delayed_condition_roles.sv](../tests/ch31/test_negative_recrem_delayed_condition_roles.sv): 負の第一と第二の制限値を使い、参照手順の有効時の遅延と違反範囲を照合し、全検査を無効にすると遅延信号が元信号のコピーになることを確認する。
 
 ### SV2023-31.9-EXTRACT-NEGATIVE-WINDOW-SHIFT
 
@@ -82526,7 +82593,7 @@ Skew／fullskew／timeskewは内部遅延タイミング信号を使用しない
 
 ### SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITION-ROLE
 
-`31.9.2` / `normal` / テスト未対応
+`31.9.2` / `normal` / テスト対応あり・実行未確認
 
 時間スタンプ条件は遅延信号遷移に適用し，タイムチェック条件は遅延伝送に適用した。
 
@@ -82534,10 +82601,12 @@ Skew／fullskew／timeskewは内部遅延タイミング信号を使用しない
 
 規定の性質: `mandatory`。
 
+- [test_negative_setuphold_delayed_condition_roles.sv](../tests/ch31/test_negative_setuphold_delayed_condition_roles.sv): 遅延後の先着がデータとクロックになる両方の場合で条件を切り替え、条件を逆にしたときには違反を通知しないことを確認する。
+- [test_negative_recrem_delayed_condition_roles.sv](../tests/ch31/test_negative_recrem_delayed_condition_roles.sv): 遅延後の先着がデータとクロックになる両方の場合で条件を切り替え、条件を逆にしたときには違反を通知しないことを確認する。
 
 ### SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITIONS-NOT-DELAYED
 
-`31.9.2` / `normal` / テスト未対応
+`31.9.2` / `normal` / テスト対応あり・実行未確認
 
 参照／データ信号のみがシミュレータによって生成された遅延を受け取る。条件信号はそれを持たないので，遅延条件は，明示的に遅延した信号の関数である可能性がある。
 
@@ -82545,6 +82614,8 @@ Skew／fullskew／timeskewは内部遅延タイミング信号を使用しない
 
 規定の性質: `mandatory`。
 
+- [test_negative_setuphold_delayed_condition_roles.sv](../tests/ch31/test_negative_setuphold_delayed_condition_roles.sv): 条件を暗黙に遅らせると判定が変わることと、明示的な遅延信号から求めた条件は元信号から求めた条件と異なる判定になることを確認する。
+- [test_negative_recrem_delayed_condition_roles.sv](../tests/ch31/test_negative_recrem_delayed_condition_roles.sv): 条件を暗黙に遅らせると判定が変わることと、明示的な遅延信号から求めた条件は元信号から求めた条件と異なる判定になることを確認する。
 
 ### SV2023-31.9.3-EXTRACT-NEGATIVE-NOTIFIER-TIME
 
@@ -84766,7 +84837,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.5-EXTRACT-CONFIG-PRECOMPILED-SUPPORT
 
-`33.5` / `normal` / テスト未対応
+`33.5` / `normal` / テスト対応あり・実行未確認
 
 構成機構は，ソースファイルベースのシミュレーションワークフローと共に，前コンパイルされたソース設計オブジェクトの使用を支援する。
 
@@ -84774,6 +84845,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_config_precompiled_cells.sv](../tests/ch33/test_config_precompiled_cells.sv): 同じ構成をソース入力とコンパイル済みセルの入力に使い、Slangが選んだ階層とGhostの出力を、独立した結合とYosysの証明結果に照合し、構成を切り替えると二つの出力が入れ替わることを確認する。
 
 ### SV2023-33.5.1-EXTRACT-SINGLE-PASS-PERSISTENCE
 
@@ -84816,7 +84888,7 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 ### SV2023-33.5.3-EXTRACT-SEPARATE-COMPILE-MODEL
 
-`33.5.3` / `normal` / テスト未対応
+`33.5.3` / `normal` / テスト対応あり・実行未確認
 
 分離コンパイラワークフローでは，コンパイルされたセルはツール特有のファイルシステム形式で残存し，必要なすべてのセルはバインディング前にコンパイルされ，バインディングはそれらの予めコンパイルされたセ尔を用いて下降する。
 
@@ -84824,6 +84896,8 @@ liblist は階層的に継承される順序付けされた検索リストです
 
 規定の性質: `mandatory`。
 
+- [test_config_precompiled_cells.sv](../tests/ch33/test_config_precompiled_cells.sv): 個別にコンパイルしたセルと構成をファイルに保存し、ソースを削除した後に別プロセスで二階層をたどり、同じ中間セルのインスタンスごとに別の下位セルが結合されることと、必要な末端セルを外すと該当する階層パスで失敗することを確認する。
+- [test_config_precompiled_transitive_cells.sv](../tests/ch33/test_config_precompiled_transitive_cells.sv): 中間セルのコンパイル済みオブジェクトから二つの子の階層パスを読み、末端セルをそれぞれ結合して出力を照合し、中間セルを外すとそのパスで結合が止まることを確認する。
 
 ### SV2023-33.5.4-EXTRACT-CONFIG-COMMAND-LINE
 
@@ -85165,7 +85239,7 @@ Protect keyword data_block 暗号化されたボディバイトを導入する�
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 保護キーワード data_keyname はデータキーの名前です。
 
@@ -85173,10 +85247,11 @@ Protect keyword data_block 暗号化されたボディバイトを導入する�
 
 規定の性質: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): 所有者を固定して本体の鍵名を切り替え、変更後の鍵だけで本体を復号できることを照合する。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYOWNER
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 保護キーワード data_keyowner はデータキーの所有者を指定します。
 
@@ -85184,6 +85259,7 @@ Protect keyword data_block 暗号化されたボディバイトを導入する�
 
 規定の性質: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): 同じ本体鍵名を持つ二人の所有者を区別し、指定した所有者の秘密鍵で本文を復号できることを照合する。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-METHOD
 
@@ -85199,7 +85275,7 @@ Protect keyword data_block 暗号化されたボディバイトを導入する�
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 data_public_key キーワードを保護すると、ボディ暗号化の公開鍵が提供されます。
 
@@ -85207,6 +85283,7 @@ data_public_key キーワードを保護すると、ボディ暗号化の公開�
 
 規定の性質: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): 本体の公開鍵を符号化した次行から読み取り、鍵名を省いても対応する秘密鍵で復号できることを照合する。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DECRYPT-LICENSE
 
@@ -85235,7 +85312,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 保護キーワード digest_decrypt_key はセッションのダイジェストキーを提供します。
 
@@ -85243,6 +85320,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 規定の性質: `definition`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): 本体鍵と異なるダイジェストのセッション鍵を復元し、その鍵でのみダイジェストを照合できることを確認する。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEY-METHOD
 
@@ -85296,7 +85374,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 キーワード保護 digest_public_key はダイジェスト暗号化公開鍵を提供する。
 
@@ -85304,6 +85382,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 規定の性質: `definition`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): ダイジェスト公開鍵を指定する場合と本体公開鍵を継承する場合を照合し、鍵名と公開鍵の食い違いを検出する。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-ENCODING
 
@@ -85416,7 +85495,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 ### SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 プロテクトキーワードkey_public_keyは鍵暗号化公開鍵を提供する。
 
@@ -85424,10 +85503,11 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 規定の性質: `definition`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): 交換用の公開鍵を次行から読み取り、対応する秘密鍵で本体セッション鍵を復元して本文を照合する。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-RESET
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 キーワードを保護するリセットはキーワードのデフォルトを復元します。
 
@@ -85435,6 +85515,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 規定の性質: `definition`。
 
+- [test_protect_reset_restores_default_before_reconfiguration.sv](../tests/ch34/test_protect_reset_restores_default_before_reconfiguration.sv): Base64 を設定してからリセットし、既定の符号化に戻った地点と次に設定した uuencode の地点を、リセット省略と不正な入力でそれぞれ照合する。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-RUNTIME-LICENSE
 
@@ -85451,7 +85532,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 ### SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 キーワードビューポートを保護すると、保護領域へのアクセスを制御します。
 
@@ -85459,10 +85540,12 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 規定の性質: `definition`。
 
+- [test_protect_viewport_uses_current_envelope.sv](../tests/ch34/test_protect_viewport_uses_current_envelope.sv): viewportを指定した値は読み取れ、同じ保護領域でも指定されていない値や、別のエンベロープでだけ指定された値はその領域のviewportから読み取れないことを照合する。
+- [test_protect_viewport_keeps_access_after_reordering.sv](../tests/ch34/test_protect_viewport_keeps_access_after_reordering.sv): エンベロープとインスタンスの順序を入れ替えても、viewportで許可した値だけが対応する領域から読み取れることを確認する。
 
 ### SV2023-34.4-EXTRACT-PROTECT-DEFAULTS
 
-`34.4` / `normal` / テスト未対応
+`34.4` / `normal` / テスト対応あり・実行未確認
 
 欠落したエンベロープキーワードは、その指定されたデフォルトを使用します。
 
@@ -85470,6 +85553,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 規定の性質: `mandatory`。
 
+- [test_protect_digest_defaults_follow_data.sv](../tests/ch34/test_protect_digest_defaults_follow_data.sv): 明示されたダイジェスト設定の既定値を一つずつ調べ、設定を切り替えた各データモデルで省略した項目が現在のデータ設定を継承することを復号で照合する。
 
 ### SV2023-34.4-EXTRACT-PROTECT-LEXICAL-REGION
 
@@ -85573,7 +85657,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 ### SV2023-34.5.1.2-EXTRACT-ENVELOPE-SELF-CONTAINED
 
-`34.5.1.2` / `normal` / テスト未対応
+`34.5.1.2` / `normal` / テスト対応あり・実行未確認
 
 保護されたエンベロープは，モデル間の相互作用を避けるために自己包含的であるべきである。
 
@@ -85581,6 +85665,7 @@ Protect keyword digest_block はインテグリティダイジェストを提供
 
 規定の性質: `recommendation`。
 
+- [test_protect_independent_models_and_comments.sv](../tests/ch34/test_protect_independent_models_and_comments.sv): 異なる鍵と符号化方式の二つのモデルを単独・連結・逆順で復号し、隣のモデルに設定があっても暗号方式の指定を消したモデルを拒否する。
 
 ### SV2023-34.5.1.2-EXTRACT-NO-ENCRYPTION-NESTING
 
@@ -85892,7 +85977,7 @@ encrypt_agent_infoはdata_blockの外側の保護エンベロープ内の暗号�
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS
 
-`34.5.9.2` / `normal` / テスト未対応
+`34.5.9.2` / `normal` / テスト対応あり・実行未確認
 
 必要な符号化はすべての実装で利用可能である。認識された識別子は、それぞれの特定のアルゴリズムを使用しなければなりません。
 
@@ -85900,6 +85985,7 @@ encrypt_agent_infoはdata_blockの外側の保護エンベロープ内の暗号�
 
 規定の性質: `definition`。
 
+- [test_protect_registered_algorithm_extensions.sv](../tests/ch34/test_protect_registered_algorithm_extensions.sv): 必須と任意の標準符号化を対照にして、追加の十六進符号化で本文が復元され、方式を登録しない場合は該当項目で拒否されることを確認する。
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-INPUT
 
@@ -86040,7 +86126,7 @@ data_keyownerは、データの暗号化／復号鍵を提供する法人また�
 
 ### SV2023-34.5.10.2-EXTRACT-OWNER-UNIQUE-KEYS
 
-`34.5.10.2` / `normal` / テスト未対応
+`34.5.10.2` / `normal` / テスト対応あり・実行未確認
 
 data_keyname , data_decrypt_keyとdata_public_key data_keyowner の値は選択したものに対して一意でなければなりません。
 
@@ -86048,6 +86134,7 @@ data_keyname , data_decrypt_keyとdata_public_key data_keyowner の値は選択�
 
 規定の性質: `mandatory`。
 
+- [test_protect_key_values_unique_within_owner.sv](../tests/ch34/test_protect_key_values_unique_within_owner.sv): データの鍵名・復号鍵・公開鍵を同じ所有者内で一つずつ重複させ、各項目を特定して拒否することを確認し、所有者を変えると同じ鍵名と鍵素材を登録でき、復号したモデルの出力も一致する。
 
 ### SV2023-34.5.11.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86161,7 +86248,7 @@ data_keyname , data_decrypt_keyとdata_public_key data_keyowner の値は選択�
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-EXTENSIONS
 
-`34.5.11.2` / `normal` / テスト未対応
+`34.5.11.2` / `normal` / テスト対応あり・実行未確認
 
 すべての実装は必要な Table 34-3 メソッドをサポートします。標準化された識別子を使用するオプション暗号はサポートされ、追加の暗号識別子は実装によって定義される。
 
@@ -86169,6 +86256,7 @@ data_keyname , data_decrypt_keyとdata_public_key data_keyowner の値は選択�
 
 規定の性質: `implementation_defined`。
 
+- [test_protect_registered_algorithm_extensions.sv](../tests/ch34/test_protect_registered_algorithm_extensions.sv): 必須のDESと任意の標準CBC方式に加えて、処理系定義のAES-CTRを既知の答えと実際の復号で照合し、未登録の暗号方式を拒否する。
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-PGP-RSA
 
@@ -86609,7 +86697,7 @@ digest_keyownerはダイジェストキー供給者を選択し，作者／エ�
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-OUTPUT-TEXT
 
-`34.5.16.2` / `normal` / テスト未対応
+`34.5.16.2` / `normal` / テスト対応あり・実行未確認
 
 暗号化出力では、デジタル署名を使用する場合を除き、digest_keyownerを変更せずにコピーする。デジタル署名を使用する場合は、digest_key_methodで暗号化し、key_block内に格納する。キーワードセット 34.4 は key_block を定義し、 digest_key_block は定義していないので、コンテナは key_block である。
 
@@ -86617,10 +86705,11 @@ digest_keyownerはダイジェストキー供給者を選択し，作者／エ�
 
 規定の性質: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): 署名なしではダイジェスト鍵の所有者を平文に保ち、署名ありでは同じ所有者が受信者鍵で開いた鍵ブロックにだけ現れることを照合する。
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-UNIQUE
 
-`34.5.16.2` / `normal` / テスト未対応
+`34.5.16.2` / `normal` / テスト対応あり・実行未確認
 
 digest_keyname , digest_decrypt_keyとdigest_public_key digest_keyowner の値は選択したものに対して一意でなければなりません。
 
@@ -86628,6 +86717,7 @@ digest_keyname , digest_decrypt_keyとdigest_public_key digest_keyowner の値�
 
 規定の性質: `mandatory`。
 
+- [test_protect_key_values_unique_within_owner.sv](../tests/ch34/test_protect_key_values_unique_within_owner.sv): ダイジェストの鍵名・復号鍵・公開鍵を同じ所有者内で一つずつ重複させ、各項目を特定して拒否することを確認し、所有者を変えると同じ鍵名と鍵素材を登録でき、復号したダイジェストも一致する。
 
 ### SV2023-34.5.17.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86669,7 +86759,7 @@ digest_key_methodはdigest_blockの解読を決定する。
 
 ### SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-OUTPUT
 
-`34.5.17.2` / `normal` / テスト未対応
+`34.5.17.2` / `normal` / テスト対応あり・実行未確認
 
 記載された署名のケースを除き、出力でdigest_key_methodを保持する。その署名のケースでは、key_methodとkey_block内の鍵で暗号化する。
 
@@ -86677,6 +86767,7 @@ digest_key_methodはdigest_blockの解読を決定する。
 
 規定の性質: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): ダイジェストの暗号化方式が署名なしでは平文、署名ありでは鍵ブロックに保持され、同じ方式でダイジェストを復号できることを照合する。
 
 ### SV2023-34.5.18.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86693,7 +86784,7 @@ digest_key_methodはdigest_blockの解読を決定する。
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME
 
-`34.5.18.2` / `error` / テスト未対応
+`34.5.18.2` / `error` / テスト対応あり・実行未確認
 
 digest_keynameはダイジェスト復号鍵/ペアの名前で、欠ければ現在のdata_keynameにデフォルトされ、digest_keyownerは未知の名前でエラーとなります。
 
@@ -86701,6 +86792,7 @@ digest_keynameはダイジェスト復号鍵/ペアの名前で、欠ければ�
 
 規定の性質: `mandatory`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): ダイジェスト鍵名だけを省略し、データ鍵名を指定済みの所有者のもとで解決することと、未登録の名前を拒否することを照合する。
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-DECRYPT
 
@@ -86717,7 +86809,7 @@ digest_block 復号鍵を digest_keyname と digest_keyowner を組み合わせ�
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-OUTPUT
 
-`34.5.18.2` / `normal` / テスト未対応
+`34.5.18.2` / `normal` / テスト対応あり・実行未確認
 
 暗号化のために digest_keyname と digest_keyowner の鍵を選択します。名前は平文のまま保持します。ただし、key_keyname/key_public_keyを使うデジタルエンベロープkey_methodでは、key_block内で暗号化します。
 
@@ -86725,6 +86817,7 @@ digest_block 復号鍵を digest_keyname と digest_keyowner を組み合わせ�
 
 規定の性質: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): 所有者と名前を組み合わせてダイジェスト鍵を選び、名前が署名なしでは平文、署名ありでは受信者用の鍵ブロックに入ることを照合する。
 
 ### SV2023-34.5.19.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86868,7 +86961,7 @@ digest_decrypt_keyは、記載されたデジタル署名の仕組みに限っ�
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-EXTENSIONS
 
-`34.5.21.2` / `normal` / テスト未対応
+`34.5.21.2` / `normal` / テスト対応あり・実行未確認
 
 表 34-4 を超える追加ダイジェスト識別子は実装で定義されている。
 
@@ -86876,6 +86969,7 @@ digest_decrypt_keyは、記載されたデジタル署名の仕組みに限っ�
 
 規定の性質: `implementation_defined`。
 
+- [test_protect_registered_algorithm_extensions.sv](../tests/ch34/test_protect_registered_algorithm_extensions.sv): 標準のダイジェスト計算方式を既知の値で照合し、追加登録したSHA-256で本文を検証でき、未登録の識別子を拒否することを確認する。
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-MD2
 
@@ -86927,7 +87021,7 @@ digest_methodは，次のdata_blockとkey_blockの出力に対するダイジェ
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-OUTPUT
 
-`34.5.21.2` / `normal` / テスト未対応
+`34.5.21.2` / `normal` / テスト対応あり・実行未確認
 
 記載された署名のケースを除き、出力でdigest_methodを保持する。その署名のケースでは、key_methodで暗号化してkey_block内に格納する。
 
@@ -86935,6 +87029,7 @@ digest_methodは，次のdata_blockとkey_blockの出力に対するダイジェ
 
 規定の性質: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): ダイジェスト計算方式が署名なしでは平文、署名ありでは鍵ブロックに保存され、復元した方式で本文を照合できることを確認する。
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-RIPEMD-160
 
@@ -87471,7 +87566,7 @@ runtime_licenseを見つけた後，モデルを実行する前に，指定し�
 
 ### SV2023-34.5.30.2-EXTRACT-COMMENT-ANYWHERE
 
-`34.5.30.2` / `normal` / テスト未対応
+`34.5.30.2` / `normal` / テスト対応あり・実行未確認
 
 コメントは入力のどこにでも出来ますdata_block の直前にクリアテキストコメントとして出力します。
 
@@ -87479,6 +87574,7 @@ runtime_licenseを見つけた後，モデルを実行する前に，指定し�
 
 規定の性質: `mandatory`。
 
+- [test_protect_independent_models_and_comments.sv](../tests/ch34/test_protect_independent_models_and_comments.sv): 開始前・インクルード先・終了直前のコメントを対応する本文ブロックの直前に平文で出力し、一度だけ現れて暗号化本文に含まれないことを照合する。
 
 ### SV2023-34.5.30.2-EXTRACT-COMMENT-NOT-ENCRYPTED
 
@@ -87559,7 +87655,7 @@ viewport＝object = \<string\> , access = \<string\>文法を用いる。
 
 ### SV2023-34.5.32.2-EXTRACT-VIEWPORT-ACCESS
 
-`34.5.32.2` / `normal` / テスト未対応
+`34.5.32.2` / `normal` / テスト対応あり・実行未確認
 
 視野角アクセスは 実装特有の保護緩和です
 
@@ -87567,10 +87663,12 @@ viewport＝object = \<string\> , access = \<string\>文法を用いる。
 
 規定の性質: `implementation_defined`。
 
+- [test_protect_viewport_uses_current_envelope.sv](../tests/ch34/test_protect_viewport_uses_current_envelope.sv): 同じaccess文字列を読み取り専用と読み書き可能に設定した二つの参照ポリシーで実行し、書き込み後の値と拒否時に値が変わらないことを照合する。
+- [test_protect_viewport_keeps_access_after_reordering.sv](../tests/ch34/test_protect_viewport_keeps_access_after_reordering.sv): エンベロープを逆順にした場合にも、同じaccess文字列の書き込み可否と実際の値が二つの参照ポリシーに従うことを確認する。
 
 ### SV2023-34.5.32.2-EXTRACT-VIEWPORT-OBJECT
 
-`34.5.32.2` / `normal` / テスト未対応
+`34.5.32.2` / `normal` / テスト対応あり・実行未確認
 
 ビューポートは現在の保護されたエンベロープの 名前付けされたオブジェクトに ツールアクセスを与えます封筒に入ってるはずだ
 
@@ -87578,6 +87676,8 @@ viewport＝object = \<string\> , access = \<string\>文法を用いる。
 
 規定の性質: `mandatory`。
 
+- [test_protect_viewport_uses_current_envelope.sv](../tests/ch34/test_protect_viewport_uses_current_envelope.sv): 復号した二つのモデルから宣言位置でオブジェクトの所属を求め、現在のエンベロープ内だけ許可し、隣接エンベロープ、平文領域、未定義の名前を個別に指定するとそれぞれ拒否することを確認する。
+- [test_protect_viewport_keeps_access_after_reordering.sv](../tests/ch34/test_protect_viewport_keeps_access_after_reordering.sv): 逆順に復号した二つのエンベロープについて宣言位置と所属を照合し、現在のエンベロープ以外を指す三つの指定を拒否することを確認する。
 
 ### SV2023-35.2-EXTRACT-BLACK-BOX-LINKAGE
 
@@ -90934,7 +91034,7 @@ vpiVariables は regs と変数配列を含みます。vpiReg要素反復とvpiR
 
 ### SV2023-36.12.2-EXTRACT-TWO-MECHANISMS
 
-`36.12.2` / `normal` / テスト未対応
+`36.12.2` / `normal` / テスト対応あり・実行未確認
 
 コンパイル拘束型互換性とホストデフォルト互換性の両方を提供し，共に使用できる。
 
@@ -90942,6 +91042,7 @@ vpiVariables は regs と変数配列を含みます。vpiReg要素反復とvpiR
 
 規定の性質: `mandatory`。
 
+- [test_vpi_host_default_and_compile_bound_modes.sv](../tests/ch36/test_vpi_host_default_and_compile_bound_modes.sv): 同じシミュレーションで既定モードを使うアプリケーションとコンパイル時にモードを固定したアプリケーションをロードし、メモリ型、ワード型、変数の列挙結果を照合する。
 
 ### SV2023-36.12.2.1-EXTRACT-BOUND-RETARGET
 
@@ -91247,7 +91348,7 @@ VPI_COMPATIBILITY_VERSION_1800v2023は対応するコンパイル拘束互換性
 
 ### SV2023-36.12.2.2-EXTRACT-HOST-DEFAULT-MODE
 
-`36.12.2.2` / `normal` / テスト未対応
+`36.12.2.2` / `normal` / テスト対応あり・実行未確認
 
 VPI 互換性モードは，コンパイル制限のないアプリケーションに対して，シミュレーション毎にホスト選択可能である。同じ実行で他のモードを必要とするアプリケーションは、コンパイル束縛選択を使用しなければならない。
 
@@ -91255,6 +91356,8 @@ VPI 互換性モードは，コンパイル制限のないアプリケーショ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_host_default_and_compile_bound_modes.sv](../tests/ch36/test_vpi_host_default_and_compile_bound_modes.sv): 同じ未指定のライブラリを再利用して実行時の既定を切り替え、二つのアプリケーションに共通の既定が適用されることと、実行途中の環境変更や二重指定の対照を確認する。
+- [test_vpi_host_default_reversed_library_order.sv](../tests/ch36/test_vpi_host_default_reversed_library_order.sv): モード未指定の二つのライブラリをそのまま使い、コンパイル時に固定したライブラリを外して読み込み順を変えても、両アプリの既定モードが一致し、同じ値を読むことを確認する。
 
 ### SV2023-36.12.3-EXTRACT-UNSUPPORTED-CONSTRUCTS
 
@@ -91462,7 +91565,7 @@ vpi_remove_cb () はアクションの一部として関連付けられたコー
 
 ### SV2023-37.2.2-EXTRACT-CLASS-RELEASE
 
-`37.2.2` / `normal` / テスト未対応
+`37.2.2` / `normal` / テスト対応あり・実行未確認
 
 クラスオブジェクトを再利用するとそのハンドル、自動メンバー／サブエレメントハンドル、コールバックが解除される。静的な局所タスク/関数変数はフレーム/スレッドのみで死ぬわけではありません。
 
@@ -91470,6 +91573,8 @@ vpi_remove_cb () はアクションの一部として関連付けられたコー
 
 規定の性質: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): 回収対象に属するハンドルを解放し、型と型全体の登録が引き続き使えることを照合する。
+- [test_vpi_lifetime_properties.sv](../tests/ch37/test_vpi_lifetime_properties.sv): 自動タスク終了後も静的局所変数のハンドルから値を読み、同じ登録で次回の呼び出しの変更を受け取ることを照合する。
 
 ### SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE
 
@@ -91509,7 +91614,7 @@ vpi_release_handle は呼び出し者のハンドルを解除します。プロ�
 
 ### SV2023-37.2.2-EXTRACT-RESTART-RELEASE
 
-`37.2.2` / `normal` / テスト未対応
+`37.2.2` / `normal` / テスト対応あり・実行未確認
 
 シミュレーションを再起動すると、cbStartOfRestartとcbEndOfRestartのコールバックハンドルを除いてすべてのハンドルがリリースされます。
 
@@ -91517,6 +91622,7 @@ vpi_release_handle は呼び出し者のハンドルを解除します。プロ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_restart_releases_previous_handles.sv](../tests/ch37/test_vpi_restart_releases_previous_handles.sv): チェックポイント復元後に以前の通常オブジェクトとコールバックのハンドルを調べ、二つの再起動コールバックだけが残ることを再起動しない対照、再取得したハンドル、再開後のコールバック発火と照合する。
 
 ### SV2023-37.2.3-EXTRACT-HANDLE-IDENTITY
 
@@ -91544,7 +91650,7 @@ vpi_release_handle は呼び出し者のハンドルを解除します。プロ�
 
 ### SV2023-37.3-EXTRACT-MODEL-ACCESS
 
-`37.3` / `normal` / テスト未対応
+`37.3` / `normal` / 実行確認あり
 
 VPI は図示されたオブジェクト、関係、プロパティを露出させなければなりません。グループの関係性や性質は グループの全員に適用されます
 
@@ -91552,6 +91658,7 @@ VPI は図示されたオブジェクト、関係、プロパティを露出さ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_diagram_access.sv](../tests/ch37/test_vpi_diagram_access.sv): インスタンスを構成する四種類すべてから共通の名前と変数を取得し、変数の所有先を照合する。単体とベクトルのネットで名前、幅、真偽値、モジュールへの経路も確認する。
 
 ### SV2023-37.3-EXTRACT-TRANSITION-NAME
 
@@ -91779,7 +91886,7 @@ vpi_put_value は、インデックス表現が副作用を持つオブジェク
 
 ### SV2023-37.3.6-EXTRACT-PROTECTED-ACCESS
 
-`37.3.6` / `error` / テスト未対応
+`37.3.6` / `error` / テスト対応あり・実行未確認
 
 保護された関係/プロパティアクセスは明示的に許可されない限りエラーである。すべての保護オブジェクトでもvpiTypeとvpiIsProtectedには引き続きアクセスでき、複合プロパティの例外はAPIに従う。
 
@@ -91787,10 +91894,11 @@ vpi_put_value は、インデックス表現が副作用を持つオブジェク
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 同じ配列の型と保護フラグは両配置で取得でき、保護された配置でサイズと親の取得だけが拒否されることを確認する。
 
 ### SV2023-37.3.6-EXTRACT-PROTECTED-FLAG
 
-`37.3.6` / `normal` / テスト未対応
+`37.3.6` / `normal` / テスト対応あり・実行未確認
 
 すべてのオブジェクトは vpiIsProtected を露出する: 復号エンベロープの中のコードを表すならば true である。
 
@@ -91798,6 +91906,7 @@ vpi_put_value は、インデックス表現が副作用を持つオブジェク
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 同じ配列、クラス参照、モジュールと呼び出しの保護フラグが復元した範囲を移すと反転し、外側のモジュールは常に未保護になることを確認する。
 
 ### SV2023-37.3.7-EXTRACT-ALLOCATION-SCHEME
 
@@ -91825,7 +91934,7 @@ vpiAutomatic＝falseは静的であり，trueは非静的／動的である。�
 
 ### SV2023-37.3.7-EXTRACT-DYNAMIC-LIFETIME
 
-`37.3.7` / `normal` / テスト未対応
+`37.3.7` / `normal` / テスト対応あり・実行未確認
 
 クラスオブジェクトとそのインスタンスメンバ／メソッドは，新しいものから自動的に復活するまで生きている。フレーム自動変数は、呼び出しによるフレーム作成からフレーム破壊まで生きている。
 
@@ -91833,10 +91942,12 @@ vpiAutomatic＝falseは静的であり，trueは非静的／動的である。�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_automatic_frame_lifetime.sv](../tests/ch37/test_vpi_automatic_frame_lifetime.sv): 二つの呼び出しで自動変数とビットの初期値を読み、先に復帰した呼び出しのフレームとローカル変数だけが消え、その呼び出し元のスレッドは生き続けることを照合する。
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): 生成したクラスの配列要素をインスタンスメソッドで読み、回収されたオブジェクトとそのメンバー、配列要素、メソッドのハンドルが一緒に消えることを照合する。
 
 ### SV2023-37.3.7-EXTRACT-OTHER-TRANSIENT
 
-`37.3.7` / `normal` / テスト未対応
+`37.3.7` / `normal` / 実行確認あり
 
 スレッド，廃止されたスレッド参照，反復器，スケジュールイベント，コールバックは過渡的オブジェクトの種類である。
 
@@ -91844,6 +91955,7 @@ vpiAutomatic＝falseは静的であり，trueは非静的／動的である。�
 
 規定の性質: `definition`。
 
+- [test_vpi_other_transient_objects.sv](../tests/ch37/test_vpi_other_transient_objects.sv): 古い配列要素とブロック内の参照を読み、スコープを抜けた後にスレッドの終了を観測し、イテレータの最終走査、予約イベントの実行と解放、二つのコールバックのうち取り消していない側の通知を照合する。
 
 ### SV2023-37.3.7-EXTRACT-SOURCE-STATIC-LIFETIME
 
@@ -91859,7 +91971,7 @@ vpiAutomatic＝falseは静的であり，trueは非静的／動的である。�
 
 ### SV2023-37.3.8-EXTRACT-LIFETIME-CALLBACKS
 
-`37.3.8` / `normal` / テスト未対応
+`37.3.8` / `normal` / テスト対応あり・実行未確認
 
 cbCreateObj , cbReclaimObj , cbStartofFrame , cbEndOfFrame , cbStartOfThread , cbEndOfThreadとcbEndOfObject APIはオブジェクト特有のライフサイクルコールバックである。
 
@@ -91867,6 +91979,8 @@ cbCreateObj , cbReclaimObj , cbStartofFrame , cbEndOfFrame , cbStartOfThread , c
 
 規定の性質: `definition`。
 
+- [test_vpi_automatic_frame_lifetime.sv](../tests/ch37/test_vpi_automatic_frame_lifetime.sv): 実際のフレームとスレッドで開始と終了を照合し、両方で汎用終了コールバックを観測し、対象の型が異なる開始コールバックの登録を拒否する。
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): クラスの生成後に型のコールバックを、回収時に対象の型と個体のコールバックおよび個体の汎用終了コールバックを照合する。
 
 ### SV2023-37.3.8-EXTRACT-TRANSIENT-HANDLE
 
@@ -91882,7 +91996,7 @@ cbCreateObj , cbReclaimObj , cbStartofFrame , cbEndOfFrame , cbStartOfThread , c
 
 ### SV2023-37.4.1-EXTRACT-CLASS-REFERENCE-KEY
 
-`37.4.1` / `normal` / テスト未対応
+`37.4.1` / `normal` / テスト対応あり・実行未確認
 
 斜体点ラベルの参照グループ/クラス;これは、オブジェクトのグループをローカルにグループ化するためのもので、他の場所では名前付きグループとして参照できません。
 
@@ -91890,10 +92004,11 @@ cbCreateObj , cbReclaimObj , cbStartofFrame , cbEndOfFrame , cbStartOfThread , c
 
 規定の性質: `definition`。
 
+- [test_vpi_diagram_access.sv](../tests/ch37/test_vpi_diagram_access.sv): 規格図の斜体の参照を名前付きグループに結び付ける。点線の無名グループには二つの要素があり、要素名からグループを引けないことを照合する。
 
 ### SV2023-37.4.1-EXTRACT-OBJECT-CLASS-KEY
 
-`37.4.1` / `normal` / テスト未対応
+`37.4.1` / `normal` / テスト対応あり・実行未確認
 
 太い固体で囲まれたラベルはオブジェクトとその属性を定義する。普通の固体ラベルは 物体を参照しますまた，オブジェクト群やクラスを定義するための，オブジェクトの属性を定義するために，ボールドイタリックドットを用いた封入体を用いた。グループは他のグループやオブジェクトの定義を含むことができる。
 
@@ -91901,6 +92016,7 @@ cbCreateObj , cbReclaimObj , cbStartofFrame , cbEndOfFrame , cbStartOfThread , c
 
 規定の性質: `definition`。
 
+- [test_vpi_diagram_definition_symbols.sv](../tests/ch37/test_vpi_diagram_definition_symbols.sv): 実線と点線、通常と太字と斜体の組み合わせで定義と参照を分類し、名前付きグループ内のクラスとオブジェクトの記号も照合する。
 
 ### SV2023-37.4.2-EXTRACT-COMPLEX-KEY
 
@@ -92672,7 +92788,7 @@ vpi_iterate のトップレベルモジュールに NULL 参照オブジェク�
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-011
 
-`37.6` / `normal` / テスト未対応
+`37.6` / `normal` / テスト対応あり・実行未確認
 
 37.6は37.3で導出されたタグなしモジュールパスアクセスタイプを用いて，インタフェースからモジュールパスへの1対多関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -92680,10 +92796,11 @@ vpi_iterate のトップレベルモジュールに NULL 参照オブジェク�
 
 規定の性質: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): 片方のインターフェースから二つ、もう片方から一つのパスを列挙し、パスの入出力端子がそれぞれのインターフェースの信号であることを照合する。
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-012
 
-`37.6` / `normal` / テスト未対応
+`37.6` / `normal` / テスト対応あり・実行未確認
 
 37.6 vpiInstance タグを使って、モジュールパスからインタフェースへの一対一関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -92691,6 +92808,7 @@ vpi_iterate のトップレベルモジュールに NULL 参照オブジェク�
 
 規定の性質: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): 三つのパスそれぞれから元のインターフェースへ戻り、隣のインターフェースへの逆参照がないことを照合する。
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-013
 
@@ -93054,7 +93172,7 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-010
 
-`37.9` / `normal` / テスト未対応
+`37.9` / `normal` / テスト対応あり・実行未確認
 
 37.9は37.3で導出されたタグなしインタフェースアクセスタイプを用いて，プログラムとインタフェースの間の1対多関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -93062,10 +93180,11 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): 二つのプログラムでそれぞれの単体インターフェースだけを列挙し、もう一方の単体と接続した物理インターフェースを含まないことを照合する。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-011
 
-`37.9` / `normal` / テスト未対応
+`37.9` / `normal` / テスト対応あり・実行未確認
 
 37.9 vpiInstance タグを使ってインタフェースからプログラムへの一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -93073,10 +93192,11 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): 各単体インターフェースから元のプログラムへ戻り、接続された対照用の物理インターフェースはモジュールを返すことを照合する。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-012
 
-`37.9` / `normal` / テスト未対応
+`37.9` / `normal` / テスト対応あり・実行未確認
 
 37.9は37.3で導出されたタグなしインタフェース配列アクセスタイプを用いて，プログラムとインタフェースアレーの間の1対多関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -93084,10 +93204,11 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): 各プログラムに属するインターフェース配列を列挙し、別の配列を混ぜず、添字から同じ二要素を取得できることを照合する。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-013
 
-`37.9` / `normal` / テスト未対応
+`37.9` / `normal` / テスト対応あり・実行未確認
 
 37.9は vpiInstanceタグを使ってインタフェース配列とプログラムの間の一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -93095,6 +93216,7 @@ modport は vpiName を文字列として表示し、modport の名前を表し�
 
 規定の性質: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): 各インターフェース配列から実際に割り当てたプログラムへ戻り、対照用の配列からはモジュールへ戻ることを照合する。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-014
 
@@ -95693,7 +95815,7 @@ ports は vpiVector をブール値として 表示し、ベクトルポート�
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-021
 
-`37.14` / `normal` / テスト未対応
+`37.14` / `normal` / テスト対応あり・実行未確認
 
 ポートはインデックス/マルチインデックスアクセスをサポートし、モジュール入力ポート遅延に対して get/put_delays をサポートします。ポートタイプの例外を除く。
 
@@ -95701,6 +95823,7 @@ ports は vpiVector をブール値として 表示し、ベクトルポート�
 
 規定の性質: `definition`。
 
+- [test_vpi_indexed_ports_and_input_delays.sv](../tests/ch37/test_vpi_indexed_ports_and_input_delays.sv): 通常の入力ポートに対する単一添字と複数添字の選択、範囲外の対照、遅延の書き込みと再取得を実行し、隣接ポートを対照として信号の到達時刻を照合する。
 
 ### SV2023-37.14-EXTRACT-INTERFACE-NO-DELAY
 
@@ -103118,7 +103241,7 @@ vpiConstraintは外部プロトタイプ位置を用いて構文宣言順序を�
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-007
 
-`37.34` / `normal` / テスト未対応
+`37.34` / `normal` / テスト対応あり・実行未確認
 
 制約は vpiVirtual をブール値として 仮想制約を表します37.3.1 の下の適切なプロパティルーチンでアクセスします。
 
@@ -103126,6 +103249,7 @@ vpiConstraintは外部プロトタイプ位置を用いて構文宣言順序を�
 
 規定の性質: `definition`。
 
+- [test_vpi_pattern_constraint_properties.sv](../tests/ch37/test_vpi_pattern_constraint_properties.sv): 独立した構文解析で純粋制約と具体的な最終制約を区別し、実際の制約オブジェクトで真と偽の真偽値プロパティを照合する。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-008
 
@@ -104333,7 +104457,7 @@ vpi_get_delays / vpi_put_delays をサポートするモジュールパス有効
 
 ### SV2023-37.39-EXTRACT-INTERFACE-SPECIFY-MODULE
 
-`37.39` / `normal` / テスト未対応
+`37.39` / `normal` / テスト対応あり・実行未確認
 
 これは、インタフェースのパスを指定する場合、互換性vpiModule関係はNULLを返します。vpiInstanceは実際のモジュール/インタフェースにアクセスします。
 
@@ -104341,6 +104465,7 @@ vpi_get_delays / vpi_put_delays をサポートするモジュールパス有効
 
 規定の性質: `mandatory`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): インターフェースの三つのパスでは旧モジュール参照が空で、インスタンス参照は所有先を返すことを照合し、通常のモジュールに属する二つのパスも対照に使う。
 
 ### SV2023-37.39-EXTRACT-PREFER-INSTANCE
 
@@ -104621,7 +104746,7 @@ vpiTchkRefTerm vpiTchkDataTerm はデータイベントを表す。
 
 ### SV2023-37.41-EXTRACT-DIAGRAM-008
 
-`37.41` / `normal` / テスト未対応
+`37.41` / `normal` / テスト対応あり・実行未確認
 
 37.41は vpiParentタグを使ってタスク/関数から参照オブジェクトへの一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -104629,6 +104754,7 @@ vpiTchkRefTerm vpiTchkDataTerm はデータイベントを表す。
 
 規定の性質: `definition`。
 
+- [test_vpi_task_reference_parent.sv](../tests/ch37/test_vpi_task_reference_parent.sv): 同名の参照引数を持つタスクと関数で親の参照先の同一性を照合し、親を相互に入れ替えた場合を検出する。
 
 ### SV2023-37.41-EXTRACT-DIAGRAM-009
 
@@ -105330,7 +105456,7 @@ vpiWithはランダム化と配列位置決め法でのみ利用可能である�
 
 ### SV2023-37.42-EXTRACT-PROTECTED-SYSTEM-ARGUMENTS
 
-`37.42` / `normal` / テスト未対応
+`37.42` / `normal` / テスト対応あり・実行未確認
 
 vpiArgument 反復は保護されたシステムタスク／関数呼び出しでも許容される。
 
@@ -105338,6 +105464,7 @@ vpiArgument 反復は保護されたシステムタスク／関数呼び出し�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 保護されたシステムタスクとシステム関数の両方で、呼び出しの保護を確認した上で引数イテレーターを開き、全引数を取得する。
 
 ### SV2023-37.42-EXTRACT-SYSTEM-CALL-DECOMPILE
 
@@ -108862,7 +108989,7 @@ vpiParent は表現された表現から部分選択/インデックスされた
 
 ### SV2023-37.59-EXTRACT-PROTECTED-EXPRESSION-SIZE
 
-`37.59` / `normal` / テスト未対応
+`37.59` / `normal` / テスト対応あり・実行未確認
 
 保護された表現は vpiSize をクエリすることを許可する。
 
@@ -108870,6 +108997,7 @@ vpiParent は表現された表現から部分選択/インデックスされた
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 保護された演算式と定数式の両方で保護フラグと式の種類を確認し、ビット幅の取得が許可されることを照合する。
 
 ### SV2023-37.59-EXTRACT-UNBOUNDED-CONSTANT
 
@@ -110253,7 +110381,7 @@ if-else は vpiQualifier を integer に 暴露し、条件限定詞を表しま
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-013
 
-`37.72` / `normal` / テスト未対応
+`37.72` / `normal` / テスト対応あり・実行未確認
 
 structパターンは vpiName を文字列として 表示し、パターン名を表します。37.3.1 の下の適切なプロパティルーチンでアクセスします。
 
@@ -110261,6 +110389,7 @@ structパターンは vpiName を文字列として 表示し、パターン名�
 
 規定の性質: `definition`。
 
+- [test_vpi_pattern_constraint_properties.sv](../tests/ch37/test_vpi_pattern_constraint_properties.sv): 名前付きの内側の構造体パターンを束縛変数で区別し、二つのフィールド名と名前を持たない外側の状態を照合する。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-014
 
@@ -110924,7 +111053,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-013
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 37.83は37.3で導出されたタグなし属性アクセスタイプを使って，原始端末から属性への1対多関係を定義する。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -110932,10 +111061,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 二つのプリミティブ端子を選び、一方の二属性ともう一方の一属性を個別に列挙して名前と値を照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-014
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 属性と原始端末の間の一対一関係を定義するために、37.83 はタグ vpiParent を使用します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -110943,10 +111073,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 三つの属性から対応するプリミティブ端子に戻り、同じ型のもう一方のオブジェクトとは一致しないことを照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-015
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 37.83は 37.3で導出されたタグなし属性アクセスタイプを使って、パス端末から属性への1対多の関係を定義します。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -110954,10 +111085,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 二つのパス端子を選び、一方の二属性ともう一方の一属性を個別に列挙して名前と値を照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-016
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 属性とパス端末の間の一対一関係を定義するために、37.83 はタグ vpiParent を使用します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -110965,10 +111097,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 三つの属性から対応するパス端子に戻り、同じ型のもう一方のオブジェクトとは一致しないことを照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-017
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 37.83 37.3 で導出されたタグ付けされていない属性アクセスタイプを使用して、モジュールパスから属性への一対多関係を定義します。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -110976,10 +111109,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 二つのモジュールパスを選び、一方の二属性ともう一方の一属性を個別に列挙して名前と値を照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-018
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 属性とモジュールパスの間の一対一関係を定義するために、37.83 は vpiParent タグを使用します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -110987,10 +111121,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 三つの属性から対応するモジュールパスに戻り、同じ型のもう一方のオブジェクトとは一致しないことを照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-019
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 37.83は 37.3で導出されたタグなし属性アクセスタイプを使って、タイミングチェックから属性への1対多の関係を定義します。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -110998,10 +111133,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 二つのタイミングチェックを選び、一方の二属性ともう一方の一属性を個別に列挙して名前と値を照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-020
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 37.83 vpiParent タグを使って属性からタイミングチェックまでの一対一の関係を定義します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -111009,6 +111145,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 三つの属性から対応するタイミングチェックに戻り、同じ型のもう一方のオブジェクトとは一致しないことを照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-021
 
@@ -111108,7 +111245,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-029
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 37.83 37.3 で導出されたタグ付けされていない属性アクセスタイプを使って、テーブルエントリから属性への一対多関係を定義します。特殊な場合の制約を 指定して vpi_iterate に vpi_scan を追加してトラベースします。
 
@@ -111116,10 +111253,11 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 二つのユーザー定義プリミティブの表エントリを選び、一方の二属性ともう一方の一属性を個別に列挙して名前と値を照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-030
 
-`37.83` / `normal` / テスト未対応
+`37.83` / `normal` / テスト対応あり・実行未確認
 
 属性とテーブルエントリの間の一対一関係を定義するために、37.83 はタグ vpiParent を使用します。vpi_handle と特殊な制約条件を持つトラベリングを実行します。
 
@@ -111127,6 +111265,7 @@ $timeformat()が呼び出されていない場合、vpi_handle(vpiActiveTimeForm
 
 規定の性質: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): 三つの属性から対応するユーザー定義プリミティブの表エントリに戻り、同じ型のもう一方のオブジェクトとは一致しないことを照合する。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-031
 
@@ -112619,7 +112758,7 @@ vpiStopはinteger診断レベルを取得し，アプリケーションルーチ
 
 ### SV2023-38.6-EXTRACT-GET-PROTECTED-ERROR
 
-`38.6` / `error` / テスト未対応
+`38.6` / `error` / テスト対応あり・実行未確認
 
 明示的に許可されない限り、保護オブジェクト vpi_get はエラーです。すべての get エラーは vpiUndefined を返します。
 
@@ -112627,6 +112766,7 @@ vpiStopはinteger診断レベルを取得し，アプリケーションルーチ
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 未保護の配列はサイズを取得でき、保護されると未定義値と整数属性のエラーを返すことを確認する。
 
 ### SV2023-38.6-EXTRACT-GET-SIGNATURE
 
@@ -112654,7 +112794,7 @@ vpiStopはinteger診断レベルを取得し，アプリケーションルーチ
 
 ### SV2023-38.7-EXTRACT-GET64-PROTECTED-ERROR
 
-`38.7` / `error` / テスト未対応
+`38.7` / `error` / テスト対応あり・実行未確認
 
 明示的に許可されない限り、保護オブジェクト vpi_get64 はエラーです。すべてのエラーは vpiUndefined を返します。
 
@@ -112662,6 +112802,7 @@ vpiStopはinteger診断レベルを取得し，アプリケーションルーチ
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 同じクラス参照のオブジェクト識別子が未保護では正になり、保護されると未定義値と取得エラーを返すことを確認する。
 
 ### SV2023-38.7-EXTRACT-GET64-SIGNATURE
 
@@ -112980,7 +113121,7 @@ s_vpi_timeはPLI_INT32型，vpiSimTimeはPLI_UINT32型，vpiScaledRealTimeはダ
 
 ### SV2023-38.11-EXTRACT-STRING-PROTECTED
 
-`38.11` / `error` / テスト未対応
+`38.11` / `error` / テスト対応あり・実行未確認
 
 明示的に許可されない限り、保護オブジェクト vpi_get_str はエラーである。
 
@@ -112988,6 +113129,7 @@ s_vpi_timeはPLI_INT32型，vpiSimTimeはPLI_UINT32型，vpiScaledRealTimeはダ
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 未保護の配列は名前の文字列を返し、保護された配列では文字列を返さず属性取得のエラーになることを確認する。
 
 ### SV2023-38.12-EXTRACT-SYSTF-DATA-STRUCTURE
 
@@ -113272,7 +113414,7 @@ vpi_get_userdata (vpiHandle obj) は、そのシステムタスク/関数呼び�
 
 ### SV2023-38.15-EXTRACT-MISC-FORMAT-EXTENSIONS
 
-`38.15` / `normal` / テスト未対応
+`38.15` / `normal` / テスト対応あり・実行未確認
 
 miscメンバは，対応する形式識別子を持つ実装特有の値型のみをサポートする。
 
@@ -113280,6 +113422,7 @@ miscメンバは，対応する形式識別子を持つ実装特有の値型の�
 
 規定の性質: `implementation_defined`。
 
+- [test_vpi_misc_extension_formats.sv](../tests/ch38/test_vpi_misc_extension_formats.sv): 40ビットと10ビットの値に対して形式識別子ごとのペイロードを照合し、未登録の番号でデータが返らず、参照実装側の番号だけを変更すると該当するペイロードだけが得られなくなることを確認する。
 
 ### SV2023-38.15-EXTRACT-OBJECT-TYPE-INTEGER
 
@@ -113802,7 +113945,7 @@ s_vpi_vlog_info は、PLI_INT32 argc、PLI_BYTE8 ** argv、PLI_BYTE8 * product�
 
 ### SV2023-38.18-EXTRACT-HANDLE-PROTECTED
 
-`38.18` / `error` / テスト未対応
+`38.18` / `error` / テスト対応あり・実行未確認
 
 vpi_handle は単一矢印モデル関係を横断します。保護された参照アクセスは 明示的に許可されない限り エラーです
 
@@ -113810,6 +113953,7 @@ vpi_handle は単一矢印モデル関係を横断します。保護された参
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 配列から単一の親スコープをたどり、未保護の配置では取得でき、保護されるとハンドルを返さずエラーになることを確認する。
 
 ### SV2023-38.18-EXTRACT-HANDLE-SIGNATURE
 
@@ -113837,7 +113981,7 @@ vpi_handle (PLI_INT32 vpiHandle ref) は、要求された一対一関連オブ�
 
 ### SV2023-38.19-EXTRACT-INDEX-PROTECTED
 
-`38.19` / `error` / テスト未対応
+`38.19` / `error` / テスト対応あり・実行未確認
 
 保護されたインデックスアクセスは明示的に許可されない限りエラーとなる。
 
@@ -113845,6 +113989,7 @@ vpi_handle (PLI_INT32 vpiHandle ref) は、要求された一対一関連オブ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 同じ配列の有効な添字で、未保護では要素を取得でき、保護されるとエラーになることを比較する。
 
 ### SV2023-38.19-EXTRACT-INDEX-SIGNATURE
 
@@ -113872,7 +114017,7 @@ vpi_handle (PLI_INT32 vpiHandle ref) は、要求された一対一関連オブ�
 
 ### SV2023-38.20-EXTRACT-MULTI-INDEX-PROTECTED
 
-`38.20` / `error` / テスト未対応
+`38.20` / `error` / テスト対応あり・実行未確認
 
 保護されたマルチインデックスアクセスは明示的に許可されない限りエラーである。
 
@@ -113880,6 +114025,7 @@ vpi_handle (PLI_INT32 vpiHandle ref) は、要求された一対一関連オブ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 二次元の有効な添字で未保護の配列の値を取得し、同じ操作を保護配列に対して行うとエラーになることを確認する。
 
 ### SV2023-38.20-EXTRACT-MULTI-INDEX-SIGNATURE
 
@@ -113895,7 +114041,7 @@ vpi_handle_by_multi_index ( vpiHandle obj, PLI_INT32 num_index , PLI_INT32 * ind
 
 ### SV2023-38.21-EXTRACT-NAME-PROTECTION
 
-`38.21` / `error` / テスト未対応
+`38.21` / `error` / テスト対応あり・実行未確認
 
 保護されたスコープを含む階層名を通しての名前の検索は，明示的に例外がない限りエラーである。
 
@@ -113903,6 +114049,7 @@ vpi_handle_by_multi_index ( vpiHandle obj, PLI_INT32 num_index , PLI_INT32 * ind
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 保護スコープそのもののハンドルは取得でき、その内部を明示スコープまたは階層名で探索するとどちらもエラーになることを確認する。
 
 ### SV2023-38.21-EXTRACT-NAME-SEARCH
 
@@ -113978,7 +114125,7 @@ vpi_iterate (PLI_INT32 タイプ、vpiHandle ref) は ref に関連付けられ�
 
 ### SV2023-38.23-EXTRACT-ITERATOR-PROTECTED
 
-`38.23` / `error` / テスト未対応
+`38.23` / `error` / テスト対応あり・実行未確認
 
 保護された参照反復は明示的に許可されない限りエラーである。モデル1対多関係は二重矢印です
 
@@ -113986,6 +114133,7 @@ vpi_iterate (PLI_INT32 タイプ、vpiHandle ref) は ref に関連付けられ�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): 未保護のスコープからはネットを列挙でき、同じスコープが保護されるとイテレーターを返さずエラーになることを確認する。
 
 ### SV2023-38.24-EXTRACT-MCD-CLOSE-FILES
 
@@ -115335,7 +115483,7 @@ s_cb_dataの新しい構造を登録とは異なる形で，要求された時�
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-OBJECT
 
-`38.36.1` / `normal` / テスト未対応
+`38.36.1` / `normal` / テスト対応あり・実行未確認
 
 obj を適切なクラス typespec/frame/thread/variable/property/expression/terminal/statement に設定します。cbCreateObj はクラスタイプスペックを必要とします。cbReclaimObj はクラス typespec またはオブジェクトを受け入れ、 typespec はそのタイプのすべてのオブジェクトを選択します。NULL obj は，このような操作をすべて観察する。
 
@@ -115343,6 +115491,10 @@ obj を適切なクラス typespec/frame/thread/variable/property/expression/ter
 
 規定の性質: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): 生成は型に限り、回収は型全体と指定個体を登録し、別型を除外し、クラスのデータメンバーと配列要素にも登録できることを照合する。
+- [test_vpi_frame_and_thread_handle_release.sv](../tests/ch37/test_vpi_frame_and_thread_handle_release.sv): 自動タスクのフレームとスレッドそれぞれに終了コールバックを登録し、対応するハンドルへの通知を照合する。
+- [test_vpi_assign_force_disable_callbacks.sv](../tests/ch38/test_vpi_assign_force_disable_callbacks.sv): 変数と文への登録に加え、対象を指定しない強制と解除の登録が操作を通知することを照合する。
+- [test_vpi_value_change_traces_expression_primitive_terminal_and_net.sv](../tests/ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net.sv): 式とプリミティブ端子への登録を確認する。実機では登録に成功し、式と端子の変化通知には期待出力との差分がある。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-TIME
 
@@ -115467,7 +115619,7 @@ cbForce は、フォースが発生した後に登録されたコールバック
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBRECLAIMOBJ
 
-`38.36.1` / `normal` / テスト未対応
+`38.36.1` / `normal` / テスト対応あり・実行未確認
 
 cbReclaimObj は、未使用のクラスオブジェクトが再利用される前に、登録されたコールバックを呼び出します。返すとオブジェクト/メンバー/サブエレメント/コールバックハンドルは無効になります。
 
@@ -115475,6 +115627,7 @@ cbReclaimObj は、未使用のクラスオブジェクトが再利用される�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): 強参照がなくなった個体の実際のデストラクタでコールバックを呼び、復帰後にオブジェクト、メンバー、配列要素とコールバックのハンドルを破棄することを照合する。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBRELEASE
 
@@ -115575,7 +115728,7 @@ cbValueChange は有効な変数/表現/端末値の変更またはイベント�
 
 ### SV2023-38.36.1-EXTRACT-RECLAIM-ACCESS
 
-`38.36.1` / `normal` / テスト未対応
+`38.36.1` / `normal` / テスト対応あり・実行未確認
 
 再開発タイミングはシミュレーション時間との間に明確な関係はない。呼び戻し時間は NULL で obj は まだ有効なオブジェクトを呼び戻すものです。すべてのプロパティはアクセス可能ですが、ナビゲーションやコールバック登録は定義されていません。
 
@@ -115583,6 +115736,7 @@ cbValueChange は有効な変数/表現/端末値の変更またはイベント�
 
 規定の性質: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): 回収時刻を固定せず、時刻が空で、有効なオブジェクトから型、割り当て、寿命、保護状態、識別子を取得できることを照合する。
 
 ### SV2023-38.36.1-EXTRACT-STRENGTH-CALLBACK
 
@@ -115610,7 +115764,7 @@ cbValueChangeをvpiStrengthVallogicの値が変化しない場合でも強度変
 
 ### SV2023-38.36.1.1-EXTRACT-PROTECTED-STATEMENT-CALLBACK
 
-`38.36.1.1` / `error` / テスト未対応
+`38.36.1.1` / `error` / テスト対応あり・実行未確認
 
 保護コードのコールバックは禁止されます。NULL を返し、適切なエラーを出力します。
 
@@ -115618,6 +115772,7 @@ cbValueChangeをvpiStrengthVallogicの値が変化しない場合でも強度変
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_statement_callbacks.sv](../tests/ch38/test_vpi_protected_statement_callbacks.sv): 同じ文の個別登録を未保護と保護の配置で行い、保護された場合だけヌルハンドルと診断を返し、未保護の文では実際にコールバックが届くことを確認する。
 
 ### SV2023-38.36.1.1-EXTRACT-STATEMENT-CALLBACK-FIELDS
 
@@ -115947,7 +116102,7 @@ vpiWhileコールバックは条件評価に先行する。
 
 ### SV2023-38.36.1.3-EXTRACT-MODULE-PROTECTED-EXCLUSION
 
-`38.36.1.3` / `normal` / テスト未対応
+`38.36.1.3` / `normal` / テスト対応あり・実行未確認
 
 モジュール全体の登録は保護コードのステートメントにコールバックを置くべきではない。
 
@@ -115955,6 +116110,7 @@ vpiWhileコールバックは条件評価に先行する。
 
 規定の性質: `mandatory`。
 
+- [test_vpi_protected_statement_callbacks.sv](../tests/ch38/test_vpi_protected_statement_callbacks.sv): モジュール一括登録で保護ブロックとその遅延・代入の登録が省かれ、未保護の文では登録と実行が維持され、解除後に実行される代入には個別登録したコールバックだけが届くことを確認する。
 
 ### SV2023-38.36.1.3-EXTRACT-MODULE-STATEMENT-CALLBACK
 
@@ -116494,7 +116650,7 @@ register_systfコールは構造ごとに1つのユーザシステムルーチ�
 
 ### SV2023-38.38-EXTRACT-ITERATOR-COMPLETION-RELEASE
 
-`38.38` / `normal` / テスト未対応
+`38.38` / `normal` / 実行確認あり
 
 トラヴァース完了またはエラー時に vpi_scan が NULL を返すと、自動的に反復器を解放します。反復が早期に中止された場合、 release_handle は反復者を解放するべきです。
 
@@ -116502,6 +116658,7 @@ register_systfコールは構造ごとに1つのユーザシステムルーチ�
 
 規定の性質: `recommendation`。
 
+- [test_vpi_iterator_released_on_terminal_scan.sv](../tests/ch38/test_vpi_iterator_released_on_terminal_scan.sv): 同時に作った二つのイテレータを追跡し、先行する明示解放と終端の走査でそれぞれのハンドルに対するデアロケータが呼ばれることを照合する。
 
 ### SV2023-38.38-EXTRACT-RELEASE-HANDLE-RESULT
 
@@ -118548,7 +118705,7 @@ $coverage_merge はカバータイプと保存されたカバー名文字列を�
 
 ### SV2023-40.3.2.5-EXTRACT-DATABASE-REPRESENTATION
 
-`40.3.2.5` / `normal` / テスト未対応
+`40.3.2.5` / `normal` / テスト対応あり・実行未確認
 
 カバレッジデータベース形式と、名前からディレクトリ／ファイルへの対応付けは実装依存であり、必須のパス対応規則はない。
 
@@ -118556,6 +118713,7 @@ $coverage_merge はカバータイプと保存されたカバー名文字列を�
 
 規定の性質: `implementation_defined`。
 
+- [test_coverage_database_storage_profiles.sv](../tests/ch40/test_coverage_database_storage_profiles.sv): 異なる配置と保存形式を使い、論理名から各記録を読み戻したヒット数とマージ後のヒット数を照合し、名前の対応を入れ替える対照で誤った読み出しを検出する。
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-PRESERVATION
 
@@ -138397,7 +138555,7 @@ svDpiVersion はサポートされている表現を識別します。SV3 .こ�
 
 ### SV2023-H.14.3-EXTRACT-MACROS
 
-`H.14.3` / `normal` / テスト未対応
+`H.14.3` / `normal` / テスト対応あり・実行未確認
 
 これは、SV_BIT_PACKED_ARRAY(WIDTH , NAME)とSV_LOGIC_PACKED_ARRAY(WIDTH , NAME)のみを定義する。実装は異なりますが、配列タイプを定義する必要はありません。
 
@@ -138405,10 +138563,11 @@ svDpiVersion はサポートされている表現を識別します。SV3 .こ�
 
 規定の性質: `mandatory`。
 
+- [test_dpi_legacy_source_layout.sv](../tests/ch35/test_dpi_legacy_source_layout.sv): 互換ヘッダーが公開するマクロを比較し、ビット型と論理型の宣言に配列型が現れないことを確認し、余分なシンボルと配列型を返す定義を検出する。
 
 ### SV2023-H.14.3-EXTRACT-SOURCE-COMPAT
 
-`H.14.3` / `normal` / テスト未対応
+`H.14.3` / `normal` / テスト対応あり・実行未確認
 
 svdpi_src.h を必要とするアプリケーションはシミュレータごとに再コンパイルを必要とします。必要ないアプリケーションは バイナリ互換です
 
@@ -138416,6 +138575,7 @@ svdpi_src.h を必要とするアプリケーションはシミュレータご�
 
 規定の性質: `mandatory`。
 
+- [test_dpi_legacy_source_layout.sv](../tests/ch35/test_dpi_legacy_source_layout.sv): 配置の異なる二つの実行環境で同一の共有ライブラリを再利用し、互換ヘッダーを使う版は各環境向けに再コンパイルした場合に一致し、入れ替えると配置の不一致を検出する。
 
 ### SV2023-I.2-EXTRACT-INTEGER-TYPES
 
@@ -146696,7 +146856,7 @@ PROTO_PARAMS (パラメータ) はパラメータを展開します。XXTERNはE
 
 ### SV2023-K.2-EXTRACT-RESERVED
 
-`K.2` / `normal` / テスト未対応
+`K.2` / `normal` / テスト対応あり・実行未確認
 
 1から299までの定数値は vpi_user.hに予約されています
 
@@ -146704,6 +146864,7 @@ PROTO_PARAMS (パラメータ) はパラメータを展開します。XXTERNはE
 
 規定の性質: `definition`。
 
+- [test_vpi_base_object_code_reservations.sv](../tests/ch36/test_vpi_base_object_code_reservations.sv): 基本ヘッダーのオブジェクト型と拡張ヘッダーの追加定義を照合し、予約範囲の両端に挿入した新規定義を検出し、既存の別名は基本ヘッダーの値を保持することを確認する。
 
 ### SV2023-K.2-EXTRACT-SIZE-TYPES
 

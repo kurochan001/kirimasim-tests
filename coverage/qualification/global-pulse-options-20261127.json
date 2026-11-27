@@ -1,0 +1,447 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-30.7-EXTRACT-PULSE-LIMIT-SOURCES",
+    "SV2023-30.7.2-EXTRACT-GLOBAL-PULSE-ORDER-ERROR",
+    "SV2023-30.7.2-EXTRACT-GLOBAL-PULSE-PERCENTAGES",
+    "SV2023-30.7.2-EXTRACT-PATHPULSE-OVER-GLOBAL",
+    "SV2023-30.7.4.1-EXTRACT-GLOBAL-PULSE-STYLE-PRIORITY",
+    "SV2023-30.7.4.2-EXTRACT-GLOBAL-SHOWCANCELLED-PRIORITY"
+  ],
+  "qualification": {
+    "profile": "ghost-pulse-option-reference",
+    "checker_sha256": "f2abe5aa25ace87ed19a323310a7fe0d2761112d944e3b7b41dec9d56615bbd7",
+    "ghost_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+    "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "tests": {
+      "ch30/test_global_pulse_limit_sources": {
+        "configurations": {
+          "defaults": {
+            "arguments": [
+              null,
+              null
+            ],
+            "resolved": [
+              100,
+              100
+            ],
+            "diagnostic": null,
+            "projected_instances": [],
+            "expected": [
+              "fast: 160:1 170:0 190:1 205:0 250:1",
+              "asym: 192:1 203:0 252:1",
+              "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "fast: 160:1 170:0 190:1 205:0 250:1",
+                "asym: 192:1 203:0 252:1",
+                "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+              ]
+            },
+            "pass": true
+          },
+          "per_transition": {
+            "arguments": [
+              "25",
+              "75"
+            ],
+            "resolved": [
+              25,
+              75
+            ],
+            "diagnostic": null,
+            "projected_instances": [
+              "fast",
+              "asym"
+            ],
+            "expected": [
+              "fast: 40:x 43:0 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "asym: 102:x 104:0 132:x 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+              "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "fast: 40:x 43:0 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "asym: 102:x 104:0 132:x 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+                "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+              ]
+            },
+            "pass": true
+          },
+          "correct_reversed": {
+            "arguments": [
+              "50",
+              "25"
+            ],
+            "resolved": [
+              50,
+              50
+            ],
+            "diagnostic": "error percentage is below reject percentage",
+            "projected_instances": [
+              "fast",
+              "asym"
+            ],
+            "expected": [
+              "fast: 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1",
+              "asym: 132:1 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+              "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "fast: 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1",
+                "asym: 132:1 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+                "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+              ]
+            },
+            "pass": true
+          },
+          "minimum_and_maximum": {
+            "arguments": [
+              "0",
+              "100"
+            ],
+            "resolved": [
+              0,
+              100
+            ],
+            "diagnostic": null,
+            "projected_instances": [
+              "fast",
+              "asym"
+            ],
+            "expected": [
+              "fast: 40:x 43:0 70:x 75:0 100:x 106:0 130:x 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "asym: 72:x 73:0 102:x 104:0 132:x 137:0 162:x 168:0 192:1 203:0 252:1 278:x 287:1",
+              "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "fast: 40:x 43:0 70:x 75:0 100:x 106:0 130:x 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "asym: 72:x 73:0 102:x 104:0 132:x 137:0 162:x 168:0 192:1 203:0 252:1 278:x 287:1",
+                "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+              ]
+            },
+            "pass": true
+          },
+          "zero_percent": {
+            "arguments": [
+              "0",
+              "0"
+            ],
+            "resolved": [
+              0,
+              0
+            ],
+            "diagnostic": null,
+            "projected_instances": [
+              "fast",
+              "asym"
+            ],
+            "expected": [
+              "fast: 40:1 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1",
+              "asym: 72:1 73:0 102:1 104:0 132:1 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+              "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "fast: 40:1 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1",
+                "asym: 72:1 73:0 102:1 104:0 132:1 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+                "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+              ]
+            },
+            "pass": true
+          },
+          "maximum_percent": {
+            "arguments": [
+              "100",
+              "100"
+            ],
+            "resolved": [
+              100,
+              100
+            ],
+            "diagnostic": null,
+            "projected_instances": [
+              "fast",
+              "asym"
+            ],
+            "expected": [
+              "fast: 160:1 170:0 190:1 205:0 250:1",
+              "asym: 192:1 203:0 252:1",
+              "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "fast: 160:1 170:0 190:1 205:0 250:1",
+                "asym: 192:1 203:0 252:1",
+                "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+                "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+              ]
+            },
+            "pass": true
+          }
+        },
+        "invalid": {
+          "reject=-1": {
+            "diagnostic": "reject percentage must be an integer from 0 to 100",
+            "pass": true
+          },
+          "reject=101": {
+            "diagnostic": "reject percentage must be an integer from 0 to 100",
+            "pass": true
+          },
+          "reject=24.5": {
+            "diagnostic": "reject percentage must be an integer from 0 to 100",
+            "pass": true
+          },
+          "reject=text": {
+            "diagnostic": "reject percentage must be an integer from 0 to 100",
+            "pass": true
+          },
+          "error=-1": {
+            "diagnostic": "error percentage must be an integer from 0 to 100",
+            "pass": true
+          },
+          "error=101": {
+            "diagnostic": "error percentage must be an integer from 0 to 100",
+            "pass": true
+          },
+          "error=24.5": {
+            "diagnostic": "error percentage must be an integer from 0 to 100",
+            "pass": true
+          },
+          "error=text": {
+            "diagnostic": "error percentage must be an integer from 0 to 100",
+            "pass": true
+          }
+        },
+        "priority_control": {
+          "projected_instances": [
+            "fast",
+            "asym",
+            "local_limits",
+            "sdf_limits"
+          ],
+          "actual": {
+            "exit": 0,
+            "stdout": [
+              "fast: 40:x 43:0 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "asym: 102:x 104:0 132:x 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+              "local: 40:x 43:0 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+              "sdf: 40:x 43:0 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1"
+            ]
+          },
+          "pass": true
+        },
+        "pass": true,
+        "inputs_sha256": "4f183b542c9c639f1a94a295ef43a7fcfb046474f05942b3a8704fff15a3ec2b"
+      },
+      "ch30/test_specify_pulsestyle_ondetect": {
+        "local": {
+          "exit": 0,
+          "stdout": [
+            "ondetect y: 13:x 19:0 36:1 43:0",
+            "onevent z: 16:x 19:0 36:1 43:0"
+          ]
+        },
+        "options": {
+          "onevent": {
+            "expected": [
+              "ondetect y: 16:x 19:0 36:1 43:0",
+              "onevent z: 16:x 19:0 36:1 43:0"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "ondetect y: 16:x 19:0 36:1 43:0",
+                "onevent z: 16:x 19:0 36:1 43:0"
+              ]
+            },
+            "pass": true
+          },
+          "ondetect": {
+            "expected": [
+              "ondetect y: 13:x 19:0 36:1 43:0",
+              "onevent z: 13:x 19:0 36:1 43:0"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "ondetect y: 13:x 19:0 36:1 43:0",
+                "onevent z: 13:x 19:0 36:1 43:0"
+              ]
+            },
+            "pass": true
+          }
+        },
+        "pass": true,
+        "inputs_sha256": "909ce6784ac26442b0f50fc72b95192b57cd3ab7edfcf5a5ee0d82656b79ec00"
+      },
+      "ch30/test_showcancelled_negative_pulse_x": {
+        "local": {
+          "exit": 0,
+          "stdout": [
+            "plain: end 1",
+            "noshowcancelled: end 1",
+            "showcancelled on-event: 15:x 17:1 end 1",
+            "showcancelled on-detect: 12:x 17:1 end 1"
+          ]
+        },
+        "options": {
+          "showcancelled": {
+            "expected": [
+              "plain: 15:x 17:1 end 1",
+              "noshowcancelled: 15:x 17:1 end 1",
+              "showcancelled on-event: 15:x 17:1 end 1",
+              "showcancelled on-detect: 12:x 17:1 end 1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "plain: 15:x 17:1 end 1",
+                "noshowcancelled: 15:x 17:1 end 1",
+                "showcancelled on-event: 15:x 17:1 end 1",
+                "showcancelled on-detect: 12:x 17:1 end 1"
+              ]
+            },
+            "pass": true
+          },
+          "noshowcancelled": {
+            "expected": [
+              "plain: end 1",
+              "noshowcancelled: end 1",
+              "showcancelled on-event: end 1",
+              "showcancelled on-detect: end 1"
+            ],
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "plain: end 1",
+                "noshowcancelled: end 1",
+                "showcancelled on-event: end 1",
+                "showcancelled on-detect: end 1"
+              ]
+            },
+            "pass": true
+          }
+        },
+        "pass": true,
+        "inputs_sha256": "4628adaa25d0b534d33441391a1a0eeb75ef6b557c7fde90dd1f086cfcdbe870"
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch30/test_global_pulse_limit_sources": {
+          "status": "pass",
+          "inputs_sha256": "4f183b542c9c639f1a94a295ef43a7fcfb046474f05942b3a8704fff15a3ec2b"
+        },
+        "ch30/test_showcancelled_negative_pulse_x": {
+          "status": "pass",
+          "inputs_sha256": "4628adaa25d0b534d33441391a1a0eeb75ef6b557c7fde90dd1f086cfcdbe870"
+        },
+        "ch30/test_specify_pulsestyle_ondetect": {
+          "status": "pass",
+          "inputs_sha256": "909ce6784ac26442b0f50fc72b95192b57cd3ab7edfcf5a5ee0d82656b79ec00"
+        }
+      },
+      "generated_at": "2026-11-26T16:18:04.725443+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch30/test_global_pulse_limit_sources": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'SDF ERROR: individual_pulse.sdf:2: Unable to find sdf_lim...', expected 'fast: 160:1 170:0 190:1 205:0 250:1'",
+          "inputs_sha256": "4f183b542c9c639f1a94a295ef43a7fcfb046474f05942b3a8704fff15a3ec2b"
+        },
+        "ch30/test_showcancelled_negative_pulse_x": {
+          "status": "known",
+          "reason": "output differs: line 3 is 'showcancelled on-event: end 1', expected 'showcancelled on-event: 15:x 17:1 end 1'",
+          "inputs_sha256": "4628adaa25d0b534d33441391a1a0eeb75ef6b557c7fde90dd1f086cfcdbe870"
+        },
+        "ch30/test_specify_pulsestyle_ondetect": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'ondetect y: 36:1 43:0', expected 'ondetect y: 13:x 19:0 36:1 43:0'",
+          "inputs_sha256": "909ce6784ac26442b0f50fc72b95192b57cd3ab7edfcf5a5ee0d82656b79ec00"
+        }
+      },
+      "generated_at": "2026-11-26T16:18:04.726743+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch30/test_global_pulse_limit_sources": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'fast: 30:1 33:0 60:1 65:0 90:1 96:0 120:1 129:0 150:1 160...', expected 'fast: 160:1 170:0 190:1 205:0 250:1'",
+          "inputs_sha256": "4f183b542c9c639f1a94a295ef43a7fcfb046474f05942b3a8704fff15a3ec2b"
+        },
+        "ch30/test_showcancelled_negative_pulse_x": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'plain: 10:0 12:1 end 1', expected 'plain: end 1'",
+          "inputs_sha256": "4628adaa25d0b534d33441391a1a0eeb75ef6b557c7fde90dd1f086cfcdbe870"
+        },
+        "ch30/test_specify_pulsestyle_ondetect": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'ondetect y: 10:1 13:0 30:1 37:0', expected 'ondetect y: 13:x 19:0 36:1 43:0'",
+          "inputs_sha256": "909ce6784ac26442b0f50fc72b95192b57cd3ab7edfcf5a5ee0d82656b79ec00"
+        }
+      },
+      "generated_at": "2026-11-26T16:18:20.221123+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  },
+  "shared_absolute_limit_control": {
+    "actual": {
+      "exit": 0,
+      "stdout": [
+        "fast: 40:x 43:0 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+        "asym: 102:x 104:0 132:x 137:0 162:x 168:0 192:1 203:0 252:1 278:0 287:1",
+        "local: 70:x 75:0 100:x 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:x 285:1",
+        "sdf: 40:x 43:0 70:1 75:0 100:1 106:0 130:1 139:0 160:1 170:0 190:1 205:0 250:1 280:0 285:1"
+      ]
+    },
+    "expected_asymmetric": "asym: 102:x 104:0 132:x 137:0 162:1 168:0 192:1 203:0 252:1 278:0 287:1",
+    "difference_detected": true
+  }
+}

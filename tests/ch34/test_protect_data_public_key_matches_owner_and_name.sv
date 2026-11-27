@@ -3,7 +3,7 @@
 :description: Data key selection with equal aliases under different owners
 :tags: ch34
 :type: simulation
-:lrm: 1800-2023 34.5.10.2 34.5.11.2 34.5.12.2 34.5.13.2
+:lrm: 1800-2023 34.4 34.5.10.2 34.5.11.2 34.5.12.2 34.5.13.2
 :oracle: spec iverilog@13.0
 :spec_check: ai
 :fourstate: no

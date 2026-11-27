@@ -1,0 +1,25 @@
+{
+ "simulator": "ghost",
+ "name": "Ghost",
+ "version": "private build b7abb6b0569f",
+ "tests": {
+  "ch37/test_vpi_restart_releases_previous_handles": {
+   "status": "fail",
+   "reason": "old handles or callbacks survived a successful restart",
+   "inputs_sha256": "18aaf24aba97028c79236b8fa5a794e5790ee84fbe5e194e6b73cbeb5e6b526b"
+  }
+ },
+ "generated_at": "2026-11-26T16:06:24.045322+00:00",
+ "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "ghost-vpi-restart-release",
+  "checker_sha256": "2d2117642be62cc63a2311b28edefc97a6184123df091e743ffe62ccb4952bcc",
+  "artifact_sha256": {
+   "ghost": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+   "header": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+   "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd"
+  },
+  "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+ }
+}

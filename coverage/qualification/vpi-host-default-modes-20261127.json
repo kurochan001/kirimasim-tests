@@ -1,0 +1,716 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-36.12.2-EXTRACT-TWO-MECHANISMS",
+    "SV2023-36.12.2.2-EXTRACT-HOST-DEFAULT-MODE"
+  ],
+  "qualification": {
+    "profile": "vpi-host-default-reference",
+    "checker_sha256": "dddbc3a918d2efaf53a5e26521be3aac84703a7d56cb9c29aa8a6d75cd2444ff",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "profile": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+      "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+      "vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c"
+    },
+    "compiler_version": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+    "tests": {
+      "ch36/test_vpi_host_default_and_compile_bound_modes": {
+        "inputs_sha256": "eeffda5d6f66ae5bb41ced514e3a839e0d81336e3c5f00e01dffb3d1e085c32a",
+        "native": {
+          "current": {
+            "exit": 0,
+            "applications_complete": true,
+            "values": {
+              "unbound-one": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "unbound-two": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "compile-bound-1995": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-2023": [
+                116,
+                48,
+                47,
+                7
+              ]
+            },
+            "output": [
+              "unbound-one array=116 word=48 value=47 variables=7",
+              "unbound-two array=116 word=48 value=47 variables=7",
+              "compile-bound-1995 array=29 word=30 value=47 variables=1",
+              "compile-bound-2023 array=116 word=48 value=47 variables=7"
+            ],
+            "diagnostics": [],
+            "libraries_sha256": {
+              "unbound-one": "b4da2d28d895c933c3ba81d1b8ad5adb8a2822dc15d6eccd8842cf27c8f9639a",
+              "unbound-two": "b475014c30f5420c3599fb471a6b1d923c18ec53c4c2164016354cecfabeb541",
+              "compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+              "compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+            }
+          },
+          "legacy": {
+            "exit": 0,
+            "applications_complete": true,
+            "values": {
+              "unbound-one": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "unbound-two": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "compile-bound-1995": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-2023": [
+                116,
+                48,
+                47,
+                7
+              ]
+            },
+            "output": [
+              "unbound-one array=116 word=48 value=47 variables=7",
+              "unbound-two array=116 word=48 value=47 variables=7",
+              "compile-bound-1995 array=29 word=30 value=47 variables=1",
+              "compile-bound-2023 array=116 word=48 value=47 variables=7"
+            ],
+            "diagnostics": [],
+            "libraries_sha256": {
+              "unbound-one": "b4da2d28d895c933c3ba81d1b8ad5adb8a2822dc15d6eccd8842cf27c8f9639a",
+              "unbound-two": "b475014c30f5420c3599fb471a6b1d923c18ec53c4c2164016354cecfabeb541",
+              "compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+              "compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+            }
+          }
+        },
+        "adapted": {
+          "current": {
+            "exit": 0,
+            "applications_complete": true,
+            "values": {
+              "unbound-one": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "unbound-two": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "compile-bound-1995": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-2023": [
+                116,
+                48,
+                47,
+                7
+              ]
+            },
+            "output": [
+              "unbound-one array=116 word=48 value=47 variables=7",
+              "unbound-two array=116 word=48 value=47 variables=7",
+              "compile-bound-1995 array=29 word=30 value=47 variables=1",
+              "compile-bound-2023 array=116 word=48 value=47 variables=7"
+            ],
+            "diagnostics": [],
+            "libraries_sha256": {
+              "unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908",
+              "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+              "compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+              "compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+            }
+          },
+          "legacy": {
+            "exit": 0,
+            "applications_complete": true,
+            "values": {
+              "unbound-one": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "unbound-two": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-1995": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-2023": [
+                116,
+                48,
+                47,
+                7
+              ]
+            },
+            "output": [
+              "unbound-one array=29 word=30 value=47 variables=1",
+              "unbound-two array=29 word=30 value=47 variables=1",
+              "compile-bound-1995 array=29 word=30 value=47 variables=1",
+              "compile-bound-2023 array=116 word=48 value=47 variables=7"
+            ],
+            "diagnostics": [],
+            "libraries_sha256": {
+              "unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908",
+              "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+              "compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+              "compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+            }
+          }
+        },
+        "changed_environment": {
+          "current": {
+            "exit": 0,
+            "applications_complete": true,
+            "values": {
+              "unbound-one": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "unbound-two": [
+                116,
+                48,
+                47,
+                7
+              ],
+              "compile-bound-1995": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-2023": [
+                116,
+                48,
+                47,
+                7
+              ]
+            },
+            "output": [
+              "unbound-one array=116 word=48 value=47 variables=7",
+              "environment changed=legacy",
+              "unbound-two array=116 word=48 value=47 variables=7",
+              "compile-bound-1995 array=29 word=30 value=47 variables=1",
+              "compile-bound-2023 array=116 word=48 value=47 variables=7"
+            ],
+            "diagnostics": [],
+            "libraries_sha256": {
+              "unbound-one": "cff88873e6bea3bdef32021f9225f3278be600211f59268dfa4928b2cf894011",
+              "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+              "compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+              "compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+            }
+          },
+          "legacy": {
+            "exit": 0,
+            "applications_complete": true,
+            "values": {
+              "unbound-one": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "unbound-two": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-1995": [
+                29,
+                30,
+                47,
+                1
+              ],
+              "compile-bound-2023": [
+                116,
+                48,
+                47,
+                7
+              ]
+            },
+            "output": [
+              "unbound-one array=29 word=30 value=47 variables=1",
+              "environment changed=current",
+              "unbound-two array=29 word=30 value=47 variables=1",
+              "compile-bound-1995 array=29 word=30 value=47 variables=1",
+              "compile-bound-2023 array=116 word=48 value=47 variables=7"
+            ],
+            "diagnostics": [],
+            "libraries_sha256": {
+              "unbound-one": "cff88873e6bea3bdef32021f9225f3278be600211f59268dfa4928b2cf894011",
+              "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+              "compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+              "compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+            }
+          }
+        },
+        "ambiguous": {
+          "exit": 0,
+          "applications_complete": true,
+          "values": {
+            "unbound-one": [
+              -1,
+              -1,
+              47,
+              0
+            ],
+            "unbound-two": [
+              -1,
+              -1,
+              47,
+              0
+            ],
+            "compile-bound-1995": [
+              29,
+              30,
+              47,
+              1
+            ],
+            "compile-bound-2023": [
+              116,
+              48,
+              47,
+              7
+            ]
+          },
+          "output": [
+            "unbound-one array=-1 word=-1 value=47 variables=0",
+            "unbound-two array=-1 word=-1 value=47 variables=0",
+            "compile-bound-1995 array=29 word=30 value=47 variables=1",
+            "compile-bound-2023 array=116 word=48 value=47 variables=7"
+          ],
+          "diagnostics": [
+            "host default requires exactly one compatibility mode"
+          ],
+          "libraries_sha256": {
+            "unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908",
+            "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+            "compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+            "compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+          }
+        },
+        "application_sha256": {
+          "adapter": "80e7b087545dbc968da1efb25d8274b2191bf1dd1ed9c6ffbddebea60feebaa2",
+          "changed_environment": "cff88873e6bea3bdef32021f9225f3278be600211f59268dfa4928b2cf894011",
+          "native/unbound-one": "b4da2d28d895c933c3ba81d1b8ad5adb8a2822dc15d6eccd8842cf27c8f9639a",
+          "native/unbound-two": "b475014c30f5420c3599fb471a6b1d923c18ec53c4c2164016354cecfabeb541",
+          "adapted/unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908",
+          "adapted/unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+          "bound/compile-bound-1995": "45fb178a64727d66f4a0796f6576e336770be4c3b15cab58a7c7ea8f9d2ee0ab",
+          "bound/compile-bound-2023": "1e2ee922a3d635517f7f97d9f0f2080154c2cf33f3c1d9a1a11880b4b3f89a54"
+        },
+        "checks": {
+          "native_unbound_and_bound_controls": true,
+          "host_setting_changes_both_unbound_apps": true,
+          "same_libraries_in_both_default_modes": true,
+          "compile_bound_apps_keep_their_modes": true,
+          "host_default_unchanged_after_environment_edit": true,
+          "ambiguous_host_selection_rejected": true,
+          "built_artifacts_unchanged": true
+        },
+        "pass": true
+      },
+      "ch36/test_vpi_host_default_reversed_library_order": {
+        "inputs_sha256": "4213d92755cc2970d6daa626f8bb438837647bcbb3fba22040789685953da0d5",
+        "load_orders": {
+          "original": {
+            "current": {
+              "exit": 0,
+              "applications_complete": true,
+              "values": {
+                "unbound-one": [
+                  116,
+                  48,
+                  83,
+                  7
+                ],
+                "unbound-two": [
+                  116,
+                  48,
+                  83,
+                  7
+                ]
+              },
+              "output": [
+                "unbound-one array=116 word=48 value=83 variables=7",
+                "unbound-two array=116 word=48 value=83 variables=7"
+              ],
+              "diagnostics": [],
+              "libraries_sha256": {
+                "unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908",
+                "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc"
+              }
+            },
+            "legacy": {
+              "exit": 0,
+              "applications_complete": true,
+              "values": {
+                "unbound-one": [
+                  29,
+                  30,
+                  83,
+                  1
+                ],
+                "unbound-two": [
+                  29,
+                  30,
+                  83,
+                  1
+                ]
+              },
+              "output": [
+                "unbound-one array=29 word=30 value=83 variables=1",
+                "unbound-two array=29 word=30 value=83 variables=1"
+              ],
+              "diagnostics": [],
+              "libraries_sha256": {
+                "unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908",
+                "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc"
+              }
+            }
+          },
+          "reversed": {
+            "current": {
+              "exit": 0,
+              "applications_complete": true,
+              "values": {
+                "unbound-two": [
+                  116,
+                  48,
+                  83,
+                  7
+                ],
+                "unbound-one": [
+                  116,
+                  48,
+                  83,
+                  7
+                ]
+              },
+              "output": [
+                "unbound-two array=116 word=48 value=83 variables=7",
+                "unbound-one array=116 word=48 value=83 variables=7"
+              ],
+              "diagnostics": [],
+              "libraries_sha256": {
+                "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+                "unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908"
+              }
+            },
+            "legacy": {
+              "exit": 0,
+              "applications_complete": true,
+              "values": {
+                "unbound-two": [
+                  29,
+                  30,
+                  83,
+                  1
+                ],
+                "unbound-one": [
+                  29,
+                  30,
+                  83,
+                  1
+                ]
+              },
+              "output": [
+                "unbound-two array=29 word=30 value=83 variables=1",
+                "unbound-one array=29 word=30 value=83 variables=1"
+              ],
+              "diagnostics": [],
+              "libraries_sha256": {
+                "unbound-two": "530d7b104e064e91a2891e343e907a58992e43953dfd26727d51d26835aaeecc",
+                "unbound-one": "6be6ff11fcfbcf4182090f316d7b354a399f166b5ade6eb0fb8a9571ce571908"
+              }
+            }
+          }
+        },
+        "checks": {
+          "same_unbound_binaries_in_each_run": true,
+          "reported_order_matches_library_order": true,
+          "both_load_orders_use_one_default_without_compile_bound_apps": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch36/test_vpi_host_default_and_compile_bound_modes": {
+          "status": "pass",
+          "inputs_sha256": "eeffda5d6f66ae5bb41ced514e3a839e0d81336e3c5f00e01dffb3d1e085c32a"
+        }
+      },
+      "generated_at": "2026-11-26T18:01:38.564195+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch36/test_vpi_host_default_and_compile_bound_modes": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'native-default array=116 word=48 value=47 variables=0', expected 'native-default array=116 word=48 value=47 variables=7'",
+          "inputs_sha256": "eeffda5d6f66ae5bb41ced514e3a839e0d81336e3c5f00e01dffb3d1e085c32a"
+        }
+      },
+      "generated_at": "2026-11-26T18:03:06.243549+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch36/test_vpi_host_default_and_compile_bound_modes": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'native-default array=29 word=30 value=47 variables=1', expected 'native-default array=116 word=48 value=47 variables=7'",
+          "inputs_sha256": "eeffda5d6f66ae5bb41ced514e3a839e0d81336e3c5f00e01dffb3d1e085c32a"
+        }
+      },
+      "generated_at": "2026-11-26T18:02:59.196310+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch36/test_vpi_host_default_and_compile_bound_modes": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "eeffda5d6f66ae5bb41ced514e3a839e0d81336e3c5f00e01dffb3d1e085c32a"
+        }
+      },
+      "generated_at": "2026-11-26T18:02:59.255665+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+      "slang_version": "slang version 12.1.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T18:02:59.335914+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch36/test_vpi_host_default_and_compile_bound_modes": {
+          "kind": "legal",
+          "vpi": true,
+          "status": "clean",
+          "inputs_sha256": "eeffda5d6f66ae5bb41ced514e3a839e0d81336e3c5f00e01dffb3d1e085c32a"
+        }
+      }
+    }
+  },
+  "additional_ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch36/test_vpi_host_default_reversed_library_order": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'native-default array=29 word=30 value=83 variables=1', expected 'native-default array=116 word=48 value=83 variables=7'",
+          "inputs_sha256": "4213d92755cc2970d6daa626f8bb438837647bcbb3fba22040789685953da0d5"
+        }
+      },
+      "generated_at": "2026-11-26T18:20:05.952909+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch36/test_vpi_host_default_reversed_library_order": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "4213d92755cc2970d6daa626f8bb438837647bcbb3fba22040789685953da0d5"
+        }
+      },
+      "generated_at": "2026-11-26T18:20:06.026432+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch36/test_vpi_host_default_reversed_library_order": {
+          "status": "pass",
+          "inputs_sha256": "4213d92755cc2970d6daa626f8bb438837647bcbb3fba22040789685953da0d5"
+        }
+      },
+      "generated_at": "2026-11-26T18:20:05.907820+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch36/test_vpi_host_default_reversed_library_order": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'native-default array=116 word=48 value=83 variables=0', expected 'native-default array=116 word=48 value=83 variables=7'",
+          "inputs_sha256": "4213d92755cc2970d6daa626f8bb438837647bcbb3fba22040789685953da0d5"
+        }
+      },
+      "generated_at": "2026-11-26T18:20:24.446661+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "4345028045e892d5946fbec3f98b0758ab5a2a6a",
+      "slang_version": "slang version 12.0.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T18:20:33.189596+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch36/test_vpi_host_default_reversed_library_order": {
+          "kind": "legal",
+          "vpi": true,
+          "status": "clean",
+          "inputs_sha256": "4213d92755cc2970d6daa626f8bb438837647bcbb3fba22040789685953da0d5"
+        }
+      }
+    }
+  }
+}

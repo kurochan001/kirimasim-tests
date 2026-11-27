@@ -1,0 +1,730 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-H.14.3-EXTRACT-MACROS",
+    "SV2023-H.14.3-EXTRACT-SOURCE-COMPAT"
+  ],
+  "qualification": {
+    "profile": "dpi-legacy-source-layout-reference",
+    "checker_sha256": "e1c633fc6e02485e96bbdd2254a7e5327bb7ad6c07bf6283c58c696609fe2728",
+    "artifact_sha256": {
+      "c": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "c++": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "svdpi.h": "3eed92cf81ac778b5a70536e9531ae8c4bf70ed636a448c7a9a0ea4b0a0c8506",
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "profile": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "compiler_versions": {
+      "c": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+      "c++": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+    },
+    "tests": {
+      "ch35/test_dpi_legacy_source_layout": {
+        "inputs_sha256": "ecbe0bc71e0b282e3ff403b6fecc165cc3ae1228b7759efb8c0fb0065d7bf105",
+        "headers": {
+          "observations": {
+            "c": {
+              "words": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "bytes": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char bits[((WIDTH) + 7) / 8]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char planes[2][((WIDTH) + 7) / 8]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_SOURCE_LAYOUT_UNRELATED": "1"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_type": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": false,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "array_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) svBitVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) svLogicVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 1,
+                "bit_array_detected": true,
+                "logic_array_detected": true
+              }
+            },
+            "c++": {
+              "words": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "bytes": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char bits[((WIDTH) + 7) / 8]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char planes[2][((WIDTH) + 7) / 8]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_SOURCE_LAYOUT_UNRELATED": "1"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_type": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": false,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "array_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) svBitVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) svLogicVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 1,
+                "bit_array_detected": true,
+                "logic_array_detected": true
+              }
+            }
+          },
+          "checks": {
+            "c": {
+              "only_two_macro_definitions": true,
+              "both_macros_declare_non_array_types": true,
+              "extra_macro_detected": true,
+              "extra_type_detected": true,
+              "both_array_controls_detected": true
+            },
+            "c++": {
+              "only_two_macro_definitions": true,
+              "both_macros_declare_non_array_types": true,
+              "extra_macro_detected": true,
+              "extra_type_detected": true,
+              "both_array_controls_detected": true
+            }
+          },
+          "pass": true
+        },
+        "hosts": {
+          "replays": {
+            "words": {
+              "opaque": {
+                "library_sha256": "730c220741343d8b531f65b791ac14a643c0f26388dad0e4de930315b8b82928",
+                "exit": 0,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "words": {
+                "library_sha256": "f449b52f1af1fc20bf764dbaca89a1de2cb18cf1c50775c137500c9fafcaefb5",
+                "exit": 0,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "source layout matches host=1",
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "bytes": {
+                "library_sha256": "465cbe11b215eba379373fb7e13c2036f173b9d6dfb3149dd7fbcca6ca407525",
+                "exit": 3,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "source layout matches host=0"
+                ]
+              },
+              "dropped_unknown": {
+                "library_sha256": "dfde3eb158b3b1cce49b34a2aa7ed628c30fc1a66045674a51cee2b3705b7089",
+                "exit": 0,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=0",
+                  "pass=2 bit=1 logic=0"
+                ]
+              }
+            },
+            "bytes": {
+              "opaque": {
+                "library_sha256": "730c220741343d8b531f65b791ac14a643c0f26388dad0e4de930315b8b82928",
+                "exit": 0,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "words": {
+                "library_sha256": "f449b52f1af1fc20bf764dbaca89a1de2cb18cf1c50775c137500c9fafcaefb5",
+                "exit": 3,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "source layout matches host=0"
+                ]
+              },
+              "bytes": {
+                "library_sha256": "465cbe11b215eba379373fb7e13c2036f173b9d6dfb3149dd7fbcca6ca407525",
+                "exit": 0,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "source layout matches host=1",
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "dropped_unknown": {
+                "library_sha256": "dfde3eb158b3b1cce49b34a2aa7ed628c30fc1a66045674a51cee2b3705b7089",
+                "exit": 0,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=0",
+                  "pass=2 bit=1 logic=0"
+                ]
+              }
+            }
+          },
+          "checks": {
+            "both_hosts_have_distinct_shapes": true,
+            "opaque_library_reused_unchanged": true,
+            "recompiled_source_matches_each_host": true,
+            "cross_link_layout_mismatch_detected": true,
+            "four_state_control_detected": true
+          },
+          "pass": true
+        },
+        "application_artifacts_unchanged": true,
+        "native_source_header_available": false,
+        "object_sha256": {
+          "opaque": "d926c5cb8177a36100840bceaf18f824479f54ff33f7690a3dd99b8ca738425c",
+          "words": "aa468d4843b68391ad2dd9b48b150d94d5db1b984dacae6464f21fddff5afa2e",
+          "bytes": "1d4fc7463f837508cd8213b39acc1be90a7bae0fea7db0a1ed54b3105ac95098",
+          "dropped_unknown": "b4fe9eb3c4e267e1ad0e885e00d96c77f1866c904aa59914978519f66be32a8d"
+        },
+        "library_sha256": {
+          "opaque": "730c220741343d8b531f65b791ac14a643c0f26388dad0e4de930315b8b82928",
+          "words": "f449b52f1af1fc20bf764dbaca89a1de2cb18cf1c50775c137500c9fafcaefb5",
+          "bytes": "465cbe11b215eba379373fb7e13c2036f173b9d6dfb3149dd7fbcca6ca407525",
+          "dropped_unknown": "dfde3eb158b3b1cce49b34a2aa7ed628c30fc1a66045674a51cee2b3705b7089"
+        },
+        "pass": true,
+        "ghost": {
+          "runs": {
+            "opaque": {
+              "exit": 0,
+              "stdout": [
+                "pass=1 bit=1 logic=1",
+                "pass=2 bit=1 logic=1"
+              ],
+              "library_sha256": "730c220741343d8b531f65b791ac14a643c0f26388dad0e4de930315b8b82928",
+              "pass": true
+            },
+            "words": {
+              "exit": 0,
+              "stdout": [
+                "pass=1 bit=1 logic=1",
+                "pass=2 bit=1 logic=1"
+              ],
+              "library_sha256": "f449b52f1af1fc20bf764dbaca89a1de2cb18cf1c50775c137500c9fafcaefb5",
+              "pass": true
+            }
+          },
+          "pass": true
+        }
+      }
+    }
+  },
+  "public": {
+    "profile": "dpi-legacy-source-layout-reference",
+    "checker_sha256": "e1c633fc6e02485e96bbdd2254a7e5327bb7ad6c07bf6283c58c696609fe2728",
+    "artifact_sha256": {
+      "c": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "c++": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "svdpi.h": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6"
+    },
+    "compiler_versions": {
+      "c": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+      "c++": "Apple clang version 21.0.0 (clang-2100.4.1.1)"
+    },
+    "tests": {
+      "ch35/test_dpi_legacy_source_layout": {
+        "inputs_sha256": "ecbe0bc71e0b282e3ff403b6fecc165cc3ae1228b7759efb8c0fb0065d7bf105",
+        "headers": {
+          "observations": {
+            "c": {
+              "words": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "bytes": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char bits[((WIDTH) + 7) / 8]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char planes[2][((WIDTH) + 7) / 8]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_SOURCE_LAYOUT_UNRELATED": "1"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_type": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": false,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "array_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) svBitVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) svLogicVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 1,
+                "bit_array_detected": true,
+                "logic_array_detected": true
+              }
+            },
+            "c++": {
+              "words": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "bytes": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char bits[((WIDTH) + 7) / 8]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { unsigned long long reserved; unsigned char planes[2][((WIDTH) + 7) / 8]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_SOURCE_LAYOUT_UNRELATED": "1"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "additional_type": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) struct { svBitVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) struct { svLogicVec32 chunks[SV_CANONICAL_SIZE(WIDTH)]; } NAME"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": false,
+                "type_check_exit": 0,
+                "bit_array_detected": false,
+                "logic_array_detected": false
+              },
+              "array_macro": {
+                "new_macros": {
+                  "SV_BIT_PACKED_ARRAY": "(WIDTH,NAME) svBitVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]",
+                  "SV_LOGIC_PACKED_ARRAY": "(WIDTH,NAME) svLogicVec32 NAME[SV_CANONICAL_SIZE(WIDTH)]"
+                },
+                "changed_or_removed_macros": [],
+                "declaration_tokens_unchanged": true,
+                "type_check_exit": 1,
+                "bit_array_detected": true,
+                "logic_array_detected": true
+              }
+            }
+          },
+          "checks": {
+            "c": {
+              "only_two_macro_definitions": true,
+              "both_macros_declare_non_array_types": true,
+              "extra_macro_detected": true,
+              "extra_type_detected": true,
+              "both_array_controls_detected": true
+            },
+            "c++": {
+              "only_two_macro_definitions": true,
+              "both_macros_declare_non_array_types": true,
+              "extra_macro_detected": true,
+              "extra_type_detected": true,
+              "both_array_controls_detected": true
+            }
+          },
+          "pass": true
+        },
+        "hosts": {
+          "replays": {
+            "words": {
+              "opaque": {
+                "library_sha256": "a165ab7cf872a0e376e13040ef3f31c8c6d5c6bff41fe10e622ac62ba484f652",
+                "exit": 0,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "words": {
+                "library_sha256": "d23f8c35a5c6b10dfa9edcc43db58643621b70823ea3e3eb849d97bc22a271c7",
+                "exit": 0,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "source layout matches host=1",
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "bytes": {
+                "library_sha256": "fe5ffcbd4f988ab2a48abc7ef93677555d5138310784af904ac2de90828c305e",
+                "exit": 3,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "source layout matches host=0"
+                ]
+              },
+              "dropped_unknown": {
+                "library_sha256": "f1d2e7a39800d871d02a139fe18568243b2de1b8097187afd97dbf0ee552697b",
+                "exit": 0,
+                "host_shape": [
+                  12,
+                  24,
+                  24
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=0",
+                  "pass=2 bit=1 logic=0"
+                ]
+              }
+            },
+            "bytes": {
+              "opaque": {
+                "library_sha256": "a165ab7cf872a0e376e13040ef3f31c8c6d5c6bff41fe10e622ac62ba484f652",
+                "exit": 0,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "words": {
+                "library_sha256": "d23f8c35a5c6b10dfa9edcc43db58643621b70823ea3e3eb849d97bc22a271c7",
+                "exit": 3,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "source layout matches host=0"
+                ]
+              },
+              "bytes": {
+                "library_sha256": "fe5ffcbd4f988ab2a48abc7ef93677555d5138310784af904ac2de90828c305e",
+                "exit": 0,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "source layout matches host=1",
+                  "pass=1 bit=1 logic=1",
+                  "pass=2 bit=1 logic=1"
+                ]
+              },
+              "dropped_unknown": {
+                "library_sha256": "f1d2e7a39800d871d02a139fe18568243b2de1b8097187afd97dbf0ee552697b",
+                "exit": 0,
+                "host_shape": [
+                  24,
+                  32,
+                  48
+                ],
+                "stdout": [
+                  "pass=1 bit=1 logic=0",
+                  "pass=2 bit=1 logic=0"
+                ]
+              }
+            }
+          },
+          "checks": {
+            "both_hosts_have_distinct_shapes": true,
+            "opaque_library_reused_unchanged": true,
+            "recompiled_source_matches_each_host": true,
+            "cross_link_layout_mismatch_detected": true,
+            "four_state_control_detected": true
+          },
+          "pass": true
+        },
+        "application_artifacts_unchanged": true,
+        "native_source_header_available": false,
+        "object_sha256": {
+          "opaque": "d926c5cb8177a36100840bceaf18f824479f54ff33f7690a3dd99b8ca738425c",
+          "words": "aa468d4843b68391ad2dd9b48b150d94d5db1b984dacae6464f21fddff5afa2e",
+          "bytes": "1d4fc7463f837508cd8213b39acc1be90a7bae0fea7db0a1ed54b3105ac95098",
+          "dropped_unknown": "b4fe9eb3c4e267e1ad0e885e00d96c77f1866c904aa59914978519f66be32a8d"
+        },
+        "library_sha256": {
+          "opaque": "a165ab7cf872a0e376e13040ef3f31c8c6d5c6bff41fe10e622ac62ba484f652",
+          "words": "d23f8c35a5c6b10dfa9edcc43db58643621b70823ea3e3eb849d97bc22a271c7",
+          "bytes": "fe5ffcbd4f988ab2a48abc7ef93677555d5138310784af904ac2de90828c305e",
+          "dropped_unknown": "f1d2e7a39800d871d02a139fe18568243b2de1b8097187afd97dbf0ee552697b"
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch35/test_dpi_legacy_source_layout": {
+          "status": "pass",
+          "inputs_sha256": "ecbe0bc71e0b282e3ff403b6fecc165cc3ae1228b7759efb8c0fb0065d7bf105"
+        }
+      },
+      "generated_at": "2026-11-26T17:24:34.048581+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch35/test_dpi_legacy_source_layout": {
+          "status": "known",
+          "reason": "compile failed: tests/ch35/test_dpi_legacy_source_layout.sv:16: syntax error",
+          "inputs_sha256": "ecbe0bc71e0b282e3ff403b6fecc165cc3ae1228b7759efb8c0fb0065d7bf105"
+        }
+      },
+      "generated_at": "2026-11-26T17:26:45.177122+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch35/test_dpi_legacy_source_layout": {
+          "status": "known",
+          "reason": "build failed: %Error-UNSUPPORTED: tests/ch35/test_dpi_legacy_source_layout.sv:16:3: Unsupported DPI type 'DPI': Use 'DPI-C' (IEEE 1800-2023 35.5.4)",
+          "inputs_sha256": "ecbe0bc71e0b282e3ff403b6fecc165cc3ae1228b7759efb8c0fb0065d7bf105"
+        }
+      },
+      "generated_at": "2026-11-26T17:24:33.754713+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit 7fa2a9758cab), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch35/test_dpi_legacy_source_layout": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "ecbe0bc71e0b282e3ff403b6fecc165cc3ae1228b7759efb8c0fb0065d7bf105"
+        }
+      },
+      "generated_at": "2026-11-26T17:26:45.237910+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "82ed79add4bdc3bc730c00b8fe0c04b1a7714fdb",
+      "slang_version": "slang version 12.1.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T17:26:45.177367+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch35/test_dpi_legacy_source_layout": {
+          "kind": "legal",
+          "status": "clean",
+          "inputs_sha256": "ecbe0bc71e0b282e3ff403b6fecc165cc3ae1228b7759efb8c0fb0065d7bf105"
+        }
+      }
+    }
+  }
+}

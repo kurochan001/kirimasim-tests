@@ -25,11 +25,15 @@ import suite_results
 import doc_localization
 import run_annex_n_reference
 import run_coverage_bin_effects
+import run_verilator_automatic_bin_limit
+import run_unpacked_union_c_layout
+import run_coverage_database_storage_profiles
 import run_defparam_sources
 import run_dpi_binary_compatibility
 import run_dpi_chain_escape
 import run_dpi_cxx_boundary
 import run_dpi_foreign_preconditions
+import run_dpi_legacy_source_layout
 import run_dpi_native_struct_layout
 import run_dpi_output_initial
 import run_dpi_optional_packed_compatibility
@@ -38,6 +42,8 @@ import run_dpi_prototype_guard
 import run_dpi_pure_calls
 import run_dpi_pure_io
 import run_dpi_vpi_boundaries
+import run_checker_free_choices
+import run_config_precompiled_cells
 import run_domain_boundaries
 import run_fsm_transition_coverage
 import run_ghost_checker_initialization
@@ -53,9 +59,12 @@ import run_ghost_language_latitude
 import run_ghost_sequence_method
 import run_ghost_vpi_interactive_scope
 import run_ghost_vpi_runtime_release
+import run_ghost_vpi_restart_release
 import run_ghost_vpi_start_callbacks
 import run_ghost_vpi_valid_observation
 import run_ghost_library_cells
+import run_ghost_pulse_options
+import run_ghost_timing_options
 import run_icarus_control
 import run_icarus_identifier_length
 import run_icarus_iterator_release
@@ -66,21 +75,29 @@ import run_icarus_vendor_startup
 import run_language_defaults
 import run_language_diagnostics
 import run_mailbox_bound_domain
+import run_normative_reference_editions
 import run_null_instance_access
 import run_optional_lexical
+import run_pli_region_controls
 import run_preprocessor_effects
+import run_process_control_target_origins
+import run_protect_algorithm_extensions
 import run_protect_author_digests
 import run_protect_block_boundaries
 import run_protect_cipher_methods
+import run_protect_digest_defaults
 import run_protect_digests
 import run_protect_encodings
 import run_protect_encryption
+import run_protect_envelope_isolation
 import run_protect_licenses
 import run_protect_multiple_recipients
 import run_protect_nested_decryption
 import run_protect_openpgp_methods
+import run_protect_owner_key_uniqueness
 import run_protect_pragma_syntax
 import run_protect_public_keys
+import run_protect_viewport
 import run_annex_declaration_checks
 import run_slang_annex_library_map
 import run_slang_source_checks
@@ -90,6 +107,7 @@ import run_stacktrace
 import run_verilator_dpi_context
 import run_verilator_directive_extension
 import run_verilator_class_collection
+import run_weak_reference_collection
 import run_verilator_constraint_calls
 import run_verilator_libmap
 import run_verilator_managed_storage
@@ -97,9 +115,22 @@ import run_verilator_vpi_dpi_bridge
 import run_verilator_width_diagnostics
 import run_vpi_compatibility_headers
 import run_vpi_compatibility_scope
+import run_vpi_host_default_modes
 import run_vpi_frame_scope_editions
 import run_vpi_legacy_applicability
+import run_vpi_misc_format_extensions
+import run_vpi_automatic_frame_lifetime
+import run_vpi_class_reclaim
+import run_vpi_diagram_key
+import run_vpi_extended_attributes
+import run_vpi_interface_ownership
+import run_vpi_pattern_constraint_properties
+import run_vpi_task_reference_parent
+import run_vpi_protected_access
+import run_vpi_protected_callbacks
 import run_vpi_reserved_constant_ranges
+import run_vpi_base_object_codes
+import run_vpi_input_port_delays
 import run_vpi_vlog_option_files
 import run_waveform_sections
 
@@ -121,6 +152,10 @@ REPRODUCIBLE_SIMULATORS = ("icarus", "verilator", "sby")
 FORMAL_TOOLS = ("sby",)
 EVIDENCE_PROFILES = {
     run_coverage_bin_effects.PROFILE: ("verilator", run_coverage_bin_effects, run_coverage_bin_effects.CASES),
+    run_verilator_automatic_bin_limit.PROFILE: (
+        "verilator", run_verilator_automatic_bin_limit, run_verilator_automatic_bin_limit.CASES),
+    run_unpacked_union_c_layout.PROFILE: (
+        "verilator", run_unpacked_union_c_layout, run_unpacked_union_c_layout.CASES),
     **{profile: ("ghost", run_annex_n_reference, run_annex_n_reference.CASES)
        for profile in run_annex_n_reference.PROFILES.values()},
     **{profile: ("ghost", run_ghost_coverage_database, run_ghost_coverage_database.CASES)
@@ -174,6 +209,8 @@ EVIDENCE_PROFILES = {
         "ghost", run_ghost_vpi_interactive_scope, run_ghost_vpi_interactive_scope.CASES),
     run_ghost_vpi_runtime_release.PROFILE: (
         "ghost", run_ghost_vpi_runtime_release, run_ghost_vpi_runtime_release.CASES),
+    run_ghost_vpi_restart_release.PROFILE: (
+        "ghost", run_ghost_vpi_restart_release, run_ghost_vpi_restart_release.CASES),
     run_ghost_vpi_valid_observation.PROFILE: (
         "ghost", run_ghost_vpi_valid_observation, run_ghost_vpi_valid_observation.CASES),
     run_vpi_frame_scope_editions.PROFILE: (
@@ -203,6 +240,8 @@ EVIDENCE_PROFILES = {
         "verilator", run_verilator_constraint_calls, run_verilator_constraint_calls.CASES),
     run_verilator_class_collection.PROFILE: (
         "verilator", run_verilator_class_collection, run_verilator_class_collection.CASES),
+    run_weak_reference_collection.PROFILE: (
+        "verilator-weak-collection-reference", run_weak_reference_collection, run_weak_reference_collection.CASES),
     run_verilator_libmap.PROFILE: ("verilator", run_verilator_libmap, run_verilator_libmap.CASE_MAPS),
     run_verilator_managed_storage.PROFILE: (
         "verilator", run_verilator_managed_storage, run_verilator_managed_storage.CASES),
@@ -224,8 +263,58 @@ EVIDENCE_PROFILES = {
         "slang", run_annex_declaration_checks, run_annex_declaration_checks.SLANG_CASES),
     run_soft_distribution.PROFILE: ("ghost", run_soft_distribution, run_soft_distribution.CASES),
     run_slang_source_checks.PROFILE: ("slang", run_slang_source_checks, run_slang_source_checks.CASES),
+    run_ghost_pulse_options.PROFILE: (
+        "pulse-option-reference", run_ghost_pulse_options, run_ghost_pulse_options.CASES),
+    run_ghost_timing_options.PROFILE: (
+        "timing-option-reference", run_ghost_timing_options, run_ghost_timing_options.CASES),
+    run_pli_region_controls.PROFILE: (
+        "pli-region-reference", run_pli_region_controls, run_pli_region_controls.CASES),
+    run_checker_free_choices.PROFILE: (
+        "checker-choice-reference", run_checker_free_choices, run_checker_free_choices.CASES),
+    run_normative_reference_editions.PROFILE: (
+        "normative-reference-editions", run_normative_reference_editions, run_normative_reference_editions.CASES),
+    run_process_control_target_origins.PROFILE: (
+        "ghost-process-origin-reference", run_process_control_target_origins, run_process_control_target_origins.CASES),
+    run_config_precompiled_cells.PROFILE: (
+        "config-precompiled-cells-reference", run_config_precompiled_cells, run_config_precompiled_cells.CASES),
+    run_vpi_base_object_codes.PROFILE: (
+        "vpi-base-object-code-reference", run_vpi_base_object_codes, run_vpi_base_object_codes.CASES),
+    run_vpi_input_port_delays.PROFILE: (
+        "input-port-delay-reference", run_vpi_input_port_delays, run_vpi_input_port_delays.CASES),
+    run_vpi_misc_format_extensions.PROFILE: (
+        "vpi-misc-formats-reference", run_vpi_misc_format_extensions, run_vpi_misc_format_extensions.CASES),
+    run_vpi_automatic_frame_lifetime.PROFILE: (
+        "verilator-frame-lifetime-reference", run_vpi_automatic_frame_lifetime, run_vpi_automatic_frame_lifetime.CASES),
+    run_vpi_class_reclaim.PROFILE: (
+        "verilator-class-reclaim-reference", run_vpi_class_reclaim, run_vpi_class_reclaim.CASES),
+    run_vpi_diagram_key.PROFILE: (
+        "ieee-vpi-diagram-key", run_vpi_diagram_key, run_vpi_diagram_key.CASES),
+    run_vpi_extended_attributes.PROFILE: (
+        "ghost-extended-attribute-reference", run_vpi_extended_attributes, run_vpi_extended_attributes.CASES),
+    run_vpi_interface_ownership.PROFILE: (
+        "ghost-interface-ownership-reference", run_vpi_interface_ownership, run_vpi_interface_ownership.CASES),
+    run_vpi_pattern_constraint_properties.PROFILE: (
+        "ghost-pattern-constraint-reference", run_vpi_pattern_constraint_properties,
+        run_vpi_pattern_constraint_properties.CASES),
+    run_vpi_task_reference_parent.PROFILE: (
+        "ghost-task-reference-parent", run_vpi_task_reference_parent, run_vpi_task_reference_parent.CASES),
+    run_vpi_protected_access.PROFILE: (
+        "vpi-protected-access-reference", run_vpi_protected_access, run_vpi_protected_access.CASES),
+    run_vpi_protected_callbacks.PROFILE: (
+        "vpi-protected-callbacks-reference", run_vpi_protected_callbacks, run_vpi_protected_callbacks.CASES),
+    run_dpi_legacy_source_layout.PROFILE: (
+        "dpi-legacy-source-layout-reference", run_dpi_legacy_source_layout, run_dpi_legacy_source_layout.CASES),
+    run_coverage_database_storage_profiles.PROFILE: (
+        "coverage-database-storage-reference", run_coverage_database_storage_profiles,
+        run_coverage_database_storage_profiles.CASES),
     # Standalone encryptor qualification also stays outside SIMULATORS.
     run_protect_encryption.PROFILE: ("hdl-encrypt", run_protect_encryption, run_protect_encryption.CASES),
+    run_protect_algorithm_extensions.PROFILE: (
+        "hdl-encrypt", run_protect_algorithm_extensions, run_protect_algorithm_extensions.CASES),
+    run_protect_digest_defaults.PROFILE: (
+        "hdl-encrypt", run_protect_digest_defaults, run_protect_digest_defaults.CASES),
+    run_protect_envelope_isolation.PROFILE: (
+        "hdl-encrypt", run_protect_envelope_isolation, run_protect_envelope_isolation.CASES),
     run_protect_author_digests.PROFILE: ("hdl-encrypt", run_protect_author_digests, run_protect_author_digests.CASES),
     run_protect_block_boundaries.PROFILE: ("hdl-encrypt", run_protect_block_boundaries, run_protect_block_boundaries.CASES),
     run_protect_cipher_methods.PROFILE: ("hdl-encrypt", run_protect_cipher_methods, run_protect_cipher_methods.CASES),
@@ -234,16 +323,21 @@ EVIDENCE_PROFILES = {
     run_protect_licenses.PROFILE: ("hdl-encrypt", run_protect_licenses, run_protect_licenses.CASES),
     run_protect_multiple_recipients.PROFILE: (
         "hdl-encrypt", run_protect_multiple_recipients, run_protect_multiple_recipients.CASES),
+    run_protect_owner_key_uniqueness.PROFILE: (
+        "hdl-encrypt", run_protect_owner_key_uniqueness, run_protect_owner_key_uniqueness.CASES),
     run_protect_nested_decryption.PROFILE: (
         "hdl-encrypt", run_protect_nested_decryption, run_protect_nested_decryption.CASES),
     run_protect_openpgp_methods.PROFILE: (
         "hdl-encrypt", run_protect_openpgp_methods, run_protect_openpgp_methods.CASES),
     run_protect_public_keys.PROFILE: ("hdl-encrypt", run_protect_public_keys, run_protect_public_keys.CASES),
+    run_protect_viewport.PROFILE: ("hdl-encrypt", run_protect_viewport, run_protect_viewport.CASES),
     run_verilator_dpi_context.PROFILE: ("verilator-codegen", run_verilator_dpi_context,
                                       run_verilator_dpi_context.CASES),
     run_vpi_compatibility_headers.PROFILE: ("vpi-header-compiler", run_vpi_compatibility_headers,
                                             run_vpi_compatibility_headers.CASES),
     run_vpi_compatibility_scope.PROFILE: ("ghost", run_vpi_compatibility_scope, run_vpi_compatibility_scope.CASES),
+    run_vpi_host_default_modes.PROFILE: (
+        "vpi-host-default-reference", run_vpi_host_default_modes, run_vpi_host_default_modes.CASES),
     run_vpi_reserved_constant_ranges.PROFILE: (
         "verilator", run_vpi_reserved_constant_ranges, run_vpi_reserved_constant_ranges.CASES),
     **{profile: ("ghost", run_vpi_legacy_applicability, run_vpi_legacy_applicability.CASES)

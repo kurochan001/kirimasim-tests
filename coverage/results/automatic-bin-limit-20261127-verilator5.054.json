@@ -1,0 +1,32 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch19/test_cg_implementation_automatic_bin_limit": {
+   "status": "pass",
+   "inputs_sha256": "0a005be16f699db6b6a26113d4f7285ac30e2039aacf48a9f04cca987bae0bf9"
+  }
+ },
+ "generated_at": "2026-11-26T17:45:59.376132+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-automatic-bin-limit",
+  "checker_sha256": "04fc6c79ddd559d78f09cc401df763f0829567d42dc6a013a040cd8c0a05f58e",
+  "artifact_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  },
+  "caps": [
+   5,
+   9,
+   13,
+   20
+  ],
+  "seeds": [
+   1,
+   73
+  ]
+ }
+}

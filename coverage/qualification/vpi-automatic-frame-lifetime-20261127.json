@@ -1,0 +1,602 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-37.3.7-EXTRACT-DYNAMIC-LIFETIME",
+    "SV2023-37.3.8-EXTRACT-LIFETIME-CALLBACKS"
+  ],
+  "qualification": {
+    "profile": "verilator-frame-lifetime-reference",
+    "checker_sha256": "092ad7d7a0b0430bf93495f33bd882143139eceb2e2064eaac826a862d0f5d88",
+    "artifact_sha256": {
+      "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "make": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "verilated.cpp": "e45571af0e4f710c251e91b18e186c689764fd0f1355746e2dbc55c26eb65b03",
+      "verilated_types.h": "cfefa84195f0ff462a5a35c1ee33fbc2e6146cc9855424eb6423268f43f51df4",
+      "verilated_timing.cpp": "aab9fce38dbb721d102b5b61fd1d6d41d7929290ceae7205d7f92bca1af29c48",
+      "verilated_timing.h": "7284113f0fbf883912663c7beeb96b727f02b354a9fa3becdc0e7a8544a649f5",
+      "svdpi.h": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6",
+      "vpi_user.h": "b9f3fc98128296a9067b0a8b27e50cc0a7270cfa2cef36d92e473e0417aa43c7",
+      "sv_vpi_user.h": "57e8fbbc5d94c0de1b293d3e1f9cd41fda4acbebd88a564d0e937baa25079306",
+      "verilator_bin": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    },
+    "verilator": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+    "sanitizer": "address",
+    "leak_detection": false,
+    "tests": {
+      "ch37/test_vpi_automatic_frame_lifetime": {
+        "inputs_sha256": "72994fdcec856f3da3a27198b61a83ed7d071d7f440bfb2e162149fd1d32e4eb",
+        "generated_hooks": {
+          "source": "Vframe_life___024root__0.cpp",
+          "scope_before": "Vframe_life___024root____Vdpiimwrap_test_vpi_automatic_frame_lifetime__DOT__observe_body_TOP(branch, stamp, (::IData)(vector), 0U);",
+          "fork_factories": [
+            "Vframe_life___024root___eval_initial__TOP__Vtiming__0____Vfork_1__0(vlSelf, std::make_shared<VlProcess>(vlProcess));",
+            "Vframe_life___024root___eval_initial__TOP__Vtiming__0____Vfork_1__1(vlSelf, std::make_shared<VlProcess>(vlProcess));"
+          ]
+        },
+        "observation": {
+          "exit": 0,
+          "output": [
+            "registry phase=0 0/0/0 0/0/0 callbacks=0",
+            "sample 0",
+            "callback start thread branch=0",
+            "callback start thread branch=1",
+            "callback start frame branch=0 stamp=53 vector=37 bit=0",
+            "start branch=0 stamp=53 vector=37",
+            "registry phase=6 1/1/3:53/37/0 1/0/0 callbacks=9",
+            "sample 6",
+            "callback start frame branch=1 stamp=54 vector=38 bit=0",
+            "start branch=1 stamp=54 vector=38",
+            "registry phase=1 1/1/3:53/37/0 1/1/3:54/38/0 callbacks=12",
+            "sample 1",
+            "finish branch=0 stamp=53 vector=53",
+            "callback end frame branch=0 stamp=53 vector=53 bit=1",
+            "callback end-object frame branch=0 stamp=53 vector=53 bit=1",
+            "registry phase=2 1/0/0 1/1/3:54/38/0 callbacks=9",
+            "sample 2",
+            "callback end thread branch=0",
+            "callback end-object thread branch=0",
+            "finish branch=1 stamp=54 vector=54",
+            "callback end frame branch=1 stamp=54 vector=54 bit=1",
+            "callback end-object frame branch=1 stamp=54 vector=54 bit=1",
+            "registry phase=3 0/0/0 1/0/0 callbacks=3",
+            "sample 3",
+            "registry phase=4 0/0/0 1/0/0 callbacks=3",
+            "sample 4",
+            "callback end thread branch=1",
+            "callback end-object thread branch=1",
+            "registry phase=5 0/0/0 0/0/0 callbacks=0",
+            "sample 5"
+          ],
+          "diagnostics": []
+        },
+        "checks": {
+          "native_frame_and_thread_storage_trace_matches": true,
+          "reference_preserves_hdl_execution": true,
+          "automatic_locals_live_exactly_with_their_frame": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch37/test_vpi_automatic_frame_lifetime": {
+          "status": "pass",
+          "inputs_sha256": "72994fdcec856f3da3a27198b61a83ed7d071d7f440bfb2e162149fd1d32e4eb"
+        },
+        "ch37/test_vpi_frame_and_thread_handle_release": {
+          "status": "pass",
+          "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8"
+        },
+        "ch38/test_vpi_class_reclaim_lifetimes": {
+          "status": "pass",
+          "inputs_sha256": "5daecfaac1dcb5a30599a9d1f4665a89c1a1cd8c88f12c5e9ba8c23dcafc7a6e"
+        }
+      },
+      "generated_at": "2026-11-26T19:37:32.206048+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch37/test_vpi_automatic_frame_lifetime": {
+          "status": "pass",
+          "inputs_sha256": "72994fdcec856f3da3a27198b61a83ed7d071d7f440bfb2e162149fd1d32e4eb"
+        }
+      },
+      "generated_at": "2026-11-26T19:37:31.713391+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch37/test_vpi_automatic_frame_lifetime": {
+          "status": "pass",
+          "inputs_sha256": "72994fdcec856f3da3a27198b61a83ed7d071d7f440bfb2e162149fd1d32e4eb"
+        }
+      },
+      "generated_at": "2026-11-26T19:37:31.665596+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch37/test_vpi_automatic_frame_lifetime": {
+          "status": "pass",
+          "inputs_sha256": "72994fdcec856f3da3a27198b61a83ed7d071d7f440bfb2e162149fd1d32e4eb"
+        }
+      },
+      "generated_at": "2026-11-26T19:37:36.939114+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "4345028045e892d5946fbec3f98b0758ab5a2a6a",
+      "slang_version": "slang version 12.0.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T19:37:31.643206+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch37/test_vpi_automatic_frame_lifetime": {
+          "kind": "legal",
+          "status": "clean",
+          "inputs_sha256": "72994fdcec856f3da3a27198b61a83ed7d071d7f440bfb2e162149fd1d32e4eb"
+        }
+      }
+    }
+  },
+  "class_collection_qualification": {
+    "file": "coverage/qualification/vpi-class-reclaim-20261127.json",
+    "sha256": "03f9baeee67afa77315180961d5c2598837ec77c4daa9d26f209fcdbae30e31f"
+  },
+  "ghost_start": {
+    "tool": "ghost",
+    "version": "private build 2f3874bf7b63",
+    "configuration": {
+      "checker_sha256": "3a3612e04b56a363419b0d9264a037785a09e3294a7c7c75314cfd37ec653626",
+      "artifact_sha256": {
+        "simulator": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+        "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe"
+      },
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+      "debugger_version": "lldb-2103.0.34.407"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "tests": {
+      "ch38/test_vpi_callbacks_at_thread_and_frame_start": {
+        "inputs_sha256": "2069f2e015b884b17cfd62c8d61b71a1278d2022d8ed74345c3ae9ac96bc52f6",
+        "debugger_exit": 0,
+        "target_exits": [
+          0
+        ],
+        "events": [
+          {
+            "event": "registered",
+            "kind": "thread",
+            "object": 1,
+            "accepted": true
+          },
+          {
+            "event": "thread_callback",
+            "thread": 1,
+            "typed": true
+          },
+          {
+            "event": "registered",
+            "kind": "frame",
+            "object": 1,
+            "accepted": true
+          },
+          {
+            "event": "frame_callback",
+            "frame": 1,
+            "thread": 1,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "frame_body",
+            "frame": 1,
+            "thread": 1,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "fixture",
+            "line": "before fork"
+          },
+          {
+            "event": "registered",
+            "kind": "thread",
+            "object": 2,
+            "accepted": true
+          },
+          {
+            "event": "thread_callback",
+            "thread": 2,
+            "typed": true
+          },
+          {
+            "event": "registered",
+            "kind": "frame",
+            "object": 2,
+            "accepted": true
+          },
+          {
+            "event": "frame_callback",
+            "frame": 2,
+            "thread": 2,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "frame_body",
+            "frame": 2,
+            "thread": 2,
+            "typed": true,
+            "argument": 37,
+            "local": 58
+          },
+          {
+            "event": "fixture",
+            "line": "task body argument=37 local=58"
+          },
+          {
+            "event": "registered",
+            "kind": "thread",
+            "object": 3,
+            "accepted": true
+          },
+          {
+            "event": "thread_callback",
+            "thread": 3,
+            "typed": true
+          },
+          {
+            "event": "registered",
+            "kind": "frame",
+            "object": 3,
+            "accepted": true
+          },
+          {
+            "event": "frame_callback",
+            "frame": 3,
+            "thread": 3,
+            "typed": true,
+            "argument": null,
+            "local": null
+          },
+          {
+            "event": "frame_body",
+            "frame": 3,
+            "thread": 3,
+            "typed": true,
+            "argument": 51,
+            "local": 72
+          },
+          {
+            "event": "fixture",
+            "line": "task body argument=51 local=72"
+          },
+          {
+            "event": "fixture",
+            "line": "after join"
+          }
+        ],
+        "results": {
+          "thread": {
+            "qualified": true,
+            "pass": true,
+            "observations": [
+              {
+                "thread": 1,
+                "callback_before_body": true
+              },
+              {
+                "thread": 2,
+                "callback_before_body": true
+              },
+              {
+                "thread": 3,
+                "callback_before_body": true
+              }
+            ],
+            "status": "pass"
+          },
+          "frame": {
+            "qualified": true,
+            "pass": false,
+            "observations": [
+              {
+                "frame": 2,
+                "thread": 2,
+                "callback_before_body": true,
+                "callback_argument": null,
+                "callback_local": null,
+                "body_argument": 37,
+                "body_local": 58,
+                "initialized": false
+              },
+              {
+                "frame": 3,
+                "thread": 3,
+                "callback_before_body": true,
+                "callback_argument": null,
+                "callback_local": null,
+                "body_argument": 51,
+                "body_local": 72,
+                "initialized": false
+              }
+            ],
+            "status": "fail"
+          }
+        }
+      }
+    }
+  },
+  "ghost_release": {
+    "tool": "ghost",
+    "version": "private build 2f3874bf7b63",
+    "configuration": {
+      "evidence_profile": "ghost-vpi-runtime-release",
+      "checker_sha256": "64738e2e80f5f74d6aec0040a38d78347543fa6138d857a0064650a36bced9c1",
+      "artifact_sha256": {
+        "simulator": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "lldb": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "compiler": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+        "sv_vpi_user.h": "1e30275f8b62d983934d9bbc3f457e2020f62f142d2ebbff7c5ea40251059970",
+        "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe"
+      },
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+      "debugger_version": "lldb-2103.0.34.407"
+    },
+    "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+    "handle_order": [
+      "frame",
+      "thread",
+      "stamp",
+      "vector",
+      "bit",
+      "frame_callback",
+      "thread_callback"
+    ],
+    "expected_samples": [
+      {
+        "phase": 1,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "1111111",
+            "manager": "11",
+            "thread_live": true
+          },
+          {
+            "index": 1,
+            "table": "1111111",
+            "manager": "11",
+            "thread_live": true
+          }
+        ]
+      },
+      {
+        "phase": 2,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "0100001",
+            "manager": "01",
+            "thread_live": true
+          },
+          {
+            "index": 1,
+            "table": "1111111",
+            "manager": "11",
+            "thread_live": true
+          }
+        ]
+      },
+      {
+        "phase": 3,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "0000000",
+            "manager": "00",
+            "thread_live": false
+          },
+          {
+            "index": 1,
+            "table": "0100001",
+            "manager": "01",
+            "thread_live": true
+          }
+        ]
+      },
+      {
+        "phase": 4,
+        "persistent": true,
+        "branches": [
+          {
+            "index": 0,
+            "table": "0000000",
+            "manager": "00",
+            "thread_live": false
+          },
+          {
+            "index": 1,
+            "table": "0000000",
+            "manager": "00",
+            "thread_live": false
+          }
+        ]
+      }
+    ],
+    "tests": {
+      "ch37/test_vpi_frame_and_thread_handle_release": {
+        "inputs_sha256": "6954b83c20c1ec5d6d683c59fdc336889895549b2feff6fc4b7cae7faf7e5cc8",
+        "status": "fail",
+        "debugger_exit": 0,
+        "target_exits": [
+          0
+        ],
+        "manager_captures": 1,
+        "ordinary_output": [
+          "arm 0 frame=1 thread=1 automatic=23 vector=1 bit=1 callbacks=1/1",
+          "arm 1 frame=1 thread=1 automatic=24 vector=1 bit=1 callbacks=1/1",
+          "distinct frame=1 thread=1",
+          "sample 1 module-state=53",
+          "worker 0 stamp=23 bits=10000110",
+          "frame 0 end at 3 identity=1 stamp=23",
+          "sample 2 module-state=53",
+          "branch 0 completed",
+          "thread 0 end at 5 identity=1",
+          "worker 1 stamp=24 bits=10000110",
+          "frame 1 end at 6 identity=1 stamp=24",
+          "sample 3 module-state=53",
+          "branch 1 completed",
+          "thread 1 end at 8 identity=1",
+          "sample 4 module-state=53"
+        ],
+        "samples": [
+          {
+            "phase": 1,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "11",
+                "thread_live": true
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "11",
+                "thread_live": true
+              }
+            ]
+          },
+          {
+            "phase": 2,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "01",
+                "thread_live": true
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "11",
+                "thread_live": true
+              }
+            ]
+          },
+          {
+            "phase": 3,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "00",
+                "thread_live": false
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "01",
+                "thread_live": true
+              }
+            ]
+          },
+          {
+            "phase": 4,
+            "persistent": true,
+            "branches": [
+              {
+                "index": 0,
+                "table": "1111111",
+                "manager": "00",
+                "thread_live": false
+              },
+              {
+                "index": 1,
+                "table": "1111111",
+                "manager": "00",
+                "thread_live": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

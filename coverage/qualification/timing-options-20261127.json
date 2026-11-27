@@ -1,0 +1,332 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-31.8-EXTRACT-VECTOR-EXPANSION-OPTION",
+    "SV2023-31.9-EXTRACT-NEGATIVE-CHECK-OPTION",
+    "SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITION-ROLE",
+    "SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITIONS-NOT-DELAYED"
+  ],
+  "qualification": {
+    "profile": "timing-option-reference",
+    "checker_sha256": "540a59293094729b8fb6033888bcc2eae6d09578c113c630ae322d329c87ab0a",
+    "ghost_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+    "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+    "tests": {
+      "ch31/test_vector_timing_check_expansion": {
+        "dimensions": [
+          3,
+          2
+        ],
+        "native_vector": {
+          "exit": 0,
+          "stdout": [
+            "width=1 setup=1 shared=2 callback=1",
+            "pulse=0 width=1 setup=1 distinct=2 unrelated=0",
+            "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+          ]
+        },
+        "expected_expanded": [
+          "width=3 setup=6 shared=9 callback=1",
+          "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+          "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+        ],
+        "expanded_cases": {
+          "0,0": {
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "width=3 setup=6 shared=9 callback=1",
+                "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+                "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+              ]
+            },
+            "pass": true
+          },
+          "0,1": {
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "width=3 setup=6 shared=9 callback=1",
+                "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+                "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+              ]
+            },
+            "pass": true
+          },
+          "1,0": {
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "width=3 setup=6 shared=9 callback=1",
+                "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+                "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+              ]
+            },
+            "pass": true
+          },
+          "1,1": {
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "width=3 setup=6 shared=9 callback=1",
+                "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+                "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+              ]
+            },
+            "pass": true
+          },
+          "2,0": {
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "width=3 setup=6 shared=9 callback=1",
+                "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+                "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+              ]
+            },
+            "pass": true
+          },
+          "2,1": {
+            "actual": {
+              "exit": 0,
+              "stdout": [
+                "width=3 setup=6 shared=9 callback=1",
+                "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+                "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+              ]
+            },
+            "pass": true
+          }
+        },
+        "mutations": {
+          "duplicate_pair_detected": true,
+          "separate_notifier_detected": true
+        },
+        "mutation_runs": [
+          {
+            "exit": 0,
+            "stdout": [
+              "width=3 setup=6 shared=9 callback=1",
+              "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+              "pulse=1 width=1 setup=0 distinct=1 unrelated=0"
+            ]
+          },
+          {
+            "exit": 0,
+            "stdout": [
+              "width=3 setup=6 shared=8 callback=1",
+              "pulse=0 width=3 setup=6 distinct=9 unrelated=0",
+              "pulse=1 width=1 setup=1 distinct=2 unrelated=0"
+            ]
+          }
+        ],
+        "pass": true,
+        "inputs_sha256": "ca5a13ee9c43fbed5781383a8394f46bfebbb7652c379eb2ba4c0eb23385392e"
+      },
+      "ch31/test_negative_setuphold_delayed_condition_roles": {
+        "native": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=1",
+            "clock raw=1 delayed=1",
+            "condition raw=0 explicit=0",
+            "before valid=0 swapped=0 outside=1",
+            "after valid=0 swapped=0 outside=1 explicit=0 raw=0"
+          ]
+        },
+        "native_matches_enabled": false,
+        "reference_enabled": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=0",
+            "clock raw=1 delayed=0",
+            "condition raw=0 explicit=1",
+            "before valid=1 swapped=0 outside=0",
+            "after valid=1 swapped=0 outside=0 explicit=1 raw=0"
+          ]
+        },
+        "reference_disabled": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=1",
+            "clock raw=1 delayed=1",
+            "condition raw=0 explicit=0",
+            "before valid=0 swapped=0 outside=0",
+            "after valid=0 swapped=0 outside=0 explicit=0 raw=0"
+          ]
+        },
+        "expected_enabled": [
+          "early data=1 delayed=0",
+          "clock raw=1 delayed=0",
+          "condition raw=0 explicit=1",
+          "before valid=1 swapped=0 outside=0",
+          "after valid=1 swapped=0 outside=0 explicit=1 raw=0"
+        ],
+        "expected_disabled": [
+          "early data=1 delayed=1",
+          "clock raw=1 delayed=1",
+          "condition raw=0 explicit=0",
+          "before valid=0 swapped=0 outside=0",
+          "after valid=0 swapped=0 outside=0 explicit=0 raw=0"
+        ],
+        "delayed_conditions_mutation": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=0",
+            "clock raw=1 delayed=0",
+            "condition raw=0 explicit=1",
+            "before valid=0 swapped=0 outside=0",
+            "after valid=0 swapped=0 outside=0 explicit=1 raw=0"
+          ]
+        },
+        "delayed_conditions_distinguished": true,
+        "pass": true,
+        "inputs_sha256": "93d224626331539fa89607ad984eef1a8f6a16bb064f87dc4434d4384b398eea"
+      },
+      "ch31/test_negative_recrem_delayed_condition_roles": {
+        "native": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=1",
+            "clock raw=1 delayed=1",
+            "condition raw=0 explicit=0",
+            "before valid=0 swapped=0 outside=1",
+            "after valid=0 swapped=0 outside=1 explicit=0 raw=0"
+          ]
+        },
+        "native_matches_enabled": false,
+        "reference_enabled": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=0",
+            "clock raw=1 delayed=0",
+            "condition raw=0 explicit=1",
+            "before valid=1 swapped=0 outside=0",
+            "after valid=1 swapped=0 outside=0 explicit=1 raw=0"
+          ]
+        },
+        "reference_disabled": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=1",
+            "clock raw=1 delayed=1",
+            "condition raw=0 explicit=0",
+            "before valid=0 swapped=0 outside=0",
+            "after valid=0 swapped=0 outside=0 explicit=0 raw=0"
+          ]
+        },
+        "expected_enabled": [
+          "early data=1 delayed=0",
+          "clock raw=1 delayed=0",
+          "condition raw=0 explicit=1",
+          "before valid=1 swapped=0 outside=0",
+          "after valid=1 swapped=0 outside=0 explicit=1 raw=0"
+        ],
+        "expected_disabled": [
+          "early data=1 delayed=1",
+          "clock raw=1 delayed=1",
+          "condition raw=0 explicit=0",
+          "before valid=0 swapped=0 outside=0",
+          "after valid=0 swapped=0 outside=0 explicit=0 raw=0"
+        ],
+        "delayed_conditions_mutation": {
+          "exit": 0,
+          "stdout": [
+            "early data=1 delayed=0",
+            "clock raw=1 delayed=0",
+            "condition raw=0 explicit=1",
+            "before valid=0 swapped=0 outside=0",
+            "after valid=0 swapped=0 outside=0 explicit=1 raw=0"
+          ]
+        },
+        "delayed_conditions_distinguished": true,
+        "pass": true,
+        "inputs_sha256": "228350a9d48316acbc8fed8086b03227f2612042003ff0c5f727fbdc9204217a"
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build b7abb6b0569f",
+      "tests": {
+        "ch31/test_negative_recrem_delayed_condition_roles": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "228350a9d48316acbc8fed8086b03227f2612042003ff0c5f727fbdc9204217a"
+        },
+        "ch31/test_negative_setuphold_delayed_condition_roles": {
+          "status": "fail",
+          "reason": "output differs",
+          "inputs_sha256": "93d224626331539fa89607ad984eef1a8f6a16bb064f87dc4434d4384b398eea"
+        },
+        "ch31/test_vector_timing_check_expansion": {
+          "status": "pass",
+          "inputs_sha256": "ca5a13ee9c43fbed5781383a8394f46bfebbb7652c379eb2ba4c0eb23385392e"
+        }
+      },
+      "generated_at": "2026-11-26T16:44:45.661204+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "b7abb6b0569f5ec5abb9226d18c490358e4dc522cab5a0b1a3eb0d5d0e42381c",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "tests": {
+        "ch31/test_negative_recrem_delayed_condition_roles": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'early data=1 delayed=1', expected 'early data=1 delayed=0'",
+          "inputs_sha256": "228350a9d48316acbc8fed8086b03227f2612042003ff0c5f727fbdc9204217a"
+        },
+        "ch31/test_negative_setuphold_delayed_condition_roles": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'early data=1 delayed=1', expected 'early data=1 delayed=0'",
+          "inputs_sha256": "93d224626331539fa89607ad984eef1a8f6a16bb064f87dc4434d4384b398eea"
+        },
+        "ch31/test_vector_timing_check_expansion": {
+          "status": "known",
+          "reason": "VPI build failed: 8 errors generated.",
+          "inputs_sha256": "ca5a13ee9c43fbed5781383a8394f46bfebbb7652c379eb2ba4c0eb23385392e"
+        }
+      },
+      "generated_at": "2026-11-26T16:44:45.271416+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch31/test_negative_recrem_delayed_condition_roles": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'early data=1 delayed=1', expected 'early data=1 delayed=0'",
+          "inputs_sha256": "228350a9d48316acbc8fed8086b03227f2612042003ff0c5f727fbdc9204217a"
+        },
+        "ch31/test_negative_setuphold_delayed_condition_roles": {
+          "status": "known",
+          "reason": "output differs: line 1 is 'early data=1 delayed=1', expected 'early data=1 delayed=0'",
+          "inputs_sha256": "93d224626331539fa89607ad984eef1a8f6a16bb064f87dc4434d4384b398eea"
+        },
+        "ch31/test_vector_timing_check_expansion": {
+          "status": "known",
+          "reason": "build failed: %Error: tests/ch31/test_vector_timing_check_expansion.sv:33:5: Unsupported or unknown PLI call: '$arm_vector_timing'",
+          "inputs_sha256": "ca5a13ee9c43fbed5781383a8394f46bfebbb7652c379eb2ba4c0eb23385392e"
+        }
+      },
+      "generated_at": "2026-11-26T16:44:58.372338+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    }
+  }
+}

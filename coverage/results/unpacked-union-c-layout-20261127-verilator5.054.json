@@ -1,0 +1,30 @@
+{
+ "simulator": "verilator",
+ "name": "Verilator",
+ "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+ "tests": {
+  "ch7/test_unpacked_union_c_member_order": {
+   "status": "pass",
+   "inputs_sha256": "94b58815c38883fbf3ee81b41da8cc3b2a7240b4e39ffef10cc1068229123444"
+  }
+ },
+ "generated_at": "2026-11-26T17:53:45.210833+00:00",
+ "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+ "runner_changed": false,
+ "configuration": {
+  "evidence_profile": "verilator-unpacked-union-c-layout",
+  "checker_sha256": "226fb5ae1303683c91995b2e78dde8dfacb886983e065daa58d931ac5071ecd5",
+  "artifact_sha256": {
+   "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+   "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "cxx": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+   "verilated.h": "6a7461171978c893f50edaae440aaaca1f135aab979cf4b0a0cc342c46620da2",
+   "verilated_types.h": "cfefa84195f0ff462a5a35c1ee33fbc2e6146cc9855424eb6423268f43f51df4",
+   "verilator_backend": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+  },
+  "seeds": [
+   1,
+   73
+  ]
+ }
+}

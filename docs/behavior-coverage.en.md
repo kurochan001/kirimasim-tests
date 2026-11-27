@@ -6,19 +6,19 @@
 
 `tools/behavior_coverage.py` is generated from the log and execution trace of `coverage/`. [Summary of the aggregate](behavior-coverage-summary.en.md) / [Extracting all requests](requirement-extraction.en.md) / [Management procedures](../coverage/README.en.md) / [Number of citations per paragraph](coverage-depth.md)
 
-This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 99.04%, execution without Ghost 52.38%, execution with Ghost and kirimasim 90.81%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
+This counts requirement mappings and evidence of PASS. Read [design versus execution](faq.en.md#q16-how-do-design-and-execution-coverage-differ) to distinguish these metrics from test counts or one tool’s match rate. Against the whole-standard requirement ledger (confirmed): design 100.00%, execution without Ghost 52.40%, execution with Ghost and kirimasim 90.85%. The denominator includes the interpretation reservation and non-coordination. This is the value that is consolidated from the duplicate meaning in the review of the denominator.
 
 
-Requirement coverage (test design): 99.04%. Requirement execution-confirmation rate: 52.38% without Ghost, 90.81% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
+Requirement coverage (test design): 100.00%. Requirement execution-confirmation rate: 52.40% without Ghost, 90.85% with Ghost and kirimasim. The citation of the section and the number of tests are not converted to the coverage of all actions.
 
 - Standard shelf loading: Title of the main text 1–41 and the appendix A–Q, total 1740.
 - The following are the results of the verification and requirement extraction of all the documents: Section 1740/1740 ( 100.00% ), 15846/15846 Citation blocks are classified.
 - The references for the regulations are: Section 1703/1703 ( 100.00% ).
 - Interpretation reservations: 0 argument, 0 section, 0 register line. Do not count reservations as completed and tested.
 - No reservation of interpretation of the specified part: 1703/1703 heading ( 100.00% ). This is different from the data confirmation rate and the operation coverage rate.
-- The requirement coverage (test design) for registered behaviors is 12214/12332 ( 99.04% ).
-- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11199/12332 ( 90.81% ).
-- Registered but not tested: 118.
+- The requirement coverage (test design) for registered behaviors is 12332/12332 ( 100.00% ).
+- Among the registered behaviors, the one with a record of path results corresponding to the current input: 11204/12332 ( 90.85% ).
+- Registered but not tested: 0.
 
 The percentage of registered behaviors alone is not the percentage of the entire specification. The introduction of the parentheses text is also an independent investigation object. The heading can only be completed after the request has been parsed by checking for figures, tables, syntax, exceptions, errors, and other section references. Tool dependency and non-implementation are not automatic exclusion reasons.
 
@@ -87,6 +87,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `assignment-file-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T19:06:32.714058+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `assignment-file-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.714472+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `assignment-file-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T19:06:32.685722+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
+- `automatic-bin-limit-20261127-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T17:45:59.376132+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `bin-with-effects-20261125-verilator.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T10:33:07.747234+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-18T16:18:16.466764+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `bitquery-20261119-kirimasim-441dddbd0fcd.json`: `kirimasim 0.1.1 (commit 441dddbd0fcd), built with AppleClang 21.0.0.21000401` / `2026-11-18T16:18:17.457959+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -260,7 +261,6 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `intcompat-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:39.847047+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `intcompat-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T10:26:46.053076+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `interactive-control-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T20:16:39.312745+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
-- `iterator-release-20261125-icarus13-qualified.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T06:57:25.169113+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-15T02:46:05.877247+00:00` / 150/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-kirimasim-d1d8a178.json`: `kirimasim 0.0.0 (commit d1d8a1782d0a), built with AppleClang 21.0.0.21000401` / `2026-11-15T02:46:56.224616+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `keywords-inherited-20261115-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-15T02:46:27.050750+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -1115,6 +1115,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `triggered-typed-20261125-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T18:58:33.898672+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `triggered-typed-20261125-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:58:33.862694+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `triggered-typed-20261125-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T18:58:33.887026+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `unpacked-union-c-layout-20261127-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T17:53:45.210833+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-ghost-strict.json`: `private build e95a514c6d02` / `2026-11-23T14:14:24.310807+00:00` / 6/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T14:14:24.163875+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `uvm-standalone-20261123-kirimasim.json`: `kirimasim 0.2.1 (commit e93839fdcbea), built with AppleClang 21.0.0.21000334` / `2026-11-23T14:14:24.285520+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
@@ -1135,6 +1136,10 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `vifsense-20261114-kirimasim-77c27531.json`: `kirimasim 0.0.0 (commit 77c27531437c), built with AppleClang 21.0.0.21000401` / `2026-11-14T02:58:21.742365+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:11.624866+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vifsense-20261114-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-14T02:58:21.644402+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `virtual-sensitivity-20261126-ghost-strict.json`: `private build 4437eecbf426` / `2026-11-26T14:26:04.637880+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `virtual-sensitivity-20261126-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-26T14:26:04.629875+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `virtual-sensitivity-20261126-kirimasim.json`: `kirimasim 0.2.2 (commit 7fa2a9758cab), built with AppleClang 21.0.0.21000334` / `2026-11-26T14:26:04.608993+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `virtual-sensitivity-20261126-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-26T14:26:15.300330+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-action-feature-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:28:07.256761+00:00` / 13/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-callback-relationships-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T08:59:05.984735+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-checkpoint-counts-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:06:02.986071+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -1155,6 +1160,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `vpi-delay-ownership-20261125-icarus.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T21:31:31.397763+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-delay-ownership-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-24T21:31:31.167664+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-delay-ownership-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T21:31:31.159957+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-diagram-access-20261127-ghost.json`: `private build 2f3874bf7b63` / `2026-11-26T20:27:17.012595+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-dpi-bridge-20261125-verilator5.052.json`: `Verilator 5.052 2026-09-05 rev v5.052` / `2026-11-25T08:22:40.347846+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-dpi-bridge-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T08:22:51.824943+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-expression-traversal-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:28:35.886580+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
@@ -1167,6 +1173,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `vpi-io-decl-refinement-20261120-kirimasim-a6222f06.json`: `kirimasim 0.1.1 (commit a6222f0656d4), built with AppleClang 21.0.0.21000401` / `2026-11-19T20:48:30.248426+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-verilator5.054-seed1.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.380302+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-io-decl-refinement-20261120-verilator5.054-seed73.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-19T20:48:30.513143+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-iterator-release-20261126-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-26T14:43:03.399450+00:00` / 3/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-legacy-applicability-20261125-1364v1995-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.306851+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-legacy-applicability-20261125-1364v2001-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.307756+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-legacy-applicability-20261125-1364v2005-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:13:38.308269+00:00` / 2/12332 execution checked; 0 entries refer to older inputs.
@@ -1181,9 +1188,11 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `vpi-options-and-action-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T03:55:23.398976+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-options-and-action-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-25T03:55:23.316261+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-options-and-action-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-25T03:55:35.227439+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-other-transient-20261127-ghost.json`: `private build 2f3874bf7b63` / `2026-11-26T19:45:09.929948+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-program-checkpoint-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T23:05:27.239273+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-program-checkpoint-20261125-verilator5.054.json`: `Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101` / `2026-11-24T23:05:27.274635+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-program-ports-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T23:04:05.788500+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `vpi-restart-release-20261127-ghost-strict.json`: `private build b7abb6b0569f` / `2026-11-26T16:06:24.045322+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-runtime-release-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-25T09:10:05.029914+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-scope-net-bits-20261125-ghost.json`: `private build 6fa9a05abb0c` / `2026-11-24T22:55:46.489186+00:00` / 24/12332 execution checked; 0 entries refer to older inputs.
 - `vpi-scope-net-bits-20261125-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-24T22:55:46.245101+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
@@ -1456,6 +1465,7 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - Not used: issues-48-57-20261107-verilator5.052-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: issues-48-57-20261107-verilator5.052-seed73.json : legacy, unknown, or stale runner provenance.
 - Not used: issues-76-90-20261122-ghost.json : legacy, unknown, or stale runner provenance.
+- Ignored iterator-release-20261125-icarus13-qualified.json because its evidence profile is unknown or stale.
 - Not used: keyword-tests-20261024-icarus13.json : legacy, unknown, or stale runner provenance.
 - Not used: keyword-tests-20261024-verilator-seed1.json : legacy, unknown, or stale runner provenance.
 - Not used: keyword-tests-20261024-verilator-seed73.json : legacy, unknown, or stale runner provenance.
@@ -1533,14 +1543,14 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 The number of items is the investigation status of the article by heading. This is different from the number of operations.
 
 - 1 Overview: No interpretation reservation 12/12, registration 0, test support 0.
-- 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 0.
+- 2 Normative references: No reservation of interpretation 1/1, registration 2, test compatibility 2.
 - 3 Design and verification building blocks: No interpretation reservation 22/22, registration 146, test support 146.
-- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 95.
+- 4 Scheduling semantics: no interpretation reservation 40/40, registration 107, test support 107.
 - 5 Lexical conventions: no interpretation reservation 21/21, registration 155, test support 155.
 - 6 Data types: No interpretation reservation 92/92, registration 720, test support 720.
-- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 345.
-- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 249.
-- 9 Processes: No interpretation reservation 34/34, registration 192, test support 191.
+- 7 Aggregate data types: no interpretation reservation 61/61, registration 347, test support 347.
+- 8 Classes: No interpretation restrictions 49/49, registration 255, test support 255.
+- 9 Processes: No interpretation reservation 34/34, registration 192, test support 192.
 - 10 Assignment statements: No interpretation reservation 25/25, registration 156, test support 156.
 - 11 Operators and expressions: No interpretation restrictions 55/55, registration 459, test support 459.
 - 12 Procedural programming statements: no interpretation reservation 28/28, registration 115, test support 115.
@@ -1548,30 +1558,30 @@ The number of items is the investigation status of the article by heading. This 
 - 14 Clocking blocks: no interpretation reservation 19/19, registration 87, test support 87.
 - 15 Interprocess synchronization and communication: no interpretation reservation 27/27, registration 88, test support 88.
 - 16 Assertions: No interpretation reservation 82/82, registration 557, test support 557.
-- 17 Checkers: No interpretation reservations 13/13, registration 81, test support 77.
+- 17 Checkers: No interpretation reservations 13/13, registration 81, test support 81.
 - 18 Constrained random value generation: 58/58 without pending interpretation issues, 323 registered, 323 mapped to tests.
-- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 275.
+- 19 Functional coverage: no interpretation reservation 34/34, registration 276, test support 276.
 - 20 Utility system tasks and system functions: No interpretation reservation 45/45, registration 320, test support 320.
 - 21 Input/output system tasks and system functions: no interpretation reservation 65/65, registration 383, test support 383.
 - 22 Compiler directives: 28/28 without pending interpretation issues, 363 registered, 363 mapped to tests.
 - 23 Modules and hierarchy: No interpretation reservation 47/47, registration 260, test support 260.
 - 24 Programs: No interpretation restrictions 10/10, registration 29, test support 29.
-- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 62.
+- 25 Interfaces: No interpretation reservation 25/25, registration 63, test support 63.
 - 26 Packages: No interpretation reservation 8/8, registration 44, testing support 44.
 - 27 Generate constructs: no interpretation reservation 7/7, registration 32, test support 32.
 - 28 Gate-level and switch-level modeling: no interpretation reservation 34/34, registration 384, test support 384.
 - 29 User-defined primitives: no interpretation reservation 17/17, registration 52, test support 52.
-- 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 151.
-- 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 176.
+- 30 Specify blocks: no interpretation restrictions 31/31, registration 157, test support 157.
+- 31 Timing checks: no interpretation reservation 26/26, registration 180, test support 180.
 - 32 Backannotation using the standard delay format: no interpretation reservation 14/14, registration 131, test support 131.
-- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 61.
-- 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 191.
+- 33 Configuring the contents of a design: No interpretation reservation 36/36, registration 63, test support 63.
+- 34 Protected envelopes: No interpretation reservation 104/104, registration 214, test support 214.
 - 35 Direct programming interface: No interpretation reservation 31/31, registration 143, test support 143.
-- 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 161.
-- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1724.
-- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 333.
+- 36 Programming language interface ( PLI / VPI ) overview: No interpretation restrictions 29/29, registration 163, test support 163.
+- 37 VPI object model diagrams: no interpretation restrictions 101/101, registration 1757, test support 1757.
+- 38 VPI routine definitions: no interpretation reservation 51/51, registration 348, test support 348.
 - 39 Assertion API : No interpretation reservation 14/14, registration 95, test support 95.
-- 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 127.
+- 40 Code coverage control and API : no interpretation reservation 26/26, registration 128, test support 128.
 - 41 Data read API : no interpretation reservation 1/1, registration 0, test support 0.
 - A Formal syntax: no interpretation reserve 87/87, registration 811, test compliant 811.
 - B Keywords: 1/1 without interpretation reservation, 248 registration, 248 test compliant.
@@ -1580,10 +1590,10 @@ The number of items is the investigation status of the article by heading. This 
 - E Optional compiler directives: Reference (not included in the denominator of the standard requirements), registration 0, test support 0.
 - F Formal semantics of concurrent assertions: no interpretation reservation 53/53, registration 253, test support 253.
 - G Std package: no interpretation reserve 8/8, registration 32, test support 32.
-- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 221.
+- H DPI C layer: No interpretation reservation 72/72, registration 223, test support 223.
 - I svdpi.h : No interpretation reservation 4/4, registration 147, test compliant 147.
 - J Inclusion of foreign language code: no interpretation reservation 7/7, registration 16, test compatible 16.
-- K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 543.
+- K vpi_user.h: no interpretations on hold 3/3; registered 544; test mappings 544.
 - L vpi_compatibility.h: no interpretations on hold 3/3; registered 88; test mappings 88.
 - M sv_vpi_user.h: no interpretations on hold 3/3; registered 412; test mappings 412.
 - N Algorithm for probabilistic distribution functions: no interpretation reservation 3/3, registered 39, test-compatible 39.
@@ -1601,7 +1611,7 @@ Unmapped means that the registry has no approved mapping; it does not establish 
 
 ### SV2023-2-EXTRACT-DATED-REFERENCES
 
-`2` / `normal` / No mapped test
+`2` / `normal` / Test mapped; execution unconfirmed
 
 When applying a dated normative reference, use the edition explicitly identified by IEEE 1800-2023.
 
@@ -1609,10 +1619,11 @@ Acceptance criterion: Referenced algorithms and interfaces follow the specified 
 
 Normative role: `definition`。
 
+- [test_normative_dated_vpi_edition.sv](../tests/ch36/test_normative_dated_vpi_edition.sv): Resolve the cited IEEE 1364 and FIPS 180 editions and retain both pins when newer publications and a change notice are available.
 
 ### SV2023-2-EXTRACT-UNDATED-REFERENCES
 
-`2` / `normal` / No mapped test
+`2` / `normal` / Test mapped; execution unconfirmed
 
 An undated normative reference denotes the current edition together with amendments and corrigenda.
 
@@ -1620,6 +1631,7 @@ Acceptance criterion: Resolve an undated normative dependency when applying the 
 
 Normative role: `definition`。
 
+- [test_normative_undated_binary64.sv](../tests/ch6/test_normative_undated_binary64.sv): Select the published editions for both undated references by date, include the applicable amendments and corrigenda, and exclude unpublished projects.
 
 ### SV2023-3.2-EXTRACT-DESIGN-ELEMENT-CATEGORIES
 
@@ -3530,7 +3542,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4.1-EXTRACT-ACTIVE-SET
 
-`4.4.1` / `normal` / No mapped test
+`4.4.1` / `normal` / Test mapped; execution unconfirmed
 
 The active-region set contains Active, Inactive, Pre-NBA, NBA and Post-NBA.
 
@@ -3538,6 +3550,8 @@ Acceptance criterion: The active-region set contains Active, Inactive, Pre-NBA, 
 
 Normative role: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Check the five regions from Active through Post-NBA and verify that Pre-Observed sees the result of Active work triggered by the NBA update.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Check the five regions from Active through Post-NBA and verify that Pre-Observed sees the result of Active work triggered by the NBA update.
 
 ### SV2023-4.4.1-EXTRACT-ITERATIVE-SET
 
@@ -3553,7 +3567,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4.1-EXTRACT-REACTIVE-SET
 
-`4.4.1` / `normal` / No mapped test
+`4.4.1` / `normal` / Test mapped; execution unconfirmed
 
 The reactive-region set contains Reactive, Re-Inactive, Pre-Re-NBA, Re-NBA and Post-Re-NBA.
 
@@ -3561,6 +3575,8 @@ Acceptance criterion: The reactive-region set contains Reactive, Re-Inactive, Pr
 
 Normative role: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Check the five regions from Reactive through Post-Re-NBA and verify that new work in that set executes before pending Active work.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Check the five regions from Reactive through Post-Re-NBA and verify that new work in that set executes before pending Active work.
 
 ### SV2023-4.4.2-EXTRACT-SIMULATION-REGION-SET
 
@@ -3692,7 +3708,7 @@ Normative role: `mandatory`。
 
 ### SV2023-4.4.2.5-EXTRACT-NO-OBSERVED-PLI
 
-`4.4.2.5` / `error` / No mapped test
+`4.4.2.5` / `error` / Test mapped; execution unconfirmed
 
 PLI callbacks are not allowed in Observed.
 
@@ -3700,6 +3716,8 @@ Acceptance criterion: Do not run a PLI callback as an Observed-region event.
 
 Normative role: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Reject PLI placement in Observed and verify that property evaluation and its pass or fail action still proceed in the same slot.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Reject PLI placement in Observed and verify that property evaluation and its pass or fail action still proceed in the same slot.
 
 ### SV2023-4.4.2.5-EXTRACT-PROPERTY-ACTIONS-REACTIVE
 
@@ -3847,7 +3865,7 @@ Normative role: `definition`。
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-NO-CURRENT-SLOT-EVENT
 
-`4.4.3.1` / `error` / No mapped test
+`4.4.3.1` / `error` / Test mapped; execution unconfirmed
 
 A Preponed PLI event cannot schedule another region of the current time slot.
 
@@ -3855,10 +3873,12 @@ Acceptance criterion: A Preponed PLI event cannot schedule another region of the
 
 Normative role: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Reject Preponed insertion into other regions in the current slot and verify that the event queued for the next slot can observe the values.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Reject Preponed insertion into other regions in the current slot and verify that the event queued for the next slot can observe the values.
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-NO-WRITE
 
-`4.4.3.1` / `error` / No mapped test
+`4.4.3.1` / `error` / Test mapped; execution unconfirmed
 
 A Preponed PLI event cannot write a net or variable.
 
@@ -3866,10 +3886,12 @@ Acceptance criterion: A Preponed PLI event cannot write a net or variable.
 
 Normative role: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Reject Preponed writes to both a net and a variable and compare the unchanged values at the start of the slot.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Reject Preponed writes to both a net and a variable and compare the unchanged values at the start of the slot.
 
 ### SV2023-4.4.3.1-EXTRACT-PREPONED-READ
 
-`4.4.3.1` / `normal` / No mapped test
+`4.4.3.1` / `normal` / Test mapped; execution unconfirmed
 
 The conceptual Preponed PLI control point observes data before any current-slot net or variable state change.
 
@@ -3877,6 +3899,8 @@ Acceptance criterion: The conceptual Preponed PLI control point observes data be
 
 Normative role: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Read the old net and variable values in Preponed and compare the resulting assertion sample after the slot updates.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Read the old net and variable values in Preponed and compare the resulting assertion sample after the slot updates.
 
 ### SV2023-4.4.3.2-EXTRACT-READ-WRITE-CONTROL
 
@@ -3916,7 +3940,7 @@ Normative role: `permission`。
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-CURRENT-SLOT-EVENT
 
-`4.4.3.5` / `error` / No mapped test
+`4.4.3.5` / `error` / Test mapped; execution unconfirmed
 
 A Pre-Observed PLI event must not schedule an event in the current slot.
 
@@ -3924,10 +3948,12 @@ Acceptance criterion: A Pre-Observed PLI event must not schedule an event in the
 
 Normative role: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Reject insertion into every current-slot region from Pre-Observed and check that its next-slot action runs.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Reject insertion into every current-slot region from Pre-Observed and check that its next-slot action runs.
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-NO-WRITE
 
-`4.4.3.5` / `error` / No mapped test
+`4.4.3.5` / `error` / Test mapped; execution unconfirmed
 
 A Pre-Observed PLI event must not write a net or variable.
 
@@ -3935,10 +3961,12 @@ Acceptance criterion: A Pre-Observed PLI event must not write a net or variable.
 
 Normative role: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Reject writes to the net and variable from Pre-Observed and check that the settled values and subsequent property outcome are preserved.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Reject writes to the net and variable from Pre-Observed and check that the settled values and subsequent property outcome are preserved.
 
 ### SV2023-4.4.3.5-EXTRACT-PREOBSERVED-STABLE-READ
 
-`4.4.3.5` / `normal` / No mapped test
+`4.4.3.5` / `normal` / Test mapped; execution unconfirmed
 
 Pre-Observed PLI reads occur after the active-region set has stabilized.
 
@@ -3946,10 +3974,12 @@ Acceptance criterion: Pre-Observed PLI reads occur after the active-region set h
 
 Normative role: `mandatory`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Read the NBA value and completed Active feedback in Pre-Observed while the property is still unevaluated.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Read the NBA value and completed Active feedback in Pre-Observed while the property is still unevaluated.
 
 ### SV2023-4.4.3.6-EXTRACT-POSTOBSERVED-READ
 
-`4.4.3.6` / `normal` / No mapped test
+`4.4.3.6` / `normal` / Test mapped; execution unconfirmed
 
 The conceptual Post-Observed PLI point reads values after properties have been evaluated in Observed or an earlier region.
 
@@ -3957,10 +3987,12 @@ Acceptance criterion: The conceptual Post-Observed PLI point reads values after 
 
 Normative role: `definition`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Read property completion and outcome in Post-Observed and compare them with the action executed in Reactive.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Read property completion and outcome in Post-Observed and compare them with the action executed in Reactive.
 
 ### SV2023-4.4.3.7-EXTRACT-READ-WRITE-CONTROL
 
-`4.4.3.7` / `normal` / No mapped test
+`4.4.3.7` / `normal` / Test mapped; execution unconfirmed
 
 The Pre-Re-NBA PLI control point permits reading values, writing values and creating events before Re-NBA events.
 
@@ -3968,10 +4000,12 @@ Acceptance criterion: Honor the specified side of the region boundary and feed n
 
 Normative role: `permission`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Read and write before the Re-NBA update and check that new Reactive work observes the write before Re-NBA and pending Active work.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Read and write before the Re-NBA update and check that new Reactive work observes the write before Re-NBA and pending Active work.
 
 ### SV2023-4.4.3.8-EXTRACT-READ-WRITE-CONTROL
 
-`4.4.3.8` / `normal` / No mapped test
+`4.4.3.8` / `normal` / Test mapped; execution unconfirmed
 
 The Post-Re-NBA PLI control point permits reading values, writing values and creating events after Re-NBA events.
 
@@ -3979,6 +4013,8 @@ Acceptance criterion: Honor the specified side of the region boundary and feed n
 
 Normative role: `permission`。
 
+- [test_pli_region_controls_assertion_pass.sv](../tests/ch4/test_pli_region_controls_assertion_pass.sv): Read and write after the Re-NBA update and check that the new Reactive work runs before pending Active work.
+- [test_pli_region_controls_assertion_fail.sv](../tests/ch4/test_pli_region_controls_assertion_fail.sv): Read and write after the Re-NBA update and check that the new Reactive work runs before pending Active work.
 
 ### SV2023-4.4.3.9-EXTRACT-READ-WRITE-CONTROL
 
@@ -15953,7 +15989,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.3.1-EXTRACT-UNPACKED-C-ORDER
 
-`7.3.1` / `normal` / No mapped test
+`7.3.1` / `normal` / Execution confirmed
 
 Unpacked unions of unpacked structures use C-compatible ascending-address member ordering subject to their implementation-dependent representation.
 
@@ -15961,6 +15997,7 @@ Acceptance criterion: Unpacked unions of unpacked structures use C-compatible as
 
 Normative role: `mandatory`。
 
+- [test_unpacked_union_c_member_order.sv](../tests/ch7/test_unpacked_union_c_member_order.sv): Compare the generated unpacked union with independent native structures, transfer shared initial members and real values in both directions, and verify that reordering members is detected before transfer.
 
 ### SV2023-7.3.2-EXTRACT-MINIMUM-TAG-WIDTH
 
@@ -17773,7 +17810,7 @@ Normative role: `mandatory`。
 
 ### SV2023-7.8.5-EXTRACT-EQUALITY-REQUIRED
 
-`7.8.5` / `error` / No mapped test
+`7.8.5` / `error` / Test mapped; execution unconfirmed
 
 An associative index type must define equality; dynamically sized types can qualify.
 
@@ -17781,6 +17818,10 @@ Acceptance criterion: An associative index type must define equality; dynamicall
 
 Normative role: `mandatory`。
 
+- [test_associative_event_key_identity.sv](../tests/ch7/test_associative_event_key_identity.sv): Compare an event alias and a separate event and check that the two keys stay distinct after an update through the alias.
+- [test_associative_dynamic_array_key_equality.sv](../tests/ch7/test_associative_dynamic_array_key_equality.sv): Check that independently allocated dynamic arrays with equal contents address the same entry and that changed and empty arrays address separate entries.
+- [test_associative_key_uses_queue_and_string_values_structurally.sv](../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv): Update the equivalent structure key containing a string and a queue and retrieve the shorter queue and different string as separate entries.
+- [test_illegal_associative_index_contains_nested_real.sv](../tests/ch7/test_illegal_associative_index_contains_nested_real.sv): Check the diagnostic for a structure key with a nested real member as an explicit exception that applies even when the type permits equality.
 
 ### SV2023-7.8.5-EXTRACT-NO-REAL-CONTAINING-KEY
 
@@ -22799,7 +22840,7 @@ Normative role: `definition`。
 
 ### SV2023-8.29-EXTRACT-WEAK-RECLAMATION-REFERENCE
 
-`8.29` / `normal` / No mapped test
+`8.29` / `normal` / Test mapped; execution unconfirmed
 
 Weak references may track an object without preventing its reclamation under the weak-reference rules.
 
@@ -22807,10 +22848,11 @@ Acceptance criterion: Weak references may track an object without preventing its
 
 Normative role: `permission`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): Read the value through weak views, drop the last strong handle, and observe the generated destructor and clearing of the weak views.
 
 ### SV2023-8.29-EXTRACT-WEAKLY-REACHABLE
 
-`8.29` / `normal` / No mapped test
+`8.29` / `normal` / Test mapped; execution unconfirmed
 
 An object is weakly reachable if not strongly reachable but accessible through a weak reference.
 
@@ -22818,10 +22860,11 @@ Acceptance criterion: An object is weakly reachable if not strongly reachable bu
 
 Normative role: `definition`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): Observe a queued object with zero strong references that is still accessible through two weak views, and compare the nonzero count in the strong control.
 
 ### SV2023-8.30.1-EXTRACT-ATOMIC-WEAK-CLEAR
 
-`8.30.1` / `normal` / No mapped test
+`8.30.1` / `normal` / Test mapped; execution unconfirmed
 
 When GC determines a referent is weakly reachable, all weak references to it must be cleared atomically.
 
@@ -22829,6 +22872,7 @@ Acceptance criterion: When GC determines a referent is weakly reachable, all wea
 
 Normative role: `mandatory`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): At actual referent destruction, exchange the shared state once and check both weak views clear while the peer view stays live.
 
 ### SV2023-8.30.1-EXTRACT-STD-WEAK-REFERENCE
 
@@ -22856,7 +22900,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.30.1-EXTRACT-WEAK-REFERENCE-NONRETAINING
 
-`8.30.1` / `normal` / No mapped test
+`8.30.1` / `normal` / Test mapped; execution unconfirmed
 
 A weak reference provides access without preventing garbage collection and may be passed through subroutines or held in other objects.
 
@@ -22864,10 +22908,11 @@ Acceptance criterion: A weak reference provides access without preventing garbag
 
 Normative role: `definition`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): Read through the weak view passed into a class field by a task, check the strong count, and observe collection after the last strong handle is dropped.
 
 ### SV2023-8.30.1-EXTRACT-WEAK-WRAPPER-GC
 
-`8.30.1` / `normal` / No mapped test
+`8.30.1` / `normal` / Test mapped; execution unconfirmed
 
 A weak_reference instance is itself an ordinarily garbage-collected object and can become eligible when no longer strongly reachable even while its referent remains alive.
 
@@ -22875,6 +22920,7 @@ Acceptance criterion: A weak_reference instance is itself an ordinarily garbage-
 
 Normative role: `mandatory`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): Drop the strong handle to one wrapper and observe its destructor while the referent and the other weak views are still live.
 
 ### SV2023-8.30.2-EXTRACT-NULL-NO-WARNING
 
@@ -23003,7 +23049,7 @@ Normative role: `mandatory`。
 
 ### SV2023-8.30.5-EXTRACT-NUMERIC-ID-NONRETAINING
 
-`8.30.5` / `normal` / No mapped test
+`8.30.5` / `normal` / Test mapped; execution unconfirmed
 
 An associative key storing only get_id numerical values does not create a strong class reference; reuse after collection remains permitted.
 
@@ -23011,6 +23057,7 @@ Acceptance criterion: An associative key storing only get_id numerical values do
 
 Normative role: `definition`。
 
+- [test_weak_reference_reclamation.sv](../tests/ch8/test_weak_reference_reclamation.sv): Keep a numeric ID in the associative array through referent collection and reuse, and verify the old key and the null state of the original views.
 
 ### SV2023-8.30.5-EXTRACT-SIGNATURE
 
@@ -25074,7 +25121,7 @@ Normative role: `definition`。
 
 ### SV2023-9.7-EXTRACT-CONTROL-TARGET-RESTRICTION
 
-`9.7` / `error` / No mapped test
+`9.7` / `error` / Test mapped; execution unconfirmed
 
 kill/await/suspend/resume can target only processes created by initial/always procedures or forks descended from those procedures.
 
@@ -25082,6 +25129,7 @@ Acceptance criterion: kill/await/suspend/resume can target only processes create
 
 Normative role: `mandatory`。
 
+- [test_process_control_target_origins.sv](../tests/ch9/test_process_control_target_origins.sv): Control processes from both permitted procedures and their descendants and reject all four operations on a final procedure handle from a distinct caller.
 
 ### SV2023-9.7-EXTRACT-FINISHED-STATE
 
@@ -46029,7 +46077,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.7-EXTRACT-CONST-FORMAL-SIM
 
-`17.7` / `normal` / No mapped test
+`17.7` / `normal` / Test mapped; execution unconfirmed
 
 Formal tools shall consider all assumption-consistent constant-free-variable values; simulators select a random constant value under 17.7.2.
 
@@ -46037,6 +46085,7 @@ Acceptance criterion: Formal tools shall consider all assumption-consistent cons
 
 Normative role: `mandatory`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): Enumerate legal two-step traces covering all constant values, detect the extra traces caused by reselection, and record the original source’s initial and retained values.
 
 ### SV2023-17.7-EXTRACT-CONST-FREE
 
@@ -46052,7 +46101,7 @@ Normative role: `definition`。
 
 ### SV2023-17.7-EXTRACT-FORMAL-FREE
 
-`17.7` / `normal` / No mapped test
+`17.7` / `normal` / Test mapped; execution unconfirmed
 
 Formal tools shall consider all free-variable values permitted by assumptions and assignments; simulators assign random values under 17.7.2.
 
@@ -46060,10 +46109,11 @@ Acceptance criterion: Formal tools shall consider all free-variable values permi
 
 Normative role: `mandatory`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): Compare the complete formal solution set for assumptions using free variables and a procedurally assigned variable with an independent exhaustive oracle, then replay each two-step solution through the assumptions and record the original choices and assumption verdicts.
 
 ### SV2023-17.7-EXTRACT-FREE-VARIABLE
 
-`17.7` / `normal` / No mapped test
+`17.7` / `normal` / Test mapped; execution unconfirmed
 
 rand checker variables are free variables and may behave nondeterministically.
 
@@ -46071,6 +46121,7 @@ Acceptance criterion: rand checker variables are free variables and may behave n
 
 Normative role: `definition`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): Enumerate multiple legal choices of checker free variables under the same assigned state and constant value, then replay each choice and confirm that the original assumptions hold.
 
 ### SV2023-17.7-EXTRACT-NONCONST-FREE
 
@@ -46305,7 +46356,7 @@ Normative role: `mandatory`。
 
 ### SV2023-17.7.2-EXTRACT-SOLVE-CURRENT-STEP
 
-`17.7.2` / `normal` / No mapped test
+`17.7.2` / `normal` / Test mapped; execution unconfirmed
 
 A solution attempt seeks values of all active checker variables that avoid assumption failure in the current step given inactive values/state.
 
@@ -46313,6 +46364,7 @@ Acceptance criterion: A solution attempt seeks values of all active checker vari
 
 Normative role: `mandatory`。
 
+- [test_checker_free_joint_solutions.sv](../tests/ch17/test_checker_free_joint_solutions.sv): Enumerate joint current-step choices of two free variables for each procedurally assigned state and verify that the contradictory control has no solution and the failure is observed only after the relevant clock edge.
 
 ### SV2023-17.7.2-EXTRACT-SOLVE-FAILURE-FREEDOM
 
@@ -51359,7 +51411,7 @@ Normative role: `definition`。
 
 ### SV2023-19.5.3-EXTRACT-AUTO-IMPLEMENTATION-LIMIT
 
-`19.5.3` / `normal` / No mapped test
+`19.5.3` / `normal` / Execution confirmed
 
 Implementations may limit the number of automatic bins.
 
@@ -51367,6 +51419,7 @@ Acceptance criterion: Implementations may limit the number of automatic bins.
 
 Normative role: `implementation_defined`。
 
+- [test_cg_implementation_automatic_bin_limit.sv](../tests/ch19/test_cg_implementation_automatic_bin_limit.sv): Run the same declaration under different implementation limits and check the diagnostic at the capped declaration, the per-bin hit counts, and the result for an unaffected small domain.
 
 ### SV2023-19.5.3-EXTRACT-AUTO-INTEGRAL-COUNT
 
@@ -71955,7 +72008,7 @@ Normative role: `mandatory`。
 
 ### SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT
 
-`25.9` / `error` / No mapped test
+`25.9` / `error` / Test mapped; execution unconfirmed
 
 After a virtual interface is initialized, its components are available through dot notation only in procedural statements: they shall not be used in continuous assignments or in the sensitivity list of an always, always_comb, or always_ff procedure. A procedural event control such as @(posedge vif.sig) inside a task, function, or initial block is a procedural statement and is permitted.
 
@@ -71963,6 +72016,11 @@ Acceptance criterion: always @(posedge vif.clk) ... and always_comb x = vif.a; u
 
 Normative role: `mandatory`。
 
+- [test_illegal_virtual_interface_component_in_always_event_control.sv](../tests/ch25/test_illegal_virtual_interface_component_in_always_event_control.sv): Check rejection at the explicit always sensitivity list reading the virtual interface signal.
+- [test_illegal_virtual_interface_component_in_always_ff.sv](../tests/ch25/test_illegal_virtual_interface_component_in_always_ff.sv): Check rejection at the explicit always_ff sensitivity list reading the virtual interface signal.
+- [test_illegal_virtual_interface_component_in_always_comb.sv](../tests/ch25/test_illegal_virtual_interface_component_in_always_comb.sv): Read a component of an initialized virtual interface in always_comb and require a diagnostic at the implicit sensitivity stimulus.
+- [test_illegal_virtual_interface_component_in_continuous_assign.sv](../tests/ch25/test_illegal_virtual_interface_component_in_continuous_assign.sv): Check rejection at the continuous assignment reading the virtual interface signal.
+- [test_virtual_interface_procedural_edge_controls.sv](../tests/ch25/test_virtual_interface_procedural_edge_controls.sv): Pulse another instance first, then check that the initial procedure and the task both resume at time 5 with value 47. The always_comb using the concrete interface also yields 47.
 
 ### SV2023-25.9.1-EXTRACT-VIRTUAL-CLOCKING-DRIVE
 
@@ -80109,7 +80167,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.7-EXTRACT-PULSE-LIMIT-SOURCES
 
-`30.7` / `normal` / No mapped test
+`30.7` / `normal` / Test mapped; execution unconfirmed
 
 Pulse limits may be modified using PATHPULSE specparams, invocation percentages or individual SDF annotations.
 
@@ -80117,6 +80175,7 @@ Acceptance criterion: Pulse limits may be modified using PATHPULSE specparams, i
 
 Normative role: `permission`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): Compare distinct transition traces for default delays, global percentages, path-specific PATHPULSE, and an individual SDF annotation.
 
 ### SV2023-30.7-EXTRACT-PULSE-PASS
 
@@ -80229,7 +80288,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.7.2-EXTRACT-GLOBAL-PULSE-ORDER-ERROR
 
-`30.7.2` / `error` / No mapped test
+`30.7.2` / `error` / Test mapped; execution unconfirmed
 
 An error percentage below reject percentage is an error and is corrected to equal the reject percentage.
 
@@ -80237,10 +80296,11 @@ Acceptance criterion: An error percentage below reject percentage is an error an
 
 Normative role: `mandatory`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): Check the diagnostic for an error percentage below the reject percentage and compare the waveforms from both delays after the correction makes the percentages equal.
 
 ### SV2023-30.7.2-EXTRACT-GLOBAL-PULSE-PERCENTAGES
 
-`30.7.2` / `error` / No mapped test
+`30.7.2` / `error` / Test mapped; execution unconfirmed
 
 Global reject/error invocation values are integer percentages from 0 through 100 applied separately to each module transition delay.
 
@@ -80248,10 +80308,11 @@ Acceptance criterion: Global reject/error invocation values are integer percenta
 
 Normative role: `mandatory`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): Accept 0 and 100 as integer bounds and reject out-of-range or fractional values for both options, then compare waveforms using separate percentages of the rise and fall delays.
 
 ### SV2023-30.7.2-EXTRACT-PATHPULSE-OVER-GLOBAL
 
-`30.7.2` / `normal` / No mapped test
+`30.7.2` / `normal` / Test mapped; execution unconfirmed
 
 PATHPULSE values override global pulse-limit invocation options.
 
@@ -80259,6 +80320,7 @@ Acceptance criterion: PATHPULSE values override global pulse-limit invocation op
 
 Normative role: `mandatory`。
 
+- [test_global_pulse_limit_sources.sv](../tests/ch30/test_global_pulse_limit_sources.sv): Verify that the local waveform survives conflicting global percentages and changes in the control that incorrectly applies them to the locally configured path.
 
 ### SV2023-30.7.3-EXTRACT-SDF-PULSE-PRIORITY
 
@@ -80275,7 +80337,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.7.4.1-EXTRACT-GLOBAL-PULSE-STYLE-PRIORITY
 
-`30.7.4.1` / `normal` / No mapped test
+`30.7.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Pulse-style invocation options override specify-block pulse-style declarations.
 
@@ -80283,6 +80345,7 @@ Acceptance criterion: Pulse-style invocation options override specify-block puls
 
 Normative role: `mandatory`。
 
+- [test_specify_pulsestyle_ondetect.sv](../tests/ch30/test_specify_pulsestyle_ondetect.sv): Apply each global pulse style to conflicting local declarations and compare the leading X transition on both paths.
 
 ### SV2023-30.7.4.1-EXTRACT-PULSE-ONDETECT
 
@@ -80335,7 +80398,7 @@ Normative role: `mandatory`。
 
 ### SV2023-30.7.4.2-EXTRACT-GLOBAL-SHOWCANCELLED-PRIORITY
 
-`30.7.4.2` / `normal` / No mapped test
+`30.7.4.2` / `normal` / Test mapped; execution unconfirmed
 
 Showcancelled invocation options override specify-block declarations.
 
@@ -80343,6 +80406,7 @@ Acceptance criterion: Showcancelled invocation options override specify-block de
 
 Normative role: `mandatory`。
 
+- [test_showcancelled_negative_pulse_x.sv](../tests/ch30/test_showcancelled_negative_pulse_x.sv): Override local cancellation settings in both directions and compare whether the negative pulse appears as X.
 
 ### SV2023-30.7.4.2-EXTRACT-NEGATIVE-PULSE-DEFAULT
 
@@ -82334,7 +82398,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.8-EXTRACT-VECTOR-EXPANSION-OPTION
 
-`31.8` / `normal` / No mapped test
+`31.8` / `normal` / Test mapped; execution unconfirmed
 
 An optional simulator mode may expand a one-signal N-bit timing check into N checks or a two-signal M/N-bit check into M*N checks; all expanded checks use the supplied notifier.
 
@@ -82342,6 +82406,7 @@ Acceptance criterion: An optional simulator mode may expand a one-signal N-bit t
 
 Normative role: `permission`。
 
+- [test_vector_timing_check_expansion.sv](../tests/ch31/test_vector_timing_check_expansion.sv): Execute the default vector checks and the per-bit expansion, and verify that every bit and pair shares a notifier and that selected stimuli report only the affected checks.
 
 ### SV2023-31.8-EXTRACT-VECTOR-SINGLE-CHECK
 
@@ -82357,7 +82422,7 @@ Normative role: `mandatory`。
 
 ### SV2023-31.9-EXTRACT-NEGATIVE-CHECK-OPTION
 
-`31.9` / `normal` / No mapped test
+`31.9` / `normal` / Test mapped; execution unconfirmed
 
 Setuphold and recrem accept negative values when the negative-timing-check invocation option is enabled and share the stated negative-limit semantics.
 
@@ -82365,6 +82430,8 @@ Acceptance criterion: Setuphold and recrem accept negative values when the negat
 
 Normative role: `mandatory`。
 
+- [test_negative_setuphold_delayed_condition_roles.sv](../tests/ch31/test_negative_setuphold_delayed_condition_roles.sv): Compare delayed edges and violation windows for a negative first and a negative second limit with checks enabled, then verify that disabling all checks leaves undelayed copies.
+- [test_negative_recrem_delayed_condition_roles.sv](../tests/ch31/test_negative_recrem_delayed_condition_roles.sv): Compare delayed edges and violation windows for a negative first and a negative second limit with checks enabled, then verify that disabling all checks leaves undelayed copies.
 
 ### SV2023-31.9-EXTRACT-NEGATIVE-WINDOW-SHIFT
 
@@ -82526,7 +82593,7 @@ Normative role: `recommendation`。
 
 ### SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITION-ROLE
 
-`31.9.2` / `normal` / No mapped test
+`31.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Timestamp condition applies to the delayed signal transitioning first and timecheck condition to the delayed signal transitioning second.
 
@@ -82534,10 +82601,12 @@ Acceptance criterion: Timestamp condition applies to the delayed signal transiti
 
 Normative role: `mandatory`。
 
+- [test_negative_setuphold_delayed_condition_roles.sv](../tests/ch31/test_negative_setuphold_delayed_condition_roles.sv): Switch the conditions when either delayed data or delayed clock arrives first, and check that swapping the conditions prevents notification.
+- [test_negative_recrem_delayed_condition_roles.sv](../tests/ch31/test_negative_recrem_delayed_condition_roles.sv): Switch the conditions when either delayed data or delayed clock arrives first, and check that swapping the conditions prevents notification.
 
 ### SV2023-31.9.2-EXTRACT-NEGATIVE-CONDITIONS-NOT-DELAYED
 
-`31.9.2` / `normal` / No mapped test
+`31.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Only reference/data signals receive simulator-created delays; condition signals do not, and delayed conditions may instead be functions of explicitly delayed signals.
 
@@ -82545,6 +82614,8 @@ Acceptance criterion: Only reference/data signals receive simulator-created dela
 
 Normative role: `mandatory`。
 
+- [test_negative_setuphold_delayed_condition_roles.sv](../tests/ch31/test_negative_setuphold_delayed_condition_roles.sv): Detect the changed verdict when conditions are delayed implicitly and compare a condition derived from an explicit delayed signal with one derived from the raw signal.
+- [test_negative_recrem_delayed_condition_roles.sv](../tests/ch31/test_negative_recrem_delayed_condition_roles.sv): Detect the changed verdict when conditions are delayed implicitly and compare a condition derived from an explicit delayed signal with one derived from the raw signal.
 
 ### SV2023-31.9.3-EXTRACT-NEGATIVE-NOTIFIER-TIME
 
@@ -84766,7 +84837,7 @@ Normative role: `mandatory`。
 
 ### SV2023-33.5-EXTRACT-CONFIG-PRECOMPILED-SUPPORT
 
-`33.5` / `normal` / No mapped test
+`33.5` / `normal` / Test mapped; execution unconfirmed
 
 Configuration mechanisms support use of precompiled source-design objects as well as source-file-based simulation workflows.
 
@@ -84774,6 +84845,7 @@ Acceptance criterion: Configuration mechanisms support use of precompiled source
 
 Normative role: `mandatory`。
 
+- [test_config_precompiled_cells.sv](../tests/ch33/test_config_precompiled_cells.sv) : Use the same configurations with source inputs and compiled cells. Compare the Slang hierarchy and Ghost output with the independent binding and Yosys proofs, then verify that selecting the alternate configuration swaps both outputs.
 
 ### SV2023-33.5.1-EXTRACT-SINGLE-PASS-PERSISTENCE
 
@@ -84816,7 +84888,7 @@ Normative role: `permission`。
 
 ### SV2023-33.5.3-EXTRACT-SEPARATE-COMPILE-MODEL
 
-`33.5.3` / `normal` / No mapped test
+`33.5.3` / `normal` / Test mapped; execution unconfirmed
 
 In a separate-compiler workflow, compiled cells persist in tool-specific filesystem form, every needed cell must be compiled before binding and binding descends using those precompiled cells.
 
@@ -84824,6 +84896,8 @@ Acceptance criterion: In a separate-compiler workflow, compiled cells persist in
 
 Normative role: `mandatory`。
 
+- [test_config_precompiled_cells.sv](../tests/ch33/test_config_precompiled_cells.sv) : Persist separately compiled cells and configurations on disk. After removing the sources, a new process descends two levels and binds different descendants of the same worker object. Withholding a required leaf fails at its hierarchy path.
+- [test_config_precompiled_transitive_cells.sv](../tests/ch33/test_config_precompiled_transitive_cells.sv) : Read the two child paths from the compiled intermediate cell, bind their leaves and compare both outputs. Removing the intermediate cell stops binding at its path.
 
 ### SV2023-33.5.4-EXTRACT-CONFIG-COMMAND-LINE
 
@@ -85165,7 +85239,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYNAME
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword data_keyname names data key.
 
@@ -85173,10 +85247,11 @@ Acceptance criterion: Protect keyword data_keyname names data key.
 
 Normative role: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Change the body key name under the same owner and check that the newly named key alone opens the body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-KEYOWNER
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword data_keyowner names data-key owner.
 
@@ -85184,6 +85259,7 @@ Acceptance criterion: Protect keyword data_keyowner names data-key owner.
 
 Normative role: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Distinguish two owners who share a body key name and verify that the named owner can decrypt the body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-METHOD
 
@@ -85199,7 +85275,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DATA-PUBLIC-KEY
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword data_public_key provides body encryption public key.
 
@@ -85207,6 +85283,7 @@ Acceptance criterion: Protect keyword data_public_key provides body encryption p
 
 Normative role: `definition`。
 
+- [test_protect_data_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_data_public_key_matches_owner_and_name.sv): Decode the body public key on the next line and verify that it selects the matching private key when the name is omitted.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DECRYPT-LICENSE
 
@@ -85235,7 +85312,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-DECRYPT-KEY
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword digest_decrypt_key provides digest session key.
 
@@ -85243,6 +85320,7 @@ Acceptance criterion: Protect keyword digest_decrypt_key provides digest session
 
 Normative role: `definition`。
 
+- [test_protect_author_digest_wraps_explicit_key.sv](../tests/ch34/test_protect_author_digest_wraps_explicit_key.sv): Recover the explicit digest session key and verify the digest with that key independently of the body key.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-KEY-METHOD
 
@@ -85296,7 +85374,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-DIGEST-PUBLIC-KEY
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword digest_public_key provides digest encryption public key.
 
@@ -85304,6 +85382,7 @@ Acceptance criterion: Protect keyword digest_public_key provides digest encrypti
 
 Normative role: `definition`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): Verify explicit and inherited digest public keys and detect a mismatch between a key name and public key.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-ENCODING
 
@@ -85416,7 +85495,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-KEY-PUBLIC-KEY
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword key_public_key provides key-encryption public key.
 
@@ -85424,10 +85503,11 @@ Acceptance criterion: Protect keyword key_public_key provides key-encryption pub
 
 Normative role: `definition`。
 
+- [test_protect_exchange_public_key_matches_owner_and_name.sv](../tests/ch34/test_protect_exchange_public_key_matches_owner_and_name.sv): Read the exchange public key on the next line, unwrap the body session key with the matching private key, and verify the body.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-RESET
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword reset restores keyword defaults.
 
@@ -85435,6 +85515,7 @@ Acceptance criterion: Protect keyword reset restores keyword defaults.
 
 Normative role: `definition`。
 
+- [test_protect_reset_restores_default_before_reconfiguration.sv](../tests/ch34/test_protect_reset_restores_default_before_reconfiguration.sv): Set Base64, reset the pragma state, and verify the default encoding and the subsequently configured uuencode using separate removal and invalid-payload controls.
 
 ### SV2023-34.4-EXTRACT-KEYWORD-RUNTIME-LICENSE
 
@@ -85451,7 +85532,7 @@ Normative role: `definition`。
 
 ### SV2023-34.4-EXTRACT-KEYWORD-VIEWPORT
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 Protect keyword viewport controls protected-region access.
 
@@ -85459,10 +85540,12 @@ Acceptance criterion: Protect keyword viewport controls protected-region access.
 
 Normative role: `definition`。
 
+- [test_protect_viewport_uses_current_envelope.sv](../tests/ch34/test_protect_viewport_uses_current_envelope.sv): Verify that the viewport permits reading its named value, and prevents reads through that viewport of an unlisted value or a value exposed only by another envelope.
+- [test_protect_viewport_keeps_access_after_reordering.sv](../tests/ch34/test_protect_viewport_keeps_access_after_reordering.sv): Reverse envelope and instance order and verify that viewport reads still use the permissions of the corresponding region.
 
 ### SV2023-34.4-EXTRACT-PROTECT-DEFAULTS
 
-`34.4` / `normal` / No mapped test
+`34.4` / `normal` / Test mapped; execution unconfirmed
 
 An absent envelope keyword uses its specified default.
 
@@ -85470,6 +85553,7 @@ Acceptance criterion: An absent envelope keyword uses its specified default.
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_defaults_follow_data.sv](../tests/ch34/test_protect_digest_defaults_follow_data.sv): Omit each digest setting with an explicit default and use decryption to verify that it follows the current data settings in both configurations.
 
 ### SV2023-34.4-EXTRACT-PROTECT-LEXICAL-REGION
 
@@ -85573,7 +85657,7 @@ Normative role: `permission`。
 
 ### SV2023-34.5.1.2-EXTRACT-ENVELOPE-SELF-CONTAINED
 
-`34.5.1.2` / `normal` / No mapped test
+`34.5.1.2` / `normal` / Test mapped; execution unconfirmed
 
 Protected envelopes should be self-contained to avoid cross-model interactions.
 
@@ -85581,6 +85665,7 @@ Acceptance criterion: Protected envelopes should be self-contained to avoid cros
 
 Normative role: `recommendation`。
 
+- [test_protect_independent_models_and_comments.sv](../tests/ch34/test_protect_independent_models_and_comments.sv): Open two models with different keys and encodings alone, adjacent, and reordered, and reject an omitted local cipher with the neighboring envelope still present.
 
 ### SV2023-34.5.1.2-EXTRACT-NO-ENCRYPTION-NESTING
 
@@ -85892,7 +85977,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-EXTENSIONS
 
-`34.5.9.2` / `normal` / No mapped test
+`34.5.9.2` / `normal` / Test mapped; execution unconfirmed
 
 Required encodings are available in every implementation; optional recognized identifiers must use their specified algorithms and extra algorithms/identifiers are implementation-defined.
 
@@ -85900,6 +85985,7 @@ Acceptance criterion: Required encodings are available in every implementation; 
 
 Normative role: `definition`。
 
+- [test_protect_registered_algorithm_extensions.sv](../tests/ch34/test_protect_registered_algorithm_extensions.sv): Check required and optional standard encodings, recover the body through the extra hexadecimal encoding, and reject the descriptor when that encoding is unregistered.
 
 ### SV2023-34.5.9.2-EXTRACT-ENCODING-INPUT
 
@@ -86040,7 +86126,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.10.2-EXTRACT-OWNER-UNIQUE-KEYS
 
-`34.5.10.2` / `normal` / No mapped test
+`34.5.10.2` / `normal` / Test mapped; execution unconfirmed
 
 data_keyname, data_decrypt_key and data_public_key values must be unique for the selected data_keyowner.
 
@@ -86048,6 +86134,7 @@ Acceptance criterion: data_keyname, data_decrypt_key and data_public_key values 
 
 Normative role: `mandatory`。
 
+- [test_protect_key_values_unique_within_owner.sv](../tests/ch34/test_protect_key_values_unique_within_owner.sv): Repeat the data key name, decryption key, and public key one at a time within an owner and check rejection at each field, then change the owner to reuse the same name and material, and compare the restored model output.
 
 ### SV2023-34.5.11.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86161,7 +86248,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-EXTENSIONS
 
-`34.5.11.2` / `normal` / No mapped test
+`34.5.11.2` / `normal` / Test mapped; execution unconfirmed
 
 All implementations support the required Table 34-3 method; optional supported ciphers use the standardized identifiers, and additional cipher identifiers are implementation-defined.
 
@@ -86169,6 +86256,7 @@ Acceptance criterion: All implementations support the required Table 34-3 method
 
 Normative role: `implementation_defined`。
 
+- [test_protect_registered_algorithm_extensions.sv](../tests/ch34/test_protect_registered_algorithm_extensions.sv): Check required DES and optional standard CBC methods, then verify the implementation-defined AES-CTR method against a known answer, recover the body, and reject an unregistered cipher.
 
 ### SV2023-34.5.11.2-EXTRACT-ALGORITHM-PGP-RSA
 
@@ -86609,7 +86697,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-OUTPUT-TEXT
 
-`34.5.16.2` / `normal` / No mapped test
+`34.5.16.2` / `normal` / Test mapped; execution unconfirmed
 
 On encryption output the digest_keyowner is copied unchanged, except when a digital signature is used: then it is encrypted with digest_key_method and carried inside the key_block. The 34.4 keyword set defines key_block and no digest_key_block, so the container is key_block.
 
@@ -86617,10 +86705,11 @@ Acceptance criterion: Without a digital signature the output file carries digest
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): Verify that an unsigned envelope preserves the digest key owner in clear text and a signed envelope exposes it only after the recipient opens the key block.
 
 ### SV2023-34.5.16.2-EXTRACT-DIGEST-OWNER-UNIQUE
 
-`34.5.16.2` / `normal` / No mapped test
+`34.5.16.2` / `normal` / Test mapped; execution unconfirmed
 
 digest_keyname, digest_decrypt_key and digest_public_key values must be unique for the selected digest_keyowner.
 
@@ -86628,6 +86717,7 @@ Acceptance criterion: digest_keyname, digest_decrypt_key and digest_public_key v
 
 Normative role: `mandatory`。
 
+- [test_protect_key_values_unique_within_owner.sv](../tests/ch34/test_protect_key_values_unique_within_owner.sv): Repeat the digest key name, decryption key, and public key one at a time within an owner and check rejection at each field, then change the owner to reuse the same name and material, and compare the recovered digest.
 
 ### SV2023-34.5.17.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86669,7 +86759,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.17.2-EXTRACT-DIGEST-CIPHER-OUTPUT
 
-`34.5.17.2` / `normal` / No mapped test
+`34.5.17.2` / `normal` / Test mapped; execution unconfirmed
 
 Preserve digest_key_method in output except in the stated signature case, where key_method and the key in key_block encrypt it.
 
@@ -86677,6 +86767,7 @@ Acceptance criterion: Preserve digest_key_method in output except in the stated 
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): Verify that the digest cipher stays in the clear for an unsigned envelope, moves to the key block for a signed envelope, and decrypts the digest in both cases.
 
 ### SV2023-34.5.18.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86693,7 +86784,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME
 
-`34.5.18.2` / `error` / No mapped test
+`34.5.18.2` / `error` / Test mapped; execution unconfirmed
 
 digest_keyname names the digest decryption key/pair, defaults to current data_keyname if absent, and an unknown name for digest_keyowner is an error.
 
@@ -86701,6 +86792,7 @@ Acceptance criterion: digest_keyname names the digest decryption key/pair, defau
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_public_key_inherits_data_identity.sv](../tests/ch34/test_protect_digest_public_key_inherits_data_identity.sv): Omit only the digest key name, resolve the inherited data key name under the explicit owner, and check rejection of unknown names.
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-DECRYPT
 
@@ -86717,7 +86809,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.18.2-EXTRACT-DIGEST-NAME-OUTPUT
 
-`34.5.18.2` / `normal` / No mapped test
+`34.5.18.2` / `normal` / Test mapped; execution unconfirmed
 
 For encryption select the key with digest_keyname and digest_keyowner; preserve the name cleartext except digital envelope key_method with key_keyname/key_public_key encrypts it in key_block.
 
@@ -86725,6 +86817,7 @@ Acceptance criterion: For encryption select the key with digest_keyname and dige
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): Select the digest key by both owner and name and verify that the name is clear for an unsigned envelope and inside the recipient key block for a signed envelope.
 
 ### SV2023-34.5.19.1-EXTRACT-KEYWORD-SYNTAX
 
@@ -86868,7 +86961,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-EXTENSIONS
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 Additional digest identifiers beyond Table 34-4 are implementation-defined.
 
@@ -86876,6 +86969,7 @@ Acceptance criterion: Additional digest identifiers beyond Table 34-4 are implem
 
 Normative role: `implementation_defined`。
 
+- [test_protect_registered_algorithm_extensions.sv](../tests/ch34/test_protect_registered_algorithm_extensions.sv): Verify the standard digest vectors, authenticate the body with the separately registered SHA-256 identifier, and check rejection when it is unregistered.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-MD2
 
@@ -86927,7 +87021,7 @@ Normative role: `mandatory`。
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-METHOD-OUTPUT
 
-`34.5.21.2` / `normal` / No mapped test
+`34.5.21.2` / `normal` / Test mapped; execution unconfirmed
 
 Preserve digest_method in output except the stated signature case, where key_method encrypts it in key_block.
 
@@ -86935,6 +87029,7 @@ Acceptance criterion: Preserve digest_method in output except the stated signatu
 
 Normative role: `mandatory`。
 
+- [test_protect_digest_metadata_placement.sv](../tests/ch34/test_protect_digest_metadata_placement.sv): Verify that the digest algorithm is clear for an unsigned envelope and inside the key block for a signed envelope, and use the recovered algorithm to verify the body.
 
 ### SV2023-34.5.21.2-EXTRACT-DIGEST-RIPEMD-160
 
@@ -87471,7 +87566,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.30.2-EXTRACT-COMMENT-ANYWHERE
 
-`34.5.30.2` / `normal` / No mapped test
+`34.5.30.2` / `normal` / Test mapped; execution unconfirmed
 
 comment may occur anywhere in input; even within begin-end, output its value as cleartext comment immediately before the corresponding data_block.
 
@@ -87479,6 +87574,7 @@ Acceptance criterion: comment may occur anywhere in input; even within begin-end
 
 Normative role: `mandatory`。
 
+- [test_protect_independent_models_and_comments.sv](../tests/ch34/test_protect_independent_models_and_comments.sv): Export comments before the opening, from included source, and before the closing immediately ahead of their own data blocks, and check that they appear once and stay out of the encrypted bodies.
 
 ### SV2023-34.5.30.2-EXTRACT-COMMENT-NOT-ENCRYPTED
 
@@ -87559,7 +87655,7 @@ Normative role: `definition`。
 
 ### SV2023-34.5.32.2-EXTRACT-VIEWPORT-ACCESS
 
-`34.5.32.2` / `normal` / No mapped test
+`34.5.32.2` / `normal` / Test mapped; execution unconfirmed
 
 viewport access is an implementation-specific relaxation of protection.
 
@@ -87567,10 +87663,12 @@ Acceptance criterion: viewport access is an implementation-specific relaxation o
 
 Normative role: `implementation_defined`。
 
+- [test_protect_viewport_uses_current_envelope.sv](../tests/ch34/test_protect_viewport_uses_current_envelope.sv): Run the same access string with read-only and read/write reference policies, and check the resulting values after the allowed and denied writes.
+- [test_protect_viewport_keeps_access_after_reordering.sv](../tests/ch34/test_protect_viewport_keeps_access_after_reordering.sv): Reverse envelope order and check that write permission and the resulting value still follow the two reference policies for the same access string.
 
 ### SV2023-34.5.32.2-EXTRACT-VIEWPORT-OBJECT
 
-`34.5.32.2` / `normal` / No mapped test
+`34.5.32.2` / `normal` / Test mapped; execution unconfirmed
 
 viewport grants tool access to named objects in the current protected envelope; the named object must be contained in that envelope.
 
@@ -87578,6 +87676,8 @@ Acceptance criterion: viewport grants tool access to named objects in the curren
 
 Normative role: `mandatory`。
 
+- [test_protect_viewport_uses_current_envelope.sv](../tests/ch34/test_protect_viewport_uses_current_envelope.sv): Resolve object ownership by declaration location in two decrypted models, and verify the current envelope grants access while adjacent, clear, and unknown names are rejected independently.
+- [test_protect_viewport_keeps_access_after_reordering.sv](../tests/ch34/test_protect_viewport_keeps_access_after_reordering.sv): Check declaration ownership in both decrypted envelopes in reverse order and verify that the three targets outside the current envelope are rejected.
 
 ### SV2023-35.2-EXTRACT-BLACK-BOX-LINKAGE
 
@@ -90934,7 +91034,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2-EXTRACT-TWO-MECHANISMS
 
-`36.12.2` / `normal` / No mapped test
+`36.12.2` / `normal` / Test mapped; execution unconfirmed
 
 Provide both compile-bound compatibility and host default compatibility mechanisms, usable together.
 
@@ -90942,6 +91042,7 @@ Acceptance criterion: Provide both compile-bound compatibility and host default 
 
 Normative role: `mandatory`。
 
+- [test_vpi_host_default_and_compile_bound_modes.sv](../tests/ch36/test_vpi_host_default_and_compile_bound_modes.sv): Load applications using the host default alongside applications with compile-bound modes in one simulation, then compare the memory type, word type, and variable iteration results.
 
 ### SV2023-36.12.2.1-EXTRACT-BOUND-RETARGET
 
@@ -91247,7 +91348,7 @@ Normative role: `mandatory`。
 
 ### SV2023-36.12.2.2-EXTRACT-HOST-DEFAULT-MODE
 
-`36.12.2.2` / `normal` / No mapped test
+`36.12.2.2` / `normal` / Test mapped; execution unconfirmed
 
 Provide one host-selectable default VPI compatibility mode per simulation run for applications without compile-bound selection. Apps requiring other modes in the same run must use compile-bound selection.
 
@@ -91255,6 +91356,8 @@ Acceptance criterion: Provide one host-selectable default VPI compatibility mode
 
 Normative role: `mandatory`。
 
+- [test_vpi_host_default_and_compile_bound_modes.sv](../tests/ch36/test_vpi_host_default_and_compile_bound_modes.sv): Reuse the same unbound libraries across default mode selections and verify the common default for both applications, the mid-run environment edit, and the ambiguous selection control.
+- [test_vpi_host_default_reversed_library_order.sv](../tests/ch36/test_vpi_host_default_reversed_library_order.sv) : Reuse the two unbound libraries without compile-bound companions and reverse their load order. Both applications must still use the same host default and read the same value.
 
 ### SV2023-36.12.3-EXTRACT-UNSUPPORTED-CONSTRUCTS
 
@@ -91462,7 +91565,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.2.2-EXTRACT-CLASS-RELEASE
 
-`37.2.2` / `normal` / No mapped test
+`37.2.2` / `normal` / Test mapped; execution unconfirmed
 
 Reclaiming a class object releases its handles, automatic member/subelement handles and callbacks; static local task/function variables do not die merely with a frame/thread.
 
@@ -91470,6 +91573,8 @@ Acceptance criterion: Reclaiming a class object releases its handles, automatic 
 
 Normative role: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): Check release of handles owned by the reclaimed object and continued use of the typespec and its callback.
+- [test_vpi_lifetime_properties.sv](../tests/ch37/test_vpi_lifetime_properties.sv): Read the static local through its handle after the automatic task ends and receive the next call’s value change through the original registration.
 
 ### SV2023-37.2.2-EXTRACT-FRAME-THREAD-RELEASE
 
@@ -91509,7 +91614,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.2.2-EXTRACT-RESTART-RELEASE
 
-`37.2.2` / `normal` / No mapped test
+`37.2.2` / `normal` / Test mapped; execution unconfirmed
 
 Simulation restart releases every handle except cbStartOfRestart and cbEndOfRestart callback handles.
 
@@ -91517,6 +91622,7 @@ Acceptance criterion: Simulation restart releases every handle except cbStartOfR
 
 Normative role: `mandatory`。
 
+- [test_vpi_restart_releases_previous_handles.sv](../tests/ch37/test_vpi_restart_releases_previous_handles.sv): Check the old object and callback handles after restoring a checkpoint, and verify that only the two restart callback handles survive using a no-restart control, freshly acquired handles, and callback delivery after resumption.
 
 ### SV2023-37.2.3-EXTRACT-HANDLE-IDENTITY
 
@@ -91544,7 +91650,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3-EXTRACT-MODEL-ACCESS
 
-`37.3` / `normal` / No mapped test
+`37.3` / `normal` / Execution confirmed
 
 VPI must expose the diagrammed objects, relationships and properties; group relationships/properties apply to every group member.
 
@@ -91552,6 +91658,7 @@ Acceptance criterion: VPI must expose the diagrammed objects, relationships and 
 
 Normative role: `mandatory`。
 
+- [test_vpi_diagram_access.sv](../tests/ch37/test_vpi_diagram_access.sv): Read the common names and variables of all four instance kinds and check each variable owner. On scalar and vector nets, check names, widths, Boolean properties, and their module relationship.
 
 ### SV2023-37.3-EXTRACT-TRANSITION-NAME
 
@@ -91779,7 +91886,7 @@ Normative role: `definition`。
 
 ### SV2023-37.3.6-EXTRACT-PROTECTED-ACCESS
 
-`37.3.6` / `error` / No mapped test
+`37.3.6` / `error` / Test mapped; execution unconfirmed
 
 Protected relationship/property access is an error unless expressly allowed; vpiType and vpiIsProtected remain accessible for every protected object, and complex-property exceptions follow the API.
 
@@ -91787,10 +91894,11 @@ Acceptance criterion: Protected relationship/property access is an error unless 
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Read the type and protection flag for the same array in both layouts and verify that size and parent access fail in the protected layout.
 
 ### SV2023-37.3.6-EXTRACT-PROTECTED-FLAG
 
-`37.3.6` / `normal` / No mapped test
+`37.3.6` / `normal` / Test mapped; execution unconfirmed
 
 Every object exposes vpiIsProtected: true iff it represents code inside a decryption envelope.
 
@@ -91798,6 +91906,7 @@ Acceptance criterion: Every object exposes vpiIsProtected: true iff it represent
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Move the recovered ranges and check that the protection flags flip for the same arrays, class references, modules and calls while the outer module stays clear.
 
 ### SV2023-37.3.7-EXTRACT-ALLOCATION-SCHEME
 
@@ -91825,7 +91934,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3.7-EXTRACT-DYNAMIC-LIFETIME
 
-`37.3.7` / `normal` / No mapped test
+`37.3.7` / `normal` / Test mapped; execution unconfirmed
 
 A class object and its instance members/methods live from new until automatic reclamation; a frame automatic variable lives from frame creation by a call until frame destruction.
 
@@ -91833,10 +91942,12 @@ Acceptance criterion: A class object and its instance members/methods live from 
 
 Normative role: `mandatory`。
 
+- [test_vpi_automatic_frame_lifetime.sv](../tests/ch37/test_vpi_automatic_frame_lifetime.sv): Read the initial values of the automatic locals and bit in both calls and check that only the first returning frame and its locals disappear while its thread stays live.
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): Read the constructed object’s array element through an instance method and check that reclamation retires the object, member, array element, and method handles together.
 
 ### SV2023-37.3.7-EXTRACT-OTHER-TRANSIENT
 
-`37.3.7` / `normal` / No mapped test
+`37.3.7` / `normal` / Execution confirmed
 
 Threads, obsolete/out-of-scope thread references, iterators, scheduled events and callbacks are transient object kinds.
 
@@ -91844,6 +91955,7 @@ Acceptance criterion: Threads, obsolete/out-of-scope thread references, iterator
 
 Normative role: `definition`。
 
+- [test_vpi_other_transient_objects.sv](../tests/ch37/test_vpi_other_transient_objects.sv): Read the outdated array element and block-scoped reference, then observe thread termination after scope exit, the terminal iterator scan, scheduled event delivery and handle release, and delivery of the retained callback.
 
 ### SV2023-37.3.7-EXTRACT-SOURCE-STATIC-LIFETIME
 
@@ -91859,7 +91971,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.3.8-EXTRACT-LIFETIME-CALLBACKS
 
-`37.3.8` / `normal` / No mapped test
+`37.3.8` / `normal` / Test mapped; execution unconfirmed
 
 Object-specific lifecycle callbacks include cbCreateObj, cbReclaimObj, cbStartofFrame, cbEndOfFrame, cbStartOfThread, cbEndOfThread and cbEndOfObject, subject to object/API eligibility.
 
@@ -91867,6 +91979,8 @@ Acceptance criterion: Object-specific lifecycle callbacks include cbCreateObj, c
 
 Normative role: `definition`。
 
+- [test_vpi_automatic_frame_lifetime.sv](../tests/ch37/test_vpi_automatic_frame_lifetime.sv): Check the start and end callbacks at actual frame and thread boundaries, observe the generic end callback on both, and reject start callbacks registered on the other object type.
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): Check the typespec callback after construction, the typespec and individual callbacks at collection, and the generic end callback on the individual object.
 
 ### SV2023-37.3.8-EXTRACT-TRANSIENT-HANDLE
 
@@ -91882,7 +91996,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.4.1-EXTRACT-CLASS-REFERENCE-KEY
 
-`37.4.1` / `normal` / No mapped test
+`37.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Italic dotted labels reference groups/classes; unnamed dotted enclosures group objects locally and cannot be referenced as a named group elsewhere.
 
@@ -91890,10 +92004,11 @@ Acceptance criterion: Italic dotted labels reference groups/classes; unnamed dot
 
 Normative role: `definition`。
 
+- [test_vpi_diagram_access.sv](../tests/ch37/test_vpi_diagram_access.sv): Resolve the italic class reference to its named group in the standard diagram. Check that the dotted anonymous group contains two members and cannot be resolved through their names.
 
 ### SV2023-37.4.1-EXTRACT-OBJECT-CLASS-KEY
 
-`37.4.1` / `normal` / No mapped test
+`37.4.1` / `normal` / Test mapped; execution unconfirmed
 
 Bold solid-enclosed labels define objects and their properties; ordinary solid labels reference objects. Bold italic dotted enclosures define object groups/classes and their properties; groups may contain other groups and object definitions.
 
@@ -91901,6 +92016,7 @@ Acceptance criterion: Bold solid-enclosed labels define objects and their proper
 
 Normative role: `definition`。
 
+- [test_vpi_diagram_definition_symbols.sv](../tests/ch37/test_vpi_diagram_definition_symbols.sv): Classify definitions and references using solid and dotted outlines and their typefaces, and check the class and object symbols nested in a named group.
 
 ### SV2023-37.4.2-EXTRACT-COMPLEX-KEY
 
@@ -92672,7 +92788,7 @@ Normative role: `definition`。
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-011
 
-`37.6` / `normal` / No mapped test
+`37.6` / `normal` / Test mapped; execution unconfirmed
 
 37.6 defines a one-to-many relation from interface to module path, using the untagged module path access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -92680,10 +92796,11 @@ Acceptance criterion: 37.6 defines a one-to-many relation from interface to modu
 
 Normative role: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): Enumerate two paths from one interface and one from the other and check that each input and output endpoint belongs to its own interface.
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-012
 
-`37.6` / `normal` / No mapped test
+`37.6` / `normal` / Test mapped; execution unconfirmed
 
 37.6 defines a one-to-one relation from module path to interface, using tag vpiInstance; traverse with vpi_handle and the stated special-case constraints.
 
@@ -92691,6 +92808,7 @@ Acceptance criterion: 37.6 defines a one-to-one relation from module path to int
 
 Normative role: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): Resolve each of the three paths back to its own interface and check that none refers to the neighboring interface.
 
 ### SV2023-37.6-EXTRACT-DIAGRAM-013
 
@@ -93054,7 +93172,7 @@ Normative role: `definition`。
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-010
 
-`37.9` / `normal` / No mapped test
+`37.9` / `normal` / Test mapped; execution unconfirmed
 
 37.9 defines a one-to-many relation from program to interface, using the untagged interface access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93062,10 +93180,11 @@ Acceptance criterion: 37.9 defines a one-to-many relation from program to interf
 
 Normative role: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): Enumerate the intended scalar interface from each program and exclude both the other program’s interface and the connected physical interface.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-011
 
-`37.9` / `normal` / No mapped test
+`37.9` / `normal` / Test mapped; execution unconfirmed
 
 37.9 defines a one-to-one relation from interface to program, using tag vpiInstance; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93073,10 +93192,11 @@ Acceptance criterion: 37.9 defines a one-to-one relation from interface to progr
 
 Normative role: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): Resolve each scalar interface back to its program and check that the connected physical interface resolves to the module.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-012
 
-`37.9` / `normal` / No mapped test
+`37.9` / `normal` / Test mapped; execution unconfirmed
 
 37.9 defines a one-to-many relation from program to interface array, using the untagged interface array access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -93084,10 +93204,11 @@ Acceptance criterion: 37.9 defines a one-to-many relation from program to interf
 
 Normative role: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): Enumerate the interface array of each program, exclude other arrays, and resolve the same two elements by index.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-013
 
-`37.9` / `normal` / No mapped test
+`37.9` / `normal` / Test mapped; execution unconfirmed
 
 37.9 defines a one-to-one relation from interface array to program, using tag vpiInstance; traverse with vpi_handle and the stated special-case constraints.
 
@@ -93095,6 +93216,7 @@ Acceptance criterion: 37.9 defines a one-to-one relation from interface array to
 
 Normative role: `definition`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): Resolve each interface array back to the assigned program and check that the control array resolves to the module.
 
 ### SV2023-37.9-EXTRACT-DIAGRAM-014
 
@@ -95693,7 +95815,7 @@ Normative role: `definition`。
 
 ### SV2023-37.14-EXTRACT-DIAGRAM-021
 
-`37.14` / `normal` / No mapped test
+`37.14` / `normal` / Test mapped; execution unconfirmed
 
 Ports support indexed/multi-indexed access and get/put_delays for module input port delays, subject to the port-type exceptions.
 
@@ -95701,6 +95823,7 @@ Acceptance criterion: Ports support indexed/multi-indexed access and get/put_del
 
 Normative role: `definition`。
 
+- [test_vpi_indexed_ports_and_input_delays.sv](../tests/ch37/test_vpi_indexed_ports_and_input_delays.sv): Exercise single and multiple indices, an out-of-range control, and delay writes and readbacks on ordinary input ports, then compare signal arrival times with an adjacent input as the control.
 
 ### SV2023-37.14-EXTRACT-INTERFACE-NO-DELAY
 
@@ -103118,7 +103241,7 @@ Normative role: `definition`。
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-007
 
-`37.34` / `normal` / No mapped test
+`37.34` / `normal` / Test mapped; execution unconfirmed
 
 constraint exposes vpiVirtual as Boolean, representing virtual constraint; access it with the appropriate property routine under 37.3.1.
 
@@ -103126,6 +103249,7 @@ Acceptance criterion: constraint exposes vpiVirtual as Boolean, representing vir
 
 Normative role: `definition`。
 
+- [test_vpi_pattern_constraint_properties.sv](../tests/ch37/test_vpi_pattern_constraint_properties.sv): Distinguish the pure declaration and the concrete final control through independent HDL analysis and check the true and false Boolean values on the actual constraint objects.
 
 ### SV2023-37.34-EXTRACT-DIAGRAM-008
 
@@ -104333,7 +104457,7 @@ Normative role: `definition`。
 
 ### SV2023-37.39-EXTRACT-INTERFACE-SPECIFY-MODULE
 
-`37.39` / `normal` / No mapped test
+`37.39` / `normal` / Test mapped; execution unconfirmed
 
 For specify paths in an interface, the compatibility vpiModule relation returns NULL; vpiInstance accesses the actual module/interface.
 
@@ -104341,6 +104465,7 @@ Acceptance criterion: For specify paths in an interface, the compatibility vpiMo
 
 Normative role: `mandatory`。
 
+- [test_vpi_interface_ownership.sv](../tests/ch37/test_vpi_interface_ownership.sv): Check null legacy module links and live instance links for the three interface paths, with two ordinary module paths as controls.
 
 ### SV2023-37.39-EXTRACT-PREFER-INSTANCE
 
@@ -104621,7 +104746,7 @@ Normative role: `definition`。
 
 ### SV2023-37.41-EXTRACT-DIAGRAM-008
 
-`37.41` / `normal` / No mapped test
+`37.41` / `normal` / Test mapped; execution unconfirmed
 
 37.41 defines a one-to-one relation from task/function to reference object, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -104629,6 +104754,7 @@ Acceptance criterion: 37.41 defines a one-to-one relation from task/function to 
 
 Normative role: `definition`。
 
+- [test_vpi_task_reference_parent.sv](../tests/ch37/test_vpi_task_reference_parent.sv): Check parent identity for a task and a function with identically named reference formals and detect exchanging their parent objects.
 
 ### SV2023-37.41-EXTRACT-DIAGRAM-009
 
@@ -105330,7 +105456,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.42-EXTRACT-PROTECTED-SYSTEM-ARGUMENTS
 
-`37.42` / `normal` / No mapped test
+`37.42` / `normal` / Test mapped; execution unconfirmed
 
 Protected system task/function calls still permit vpiArgument iteration.
 
@@ -105338,6 +105464,7 @@ Acceptance criterion: Protected system task/function calls still permit vpiArgum
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Verify protection on both a system task and a system function, then obtain an argument iterator and scan every argument for both.
 
 ### SV2023-37.42-EXTRACT-SYSTEM-CALL-DECOMPILE
 
@@ -108862,7 +108989,7 @@ Normative role: `mandatory`。
 
 ### SV2023-37.59-EXTRACT-PROTECTED-EXPRESSION-SIZE
 
-`37.59` / `normal` / No mapped test
+`37.59` / `normal` / Test mapped; execution unconfirmed
 
 Protected expressions permit querying vpiSize.
 
@@ -108870,6 +108997,7 @@ Acceptance criterion: Protected expressions permit querying vpiSize.
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Read the protection flags and object kinds on an operation and a constant, and compare their accessible expression widths.
 
 ### SV2023-37.59-EXTRACT-UNBOUNDED-CONSTANT
 
@@ -110253,7 +110381,7 @@ Normative role: `definition`。
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-013
 
-`37.72` / `normal` / No mapped test
+`37.72` / `normal` / Test mapped; execution unconfirmed
 
 struct pattern exposes vpiName as string, representing pattern name; access it with the appropriate property routine under 37.3.1.
 
@@ -110261,6 +110389,7 @@ Acceptance criterion: struct pattern exposes vpiName as string, representing pat
 
 Normative role: `definition`。
 
+- [test_vpi_pattern_constraint_properties.sv](../tests/ch37/test_vpi_pattern_constraint_properties.sv): Identify the named nested structure patterns through their bound variables and check both field names and the anonymous outer pattern.
 
 ### SV2023-37.72-EXTRACT-DIAGRAM-014
 
@@ -110924,7 +111053,7 @@ Normative role: `definition`。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-013
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-many relation from primitive terminal to attribute, using the untagged attribute access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -110932,10 +111061,11 @@ Acceptance criterion: 37.83 defines a one-to-many relation from primitive termin
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): Enumerate two attributes on one of the primitive terminals and one attribute on the other, then check the names and values separately.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-014
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-one relation from attribute to primitive terminal, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -110943,10 +111073,11 @@ Acceptance criterion: 37.83 defines a one-to-one relation from attribute to prim
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): From all three attributes, resolve back to the corresponding primitive terminals and check that each parent differs from the other object of that type.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-015
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-many relation from path terminal to attribute, using the untagged attribute access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -110954,10 +111085,11 @@ Acceptance criterion: 37.83 defines a one-to-many relation from path terminal to
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): Enumerate two attributes on one of the path terminals and one attribute on the other, then check the names and values separately.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-016
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-one relation from attribute to path terminal, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -110965,10 +111097,11 @@ Acceptance criterion: 37.83 defines a one-to-one relation from attribute to path
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): From all three attributes, resolve back to the corresponding path terminals and check that each parent differs from the other object of that type.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-017
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-many relation from module path to attribute, using the untagged attribute access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -110976,10 +111109,11 @@ Acceptance criterion: 37.83 defines a one-to-many relation from module path to a
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): Enumerate two attributes on one of the module paths and one attribute on the other, then check the names and values separately.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-018
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-one relation from attribute to module path, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -110987,10 +111121,11 @@ Acceptance criterion: 37.83 defines a one-to-one relation from attribute to modu
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): From all three attributes, resolve back to the corresponding module paths and check that each parent differs from the other object of that type.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-019
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-many relation from timing check to attribute, using the untagged attribute access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -110998,10 +111133,11 @@ Acceptance criterion: 37.83 defines a one-to-many relation from timing check to 
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): Enumerate two attributes on one of the timing checks and one attribute on the other, then check the names and values separately.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-020
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-one relation from attribute to timing check, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -111009,6 +111145,7 @@ Acceptance criterion: 37.83 defines a one-to-one relation from attribute to timi
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): From all three attributes, resolve back to the corresponding timing checks and check that each parent differs from the other object of that type.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-021
 
@@ -111108,7 +111245,7 @@ Normative role: `definition`。
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-029
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-many relation from table entry to attribute, using the untagged attribute access type derived under 37.3; traverse with vpi_iterate followed by vpi_scan and the stated special-case constraints.
 
@@ -111116,10 +111253,11 @@ Acceptance criterion: 37.83 defines a one-to-many relation from table entry to a
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): Enumerate two attributes on one of the UDP table entries and one attribute on the other, then check the names and values separately.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-030
 
-`37.83` / `normal` / No mapped test
+`37.83` / `normal` / Test mapped; execution unconfirmed
 
 37.83 defines a one-to-one relation from attribute to table entry, using tag vpiParent; traverse with vpi_handle and the stated special-case constraints.
 
@@ -111127,6 +111265,7 @@ Acceptance criterion: 37.83 defines a one-to-one relation from attribute to tabl
 
 Normative role: `definition`。
 
+- [test_vpi_extended_attribute_owners.sv](../tests/ch37/test_vpi_extended_attribute_owners.sv): From all three attributes, resolve back to the corresponding UDP table entries and check that each parent differs from the other object of that type.
 
 ### SV2023-37.83-EXTRACT-DIAGRAM-031
 
@@ -112619,7 +112758,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.6-EXTRACT-GET-PROTECTED-ERROR
 
-`38.6` / `error` / No mapped test
+`38.6` / `error` / Test mapped; execution unconfirmed
 
 Unless expressly allowed, protected-object vpi_get is an error; any get error returns vpiUndefined.
 
@@ -112627,6 +112766,7 @@ Acceptance criterion: Unless expressly allowed, protected-object vpi_get is an e
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Check the clear array size and verify the undefined result and integer-property error under protection.
 
 ### SV2023-38.6-EXTRACT-GET-SIGNATURE
 
@@ -112654,7 +112794,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.7-EXTRACT-GET64-PROTECTED-ERROR
 
-`38.7` / `error` / No mapped test
+`38.7` / `error` / Test mapped; execution unconfirmed
 
 Unless expressly allowed, protected-object vpi_get64 is an error; any error returns vpiUndefined.
 
@@ -112662,6 +112802,7 @@ Acceptance criterion: Unless expressly allowed, protected-object vpi_get64 is an
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Verify a positive class object ID in the clear layout and an undefined result with a property error in the protected layout.
 
 ### SV2023-38.7-EXTRACT-GET64-SIGNATURE
 
@@ -112980,7 +113121,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.11-EXTRACT-STRING-PROTECTED
 
-`38.11` / `error` / No mapped test
+`38.11` / `error` / Test mapped; execution unconfirmed
 
 Unless explicitly permitted, protected-object vpi_get_str is an error.
 
@@ -112988,6 +113129,7 @@ Acceptance criterion: Unless explicitly permitted, protected-object vpi_get_str 
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Read the clear array name, then verify that the protected array returns a string-property error and no string.
 
 ### SV2023-38.12-EXTRACT-SYSTF-DATA-STRUCTURE
 
@@ -113272,7 +113414,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.15-EXTRACT-MISC-FORMAT-EXTENSIONS
 
-`38.15` / `normal` / No mapped test
+`38.15` / `normal` / Test mapped; execution unconfirmed
 
 The misc member supports implementation-specific value types only with corresponding format identifiers.
 
@@ -113280,6 +113422,7 @@ Acceptance criterion: The misc member supports implementation-specific value typ
 
 Normative role: `implementation_defined`。
 
+- [test_vpi_misc_extension_formats.sv](../tests/ch38/test_vpi_misc_extension_formats.sv): Compare the payload for each format ID on 40-bit and 10-bit signals, then verify that an unregistered ID returns no payload and changing only the provider ID suppresses the corresponding payload alone.
 
 ### SV2023-38.15-EXTRACT-OBJECT-TYPE-INTEGER
 
@@ -113802,7 +113945,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.18-EXTRACT-HANDLE-PROTECTED
 
-`38.18` / `error` / No mapped test
+`38.18` / `error` / Test mapped; execution unconfirmed
 
 vpi_handle traverses single-arrow model relationships; protected-reference access is an error unless expressly allowed.
 
@@ -113810,6 +113953,7 @@ Acceptance criterion: vpi_handle traverses single-arrow model relationships; pro
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Traverse the single parent scope from an array, and verify that access returns a handle in the clear layout and an error in the protected layout.
 
 ### SV2023-38.18-EXTRACT-HANDLE-SIGNATURE
 
@@ -113837,7 +113981,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.19-EXTRACT-INDEX-PROTECTED
 
-`38.19` / `error` / No mapped test
+`38.19` / `error` / Test mapped; execution unconfirmed
 
 Protected indexed access is an error unless explicitly allowed.
 
@@ -113845,6 +113989,7 @@ Acceptance criterion: Protected indexed access is an error unless explicitly all
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Use the same valid index on both arrays and compare the accessible element with the protected-index error.
 
 ### SV2023-38.19-EXTRACT-INDEX-SIGNATURE
 
@@ -113872,7 +114017,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.20-EXTRACT-MULTI-INDEX-PROTECTED
 
-`38.20` / `error` / No mapped test
+`38.20` / `error` / Test mapped; execution unconfirmed
 
 Protected multi-indexed access is an error unless explicitly allowed.
 
@@ -113880,6 +114025,7 @@ Acceptance criterion: Protected multi-indexed access is an error unless explicit
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Read the clear value with two valid indices and verify the error when the same operation targets the protected array.
 
 ### SV2023-38.20-EXTRACT-MULTI-INDEX-SIGNATURE
 
@@ -113895,7 +114041,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.21-EXTRACT-NAME-PROTECTION
 
-`38.21` / `error` / No mapped test
+`38.21` / `error` / Test mapped; execution unconfirmed
 
 Name lookup through a protected supplied scope or a hierarchical name containing a protected scope is an error unless expressly excepted.
 
@@ -113903,6 +114049,7 @@ Acceptance criterion: Name lookup through a protected supplied scope or a hierar
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Obtain the protected scope handle itself, then check that explicit-scope and hierarchical name lookup inside it both report an error.
 
 ### SV2023-38.21-EXTRACT-NAME-SEARCH
 
@@ -113978,7 +114125,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.23-EXTRACT-ITERATOR-PROTECTED
 
-`38.23` / `error` / No mapped test
+`38.23` / `error` / Test mapped; execution unconfirmed
 
 Protected-reference iteration is an error unless expressly permitted; model one-to-many relationships are double arrows.
 
@@ -113986,6 +114133,7 @@ Acceptance criterion: Protected-reference iteration is an error unless expressly
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_access_controls.sv](../tests/ch38/test_vpi_protected_access_controls.sv): Enumerate the net within the clear scope and verify that the same scope returns an iteration error and no iterator under protection.
 
 ### SV2023-38.24-EXTRACT-MCD-CLOSE-FILES
 
@@ -115335,7 +115483,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-OBJECT
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 Set obj to an eligible class typespec/frame/thread/variable/property/expression/terminal/statement. cbCreateObj requires a class typespec; cbReclaimObj accepts class typespec or object, with a typespec selecting every object of that type. NULL obj for force/release observes every such operation.
 
@@ -115343,6 +115491,10 @@ Acceptance criterion: Set obj to an eligible class typespec/frame/thread/variabl
 
 Normative role: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): Creation accepts the class typespec only, reclaim registration selects either the typespec or one object and excludes the other class, and class members and array elements accept callback registrations.
+- [test_vpi_frame_and_thread_handle_release.sv](../tests/ch37/test_vpi_frame_and_thread_handle_release.sv): Register end callbacks on each automatic task frame and thread and check delivery for the corresponding handles.
+- [test_vpi_assign_force_disable_callbacks.sv](../tests/ch38/test_vpi_assign_force_disable_callbacks.sv): Check registration on a variable and statements, and check that force and release registrations with no selected object observe the operations.
+- [test_vpi_value_change_traces_expression_primitive_terminal_and_net.sv](../tests/ch38/test_vpi_value_change_traces_expression_primitive_terminal_and_net.sv): Check registration on an expression and primitive terminal. The native run accepts both registrations and differs from the expected expression and terminal change notifications.
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CALLBACK-TIME
 
@@ -115467,7 +115619,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBRECLAIMOBJ
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 cbReclaimObj invokes the registered callback before an unused class object is reclaimed; object/member/subelement/callback handles become invalid after return.
 
@@ -115475,6 +115627,7 @@ Acceptance criterion: cbReclaimObj invokes the registered callback before an unu
 
 Normative role: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): Observe delivery at actual object destruction after loss of strong references, followed by release of the object, member, element, and callback handles after return.
 
 ### SV2023-38.36.1-EXTRACT-EVENT-CBRELEASE
 
@@ -115575,7 +115728,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1-EXTRACT-RECLAIM-ACCESS
 
-`38.36.1` / `normal` / No mapped test
+`38.36.1` / `normal` / Test mapped; execution unconfirmed
 
 Reclaim timing has no defined relation to simulation time; callback time is NULL and obj is the still-valid object being reclaimed. All its properties are accessible, but navigation or callback registration using that handle is undefined.
 
@@ -115583,6 +115736,7 @@ Acceptance criterion: Reclaim timing has no defined relation to simulation time;
 
 Normative role: `mandatory`。
 
+- [test_vpi_class_reclaim_lifetimes.sv](../tests/ch38/test_vpi_class_reclaim_lifetimes.sv): Leave the collection time unspecified and check the null time field and readable type, allocation, lifetime, protection, and ID of the live object during delivery.
 
 ### SV2023-38.36.1-EXTRACT-STRENGTH-CALLBACK
 
@@ -115610,7 +115764,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1.1-EXTRACT-PROTECTED-STATEMENT-CALLBACK
 
-`38.36.1.1` / `error` / No mapped test
+`38.36.1.1` / `error` / Test mapped; execution unconfirmed
 
 A callback on protected-code statements is forbidden; registration returns NULL and prints an appropriate error.
 
@@ -115618,6 +115772,7 @@ Acceptance criterion: A callback on protected-code statements is forbidden; regi
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_statement_callbacks.sv](../tests/ch38/test_vpi_protected_statement_callbacks.sv): Register the same statements individually in the clear and protected layouts. Verify a null handle and diagnostic for the protected statement and actual callback delivery for the clear statement.
 
 ### SV2023-38.36.1.1-EXTRACT-STATEMENT-CALLBACK-FIELDS
 
@@ -115947,7 +116102,7 @@ Normative role: `mandatory`。
 
 ### SV2023-38.36.1.3-EXTRACT-MODULE-PROTECTED-EXCLUSION
 
-`38.36.1.3` / `normal` / No mapped test
+`38.36.1.3` / `normal` / Test mapped; execution unconfirmed
 
 Module-wide registration must not place callbacks on protected-code statements.
 
@@ -115955,6 +116110,7 @@ Acceptance criterion: Module-wide registration must not place callbacks on prote
 
 Normative role: `mandatory`。
 
+- [test_vpi_protected_statement_callbacks.sv](../tests/ch38/test_vpi_protected_statement_callbacks.sv): Check that module-wide registration omits the protected block, delay and assignment while clear statements retain registration and delivery. After removal, the final assignment executes with only its individually registered callback.
 
 ### SV2023-38.36.1.3-EXTRACT-MODULE-STATEMENT-CALLBACK
 
@@ -116494,7 +116650,7 @@ Normative role: `permission`。
 
 ### SV2023-38.38-EXTRACT-ITERATOR-COMPLETION-RELEASE
 
-`38.38` / `normal` / No mapped test
+`38.38` / `normal` / Execution confirmed
 
 vpi_scan returning NULL at traversal completion or error automatically frees the iterator; when iteration is abandoned early, release_handle should free the iterator.
 
@@ -116502,6 +116658,7 @@ Acceptance criterion: vpi_scan returning NULL at traversal completion or error a
 
 Normative role: `recommendation`。
 
+- [test_vpi_iterator_released_on_terminal_scan.sv](../tests/ch38/test_vpi_iterator_released_on_terminal_scan.sv): Track two simultaneously live iterators and verify which handle reaches the deallocator during early explicit release and during the terminal scan.
 
 ### SV2023-38.38-EXTRACT-RELEASE-HANDLE-RESULT
 
@@ -118548,7 +118705,7 @@ Normative role: `mandatory`。
 
 ### SV2023-40.3.2.5-EXTRACT-DATABASE-REPRESENTATION
 
-`40.3.2.5` / `normal` / No mapped test
+`40.3.2.5` / `normal` / Test mapped; execution unconfirmed
 
 Coverage database format and name-to-directory/file mapping are implementation-dependent with no required path mapping.
 
@@ -118556,6 +118713,7 @@ Acceptance criterion: Coverage database format and name-to-directory/file mappin
 
 Normative role: `implementation_defined`。
 
+- [test_coverage_database_storage_profiles.sv](../tests/ch40/test_coverage_database_storage_profiles.sv): Use different layouts and storage formats, verify the per-entry and merged hit counts after lookup by logical name, and detect the mismatched reads in the swapped-name control.
 
 ### SV2023-40.3.2.5-EXTRACT-SAVE-PRESERVATION
 
@@ -138397,7 +138555,7 @@ Normative role: `mandatory`。
 
 ### SV2023-H.14.3-EXTRACT-MACROS
 
-`H.14.3` / `normal` / No mapped test
+`H.14.3` / `normal` / Test mapped; execution unconfirmed
 
 If deprecated source header is provided, it defines only SV_BIT_PACKED_ARRAY(WIDTH,NAME) and SV_LOGIC_PACKED_ARRAY(WIDTH,NAME); implementations vary but must not define an array type.
 
@@ -138405,10 +138563,11 @@ Acceptance criterion: If deprecated source header is provided, it defines only S
 
 Normative role: `mandatory`。
 
+- [test_dpi_legacy_source_layout.sv](../tests/ch35/test_dpi_legacy_source_layout.sv): Compare the source header’s exposed macros, verify that bit and logic declarations are non-array objects, and detect extra symbols and definitions that produce array types.
 
 ### SV2023-H.14.3-EXTRACT-SOURCE-COMPAT
 
-`H.14.3` / `normal` / No mapped test
+`H.14.3` / `normal` / Test mapped; execution unconfirmed
 
 In deprecated mode, applications needing svdpi_src.h require recompilation per simulator; applications not needing it are binary compatible.
 
@@ -138416,6 +138575,7 @@ Acceptance criterion: In deprecated mode, applications needing svdpi_src.h requi
 
 Normative role: `mandatory`。
 
+- [test_dpi_legacy_source_layout.sv](../tests/ch35/test_dpi_legacy_source_layout.sv): Reuse the same shared library in hosts with two distinct packed layouts and verify that the application using the source header matches when rebuilt for each host and detects a layout mismatch when cross-linked.
 
 ### SV2023-I.2-EXTRACT-INTEGER-TYPES
 
@@ -146696,7 +146856,7 @@ Normative role: `definition`。
 
 ### SV2023-K.2-EXTRACT-RESERVED
 
-`K.2` / `normal` / No mapped test
+`K.2` / `normal` / Test mapped; execution unconfirmed
 
 Constant values 1 through 299 are reserved for vpi_user.h.
 
@@ -146704,6 +146864,7 @@ Acceptance criterion: Constant values 1 through 299 are reserved for vpi_user.h.
 
 Normative role: `definition`。
 
+- [test_vpi_base_object_code_reservations.sv](../tests/ch36/test_vpi_base_object_code_reservations.sv): Compare the base object types with the extension declarations, detect new definitions inserted at both reserved boundaries, and verify that legacy aliases retain their base header values.
 
 ### SV2023-K.2-EXTRACT-SIZE-TYPES
 

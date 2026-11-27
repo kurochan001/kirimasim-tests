@@ -4,7 +4,7 @@
 
 [English](ch9.md) / [日本語](ch9.ja.md)
 
-[All chapters](README.md). 493 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
+[All chapters](README.md). 494 tests, 233 of them generated. This page is written by `tools/suite_catalog.py` from the metadata of the tests; edit the tests, not this page.
 
 First reading: [follow a real test from input to expectation](../faq.en.md#q49-read-a-real-test). The oracle column records fixed-release confirmation; see [what this does not certify](../faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
@@ -257,6 +257,7 @@ First reading: [follow a real test from input to expectation](../faq.en.md#q49-r
 | [`test_process_await_normal_and_forced_termination`](../../tests/ch9/test_process_await_normal_and_forced_termination.sv) | Process await resumes on natural completion or kill and returns at once for a terminal handle | 9.7 G.6 | Verilator 5.054 ||
 | [`test_process_await_rejects_current_process`](../../tests/ch9/test_process_await_rejects_current_process.sv) | A process cannot await itself | 9.7 | standard only ||
 | [`test_process_class_control`](../../tests/ch9/test_process_class_control.sv) | The process class: self, status and kill | 9.7 | Verilator 5.052 ||
+| [`test_process_control_target_origins`](../../tests/ch9/test_process_control_target_origins.sv) | Control processes from initial and always procedures and their fork descendants | 9.7 | standard only | several files |
 | [`test_process_final_class_enum_values_are_distinct_and_typed`](../../tests/ch9/test_process_final_class_enum_values_are_distinct_and_typed.sv) | All built-in process states are distinct values of the process state enum | 9.7 G.6 | Verilator 5.052 ||
 | [`test_process_function_can_suspend_another_waiting_process`](../../tests/ch9/test_process_function_can_suspend_another_waiting_process.sv) | A function may suspend another process and the caller can resume it | 9.7 G.6 | standard only ||
 | [`test_process_function_cannot_suspend_current_process`](../../tests/ch9/test_process_function_cannot_suspend_current_process.sv) | A function calling suspend on its own process reports an error | 9.7 | standard only ||

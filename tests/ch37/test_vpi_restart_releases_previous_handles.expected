@@ -1,0 +1,6 @@
+armed scope=1 watched=1 bit=1 event=1 callbacks=1111
+start restart reason=1
+end restart reason=1
+restored value=11
+fresh register=1 callback=1
+restart hits=1,1 old pre=2 old post=0 fresh=1

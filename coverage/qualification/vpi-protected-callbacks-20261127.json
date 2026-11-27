@@ -1,0 +1,382 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-38.36.1.1-EXTRACT-PROTECTED-STATEMENT-CALLBACK",
+    "SV2023-38.36.1.3-EXTRACT-MODULE-PROTECTED-EXCLUSION"
+  ],
+  "qualification": {
+    "profile": "vpi-protected-callbacks-reference",
+    "checker_sha256": "a962e5d117cb0996acac6500414c9a0f8e8ee3685ff57961ff1cb06a3976f672",
+    "artifact_sha256": {
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "python": "7c72112b685250b1aec69081696d8fc04040ccefc34505ca56ac48ace7da8d5b",
+      "openssl": "da101a01999a93ea6eddfe1392752bce2b5a91a41e4b00e1d9656fc682a1dc85",
+      "cc": "ed6f5284033aa2aae6a58427c25ba3ab119947b40365627b24e5d51a4b70a1cd",
+      "profile": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465",
+      "vpi_user.h": "cf8013e1b03aeca92d1edd7f417696fd7b4295f337f182f26e41b69b912e77fe",
+      "vpi_compatibility.h": "aae9cb8e4db3d303567c2d0d727c2ec6a5b4480884fcbb3bb878c5a8d450fb7c"
+    },
+    "versions": {
+      "ghost": "sukimasim version 0.9.9.2",
+      "slang": "slang version 12.0.0+0",
+      "cc": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+      "openssl": "OpenSSL 4.1.0 23 Oct 2026 (Library: OpenSSL 4.1.0 23 Oct 2026)"
+    },
+    "encryptor": {
+      "version": "0.1.0",
+      "files": {
+        "hdl_encrypt/__init__.py": "16a1bc66ae4c90183481580a2cc767523f955555bc42942814dac82a2cd7b782",
+        "hdl_encrypt/cli.py": "178918a691e81473b75101a0eaf7b0079d4a97635b3a93f6af6b1436b02c555c",
+        "hdl_encrypt/crypto.py": "40ab50bd50e1ff8eb7437d9f6217241fa23d1bdc30ace0ab99e737c79644c7d6",
+        "hdl_encrypt/formatter.py": "0a0462279462028e59f8060b13dcddbb770879149a25a9b91cef5cac2d76aff2",
+        "hdl_encrypt/parser.py": "b22aeddbae28e7e75a273211d58684a2613033801e1ff9d002fbbc2bb05bbd15"
+      },
+      "cryptography": "50.0.2"
+    },
+    "tests": {
+      "ch38/test_vpi_protected_statement_callbacks": {
+        "inputs_sha256": "5d80541e3ac76d257d2c82242c9e9b8acb3b9b3522a7143cdd39d6f8bc2f1431",
+        "layouts": {
+          "right": {
+            "range": [
+              28,
+              33
+            ],
+            "statement_lines": {
+              "outer": [
+                20,
+                37
+              ],
+              "left-block": [
+                22,
+                25
+              ],
+              "left-delay": [
+                23,
+                23
+              ],
+              "left-write": [
+                24,
+                24
+              ],
+              "right-block": [
+                29,
+                32
+              ],
+              "right-delay": [
+                30,
+                30
+              ],
+              "right-write": [
+                31,
+                31
+              ],
+              "tail-delay": [
+                35,
+                35
+              ],
+              "tail-write": [
+                36,
+                36
+              ]
+            },
+            "native_restored": {
+              "exit": 0,
+              "output": [
+                "block lines outer=20 left=22 right=29",
+                "module registered=1",
+                "direct registration left-block=1",
+                "direct registration right-block=1",
+                "direct registration tail-write=1",
+                "removal scheduled=1",
+                "module removed=1",
+                "events outer module=1 direct=0",
+                "events left-block module=1 direct=1",
+                "events left-delay module=1 direct=0",
+                "events left-write module=1 direct=0",
+                "events right-block module=1 direct=1",
+                "events right-delay module=1 direct=0",
+                "events right-write module=1 direct=0",
+                "events tail-delay module=1 direct=0",
+                "events tail-write module=0 direct=1",
+                "events unknown=0",
+                "values left=29 right=47 tail=63"
+              ],
+              "diagnostics": []
+            },
+            "reference": {
+              "exit": 0,
+              "output": [
+                "block lines outer=20 left=22 right=29",
+                "module placement outer=1",
+                "module placement left-block=1",
+                "module placement left-delay=1",
+                "module placement left-write=1",
+                "module placement right-block=0",
+                "module placement right-delay=0",
+                "module placement right-write=0",
+                "module placement tail-delay=1",
+                "module placement tail-write=1",
+                "module registered=1",
+                "direct registration left-block=1",
+                "direct registration right-block=0",
+                "direct registration tail-write=1",
+                "removal scheduled=1",
+                "module removed=1",
+                "events outer module=1 direct=0",
+                "events left-block module=1 direct=1",
+                "events left-delay module=1 direct=0",
+                "events left-write module=1 direct=0",
+                "events right-block module=0 direct=0",
+                "events right-delay module=0 direct=0",
+                "events right-write module=0 direct=0",
+                "events tail-delay module=1 direct=0",
+                "events tail-write module=0 direct=1",
+                "events unknown=0",
+                "values left=29 right=47 tail=63"
+              ],
+              "diagnostics": [
+                "vpi_register_cb: cbStmt on protected statement (right-block)"
+              ]
+            }
+          },
+          "left": {
+            "range": [
+              22,
+              27
+            ],
+            "statement_lines": {
+              "outer": [
+                20,
+                37
+              ],
+              "left-block": [
+                23,
+                26
+              ],
+              "left-delay": [
+                24,
+                24
+              ],
+              "left-write": [
+                25,
+                25
+              ],
+              "right-block": [
+                30,
+                33
+              ],
+              "right-delay": [
+                31,
+                31
+              ],
+              "right-write": [
+                32,
+                32
+              ],
+              "tail-delay": [
+                35,
+                35
+              ],
+              "tail-write": [
+                36,
+                36
+              ]
+            },
+            "native_restored": {
+              "exit": 0,
+              "output": [
+                "block lines outer=20 left=23 right=30",
+                "module registered=1",
+                "direct registration left-block=1",
+                "direct registration right-block=1",
+                "direct registration tail-write=1",
+                "removal scheduled=1",
+                "module removed=1",
+                "events outer module=1 direct=0",
+                "events left-block module=1 direct=1",
+                "events left-delay module=1 direct=0",
+                "events left-write module=1 direct=0",
+                "events right-block module=1 direct=1",
+                "events right-delay module=1 direct=0",
+                "events right-write module=1 direct=0",
+                "events tail-delay module=1 direct=0",
+                "events tail-write module=0 direct=1",
+                "events unknown=0",
+                "values left=29 right=47 tail=63"
+              ],
+              "diagnostics": []
+            },
+            "reference": {
+              "exit": 0,
+              "output": [
+                "block lines outer=20 left=23 right=30",
+                "module placement outer=1",
+                "module placement left-block=0",
+                "module placement left-delay=0",
+                "module placement left-write=0",
+                "module placement right-block=1",
+                "module placement right-delay=1",
+                "module placement right-write=1",
+                "module placement tail-delay=1",
+                "module placement tail-write=1",
+                "module registered=1",
+                "direct registration left-block=0",
+                "direct registration right-block=1",
+                "direct registration tail-write=1",
+                "removal scheduled=1",
+                "module removed=1",
+                "events outer module=1 direct=0",
+                "events left-block module=0 direct=0",
+                "events left-delay module=0 direct=0",
+                "events left-write module=0 direct=0",
+                "events right-block module=1 direct=1",
+                "events right-delay module=1 direct=0",
+                "events right-write module=1 direct=0",
+                "events tail-delay module=1 direct=0",
+                "events tail-write module=0 direct=1",
+                "events unknown=0",
+                "values left=29 right=47 tail=63"
+              ],
+              "diagnostics": [
+                "vpi_register_cb: cbStmt on protected statement (left-block)"
+              ]
+            }
+          }
+        },
+        "checks": {
+          "right_recovered_origins_agree_with_backing_handles": true,
+          "right_direct_denial_with_diagnostic": true,
+          "right_excludes_protected_placements_and_delivers_other_callbacks": true,
+          "right_native_restored_observation_matches_public_control": true,
+          "left_recovered_origins_agree_with_backing_handles": true,
+          "left_direct_denial_with_diagnostic": true,
+          "left_excludes_protected_placements_and_delivers_other_callbacks": true,
+          "left_native_restored_observation_matches_public_control": true,
+          "layout_swap_moves_only_the_protection_range": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "ghost": {
+      "simulator": "ghost",
+      "name": "Ghost",
+      "version": "private build 2f3874bf7b63",
+      "tests": {
+        "ch38/test_vpi_protected_statement_callbacks": {
+          "status": "pass",
+          "inputs_sha256": "5d80541e3ac76d257d2c82242c9e9b8acb3b9b3522a7143cdd39d6f8bc2f1431"
+        }
+      },
+      "generated_at": "2026-11-26T18:58:18.948187+00:00",
+      "runner_sha256": "db10cce0df0f0aca35049adc52b8a36346069b11cab5217cc9fe4b8015bae0ff",
+      "runner_changed": false,
+      "configuration": {
+        "binary_sha256": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+        "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+      }
+    },
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch38/test_vpi_protected_statement_callbacks": {
+          "status": "known",
+          "reason": "VPI build failed: 8 errors generated.",
+          "inputs_sha256": "5d80541e3ac76d257d2c82242c9e9b8acb3b9b3522a7143cdd39d6f8bc2f1431"
+        }
+      },
+      "generated_at": "2026-11-26T18:58:18.676623+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "verilator": {
+      "simulator": "verilator",
+      "name": "Verilator",
+      "version": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "tests": {
+        "ch38/test_vpi_protected_statement_callbacks": {
+          "status": "known",
+          "reason": "build failed: %Error-BADSTDPRAGMA: tests/ch38/test_vpi_protected_statement_callbacks.sv:28:17: Unknown '`pragma protect' error",
+          "inputs_sha256": "5d80541e3ac76d257d2c82242c9e9b8acb3b9b3522a7143cdd39d6f8bc2f1431"
+        }
+      },
+      "generated_at": "2026-11-26T18:58:18.704549+00:00",
+      "runner_sha256": "791cf84af55c8ccdf9e335d168eb8b4343323344d08722b8f33cffcc45302d76",
+      "runner_changed": false,
+      "configuration": {
+        "seed": 1
+      }
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch38/test_vpi_protected_statement_callbacks": {
+          "status": "unsupported",
+          "reason": "kirimasim cannot load C code yet",
+          "inputs_sha256": "5d80541e3ac76d257d2c82242c9e9b8acb3b9b3522a7143cdd39d6f8bc2f1431"
+        }
+      },
+      "generated_at": "2026-11-26T18:58:18.632694+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "slang": {
+      "reference": "slang",
+      "slang_commit": "4345028045e892d5946fbec3f98b0758ab5a2a6a",
+      "slang_version": "slang version 12.0.0+0",
+      "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9",
+      "generated_at": "2026-11-26T18:58:18.704361+00:00",
+      "tool_sha256": "2e248124436aa80f31fa68fc861b0d047ba8ba55113520bd9d0fc65b8e26e38f",
+      "options": [
+        "--std=1800-2023",
+        "-Wno-error=index-oob",
+        "-Wno-error=string-int-concat",
+        "-Wno-error=string-in-constraint",
+        "--threads",
+        "1",
+        "-q"
+      ],
+      "summary": {
+        "illegal": {
+          "tests": 0,
+          "rejected_at_line": 0,
+          "rejected_elsewhere": 0,
+          "accepted": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal": {
+          "tests": 0,
+          "clean": 0,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        },
+        "legal_vpi": {
+          "tests": 1,
+          "clean": 1,
+          "rejected": 0,
+          "timeout": 0,
+          "crashed": 0
+        }
+      },
+      "tests": {
+        "ch38/test_vpi_protected_statement_callbacks": {
+          "kind": "legal",
+          "vpi": true,
+          "status": "clean",
+          "inputs_sha256": "5d80541e3ac76d257d2c82242c9e9b8acb3b9b3522a7143cdd39d6f8bc2f1431"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+ordinary input=1 peer=1
+before rise=0 fall=0
+after rise=3 fall=5
+untouched rise=0 fall=0
+single high=1 low=1 distinct=1 outside=1
+multi high=1 low=1 distinct=1 reversed=1
+rise before=0 peer=1
+rise after=1 peer=1
+fall before=1 peer=0
+fall after=0 peer=0
+edge ticks rise=13 fall=25

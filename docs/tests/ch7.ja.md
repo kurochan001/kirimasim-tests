@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1139本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1141本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -92,6 +92,7 @@
 | [`test_union_ops`](../../tests/ch7/test_union_ops.sv) |単語と半分の構造のpacked 結合| 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_union_types`](../../tests/ch7/test_union_types.sv) |テストユニオン| 7.3.1 | Icarus Verilog 13.0 ||
 | [`test_union_types_edge_cases`](../../tests/ch7/test_union_types_edge_cases.sv) |試験：ユニオン型エッジケース| 7.3.1 | Icarus Verilog 13.0 ||
+| [`test_unpacked_union_c_member_order`](../../tests/ch7/test_unpacked_union_c_member_order.sv) |非パック共用体のメンバーはC互換の構造体の順序を保つ| 7.3.1 | Verilator 5.054 |複数のファイル|
 | [`test_illegal_packed_tagged_union_real_member`](../../tests/ch7/test_illegal_packed_tagged_union_real_member.sv) |packed packed タグ付けされたユニオンのメンバーは、大きさは異なるものの、必ずしも タイプが同じでなければなりません。実在のメンバーはエラーだ| 7.3.2 |規格のみ|規格違反の設計|
 | [`test_packed_tagged_union_read_rejects_previous_member_after_tag_change`](../../tests/ch7/test_packed_tagged_union_read_rejects_previous_member_after_tag_change.sv) |packed 共用体のタグ切替後に以前のメンバーを読むと実行時エラーになる| 7.3.2 11.9 |規格のみ||
 | [`test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member`](../../tests/ch7/test_packed_tagged_union_reads_only_defined_bits_of_small_or_void_member.sv) |packedタグ付き共用体のタグと選択した値だけを検査する| 7.3.2 |規格のみ| x/z |
@@ -302,6 +303,7 @@
 | [`test_assoc_invalid_keys_with_unknown_dynamic_array_elements`](../../tests/ch7/test_assoc_invalid_keys_with_unknown_dynamic_array_elements.sv) |連想キーに入れ子になった動的配列の要素に不定ビットがあるとき、既存要素を特定したり新しく要素を作ったりしないことを検査する。| 7.8.5 7.8.6 7.9.3 |規格のみ| x/z |
 | [`test_assoc_packed_struct_key_xz_cannot_alias_valid_entries`](../../tests/ch7/test_assoc_packed_struct_key_xz_cannot_alias_valid_entries.sv) |入れ子のフィールドに不定値がある連想配列のキーは要素の作成も上書きもできない| 7.8.5 7.8.6 |規格のみ| x/z |
 | [`test_associative_dynamic_array_key_equality`](../../tests/ch7/test_associative_dynamic_array_key_equality.sv) |等価な動的配列の値で同じ連想配列要素を取り出す| 7.8.5 |規格のみ||
+| [`test_associative_event_key_identity`](../../tests/ch7/test_associative_event_key_identity.sv) |イベントの同一性を比較し、同じイベントハンドルを連想配列のインデックスに使う| 7.8.5 11.4.5 15.5.1 |規格のみ||
 | [`test_associative_key_uses_queue_and_string_values_structurally`](../../tests/ch7/test_associative_key_uses_queue_and_string_values_structurally.sv) |ユーザー定義の連想配列キーが可変長キューと文字列の内容を比較する| 7.8.5 7.10 11.4.5 |規格のみ||
 | [`test_associative_queue_keys_are_copied_and_compared_by_contents`](../../tests/ch7/test_associative_queue_keys_are_copied_and_compared_by_contents.sv) |挿入後に元のキューを変更しても連想配列に保存した添字は独立している| 7.8.5 |規格のみ||
 | [`test_illegal_assoc_real_member_key`](../../tests/ch7/test_illegal_assoc_real_member_key.sv) |連想配列の添字型は、realメンバーを含められない| 7.8.5 |規格のみ|規格違反の設計|

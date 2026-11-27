@@ -1,0 +1,53 @@
+call1 handle=1 flag=1/ok type=1/ok
+call1 kind=task/ok
+call1 arguments=1/ok
+call1.arg1 handle=1 flag=1/ok type=1/ok
+call1.arg1 expression-size=7/ok
+call1.arg2 handle=1 flag=1/ok type=1/ok
+call1.arg2 expression-size=4/ok
+call2 handle=1 flag=1/ok type=1/ok
+call2 kind=function/ok
+call2 arguments=1/ok
+call2.arg1 handle=1 flag=1/ok type=1/ok
+call2.arg1 expression-size=7/ok
+call2.arg2 handle=1 flag=1/ok type=1/ok
+call2.arg2 expression-size=4/ok
+call3 handle=1 flag=0/ok type=1/ok
+call3 kind=task/ok
+call3 arguments=1/ok
+call3.arg1 handle=1 flag=0/ok type=1/ok
+call3.arg1 expression-size=7/ok
+call3.arg2 handle=1 flag=0/ok type=1/ok
+call3.arg2 expression-size=4/ok
+call4 handle=1 flag=0/ok type=1/ok
+call4 kind=function/ok
+call4 arguments=1/ok
+call4.arg1 handle=1 flag=0/ok type=1/ok
+call4.arg1 expression-size=7/ok
+call4.arg2 handle=1 flag=0/ok type=1/ok
+call4.arg2 expression-size=4/ok
+top handle=1 flag=0/ok type=1/ok
+left_grid handle=1 flag=1/ok type=1/ok
+left_grid get=-1/denied
+left_grid string=NULL/denied
+left_grid parent=0/denied
+left_grid index=0/denied
+left_grid multi=0/denied value=0
+right_grid handle=1 flag=0/ok type=1/ok
+right_grid get=4/ok
+right_grid string=right_grid/ok
+right_grid parent=1/ok
+right_grid index=1/ok
+right_grid multi=1/ok value=165
+left_object handle=1 flag=1/ok type=1/ok
+left_object get64=-1/denied
+right_object handle=1 flag=0/ok type=1/ok
+right_object get64=positive/ok
+left_scope handle=1 flag=1/ok type=1/ok
+left_scope scoped-name=0/denied
+left_scope full-name=0/denied
+left_scope iterate=0/denied
+right_scope handle=1 flag=0/ok type=1/ok
+right_scope scoped-name=1/ok
+right_scope full-name=1/ok
+right_scope iterate=1/ok

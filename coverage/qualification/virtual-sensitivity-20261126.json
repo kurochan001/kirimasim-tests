@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-25.9-EXTRACT-VIRTUAL-SENSITIVITY-TEXT"
+  ],
+  "runner_results": [
+    "coverage/results/virtual-sensitivity-20261126-ghost-strict.json",
+    "coverage/results/virtual-sensitivity-20261126-verilator5.054-seed1.json",
+    "coverage/results/virtual-sensitivity-20261126-icarus13.json",
+    "coverage/results/virtual-sensitivity-20261126-kirimasim.json"
+  ],
+  "ghost_always_comb": {
+    "configuration": {
+      "binary_sha256": "4437eecbf426ee1fcf31ee6a6715fd8abe30da76b179ca78018bfc63ba0328db",
+      "profile_sha256": "8bda81c3f96ebd7bf49f498e5bd16b4d8700cfe9bf217c25541f6bedddc43465"
+    },
+    "test": "ch25/test_illegal_virtual_interface_component_in_always_comb",
+    "inputs_sha256": "70308686022111c0d54f1a3a310e48ce99d912985571714073888594b32607eb",
+    "elaboration": {
+      "exit": 0
+    },
+    "simulation": {
+      "exit": 0,
+      "stdout": [
+        "observed=47"
+      ]
+    }
+  }
+}

@@ -356,6 +356,7 @@ Nightlyの開始予定は毎日04:23 JSTです。公開は全ジョブ終了後�
 - 15.4.1のメールボックスを、境界値2と0で照合しました。`-1` と `-2147483648` ではコンストラクタに負の値を渡す直前に到達したことを確認し、非ブロッキング操作の結果を観測しました。両ケースともGhost strictの `try_put` は1、Verilator 5.054は0を返し、負の境界に関する診断はありませんでした。規格は負の境界値を禁止し、その結果と診断の有無に幅を認めています。再実行には `python3 tools/run_mailbox_bound_domain.py --ghost /path/to/ghost --verilator /path/to/verilator --profile /path/to/profile.json --json /tmp/mailbox-bound.json --observations /tmp/mailbox-bound-observed.json` を使います。 [検証結果](qualification/mailbox-bound-domain-20261126.json)
 - Annex C.4.3のフレーム寿命を検証しました。Ghost strictでは生存中の子フレームに対する旧 `vpiValid` が `vpiUndefined` を返しました。同じフレームの `cbEndOfFrame` は1回発火し、終了後の再走査は子フレームを返しませんでした。Ghostの `vpi_get` が使用する内部検索表では、直接取得したキーと走査で取得したキーが終了後も非アクティブな項目に解決されたため、解放の検証は不一致です。再実行には `python3 tools/run_ghost_vpi_valid_observation.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-valid.json --observations /tmp/vpi-valid-observed.json` を使います。 [検証結果](qualification/vpi-frame-validity-20261126.json)
 - 37.43のフレームモデルを2017版の37.41と比較しました。2017版はタスクや関数で宣言した自動変数を基準にしていました。2023版は動的に活性化した手続きスコープを対象に含めます。Ghost strictでは、`initial` 内で取得したフレームが、後続の自動タスクの別フレームの親として取得できました。再実行には `python3 tools/run_vpi_frame_scope_editions.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --pdf-2017 /path/to/1800-2017.pdf --pdf-2023 /path/to/1800-2023.pdf --json /tmp/frame-editions.json --observations /tmp/frame-editions-observed.json` を使います。 [検証結果](qualification/vpi-frame-editions-20261126.json) · [IEEE 1800-2017](https://fpga.mit.edu/6205/_static/F25/documentation/1800-2017.pdf) · [IEEE 1800-2023](https://ieeexplore.ieee.org/document/10458102)
+- §25.9では、`initial` とタスクのイベント制御が選択したインターフェイスのエッジで再開するテストと、仮想インターフェイスを `always_comb` の暗黙の感度リストに含める負テストを追加しました。Ghost strictは合法な対照と既存の負テスト3件で一致しましたが、`always_comb` をエラボレーションし、実行時に `observed=47` を出力しました。Verilator 5.054とkirimasim 0.2.2も新しい合法な対照と一致し、負テストを受理しました。Icarus 13.0では5件とも期待値の照合対象外でした。台帳での実行確認には、同じ実行結果で合法な対照と4件の拒否がすべて成立する必要があります。 [観測記録](qualification/virtual-sensitivity-20261126.json) · [Ghost](results/virtual-sensitivity-20261126-ghost-strict.json) · [Verilator](results/virtual-sensitivity-20261126-verilator5.054-seed1.json) · [kirimasim](results/virtual-sensitivity-20261126-kirimasim.json) · [Icarus](results/virtual-sensitivity-20261126-icarus13.json)
 - チェッカーの自由変数と仮定集合の5本を追加し、第17章の6要件に対応付けました。Ghost の厳格モードは新規5本と既存2本の通常出力に両シードで一致し、Slang は7本を受理しました。Icarus 13.0 と Verilator 5.054 は7本をコンパイルできず、kirimasim 0.2.2 はチェッカーのインスタンス化を未対応と報告しました。初期化を観測する6シードの別測定では、Ghost は明示初期値を保ち、通常の乱数対照は毎回異なる値を返しました。初期化子のないアクティブ・非アクティブ・定数の自由変数はクロックが動く前にすべて0で、初期乱数化の確認は不一致でした。 [Ghost](results/checker-assume-20261125-ghost.json) · [初期化の実測](results/checker-initialization-20261125-ghost.json) · [Slang](slang/checker-assume-20261125-slang.json) · [kirimasim](results/checker-assume-20261125-kirimasim022.json)
 - 最終の全件実行で残った二つのタイムアウトを、単独実行と短い対照で切り分けました。Ghost は自動変数の部分選択に対する VPI の曖昧な参照取得で停止し、Icarus 13.0 は動的配列の増分の値によりループが負の範囲外を進みました。 [タイムアウトの記録](qualification/simulator-timeout-probes-20261124.json)
 - キーワードのテストを追加すると、同じディレクトリからインクルードを探す既存ケースの入力ハッシュも変わるため、第22章の120件を再実行しました。 [Ghost](results/preprocessor-refresh-20261124-ghost-strict.json) · [Icarus](results/preprocessor-refresh-20261124-icarus13.json) · [kirimasim](results/preprocessor-refresh-20261124-kirimasim.json) · [Verilator seed 1](results/preprocessor-refresh-20261124-verilator5.054-seed1.json) · [seed 73](results/preprocessor-refresh-20261124-verilator5.054-seed73.json)
@@ -518,6 +519,282 @@ python3 tools/requirement_source.py --index /tmp/requirement-source-index.json
 <a id="ciとnightly"></a>
 
 <a id="ci-and-nightly"></a>
+
+## VPIイテレータの解放
+
+§38.38の走査終了時と途中中断時を、Icarus Verilog 13.0のデバッガで比較しました。同時に作った2つのイテレータのうち、片方は最初の要素を読んだ後に `vpi_release_handle` で解放し、もう片方は3要素を走査し終えた後の `vpi_scan` がNULLを返すときに解放されました。対応するアドレスに対する `operator delete` をそれぞれ1回観測しました。最後の走査を明示解放に置き換えた対照は、通常の出力が一致しても検査で失敗しました。検証したIcarusでは、有効なイテレータの走査に独立したエラー経路はありません。 [検証記録](qualification/vpi-iterator-release-20261126.json) · [Icarus 13.0の実装](https://github.com/steveicarus/iverilog/blob/dfeee909ed9f20b4870dd93423156c0170c0e1ff/vvp/vpi_iter.cc#L27-L78)
+
+再実行には、`python3 tools/run_icarus_iterator_release.py --iverilog-bin /path/to/bin --json /tmp/iterator-release.json --observations /tmp/iterator-release-observed.json` を使います。
+
+## 保護プラグマのリセット
+
+§34.4の `reset` は、同じファイルの中でBase64を指定した後に既定の符号化を復元し、その後のuuencodeへの設定変更を受け付けるテストに対応づけました。Slangの2ビルドは、一般形式の `pragma reset protect` でも同じ入力を受理し、リセットを省いた入力と再設定後に不正なuuencode入力を与えた場合をそれぞれ該当箇所で拒否しました。Ghostは通常のシミュレーション出力に一致しました。 [検証記録](qualification/protect-keyword-reset-20261126.json)
+
+## 保護プラグマの鍵選択
+
+§34.4の6つの鍵キーワードと§34.5.18.2のダイジェスト鍵名を対応づけました。本体鍵の対照では、同じ所有者で名前だけを変えた場合と、同じ名前で所有者だけを変えた場合に、それぞれ対応する鍵で復号できました。ダイジェスト鍵名だけを省略するとデータ鍵名が引き継がれ、明示されたダイジェスト鍵所有者の鍵が選ばれました。引き継いだ名前がその所有者に未登録の場合は、該当する所有者と名前を特定して拒否しました。
+
+OpenSSLを用いた公開鍵の参照確認は55件、ダイジェストのセッション鍵を扱う参照確認は34件、複数受信者の再検証は36件で一致しました。GhostとIcarusは対象4本の通常出力に一致しました。hdl-encrypt 0.1.0の直接実行では、公開鍵選択を試した8件すべてで選択指示が出力エンベロープに反映されませんでした。作成済みエンベロープを入力した試行では区切りにも差分がありました。 [検証・実行記録](qualification/protect-key-selectors-20261126.json)
+
+再実行には、`python3 tools/run_protect_public_keys.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-public-keys.json` を使います。セッション鍵は同じ引数で `tools/run_protect_author_digests.py` を使います。
+
+## 署名付きエンベロープのダイジェスト情報
+
+`digest_keyowner`、`digest_keyname`、`digest_key_method`、`digest_method` の出力位置を検証しました。署名なしの参照エンベロープでは4項目が平文に残り、署名ありでは受信者鍵で開いた `key_block` から4項目を復元しました。鍵所有者や鍵名を個別に入れ替えると照合に失敗しました。署名ありの平文側にも同じ値を出す対照は、本文とダイジェストを復元できても配置検査で拒否されました。 [検証記録](qualification/protect-digest-placement-20261127.json)
+
+新しい試験は参照対照28件すべてに一致し、GhostとIcarusの通常出力も一致しました。hdl-encrypt 0.1.0は通常入力から本文を復元できる出力を生成しましたが、ダイジェストブロックを出力しませんでした。作成済みの署名ありエンベロープを入力した試行では出力の終端に差分がありました。再実行には `python3 tools/run_protect_author_digests.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-digest-placement.json` を使います。
+
+## 処理系定義の保護アルゴリズム
+
+§34.5.9.2、§34.5.11.2、§34.5.21.2を、標準の符号化方式、必須のDESと任意のCBC方式、標準のダイジェスト方式で照合しました。追加の識別子は、十六進符号化、AES-CTR、SHA-256を参照試験に明示登録して検証しました。登録した方式で本文を復号してIcarusで実行し、各登録を一つずつ外した場合は該当する項目を特定して拒否しました。AES-CTRは、NISTの最初の2ブロックの既知解とも一致しました。 [検証記録](qualification/protect-algorithm-extensions-20261127.json) · [NIST SP 800-38A F.5.1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf#page=62)
+
+hdl-encrypt 0.1.0は追加の識別子を指定した入力から本文を復元できる出力を生成しました。出力では暗号方式が `aes256-cbc` に置き換わり、符号化とダイジェストの識別子が省かれていました。必須方式を含む既存の方式別試験も再実行し、直接出力の差分を同じ記録に保存しています。
+
+再実行には `python3 tools/run_protect_algorithm_extensions.py --python /path/to/venv/bin/python --nettle-prefix /path/to/nettle --iverilog-bin /path/to/bin --json /tmp/protect-extensions.json` を使います。
+
+## 保護モデルの独立性とコメント
+
+§34.5.1.2と§34.5.30.2を検証しました。同じ鍵名を使う別々の所有者に、異なる暗号方式と符号化を指定しました。参照試験ではどちらも単独・連結・逆順で復号でき、片方の暗号方式を消した場合は隣に設定があっても拒否しました。開始前、インクルード先、終了直前のコメントはそれぞれ対応する `data_block` の直前に平文で一度だけ現れました。コメントを後ろへ移した対照と、インクルード先のコメントを落とした対照を検出し、復号したモデルはIcarusで実行しました。 [検証記録](qualification/protect-envelope-isolation-20261127.json)
+
+hdl-encrypt 0.1.0の直接実行でも単独と逆順で本文を復元できました。出力は先頭の `begin_protected` を省き、開始前のコメントはエンベロープの外に残りました。入力を前処理してから渡した場合、展開された注記と終了直前のコメントは暗号化された本文に残りました。
+
+再実行には `python3 tools/run_protect_envelope_isolation.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-isolation.json` を使います。
+
+## ダイジェスト設定の既定値
+
+§34.4について、ダイジェストの鍵所有者・鍵名・公開鍵・暗号方式・復号鍵を一つずつ省略し、現在のデータ設定を継承することを復号で確認しました。公開鍵を使う二つのモデルは所有者と名前が異なり、セッション鍵を使う二つのモデルはAES-128とAES-256を使います。参照試験の10ケースと、復元後にIcarusで実行した4モデルの出力が一致しました。 [検証記録](qualification/protect-digest-defaults-20261127.json)
+
+hdl-encrypt 0.1.0の直接実行では4つの本文を復元できました。ダイジェスト生成を明示した4つの `digest_block` 指示は復号した本文に残り、出力エンベロープにはダイジェストブロックがありませんでした。
+
+再実行には `python3 tools/run_protect_digest_defaults.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-defaults.json` を使います。
+
+## 所有者ごとの保護鍵の一意性
+
+§34.5.10.2と§34.5.16.2について、データ用とダイジェスト用それぞれの鍵名・復号鍵・公開鍵を、同じ所有者内で一つずつ重複させました。参照試験は6件すべてで重複した項目を特定しました。別の所有者に同じ鍵名と鍵素材を登録すると、AESとRSAで復号できました。鍵の表記をBase64からuuencodeに変えても同じ鍵として扱い、復元した3モデルのIcarus出力も一致しました。 [検証記録](qualification/protect-owner-key-uniqueness-20261127.json)
+
+hdl-encrypt 0.1.0はCLIで指定した単一の受信者鍵で3モデルを処理し、その鍵ですべての本文を復元できました。出力エンベロープにはデータ用とダイジェスト用の鍵所有者がなく、所有者ごとの鍵登録は参照試験で確認しました。
+
+再実行には `python3 tools/run_protect_owner_key_uniqueness.py --python /path/to/venv/bin/python --iverilog-bin /path/to/bin --json /tmp/protect-owner-keys.json` を使います。
+
+## viewportによる保護領域へのアクセス
+
+§34.4と§34.5.32.2の参照試験では、復号した二つのモデルをSlangで解析し、宣言の位置からオブジェクトの所属を確認しました。IcarusのVPIから指定した値を読み取り、未指定の値と隣接エンベロープの値はそのviewportから読み取れないことを確認しました。同じ `access="tool access"` を読み取り専用と読み書き可能に設定し、VPIで書き込みを試すと値はそれぞれ `42` のまま、`5b` に変化しました。 [検証記録](qualification/protect-viewport-20261127.json)
+
+エンベロープとインスタンスを逆順にした入力でも、二つの参照ポリシーで同じ結果になりました。参照試験はどちらの順序でも、隣接エンベロープ、平文領域、未定義の名前を対象とする各ケースを拒否しました。検証に使ったSlangは6ケースをすべて受理しました。hdl-encrypt 0.1.0は各入力の本文を暗号化し、復号後のモデルにはすべてのviewport指定が残っていました。読み書きの結果は参照ポリシーとVPIで確認しました。
+
+再実行には `python3 tools/run_protect_viewport.py --python /path/to/venv/bin/python --slang /path/to/slang --iverilog-bin /path/to/bin --json /tmp/protect-viewport.json` を使います。
+
+## 再起動時のVPIハンドル解放
+
+§37.2.2のテストはモジュール、レジスタ、ビット選択、保留中のイベント、四つのコールバックのハンドルを取得します。再起動後に保持されるべきなのは開始と終了の再起動コールバックです。Ghostの内部検索表を調べるため、再起動前のハンドルを公開VPIの引数に渡さず、再起動しない対照でも検索結果を記録しました。 [検証記録](qualification/vpi-restart-release-20261127.json)
+
+Ghost strictはチェックポイントの値 `11` を復元し、開始と終了の再起動コールバックをそれぞれ一度呼びました。観測した8本のキーは内部検索表に残り、以前の値変更とシミュレーション終了のコールバックは再起動後にも発火しました。再開後に登録した値変更コールバックも一度発火しました。Icarus Verilog 13.0は `$save` と `$restart` を利用できないと報告しました。
+
+再実行には `python3 tools/run_ghost_vpi_restart_release.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/restart-release.json --observations /tmp/restart-release-observed.json` を使います。
+
+## パルス制御の全体設定
+
+§30.7、§30.7.2、§30.7.4.1、§30.7.4.2を検証しました。参照ランナーは棄却率とエラー率を検査し、個別指定のないパスへSDFで割合を適用します。範囲外や小数などの8入力を拒否し、棄却率50・エラー率25は診断後に50・50へ補正しました。6通りの設定でGhostの波形が期待値と一致し、上昇・下降遅延が異なるパスに共通の限界値を使う対照では波形が変わりました。 [検証記録](qualification/global-pulse-options-20261127.json)
+
+パス個別の `PATHPULSE$` とSDFの波形は、全体設定を変えても保たれました。全体設定を誤って適用する対照では両方の波形が変わりました。パルス方式と取消表示では、全体設定を反映したspecifyを両方向で実行し、Xへ遷移する時刻と表示の有無を確認しました。起動オプションの解釈は参照ランナーで検証し、Ghostの実行ではSDFとspecifyによる遷移を確認しました。
+
+再実行には `python3 tools/run_ghost_pulse_options.py --ghost /path/to/ghost --profile /path/to/profile.json --json /tmp/global-pulse-options.json` を使います。
+
+## PLI制御点とイベント領域
+
+§4.4.1、§4.4.2.5、§4.4.3.1と§4.4.3.5〜8を検証しました。アサーションが成立する時刻10と、失敗する時刻6の二つのケースを実行しました。Ghostの公開PLIとSystemVerilogから得た各12行は参照トレースに一致し、旧サンプルの値、NBA後のActive処理、Reactiveの成否アクション、Re-NBA後の更新を確認できました。 [検証記録](qualification/pli-region-controls-20261127.json)
+
+参照モデルは、PreponedとPre-Observedでネットや変数への書き込みと規格で禁止された現在スロットへの登録を拒否し、次のスロットに登録した処理を実行しました。ObservedではPLIコールバックを拒否し、プロパティの評価は行いました。Pre-Re-NBAとPost-Re-NBAで値を読み書きし、追加したReactive処理が保留中のActive処理に先行することも照合しました。
+
+同じGhostバイナリの `FullDeltaScheduler` を単独で実行した内部試験では、Pre-Re-NBAから登録したActive処理がReactiveの追加処理とRe-NBA更新に先行しました。この差分は公開PLIのトレースとは別に記録しています。
+
+再実行には `python3 tools/run_pli_region_controls.py --ghost /path/to/ghost --include /path/to/include --profile /path/to/profile.json --json /tmp/pli-region-controls.json` を使います。
+
+## ベクタ展開と負のタイミング検査
+
+§31.8の通常実行では、ベクタの幅検査とセットアップ検査を各1件観測しました。参照ランナーが3ビットのデータと2ビットのクロックを展開すると、GhostのVPIで幅検査3件とセットアップ検査6件が見つかり、すべて同じ通知変数を指しました。ビットの組を一つずつ変えた6回の実行で、対象の幅検査とセットアップ検査が各1件発火しました。組を重複させる対照と通知変数を分ける対照も検出しました。 [検証記録](qualification/timing-options-20261127.json)
+
+§31.9と§31.9.2は、明示的な遅延と非負の検査に置き換えて実行しました。両方の検査種別で、遅延後の先着と後着に条件を割り当て、条件を入れ替えた場合と違反範囲外の対照を確認しました。条件信号も暗黙に遅らせると判定が変わり、明示的な遅延信号から作った条件は元信号から作った条件と異なる結果になりました。元の負値の検査をGhostに渡した実行では、遅延信号が早い観測時点ですでに元信号の値を返し、違反判定も期待と異なりました。
+
+再実行には `python3 tools/run_ghost_timing_options.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/timing-options.json` を使います。
+
+## チェッカーの自由変数の選択
+
+§17.7と§17.7.2のテストでは、代入を行うクロックと仮定を評価するクロックを分け、代入対象のチェッカー変数を2から1に変更しました。参照ランナーは4つの単一サイクル仮定の式をYosysのSATモデルに変換し、1ステップの36通りと2ステップの21通りを独立した全組み合わせ検査と照合しました。定数の再選択を許すと60通り増え、矛盾する仮定を加えると2ステップの解はゼロになりました。 [検証記録](qualification/checker-free-choices-20261127.json)
+
+Ghostでは入力を明示した21通りすべてで元の仮定が成立しました。不正値の対照では最初のエッジで3つの失敗アクションが実行され、矛盾する対照では2番目のエッジで対象のアクションが実行されました。元のソースを6シードで実行すると、通常の乱数対照は変化しましたが、定数と二つのアクティブな自由変数はすべて0で、関係式の仮定は両ステップで失敗しました。定数の保持と失敗アクションの発生は確認できました。元のソースでの乱数選択と解探索は未確認です。§17.7.2は、解が存在しても探索が失敗することを許容しています。
+
+公開ツールによる形式検査は `python3 tools/run_checker_free_choices.py --json /tmp/checker-free-choices.json` で再実行できます。Ghostの測定も行う場合は `--simulator /path/to/ghost --profile /path/to/profile.json` を追加します。
+
+## VPIの基本オブジェクト型番号の予約範囲
+
+K.2の検査では、Icarus 13.0、Verilator 5.054、Ghostの拡張ヘッダーにあるオブジェクト型の定義をC11とC++17で評価しました。予約範囲の1〜299に入る定義はすべて既存の別名で、基本ヘッダーの値と一致しました。追加した1と299を検出し、0と300は予約範囲外でした。通常のVPIアプリケーションも3つのシミュレータで期待どおりの定数を出力しました。[検証記録](qualification/vpi-base-object-codes-20261127.json)
+
+コンパイラによる検査は `python3 tools/run_vpi_base_object_codes.py --headers verilator=/path/to/vltstd --json /tmp/vpi-base-object-codes.json` で再実行できます。ヘッダーの比較対象を増やす場合は `--headers NAME=PATH` を繰り返します。
+
+## VPIのポート添字と入力遅延
+
+§37.14のテストでは、添字の下限がゼロでない通常ポートを一つまたは複数の添字で選択しました。一方のモジュール入力に立ち上がり3、立ち下がり5の遅延を設定し、取得し直したポートハンドルで設定値を読み返しました。同じ信号につながる隣の入力は遅延ゼロです。インターフェースポートの例外は既存テストで検査しています。[検証記録](qualification/vpi-input-port-delays-20261127.json)
+
+Ghostの元のVPI呼び出しでは設定値を読み返せました。有効な添字で期待するポートビットを得られず、信号の立ち上がりと立ち下がりは入力元が変化した10 nsと20 nsに観測されました。参照実行は、宣言範囲からビットの位置を求めて平坦化したポートのVPIイテレーターで選択し、HDLで設定値の遅延を適用します。エッジは13 nsと25 nsに現れ、添字を逆順にした対照と遅延を省いた対照の差分も検出しました。
+
+再実行には `python3 tools/run_vpi_input_port_delays.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-input-port-delays.json` を使います。
+
+## 旧DPIの互換ヘッダーとデータ配置
+
+H.14.3のテストでは、二つの参照用 `svdpi_src.h` をC11とC++17で検査しました。公開される定義はビット型と論理型の宣言マクロ各一つでした。両マクロは幅の式を受け取り、外側の配列の各要素として使える非配列型を宣言します。余分なマクロ、余分な型宣言、配列型を生成する定義を検出しました。検査したGhostとVerilatorのヘッダーには `svdpi.h` があり、任意の互換ヘッダーはありませんでした。[検証記録](qualification/dpi-legacy-source-layout-20261127.json)
+
+異なるパック配置を備えた二つのC参照実行環境で、不透明なハンドルを使う同じ共有ライブラリをロードしました。互換ヘッダーを使う版は、それぞれの配置向けに再コンパイルすると一致しました。入れ替えると双方で変換前にサイズやオフセットの不一致を検出しました。X/Zのマスクを落とした対照は双方で不一致になりました。Ghostでは、旧DPIインポートを使う実機で不透明なハンドルの版とワード配置の版が値とX/Zを保持しました。Verilatorの通常実行では旧DPIインポートが拒否されました。同梱の `svdpi.h` で公開コンパイラ検査と参照実行を再現できます。
+
+再実行には `python3 tools/run_dpi_legacy_source_layout.py --include /path/to/svdpi/include --json /tmp/dpi-source-layout.json` を使います。Ghostの測定を行う場合は `--simulator /path/to/ghost --profile /path/to/profile.json` を追加します。
+
+## カバレッジデータベースの保存形式と論理名
+
+§40.3.2.5の参照ランナーでは、移動後のファイルに二つの論理名を割り当てました。GhostのCLIが出力したJSONは別々の階層に、VerilatorのCLIが出力したファイルは一つの階層に配置しました。それぞれのCLIで名前に対応する記録を読み戻すと `(3, 0)` と `(0, 3)` になり、マージ結果は `(3, 3)` になりました。名前と保存先の対応を交換すると結果も入れ替わりました。GhostはVerilatorのファイルを拒否し、VerilatorはGhostのJSONからヒットを取得できませんでした。[検証記録](qualification/coverage-database-storage-20261127.json)
+
+CLIの再生ではランナーが論理名から保存先を引きます。GhostでSystemVerilogの関数を直接呼ぶと、`$coverage_save` は `SV_COV_NOCOV`、`$coverage_merge` は `SV_COV_ERROR` を返しました。
+
+公開ツールの検査は `python3 tools/run_coverage_database_storage_profiles.py --json /tmp/coverage-storage.json` で再実行できます。Ghostの形式とSystemVerilog関数も測定する場合は `--ghost /path/to/ghost --profile /path/to/profile.json` を追加します。
+
+## 自動カバレッジビンの実装上限
+
+§19.5.3のテストでは、両方のカバーポイントが13個の自動ビンを要求します。Verilator 5.054で `--coverage-max-bins` を5、9、13、20に設定すると、4ビットのカバーポイントのビン数は5、9、13、13になりました。2ビットの対照は常に4ビンでした。上限5と9では、コンパイラが4ビット側の宣言位置に上限の適用を報告しました。各設定をシード1と73で実行し、最初のカバレッジ、全入力を走査した後の各ビンのヒット数、最後のビンに余りが入ることを確認しました。Ghostでは同じソースで13ビンと4ビンでした。[検証記録](qualification/automatic-bin-limit-20261127.json) · [Verilatorの保存済み結果](results/automatic-bin-limit-20261127-verilator5.054.json)
+
+再実行には `python3 tools/run_verilator_automatic_bin_limit.py --verilator /path/to/verilator --json /tmp/automatic-bin-limit.json --observations /tmp/automatic-bin-limit-observed.json` を使います。
+
+## 非パック共用体のメンバーのC配置
+
+§7.3.1のテストでは、Verilator 5.054が生成したC++共用体と、別に宣言したC共用体をそれぞれコンパイルして測定しました。共用体メンバーの位置、各構造体内で昇順に並ぶフィールドの位置、サイズ、アライメントが一致しました。測定環境で構造体は24バイトと32バイトで、共用体の先頭から重なっています。Cは生成型から共通の先頭メンバーと有効な実数を読み、生成型はCが書いた符号付き整数と実数を読みました。片側の生成構造体で先頭の2フィールドを入れ替えた対照は、転送前に配置の不一致を検出しました。SystemVerilogで共通メンバーを読む通常テストはGhostとVerilatorで一致しました。[検証記録](qualification/unpacked-union-c-layout-20261127.json) · [Verilatorの保存済み結果](results/unpacked-union-c-layout-20261127-verilator5.054.json)
+
+再実行には `python3 tools/run_unpacked_union_c_layout.py --verilator /path/to/verilator --json /tmp/union-layout.json --observations /tmp/union-layout-observed.json` を使います。
+
+## VPIの実行時既定モードとコンパイル時固定モード
+
+§36.12.2と§36.12.2.2のテストは、macOSのテスト用アダプターでロード時に既定を一度選び、プロパティ取得と列挙をGhostのVPIへ委譲します。既定が1995年版の場合、モード未指定の同じ2ライブラリはメモリ、メモリワード、列挙対象の整数変数だけを観測しました。現行版では変数配列、レジスター、三つの変数を観測しました。コンパイル時に1995年版と2023年版に固定したライブラリは、どの実行でもそれぞれの結果を保ちました。全ライブラリが同じワードから47を読みました。[検証記録](qualification/vpi-host-default-modes-20261127.json)
+
+二つのコールバックの間で環境変数を変更しても、ロード時に選んだ既定は変化しませんでした。既定を二重に指定した対照では、アダプターが診断を返し、未指定のアプリに適用するモードを選びませんでした。Ghostの通常実行で未指定の両ライブラリが観測したのは現行版です。実行時の切り替えにはテスト用アダプターの設定を使いました。
+
+macOSでの再実行には `python3 tools/run_vpi_host_default_modes.py --ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-host-default.json` を使います。
+
+別のテストではコンパイル時にモードを固定したライブラリを外し、同じ二つの未指定ライブラリを再利用します。読み込み順を逆にするとコールバックの順も逆になり、両アプリは引き続き同じ既定モードの結果を返し、新しい設計から `83` を読みました。
+
+## 分割コンパイル済みセルの構成による結合
+
+§33.5と§33.5.3のテストは、Yosysの個別プロセスで各セルをコンパイルし、二つの構成を保存してからSystemVerilogの一時コピーを削除します。別プロセスの参照リンカーはコンパイル済みの構成を選び、各オブジェクトの下位インスタンスをたどり、同じ中間セルの二つのインスタンスに別々の末端セルを結合します。Yosysは交差する構成で `west=a2 east=a1`、交差しない構成で `west=a1 east=a2` を証明しました。構成、必要な末端セル、または二つのインスタンスを含む中間セルを外すと、結合は失敗しました。ソースから実行したSlangの階層選択とGhostの出力は参照実行と一致しました。Verilator 5.054は構成を切り替えても両方に同じ末端セルを結合し、浅い階層で `west=a2 east=a2`、深い階層で `west=a1 east=a1` を出力しました。 [検証記録](qualification/config-precompiled-cells-20261127.json)
+
+再実行には `python3 tools/run_config_precompiled_cells.py --slang /path/to/slang --json /tmp/config-precompiled-cells.json` を使います。YosysとVerilatorは既定で `PATH` から選びます。Ghostのソース実行も比較する場合は `--ghost /path/to/ghost` を指定します。
+
+## `misc` によるVPI拡張値形式
+
+§38.15のテストでは、参照実装に独自の形式識別子を二つ定義します。参照実装は各シミュレータの `vpiVectorVal` で40ビットと10ビットの信号を読みます。一つの識別子は幅と `aval`・`bval` のワードを、もう一つは `0`・`1`・`X`・`Z` の個数を `misc` で返します。GhostとIcarusが返したベクターは一致し、両環境で参照実装の出力は期待値に一致しました。未登録の識別子では参照実装はデータを返しません。参照実装側のビットプレーン識別子だけを変更して再コンパイルすると、ビットプレーンの出力だけが消え、個数と標準ベクターの出力は変わりませんでした。 [検証記録](qualification/vpi-misc-format-extensions-20261127.json)
+
+同じ独自識別子をシミュレータに直接渡す対照では、Ghostはデータもエラーも返さず、Icarusは最初の識別子で内部アサーションにより実行を中断しました。GhostとIcarusの標準ベクター読み出しは一致し、Verilator 5.054の `bval` はすべてゼロでした。参照実装を使う拡張形式の検証は設計対応率に計上します。
+
+公開ツールでの再実行には `python3 tools/run_vpi_misc_format_extensions.py --iverilog-bin /path/to/icarus/bin --json /tmp/vpi-misc-icarus.json` を使います。Ghostで再実行する場合は `--iverilog-bin` を `--ghost /path/to/ghost --include /path/to/vpi/include --profile /path/to/profile.json` に置き換えます。
+
+## 保護オブジェクトのVPIアクセス
+
+§37.3.6、§37.42、§37.59および第38章のテストでは、テスト用の鍵でソースの二つの範囲を暗号化・復元し、同じ設計の反対側を暗号化して再実行します。Slangで配列、クラス参照、モジュールインスタンス、システム呼び出しと引数のソース位置を確認します。参照アダプターは復元した範囲をGhostのVPIオブジェクトに適用します。各配置で整数・文字列属性、親や添字による探索、保護スコープ内の名前検索と列挙を拒否し、型と保護フラグを返しました。保護されたシステムタスクとシステム関数の引数を列挙でき、式の幅も取得できました。 [検証記録](qualification/vpi-protected-access-20261127.json)
+
+復元済みのソースをGhostで直接実行すると、両側の保護フラグはゼロで、操作は許可されました。鍵を設定せずに暗号化済みソースを直接実行すると、未宣言のオブジェクトが診断されました。参照実行は設計対応率に計上します。再実行には `python3 tools/run_vpi_protected_access.py --ghost /path/to/ghost --slang /path/to/slang --python /path/to/hdl-encrypt-venv/bin/python --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-protected-access.json` を使います。
+
+## 保護された文のコールバック
+
+§38.36.1.1と§38.36.1.3の試験では、左または右の名前付きブロックを暗号化・復元します。Slangでブロックと下位の文のソース範囲を確認します。参照アダプターは保護ブロックへの個別 `cbStmt` 登録でヌルハンドルを返して診断を出し、モジュール一括登録から保護ブロック・遅延・代入を外します。未保護の六つの文には実際のGhostコールバックを登録します。一括登録の解除後も、最後の代入に個別登録したコールバックが届きます。どちらの配置でも最終値は `29`、`47`、`63` です。復元済みソースをGhostで直接実行した対照では、両方の個別登録が成功し、両側のコールバックが実行されました。 [検証記録](qualification/vpi-protected-callbacks-20261127.json)
+
+再実行には `python3 tools/run_vpi_protected_callbacks.py --ghost /path/to/ghost --slang /path/to/slang --python /path/to/hdl-encrypt-venv/bin/python --include /path/to/vpi/include --profile /path/to/profile.json --json /tmp/vpi-protected-callbacks.json` を使います。
+
+## 弱参照とクラスのガベージコレクション
+
+§8.29、§8.30.1、§8.30.5の試験では、弱参照ラッパーをタスクを通じて別のクラスに格納し、AddressSanitizer付きのVerilator生成コードで実際のデストラクタを観測します。参照アダプターで弱参照を追加しても強参照数は変わらず、ラッパーの一つは参照先が生きている間に回収されました。最後の強参照を外すと、回収待ちのオブジェクトに強参照数ゼロの状態で二つの弱参照からアクセスできました。デストラクタでの一度のアトミック交換で両方がクリアされ、別の参照先は生き続けました。強参照を一本保持した対照では、同じ時点で参照先は回収されませんでした。 [検証記録](qualification/weak-reference-collection-20261127.json)
+
+SystemVerilogの連想配列は参照先の回収後も数値キーを保持しました。参照実装は同じIDを新しいオブジェクトに割り当て、元の弱参照はヌルのままでした。Ghostの通常実行では `std::weak_reference` を使った生存中の参照と数値キーが一致しました。追加の観測では、ソース上の最後の強参照を外した後も両方の弱参照から `29` を読みました。Verilator 5.054は通常の `std::weak_reference` 宣言を拒否しました。参照実行は設計対応率に計上します。
+
+再実行には `python3 tools/run_weak_reference_collection.py --json /tmp/weak-reference-collection.json` を使います。
+
+## クラス回収コールバックとハンドルの解放
+
+§37.2.2と§38.36.1の試験では、AddressSanitizer付きのVerilator生成コードで実際のデストラクタを観測します。参照VPIは、型に登録したコールバックを同型の二つの個体に、個体に登録したコールバックを指定した個体だけに通知しました。別の型の個体には通知されませんでした。コールバック中の時刻ポインタはヌルで、型、64ビットの識別子、保護、割り当て、ライフタイムの属性を取得できました。復帰後に参照実装は、対象のオブジェクト、属性、配列要素、メソッドと、個体に関連する四つのコールバックのハンドルを解放しました。型への登録は維持されました。別の強参照を保持した対照では、その個体は試験中に回収されませんでした。 [検証記録](qualification/vpi-class-reclaim-20261127.json)
+
+Ghostの直接実行では型と個体への回収登録に加えてクラス変数への登録も受け付け、生成コールバックが二回、回収コールバックはゼロ回でした。別のGhost試験では、タスク復帰後も静的ローカル変数のハンドルから値を読み、値変更通知を受け取りました。フレームとスレッドへの登録と、ヌルを対象とする `cbForce` と `cbRelease` も別の試験で確認しました。式とプリミティブ端子は登録を受け付けましたが、比較した値変更通知はネットにだけ届きました。
+
+再実行には `python3 tools/run_vpi_class_reclaim.py --json /tmp/vpi-class-reclaim.json` を使います。
+
+## 自動フレームとスレッドのライフタイム
+
+§37.3.7と§37.3.8の試験では、クラス回収試験と、二つの自動タスク呼び出しが重なる試験を組み合わせました。AddressSanitizerを有効にしたVerilator生成コードで、参照VPIは実際のフレーム内の整数、バイト、ビットの値を開始と終了のコールバック中に読み取りました。呼び出しの復帰後にフレーム側のハンドルと登録が消え、呼び出し元スレッドは次のサンプル時点まで生きていました。スレッドの生成と破棄の時点、およびフレームとスレッド両方の `cbEndOfObject` を観測しました。 [検証記録](qualification/vpi-automatic-frame-lifetime-20261127.json)
+
+通常のHDL出力はGhost、Icarus Verilog、Verilator、kirimasimで一致し、Slangでもエラーなく解析できました。GhostのVPIを使った別の試験ではスレッドの開始通知が一致しました。フレームの開始通知はタスク本体の実行前に届きましたが、通知中に引数とローカル変数を取得できませんでした。終了時の観測では登録マネージャーとスレッドは終了を反映し、内部のハンドル表には終了した対象の項目が残りました。
+
+再実行には `python3 tools/run_vpi_automatic_frame_lifetime.py --json /tmp/vpi-automatic-frame-lifetime.json` とクラス回収用のコマンドを使います。
+
+## その他の一時オブジェクト
+
+§37.3.7の試験では、フォークしたタスクが参照している間に動的配列を作り直しました。Ghostで、タスクの参照先に書いた43は新しい配列の要素69と分離され、ブロック内の局所変数23は参照から読めました。スコープを抜けた後はフレームがなくなり、スレッドは終了コールバックまで追跡できました。引数イテレータは最終走査でヌルを返し、別のIcarus試験では同じ走査による実際の解放を確認しました。 [検証記録](qualification/vpi-other-transient-20261127.json)
+
+予約したイベントは実行前に保留中で、実行後は値91が反映され、ハンドルを解放できました。取り消していないタイマーは1回通知され、取り消したタイマーは通知されませんでした。取り消したタイマーの即時列挙を調べる別のGhost試験には差分が残りました。 [Ghost実行記録](results/vpi-other-transient-20261127-ghost.json)
+
+## 端子、パス、タイミングチェック、表エントリの属性
+
+§37.83の試験では、Ghostが実際に生成したプリミティブ端子、パス端子、モジュールパス、タイミングチェック、ユーザー定義プリミティブの表エントリを、それぞれ二つ選びました。補助コードで一方に二属性、もう一方に一属性を設定し、公開VPIで属性の列挙、型、名前、整数値と実数値、親への逆参照を確認しました。別の試行ではモジュールパスの属性を別のパスに混ぜ、パス端子の属性の親を別の端子に置き換え、両方の誤りを検出しました。 [検証記録](qualification/vpi-extended-attributes-20261127.json)
+
+通常のソースではゲート自体の属性を取得でき、5種類の試験対象の属性一覧は空でした。GhostとSlangは試したプリミティブ入力端子の属性構文を受理し、Ghostでは端子の属性一覧は空のままでした。残る4種類で試した属性の記述位置は両ツールが診断しました。10件の対応には、属性を補助コードで設定した試験を使っています。
+
+再実行には `python3 tools/run_vpi_extended_attributes.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-extended-attributes.json` を使います。
+
+## プログラムとインターフェースの所有関係
+
+§37.6、§37.9、§37.39の試験では、Ghostが生成したプログラム、インターフェース、配列、モジュールパスを使い、補助コードで規格図の所有関係を設定しました。各プログラムから選んだ単体と配列だけを列挙し、元の配列要素を添字で取得できました。単体と配列からそれぞれのプログラムに戻り、プログラムに接続した対照用インターフェースの所有元はモジュールでした。インターフェースのパスは一方に二つ、もう一方に一つを関連付け、各パスの入出力信号、`vpiInstance`、旧 `vpiModule` のヌルを照合しました。 [検証記録](qualification/vpi-interface-ownership-20261127.json)
+
+旧参照が内部の親階層をたどる構成では、Ghostはインターフェースのパスから外側のモジュールを返しました。この構成でも `vpiInstance` はインターフェースを返しました。通常のソースによる対照では、GhostとSlangがプログラム内の直接インスタンス化とインターフェース内の `specify` を診断しました。7件の対応には所有関係を設定した試験を使っています。
+
+再実行には `python3 tools/run_vpi_interface_ownership.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-interface-ownership.json` を使います。
+
+## 純粋制約と構造体パターンのプロパティ
+
+§37.34と§37.72の試験では、Slangで純粋制約の宣言、具体クラスによる実装、上書きできない最終制約を確認しました。実装を外した構成と、最終制約を上書きする構成もそれぞれ診断されました。名前付きの内側パターンは束縛変数で識別し、左右のフィールドを入れ替えた構成も解析しました。 [検証記録](qualification/vpi-pattern-constraint-20261127.json)
+
+解析結果を補助コードで実際のVPIオブジェクトに渡すと、`vpiVirtual` は純粋制約で真、最終制約で偽を返しました。内側の `vpiName` はフィールド名を返し、左右の入れ替えに合わせて名前とHDLの束縛値が変わりました。通常のGhost実行では純粋制約のフラグは偽で、内側パターンから名前を取得できませんでした。
+
+再実行には `python3 tools/run_vpi_pattern_constraint_properties.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-pattern-constraint.json` を使います。
+
+## 図記号とグループ共通のVPIアクセス
+
+§37.4.1の検査では、台帳に登録したIEEE PDFから線と書体を測定しました。実線のオブジェクト定義と参照、点線のクラス定義と参照、名前のない囲みを分類し、クラス定義の内側にある記号も確認しました。別の図にあるインスタンスの参照は名前付き定義に解決され、無名グループはメンバー名から解決されませんでした。実線を断続させた比較と書体を変えた比較では誤分類を検出しました。 [検証記録](qualification/vpi-diagram-key-20261127.json)
+
+§37.3のGhost試験では、パッケージ、インターフェース、プログラムとモジュールすべてで、名前、変数の列挙、所有先への逆参照が一致しました。単体とベクトルのネットから、それぞれ名前、幅1と4、ベクトルの真偽値と親モジュールを取得しました。 [Ghost実行記録](results/vpi-diagram-access-20261127-ghost.json)
+
+図の再検査にはPopplerの `pdftoppm`、pdfplumber、Pillowを使い、`python3 tools/run_vpi_diagram_key.py --pdf /path/to/IEEE_Std_1800-2023_SystemVerilog.pdf --json /tmp/vpi-diagram-key.json` を実行します。規格PDFとレンダリング画像はリポジトリに含めていません。
+
+## タスクと関数のVPIの親
+
+Slangで `ref` 引数を持つタスク、`const ref` 引数を持つ関数、通常の入力引数を持つ関数を区別しました。Ghostでは同名の参照引数を二つの別のオブジェクトとして取得でき、`vpiTaskFunc` でそれぞれの宣言に戻れます。参照試験では別々のタスクと関数のビューに `vpiParent` を設定し、公開VPIが返すオブジェクトの同一性を確認しました。参照先を入れ替えると両方の同一性判定が失敗します。通常実行では宣言の親はモジュールです。 [検証記録](qualification/vpi-task-reference-parent-20261127.json)
+
+再実行には `python3 tools/run_vpi_task_reference_parent.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/vpi-reference-parent.json` を使います。
+
+## 連想配列のキーの等価性
+
+§7.8.5では、独立に確保した動的配列、キューと文字列を含む構造体、イベントハンドルをキーとして使います。Slangはこれらを受理しました。入れ子の実数メンバーを持つ構造体は、等価比較を受理し、連想配列のキーとして使う場合は拒否しました。Ghost strictでは可変長キーの2テストと実数を含むキーの拒否が期待どおりでした。 [検証記録](qualification/associative-key-equality-20261127.json)
+
+イベントの回帰テストでは3つのハンドルの等価性を比較し、別々の2項目を期待します。Ghostは等価性を正しく判定しましたが、連想配列には1項目だけが作られ、別名経由で更新するとどちらの検索も63を返しました。実測した等価性に基づく参照試験は更新後に期待値の17と59を返しました。
+
+再実行には `python3 tools/run_associative_key_equality.py --ghost /path/to/ghost --slang /path/to/slang --profile /path/to/profile.json --json /tmp/associative-key-equality.json` を使います。
+
+## プロセス制御の対象と生成元
+
+§9.7のテストは、initial手続き、always手続き、両方から起動したforkと、さらに入れ子のforkから別々のプロセスハンドルを取得します。Ghostでは5つの対象を中断・再開し、すべてが処理を進めた後に終了させて待ち合わせました。Slangがソース上の生成元を特定し、VPIアプリケーションが実行時のforkの親IDを照合しました。 [検証記録](qualification/process-control-target-origins-20261127.json)
+
+final手続きの後に、別の実行主体からfinal由来のハンドルに対して `await`、`suspend`、`resume`、`kill` を試します。参照試験では4操作とも拒否され、ハンドルの状態は変わりませんでした。生成元の制限を外した対照では、Ghostの内部APIがawaitの待ちを報告し、続く操作で中断、実行中、強制終了へと状態が変わりました。これはシミュレーション終了時のコールバックから実際のハンドルを使った内部APIの結果です。
+
+再実行には `python3 tools/run_process_control_target_origins.py --ghost /path/to/ghost --slang /path/to/slang --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/process-origins.json` を使います。
+
+## 参照規格の版選択
+
+第2章のチェッカーは台帳に登録したIEEE 1800-2023 PDFから引用を読み、2026-11-27までに確認した発行元の記録を使って版を解決します。版指定ありの参照では、IEEE 1364-1995を2005年版に置き換えず、FIPS 180-2は後の変更通知やFIPS 180-4があっても2002年8月版を選びます。同じ配列をGhostで読むと、1995年版のVPIはメモリとメモリワードを返し、2005年版はreg配列とregを返しました。値は両方とも101でした。SHA-1の既知値は `abc` の3バイトで確認しました。 [検証記録](qualification/normative-reference-editions-20261127.json) · [IEEE 1364-1995](https://standards.ieee.org/ieee/1364/2051/) · [NIST FIPS 180-2](https://csrc.nist.gov/pubs/fips/180-2/final)
+
+版指定なしの参照では、確認日時点でIEEE 754-2019とIEEE 1003.1-2024を選びます。過去の時点では、発行済みのPOSIXの追補と、後の基準版に対する二つの正誤票が順番に適用されました。確認日時点の選択には未発行のIEEEの案は含まれません。binary64の観測はGhostとIcarusで一致し、従来形式とBase64のuuencodeはホストのユーティリティとPythonのデコーダーで96バイトすべてを復元しました。版解決と動作確認の両方を検証記録に収録しています。 [IEEE 754-2019](https://standards.ieee.org/ieee/754/6210/) · [IEEE 1003.1-2024](https://standards.ieee.org/ieee/1003.1/7700/) · [POSIX uuencode](https://pubs.opengroup.org/onlinepubs/9799919799/utilities/uuencode.html)
+
+再実行には、台帳と同じPDF、Popplerの `pdftotext`、Cコンパイラ、OpenSSL、Icarus、`uuencode` と `uudecode` が必要です。`python3 tools/run_normative_reference_editions.py --pdf /path/to/IEEE-1800-2023.pdf --ghost /path/to/ghost --include /path/to/ghost/include --profile /path/to/profile.json --json /tmp/normative-reference-editions.json` を実行します。
 
 ## CI とナイトリー
 

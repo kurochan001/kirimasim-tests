@@ -1,0 +1,5 @@
+early data=1 delayed=0
+clock raw=1 delayed=0
+condition raw=0 explicit=1
+before valid=1 swapped=0 outside=0
+after valid=1 swapped=0 outside=0 explicit=1 raw=0

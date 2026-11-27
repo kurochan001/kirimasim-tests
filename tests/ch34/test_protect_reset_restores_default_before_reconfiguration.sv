@@ -3,7 +3,7 @@
 :description: A protect reset restores the default encoding before a later directive selects a different encoding
 :tags: ch34
 :type: simulation
-:lrm: 1800-2023 34.5.31.2 34.5.9.2
+:lrm: 1800-2023 34.4 34.5.31.2 34.5.9.2
 :oracle: spec
 :spec_check: ai
 :fourstate: no

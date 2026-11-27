@@ -1,0 +1,383 @@
+{
+  "schema": 1,
+  "requirements": [
+    "SV2023-33.5-EXTRACT-CONFIG-PRECOMPILED-SUPPORT",
+    "SV2023-33.5.3-EXTRACT-SEPARATE-COMPILE-MODEL"
+  ],
+  "qualification": {
+    "schema": 1,
+    "profile": "config-precompiled-cells-reference",
+    "checker_sha256": "fbc4ecb024fd1f132a75eba3cc023c1f02ed4450b4a01871964a2cd7660e1ea3",
+    "artifact_sha256": {
+      "yosys": "435b1d43de6985eeaad8330b0636d0f7bb1143311fd27382bf258d04fb2873c4",
+      "slang": "b39835de795dc088cf54d14923312c9b97f8bd4a6834afc48913e411ca7918f3",
+      "verilator": "d74a5f9cbe9665135fcdcfe2415894e26951d98eb5f01621c38955e6845003d9",
+      "ghost": "2f3874bf7b6341e6313cea2d5f8bf2a4e967819ced35ff1cab2338ada954e6be",
+      "verilator_bin": "180edf74772c11a9cb094e5d252b186acc20eca640534cca182bd3a18e92c9e5"
+    },
+    "versions": {
+      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",
+      "slang": "slang version 12.0.0+0",
+      "verilator": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261101",
+      "ghost": "sukimasim version 0.9.9.2"
+    },
+    "tests": {
+      "ch33/test_config_precompiled_cells": {
+        "inputs_sha256": "118b712e08ac255fbb251a29995548ca5ca2420e3979f12d16253bf39913b28c",
+        "source": {
+          "slang": {
+            "precompiled_crossed": {
+              "exit": 0,
+              "hierarchy": {
+                "test_config_precompiled_cells": "work.test_config_precompiled_cells",
+                "test_config_precompiled_cells.west": "cellsLib.phase_worker",
+                "test_config_precompiled_cells.west.implementation": "eastLib.phase_leaf",
+                "test_config_precompiled_cells.east": "cellsLib.phase_worker",
+                "test_config_precompiled_cells.east.implementation": "westLib.phase_leaf"
+              }
+            },
+            "precompiled_local": {
+              "exit": 0,
+              "hierarchy": {
+                "test_config_precompiled_cells": "work.test_config_precompiled_cells",
+                "test_config_precompiled_cells.west": "cellsLib.phase_worker",
+                "test_config_precompiled_cells.west.implementation": "westLib.phase_leaf",
+                "test_config_precompiled_cells.east": "cellsLib.phase_worker",
+                "test_config_precompiled_cells.east.implementation": "eastLib.phase_leaf"
+              }
+            }
+          },
+          "verilator": {
+            "precompiled_crossed": {
+              "build_exit": 0,
+              "exit": 0,
+              "output": [
+                "west=a2 east=a2"
+              ]
+            },
+            "precompiled_local": {
+              "build_exit": 0,
+              "exit": 0,
+              "output": [
+                "west=a2 east=a2"
+              ]
+            }
+          },
+          "ghost": {
+            "precompiled_crossed": {
+              "exit": 0,
+              "output": [
+                "west=a2 east=a1"
+              ]
+            },
+            "precompiled_local": {
+              "exit": 0,
+              "output": [
+                "west=a1 east=a2"
+              ]
+            }
+          }
+        },
+        "compiled": {
+          "precompiled_crossed": {
+            "exit": 0,
+            "diagnostics": [],
+            "top": "bound_1",
+            "hierarchy": {
+              "test_config_precompiled_cells": "work.test_config_precompiled_cells",
+              "test_config_precompiled_cells.east": "cellsLib.phase_worker",
+              "test_config_precompiled_cells.east.implementation": "westLib.phase_leaf",
+              "test_config_precompiled_cells.west": "cellsLib.phase_worker",
+              "test_config_precompiled_cells.west.implementation": "eastLib.phase_leaf"
+            },
+            "proof": {
+              "exit": 0,
+              "proved": true,
+              "refuted": false
+            }
+          },
+          "precompiled_local": {
+            "exit": 0,
+            "diagnostics": [],
+            "top": "bound_1",
+            "hierarchy": {
+              "test_config_precompiled_cells": "work.test_config_precompiled_cells",
+              "test_config_precompiled_cells.east": "cellsLib.phase_worker",
+              "test_config_precompiled_cells.east.implementation": "eastLib.phase_leaf",
+              "test_config_precompiled_cells.west": "cellsLib.phase_worker",
+              "test_config_precompiled_cells.west.implementation": "westLib.phase_leaf"
+            },
+            "proof": {
+              "exit": 0,
+              "proved": true,
+              "refuted": false
+            }
+          }
+        },
+        "objects": {
+          "work.test_config_precompiled_cells": {
+            "sha256": "b4982c181a27a5399c6c80119e98869cc1be6eca1bdda48fb453d7e2802ba749",
+            "source": "source/test_config_precompiled_cells.sv"
+          },
+          "cellsLib.phase_worker": {
+            "sha256": "af02535630b7e56010d118acd5ef8a466e60b85fc4e27e4aa2bbbb96a81e0dc0",
+            "source": "source/precompiled_cells/worker.sv"
+          },
+          "westLib.phase_leaf": {
+            "sha256": "42f304eb456f411e6004673dcb906307f310c9c46e71625e1fdfe0c36c335b49",
+            "source": "source/precompiled_cells/west.sv"
+          },
+          "eastLib.phase_leaf": {
+            "sha256": "6420f86168bfbf98552ae9bc11838be559a19c66fb935a6412a0b0871bced8a9",
+            "source": "source/precompiled_cells/east.sv"
+          }
+        },
+        "configuration_sha256": "4221754aa5d47927a55ed24005bf8179d01a8e20d8e95eedc505e53d6e31434e",
+        "alternate_proof": {
+          "exit": 1,
+          "proved": false,
+          "refuted": true
+        },
+        "without_cell": {
+          "exit": 1,
+          "diagnostics": [
+            "test_config_precompiled_cells.west.implementation needs missing compiled cell eastLib.phase_leaf"
+          ]
+        },
+        "without_config": {
+          "exit": 1,
+          "diagnostics": [
+            "no compiled configuration library"
+          ]
+        },
+        "checks": {
+          "slang_source_bindings_agree_with_compiled_bindings": true,
+          "source_files_absent_during_binding": true,
+          "rebound_hierarchies_prove_expected_outputs": true,
+          "alternate_configuration_falsifies_crossed_expectation": true,
+          "missing_cell_diagnosed_during_descent": true,
+          "missing_compiled_configuration_rejected": true,
+          "reused_objects_and_configuration_unchanged": true,
+          "ghost_source_outputs_agree": true
+        },
+        "pass": true
+      },
+      "ch33/test_config_precompiled_transitive_cells": {
+        "inputs_sha256": "67965b89940c8916eb3e9b5a0bded5f10ee5827c0dd7b0d9572a218f2c0eb023",
+        "source": {
+          "slang": {
+            "precompiled_crossed": {
+              "exit": 0,
+              "hierarchy": {
+                "test_config_precompiled_transitive_cells": "work.test_config_precompiled_transitive_cells",
+                "test_config_precompiled_transitive_cells.middle": "middleLib.phase_enclosure",
+                "test_config_precompiled_transitive_cells.middle.west": "cellsLib.phase_worker",
+                "test_config_precompiled_transitive_cells.middle.west.implementation": "eastLib.phase_leaf",
+                "test_config_precompiled_transitive_cells.middle.east": "cellsLib.phase_worker",
+                "test_config_precompiled_transitive_cells.middle.east.implementation": "westLib.phase_leaf"
+              }
+            },
+            "precompiled_local": {
+              "exit": 0,
+              "hierarchy": {
+                "test_config_precompiled_transitive_cells": "work.test_config_precompiled_transitive_cells",
+                "test_config_precompiled_transitive_cells.middle": "middleLib.phase_enclosure",
+                "test_config_precompiled_transitive_cells.middle.west": "cellsLib.phase_worker",
+                "test_config_precompiled_transitive_cells.middle.west.implementation": "westLib.phase_leaf",
+                "test_config_precompiled_transitive_cells.middle.east": "cellsLib.phase_worker",
+                "test_config_precompiled_transitive_cells.middle.east.implementation": "eastLib.phase_leaf"
+              }
+            }
+          },
+          "verilator": {
+            "precompiled_crossed": {
+              "build_exit": 0,
+              "exit": 0,
+              "output": [
+                "west=a1 east=a1"
+              ]
+            },
+            "precompiled_local": {
+              "build_exit": 0,
+              "exit": 0,
+              "output": [
+                "west=a1 east=a1"
+              ]
+            }
+          },
+          "ghost": {
+            "precompiled_crossed": {
+              "exit": 0,
+              "output": [
+                "west=a2 east=a1"
+              ]
+            },
+            "precompiled_local": {
+              "exit": 0,
+              "output": [
+                "west=a1 east=a2"
+              ]
+            }
+          }
+        },
+        "compiled": {
+          "precompiled_crossed": {
+            "exit": 0,
+            "diagnostics": [],
+            "top": "bound_1",
+            "hierarchy": {
+              "test_config_precompiled_transitive_cells": "work.test_config_precompiled_transitive_cells",
+              "test_config_precompiled_transitive_cells.middle": "middleLib.phase_enclosure",
+              "test_config_precompiled_transitive_cells.middle.east": "cellsLib.phase_worker",
+              "test_config_precompiled_transitive_cells.middle.east.implementation": "westLib.phase_leaf",
+              "test_config_precompiled_transitive_cells.middle.west": "cellsLib.phase_worker",
+              "test_config_precompiled_transitive_cells.middle.west.implementation": "eastLib.phase_leaf"
+            },
+            "proof": {
+              "exit": 0,
+              "proved": true,
+              "refuted": false
+            }
+          },
+          "precompiled_local": {
+            "exit": 0,
+            "diagnostics": [],
+            "top": "bound_1",
+            "hierarchy": {
+              "test_config_precompiled_transitive_cells": "work.test_config_precompiled_transitive_cells",
+              "test_config_precompiled_transitive_cells.middle": "middleLib.phase_enclosure",
+              "test_config_precompiled_transitive_cells.middle.east": "cellsLib.phase_worker",
+              "test_config_precompiled_transitive_cells.middle.east.implementation": "eastLib.phase_leaf",
+              "test_config_precompiled_transitive_cells.middle.west": "cellsLib.phase_worker",
+              "test_config_precompiled_transitive_cells.middle.west.implementation": "westLib.phase_leaf"
+            },
+            "proof": {
+              "exit": 0,
+              "proved": true,
+              "refuted": false
+            }
+          }
+        },
+        "objects": {
+          "work.test_config_precompiled_transitive_cells": {
+            "sha256": "b6cb583243692c3bb9d1a01ba02cbc9ea730ce444c7d86e140d234232e0786ce",
+            "source": "source/test_config_precompiled_transitive_cells.sv"
+          },
+          "middleLib.phase_enclosure": {
+            "sha256": "943fc724cef2173e749bda14e16cdb8702dd0992310f85dd5bcb251507bf0fa9",
+            "source": "source/precompiled_transitive/enclosure.sv"
+          },
+          "cellsLib.phase_worker": {
+            "sha256": "af02535630b7e56010d118acd5ef8a466e60b85fc4e27e4aa2bbbb96a81e0dc0",
+            "source": "source/precompiled_cells/worker.sv"
+          },
+          "westLib.phase_leaf": {
+            "sha256": "42f304eb456f411e6004673dcb906307f310c9c46e71625e1fdfe0c36c335b49",
+            "source": "source/precompiled_cells/west.sv"
+          },
+          "eastLib.phase_leaf": {
+            "sha256": "6420f86168bfbf98552ae9bc11838be559a19c66fb935a6412a0b0871bced8a9",
+            "source": "source/precompiled_cells/east.sv"
+          }
+        },
+        "configuration_sha256": "f86c21d3abf314b3babf4a42a57cb6710b42752b2467a06566ffb284135831c4",
+        "alternate_proof": {
+          "exit": 1,
+          "proved": false,
+          "refuted": true
+        },
+        "without_cell": {
+          "exit": 1,
+          "diagnostics": [
+            "test_config_precompiled_transitive_cells.middle needs missing compiled cell middleLib.phase_enclosure"
+          ]
+        },
+        "without_config": {
+          "exit": 1,
+          "diagnostics": [
+            "no compiled configuration library"
+          ]
+        },
+        "checks": {
+          "slang_source_bindings_agree_with_compiled_bindings": true,
+          "source_files_absent_during_binding": true,
+          "rebound_hierarchies_prove_expected_outputs": true,
+          "alternate_configuration_falsifies_crossed_expectation": true,
+          "missing_cell_diagnosed_during_descent": true,
+          "missing_compiled_configuration_rejected": true,
+          "reused_objects_and_configuration_unchanged": true,
+          "ghost_source_outputs_agree": true
+        },
+        "pass": true
+      }
+    }
+  },
+  "ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch33/test_config_precompiled_cells": {
+          "status": "known",
+          "reason": "compile failed: tests/ch33/precompiled_cells/configurations.sv:1: sorry: config declarations are not supported and will be skipped.",
+          "inputs_sha256": "118b712e08ac255fbb251a29995548ca5ca2420e3979f12d16253bf39913b28c"
+        }
+      },
+      "generated_at": "2026-11-26T18:14:03.754027+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch33/test_config_precompiled_cells": {
+          "status": "fail",
+          "reason": "output differs (exit 2): error: unknown library 'cellsLib'",
+          "inputs_sha256": "118b712e08ac255fbb251a29995548ca5ca2420e3979f12d16253bf39913b28c"
+        }
+      },
+      "generated_at": "2026-11-26T18:14:14.851161+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  },
+  "additional_ordinary": {
+    "icarus": {
+      "simulator": "icarus",
+      "name": "Icarus Verilog",
+      "version": "Icarus Verilog version 14.0 (devel) (s20260301-411-gca6b8d376)",
+      "tests": {
+        "ch33/test_config_precompiled_transitive_cells": {
+          "status": "known",
+          "reason": "compile failed: tests/ch33/precompiled_transitive/configurations.sv:1: sorry: config declarations are not supported and will be skipped.",
+          "inputs_sha256": "67965b89940c8916eb3e9b5a0bded5f10ee5827c0dd7b0d9572a218f2c0eb023"
+        }
+      },
+      "generated_at": "2026-11-26T18:20:05.952909+00:00",
+      "runner_sha256": "ecc82c3bfdb8709a3cb4af4fc665d87cf371252713aebe1a772969f311dc55f1",
+      "runner_changed": false,
+      "configuration": {}
+    },
+    "kirimasim": {
+      "simulator": "kirimasim",
+      "name": "kirimasim",
+      "version": "kirimasim 0.2.2 (commit c6c255ef228e), built with AppleClang 21.0.0.21000334",
+      "tests": {
+        "ch33/test_config_precompiled_transitive_cells": {
+          "status": "fail",
+          "reason": "output differs (exit 2): error: unknown library 'middleLib'",
+          "inputs_sha256": "67965b89940c8916eb3e9b5a0bded5f10ee5827c0dd7b0d9572a218f2c0eb023"
+        }
+      },
+      "generated_at": "2026-11-26T18:20:06.026432+00:00",
+      "runner_sha256": "08f54bf54ce179ed3629fb9794d5ec4da5398f64dc51bc3f133fcf95593fd834",
+      "runner_changed": false,
+      "configuration": {}
+    }
+  }
+}
