@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の170生成器から10,175件のテストを生成しています。
+現在の173生成器から10,375件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -28,12 +28,14 @@
 | [`constant_power_controls`](../generators/constant_power_controls.py) | 11 | 16 | 整数の負乗を定数と実行時で対にする16本。型を明示したlocalparamと実行時引数で、底ゼロ・一・符号付きマイナス一・符号なし三と指数幅3/8/32/65、自然幅・直接・保存後の値とbit変換をそれぞれ確認し、ケース等価でも照合。Xを要するゼロの4本と既知値の12本を分離し、広い文脈の区別を検査したとは主張しない。 |
 | [`division_boundaries`](../generators/division_boundaries.py) | 11 | 72 | 63/64/65・127/128/129・255/256/257ビットの実行時除算と剰余72本。符号の有無、小さい除数、2の冪の境界、端値と固定幅の桁あふれを確認。配列への複合代入は添字の評価回数、隣の要素、直接計算の対照を観測し、記録した実行時引数をオペランドへ反映。 |
 | [`event_key_updates`](../generators/event_key_updates.py) | 7 | 24 | 直接参照・別名・配列要素・nullのイベントキーによる連想配列の更新、式の結果、他の要素を保つ削除を確認 |
+| [`file_pushback_isolation`](../generators/file_pushback_isolation.py) | 21 | 64 | ファイル位置を変更した記述子だけでプッシュバックが解除されるかを64件で確認。4種類の位置変更と、バイト・ワード単位の読み出しを組み合わせる |
 | [`foreach_ragged_arrays`](../generators/foreach_ragged_arrays.py) | 12 | 48 | 3種類の外側配列、4種類の行サイズ、4種類のforeach形式を組み合わせた48本。走査順、長さ0の行、走査間での再確保、パックと非パックが混在する次元の省略を確認する。 |
 | [`fourstate_boundaries`](../generators/fourstate_boundaries.py) | 11 | 54 | 63/64/65・127/128/129・255/256/257ビットの4値境界54本。全体の真偽、ビット演算とリダクション、等値と片側ワイルドカード、条件の併合、符号付きシフトを確認。語境界周辺のX/Z、既知値の対照、演算前と最後の2値変換を観測し、シフト量は65ビット全体を保持。 |
 | [`fread_memory_windows`](../generators/fread_memory_windows.py) | 21 | 48 | 8〜65ビットの6種類の要素幅、メモリ宣言の両方向、開始番地と個数の4種類の指定を組み合わせたバイナリ読取り48本。全要素、読み取ったバイト数、現在位置、次のバイトを照合する。 |
 | [`function_formal_contexts`](../generators/function_formal_contexts.py) | 13 | 60 | runtimeのoutput・inout・ref受渡し30本と、実引数をリテラル・パラメータに限定したmodule・package・static classの定数呼出し30本。5幅と符号の有無を確認 |
 | [`function_result_ranges`](../generators/function_result_ranges.py) | 13 | 24 | 関数呼出し結果を直接選択する24本。非ゼロ・負・単一要素・広幅の6範囲、符号の有無、パッケージ呼出しと非nullのクラス参照の連鎖 |
 | [`gate_strength_truth`](../generators/gate_strength_truth.py) | 28 | 5 | nand・or・xnor・xorの非対称な駆動強度と、pull源の例外を含む表28-2の全ゲート種別の既定強度 |
+| [`gated_past_histories`](../generators/gated_past_histories.py) | 16 | 64 | 独立した2つのゲートでサンプリングした履歴を64件で確認。4種類の履歴の深さ、暗黙・明示クロック、既知値・X/Zを含む値を組み合わせる |
 | [`integral_real_contexts`](../generators/integral_real_contexts.py) | 6 | 80 | 5種類の幅、符号の有無、X/Zの4種類の配置、2種類の変換文脈を組み合わせた80件。符号ビットが不定のケースを含め、binary64の正確なビット列を、X/Zをゼロに置き換えた対照と比較する。 |
 | [`interaction_agglit`](../generators/interaction_agglit.py) | 5 | 48 | 入れ子の構造体と配列を持つ構造体へ、位置・メンバー名・複製・default・型キーで値を与える。各メンバーの型への変換と、キーの優先順位を、初期値・代入・型付きの式・localparamで確かめる。 |
 | [`interaction_array`](../generators/interaction_array.py) | 7 | 36 | 2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。 |
@@ -167,6 +169,7 @@
 | [`stream_window_layouts`](../generators/stream_window_layouts.py) | 11 | 96 | 4種類の要素幅、4種類の配列、実行時の4種類の範囲指定と個別要素を列挙した2種類の対照を組み合わせた96件。両方向のパック、独立に求めたビット列からの逆変換、選択範囲外の要素の保持を照合する。 |
 | [`strength`](../generators/strength.py) | 28 | 135 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |
 | [`string_argument_updates`](../generators/string_argument_updates.py) | 13 | 48 | 4種類の引数方向、3種類の文字列格納先、4種類のメソッドまたは添字による更新を組み合わせた48本。呼出し中に見える更新、復帰時のコピー、保存した値と隣接要素の保持を確認する。 |
+| [`unpacked_slice_updates`](../generators/unpacked_slice_updates.py) | 10 | 72 | 固定アンパック配列の重複スライス代入72件。添字の方向、要素幅、入れ子の行、代入のタイミングを組み合わせて確認 |
 | [`wide_array_shapes`](../generators/wide_array_shapes.py) | 20 | 60 | 255/256/257・511/512/513ビットの配列形状60本で、従来のarray_shape_queriesの10形式をそのまま使う。宣言したパック／混在／入れ子のtypedef／単一要素／定数の形状・範囲外の次元・動的配列とキューの生成／変更／削除と要素の対照を扱い、実行時のbitsは別に検証する。固定の問い合わせは型を調べ、未初期化データを読まない。任意の要素内容や次元数の網羅とはしない。 |
 | [`wide_bitvector_queries`](../generators/wide_bitvector_queries.py) | 20 | 48 | 255/256/257・511/512/513ビットの問い合わせ48本で、従来のbitvector_queriesの8形式をそのまま使う。既知値と4値の個数・連続したビット書き込み・onehotと未知値の判定・関数と構造体の全体・重複した広い制御引数・定数の問い合わせで決まる型の幅を扱う。戻り値の幅も別に表示し、過去の処理と入力は変えず、全引数を網羅したとはしない。 |
 | [`wide_cast_boundaries`](../generators/wide_cast_boundaries.py) | 6 | 180 | 255/256/257・511/512/513ビットの明示的な型変換180本、各幅30通りを固定。幅・符号・型付きbit/logicへの変換と、符号付きの一の加算・最終格納の順序を確認。実行時引数で既知の入力ビットをゼロから一に戻し、入力・途中・最終の全ビットと幅を表示する。元の有限モデルの行・要求対応は変えず、選んだ組合せで全ての文脈を証明したとはしない。 |

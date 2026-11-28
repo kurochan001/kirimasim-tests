@@ -3,6 +3,9 @@
   "draft_model": "google/madlad400-3b-mt",
   "draft_model_revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094",
   "translations": {
+    "Overlapping ZXQPH0QXZ slices copy values in declaration order": "重複するZXQPH0QXZ配列のスライス間で宣言順に値をコピーする",
+    "File repositioning cancels pushback on only the moved descriptor": "ファイル位置を変更した記述子のプッシュバックだけを解除する",
+    "Gated past histories skip disabled clock ticks independently": "ゲートごとに無効なクロックイベントを除いて過去のサンプルを参照する",
     "Integral conversion to real respects sign and clears unknown bits": "整数から実数への変換は符号を反映し、不定ビットをゼロにする",
     "Array patterns apply keys and replication in declared dimensions": "配列パターンは宣言された次元にキーと繰り返し指定を適用する",
     "Non- ZXQPH0QXZ composite ports route bits by expression position": "非ZXQPH0QXZの複合ポートは式の位置に従ってビットを接続する",

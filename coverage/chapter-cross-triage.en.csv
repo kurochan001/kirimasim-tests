@@ -410,7 +410,7 @@ tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",Maintaining the planning and 
 7,Aggregate data types,9,Processes,M,Modeling licensed,登録済み,1,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,642,"tests/ch12/test_foreach_block_scope.sv
 tests/ch7/test_array_access.sv
 tests/ch7/test_assignment_forms.sv",Maintaining the planning and execution evidence of existing models.,,
-7,Aggregate data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,729,"tests/ch10/test_assign_lhs_forms.sv
+7,Aggregate data types,10,Assignment statements,M,Modeling licensed,登録済み,2,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,801,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_assignment_deep.sv
 tests/ch10/test_contassign_pattern_to_net_array.sv",Maintaining the planning and execution evidence of existing models.,,
 7,Aggregate data types,11,Operators and expressions,M,Modeling licensed,登録済み,10,Registered as a chapter pair in a finite model.,The stimulation and observation of the registered model are discussed.,,See existing cross-references.,0,,1580,"tests/ch10/test_assign_lhs_forms.sv

@@ -1,6 +1,18 @@
 {
   "schema": 1,
   "scopes": {
+    "unpacked_slice_updates": {
+      "en": "72 overlapping fixed unpacked array slice assignments across index directions, element sizes, nested rows, and scheduling modes",
+      "ja": "固定アンパック配列の重複スライス代入72件。添字の方向、要素幅、入れ子の行、代入のタイミングを組み合わせて確認"
+    },
+    "file_pushback_isolation": {
+      "en": "64 cases for descriptor-local pushback cancellation on four kinds of file repositioning, followed by byte or word reads",
+      "ja": "ファイル位置を変更した記述子だけでプッシュバックが解除されるかを64件で確認。4種類の位置変更と、バイト・ワード単位の読み出しを組み合わせる"
+    },
+    "gated_past_histories": {
+      "en": "64 sampled-history cases with two independent gates, four history depths, inferred or explicit clocks, and known or four-state data",
+      "ja": "独立した2つのゲートでサンプリングした履歴を64件で確認。4種類の履歴の深さ、暗黙・明示クロック、既知値・X/Zを含む値を組み合わせる"
+    },
     "concat_slice_nba": {
       "en": "Concatenated indexed part-select NBAs across packed words and unpacked elements, with captured indices and clipped writes",
       "ja": "パックベクタとアンパック配列要素の部分選択を連結した非ブロッキング代入。予約時の添字と範囲外ビットの扱いを確認"

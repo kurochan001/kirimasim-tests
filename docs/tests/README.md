@@ -19,18 +19,18 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 7 | [Aggregate data types](ch7.md) | 1333 | 796 |
 | 8 | [Classes](ch8.md) | 517 | 138 |
 | 9 | [Processes](ch9.md) | 494 | 233 |
-| 10 | [Assignment statements](ch10.md) | 882 | 633 |
+| 10 | [Assignment statements](ch10.md) | 954 | 705 |
 | 11 | [Operators and expressions](ch11.md) | 2734 | 2150 |
 | 12 | [Procedural programming statements](ch12.md) | 376 | 173 |
 | 13 | [Tasks and functions (subroutines)](ch13.md) | 812 | 552 |
 | 14 | [Clocking blocks](ch14.md) | 174 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 218 | 133 |
-| 16 | [Assertions](ch16.md) | 819 | 133 |
+| 16 | [Assertions](ch16.md) | 883 | 197 |
 | 17 | [Checkers](ch17.md) | 142 | 27 |
 | 18 | [Constrained random value generation](ch18.md) | 302 | 57 |
 | 19 | [Functional coverage](ch19.md) | 260 | 50 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 723 | 392 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 1091 | 828 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 1155 | 892 |
 | 22 | [Compiler directives](ch22.md) | 1332 | 1206 |
 | 23 | [Modules and hierarchy](ch23.md) | 528 | 241 |
 | 24 | [Programs](ch24.md) | 225 | 171 |
