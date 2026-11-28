@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の164生成器から9,751件のテストを生成しています。
+現在の167生成器から9,951件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -16,6 +16,7 @@
 | [`array_element_refs`](../generators/array_element_refs.py) | 13 | 80 | 動的配列・連想配列の要素参照を、再確保・同値の全体代入・削除の前後で観測。幅1/8/32/33/65と符号の有無、即時の書込み共有・古い参照の存続・参照を保つ対照を含み、時間を分けて全要素を確認。 |
 | [`array_order_keys`](../generators/array_order_keys.py) | 7 | 64 | 64/65ビットの境界を含む4種類のパックされたキー幅、4種類の非パック配列、符号付き・符号なし・複合キーの4形式を組み合わせた64本。sort、rsort、reverseの各段階で全レコードと独立したコピーを照合する。 |
 | [`array_shape_queries`](../generators/array_shape_queries.py) | 20 | 60 | 32/33・64/65・128/129ビットの配列形状照会60本。負・非ゼロのパック範囲、混在・typedefの段階的な次元展開、単一要素の向き、定数式の型幅、無効な次元、動的配列・キューのサイズ変更を確認。実行時のコンテナ全体のビット数照会は形状照会から分け、生きている要素の値も確認。 |
+| [`assoc_locator_widths`](../generators/assoc_locator_widths.py) | 7 | 56 | 符号付きと符号なしの7種類のキー幅、4種類の一致条件を組み合わせた連想配列の探索56件。走査の両端、最初と最後の一致キー、順序に依存しない全一致キーの集合と件数を照合する。 |
 | [`bitvector_queries`](../generators/bitvector_queries.py) | 20 | 48 | 32/33・64/65・128/129ビットのビット集計48本。既知値とX/Zの個数、更新後の再集計、onehot・isunknown、符号付き関数結果、パック構造体、下位1ビットが重複する広幅の可変制御引数、定数式による型の幅を確認。 |
 | [`cg_option_levels`](../generators/cg_option_levels.py) | 19 | 17 | 表19-2・19-4でNoとされるcoverpoint・crossの本体でのoption・type_option代入を違法系として生成し、19.10の暗黙の構造体と照合 |
 | [`combination_aggregates`](../generators/combination_aggregates.py) | 6, 11, 13 | 18 | 境界条件18件。アンパック構造体の参照渡しと寿命、配列のinputコピー、ネストしたパック選択、文字列やネストした代入先へのストリーミングを確認 |
@@ -156,9 +157,11 @@
 | [`primitive_array_bounds`](../generators/primitive_array_bounds.py) | 28 | 61 | ゲート配列の端子幅が不正な56本と、負・降順・非ゼロ・単一要素の範囲およびスカラ共有を確認する合法5本 |
 | [`primitive_array_identity`](../generators/primitive_array_identity.py) | 28 | 15 | gate・switch・UDP配列をVPIで直接観測する15本。宣言範囲、実要素数と添字、親配列・添字検索の同一性、端子値、単独primitiveの対照 |
 | [`queue_slice_composition`](../generators/queue_slice_composition.py) | 7 | 48 | 4種類のキュー長、実行時に評価する6種類の境界、2種類の代入先を組み合わせた48本。スライスのコピー、同じキューへの連結代入、その後の追加、保存コピーの保持を照合する。 |
+| [`real_rounding_contexts`](../generators/real_rounding_contexts.py) | 6 | 48 | 6種類の大きさと正負の両方で、正確に表現できる4分の1刻みの実数を試す48件。定数キャスト、手続き代入、引数変換、ノンブロッキング代入を比較し、結果を表現できる範囲では切り捨ても照合する。 |
 | [`scheduling`](../generators/scheduling.py) | 4 | 325 | 既存の8ビットの書き込みを、書き込み元・待機中の別プロセス・strobe・monitorから指定の時刻とイベント領域で観測する。既存の生成テストと期待値は変更しない。 |
 | [`sparse_file_writes`](../generators/sparse_file_writes.py) | 21 | 24 | 3種類のシーク起点、4種類の間隔、空または初期データ付きのファイルを組み合わせた24本。書き込み前後のファイルサイズ、先頭データの保持、間隔がゼロで埋まること、追加したバイトを確認する。 |
 | [`stream_boundaries`](../generators/stream_boundaries.py) | 11 | 96 | 63/64/65・127/128/129ビットと両方向のストリーミング96本。右側のゼロ埋めと通常の符号拡張、フィールドをまたぐ逆置換と上位ビットの消費、型・省略時の区画幅、入れ子の式、パック構造体のX/Z、降順の固定配列と明示した要素列の対照を確認。 |
+| [`stream_window_layouts`](../generators/stream_window_layouts.py) | 11 | 96 | 4種類の要素幅、4種類の配列、実行時の4種類の範囲指定と個別要素を列挙した2種類の対照を組み合わせた96件。両方向のパック、独立に求めたビット列からの逆変換、選択範囲外の要素の保持を照合する。 |
 | [`strength`](../generators/strength.py) | 28 | 135 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |
 | [`string_argument_updates`](../generators/string_argument_updates.py) | 13 | 48 | 4種類の引数方向、3種類の文字列格納先、4種類のメソッドまたは添字による更新を組み合わせた48本。呼出し中に見える更新、復帰時のコピー、保存した値と隣接要素の保持を確認する。 |
 | [`wide_array_shapes`](../generators/wide_array_shapes.py) | 20 | 60 | 255/256/257・511/512/513ビットの配列形状60本で、従来のarray_shape_queriesの10形式をそのまま使う。宣言したパック／混在／入れ子のtypedef／単一要素／定数の形状・範囲外の次元・動的配列とキューの生成／変更／削除と要素の対照を扱い、実行時のbitsは別に検証する。固定の問い合わせは型を調べ、未初期化データを読まない。任意の要素内容や次元数の網羅とはしない。 |

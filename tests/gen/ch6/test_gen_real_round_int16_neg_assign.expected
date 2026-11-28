@@ -1,0 +1,3 @@
+p1 bits=c0dfffd000000000 n=-32767 w=1ffffffffffff8001 trunc=-32767
+p2 bits=c0dfffe000000000 n=-32768 w=1ffffffffffff8000 trunc=-32767
+p3 bits=c0dffff000000000 n=-32768 w=1ffffffffffff8000 trunc=-32767

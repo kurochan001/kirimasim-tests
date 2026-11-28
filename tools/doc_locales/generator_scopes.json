@@ -201,6 +201,18 @@
       "en": "48 task calls combine all four argument directions, three string storage locations and four methods or indexed updates. Check changes visible during the call, transfer on return and preservation of a saved value and a neighbor.",
       "ja": "4種類の引数方向、3種類の文字列格納先、4種類のメソッドまたは添字による更新を組み合わせた48本。呼出し中に見える更新、復帰時のコピー、保存した値と隣接要素の保持を確認する。"
     },
+    "assoc_locator_widths": {
+      "en": "56 associative locator cases combine seven signed and unsigned key widths and four match profiles. Compare traversal endpoints, first and last matching keys, and the order-independent membership and count of all matches.",
+      "ja": "符号付きと符号なしの7種類のキー幅、4種類の一致条件を組み合わせた連想配列の探索56件。走査の両端、最初と最後の一致キー、順序に依存しない全一致キーの集合と件数を照合する。"
+    },
+    "real_rounding_contexts": {
+      "en": "48 real conversion cases probe both signs of exact quarter-step inputs at six magnitudes. Compare constant casts, procedural assignment, argument conversion and nonblocking assignment, with integer truncation controls where representable.",
+      "ja": "6種類の大きさと正負の両方で、正確に表現できる4分の1刻みの実数を試す48件。定数キャスト、手続き代入、引数変換、ノンブロッキング代入を比較し、結果を表現できる範囲では切り捨ても照合する。"
+    },
+    "stream_window_layouts": {
+      "en": "96 stream-window cases combine four element widths, four array layouts, four runtime range forms and explicit one- and three-element controls. Compare both packing directions, inverse unpacking from independently modeled bits and preservation of unselected destination elements.",
+      "ja": "4種類の要素幅、4種類の配列、実行時の4種類の範囲指定と個別要素を列挙した2種類の対照を組み合わせた96件。両方向のパック、独立に求めたビット列からの逆変換、選択範囲外の要素の保持を照合する。"
+    },
     "wide_array_shapes": {
       "en": "60 wide array-shape fixtures at 255/256/257 and 511/512/513 bits, reusing ten unchanged array_shape_queries forms. Covers declared packed/mixed/nested typedef/singleton/constant geometry, invalid dimensions and live dynamic-array/queue resize/delete/element controls, with runtime bits isolated. Fixed queries inspect types without reading uninitialized data; no arbitrary element-content or rank coverage claim.",
       "ja": "255/256/257・511/512/513ビットの配列形状60本で、従来のarray_shape_queriesの10形式をそのまま使う。宣言したパック／混在／入れ子のtypedef／単一要素／定数の形状・範囲外の次元・動的配列とキューの生成／変更／削除と要素の対照を扱い、実行時のbitsは別に検証する。固定の問い合わせは型を調べ、未初期化データを読まない。任意の要素内容や次元数の網羅とはしない。"

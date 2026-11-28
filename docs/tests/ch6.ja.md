@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは925本で、そのうち265本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは973本で、そのうち313本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -778,6 +778,63 @@
 | [`test_gen_cross_genenum_65_unsigned_case_dense_3_next_beyond`](../../tests/gen/ch6/test_gen_cross_genenum_65_unsigned_case_dense_3_next_beyond.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |規格のみ||
 | [`test_gen_cross_genenum_65_unsigned_case_descending_2_next_zero`](../../tests/gen/ch6/test_gen_cross_genenum_65_unsigned_case_descending_2_next_zero.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |規格のみ||
 | [`test_gen_cross_genenum_65_unsigned_if_high_2_next_one`](../../tests/gen/ch6/test_gen_cross_genenum_65_unsigned_if_high_2_next_one.sv) |生成スコープごとに異なるenumの値表・巡回・保持値を照合する| 6.19 6.19.1 6.19.5 6.19.5.1 6.19.5.2 6.19.5.3 6.19.5.4 6.19.5.5 6.19.5.6 27.4 27.5 |規格のみ||
+
+<a id="generated-by-generatorsreal_rounding_contextspy"></a>
+
+## `generators/real_rounding_contexts.py`が生成
+
+テスト48本。スイートのREADMEの"Generated tests"を参照してください。
+
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
+| --- | --- | --- | --- | --- |
+| [`test_gen_real_round_above32_neg_argument`](../../tests/gen/ch6/test_gen_real_round_above32_neg_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_above32_neg_assign`](../../tests/gen/ch6/test_gen_real_round_above32_neg_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_above32_neg_constant`](../../tests/gen/ch6/test_gen_real_round_above32_neg_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_above32_neg_nba`](../../tests/gen/ch6/test_gen_real_round_above32_neg_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_above32_pos_argument`](../../tests/gen/ch6/test_gen_real_round_above32_pos_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_above32_pos_assign`](../../tests/gen/ch6/test_gen_real_round_above32_pos_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_above32_pos_constant`](../../tests/gen/ch6/test_gen_real_round_above32_pos_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_above32_pos_nba`](../../tests/gen/ch6/test_gen_real_round_above32_pos_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int16_neg_argument`](../../tests/gen/ch6/test_gen_real_round_int16_neg_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int16_neg_assign`](../../tests/gen/ch6/test_gen_real_round_int16_neg_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int16_neg_constant`](../../tests/gen/ch6/test_gen_real_round_int16_neg_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_int16_neg_nba`](../../tests/gen/ch6/test_gen_real_round_int16_neg_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int16_pos_argument`](../../tests/gen/ch6/test_gen_real_round_int16_pos_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int16_pos_assign`](../../tests/gen/ch6/test_gen_real_round_int16_pos_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int16_pos_constant`](../../tests/gen/ch6/test_gen_real_round_int16_pos_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_int16_pos_nba`](../../tests/gen/ch6/test_gen_real_round_int16_pos_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int32_neg_argument`](../../tests/gen/ch6/test_gen_real_round_int32_neg_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int32_neg_assign`](../../tests/gen/ch6/test_gen_real_round_int32_neg_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int32_neg_constant`](../../tests/gen/ch6/test_gen_real_round_int32_neg_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_int32_neg_nba`](../../tests/gen/ch6/test_gen_real_round_int32_neg_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int32_pos_argument`](../../tests/gen/ch6/test_gen_real_round_int32_pos_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int32_pos_assign`](../../tests/gen/ch6/test_gen_real_round_int32_pos_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_int32_pos_constant`](../../tests/gen/ch6/test_gen_real_round_int32_pos_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_int32_pos_nba`](../../tests/gen/ch6/test_gen_real_round_int32_pos_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_large_neg_argument`](../../tests/gen/ch6/test_gen_real_round_large_neg_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_large_neg_assign`](../../tests/gen/ch6/test_gen_real_round_large_neg_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_large_neg_constant`](../../tests/gen/ch6/test_gen_real_round_large_neg_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_large_neg_nba`](../../tests/gen/ch6/test_gen_real_round_large_neg_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_large_pos_argument`](../../tests/gen/ch6/test_gen_real_round_large_pos_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_large_pos_assign`](../../tests/gen/ch6/test_gen_real_round_large_pos_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_large_pos_constant`](../../tests/gen/ch6/test_gen_real_round_large_pos_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_large_pos_nba`](../../tests/gen/ch6/test_gen_real_round_large_pos_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_small_neg_argument`](../../tests/gen/ch6/test_gen_real_round_small_neg_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_small_neg_assign`](../../tests/gen/ch6/test_gen_real_round_small_neg_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_small_neg_constant`](../../tests/gen/ch6/test_gen_real_round_small_neg_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_small_neg_nba`](../../tests/gen/ch6/test_gen_real_round_small_neg_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_small_pos_argument`](../../tests/gen/ch6/test_gen_real_round_small_pos_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_small_pos_assign`](../../tests/gen/ch6/test_gen_real_round_small_pos_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_small_pos_constant`](../../tests/gen/ch6/test_gen_real_round_small_pos_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_small_pos_nba`](../../tests/gen/ch6/test_gen_real_round_small_pos_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_zero_neg_argument`](../../tests/gen/ch6/test_gen_real_round_zero_neg_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Verilator 5.054 ||
+| [`test_gen_real_round_zero_neg_assign`](../../tests/gen/ch6/test_gen_real_round_zero_neg_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_zero_neg_constant`](../../tests/gen/ch6/test_gen_real_round_zero_neg_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_zero_neg_nba`](../../tests/gen/ch6/test_gen_real_round_zero_neg_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Verilator 5.054 ||
+| [`test_gen_real_round_zero_pos_argument`](../../tests/gen/ch6/test_gen_real_round_zero_pos_argument.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_zero_pos_assign`](../../tests/gen/ch6/test_gen_real_round_zero_pos_assign.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Icarus Verilog 13.0 ||
+| [`test_gen_real_round_zero_pos_constant`](../../tests/gen/ch6/test_gen_real_round_zero_pos_constant.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 | Verilator 5.054 ||
+| [`test_gen_real_round_zero_pos_nba`](../../tests/gen/ch6/test_gen_real_round_zero_pos_nba.sv) |実数からの変換はちょうど中間の値をゼロから遠い側に丸める| 6.12.1 20.5 6.24.1 10.4.2 | Icarus Verilog 13.0 ||
 
 <a id="generated-by-generatorswide_cast_boundariespy"></a>
 

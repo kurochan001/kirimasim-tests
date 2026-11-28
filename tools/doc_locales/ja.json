@@ -3,6 +3,9 @@
   "draft_model": "google/madlad400-3b-mt",
   "draft_model_revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094",
   "translations": {
+    "Associative locators preserve declared key widths and ordering": "連想配列の探索は宣言したキー幅と順序を保つ",
+    "Real conversion rounds exact halfway values away from zero": "実数からの変換はちょうど中間の値をゼロから遠い側に丸める",
+    "Stream windows preserve array order across block boundaries": "ストリームの部分範囲はブロック境界をまたいでも配列の順序を保つ",
     "Array ordering uses the width and sign of its key expression": "配列の順序付けはキー式の幅と符号に従う",
     "Foreach follows current ragged sizes and declared ZXQPH0QXZ directions": "foreachは各行の現在の長さとZXQPH0QXZ次元の宣言方向に従う",
     "String formal updates obey the argument direction and preserve copies": "文字列仮引数の更新は引数方向に従い、保存コピーは保持される",
