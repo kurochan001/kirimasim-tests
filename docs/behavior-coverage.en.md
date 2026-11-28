@@ -230,6 +230,8 @@ Success means that all expected outputs/diagnosis of the corresponding test are 
 - `full-20261112-kirimasim-7de185f7.json`: `kirimasim 0.0.0 (commit 7de185f776a1), built with AppleClang 21.0.0.21000401` / `2026-11-11T16:52:28.478656+00:00` / 2998/12332 execution checked; 373 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed1.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:39:23.398627+00:00` / 3888/12332 execution checked; 373 entries refer to older inputs.
 - `full-20261112-verilator5.052-seed73.json`: `Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905` / `2026-11-11T17:00:30.807783+00:00` / 3599/12332 execution checked; 28 entries refer to older inputs.
+- `ghost-boundary-retest-20261128-after.json`: `private build ee56b8581ed6` / `2026-11-28T08:32:33.223112+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
+- `ghost-boundary-retest-20261128-before.json`: `private build 2be50397902e` / `2026-11-28T08:32:33.233037+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.
 - `ghost-local-20261123-strict-timeout180.json`: `private build d2e03e4a44d3` / `2026-11-23T06:50:50.367123+00:00` / 9683/12332 execution checked; 17 entries refer to older inputs.
 - `handle-equality-20261124-ghost-strict.json`: `private build d1a33b327c73` / `2026-11-23T21:21:56.235297+00:00` / 1/12332 execution checked; 0 entries refer to older inputs.
 - `handle-equality-20261124-icarus13.json`: `Icarus Verilog version 13.0 (stable) (v13_0)` / `2026-11-23T21:21:56.180203+00:00` / 0/12332 execution checked; 0 entries refer to older inputs.

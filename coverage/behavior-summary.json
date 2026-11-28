@@ -19019,6 +19019,44 @@
         }
       },
       {
+        "file": "ghost-boundary-retest-20261128-after.json",
+        "simulator": "ghost",
+        "version": "private build ee56b8581ed6",
+        "generated_at": "2026-11-28T08:32:33.223112+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 12332,
+          "unmapped": 0,
+          "interpretation_pending": 0
+        }
+      },
+      {
+        "file": "ghost-boundary-retest-20261128-before.json",
+        "simulator": "ghost",
+        "version": "private build 2be50397902e",
+        "generated_at": "2026-11-28T08:32:33.233037+00:00",
+        "executed": [],
+        "stale_links": 0,
+        "status_counts": {
+          "pass": 0,
+          "fail": 0,
+          "known": 0,
+          "unsupported": 0,
+          "unreviewed_oracle": 0,
+          "stale": 0,
+          "not_run": 12332,
+          "unmapped": 0,
+          "interpretation_pending": 0
+        }
+      },
+      {
         "file": "ghost-local-20261123-strict-timeout180.json",
         "simulator": "ghost",
         "version": "private build d2e03e4a44d3",
