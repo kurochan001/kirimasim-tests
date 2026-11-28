@@ -1,0 +1,6 @@
+bytes=4 pos=4 next=8d
+mem[3]=b1e8
+mem[4]=1f56
+mem[5]=ed32
+mem[6]=ed32
+mem[7]=ed32

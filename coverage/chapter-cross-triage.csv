@@ -336,7 +336,7 @@ tests/ch11/test_concatenation_pattern_string_operand_and_replication_once.sv",�
 6,データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,309,"tests/ch11/test_propagated_operand_sign.sv
 tests/ch11/test_real_equality_is_exact.sv
 tests/ch12/test_do_while_edge_cases.sv",既存モデルの計画・実行証跡を維持する,,
-6,データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,3,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,803,"tests/ch10/test_assignment_like_contexts.sv
+6,データ型,13,タスクと関数（サブルーチン）,M,モデル登録済み,登録済み,3,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,851,"tests/ch10/test_assignment_like_contexts.sv
 tests/ch13/test_evaluation_context_extended.sv
 tests/ch13/test_func_static.sv",既存モデルの計画・実行証跡を維持する,,
 6,データ型,14,クロッキングブロック,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,51,"tests/ch14/test_clocking_output_net_driver.sv
@@ -410,10 +410,10 @@ tests/ch37/test_vpi_variable_kinds_flags_sizes.sv",既存モデルの計画・�
 7,集合データ型,9,プロセス,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,642,"tests/ch12/test_foreach_block_scope.sv
 tests/ch7/test_array_access.sv
 tests/ch7/test_assignment_forms.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,681,"tests/ch10/test_assign_lhs_forms.sv
+7,集合データ型,10,代入文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,729,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_assignment_deep.sv
 tests/ch10/test_contassign_pattern_to_net_array.sv",既存モデルの計画・実行証跡を維持する,,
-7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1492,"tests/ch10/test_assign_lhs_forms.sv
+7,集合データ型,11,演算子と式,M,モデル登録済み,登録済み,10,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1580,"tests/ch10/test_assign_lhs_forms.sv
 tests/ch10/test_contassign_select_of_struct_member.sv
 tests/ch10/test_lvalue_scopes_selects_and_concatenation_forms.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,12,手続き型プログラミング文,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,185,"tests/ch11/test_tagged_union_expression_and_matches_precedence.sv
@@ -423,7 +423,7 @@ tests/ch12/test_pattern_matching.sv",既存モデルの計画・実行証跡を�
 tests/ch13/test_void_cast_keeps_ref_dynamic_array_argument.sv
 tests/ch37/test_vpi_tf_call_kinds_relations.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-7,集合データ型,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,22,"tests/ch37/test_vpi_select_objects_event_arrays.sv
+7,集合データ型,15,プロセス間の同期と通信,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,46,"tests/ch37/test_vpi_select_objects_event_arrays.sv
 tests/ch37/test_vpi_tf_call_kinds_relations.sv
 tests/ch7/test_associative_event_key_identity.sv",既存モデルの計画・実行証跡を維持する,,
 7,集合データ型,16,アサーション,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,1,tests/ch37/test_vpi_typespec_kinds_more.sv,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
@@ -616,7 +616,7 @@ tests/ch37/test_vpi_time_queue.sv",引用探索の候補とソースを確認し
 9,プロセス,39,アサーションAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 9,プロセス,40,コードカバレッジの制御とAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 9,プロセス,41,データ読出しAPI,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-10,代入文,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1000,"tests/ch10/test_adder_edge_cases.sv
+10,代入文,11,演算子と式,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,1048,"tests/ch10/test_adder_edge_cases.sv
 tests/ch10/test_assign_compound.sv
 tests/ch10/test_assign_concat.sv",既存モデルの計画・実行証跡を維持する,,
 10,代入文,12,手続き型プログラミング文,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,108,"tests/ch37/test_vpi_case_loop_force_stmts.sv
@@ -692,8 +692,9 @@ tests/ch11/test_mux_edge_cases.sv",既存モデルの計画・実行証跡を維
 tests/ch11/test_ct_eval_side_effects.sv
 tests/ch13/test_abs_func.sv",既存モデルの計画・実行証跡を維持する,,
 11,演算子と式,14,クロッキングブロック,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-11,演算子と式,15,プロセス間の同期と通信,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch7/test_associative_event_key_identity.sv
-tests/gen/ch15/test_gen_combo_event_conditional_initializer.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
+11,演算子と式,15,プロセス間の同期と通信,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,26,"tests/ch7/test_associative_event_key_identity.sv
+tests/gen/ch15/test_gen_combo_event_conditional_initializer.sv
+tests/gen/ch7/test_gen_event_key_update_alias_add.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 11,演算子と式,16,アサーション,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,73,"tests/ch11/test_let_declared_in_clocking_block.sv
 tests/ch11/test_let_sampled_value_clock_from_instance_context.sv
 tests/ch16/test_assertion_dist_as_inside.sv",既存モデルの計画・実行証跡を維持する,,
@@ -766,7 +767,7 @@ tests/ch16/test_nonvacuous_property_case.sv",引用探索の候補とソース�
 12,手続き型プログラミング文,18,制約付き乱数値の生成,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,2,"tests/ch18/test_randsequence_break_in_loop.sv
 tests/ch37/test_vpi_pattern_constraint_properties.sv",引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
 12,手続き型プログラミング文,19,機能カバレッジ,R,後回し・要精査,未評価,0,章対だけでは検証目標を特定していない。個別の相互作用の精査を後回しにする。,未精査,,未精査,0,,0,,引用探索の候補とソースを確認して、E/C/Nへの分類を検討する,,
-12,手続き型プログラミング文,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,67,"tests/ch11/test_x_z_propagation.sv
+12,手続き型プログラミング文,20,ユーティリティ用システムタスク・関数,M,モデル登録済み,登録済み,1,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,115,"tests/ch11/test_x_z_propagation.sv
 tests/ch11/test_x_z_propagation_detailed.sv
 tests/ch12/test_case_qualifier_report_respects_assertcontrol.sv",既存モデルの計画・実行証跡を維持する,,
 12,手続き型プログラミング文,21,入出力用システムタスク・関数,M,モデル登録済み,登録済み,2,有限モデルの章対として登録済み。,登録モデルの刺激・観測を参照,,既存のクロス明細を参照,0,,62,"tests/gen/ch12/test_gen_cross_loopsched_do_delay_later_display.sv

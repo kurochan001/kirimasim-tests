@@ -1,0 +1,6 @@
+bytes=5 pos=5 next=c4
+mem[3]=b1
+mem[4]=e8
+mem[5]=1f
+mem[6]=56
+mem[7]=8d

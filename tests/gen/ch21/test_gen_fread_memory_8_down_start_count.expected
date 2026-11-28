@@ -1,0 +1,6 @@
+bytes=2 pos=2 next=1f
+mem[3]=32
+mem[4]=32
+mem[5]=b1
+mem[6]=e8
+mem[7]=32

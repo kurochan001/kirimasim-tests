@@ -153,7 +153,16 @@ import arithmetic_context
 import power_boundaries
 import wide_scan
 import nba_boundaries
+import concat_slice_nba
 import memory_file_boundaries
+import memory_address_windows
+import event_key_updates
+import fread_memory_windows
+import queue_slice_composition
+import sparse_file_writes
+import array_order_keys
+import foreach_ragged_arrays
+import string_argument_updates
 import negative_power_controls
 import wide_value_boundaries
 import constant_power_controls
@@ -206,7 +215,10 @@ GENERATORS = [interaction_progmod, interaction_progif, interaction_simend, inter
               combination_monitors, cg_option_levels, gate_strength_truth, keywords_inherited,
               primitive_array_bounds, ambiguous_strength_union,
               function_result_ranges, primitive_array_identity, function_formal_contexts,
-              array_element_refs, bitvector_queries, array_shape_queries, stream_boundaries, packed_lanes, division_boundaries, fourstate_boundaries, arithmetic_context, power_boundaries, wide_scan, nba_boundaries, memory_file_boundaries, negative_power_controls, wide_value_boundaries, constant_power_controls, wide_shift_boundaries, wide_cast_boundaries, wide_force_boundaries, wide_constant_calls, wide_runtime_aliases, wide_format_roundtrips, packed_read_controls, wide_format_fields, wide_bitvector_queries, wide_array_shapes]
+              array_element_refs, bitvector_queries, array_shape_queries, stream_boundaries, packed_lanes, division_boundaries, fourstate_boundaries, arithmetic_context, power_boundaries, wide_scan, nba_boundaries, memory_file_boundaries, negative_power_controls, wide_value_boundaries, constant_power_controls, wide_shift_boundaries, wide_cast_boundaries, wide_force_boundaries, wide_constant_calls, wide_runtime_aliases, wide_format_roundtrips, packed_read_controls, wide_format_fields, wide_bitvector_queries, wide_array_shapes,
+              concat_slice_nba, memory_address_windows, event_key_updates,
+              fread_memory_windows, queue_slice_composition, sparse_file_writes,
+              array_order_keys, foreach_ragged_arrays, string_argument_updates]
 
 
 def oracle_problems(generators) -> list[str]:

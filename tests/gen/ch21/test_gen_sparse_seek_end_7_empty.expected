@@ -1,0 +1,4 @@
+seek=0 pos=7 end_before=0
+written_pos=9 end_after=9
+data: 00 00 00 00 00 00 00 d2 7a
+end_read=-1

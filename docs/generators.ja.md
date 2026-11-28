@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の155生成器から9,351件のテストを生成しています。
+現在の164生成器から9,751件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -14,6 +14,7 @@
 | [`ambiguous_strength_union`](../generators/ambiguous_strength_union.py) | 28 | 20 | H/Lの強度16組と、既知値のまま複数の強度を持つ範囲4組の合成。X/Z制御と、単一強度strong0・supply0の対照を含む |
 | [`arithmetic_context`](../generators/arithmetic_context.py) | 11 | 90 | 63/64/65・127/128/129・255/256/257ビットの実行時演算と文脈90本。乗算、繰上がり、借り、単項マイナス、符号の混在で、直接の倍幅結果と、狭い語への保存、型変換、自己決定の連結、明示した符号の対照を比較し、全入力と上位語を観測。 |
 | [`array_element_refs`](../generators/array_element_refs.py) | 13 | 80 | 動的配列・連想配列の要素参照を、再確保・同値の全体代入・削除の前後で観測。幅1/8/32/33/65と符号の有無、即時の書込み共有・古い参照の存続・参照を保つ対照を含み、時間を分けて全要素を確認。 |
+| [`array_order_keys`](../generators/array_order_keys.py) | 7 | 64 | 64/65ビットの境界を含む4種類のパックされたキー幅、4種類の非パック配列、符号付き・符号なし・複合キーの4形式を組み合わせた64本。sort、rsort、reverseの各段階で全レコードと独立したコピーを照合する。 |
 | [`array_shape_queries`](../generators/array_shape_queries.py) | 20 | 60 | 32/33・64/65・128/129ビットの配列形状照会60本。負・非ゼロのパック範囲、混在・typedefの段階的な次元展開、単一要素の向き、定数式の型幅、無効な次元、動的配列・キューのサイズ変更を確認。実行時のコンテナ全体のビット数照会は形状照会から分け、生きている要素の値も確認。 |
 | [`bitvector_queries`](../generators/bitvector_queries.py) | 20 | 48 | 32/33・64/65・128/129ビットのビット集計48本。既知値とX/Zの個数、更新後の再集計、onehot・isunknown、符号付き関数結果、パック構造体、下位1ビットが重複する広幅の可変制御引数、定数式による型の幅を確認。 |
 | [`cg_option_levels`](../generators/cg_option_levels.py) | 19 | 17 | 表19-2・19-4でNoとされるcoverpoint・crossの本体でのoption・type_option代入を違法系として生成し、19.10の暗黙の構造体と照合 |
@@ -22,9 +23,13 @@
 | [`combination_io`](../generators/combination_io.py) | 9, 10, 21 | 13 | 境界条件13件。`$fread`の格納先とバイト順、キュー・動的配列の暗黙感度、SV内で読み戻したVCDの内容を確認 |
 | [`combination_monitors`](../generators/combination_monitors.py) | 21 | 18 | 9種類の登録場所と2種類のコンテナ・記述子を組み合わせ、ファイルを読み戻して、Postponedの最終値、非選択要素、選択・置換、monitoroff、閉鎖後の出力抑止を確認する。 |
 | [`combination_nba`](../generators/combination_nba.py) | 10, 13 | 16 | 境界条件16件。`ref static`経由の遅延・イベント制御付きNBA、値と添字の確定、文字列の文字要素、配列スライスのコピーアウトを確認 |
+| [`concat_slice_nba`](../generators/concat_slice_nba.py) | 10 | 48 | パックベクタとアンパック配列要素の部分選択を連結した非ブロッキング代入。予約時の添字と範囲外ビットの扱いを確認 |
 | [`constant_power_controls`](../generators/constant_power_controls.py) | 11 | 16 | 整数の負乗を定数と実行時で対にする16本。型を明示したlocalparamと実行時引数で、底ゼロ・一・符号付きマイナス一・符号なし三と指数幅3/8/32/65、自然幅・直接・保存後の値とbit変換をそれぞれ確認し、ケース等価でも照合。Xを要するゼロの4本と既知値の12本を分離し、広い文脈の区別を検査したとは主張しない。 |
 | [`division_boundaries`](../generators/division_boundaries.py) | 11 | 72 | 63/64/65・127/128/129・255/256/257ビットの実行時除算と剰余72本。符号の有無、小さい除数、2の冪の境界、端値と固定幅の桁あふれを確認。配列への複合代入は添字の評価回数、隣の要素、直接計算の対照を観測し、記録した実行時引数をオペランドへ反映。 |
+| [`event_key_updates`](../generators/event_key_updates.py) | 7 | 24 | 直接参照・別名・配列要素・nullのイベントキーによる連想配列の更新、式の結果、他の要素を保つ削除を確認 |
+| [`foreach_ragged_arrays`](../generators/foreach_ragged_arrays.py) | 12 | 48 | 3種類の外側配列、4種類の行サイズ、4種類のforeach形式を組み合わせた48本。走査順、長さ0の行、走査間での再確保、パックと非パックが混在する次元の省略を確認する。 |
 | [`fourstate_boundaries`](../generators/fourstate_boundaries.py) | 11 | 54 | 63/64/65・127/128/129・255/256/257ビットの4値境界54本。全体の真偽、ビット演算とリダクション、等値と片側ワイルドカード、条件の併合、符号付きシフトを確認。語境界周辺のX/Z、既知値の対照、演算前と最後の2値変換を観測し、シフト量は65ビット全体を保持。 |
+| [`fread_memory_windows`](../generators/fread_memory_windows.py) | 21 | 48 | 8〜65ビットの6種類の要素幅、メモリ宣言の両方向、開始番地と個数の4種類の指定を組み合わせたバイナリ読取り48本。全要素、読み取ったバイト数、現在位置、次のバイトを照合する。 |
 | [`function_formal_contexts`](../generators/function_formal_contexts.py) | 13 | 60 | runtimeのoutput・inout・ref受渡し30本と、実引数をリテラル・パラメータに限定したmodule・package・static classの定数呼出し30本。5幅と符号の有無を確認 |
 | [`function_result_ranges`](../generators/function_result_ranges.py) | 13 | 24 | 関数呼出し結果を直接選択する24本。非ゼロ・負・単一要素・広幅の6範囲、符号の有無、パッケージ呼出しと非nullのクラス参照の連鎖 |
 | [`gate_strength_truth`](../generators/gate_strength_truth.py) | 28 | 5 | nand・or・xnor・xorの非対称な駆動強度と、pull源の例外を含む表28-2の全ゲート種別の既定強度 |
@@ -141,6 +146,7 @@
 | [`interaction_wait`](../generators/interaction_wait.py) | 9 | 36 | サイズ・先頭要素・両条件を待ち、動的配列とキューの作成・拡大・縮小・削除・同サイズ置換の前後で起床時刻・回数と全要素を観測する。無関係なコンテナ変更での早期起床を区別し、既に真の場合と、型変換後のX/Zをcase等価で待つ場合も確認する。 |
 | [`keywords`](../generators/keywords.py) | 5, 22 | 496 | 不正な設計。附属書Bの各予約語を``begin_keywords "1800-2023"``の下で変数名として宣言し、22.14で各版が追加する予約語もその版の``begin_keywords``の下で宣言する。ツールは拒否する必要がある |
 | [`keywords_inherited`](../generators/keywords_inherited.py) | 22 | 804 | 5種類のbegin_keywordsで継承される予約語と、1364-2001-noconfigの全予約語。既存の追加語テストと合わせ、各版の累積集合の全語を確認 |
+| [`memory_address_windows`](../generators/memory_address_windows.py) | 21 | 48 | 二進・十六進メモリファイルの明示アドレス、コメント、桁区切り、昇順・降順の読み込み、範囲外アドレスでの中断を確認 |
 | [`memory_file_boundaries`](../generators/memory_file_boundaries.py) | 21 | 138 | 255/256/257・511/512/513ビットの型付きメモリファイル138本。既存の作成・参照処理を23通りの固定構成で再利用し、通常語・enum、bit/logic、2進・16進、既知値・X/Z、明示した書出し・読込み範囲と逆順の読込み、未更新領域を確認。独立した正規入力と、本文がスラッシュで始まる合法なブロックコメントを扱う拡張専用のアドレス検査を使い、元の有限モデルと生成入力は維持。 |
 | [`nba_boundaries`](../generators/nba_boundaries.py) | 10 | 192 | 63/64/65・127/128/129・255/256/257・511/512/513ビットの静的代入先のNBA192本。語全体・境界をまたぐ部分選択・順序のある重なり・固定配列を、bit/logicと即時・代入内遅延で確認。保存した入力、変更した実行時添字、変換済みのブロッキング対照、Activeと次の時刻の観測から、競合する書込みなしで予約と未更新領域を検査。 |
 | [`negative_power_controls`](../generators/negative_power_controls.py) | 11 | 16 | 保存したランダム探索から切り出した、整数の負乗の対照16本。底がゼロ・一・符号付きマイナス一・符号なし三、独立した符号付き3/8/32/65ビットの指数、下限と隣の値を確認。実行時引数を底と指数の最下位ビットへ与え、未知値を要するゼロの4本と既知値だけの12本を分離。自然幅・直接・保存後の値と2値変換を観測し、文脈の区別を広く検査したとは主張しない。 |
@@ -149,9 +155,12 @@
 | [`power_boundaries`](../generators/power_boundaries.py) | 11 | 72 | 63/64/65・127/128/129・255/256/257ビットの実行時整数べき乗72本。底の符号の有無、正と負の指数、65ビット指数全体の境界、明示した未知値を確認。直接の倍幅結果、狭い値からの保存、最後の2値変換を区別し、他のX/Zを保つ最下位ビットに実行時の依存を与える。 |
 | [`primitive_array_bounds`](../generators/primitive_array_bounds.py) | 28 | 61 | ゲート配列の端子幅が不正な56本と、負・降順・非ゼロ・単一要素の範囲およびスカラ共有を確認する合法5本 |
 | [`primitive_array_identity`](../generators/primitive_array_identity.py) | 28 | 15 | gate・switch・UDP配列をVPIで直接観測する15本。宣言範囲、実要素数と添字、親配列・添字検索の同一性、端子値、単独primitiveの対照 |
+| [`queue_slice_composition`](../generators/queue_slice_composition.py) | 7 | 48 | 4種類のキュー長、実行時に評価する6種類の境界、2種類の代入先を組み合わせた48本。スライスのコピー、同じキューへの連結代入、その後の追加、保存コピーの保持を照合する。 |
 | [`scheduling`](../generators/scheduling.py) | 4 | 325 | 既存の8ビットの書き込みを、書き込み元・待機中の別プロセス・strobe・monitorから指定の時刻とイベント領域で観測する。既存の生成テストと期待値は変更しない。 |
+| [`sparse_file_writes`](../generators/sparse_file_writes.py) | 21 | 24 | 3種類のシーク起点、4種類の間隔、空または初期データ付きのファイルを組み合わせた24本。書き込み前後のファイルサイズ、先頭データの保持、間隔がゼロで埋まること、追加したバイトを確認する。 |
 | [`stream_boundaries`](../generators/stream_boundaries.py) | 11 | 96 | 63/64/65・127/128/129ビットと両方向のストリーミング96本。右側のゼロ埋めと通常の符号拡張、フィールドをまたぐ逆置換と上位ビットの消費、型・省略時の区画幅、入れ子の式、パック構造体のX/Z、降順の固定配列と明示した要素列の対照を確認。 |
 | [`strength`](../generators/strength.py) | 28 | 135 | 異なる強度と値を持つ二つのドライバ。wire・tri・wand・triand・wor・trior・tri0・tri1とbufifゲートを通し、`%v`で表示 |
+| [`string_argument_updates`](../generators/string_argument_updates.py) | 13 | 48 | 4種類の引数方向、3種類の文字列格納先、4種類のメソッドまたは添字による更新を組み合わせた48本。呼出し中に見える更新、復帰時のコピー、保存した値と隣接要素の保持を確認する。 |
 | [`wide_array_shapes`](../generators/wide_array_shapes.py) | 20 | 60 | 255/256/257・511/512/513ビットの配列形状60本で、従来のarray_shape_queriesの10形式をそのまま使う。宣言したパック／混在／入れ子のtypedef／単一要素／定数の形状・範囲外の次元・動的配列とキューの生成／変更／削除と要素の対照を扱い、実行時のbitsは別に検証する。固定の問い合わせは型を調べ、未初期化データを読まない。任意の要素内容や次元数の網羅とはしない。 |
 | [`wide_bitvector_queries`](../generators/wide_bitvector_queries.py) | 20 | 48 | 255/256/257・511/512/513ビットの問い合わせ48本で、従来のbitvector_queriesの8形式をそのまま使う。既知値と4値の個数・連続したビット書き込み・onehotと未知値の判定・関数と構造体の全体・重複した広い制御引数・定数の問い合わせで決まる型の幅を扱う。戻り値の幅も別に表示し、過去の処理と入力は変えず、全引数を網羅したとはしない。 |
 | [`wide_cast_boundaries`](../generators/wide_cast_boundaries.py) | 6 | 180 | 255/256/257・511/512/513ビットの明示的な型変換180本、各幅30通りを固定。幅・符号・型付きbit/logicへの変換と、符号付きの一の加算・最終格納の順序を確認。実行時引数で既知の入力ビットをゼロから一に戻し、入力・途中・最終の全ビットと幅を表示する。元の有限モデルの行・要求対応は変えず、選んだ組合せで全ての文脈を証明したとはしない。 |

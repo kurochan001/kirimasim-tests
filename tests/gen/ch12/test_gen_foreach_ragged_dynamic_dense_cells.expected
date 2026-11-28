@@ -1,0 +1,12 @@
+phase=0
+cell 0/0 word=15
+cell 0/1 word=1c
+cell 1/0 word=22
+cell 2/0 word=2f
+cell 2/1 word=36
+cell 2/2 word=3d
+phase=1
+cell 0/0 word=20
+cell 0/1 word=27
+cell 0/2 word=2e
+cell 1/0 word=2d

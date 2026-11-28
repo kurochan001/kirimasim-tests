@@ -4,7 +4,7 @@
 
 [English](ch7.md) / [日本語](ch7.ja.md)
 
-[すべての章](README.ja.md) .テストは1141本で、そのうち604本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1277本で、そのうち740本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -547,6 +547,112 @@
 | [`test_map_result_to_same_array`](../../tests/ch7/test_map_result_to_same_array.sv) |map() の結果は呼び出された配列、動的配列、またはキューに割り当てられます。| 7.12.5 | Verilator 5.052 ||
 | [`test_map_result_type_range_and_keys`](../../tests/ch7/test_map_result_type_range_and_keys.sv) |map() の結果は with 表現の自己決定型の要素、ソース配列の範囲、関連配列の場合はそのインデックスのセットを含む。| 7.12.5 |規格のみ||
 | [`test_map_selects_order_and_empty`](../../tests/ch7/test_map_selects_order_and_empty.sv) |map() の with 句の後には選択やメソッド呼び出しを続けることができ、降順の範囲の map() は各要素に元のインデックスを与え、空の配列の map() は空であり、キューや負のキーを持つ連想配列の map() は順序とキーを保ち、元の配列は変わらない| 7.12.5 7.12 7.12.4 7.12.3 7.6 7.8.4 7.9.4 7.9.6 |規格のみ||
+
+<a id="generated-by-generatorsarray_order_keyspy"></a>
+
+## `generators/array_order_keys.py`が生成
+
+テスト64本。スイートのREADMEの"Generated tests"を参照してください。
+
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
+| --- | --- | --- | --- | --- |
+| [`test_gen_array_order_key_33_dynamic_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_dynamic_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_33_dynamic_signed`](../../tests/gen/ch7/test_gen_array_order_key_33_dynamic_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_dynamic_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_dynamic_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_dynamic_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_33_dynamic_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_33_fixed_down_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_down_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_fixed_down_signed`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_down_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_fixed_down_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_down_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_fixed_down_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_down_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_fixed_up_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_up_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_33_fixed_up_signed`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_up_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_fixed_up_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_up_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_fixed_up_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_33_fixed_up_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_33_queue_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_queue_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_queue_signed`](../../tests/gen/ch7/test_gen_array_order_key_33_queue_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_queue_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_33_queue_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_33_queue_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_33_queue_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_dynamic_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_dynamic_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_64_dynamic_signed`](../../tests/gen/ch7/test_gen_array_order_key_64_dynamic_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_dynamic_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_dynamic_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_dynamic_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_64_dynamic_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_64_fixed_down_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_down_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_fixed_down_signed`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_down_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_fixed_down_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_down_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_fixed_down_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_down_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_fixed_up_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_up_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_64_fixed_up_signed`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_up_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_fixed_up_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_up_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_fixed_up_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_64_fixed_up_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_64_queue_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_queue_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_queue_signed`](../../tests/gen/ch7/test_gen_array_order_key_64_queue_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_queue_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_64_queue_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_64_queue_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_64_queue_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_dynamic_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_dynamic_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_65_dynamic_signed`](../../tests/gen/ch7/test_gen_array_order_key_65_dynamic_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_dynamic_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_dynamic_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_dynamic_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_65_dynamic_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_65_fixed_down_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_down_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_fixed_down_signed`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_down_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_fixed_down_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_down_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_fixed_down_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_down_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_fixed_up_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_up_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_65_fixed_up_signed`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_up_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_fixed_up_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_up_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_fixed_up_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_65_fixed_up_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_queue_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_queue_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_queue_signed`](../../tests/gen/ch7/test_gen_array_order_key_65_queue_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_queue_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_65_queue_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_65_queue_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_65_queue_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_dynamic_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_dynamic_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_8_dynamic_signed`](../../tests/gen/ch7/test_gen_array_order_key_8_dynamic_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_dynamic_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_dynamic_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_dynamic_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_8_dynamic_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_8_fixed_down_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_down_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_fixed_down_signed`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_down_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_fixed_down_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_down_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_fixed_down_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_down_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_fixed_up_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_up_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_8_fixed_up_signed`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_up_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_fixed_up_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_up_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_fixed_up_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_8_fixed_up_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 | Verilator 5.054 ||
+| [`test_gen_array_order_key_8_queue_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_queue_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_queue_signed`](../../tests/gen/ch7/test_gen_array_order_key_8_queue_signed.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_queue_signed_concat`](../../tests/gen/ch7/test_gen_array_order_key_8_queue_signed_concat.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+| [`test_gen_array_order_key_8_queue_unsigned`](../../tests/gen/ch7/test_gen_array_order_key_8_queue_unsigned.sv) |配列の順序付けはキー式の幅と符号に従う| 7.12.2 7.12 7.6 11.8.1 |規格のみ||
+
+<a id="generated-by-generatorsevent_key_updatespy"></a>
+
+## `generators/event_key_updates.py`が生成
+
+テスト24本。スイートのREADMEの"Generated tests"を参照してください。
+
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
+| --- | --- | --- | --- | --- |
+| [`test_gen_event_key_update_alias_add`](../../tests/gen/ch7/test_gen_event_key_update_alias_add.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_alias_assign`](../../tests/gen/ch7/test_gen_event_key_update_alias_assign.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_alias_postinc`](../../tests/gen/ch7/test_gen_event_key_update_alias_postinc.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_alias_predec`](../../tests/gen/ch7/test_gen_event_key_update_alias_predec.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_alias_sub`](../../tests/gen/ch7/test_gen_event_key_update_alias_sub.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_alias_xor`](../../tests/gen/ch7/test_gen_event_key_update_alias_xor.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_direct_add`](../../tests/gen/ch7/test_gen_event_key_update_direct_add.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_direct_assign`](../../tests/gen/ch7/test_gen_event_key_update_direct_assign.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_direct_postinc`](../../tests/gen/ch7/test_gen_event_key_update_direct_postinc.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_direct_predec`](../../tests/gen/ch7/test_gen_event_key_update_direct_predec.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_direct_sub`](../../tests/gen/ch7/test_gen_event_key_update_direct_sub.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_direct_xor`](../../tests/gen/ch7/test_gen_event_key_update_direct_xor.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_element_add`](../../tests/gen/ch7/test_gen_event_key_update_element_add.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_element_assign`](../../tests/gen/ch7/test_gen_event_key_update_element_assign.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_element_postinc`](../../tests/gen/ch7/test_gen_event_key_update_element_postinc.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_element_predec`](../../tests/gen/ch7/test_gen_event_key_update_element_predec.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_element_sub`](../../tests/gen/ch7/test_gen_event_key_update_element_sub.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_element_xor`](../../tests/gen/ch7/test_gen_event_key_update_element_xor.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_null_add`](../../tests/gen/ch7/test_gen_event_key_update_null_add.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_null_assign`](../../tests/gen/ch7/test_gen_event_key_update_null_assign.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_null_postinc`](../../tests/gen/ch7/test_gen_event_key_update_null_postinc.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_null_predec`](../../tests/gen/ch7/test_gen_event_key_update_null_predec.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.2 |規格のみ||
+| [`test_gen_event_key_update_null_sub`](../../tests/gen/ch7/test_gen_event_key_update_null_sub.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
+| [`test_gen_event_key_update_null_xor`](../../tests/gen/ch7/test_gen_event_key_update_null_xor.sv) |イベントをキーにした連想配列の更新でキーの同一性を保つ| 7.8.5 7.9.1 7.9.2 7.9.3 15.5.5.1 15.5.5.3 11.4.1 |規格のみ||
 
 <a id="generated-by-generatorsinteraction_arraypy"></a>
 
@@ -1197,6 +1303,63 @@
 | [`test_gen_packed_read_control_row_up_up_zero_w511`](../../tests/gen/ch7/test_gen_packed_read_control_row_up_up_zero_w511.sv) |パック配列の読み取りが要素を書き換えずリテラルと平坦なベクトルの対照に一致する| 7.4.1 7.4.5 11.5.1 11.4.5 11.4.8 20.6.2 21.6 21.2.1 | Icarus Verilog 13.0 |プラスアルゴリズム|
 | [`test_gen_packed_read_control_row_up_up_zero_w512`](../../tests/gen/ch7/test_gen_packed_read_control_row_up_up_zero_w512.sv) |パック配列の読み取りが要素を書き換えずリテラルと平坦なベクトルの対照に一致する| 7.4.1 7.4.5 11.5.1 11.4.5 11.4.8 20.6.2 21.6 21.2.1 | Icarus Verilog 13.0 |プラスアルゴリズム|
 | [`test_gen_packed_read_control_row_up_up_zero_w513`](../../tests/gen/ch7/test_gen_packed_read_control_row_up_up_zero_w513.sv) |パック配列の読み取りが要素を書き換えずリテラルと平坦なベクトルの対照に一致する| 7.4.1 7.4.5 11.5.1 11.4.5 11.4.8 20.6.2 21.6 21.2.1 | Icarus Verilog 13.0 |プラスアルゴリズム|
+
+<a id="generated-by-generatorsqueue_slice_compositionpy"></a>
+
+## `generators/queue_slice_composition.py`が生成
+
+テスト48本。スイートのREADMEの"Generated tests"を参照してください。
+
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
+| --- | --- | --- | --- | --- |
+| [`test_gen_queue_slice_1_copy_clipped`](../../tests/gen/ch7/test_gen_queue_slice_1_copy_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_copy_past_end`](../../tests/gen/ch7/test_gen_queue_slice_1_copy_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_copy_relative`](../../tests/gen/ch7/test_gen_queue_slice_1_copy_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_copy_reverse`](../../tests/gen/ch7/test_gen_queue_slice_1_copy_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_copy_tail`](../../tests/gen/ch7/test_gen_queue_slice_1_copy_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_copy_unknown`](../../tests/gen/ch7/test_gen_queue_slice_1_copy_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
+| [`test_gen_queue_slice_1_self_clipped`](../../tests/gen/ch7/test_gen_queue_slice_1_self_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_self_past_end`](../../tests/gen/ch7/test_gen_queue_slice_1_self_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_self_relative`](../../tests/gen/ch7/test_gen_queue_slice_1_self_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_self_reverse`](../../tests/gen/ch7/test_gen_queue_slice_1_self_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_self_tail`](../../tests/gen/ch7/test_gen_queue_slice_1_self_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_1_self_unknown`](../../tests/gen/ch7/test_gen_queue_slice_1_self_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
+| [`test_gen_queue_slice_3_copy_clipped`](../../tests/gen/ch7/test_gen_queue_slice_3_copy_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_3_copy_past_end`](../../tests/gen/ch7/test_gen_queue_slice_3_copy_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_3_copy_relative`](../../tests/gen/ch7/test_gen_queue_slice_3_copy_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_3_copy_reverse`](../../tests/gen/ch7/test_gen_queue_slice_3_copy_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_3_copy_tail`](../../tests/gen/ch7/test_gen_queue_slice_3_copy_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_3_copy_unknown`](../../tests/gen/ch7/test_gen_queue_slice_3_copy_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
+| [`test_gen_queue_slice_3_self_clipped`](../../tests/gen/ch7/test_gen_queue_slice_3_self_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_3_self_past_end`](../../tests/gen/ch7/test_gen_queue_slice_3_self_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_3_self_relative`](../../tests/gen/ch7/test_gen_queue_slice_3_self_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_3_self_reverse`](../../tests/gen/ch7/test_gen_queue_slice_3_self_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_3_self_tail`](../../tests/gen/ch7/test_gen_queue_slice_3_self_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_3_self_unknown`](../../tests/gen/ch7/test_gen_queue_slice_3_self_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
+| [`test_gen_queue_slice_5_copy_clipped`](../../tests/gen/ch7/test_gen_queue_slice_5_copy_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_5_copy_past_end`](../../tests/gen/ch7/test_gen_queue_slice_5_copy_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_5_copy_relative`](../../tests/gen/ch7/test_gen_queue_slice_5_copy_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_5_copy_reverse`](../../tests/gen/ch7/test_gen_queue_slice_5_copy_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_5_copy_tail`](../../tests/gen/ch7/test_gen_queue_slice_5_copy_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_5_copy_unknown`](../../tests/gen/ch7/test_gen_queue_slice_5_copy_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
+| [`test_gen_queue_slice_5_self_clipped`](../../tests/gen/ch7/test_gen_queue_slice_5_self_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_5_self_past_end`](../../tests/gen/ch7/test_gen_queue_slice_5_self_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_5_self_relative`](../../tests/gen/ch7/test_gen_queue_slice_5_self_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_5_self_reverse`](../../tests/gen/ch7/test_gen_queue_slice_5_self_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_5_self_tail`](../../tests/gen/ch7/test_gen_queue_slice_5_self_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_5_self_unknown`](../../tests/gen/ch7/test_gen_queue_slice_5_self_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
+| [`test_gen_queue_slice_8_copy_clipped`](../../tests/gen/ch7/test_gen_queue_slice_8_copy_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_8_copy_past_end`](../../tests/gen/ch7/test_gen_queue_slice_8_copy_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_8_copy_relative`](../../tests/gen/ch7/test_gen_queue_slice_8_copy_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_8_copy_reverse`](../../tests/gen/ch7/test_gen_queue_slice_8_copy_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_8_copy_tail`](../../tests/gen/ch7/test_gen_queue_slice_8_copy_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_8_copy_unknown`](../../tests/gen/ch7/test_gen_queue_slice_8_copy_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
+| [`test_gen_queue_slice_8_self_clipped`](../../tests/gen/ch7/test_gen_queue_slice_8_self_clipped.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_8_self_past_end`](../../tests/gen/ch7/test_gen_queue_slice_8_self_past_end.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_8_self_relative`](../../tests/gen/ch7/test_gen_queue_slice_8_self_relative.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_8_self_reverse`](../../tests/gen/ch7/test_gen_queue_slice_8_self_reverse.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ||
+| [`test_gen_queue_slice_8_self_tail`](../../tests/gen/ch7/test_gen_queue_slice_8_self_tail.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 | Verilator 5.054 ||
+| [`test_gen_queue_slice_8_self_unknown`](../../tests/gen/ch7/test_gen_queue_slice_8_self_unknown.sv) |実行時のキュースライスを代入し、保存した元の値を保つ| 7.10.1 10.10 |規格のみ| x/z |
 
 <a id="generated-by-generatorswide_pathspy"></a>
 

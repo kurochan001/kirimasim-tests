@@ -76,15 +76,15 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **17164 tests** in 38 chapters. 9351 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **17564 tests** in 38 chapters. 9751 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9178 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3028 |
-| The standard only, with no fixed-release simulator oracle recorded | 4958 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9334 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3155 |
+| The standard only, with no fixed-release simulator oracle recorded | 5075 |
 
-4130 tests depend on x or z values (`:fourstate: yes`). 983 tests include C code. 253 use DPI (`:dpi_c:`) and 734 use VPI (`:vpi_c:`). A test can use both. 3156 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 185 tests check the exit code of the simulation (`:expected_exit:`). 127 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 9 name include directories (`:incdirs:`), 170 name the top-level module or configuration (`:top_module:`), and 1317 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4138 tests depend on x or z values (`:fourstate: yes`). 983 tests include C code. 253 use DPI (`:dpi_c:`) and 734 use VPI (`:vpi_c:`). A test can use both. 3156 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 185 tests check the exit code of the simulation (`:expected_exit:`). 127 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 9 name include directories (`:incdirs:`), 170 name the top-level module or configuration (`:top_module:`), and 1317 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
@@ -92,13 +92,13 @@ The suite has **17164 tests** in 38 chapters. 9351 of them are generated. The [g
 | 4 | Scheduling semantics | 487 | 446 | 8 | 33 |
 | 5 | Lexical conventions | 533 | 447 | 31 | 55 |
 | 6 | Data types | 925 | 571 | 176 | 178 |
-| 7 | Aggregate data types | 1141 | 327 | 492 | 322 |
+| 7 | Aggregate data types | 1277 | 327 | 519 | 431 |
 | 8 | Classes | 517 | 78 | 282 | 157 |
 | 9 | Processes | 494 | 353 | 58 | 83 |
-| 10 | Assignment statements | 770 | 599 | 83 | 88 |
+| 10 | Assignment statements | 818 | 647 | 83 | 88 |
 | 11 | Operators and expressions | 2638 | 2026 | 241 | 371 |
-| 12 | Procedural programming statements | 328 | 216 | 34 | 78 |
-| 13 | Tasks and functions (subroutines) | 764 | 335 | 259 | 170 |
+| 12 | Procedural programming statements | 376 | 216 | 82 | 78 |
+| 13 | Tasks and functions (subroutines) | 812 | 335 | 299 | 178 |
 | 14 | Clocking blocks | 174 |  | 103 | 71 |
 | 15 | Interprocess synchronization and communication | 218 | 3 | 69 | 146 |
 | 16 | Assertions | 819 | 38 | 123 | 658 |
@@ -106,7 +106,7 @@ The suite has **17164 tests** in 38 chapters. 9351 of them are generated. The [g
 | 18 | Constrained random value generation | 302 | 4 | 139 | 159 |
 | 19 | Functional coverage | 260 |  | 72 | 188 |
 | 20 | Utility system tasks and system functions | 723 | 399 | 123 | 201 |
-| 21 | Input/output system tasks and system functions | 971 | 548 | 111 | 312 |
+| 21 | Input/output system tasks and system functions | 1091 | 656 | 123 | 312 |
 | 22 | Compiler directives | 1332 | 1245 | 42 | 45 |
 | 23 | Modules and hierarchy | 448 | 290 | 59 | 99 |
 | 24 | Programs | 225 | 38 | 38 | 149 |

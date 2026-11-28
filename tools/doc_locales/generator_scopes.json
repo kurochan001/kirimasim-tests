@@ -1,6 +1,18 @@
 {
   "schema": 1,
   "scopes": {
+    "concat_slice_nba": {
+      "en": "Concatenated indexed part-select NBAs across packed words and unpacked elements, with captured indices and clipped writes",
+      "ja": "パックベクタとアンパック配列要素の部分選択を連結した非ブロッキング代入。予約時の添字と範囲外ビットの扱いを確認"
+    },
+    "memory_address_windows": {
+      "en": "Explicit binary and hexadecimal memory-file addresses, comments and separators, both load directions, and stop-on-error behavior at window boundaries",
+      "ja": "二進・十六進メモリファイルの明示アドレス、コメント、桁区切り、昇順・降順の読み込み、範囲外アドレスでの中断を確認"
+    },
+    "event_key_updates": {
+      "en": "Associative writes and expression results for direct, aliased, nested and null event keys, with independent deletion controls",
+      "ja": "直接参照・別名・配列要素・nullのイベントキーによる連想配列の更新、式の結果、他の要素を保つ削除を確認"
+    },
     "combination_events": {
       "en": "Nine mechanism-boundary cases for automatic event lifetimes, returned/selected event handles, computed event controls, `iff`, deferred triggers and named-fork cleanup",
       "ja": "境界条件9件。自動変数のeventの寿命、戻り値・条件式で選択したevent、計算したイベント制御、`iff`、遅延トリガ、名前付きforkの終了処理を確認"
@@ -164,6 +176,30 @@
     "wide_bitvector_queries": {
       "en": "48 query boundary fixtures at 255/256/257 and 511/512/513 bits, reusing all eight unchanged bitvector_queries forms. Covers known and four-state populations, successive bit writes, onehot/unknown predicates, packed function/struct arguments, duplicate wide controls and constant query-defined type widths. Return widths stay separately visible; no previous helper/input changes or exhaustive argument claim.",
       "ja": "255/256/257・511/512/513ビットの問い合わせ48本で、従来のbitvector_queriesの8形式をそのまま使う。既知値と4値の個数・連続したビット書き込み・onehotと未知値の判定・関数と構造体の全体・重複した広い制御引数・定数の問い合わせで決まる型の幅を扱う。戻り値の幅も別に表示し、過去の処理と入力は変えず、全引数を網羅したとはしない。"
+    },
+    "fread_memory_windows": {
+      "en": "48 binary memory reads combine six element widths from 8 to 65 bits, both declaration directions, and four start/count forms. Observe every word, the count and position in bytes, and the next unread byte.",
+      "ja": "8〜65ビットの6種類の要素幅、メモリ宣言の両方向、開始番地と個数の4種類の指定を組み合わせたバイナリ読取り48本。全要素、読み取ったバイト数、現在位置、次のバイトを照合する。"
+    },
+    "queue_slice_composition": {
+      "en": "48 queue slices combine four source lengths, six runtime bound forms and two assignment contexts. Observe a copy, overlapping concatenation, subsequent growth and preservation of the saved source.",
+      "ja": "4種類のキュー長、実行時に評価する6種類の境界、2種類の代入先を組み合わせた48本。スライスのコピー、同じキューへの連結代入、その後の追加、保存コピーの保持を照合する。"
+    },
+    "sparse_file_writes": {
+      "en": "24 seek and write cases combine three origins, four gap lengths and empty or seeded files. Check file size before and after writing, the preserved prefix, zero-filled gap and new bytes.",
+      "ja": "3種類のシーク起点、4種類の間隔、空または初期データ付きのファイルを組み合わせた24本。書き込み前後のファイルサイズ、先頭データの保持、間隔がゼロで埋まること、追加したバイトを確認する。"
+    },
+    "array_order_keys": {
+      "en": "64 ordering cases combine four packed key widths including the 64/65-bit boundary, four unpacked container layouts and four signed, unsigned or compound expressions. Observe complete records after sort, rsort and reverse, along with an independent copy.",
+      "ja": "64/65ビットの境界を含む4種類のパックされたキー幅、4種類の非パック配列、符号付き・符号なし・複合キーの4形式を組み合わせた64本。sort、rsort、reverseの各段階で全レコードと独立したコピーを照合する。"
+    },
+    "foreach_ragged_arrays": {
+      "en": "48 foreach cases combine three outer array layouts, four row-size profiles and four iteration forms. Check visit order, zero-length rows, replacement between traversals and omissions in mixed packed and unpacked dimensions.",
+      "ja": "3種類の外側配列、4種類の行サイズ、4種類のforeach形式を組み合わせた48本。走査順、長さ0の行、走査間での再確保、パックと非パックが混在する次元の省略を確認する。"
+    },
+    "string_argument_updates": {
+      "en": "48 task calls combine all four argument directions, three string storage locations and four methods or indexed updates. Check changes visible during the call, transfer on return and preservation of a saved value and a neighbor.",
+      "ja": "4種類の引数方向、3種類の文字列格納先、4種類のメソッドまたは添字による更新を組み合わせた48本。呼出し中に見える更新、復帰時のコピー、保存した値と隣接要素の保持を確認する。"
     },
     "wide_array_shapes": {
       "en": "60 wide array-shape fixtures at 255/256/257 and 511/512/513 bits, reusing ten unchanged array_shape_queries forms. Covers declared packed/mixed/nested typedef/singleton/constant geometry, invalid dimensions and live dynamic-array/queue resize/delete/element controls, with runtime bits isolated. Fixed queries inspect types without reading uninitialized data; no arbitrary element-content or rank coverage claim.",

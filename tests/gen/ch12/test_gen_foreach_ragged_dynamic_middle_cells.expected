@@ -1,0 +1,7 @@
+phase=0
+cell 1/0 word=22
+cell 1/1 word=29
+phase=1
+cell 0/0 word=20
+cell 1/0 word=2d
+cell 1/1 word=34

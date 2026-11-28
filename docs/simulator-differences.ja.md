@@ -20,6 +20,7 @@
 
 |条項|Icarus Verilog 13.0 が何をするか|テスト|
 | --- | --- | --- |
+| 7.10.1 | 1要素のキューでスライスの境界にZを含むケースは、コンパイル後に `vvp` のスレッドコンテキストのアサーションで停止する。期待されるスライスは空キュー。 | `gen/ch7/test_gen_queue_slice_1_copy_unknown` |
 | 11.4.10, 6.11.2 |packed bit ストレージへの6つの選択された複合シフトに対して，X／Zカウントで，元のベクトルは保持される。bit に保存するとき，シフト結果は未知でなければならず，ゼロに変換する。|[cross26-icarus-13.json](../coverage/interaction-results/cross26-icarus-13.json)内の、bitを代入先としX／Zをシフト量とする6件の複合シフトケース。[129 - bit スカラーの場合](../tests/gen/ch11/test_gen_cross_compound_shift_w129_b_u_scalar_shl_z_c8_known.sv)を含む。|
 | 11.4.1, 11.4.10 |符号bitがZである符号付き65-bit logic配列要素を65だけ算術右シフトすると、Zを複製せずゼロとなる。これは、以下の添字付きintへの複合代入で先に観測した内容を拡張する。| [test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z](../tests/gen/ch11/test_gen_cross_compound_shift_w65_l_s_element_ashr_width_c65_z.sv) |
 | 20.9 |32ビットの倍数でない連結／複製引数の`$countones`は再実行やホスト間で異なる：9つの選択例は6つのローカル実行で異なり，12個はUbuntu 24.04で異なる（引数幅2 , 33と34）。これらの21はどれもIcarusオラクルを受け取らない。2026-11-12に、macOS arm64のIcarus Verilog 13.0で2,250回実行したが、出力は変動しなかった。60ケースを各20回、21ケースをさらに各50回（環境変数の大きさと出力ファイル名を変えて）実行した。以前に保存したUbuntuのログでは、`ones=`の値が異なっている。[補助証跡](../coverage/interaction-qualification/README.md) を参照。2026-11-21の[メタモルフィック検査](metamorphic.md)では、macOS arm64でも3〜8本が再実行で変わり、`test_gen_cross_query_w129_l_prefix_x_low_zero`は12回の実行で`ones=`が2・8・9になった（規格の値は2）。|21 `gen/ch20/test_gen_cross_query_*`のケースは `icarus_unstable`が`generators/interaction_query.py`で同定した|
@@ -1302,6 +1303,14 @@ ch30/test_illegal_specify_path_to_input                           アサーシ�
 2026-11-14から追加するテストは、Verilator 5.054のseed 1と73で実行し、両方が一致してIcarus Verilog 13.0が一致しなければ`verilator@5.054`を付けます。Checkのジョブ`verilator-5054`が5.054で実行し、JSONで一致しなかったテストをステップのサマリーに表示します。ジョブの成功表示の読み方は[Checkの説明](../README.ja.md#workflows)を参照してください。
 `tools/lint_metadata.py`は、`:oracle:`にVerilatorのリリースを1つまで認めます。実行カバレッジでは、違反テストをVerilatorの実行で数えるのは、`:oracle:`に書いたリリースの実行の場合だけです。
 5.054のseed 1での最初の実行では、その時点で5.052を記録していた3,060本のうち3,047本が一致しました。残る13本は、移行で全件を5.054で実行し直すときに、条項から判断します。
+
+2026-11-28に追加した生成テストでは次の動作を観測しました。
+
+- 連結を代入先とする非ブロッキング代入で、添字付き部分選択が一部だけ範囲外になると、範囲内のビットも変わらない場合があります（10.4.2、11.5.1）。右辺が `8'hd6` の例では左の値が `a54` のままで、右は期待どおり `8da` になります。Icarus Verilog 13.0では左が `a57` になり、両方が期待値と一致しました。`gen/ch10/test_gen_concat_slice_nba_descending_first_packed_low_clip`
+- `$readmemh` のファイルで指定範囲の外にあるアドレスを指定すると（21.4）、Verilatorの既定の実行はエラーを報告して停止します。Icarus Verilog 13.0ではエラー後のメモリの内容まで観測できます。`gen/ch21/test_gen_memory_window_hex_up_down_inline_below`
+- `$fread` で9バイトを65ビットのメモリ要素に読み込むと（21.3.4.4）、Verilator 5.054では宣言幅を越えるビットが残る場合があります。降順の配列では要素が `fc6fd346ba2d91047` と表示され、期待値 `65'h1c6fd346ba2d91047` と比較すると不一致になります。ビット64と63:0を個別に読むと期待値に一致します。Icarus Verilog 13.0、Ghost、kirimasimはテストの期待出力に一致しました。`gen/ch21/test_gen_fread_memory_65_down_default`
+- 1要素のキューでは `source[1:$]` の境界が1と0になり、空キューを返します（7.10.1）。Verilator 5.054では元の要素が残り、スライスを非パック連結に使った場合も同じ結果になります。`gen/ch7/test_gen_queue_slice_1_copy_tail`、`gen/ch7/test_gen_queue_slice_1_self_tail`
+- Verilator 5.054の `sort()` は符号付き33ビットのキーを符号なしとして扱い、負のキーを正のキーの後ろに並べます（7.12.2）。期待される昇順では負の2件が先頭です。また、符号なしキーを使う降順宣言の固定配列では、数値として最小の添字から順に並べます。宣言順は最大の添字から始まります。`gen/ch7/test_gen_array_order_key_33_fixed_up_signed`、`gen/ch7/test_gen_array_order_key_33_fixed_down_unsigned`
 
 2026-11-14にテストのない要求のために追加したテストは、Verilator 5.054が規格と次の点で異なることを示します（未対応の構文は、この一覧のほかの節と同じく載せません）。
 

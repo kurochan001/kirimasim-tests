@@ -16,13 +16,13 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 4 | [Scheduling semantics](ch4.md) | 487 | 386 |
 | 5 | [Lexical conventions](ch5.md) | 533 | 415 |
 | 6 | [Data types](ch6.md) | 925 | 265 |
-| 7 | [Aggregate data types](ch7.md) | 1141 | 604 |
+| 7 | [Aggregate data types](ch7.md) | 1277 | 740 |
 | 8 | [Classes](ch8.md) | 517 | 138 |
 | 9 | [Processes](ch9.md) | 494 | 233 |
-| 10 | [Assignment statements](ch10.md) | 770 | 521 |
+| 10 | [Assignment statements](ch10.md) | 818 | 569 |
 | 11 | [Operators and expressions](ch11.md) | 2638 | 2054 |
-| 12 | [Procedural programming statements](ch12.md) | 328 | 125 |
-| 13 | [Tasks and functions (subroutines)](ch13.md) | 764 | 504 |
+| 12 | [Procedural programming statements](ch12.md) | 376 | 173 |
+| 13 | [Tasks and functions (subroutines)](ch13.md) | 812 | 552 |
 | 14 | [Clocking blocks](ch14.md) | 174 | 72 |
 | 15 | [Interprocess synchronization and communication](ch15.md) | 218 | 133 |
 | 16 | [Assertions](ch16.md) | 819 | 133 |
@@ -30,7 +30,7 @@ These pages are written by `tools/suite_catalog.py` from the metadata of the tes
 | 18 | [Constrained random value generation](ch18.md) | 302 | 57 |
 | 19 | [Functional coverage](ch19.md) | 260 | 50 |
 | 20 | [Utility system tasks and system functions](ch20.md) | 723 | 392 |
-| 21 | [Input/output system tasks and system functions](ch21.md) | 971 | 708 |
+| 21 | [Input/output system tasks and system functions](ch21.md) | 1091 | 828 |
 | 22 | [Compiler directives](ch22.md) | 1332 | 1206 |
 | 23 | [Modules and hierarchy](ch23.md) | 448 | 161 |
 | 24 | [Programs](ch24.md) | 225 | 171 |

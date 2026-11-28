@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 17164 |
+| Tests | 17564 |
 | Clauses in scope | 1095 |
 | Clauses out of scope | 64 |
 | Clauses with a direct test | 1095/1095 |
@@ -27,9 +27,9 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 1746 |
-| Icarus Verilog 13.0 only | 7432 |
-| Verilator 5.052 or 5.054 only | 3028 |
-| standard only | 4958 |
+| Icarus Verilog 13.0 only | 7588 |
+| Verilator 5.052 or 5.054 only | 3155 |
+| standard only | 5075 |
 
 <a id="章別"></a>
 
@@ -41,13 +41,13 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 4 | Scheduling semantics | 487 | 32 | 15.2 | 0 | 33 |
 | 5 | Lexical conventions | 533 | 16 | 33.3 | 0 | 55 |
 | 6 | Data types | 925 | 76 | 12.2 | 0 | 178 |
-| 7 | Aggregate data types | 1141 | 49 | 23.3 | 0 | 322 |
+| 7 | Aggregate data types | 1277 | 49 | 26.1 | 0 | 431 |
 | 8 | Classes | 517 | 43 | 12.0 | 0 | 157 |
 | 9 | Processes | 494 | 25 | 19.8 | 0 | 83 |
-| 10 | Assignment statements | 770 | 18 | 42.8 | 0 | 88 |
+| 10 | Assignment statements | 818 | 18 | 45.4 | 0 | 88 |
 | 11 | Operators and expressions | 2638 | 42 | 62.8 | 0 | 371 |
-| 12 | Procedural programming statements | 328 | 20 | 16.4 | 0 | 78 |
-| 13 | Tasks and functions (subroutines) | 764 | 15 | 50.9 | 0 | 170 |
+| 12 | Procedural programming statements | 376 | 20 | 18.8 | 0 | 78 |
+| 13 | Tasks and functions (subroutines) | 812 | 15 | 54.1 | 0 | 178 |
 | 14 | Clocking blocks | 174 | 15 | 11.6 | 0 | 71 |
 | 15 | Interprocess synchronization and communication | 218 | 21 | 10.4 | 0 | 146 |
 | 16 | Assertions | 819 | 69 | 11.9 | 0 | 658 |
@@ -55,7 +55,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 18 | Constrained random value generation | 302 | 44 | 6.9 | 0 | 159 |
 | 19 | Functional coverage | 260 | 24 | 10.8 | 0 | 188 |
 | 20 | Utility system tasks and system functions | 723 | 32 | 22.6 | 0 | 201 |
-| 21 | Input/output system tasks and system functions | 971 | 48 | 20.2 | 0 | 312 |
+| 21 | Input/output system tasks and system functions | 1091 | 48 | 22.7 | 0 | 312 |
 | 22 | Compiler directives | 1332 | 22 | 60.5 | 0 | 45 |
 | 23 | Modules and hierarchy | 448 | 34 | 13.2 | 0 | 99 |
 | 24 | Programs | 225 | 7 | 32.1 | 0 | 149 |
