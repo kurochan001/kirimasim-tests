@@ -6,9 +6,9 @@
 
 このレポートは登録した有限モデルだけを対象にします。要求カバレッジや全言語の 組合せ網羅率ではありません。計画上の網羅と、実行結果に基づく合格確認を分けます。 既存テストは削減していません。選択数の削減率は実行時間の削減率ではありません。
 
-生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/fcaeb425934d56b79c76332d8dc15c3a9092afa9/docs/interaction-verification.md)を参照してください。
+生成元・利用手順・適用限界は[導入手順](https://github.com/kurochan001/kirimasim-tests/blob/1fca5f36c37be669d42975bbd9fea38de70e5e16/docs/interaction-verification.md)を参照してください。
 
-2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/fcaeb425934d56b79c76332d8dc15c3a9092afa9/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/fcaeb425934d56b79c76332d8dc15c3a9092afa9/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
+2因子100%で何を判断できるかは[4行の具体例](https://github.com/kurochan001/kirimasim-tests/blob/1fca5f36c37be669d42975bbd9fea38de70e5e16/docs/faq.md#q28-why-not-simply-cross-every-feature)、計画と実際のPASSの違いは[実行充足の説明](https://github.com/kurochan001/kirimasim-tests/blob/1fca5f36c37be669d42975bbd9fea38de70e5e16/docs/faq.md#q29-can-a-complete-plan-still-have-unsupported-or-failing-execution)を参照してください。
 
 ## scheduling_visibility / model 1
 
@@ -2338,7 +2338,7 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 ### results/icarus.json
 
 - 環境: Icarus Verilog version 14.0 (devel) (s20260301-1293-g24acba16)。
-- 実行日時: 2026-11-27T02:22:09.184406+00:00。
+- 実行日時: 2026-11-28T02:39:10.265783+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -2897,8 +2897,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/kirimasim.json
 
-- 環境: kirimasim 0.3.0 (commit b1ad0cb96a40), built with GNU 13.3.0。
-- 実行日時: 2026-11-27T02:44:27.541304+00:00。
+- 環境: kirimasim 0.3.0 (commit 9f825f60b76c), built with GNU 13.3.0。
+- 実行日時: 2026-11-28T02:45:17.840464+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。
@@ -3457,8 +3457,8 @@ programかmoduleが時刻5に、直接・interfaceのtask・#0の後に書くtas
 
 ### results/verilator.json
 
-- 環境: Verilator 5.055 devel rev v5.054-410-g43872a41。
-- 実行日時: 2026-11-27T05:01:49.854477+00:00。
+- 環境: Verilator 5.055 devel rev v5.054-425-gf56b1008。
+- 実行日時: 2026-11-28T03:41:22.255673+00:00。
 
 - scheduling_visibility:
   - 2因子の合格確認済み組合せ: 126/126。

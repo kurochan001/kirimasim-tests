@@ -2,18 +2,18 @@
  "inputs": {
   "icarus": {
    "version": "Icarus Verilog version 14.0 (devel) (s20260301-1293-g24acba16)",
-   "time": "2026-11-27T05:02:21Z",
-   "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9"
+   "time": "2026-11-28T04:02:56Z",
+   "suite_commit": "1fca5f36c37be669d42975bbd9fea38de70e5e16"
   },
   "verilator": {
-   "version": "Verilator 5.055 devel rev v5.054-410-g43872a41",
-   "time": "2026-11-27T05:02:21Z",
-   "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9"
+   "version": "Verilator 5.055 devel rev v5.054-425-gf56b1008",
+   "time": "2026-11-28T04:02:56Z",
+   "suite_commit": "1fca5f36c37be669d42975bbd9fea38de70e5e16"
   },
   "kirimasim": {
-   "version": "kirimasim 0.3.0 (commit b1ad0cb96a40), built with GNU 13.3.0",
-   "time": "2026-11-27T05:02:21Z",
-   "suite_commit": "fcaeb425934d56b79c76332d8dc15c3a9092afa9"
+   "version": "kirimasim 0.3.0 (commit 9f825f60b76c), built with GNU 13.3.0",
+   "time": "2026-11-28T04:02:56Z",
+   "suite_commit": "1fca5f36c37be669d42975bbd9fea38de70e5e16"
   },
   "lyra": {
    "version": "Lyra (commit d55cec646337)",
@@ -78,6 +78,7 @@
    "ch14/test_illegal_clocking_cycle_delay_negative_integer",
    "ch16/test_cover_property_defaults_to_strong_under_property_negation",
    "ch16/test_cover_property_negated_explicit_strong_matches_at_end_of_trace",
+   "ch17/test_checker_free_joint_solutions",
    "ch17/test_checker_port_property_actual_attributes_and_omissions",
    "ch18/test_constraint_function_priority_does_not_prune_high_randc_cycle",
    "ch18/test_constraint_function_priority_partition",
@@ -90,11 +91,15 @@
    "ch23/test_interconnect_single_port_retains_all_local_wired_drivers",
    "ch23/test_resolved_user_nettype_counts_local_drivers_across_port_merges",
    "ch25/test_illegal_ref_modport_signal_used_as_timing_check_terminal",
+   "ch25/test_illegal_virtual_interface_component_in_always_comb",
    "ch28/test_user_nettype_active_low_switch_unknown_turnoff_delay",
    "ch3/test_vpi_per_file_units_iterate_same_named_locals_separately",
+   "ch30/test_global_pulse_limit_sources",
    "ch31/test_inconsistent_negative_limits_clear_numerically_smallest_limit",
    "ch31/test_inconsistent_negative_timing_recalculates_after_each_relaxation",
+   "ch31/test_negative_recrem_delayed_condition_roles",
    "ch31/test_negative_setup_shift_clamps_adjusted_hold_and_warns",
+   "ch31/test_negative_setuphold_delayed_condition_roles",
    "ch31/test_negative_setuphold_explicit_and_implicit_latches",
    "ch31/test_negative_setuphold_has_exclusive_window_endpoints",
    "ch31/test_negative_setuphold_notifier_tracks_repeated_delayed_edges",
@@ -109,6 +114,7 @@
    "ch31/test_skew_checks_use_undelayed_timing_inputs",
    "ch31/test_specify_output_waits_for_longer_negative_timing_delay",
    "ch31/test_timing_condition_can_use_explicit_delayed_reference_value",
+   "ch31/test_vector_timing_check_expansion",
    "ch32/test_sdf_interconnect_delays_unidirectional_and_bidirectional_module_ports",
    "ch32/test_sdf_interconnect_diagnoses_primitive_pins_as_endpoints",
    "ch32/test_sdf_interconnect_down_hierarchy_includes_all_sources_above_the_source_port",
@@ -121,40 +127,52 @@
    "ch32/test_sdf_named_log_has_distinct_entries_for_two_paths",
    "ch32/test_sdf_task_arguments_override_configuration_scaling",
    "ch33/test_config_expansion_forms",
+   "ch33/test_config_precompiled_cells",
+   "ch33/test_config_precompiled_transitive_cells",
    "ch35/test_dpi_context_task_does_not_authorize_noncontext_child_import",
    "ch35/test_dpi_disabled_import_task_cannot_call_another_export",
    "ch35/test_dpi_import_function_rejects_omitted_acknowledgement",
    "ch35/test_dpi_import_task_rejects_disable_status_after_normal_return",
    "ch35/test_dpi_import_task_rejects_wrong_status_after_disable",
    "ch35/test_dpi_imported_function_cannot_enable_untimed_exported_task",
+   "ch35/test_dpi_legacy_source_layout",
    "ch35/test_dpi_nested_noncontext_call_cannot_inherit_export_permission",
    "ch35/test_illegal_dpi_version_mismatch_across_package_and_module",
    "ch35/test_illegal_dpi_versions_share_one_c_linkage_identifier",
    "ch35/test_legacy_dpi_packed_selects_cross_canonical_word_boundary",
+   "ch36/test_normative_dated_vpi_edition",
    "ch36/test_vpi_compatibility_mode_uses_null_handle_for_bound_mode",
+   "ch36/test_vpi_host_default_and_compile_bound_modes",
+   "ch36/test_vpi_host_default_reversed_library_order",
    "ch37/test_vpi_aggregate_nets_do_not_have_whole_values",
    "ch37/test_vpi_callback_relationship_arrows",
    "ch37/test_vpi_class_definition_and_specialization_value_access_differ",
    "ch37/test_vpi_class_specializations_are_scopes_with_definition_relations",
    "ch37/test_vpi_definition_handles_cannot_read_or_write_class_storage",
    "ch37/test_vpi_delayed_write_refuses_automatic_variable",
+   "ch37/test_vpi_diagram_access",
    "ch37/test_vpi_direct_modport_expression",
    "ch37/test_vpi_dpi_language_and_linkage_name_for_imports_and_exports",
+   "ch37/test_vpi_extended_attribute_owners",
    "ch37/test_vpi_frame_scope_editions",
    "ch37/test_vpi_frame_status_without_vpi_valid",
    "ch37/test_vpi_get_value_classifies_assignment_and_builtin_side_effects",
+   "ch37/test_vpi_indexed_ports_and_input_delays",
    "ch37/test_vpi_inline_member_typespec_name",
    "ch37/test_vpi_interconnect_delay_device_one_fanout_branch",
    "ch37/test_vpi_interconnect_delay_device_single_load",
    "ch37/test_vpi_interface_and_module_specify_paths_distinguish_legacy_owner",
    "ch37/test_vpi_interface_formal_rejects_get_and_put_delays",
+   "ch37/test_vpi_interface_ownership",
    "ch37/test_vpi_interface_specify_paths_keep_interface_owner",
    "ch37/test_vpi_legacy_array_property_on_named_event_elements",
    "ch37/test_vpi_legacy_array_property_on_net_elements",
    "ch37/test_vpi_legacy_array_property_on_variable_elements",
    "ch37/test_vpi_net_bit_loads_follow_plain_continuous_assignment",
    "ch37/test_vpi_net_bit_loads_follow_reordered_continuous_assignment",
+   "ch37/test_vpi_other_transient_objects",
    "ch37/test_vpi_part_select_uses_distinct_bound_relations",
+   "ch37/test_vpi_pattern_constraint_properties",
    "ch37/test_vpi_port_bit_excludes_name_and_port_index",
    "ch37/test_vpi_program_array_interface_port_relation",
    "ch37/test_vpi_program_scalar_interface_port_relation",
@@ -163,10 +181,12 @@
    "ch37/test_vpi_put_value_rejects_side_effect_in_bit_select_index",
    "ch37/test_vpi_ref_port_simple_expression_use",
    "ch37/test_vpi_resolved_net_type_strings_match_distinct_interconnect_merges",
+   "ch37/test_vpi_restart_releases_previous_handles",
    "ch37/test_vpi_sdf_delay_device_and_terminal_type_names",
    "ch37/test_vpi_simulated_net_is_shared_across_interconnect_merges",
    "ch37/test_vpi_size_query_preserves_side_effecting_string_call",
    "ch37/test_vpi_static_part_select_rejects_ambiguous_expression",
+   "ch37/test_vpi_task_reference_parent",
    "ch37/test_vpi_typespec_handles_allow_static_storage_only",
    "ch37/test_vpi_unpacked_aggregates_only_expose_member_values",
    "ch37/test_vpi_unpacked_structure_rejects_whole_value_access",
@@ -177,6 +197,7 @@
    "ch38/test_vpi_bulk_array_checks_element_type_and_storage_lifetime",
    "ch38/test_vpi_bulk_net_deposit_clears_when_equal_resolution_driver_changes",
    "ch38/test_vpi_checkpoint_location_is_available_in_each_action_callback",
+   "ch38/test_vpi_class_reclaim_lifetimes",
    "ch38/test_vpi_control_scope_change_reports_selected_instance",
    "ch38/test_vpi_direct_reset_brackets_time_zero_restoration",
    "ch38/test_vpi_end_of_frame_or_thread_object_reports_no_time",
@@ -187,6 +208,8 @@
    "ch38/test_vpi_force_release_rejects_variable_and_user_nettype_selections",
    "ch38/test_vpi_force_release_whole_resolved_user_nettype",
    "ch38/test_vpi_printf_reports_formatted_length_and_encoding_error",
+   "ch38/test_vpi_protected_access_controls",
+   "ch38/test_vpi_protected_statement_callbacks",
    "ch38/test_vpi_put_data_counts_at_end_of_save",
    "ch38/test_vpi_put_data_counts_at_start_of_save",
    "ch38/test_vpi_put_value_rejects_gate_and_combinational_udp_instances",
@@ -210,10 +233,15 @@
    "ch39/test_vpi_assertion_initialization_callback_guards_controls",
    "ch39/test_vpi_assertion_system_fail_action_controls_respect_scope",
    "ch39/test_vpi_assertion_system_notifications_follow_lifecycle",
+   "ch4/test_pli_region_controls_assertion_fail",
+   "ch4/test_pli_region_controls_assertion_pass",
    "ch40/test_vpi_covered_count_assertion_successes",
    "ch6/test_scalared_net_vpi_expansion",
+   "ch7/test_associative_event_key_identity",
+   "ch8/test_weak_reference_reclamation",
    "ch9/test_await_resumes_after_normal_and_forced_exit_then_rejects_self",
    "ch9/test_process_await_rejects_current_process",
+   "ch9/test_process_control_target_origins",
    "ch9/test_process_function_cannot_suspend_current_process"
   ],
   "oracle_ghost_lyra": [
@@ -229,6 +257,26 @@
   ]
  },
  "spec_only_clauses": [
+  {
+   "clause": "4.4.3.1",
+   "tests": 2
+  },
+  {
+   "clause": "4.4.3.5",
+   "tests": 2
+  },
+  {
+   "clause": "4.4.3.6",
+   "tests": 2
+  },
+  {
+   "clause": "4.4.3.7",
+   "tests": 2
+  },
+  {
+   "clause": "4.4.3.8",
+   "tests": 2
+  },
   {
    "clause": "12.4.2.2",
    "tests": 2
@@ -282,11 +330,11 @@
    "tests": 2
   },
   {
-   "clause": "31.8",
+   "clause": "32.2",
    "tests": 2
   },
   {
-   "clause": "32.2",
+   "clause": "33.5.3",
    "tests": 2
   },
   {
@@ -422,10 +470,6 @@
    "tests": 2
   },
   {
-   "clause": "34.5.30.2",
-   "tests": 2
-  },
-  {
    "clause": "34.5.31.1",
    "tests": 2
   },
@@ -443,6 +487,14 @@
   },
   {
    "clause": "36.10.3",
+   "tests": 2
+  },
+  {
+   "clause": "36.12.2.2",
+   "tests": 2
+  },
+  {
+   "clause": "37.4.1",
    "tests": 2
   },
   {
@@ -510,6 +562,10 @@
    "tests": 3
   },
   {
+   "clause": "31.8",
+   "tests": 3
+  },
+  {
    "clause": "36.10.1",
    "tests": 3
   },
@@ -574,24 +630,12 @@
    "tests": 3
   },
   {
-   "clause": "38.7",
-   "tests": 3
-  },
-  {
-   "clause": "38.36.1.3",
-   "tests": 3
-  },
-  {
    "clause": "40.2.1",
    "tests": 3
   },
   {
    "clause": "40.5.3",
    "tests": 3
-  },
-  {
-   "clause": "4.4.2.5",
-   "tests": 4
   },
   {
    "clause": "6.7.2",
@@ -654,10 +698,6 @@
    "tests": 4
   },
   {
-   "clause": "37.3.6",
-   "tests": 4
-  },
-  {
    "clause": "37.18",
    "tests": 4
   },
@@ -691,6 +731,14 @@
   },
   {
    "clause": "37.74",
+   "tests": 4
+  },
+  {
+   "clause": "38.7",
+   "tests": 4
+  },
+  {
+   "clause": "38.36.1.3",
    "tests": 4
   },
   {
@@ -746,11 +794,7 @@
    "tests": 5
   },
   {
-   "clause": "37.3.8",
-   "tests": 5
-  },
-  {
-   "clause": "37.9",
+   "clause": "37.3.6",
    "tests": 5
   },
   {
@@ -782,10 +826,6 @@
    "tests": 5
   },
   {
-   "clause": "37.72",
-   "tests": 5
-  },
-  {
    "clause": "37.80",
    "tests": 5
   },
@@ -794,12 +834,8 @@
    "tests": 5
   },
   {
-   "clause": "40.3.2.4",
-   "tests": 5
-  },
-  {
-   "clause": "40.3.2.5",
-   "tests": 5
+   "clause": "4.4.2.5",
+   "tests": 6
   },
   {
    "clause": "6.7.3",
@@ -807,10 +843,6 @@
   },
   {
    "clause": "7.9.8",
-   "tests": 6
-  },
-  {
-   "clause": "8.30.5",
    "tests": 6
   },
   {
@@ -854,7 +886,7 @@
    "tests": 6
   },
   {
-   "clause": "37.34",
+   "clause": "37.9",
    "tests": 6
   },
   {
@@ -870,11 +902,11 @@
    "tests": 6
   },
   {
-   "clause": "37.75",
+   "clause": "37.72",
    "tests": 6
   },
   {
-   "clause": "37.83",
+   "clause": "37.75",
    "tests": 6
   },
   {
@@ -884,6 +916,10 @@
   {
    "clause": "39.3.2",
    "tests": 6
+  },
+  {
+   "clause": "8.30.5",
+   "tests": 7
   },
   {
    "clause": "15.5.4",
@@ -926,15 +962,11 @@
    "tests": 7
   },
   {
-   "clause": "37.3.2",
+   "clause": "37.3.8",
    "tests": 7
   },
   {
-   "clause": "37.3.4",
-   "tests": 7
-  },
-  {
-   "clause": "37.36",
+   "clause": "37.34",
    "tests": 7
   },
   {
@@ -950,7 +982,7 @@
    "tests": 7
   },
   {
-   "clause": "38.36.1.1",
+   "clause": "37.83",
    "tests": 7
   },
   {
@@ -986,11 +1018,7 @@
    "tests": 8
   },
   {
-   "clause": "37.6",
-   "tests": 8
-  },
-  {
-   "clause": "37.15",
+   "clause": "37.3.4",
    "tests": 8
   },
   {
@@ -998,8 +1026,12 @@
    "tests": 8
   },
   {
-   "clause": "8.30.1",
-   "tests": 9
+   "clause": "37.36",
+   "tests": 8
+  },
+  {
+   "clause": "38.36.1.1",
+   "tests": 8
   },
   {
    "clause": "12.6.2",
@@ -1022,6 +1054,14 @@
    "tests": 9
   },
   {
+   "clause": "37.6",
+   "tests": 9
+  },
+  {
+   "clause": "37.15",
+   "tests": 9
+  },
+  {
    "clause": "37.22",
    "tests": 9
   },
@@ -1036,6 +1076,10 @@
   {
    "clause": "37.52",
    "tests": 9
+  },
+  {
+   "clause": "8.30.1",
+   "tests": 10
   },
   {
    "clause": "16.12.13",
@@ -1054,14 +1098,6 @@
    "tests": 10
   },
   {
-   "clause": "37.40",
-   "tests": 10
-  },
-  {
-   "clause": "37.41",
-   "tests": 10
-  },
-  {
    "clause": "16.13.1",
    "tests": 11
   },
@@ -1075,6 +1111,14 @@
   },
   {
    "clause": "37.26",
+   "tests": 11
+  },
+  {
+   "clause": "37.40",
+   "tests": 11
+  },
+  {
+   "clause": "37.41",
    "tests": 11
   },
   {
@@ -1106,10 +1150,6 @@
    "tests": 12
   },
   {
-   "clause": "37.44",
-   "tests": 12
-  },
-  {
    "clause": "39.3.1",
    "tests": 12
   },
@@ -1130,7 +1170,7 @@
    "tests": 14
   },
   {
-   "clause": "37.59",
+   "clause": "37.44",
    "tests": 14
   },
   {
@@ -1142,15 +1182,11 @@
    "tests": 15
   },
   {
-   "clause": "17.7.2",
-   "tests": 16
+   "clause": "37.59",
+   "tests": 15
   },
   {
    "clause": "21.7.3.1",
-   "tests": 16
-  },
-  {
-   "clause": "36.12.1",
    "tests": 16
   },
   {
@@ -1160,6 +1196,14 @@
   {
    "clause": "40.3.2.2",
    "tests": 16
+  },
+  {
+   "clause": "17.7.2",
+   "tests": 17
+  },
+  {
+   "clause": "36.12.1",
+   "tests": 17
   },
   {
    "clause": "37.33",
@@ -1219,7 +1263,7 @@
   },
   {
    "clause": "37.35",
-   "tests": 28
+   "tests": 29
   },
   {
    "clause": "6.6.8",
