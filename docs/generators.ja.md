@@ -4,7 +4,7 @@
 
 [English](generators.md) / [日本語](generators.ja.md)
 
-現在の167生成器から9,951件のテストを生成しています。
+現在の170生成器から10,175件のテストを生成しています。
 通常の全件数と、有限クロスモデルの短時間選択の件数は別です。各行は通常の生成件数です。
 
 この資料は`tools/generator_catalog.py`で生成します。生成器の因子・合法条件・観測点と期待値は、各ソースと[クロス設計](interaction-verification.md)を確認してください。
@@ -34,6 +34,7 @@
 | [`function_formal_contexts`](../generators/function_formal_contexts.py) | 13 | 60 | runtimeのoutput・inout・ref受渡し30本と、実引数をリテラル・パラメータに限定したmodule・package・static classの定数呼出し30本。5幅と符号の有無を確認 |
 | [`function_result_ranges`](../generators/function_result_ranges.py) | 13 | 24 | 関数呼出し結果を直接選択する24本。非ゼロ・負・単一要素・広幅の6範囲、符号の有無、パッケージ呼出しと非nullのクラス参照の連鎖 |
 | [`gate_strength_truth`](../generators/gate_strength_truth.py) | 28 | 5 | nand・or・xnor・xorの非対称な駆動強度と、pull源の例外を含む表28-2の全ゲート種別の既定強度 |
+| [`integral_real_contexts`](../generators/integral_real_contexts.py) | 6 | 80 | 5種類の幅、符号の有無、X/Zの4種類の配置、2種類の変換文脈を組み合わせた80件。符号ビットが不定のケースを含め、binary64の正確なビット列を、X/Zをゼロに置き換えた対照と比較する。 |
 | [`interaction_agglit`](../generators/interaction_agglit.py) | 5 | 48 | 入れ子の構造体と配列を持つ構造体へ、位置・メンバー名・複製・default・型キーで値を与える。各メンバーの型への変換と、キーの優先順位を、初期値・代入・型付きの式・localparamで確かめる。 |
 | [`interaction_array`](../generators/interaction_array.py) | 7 | 36 | 2組の入力を配列全体／スライスへコピーし、宣言順の対応、非選択要素の保持、コピー元変更後の独立性と、読み出した要素の符号拡張を確認する。 |
 | [`interaction_arrayloop`](../generators/interaction_arrayloop.py) | 20 | 40 | 昇順・降順・オフセット・負の範囲の固定の次元、パックの次元、動的配列、キュー、空の動的配列を、変数・型の名前・2番目の次元・要素の選択から$left・$right・$low・$high・$increment・$sizeで問い合わせる。for・while・do-while・repeat・foreachで、左から右・小さい順・大きい順・個数で進むことを確かめる。 |
@@ -145,12 +146,14 @@
 | [`interaction_udpstate`](../generators/interaction_udpstate.py) | 29 | 36 | generateで初期値の異なる逐次UDPをビットごとに選択し、共通/交互のクロックで個別の状態を採取・保持する。bit/logicへのX/Z格納、未知入力前の全1準備、既知値への回復、別クロックの対照の保持と後の採取を照合する。 |
 | [`interaction_vif_class`](../generators/interaction_vif_class.py) | 25 | 13 | クラスのvirtual interfaceの結合を浅いコピー/ハンドル代入で比較し、再結合とnull時の書込み抑止を照合する。別に保存した参照・元/コピーの結合先・成功回数・guardを、メソッド/直接経路とfull/modport型で確認する。 |
 | [`interaction_wait`](../generators/interaction_wait.py) | 9 | 36 | サイズ・先頭要素・両条件を待ち、動的配列とキューの作成・拡大・縮小・削除・同サイズ置換の前後で起床時刻・回数と全要素を観測する。無関係なコンテナ変更での早期起床を区別し、既に真の場合と、型変換後のX/Zをcase等価で待つ場合も確認する。 |
+| [`keyed_array_patterns`](../generators/keyed_array_patterns.py) | 10 | 64 | 4種類の要素幅、固定配列の各次元の昇順・降順、4種類の代入パターンを組み合わせた64件。ネストした既定値、添字による上書き、型キー、繰り返し指定を、入力値の変更前後で照合する。 |
 | [`keywords`](../generators/keywords.py) | 5, 22 | 496 | 不正な設計。附属書Bの各予約語を``begin_keywords "1800-2023"``の下で変数名として宣言し、22.14で各版が追加する予約語もその版の``begin_keywords``の下で宣言する。ツールは拒否する必要がある |
 | [`keywords_inherited`](../generators/keywords_inherited.py) | 22 | 804 | 5種類のbegin_keywordsで継承される予約語と、1364-2001-noconfigの全予約語。既存の追加語テストと合わせ、各版の累積集合の全語を確認 |
 | [`memory_address_windows`](../generators/memory_address_windows.py) | 21 | 48 | 二進・十六進メモリファイルの明示アドレス、コメント、桁区切り、昇順・降順の読み込み、範囲外アドレスでの中断を確認 |
 | [`memory_file_boundaries`](../generators/memory_file_boundaries.py) | 21 | 138 | 255/256/257・511/512/513ビットの型付きメモリファイル138本。既存の作成・参照処理を23通りの固定構成で再利用し、通常語・enum、bit/logic、2進・16進、既知値・X/Z、明示した書出し・読込み範囲と逆順の読込み、未更新領域を確認。独立した正規入力と、本文がスラッシュで始まる合法なブロックコメントを扱う拡張専用のアドレス検査を使い、元の有限モデルと生成入力は維持。 |
 | [`nba_boundaries`](../generators/nba_boundaries.py) | 10 | 192 | 63/64/65・127/128/129・255/256/257・511/512/513ビットの静的代入先のNBA192本。語全体・境界をまたぐ部分選択・順序のある重なり・固定配列を、bit/logicと即時・代入内遅延で確認。保存した入力、変更した実行時添字、変換済みのブロッキング対照、Activeと次の時刻の観測から、競合する書込みなしで予約と未更新領域を検査。 |
 | [`negative_power_controls`](../generators/negative_power_controls.py) | 11 | 16 | 保存したランダム探索から切り出した、整数の負乗の対照16本。底がゼロ・一・符号付きマイナス一・符号なし三、独立した符号付き3/8/32/65ビットの指数、下限と隣の値を確認。実行時引数を底と指数の最下位ビットへ与え、未知値を要するゼロの4本と既知値だけの12本を分離。自然幅・直接・保存後の値と2値変換を観測し、文脈の区別を広く検査したとは主張しない。 |
+| [`nonansi_port_slices`](../generators/nonansi_port_slices.py) | 23 | 80 | 4種類のネット幅、宣言方向の昇順・降順、入力と出力、5種類のポート形式を組み合わせた80件。離れた範囲の連結、位置による接続、単一範囲の対照を2つの入力値で照合する。 |
 | [`packed_lanes`](../generators/packed_lanes.py) | 7 | 192 | 32/33・64/65・128/129ビットの2次元パック要素192本。外側・内側の両向き、内側の非ゼロ・0始まりの対照、可変ビット書込み、重なる範囲コピー、全体と要素・部分の符号、要素境界での切詰め、無効・未知の添字と回復を、全体と隣接要素の値で確認。 |
 | [`packed_read_controls`](../generators/packed_read_controls.py) | 7 | 96 | 256/512ビット前後の6つの幅、パック配列2次元それぞれの昇順／降順、内側のゼロ／非ゼロの起点、行／ビットを分けた読取り専用の対照96本。3行全てをリテラル／実行時の配列座標と、別に計算した平坦なベクトルの座標で観測する。値と実行時の添字は引数に依存し、全ての読み取りの前後で平坦／配列の全値を表示する。初期化後の要素書込みは行わず、従来の座標参照のヘルパーとケースは不変とする。 |
 | [`power_boundaries`](../generators/power_boundaries.py) | 11 | 72 | 63/64/65・127/128/129・255/256/257ビットの実行時整数べき乗72本。底の符号の有無、正と負の指数、65ビット指数全体の境界、明示した未知値を確認。直接の倍幅結果、狭い値からの保存、最後の2値変換を区別し、他のX/Zを保つ最下位ビットに実行時の依存を与える。 |

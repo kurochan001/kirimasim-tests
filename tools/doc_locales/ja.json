@@ -3,6 +3,10 @@
   "draft_model": "google/madlad400-3b-mt",
   "draft_model_revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094",
   "translations": {
+    "Integral conversion to real respects sign and clears unknown bits": "整数から実数への変換は符号を反映し、不定ビットをゼロにする",
+    "Array patterns apply keys and replication in declared dimensions": "配列パターンは宣言された次元にキーと繰り返し指定を適用する",
+    "Non- ZXQPH0QXZ composite ports route bits by expression position": "非ZXQPH0QXZの複合ポートは式の位置に従ってビットを接続する",
+    "Non- ZXQPH0QXZ sliced ports route bits by expression position": "非ZXQPH0QXZの部分選択ポートは式の位置に従ってビットを接続する",
     "Associative locators preserve declared key widths and ordering": "連想配列の探索は宣言したキー幅と順序を保つ",
     "Real conversion rounds exact halfway values away from zero": "実数からの変換はちょうど中間の値をゼロから遠い側に丸める",
     "Stream windows preserve array order across block boundaries": "ストリームの部分範囲はブロック境界をまたいでも配列の順序を保つ",

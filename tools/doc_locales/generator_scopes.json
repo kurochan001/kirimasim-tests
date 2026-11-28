@@ -213,6 +213,18 @@
       "en": "96 stream-window cases combine four element widths, four array layouts, four runtime range forms and explicit one- and three-element controls. Compare both packing directions, inverse unpacking from independently modeled bits and preservation of unselected destination elements.",
       "ja": "4種類の要素幅、4種類の配列、実行時の4種類の範囲指定と個別要素を列挙した2種類の対照を組み合わせた96件。両方向のパック、独立に求めたビット列からの逆変換、選択範囲外の要素の保持を照合する。"
     },
+    "integral_real_contexts": {
+      "en": "80 integral-to-real cases cover five widths, both signs, four X/Z placement profiles and two conversion contexts. Compare the exact binary64 encoding with a zero-substitution control, including when the sign bit is unknown.",
+      "ja": "5種類の幅、符号の有無、X/Zの4種類の配置、2種類の変換文脈を組み合わせた80件。符号ビットが不定のケースを含め、binary64の正確なビット列を、X/Zをゼロに置き換えた対照と比較する。"
+    },
+    "keyed_array_patterns": {
+      "en": "64 array-pattern cases combine four element widths, both directions of two fixed dimensions and four pattern forms. Compare nested defaults, index overrides, type keys and replication after changing source values.",
+      "ja": "4種類の要素幅、固定配列の各次元の昇順・降順、4種類の代入パターンを組み合わせた64件。ネストした既定値、添字による上書き、型キー、繰り返し指定を、入力値の変更前後で照合する。"
+    },
+    "nonansi_port_slices": {
+      "en": "80 non-ANSI port cases combine four net widths, two declaration directions, input and output, and five port forms. Compare disjoint grouped slices, position-based connections and single-slice controls over two stimulus values.",
+      "ja": "4種類のネット幅、宣言方向の昇順・降順、入力と出力、5種類のポート形式を組み合わせた80件。離れた範囲の連結、位置による接続、単一範囲の対照を2つの入力値で照合する。"
+    },
     "wide_array_shapes": {
       "en": "60 wide array-shape fixtures at 255/256/257 and 511/512/513 bits, reusing ten unchanged array_shape_queries forms. Covers declared packed/mixed/nested typedef/singleton/constant geometry, invalid dimensions and live dynamic-array/queue resize/delete/element controls, with runtime bits isolated. Fixed queries inspect types without reading uninitialized data; no arbitrary element-content or rank coverage claim.",
       "ja": "255/256/257・511/512/513ビットの配列形状60本で、従来のarray_shape_queriesの10形式をそのまま使う。宣言したパック／混在／入れ子のtypedef／単一要素／定数の形状・範囲外の次元・動的配列とキューの生成／変更／削除と要素の対照を扱い、実行時のbitsは別に検証する。固定の問い合わせは型を調べ、未初期化データを読まない。任意の要素内容や次元数の網羅とはしない。"

@@ -76,26 +76,26 @@ Independent [daily and weekly speed benchmarks](docs/daily-benchmark.md) run **2
 These are inventory and expectation-provenance counts, not current simulator passes. See [what `:lrm:` and `:oracle:` record](docs/faq.en.md#q4-are-expected-outputs-copied-from-a-simulator).
 
 <!-- suite-stats:begin -->
-The suite has **17764 tests** in 38 chapters. 9951 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
+The suite has **17988 tests** in 38 chapters. 10175 of them are generated. The [generator catalog](docs/generators.md) lists their current counts and scope.
 
 | Expected result recorded with | Tests |
 | --- | ---: |
-| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9367 |
-| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3198 |
-| The standard only, with no fixed-release simulator oracle recorded | 5199 |
+| Icarus Verilog 13.0 (`iverilog@13.0` in `:oracle:`) | 9507 |
+| Verilator 5.052 or 5.054, with no Icarus Verilog 13.0 oracle recorded | 3230 |
+| The standard only, with no fixed-release simulator oracle recorded | 5251 |
 
-4138 tests depend on x or z values (`:fourstate: yes`). 983 tests include C code. 253 use DPI (`:dpi_c:`) and 734 use VPI (`:vpi_c:`). A test can use both. 3156 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 185 tests check the exit code of the simulation (`:expected_exit:`). 127 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 9 name include directories (`:incdirs:`), 170 name the top-level module or configuration (`:top_module:`), and 1317 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
+4238 tests depend on x or z values (`:fourstate: yes`). 983 tests include C code. 253 use DPI (`:dpi_c:`) and 734 use VPI (`:vpi_c:`). A test can use both. 3156 tests are illegal designs, which a simulator has to reject (`:should_fail_because:`). 185 tests check the exit code of the simulation (`:expected_exit:`). 127 tests list additional source or include files (`:files:`), 5 define macros (`:defines:`), 9 name include directories (`:incdirs:`), 250 name the top-level module or configuration (`:top_module:`), and 1317 pass arguments to the simulation (`:args:`). Every test has been checked against the standard by an AI model (`:spec_check: ai`); none has been checked by a person yet.
 
 | Clause | Title | Tests | Icarus | Verilator | Standard only |
 | ---: | --- | ---: | ---: | ---: | ---: |
 | 3 | Design and verification building blocks | 166 | 123 | 15 | 28 |
 | 4 | Scheduling semantics | 487 | 446 | 8 | 33 |
 | 5 | Lexical conventions | 533 | 447 | 31 | 55 |
-| 6 | Data types | 973 | 604 | 191 | 178 |
+| 6 | Data types | 1053 | 664 | 191 | 198 |
 | 7 | Aggregate data types | 1333 | 327 | 547 | 459 |
 | 8 | Classes | 517 | 78 | 282 | 157 |
 | 9 | Processes | 494 | 353 | 58 | 83 |
-| 10 | Assignment statements | 818 | 647 | 83 | 88 |
+| 10 | Assignment statements | 882 | 647 | 115 | 120 |
 | 11 | Operators and expressions | 2734 | 2026 | 241 | 467 |
 | 12 | Procedural programming statements | 376 | 216 | 82 | 78 |
 | 13 | Tasks and functions (subroutines) | 812 | 335 | 299 | 178 |
@@ -108,7 +108,7 @@ The suite has **17764 tests** in 38 chapters. 9951 of them are generated. The [g
 | 20 | Utility system tasks and system functions | 723 | 399 | 123 | 201 |
 | 21 | Input/output system tasks and system functions | 1091 | 656 | 123 | 312 |
 | 22 | Compiler directives | 1332 | 1245 | 42 | 45 |
-| 23 | Modules and hierarchy | 448 | 290 | 59 | 99 |
+| 23 | Modules and hierarchy | 528 | 370 | 59 | 99 |
 | 24 | Programs | 225 | 38 | 38 | 149 |
 | 25 | Interfaces | 284 | 90 | 127 | 67 |
 | 26 | Packages | 271 | 98 | 70 | 103 |

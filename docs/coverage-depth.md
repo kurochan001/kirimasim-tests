@@ -14,7 +14,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 
 | Measure | Value |
 | --- | ---: |
-| Tests | 17764 |
+| Tests | 17988 |
 | Clauses in scope | 1095 |
 | Clauses out of scope | 64 |
 | Clauses with a direct test | 1095/1095 |
@@ -27,9 +27,9 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | Oracle | Tests |
 | --- | ---: |
 | both releases | 1746 |
-| Icarus Verilog 13.0 only | 7621 |
-| Verilator 5.052 or 5.054 only | 3198 |
-| standard only | 5199 |
+| Icarus Verilog 13.0 only | 7761 |
+| Verilator 5.052 or 5.054 only | 3230 |
+| standard only | 5251 |
 
 <a id="章別"></a>
 
@@ -40,11 +40,11 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 3 | Design and verification building blocks | 166 | 17 | 9.8 | 0 | 28 |
 | 4 | Scheduling semantics | 487 | 32 | 15.2 | 0 | 33 |
 | 5 | Lexical conventions | 533 | 16 | 33.3 | 0 | 55 |
-| 6 | Data types | 973 | 76 | 12.8 | 0 | 178 |
+| 6 | Data types | 1053 | 76 | 13.9 | 0 | 198 |
 | 7 | Aggregate data types | 1333 | 49 | 27.2 | 0 | 459 |
 | 8 | Classes | 517 | 43 | 12.0 | 0 | 157 |
 | 9 | Processes | 494 | 25 | 19.8 | 0 | 83 |
-| 10 | Assignment statements | 818 | 18 | 45.4 | 0 | 88 |
+| 10 | Assignment statements | 882 | 18 | 49.0 | 0 | 120 |
 | 11 | Operators and expressions | 2734 | 42 | 65.1 | 0 | 467 |
 | 12 | Procedural programming statements | 376 | 20 | 18.8 | 0 | 78 |
 | 13 | Tasks and functions (subroutines) | 812 | 15 | 54.1 | 0 | 178 |
@@ -57,7 +57,7 @@ These are citation counts, not passing behavior counts: [what two tests per clau
 | 20 | Utility system tasks and system functions | 723 | 32 | 22.6 | 0 | 201 |
 | 21 | Input/output system tasks and system functions | 1091 | 48 | 22.7 | 0 | 312 |
 | 22 | Compiler directives | 1332 | 22 | 60.5 | 0 | 45 |
-| 23 | Modules and hierarchy | 448 | 34 | 13.2 | 0 | 99 |
+| 23 | Modules and hierarchy | 528 | 34 | 15.5 | 0 | 99 |
 | 24 | Programs | 225 | 7 | 32.1 | 0 | 149 |
 | 25 | Interfaces | 284 | 12 | 23.7 | 0 | 67 |
 | 26 | Packages | 271 | 6 | 45.2 | 0 | 103 |

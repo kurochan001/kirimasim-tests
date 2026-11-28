@@ -4,7 +4,7 @@
 
 [English](ch6.md) / [日本語](ch6.ja.md)
 
-[すべての章](README.ja.md) .テストは973本で、そのうち313本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
+[すべての章](README.ja.md) .テストは1053本で、そのうち393本が生成されたものです。このページは、テストのメタデータから`tools/suite_catalog.py`が書きます。このページではなく、テストを編集してください。
 
 初めて読む場合は、[実在テストを入力から期待値まで読み解く](../faq.md#q49-read-a-real-test)を参照してください。oracle欄は固定版による確認の記録です。[現在のビルドの合格を保証しない理由](../faq.md#q4-are-expected-outputs-copied-from-a-simulator)を確認してください。
 
@@ -692,6 +692,95 @@
 | --- | --- | --- | --- | --- |
 | [`test_gen_combo_event_automatic_scalar_control_capture`](../../tests/gen/ch6/test_gen_combo_event_automatic_scalar_control_capture.sv) |自動イベントハンドルは独立していて、フォークオーナーが戻ってきた後も生き残ります。| 6.21 6.8 6.17 9.3.2 15.5.2 15.5.5.2 |規格のみ||
 | [`test_gen_combo_event_automatic_struct_capture`](../../tests/gen/ch6/test_gen_combo_event_automatic_struct_capture.sv) |自動イベントハンドルは独立していて、フォークオーナーが戻ってきた後も生き残ります。| 6.21 6.8 6.17 9.3.2 15.5.2 15.5.5.2 7.2.2 |規格のみ||
+
+<a id="generated-by-generatorsintegral_real_contextspy"></a>
+
+## `generators/integral_real_contexts.py`が生成
+
+テスト80本。スイートのREADMEの"Generated tests"を参照してください。
+
+|テスト|確認する内容|条項|期待出力を記録したリリース|注記|
+| --- | --- | --- | --- | --- |
+| [`test_gen_integral_real_129_signed_known_assign`](../../tests/gen/ch6/test_gen_integral_real_129_signed_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_129_signed_known_formal`](../../tests/gen/ch6/test_gen_integral_real_129_signed_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_129_signed_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_129_signed_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_129_signed_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_129_signed_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_129_signed_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_129_signed_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_129_signed_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_129_signed_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_129_signed_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_129_signed_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_129_signed_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_129_signed_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_129_unsigned_known_assign`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_129_unsigned_known_formal`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_129_unsigned_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_129_unsigned_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_129_unsigned_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_129_unsigned_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_129_unsigned_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_129_unsigned_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_129_unsigned_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_signed_known_assign`](../../tests/gen/ch6/test_gen_integral_real_16_signed_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_16_signed_known_formal`](../../tests/gen/ch6/test_gen_integral_real_16_signed_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_16_signed_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_16_signed_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_16_signed_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_16_signed_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_16_signed_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_16_signed_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_signed_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_16_signed_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_signed_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_16_signed_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_16_signed_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_16_signed_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_16_unsigned_known_assign`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_16_unsigned_known_formal`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_16_unsigned_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_unsigned_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_unsigned_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_unsigned_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_unsigned_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_16_unsigned_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_16_unsigned_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_signed_known_assign`](../../tests/gen/ch6/test_gen_integral_real_33_signed_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_33_signed_known_formal`](../../tests/gen/ch6/test_gen_integral_real_33_signed_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_33_signed_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_33_signed_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_33_signed_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_33_signed_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_33_signed_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_33_signed_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_signed_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_33_signed_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_signed_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_33_signed_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_33_signed_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_33_signed_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_33_unsigned_known_assign`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_33_unsigned_known_formal`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_33_unsigned_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_unsigned_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_unsigned_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_unsigned_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_unsigned_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_33_unsigned_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_33_unsigned_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_signed_known_assign`](../../tests/gen/ch6/test_gen_integral_real_64_signed_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_64_signed_known_formal`](../../tests/gen/ch6/test_gen_integral_real_64_signed_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_64_signed_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_64_signed_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_64_signed_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_64_signed_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_64_signed_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_64_signed_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_signed_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_64_signed_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_signed_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_64_signed_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_64_signed_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_64_signed_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_64_unsigned_known_assign`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_64_unsigned_known_formal`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_64_unsigned_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_unsigned_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_unsigned_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_unsigned_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_unsigned_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_64_unsigned_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_64_unsigned_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_signed_known_assign`](../../tests/gen/ch6/test_gen_integral_real_65_signed_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_65_signed_known_formal`](../../tests/gen/ch6/test_gen_integral_real_65_signed_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_65_signed_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_65_signed_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_65_signed_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_65_signed_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_65_signed_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_65_signed_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_signed_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_65_signed_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_signed_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_65_signed_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 |規格のみ| x/z |
+| [`test_gen_integral_real_65_signed_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_65_signed_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 |規格のみ| x/z |
+| [`test_gen_integral_real_65_unsigned_known_assign`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_known_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_65_unsigned_known_formal`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_known_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 ||
+| [`test_gen_integral_real_65_unsigned_x_data_assign`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_x_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_unsigned_x_data_formal`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_x_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_unsigned_xz_sign_assign`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_xz_sign_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_unsigned_xz_sign_formal`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_xz_sign_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_unsigned_z_data_assign`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_z_data_assign.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 | Icarus Verilog 13.0 | x/z |
+| [`test_gen_integral_real_65_unsigned_z_data_formal`](../../tests/gen/ch6/test_gen_integral_real_65_unsigned_z_data_formal.sv) |整数から実数への変換は符号を反映し、不定ビットをゼロにする| 6.12.1 6.12 20.5 10.8 13.5.1 | Icarus Verilog 13.0 | x/z |
 
 <a id="generated-by-generatorsinteraction_castpy"></a>
 

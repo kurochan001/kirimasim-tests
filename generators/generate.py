@@ -166,6 +166,9 @@ import string_argument_updates
 import assoc_locator_widths
 import real_rounding_contexts
 import stream_window_layouts
+import integral_real_contexts
+import keyed_array_patterns
+import nonansi_port_slices
 import negative_power_controls
 import wide_value_boundaries
 import constant_power_controls
@@ -222,7 +225,8 @@ GENERATORS = [interaction_progmod, interaction_progif, interaction_simend, inter
               concat_slice_nba, memory_address_windows, event_key_updates,
               fread_memory_windows, queue_slice_composition, sparse_file_writes,
               array_order_keys, foreach_ragged_arrays, string_argument_updates,
-              assoc_locator_widths, real_rounding_contexts, stream_window_layouts]
+              assoc_locator_widths, real_rounding_contexts, stream_window_layouts,
+              integral_real_contexts, keyed_array_patterns, nonansi_port_slices]
 
 
 def oracle_problems(generators) -> list[str]:
